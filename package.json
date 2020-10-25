@@ -3,6 +3,7 @@
   "version": "v1",
   "description": "OpenAPI client for typescript-system-api",
   "author": "OpenAPI-Generator Contributors",
+  "private": true, 
   "keywords": [
     "axios",
     "typescript",
