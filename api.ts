@@ -912,10 +912,10 @@ export interface BulkPatchAssociationOp {
     field: string;
     /**
      * Value to set resource field if not deleting.
-     * @type {AnyType}
+     * @type {object}
      * @memberof BulkPatchAssociationOp
      */
-    value?: AnyType;
+    value?: object;
     /**
      * Operation to perform on resource field.
      * @type {string}
@@ -953,10 +953,10 @@ export interface BulkPatchFeatureOp {
     field: string;
     /**
      * Value to set resource field if not deleting.
-     * @type {AnyType}
+     * @type {object}
      * @memberof BulkPatchFeatureOp
      */
-    value?: AnyType;
+    value?: object;
     /**
      * Operation to perform on resource field.
      * @type {string}
@@ -3360,10 +3360,10 @@ export interface ModelPerformanceBaseIn {
     value?: number;
     /**
      * Complex model performance value.
-     * @type {Array<AnyType>}
+     * @type {Array<object>}
      * @memberof ModelPerformanceBaseIn
      */
-    complex_value?: Array<AnyType>;
+    complex_value?: Array<object>;
 }
 
 /**
@@ -3485,10 +3485,10 @@ export interface ModelPerformanceIn {
     value?: number;
     /**
      * Complex model performance value.
-     * @type {Array<AnyType>}
+     * @type {Array<object>}
      * @memberof ModelPerformanceIn
      */
-    complex_value?: Array<AnyType>;
+    complex_value?: Array<object>;
     /**
      * History of this model performance value.
      * @type {{ [key: string]: ModelPerformanceBaseIn; }}
@@ -3615,10 +3615,10 @@ export interface ModelPerformanceOut {
     value?: number;
     /**
      * Complex model performance value.
-     * @type {Array<AnyType>}
+     * @type {Array<object>}
      * @memberof ModelPerformanceOut
      */
-    complex_value?: Array<AnyType>;
+    complex_value?: Array<object>;
     /**
      * History of this model performance value.
      * @type {{ [key: string]: ModelPerformanceBaseIn; }}
@@ -4133,10 +4133,10 @@ export interface PatchDatasetOp {
     field: string;
     /**
      * Value to set resource field if not deleting.
-     * @type {AnyType}
+     * @type {object}
      * @memberof PatchDatasetOp
      */
-    value?: AnyType;
+    value?: object;
     /**
      * Operation to perform on resource field.
      * @type {string}
@@ -4168,10 +4168,10 @@ export interface PatchFeatureOp {
     field: string;
     /**
      * Value to set resource field if not deleting.
-     * @type {AnyType}
+     * @type {object}
      * @memberof PatchFeatureOp
      */
-    value?: AnyType;
+    value?: object;
     /**
      * Operation to perform on resource field.
      * @type {string}
@@ -4203,10 +4203,10 @@ export interface PatchModelOp {
     field: string;
     /**
      * Value to set resource field if not deleting.
-     * @type {AnyType}
+     * @type {object}
      * @memberof PatchModelOp
      */
-    value?: AnyType;
+    value?: object;
     /**
      * Operation to perform on resource field.
      * @type {string}
@@ -4238,10 +4238,10 @@ export interface PatchStudyOp {
     field: string;
     /**
      * Value to set resource field if not deleting.
-     * @type {AnyType}
+     * @type {object}
      * @memberof PatchStudyOp
      */
-    value?: AnyType;
+    value?: object;
     /**
      * Operation to perform on resource field.
      * @type {string}
@@ -4273,10 +4273,10 @@ export interface PatchVariableOp {
     field: string;
     /**
      * Value to set resource field if not deleting.
-     * @type {AnyType}
+     * @type {object}
      * @memberof PatchVariableOp
      */
-    value?: AnyType;
+    value?: object;
     /**
      * Operation to perform on resource field.
      * @type {string}
@@ -4562,10 +4562,10 @@ export interface ResourceCollectionElement {
     type: ResourceCollectionElementTypeEnum;
     /**
      * The output model for resource.
-     * @type {AnyType}
+     * @type {object}
      * @memberof ResourceCollectionElement
      */
-    elem: AnyType;
+    elem: object;
 }
 
 /**
@@ -5587,7 +5587,7 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAssociationsV1ModelsModelIdAssociationsPost: async (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options: any = {}): Promise<RequestArgs> => {
+        createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling createAssociationsV1ModelsModelIdAssociationsPost.');
@@ -5610,8 +5610,8 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -5649,7 +5649,7 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: async (modelId: string, associationId: string, options: any = {}): Promise<RequestArgs> => {
+        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete.');
@@ -5673,8 +5673,8 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -5708,7 +5708,7 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationsV1ModelsModelIdAssociationsDelete: async (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options: any = {}): Promise<RequestArgs> => {
+        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling deleteAssociationsV1ModelsModelIdAssociationsDelete.');
@@ -5731,8 +5731,8 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -5770,7 +5770,7 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAssociationV1ModelsModelIdAssociationsAssociationIdGet: async (associationId: string, modelId: string, options: any = {}): Promise<RequestArgs> => {
+        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options: any = {}): RequestArgs {
             // verify required parameter 'associationId' is not null or undefined
             if (associationId === null || associationId === undefined) {
                 throw new RequiredError('associationId','Required parameter associationId was null or undefined when calling getAssociationV1ModelsModelIdAssociationsAssociationIdGet.');
@@ -5794,8 +5794,8 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -5835,7 +5835,7 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet: async (modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling listAssociationsV1ModelsModelIdAssociationsGet.');
@@ -5854,8 +5854,8 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -5917,7 +5917,7 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchAssociationsV1ModelsModelIdAssociationsPatch: async (modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options: any = {}): Promise<RequestArgs> => {
+        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling patchAssociationsV1ModelsModelIdAssociationsPatch.');
@@ -5940,8 +5940,8 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -5988,8 +5988,8 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>> {
-            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options);
+        createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>> {
+            const localVarAxiosArgs = AssociationsApiAxiosParamCreator(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6003,8 +6003,8 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options);
+        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = AssociationsApiAxiosParamCreator(configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6018,8 +6018,8 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options);
+        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = AssociationsApiAxiosParamCreator(configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6033,8 +6033,8 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>> {
-            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options);
+        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut> {
+            const localVarAxiosArgs = AssociationsApiAxiosParamCreator(configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6054,8 +6054,8 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
-            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut> {
+            const localVarAxiosArgs = AssociationsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6069,8 +6069,8 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options);
+        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = AssociationsApiAxiosParamCreator(configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6094,7 +6094,7 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>> {
-            return AssociationsApiFp(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options).then((request) => request(axios, basePath));
+            return AssociationsApiFp(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options)(axios, basePath);
         },
         /**
          * Delete an Association.
@@ -6105,7 +6105,7 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): AxiosPromise<void> {
-            return AssociationsApiFp(configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options).then((request) => request(axios, basePath));
+            return AssociationsApiFp(configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options)(axios, basePath);
         },
         /**
          * Delete multiple Associations in a Model.
@@ -6116,7 +6116,7 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): AxiosPromise<void> {
-            return AssociationsApiFp(configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(axios, basePath));
+            return AssociationsApiFp(configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options)(axios, basePath);
         },
         /**
          * Get an Association.
@@ -6127,7 +6127,7 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut> {
-            return AssociationsApiFp(configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options).then((request) => request(axios, basePath));
+            return AssociationsApiFp(configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options)(axios, basePath);
         },
         /**
          * Get associations in model.
@@ -6144,7 +6144,7 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<AssociationPaginationOut> {
-            return AssociationsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return AssociationsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Bulk association patching.
@@ -6155,7 +6155,7 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          * @throws {RequiredError}
          */
         patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void> {
-            return AssociationsApiFp(configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options).then((request) => request(axios, basePath));
+            return AssociationsApiFp(configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options)(axios, basePath);
         },
     };
 };
@@ -6177,7 +6177,7 @@ export class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     public createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) {
-        return AssociationsApiFp(this.configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options).then((request) => request(this.axios, this.basePath));
+        return AssociationsApiFp(this.configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -6190,7 +6190,7 @@ export class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     public deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any) {
-        return AssociationsApiFp(this.configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options).then((request) => request(this.axios, this.basePath));
+        return AssociationsApiFp(this.configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -6203,7 +6203,7 @@ export class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     public deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any) {
-        return AssociationsApiFp(this.configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
+        return AssociationsApiFp(this.configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options)(this.axios, this.basePath);
     }
 
     /**
@@ -6216,7 +6216,7 @@ export class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     public getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any) {
-        return AssociationsApiFp(this.configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options).then((request) => request(this.axios, this.basePath));
+        return AssociationsApiFp(this.configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -6235,7 +6235,7 @@ export class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     public listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options?: any) {
-        return AssociationsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return AssociationsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -6248,7 +6248,7 @@ export class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     public patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any) {
-        return AssociationsApiFp(this.configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options).then((request) => request(this.axios, this.basePath));
+        return AssociationsApiFp(this.configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options)(this.axios, this.basePath);
     }
 
 }
@@ -6267,7 +6267,7 @@ export const AuthorsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthorV1AuthorsAuthorIdGet: async (authorId: string, options: any = {}): Promise<RequestArgs> => {
+        getAuthorV1AuthorsAuthorIdGet(authorId: string, options: any = {}): RequestArgs {
             // verify required parameter 'authorId' is not null or undefined
             if (authorId === null || authorId === undefined) {
                 throw new RequiredError('authorId','Required parameter authorId was null or undefined when calling getAuthorV1AuthorsAuthorIdGet.');
@@ -6286,8 +6286,8 @@ export const AuthorsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -6326,7 +6326,7 @@ export const AuthorsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1AuthorsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthorsV1AuthorsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/authors`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -6340,8 +6340,8 @@ export const AuthorsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -6411,8 +6411,8 @@ export const AuthorsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuthorV1AuthorsAuthorIdGet(authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>> {
-            const localVarAxiosArgs = await AuthorsApiAxiosParamCreator(configuration).getAuthorV1AuthorsAuthorIdGet(authorId, options);
+        getAuthorV1AuthorsAuthorIdGet(authorId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut> {
+            const localVarAxiosArgs = AuthorsApiAxiosParamCreator(configuration).getAuthorV1AuthorsAuthorIdGet(authorId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6431,8 +6431,8 @@ export const AuthorsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthorsV1AuthorsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>> {
-            const localVarAxiosArgs = await AuthorsApiAxiosParamCreator(configuration).listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthorsV1AuthorsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut> {
+            const localVarAxiosArgs = AuthorsApiAxiosParamCreator(configuration).listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -6455,7 +6455,7 @@ export const AuthorsApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         getAuthorV1AuthorsAuthorIdGet(authorId: string, options?: any): AxiosPromise<AuthorOut> {
-            return AuthorsApiFp(configuration).getAuthorV1AuthorsAuthorIdGet(authorId, options).then((request) => request(axios, basePath));
+            return AuthorsApiFp(configuration).getAuthorV1AuthorsAuthorIdGet(authorId, options)(axios, basePath);
         },
         /**
          * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
@@ -6471,7 +6471,7 @@ export const AuthorsApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         listAuthorsV1AuthorsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<AuthorPaginationOut> {
-            return AuthorsApiFp(configuration).listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return AuthorsApiFp(configuration).listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
     };
 };
@@ -6492,7 +6492,7 @@ export class AuthorsApi extends BaseAPI {
      * @memberof AuthorsApi
      */
     public getAuthorV1AuthorsAuthorIdGet(authorId: string, options?: any) {
-        return AuthorsApiFp(this.configuration).getAuthorV1AuthorsAuthorIdGet(authorId, options).then((request) => request(this.axios, this.basePath));
+        return AuthorsApiFp(this.configuration).getAuthorV1AuthorsAuthorIdGet(authorId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -6510,7 +6510,7 @@ export class AuthorsApi extends BaseAPI {
      * @memberof AuthorsApi
      */
     public listAuthorsV1AuthorsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return AuthorsApiFp(this.configuration).listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return AuthorsApiFp(this.configuration).listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
 }
@@ -6529,7 +6529,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConceptV1ConceptsPost: async (conceptIn: ConceptIn, options: any = {}): Promise<RequestArgs> => {
+        createConceptV1ConceptsPost(conceptIn: ConceptIn, options: any = {}): RequestArgs {
             // verify required parameter 'conceptIn' is not null or undefined
             if (conceptIn === null || conceptIn === undefined) {
                 throw new RequiredError('conceptIn','Required parameter conceptIn was null or undefined when calling createConceptV1ConceptsPost.');
@@ -6547,8 +6547,8 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -6585,7 +6585,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteConceptV1ConceptsConceptIdDelete: async (conceptId: string, options: any = {}): Promise<RequestArgs> => {
+        deleteConceptV1ConceptsConceptIdDelete(conceptId: string, options: any = {}): RequestArgs {
             // verify required parameter 'conceptId' is not null or undefined
             if (conceptId === null || conceptId === undefined) {
                 throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling deleteConceptV1ConceptsConceptIdDelete.');
@@ -6604,8 +6604,8 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -6638,7 +6638,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptV1ConceptsConceptIdGet: async (conceptId: string, options: any = {}): Promise<RequestArgs> => {
+        getConceptV1ConceptsConceptIdGet(conceptId: string, options: any = {}): RequestArgs {
             // verify required parameter 'conceptId' is not null or undefined
             if (conceptId === null || conceptId === undefined) {
                 throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling getConceptV1ConceptsConceptIdGet.');
@@ -6657,8 +6657,8 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -6697,7 +6697,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -6711,8 +6711,8 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -6779,7 +6779,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listConceptsV1ConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -6793,8 +6793,8 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -6867,7 +6867,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: async (conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'conceptId' is not null or undefined
             if (conceptId === null || conceptId === undefined) {
                 throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet.');
@@ -6886,8 +6886,8 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -6975,7 +6975,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserConceptsV1UsersUserIdConceptsGet.');
@@ -6994,8 +6994,8 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -7065,8 +7065,8 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createConceptV1ConceptsPost(conceptIn: ConceptIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).createConceptV1ConceptsPost(conceptIn, options);
+        createConceptV1ConceptsPost(conceptIn: ConceptIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut> {
+            const localVarAxiosArgs = ConceptsApiAxiosParamCreator(configuration).createConceptV1ConceptsPost(conceptIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -7079,8 +7079,8 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteConceptV1ConceptsConceptIdDelete(conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).deleteConceptV1ConceptsConceptIdDelete(conceptId, options);
+        deleteConceptV1ConceptsConceptIdDelete(conceptId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = ConceptsApiAxiosParamCreator(configuration).deleteConceptV1ConceptsConceptIdDelete(conceptId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -7093,8 +7093,8 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getConceptV1ConceptsConceptIdGet(conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).getConceptV1ConceptsConceptIdGet(conceptId, options);
+        getConceptV1ConceptsConceptIdGet(conceptId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut> {
+            const localVarAxiosArgs = ConceptsApiAxiosParamCreator(configuration).getConceptV1ConceptsConceptIdGet(conceptId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -7113,8 +7113,8 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut> {
+            const localVarAxiosArgs = ConceptsApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -7133,8 +7133,8 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listConceptsV1ConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listConceptsV1ConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listConceptsV1ConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut> {
+            const localVarAxiosArgs = ConceptsApiAxiosParamCreator(configuration).listConceptsV1ConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -7159,8 +7159,8 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut> {
+            const localVarAxiosArgs = ConceptsApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -7180,8 +7180,8 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut> {
+            const localVarAxiosArgs = ConceptsApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -7204,7 +7204,7 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         createConceptV1ConceptsPost(conceptIn: ConceptIn, options?: any): AxiosPromise<ConceptOut> {
-            return ConceptsApiFp(configuration).createConceptV1ConceptsPost(conceptIn, options).then((request) => request(axios, basePath));
+            return ConceptsApiFp(configuration).createConceptV1ConceptsPost(conceptIn, options)(axios, basePath);
         },
         /**
          * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
@@ -7214,7 +7214,7 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         deleteConceptV1ConceptsConceptIdDelete(conceptId: string, options?: any): AxiosPromise<void> {
-            return ConceptsApiFp(configuration).deleteConceptV1ConceptsConceptIdDelete(conceptId, options).then((request) => request(axios, basePath));
+            return ConceptsApiFp(configuration).deleteConceptV1ConceptsConceptIdDelete(conceptId, options)(axios, basePath);
         },
         /**
          * Get Concept.
@@ -7224,7 +7224,7 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         getConceptV1ConceptsConceptIdGet(conceptId: string, options?: any): AxiosPromise<ConceptOut> {
-            return ConceptsApiFp(configuration).getConceptV1ConceptsConceptIdGet(conceptId, options).then((request) => request(axios, basePath));
+            return ConceptsApiFp(configuration).getConceptV1ConceptsConceptIdGet(conceptId, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s concepts.
@@ -7240,7 +7240,7 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ConceptPaginationOut> {
-            return ConceptsApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return ConceptsApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List Concepts.
@@ -7256,7 +7256,7 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listConceptsV1ConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ConceptPaginationOut> {
-            return ConceptsApiFp(configuration).listConceptsV1ConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return ConceptsApiFp(configuration).listConceptsV1ConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Get the concepts in the requested concept\'s system.
@@ -7278,7 +7278,7 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
-            return ConceptsApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
+            return ConceptsApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options)(axios, basePath);
         },
         /**
          * List a user\'s concepts.
@@ -7295,7 +7295,7 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ConceptPaginationOut> {
-            return ConceptsApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return ConceptsApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
     };
 };
@@ -7316,7 +7316,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public createConceptV1ConceptsPost(conceptIn: ConceptIn, options?: any) {
-        return ConceptsApiFp(this.configuration).createConceptV1ConceptsPost(conceptIn, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).createConceptV1ConceptsPost(conceptIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -7328,7 +7328,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public deleteConceptV1ConceptsConceptIdDelete(conceptId: string, options?: any) {
-        return ConceptsApiFp(this.configuration).deleteConceptV1ConceptsConceptIdDelete(conceptId, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).deleteConceptV1ConceptsConceptIdDelete(conceptId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -7340,7 +7340,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public getConceptV1ConceptsConceptIdGet(conceptId: string, options?: any) {
-        return ConceptsApiFp(this.configuration).getConceptV1ConceptsConceptIdGet(conceptId, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).getConceptV1ConceptsConceptIdGet(conceptId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -7358,7 +7358,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return ConceptsApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -7376,7 +7376,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public listConceptsV1ConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -7400,7 +7400,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any) {
-        return ConceptsApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options)(this.axios, this.basePath);
     }
 
     /**
@@ -7419,7 +7419,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return ConceptsApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
 }
@@ -7440,7 +7440,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: async (datasetId: string, featureId: string, index?: boolean, options: any = {}): Promise<RequestArgs> => {
+        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut.');
@@ -7464,8 +7464,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -7503,7 +7503,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: async (datasetId: string, populationAttributeValueId: string, options: any = {}): Promise<RequestArgs> => {
+        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut.');
@@ -7527,8 +7527,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -7562,7 +7562,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost: async (datasetId: string, featureIn: Array<FeatureIn>, options: any = {}): Promise<RequestArgs> => {
+        createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost.');
@@ -7585,8 +7585,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -7623,7 +7623,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createDatasetV1DatasetsPost: async (datasetIn: DatasetIn, options: any = {}): Promise<RequestArgs> => {
+        createDatasetV1DatasetsPost(datasetIn: DatasetIn, options: any = {}): RequestArgs {
             // verify required parameter 'datasetIn' is not null or undefined
             if (datasetIn === null || datasetIn === undefined) {
                 throw new RequiredError('datasetIn','Required parameter datasetIn was null or undefined when calling createDatasetV1DatasetsPost.');
@@ -7641,8 +7641,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -7679,7 +7679,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteDatasetV1DatasetsDatasetIdDelete: async (datasetId: string, options: any = {}): Promise<RequestArgs> => {
+        deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling deleteDatasetV1DatasetsDatasetIdDelete.');
@@ -7698,8 +7698,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -7732,7 +7732,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: async (datasetId: string, options: any = {}): Promise<RequestArgs> => {
+        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet.');
@@ -7751,8 +7751,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -7785,7 +7785,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDatasetV1DatasetsDatasetIdGet: async (datasetId: string, options: any = {}): Promise<RequestArgs> => {
+        getDatasetV1DatasetsDatasetIdGet(datasetId: string, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling getDatasetV1DatasetsDatasetIdGet.');
@@ -7804,8 +7804,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -7844,7 +7844,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -7858,8 +7858,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -7927,7 +7927,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: async (datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet.');
@@ -7946,8 +7946,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -8014,7 +8014,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetsV1DatasetsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listDatasetsV1DatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -8028,8 +8028,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -8097,7 +8097,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: async (datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling listModelsUsingDatasetV1DatasetsDatasetIdModelsGet.');
@@ -8116,8 +8116,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -8185,7 +8185,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserDatasetsV1UsersUserIdDatasetsGet.');
@@ -8204,8 +8204,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -8267,7 +8267,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchDatasetV1DatasetsDatasetIdPatch: async (datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options: any = {}): Promise<RequestArgs> => {
+        patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling patchDatasetV1DatasetsDatasetIdPatch.');
@@ -8290,8 +8290,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -8329,7 +8329,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: async (datasetId: string, featureId: string, options: any = {}): Promise<RequestArgs> => {
+        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete.');
@@ -8353,8 +8353,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -8388,7 +8388,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: async (datasetId: string, populationAttributeValueId: string, options: any = {}): Promise<RequestArgs> => {
+        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete.');
@@ -8412,8 +8412,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -8447,7 +8447,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceDatasetV1DatasetsDatasetIdPut: async (datasetId: string, datasetIn: DatasetIn, options: any = {}): Promise<RequestArgs> => {
+        replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling replaceDatasetV1DatasetsDatasetIdPut.');
@@ -8470,8 +8470,8 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -8519,8 +8519,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options);
+        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8534,8 +8534,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options);
+        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8549,8 +8549,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options);
+        createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8563,8 +8563,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createDatasetV1DatasetsPost(datasetIn: DatasetIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).createDatasetV1DatasetsPost(datasetIn, options);
+        createDatasetV1DatasetsPost(datasetIn: DatasetIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).createDatasetV1DatasetsPost(datasetIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8577,8 +8577,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options);
+        deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8591,8 +8591,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options);
+        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8605,8 +8605,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getDatasetV1DatasetsDatasetIdGet(datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).getDatasetV1DatasetsDatasetIdGet(datasetId, options);
+        getDatasetV1DatasetsDatasetIdGet(datasetId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).getDatasetV1DatasetsDatasetIdGet(datasetId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8625,8 +8625,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8646,8 +8646,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8666,8 +8666,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listDatasetsV1DatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listDatasetsV1DatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listDatasetsV1DatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).listDatasetsV1DatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8687,8 +8687,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8708,8 +8708,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8723,8 +8723,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, options);
+        patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8738,8 +8738,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options);
+        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8753,8 +8753,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options);
+        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8768,8 +8768,8 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options);
+        replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut> {
+            const localVarAxiosArgs = DatasetsApiAxiosParamCreator(configuration).replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8794,7 +8794,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void> {
-            return DatasetsApiFp(configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options)(axios, basePath);
         },
         /**
          * Add a population attribute value to a dataset.
@@ -8805,7 +8805,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void> {
-            return DatasetsApiFp(configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options)(axios, basePath);
         },
         /**
          * Create and attach Features to Dataset in bulk.
@@ -8816,7 +8816,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): AxiosPromise<Array<FeatureOut>> {
-            return DatasetsApiFp(configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options)(axios, basePath);
         },
         /**
          * Create a new Dataset.
@@ -8826,7 +8826,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         createDatasetV1DatasetsPost(datasetIn: DatasetIn, options?: any): AxiosPromise<DatasetOut> {
-            return DatasetsApiFp(configuration).createDatasetV1DatasetsPost(datasetIn, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).createDatasetV1DatasetsPost(datasetIn, options)(axios, basePath);
         },
         /**
          * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
@@ -8836,7 +8836,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options?: any): AxiosPromise<void> {
-            return DatasetsApiFp(configuration).deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options)(axios, basePath);
         },
         /**
          * Fetch all population attribute values of the dataset.
@@ -8846,7 +8846,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>> {
-            return DatasetsApiFp(configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options)(axios, basePath);
         },
         /**
          * Get a Dataset.
@@ -8856,7 +8856,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         getDatasetV1DatasetsDatasetIdGet(datasetId: string, options?: any): AxiosPromise<DatasetOut> {
-            return DatasetsApiFp(configuration).getDatasetV1DatasetsDatasetIdGet(datasetId, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).getDatasetV1DatasetsDatasetIdGet(datasetId, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s datasets.
@@ -8872,7 +8872,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<DatasetPaginationOut> {
-            return DatasetsApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a datasets features.
@@ -8889,7 +8889,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<FeaturePaginationOut> {
-            return DatasetsApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Get all Datasets.
@@ -8905,7 +8905,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listDatasetsV1DatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<DatasetPaginationOut> {
-            return DatasetsApiFp(configuration).listDatasetsV1DatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).listDatasetsV1DatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Get models that use the dataset either directly or through child datasets.
@@ -8922,7 +8922,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return DatasetsApiFp(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a user\'s datasets.
@@ -8939,7 +8939,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<DatasetPaginationOut> {
-            return DatasetsApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Modify Dataset resource with partial update.
@@ -8950,7 +8950,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): AxiosPromise<void> {
-            return DatasetsApiFp(configuration).patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, options)(axios, basePath);
         },
         /**
          * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
@@ -8961,7 +8961,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): AxiosPromise<void> {
-            return DatasetsApiFp(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options)(axios, basePath);
         },
         /**
          * Remove a population attribute value from a dataset.
@@ -8972,7 +8972,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void> {
-            return DatasetsApiFp(configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options)(axios, basePath);
         },
         /**
          * Replace a Dataset.
@@ -8983,7 +8983,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options?: any): AxiosPromise<DatasetOut> {
-            return DatasetsApiFp(configuration).replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options).then((request) => request(axios, basePath));
+            return DatasetsApiFp(configuration).replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options)(axios, basePath);
         },
     };
 };
@@ -9006,7 +9006,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any) {
-        return DatasetsApiFp(this.configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9019,7 +9019,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any) {
-        return DatasetsApiFp(this.configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9032,7 +9032,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any) {
-        return DatasetsApiFp(this.configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9044,7 +9044,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public createDatasetV1DatasetsPost(datasetIn: DatasetIn, options?: any) {
-        return DatasetsApiFp(this.configuration).createDatasetV1DatasetsPost(datasetIn, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).createDatasetV1DatasetsPost(datasetIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9056,7 +9056,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options?: any) {
-        return DatasetsApiFp(this.configuration).deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9068,7 +9068,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any) {
-        return DatasetsApiFp(this.configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9080,7 +9080,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public getDatasetV1DatasetsDatasetIdGet(datasetId: string, options?: any) {
-        return DatasetsApiFp(this.configuration).getDatasetV1DatasetsDatasetIdGet(datasetId, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).getDatasetV1DatasetsDatasetIdGet(datasetId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9098,7 +9098,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9117,7 +9117,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return DatasetsApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9135,7 +9135,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public listDatasetsV1DatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return DatasetsApiFp(this.configuration).listDatasetsV1DatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listDatasetsV1DatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9154,7 +9154,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return DatasetsApiFp(this.configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9173,7 +9173,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return DatasetsApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9186,7 +9186,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any) {
-        return DatasetsApiFp(this.configuration).patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9199,7 +9199,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any) {
-        return DatasetsApiFp(this.configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9212,7 +9212,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any) {
-        return DatasetsApiFp(this.configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9225,7 +9225,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options?: any) {
-        return DatasetsApiFp(this.configuration).replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options)(this.axios, this.basePath);
     }
 
 }
@@ -9244,7 +9244,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createIntegrationV1EnterpriseIntegrationsPost: async (integrationCreate: IntegrationCreate, options: any = {}): Promise<RequestArgs> => {
+        createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, options: any = {}): RequestArgs {
             // verify required parameter 'integrationCreate' is not null or undefined
             if (integrationCreate === null || integrationCreate === undefined) {
                 throw new RequiredError('integrationCreate','Required parameter integrationCreate was null or undefined when calling createIntegrationV1EnterpriseIntegrationsPost.');
@@ -9262,8 +9262,8 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -9299,7 +9299,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getEnterpriseV1EnterpriseGet: async (options: any = {}): Promise<RequestArgs> => {
+        getEnterpriseV1EnterpriseGet(options: any = {}): RequestArgs {
             const localVarPath = `/v1/enterprise`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -9313,8 +9313,8 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -9347,7 +9347,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIntegrationV1EnterpriseIntegrationsIntegrationIdGet: async (integrationId: string, options: any = {}): Promise<RequestArgs> => {
+        getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, options: any = {}): RequestArgs {
             // verify required parameter 'integrationId' is not null or undefined
             if (integrationId === null || integrationId === undefined) {
                 throw new RequiredError('integrationId','Required parameter integrationId was null or undefined when calling getIntegrationV1EnterpriseIntegrationsIntegrationIdGet.');
@@ -9366,8 +9366,8 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -9401,7 +9401,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: async (integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options: any = {}): Promise<RequestArgs> => {
+        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options: any = {}): RequestArgs {
             // verify required parameter 'integrationId' is not null or undefined
             if (integrationId === null || integrationId === undefined) {
                 throw new RequiredError('integrationId','Required parameter integrationId was null or undefined when calling updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch.');
@@ -9424,8 +9424,8 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -9471,8 +9471,8 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
-            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options);
+        createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration> {
+            const localVarAxiosArgs = EnterpriseApiAxiosParamCreator(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -9484,8 +9484,8 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getEnterpriseV1EnterpriseGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise>> {
-            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).getEnterpriseV1EnterpriseGet(options);
+        getEnterpriseV1EnterpriseGet(options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise> {
+            const localVarAxiosArgs = EnterpriseApiAxiosParamCreator(configuration).getEnterpriseV1EnterpriseGet(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -9498,8 +9498,8 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
-            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId, options);
+        getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration> {
+            const localVarAxiosArgs = EnterpriseApiAxiosParamCreator(configuration).getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -9513,8 +9513,8 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
-            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options);
+        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration> {
+            const localVarAxiosArgs = EnterpriseApiAxiosParamCreator(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -9537,7 +9537,7 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
          * @throws {RequiredError}
          */
         createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, options?: any): AxiosPromise<Integration> {
-            return EnterpriseApiFp(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options).then((request) => request(axios, basePath));
+            return EnterpriseApiFp(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options)(axios, basePath);
         },
         /**
          * Get the Enterprise.
@@ -9546,7 +9546,7 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
          * @throws {RequiredError}
          */
         getEnterpriseV1EnterpriseGet(options?: any): AxiosPromise<Enterprise> {
-            return EnterpriseApiFp(configuration).getEnterpriseV1EnterpriseGet(options).then((request) => request(axios, basePath));
+            return EnterpriseApiFp(configuration).getEnterpriseV1EnterpriseGet(options)(axios, basePath);
         },
         /**
          * Get an Integration.
@@ -9556,7 +9556,7 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
          * @throws {RequiredError}
          */
         getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, options?: any): AxiosPromise<Integration> {
-            return EnterpriseApiFp(configuration).getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId, options).then((request) => request(axios, basePath));
+            return EnterpriseApiFp(configuration).getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId, options)(axios, basePath);
         },
         /**
          * Update an Integration.
@@ -9567,7 +9567,7 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
          * @throws {RequiredError}
          */
         updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): AxiosPromise<Integration> {
-            return EnterpriseApiFp(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options).then((request) => request(axios, basePath));
+            return EnterpriseApiFp(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options)(axios, basePath);
         },
     };
 };
@@ -9588,7 +9588,7 @@ export class EnterpriseApi extends BaseAPI {
      * @memberof EnterpriseApi
      */
     public createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, options?: any) {
-        return EnterpriseApiFp(this.configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options).then((request) => request(this.axios, this.basePath));
+        return EnterpriseApiFp(this.configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9599,7 +9599,7 @@ export class EnterpriseApi extends BaseAPI {
      * @memberof EnterpriseApi
      */
     public getEnterpriseV1EnterpriseGet(options?: any) {
-        return EnterpriseApiFp(this.configuration).getEnterpriseV1EnterpriseGet(options).then((request) => request(this.axios, this.basePath));
+        return EnterpriseApiFp(this.configuration).getEnterpriseV1EnterpriseGet(options)(this.axios, this.basePath);
     }
 
     /**
@@ -9611,7 +9611,7 @@ export class EnterpriseApi extends BaseAPI {
      * @memberof EnterpriseApi
      */
     public getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, options?: any) {
-        return EnterpriseApiFp(this.configuration).getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId, options).then((request) => request(this.axios, this.basePath));
+        return EnterpriseApiFp(this.configuration).getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -9624,7 +9624,7 @@ export class EnterpriseApi extends BaseAPI {
      * @memberof EnterpriseApi
      */
     public updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any) {
-        return EnterpriseApiFp(this.configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options).then((request) => request(this.axios, this.basePath));
+        return EnterpriseApiFp(this.configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options)(this.axios, this.basePath);
     }
 
 }
@@ -9645,7 +9645,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: async (datasetId: string, featureId: string, index?: boolean, options: any = {}): Promise<RequestArgs> => {
+        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut.');
@@ -9669,8 +9669,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -9708,7 +9708,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost: async (datasetId: string, featureIn: Array<FeatureIn>, options: any = {}): Promise<RequestArgs> => {
+        createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost.');
@@ -9731,8 +9731,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -9769,7 +9769,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createFeatureV1FeaturesPost: async (featureIn: FeatureIn, options: any = {}): Promise<RequestArgs> => {
+        createFeatureV1FeaturesPost(featureIn: FeatureIn, options: any = {}): RequestArgs {
             // verify required parameter 'featureIn' is not null or undefined
             if (featureIn === null || featureIn === undefined) {
                 throw new RequiredError('featureIn','Required parameter featureIn was null or undefined when calling createFeatureV1FeaturesPost.');
@@ -9787,8 +9787,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -9825,7 +9825,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFeatureV1FeaturesFeatureIdDelete: async (featureId: string, options: any = {}): Promise<RequestArgs> => {
+        deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, options: any = {}): RequestArgs {
             // verify required parameter 'featureId' is not null or undefined
             if (featureId === null || featureId === undefined) {
                 throw new RequiredError('featureId','Required parameter featureId was null or undefined when calling deleteFeatureV1FeaturesFeatureIdDelete.');
@@ -9844,8 +9844,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -9878,7 +9878,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFeatureV1FeaturesFeatureIdGet: async (featureId: string, options: any = {}): Promise<RequestArgs> => {
+        getFeatureV1FeaturesFeatureIdGet(featureId: string, options: any = {}): RequestArgs {
             // verify required parameter 'featureId' is not null or undefined
             if (featureId === null || featureId === undefined) {
                 throw new RequiredError('featureId','Required parameter featureId was null or undefined when calling getFeatureV1FeaturesFeatureIdGet.');
@@ -9897,8 +9897,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -9937,7 +9937,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/features`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -9951,8 +9951,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -10020,7 +10020,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: async (datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet.');
@@ -10039,8 +10039,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -10107,7 +10107,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeaturesV1FeaturesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listFeaturesV1FeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/features`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -10121,8 +10121,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -10200,7 +10200,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: async (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'featureId' is not null or undefined
             if (featureId === null || featureId === undefined) {
                 throw new RequiredError('featureId','Required parameter featureId was null or undefined when calling listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet.');
@@ -10219,8 +10219,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -10328,7 +10328,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserFeaturesV1UsersUserIdFeaturesGet.');
@@ -10347,8 +10347,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -10410,7 +10410,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchFeatureV1FeaturesFeatureIdPatch: async (featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options: any = {}): Promise<RequestArgs> => {
+        patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options: any = {}): RequestArgs {
             // verify required parameter 'featureId' is not null or undefined
             if (featureId === null || featureId === undefined) {
                 throw new RequiredError('featureId','Required parameter featureId was null or undefined when calling patchFeatureV1FeaturesFeatureIdPatch.');
@@ -10433,8 +10433,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -10471,7 +10471,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchMultipleFeaturesV1FeaturesPatch: async (bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options: any = {}): Promise<RequestArgs> => {
+        patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options: any = {}): RequestArgs {
             // verify required parameter 'bulkPatchFeatureOp' is not null or undefined
             if (bulkPatchFeatureOp === null || bulkPatchFeatureOp === undefined) {
                 throw new RequiredError('bulkPatchFeatureOp','Required parameter bulkPatchFeatureOp was null or undefined when calling patchMultipleFeaturesV1FeaturesPatch.');
@@ -10489,8 +10489,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -10528,7 +10528,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: async (datasetId: string, featureId: string, options: any = {}): Promise<RequestArgs> => {
+        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete.');
@@ -10552,8 +10552,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -10587,7 +10587,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceFeatureV1FeaturesFeatureIdPut: async (featureId: string, featureIn: FeatureIn, options: any = {}): Promise<RequestArgs> => {
+        replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, options: any = {}): RequestArgs {
             // verify required parameter 'featureId' is not null or undefined
             if (featureId === null || featureId === undefined) {
                 throw new RequiredError('featureId','Required parameter featureId was null or undefined when calling replaceFeatureV1FeaturesFeatureIdPut.');
@@ -10610,8 +10610,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -10659,8 +10659,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options);
+        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10674,8 +10674,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options);
+        createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10688,8 +10688,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createFeatureV1FeaturesPost(featureIn: FeatureIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).createFeatureV1FeaturesPost(featureIn, options);
+        createFeatureV1FeaturesPost(featureIn: FeatureIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).createFeatureV1FeaturesPost(featureIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10702,8 +10702,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).deleteFeatureV1FeaturesFeatureIdDelete(featureId, options);
+        deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).deleteFeatureV1FeaturesFeatureIdDelete(featureId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10716,8 +10716,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFeatureV1FeaturesFeatureIdGet(featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).getFeatureV1FeaturesFeatureIdGet(featureId, options);
+        getFeatureV1FeaturesFeatureIdGet(featureId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).getFeatureV1FeaturesFeatureIdGet(featureId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10736,8 +10736,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10757,8 +10757,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10777,8 +10777,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listFeaturesV1FeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).listFeaturesV1FeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listFeaturesV1FeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).listFeaturesV1FeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10808,8 +10808,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10829,8 +10829,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10844,8 +10844,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options);
+        patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10858,8 +10858,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp, options);
+        patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10873,8 +10873,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options);
+        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10888,8 +10888,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>> {
-            const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, options);
+        replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut> {
+            const localVarAxiosArgs = FeaturesApiAxiosParamCreator(configuration).replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10914,7 +10914,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void> {
-            return FeaturesApiFp(configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options)(axios, basePath);
         },
         /**
          * Create and attach Features to Dataset in bulk.
@@ -10925,7 +10925,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): AxiosPromise<Array<FeatureOut>> {
-            return FeaturesApiFp(configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options)(axios, basePath);
         },
         /**
          * Create a new Feature.
@@ -10935,7 +10935,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         createFeatureV1FeaturesPost(featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut> {
-            return FeaturesApiFp(configuration).createFeatureV1FeaturesPost(featureIn, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).createFeatureV1FeaturesPost(featureIn, options)(axios, basePath);
         },
         /**
          * Delete a feature.
@@ -10945,7 +10945,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, options?: any): AxiosPromise<void> {
-            return FeaturesApiFp(configuration).deleteFeatureV1FeaturesFeatureIdDelete(featureId, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).deleteFeatureV1FeaturesFeatureIdDelete(featureId, options)(axios, basePath);
         },
         /**
          * Get feature.
@@ -10955,7 +10955,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         getFeatureV1FeaturesFeatureIdGet(featureId: string, options?: any): AxiosPromise<FeatureOut> {
-            return FeaturesApiFp(configuration).getFeatureV1FeaturesFeatureIdGet(featureId, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).getFeatureV1FeaturesFeatureIdGet(featureId, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s features.
@@ -10971,7 +10971,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<FeaturePaginationOut> {
-            return FeaturesApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a datasets features.
@@ -10988,7 +10988,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<FeaturePaginationOut> {
-            return FeaturesApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List Features.
@@ -11004,7 +11004,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listFeaturesV1FeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<FeaturePaginationOut> {
-            return FeaturesApiFp(configuration).listFeaturesV1FeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).listFeaturesV1FeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Get the features in the requested feature\'s system.
@@ -11031,7 +11031,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut> {
-            return FeaturesApiFp(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options)(axios, basePath);
         },
         /**
          * List a user\'s features.
@@ -11048,7 +11048,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<FeaturePaginationOut> {
-            return FeaturesApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
@@ -11059,7 +11059,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): AxiosPromise<void> {
-            return FeaturesApiFp(configuration).patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options)(axios, basePath);
         },
         /**
          * Batch feature patching.
@@ -11069,7 +11069,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any): AxiosPromise<void> {
-            return FeaturesApiFp(configuration).patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp, options)(axios, basePath);
         },
         /**
          * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
@@ -11080,7 +11080,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): AxiosPromise<void> {
-            return FeaturesApiFp(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options)(axios, basePath);
         },
         /**
          * Replace a Feature.
@@ -11091,7 +11091,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut> {
-            return FeaturesApiFp(configuration).replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, options).then((request) => request(axios, basePath));
+            return FeaturesApiFp(configuration).replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, options)(axios, basePath);
         },
     };
 };
@@ -11114,7 +11114,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any) {
-        return FeaturesApiFp(this.configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11127,7 +11127,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any) {
-        return FeaturesApiFp(this.configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11139,7 +11139,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public createFeatureV1FeaturesPost(featureIn: FeatureIn, options?: any) {
-        return FeaturesApiFp(this.configuration).createFeatureV1FeaturesPost(featureIn, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).createFeatureV1FeaturesPost(featureIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11151,7 +11151,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, options?: any) {
-        return FeaturesApiFp(this.configuration).deleteFeatureV1FeaturesFeatureIdDelete(featureId, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).deleteFeatureV1FeaturesFeatureIdDelete(featureId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11163,7 +11163,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public getFeatureV1FeaturesFeatureIdGet(featureId: string, options?: any) {
-        return FeaturesApiFp(this.configuration).getFeatureV1FeaturesFeatureIdGet(featureId, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).getFeatureV1FeaturesFeatureIdGet(featureId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11181,7 +11181,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return FeaturesApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11200,7 +11200,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return FeaturesApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11218,7 +11218,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public listFeaturesV1FeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return FeaturesApiFp(this.configuration).listFeaturesV1FeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).listFeaturesV1FeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11247,7 +11247,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any) {
-        return FeaturesApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11266,7 +11266,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return FeaturesApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11279,7 +11279,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any) {
-        return FeaturesApiFp(this.configuration).patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11291,7 +11291,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any) {
-        return FeaturesApiFp(this.configuration).patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11304,7 +11304,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any) {
-        return FeaturesApiFp(this.configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -11317,7 +11317,7 @@ export class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     public replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, options?: any) {
-        return FeaturesApiFp(this.configuration).replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, options)(this.axios, this.basePath);
     }
 
 }
@@ -11337,7 +11337,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAssociationsV1ModelsModelIdAssociationsPost: async (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options: any = {}): Promise<RequestArgs> => {
+        createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling createAssociationsV1ModelsModelIdAssociationsPost.');
@@ -11360,8 +11360,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -11399,7 +11399,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createModelsV1StudiesStudyIdModelsPost: async (studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options: any = {}): Promise<RequestArgs> => {
+        createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options: any = {}): RequestArgs {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new RequiredError('studyId','Required parameter studyId was null or undefined when calling createModelsV1StudiesStudyIdModelsPost.');
@@ -11422,8 +11422,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -11461,7 +11461,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: async (modelId: string, associationId: string, options: any = {}): Promise<RequestArgs> => {
+        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete.');
@@ -11485,8 +11485,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -11520,7 +11520,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationsV1ModelsModelIdAssociationsDelete: async (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options: any = {}): Promise<RequestArgs> => {
+        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling deleteAssociationsV1ModelsModelIdAssociationsDelete.');
@@ -11543,8 +11543,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -11581,7 +11581,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteModelV1ModelsModelIdDelete: async (modelId: string, options: any = {}): Promise<RequestArgs> => {
+        deleteModelV1ModelsModelIdDelete(modelId: string, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling deleteModelV1ModelsModelIdDelete.');
@@ -11600,8 +11600,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -11635,7 +11635,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAssociationV1ModelsModelIdAssociationsAssociationIdGet: async (associationId: string, modelId: string, options: any = {}): Promise<RequestArgs> => {
+        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options: any = {}): RequestArgs {
             // verify required parameter 'associationId' is not null or undefined
             if (associationId === null || associationId === undefined) {
                 throw new RequiredError('associationId','Required parameter associationId was null or undefined when calling getAssociationV1ModelsModelIdAssociationsAssociationIdGet.');
@@ -11659,8 +11659,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -11693,7 +11693,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getModelV1ModelsModelIdGet: async (modelId: string, options: any = {}): Promise<RequestArgs> => {
+        getModelV1ModelsModelIdGet(modelId: string, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling getModelV1ModelsModelIdGet.');
@@ -11712,8 +11712,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -11753,7 +11753,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet: async (modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling listAssociationsV1ModelsModelIdAssociationsGet.');
@@ -11772,8 +11772,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -11840,7 +11840,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -11854,8 +11854,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -11922,7 +11922,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -11936,8 +11936,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -12005,7 +12005,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserModelsV1UsersUserIdModelsGet.');
@@ -12024,8 +12024,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -12087,7 +12087,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchAssociationsV1ModelsModelIdAssociationsPatch: async (modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options: any = {}): Promise<RequestArgs> => {
+        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling patchAssociationsV1ModelsModelIdAssociationsPatch.');
@@ -12110,8 +12110,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -12149,7 +12149,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchModelV1ModelsModelIdPatch: async (modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options: any = {}): Promise<RequestArgs> => {
+        patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling patchModelV1ModelsModelIdPatch.');
@@ -12172,8 +12172,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -12211,7 +12211,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceModelV1ModelsModelIdPut: async (modelId: string, modelIn: ModelIn, options: any = {}): Promise<RequestArgs> => {
+        replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, options: any = {}): RequestArgs {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new RequiredError('modelId','Required parameter modelId was null or undefined when calling replaceModelV1ModelsModelIdPut.');
@@ -12234,8 +12234,8 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -12282,8 +12282,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options);
+        createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12297,8 +12297,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options);
+        createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12312,8 +12312,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options);
+        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12327,8 +12327,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options);
+        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12341,8 +12341,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteModelV1ModelsModelIdDelete(modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).deleteModelV1ModelsModelIdDelete(modelId, options);
+        deleteModelV1ModelsModelIdDelete(modelId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).deleteModelV1ModelsModelIdDelete(modelId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12356,8 +12356,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options);
+        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12370,8 +12370,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getModelV1ModelsModelIdGet(modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).getModelV1ModelsModelIdGet(modelId, options);
+        getModelV1ModelsModelIdGet(modelId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).getModelV1ModelsModelIdGet(modelId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12391,8 +12391,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12411,8 +12411,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12431,8 +12431,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12452,8 +12452,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12467,8 +12467,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options);
+        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12482,8 +12482,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, options);
+        patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12497,8 +12497,8 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).replaceModelV1ModelsModelIdPut(modelId, modelIn, options);
+        replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut> {
+            const localVarAxiosArgs = ModelsApiAxiosParamCreator(configuration).replaceModelV1ModelsModelIdPut(modelId, modelIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12522,7 +12522,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>> {
-            return ModelsApiFp(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options)(axios, basePath);
         },
         /**
          * Create models and add to study.
@@ -12533,7 +12533,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any): AxiosPromise<Array<ModelOut>> {
-            return ModelsApiFp(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options)(axios, basePath);
         },
         /**
          * Delete an Association.
@@ -12544,7 +12544,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): AxiosPromise<void> {
-            return ModelsApiFp(configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options)(axios, basePath);
         },
         /**
          * Delete multiple Associations in a Model.
@@ -12555,7 +12555,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): AxiosPromise<void> {
-            return ModelsApiFp(configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options)(axios, basePath);
         },
         /**
          * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
@@ -12565,7 +12565,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         deleteModelV1ModelsModelIdDelete(modelId: string, options?: any): AxiosPromise<void> {
-            return ModelsApiFp(configuration).deleteModelV1ModelsModelIdDelete(modelId, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).deleteModelV1ModelsModelIdDelete(modelId, options)(axios, basePath);
         },
         /**
          * Get an Association.
@@ -12576,7 +12576,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut> {
-            return ModelsApiFp(configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options)(axios, basePath);
         },
         /**
          * Get Model.
@@ -12586,7 +12586,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         getModelV1ModelsModelIdGet(modelId: string, options?: any): AxiosPromise<ModelOut> {
-            return ModelsApiFp(configuration).getModelV1ModelsModelIdGet(modelId, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).getModelV1ModelsModelIdGet(modelId, options)(axios, basePath);
         },
         /**
          * Get associations in model.
@@ -12603,7 +12603,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<AssociationPaginationOut> {
-            return ModelsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s models.
@@ -12619,7 +12619,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return ModelsApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List Models.
@@ -12635,7 +12635,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return ModelsApiFp(configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a user\'s models.
@@ -12652,7 +12652,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return ModelsApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Bulk association patching.
@@ -12663,7 +12663,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void> {
-            return ModelsApiFp(configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options)(axios, basePath);
         },
         /**
          * Modify Model resource with partial update.
@@ -12674,7 +12674,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): AxiosPromise<void> {
-            return ModelsApiFp(configuration).patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, options)(axios, basePath);
         },
         /**
          * Replace a Model.
@@ -12685,7 +12685,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, options?: any): AxiosPromise<ModelOut> {
-            return ModelsApiFp(configuration).replaceModelV1ModelsModelIdPut(modelId, modelIn, options).then((request) => request(axios, basePath));
+            return ModelsApiFp(configuration).replaceModelV1ModelsModelIdPut(modelId, modelIn, options)(axios, basePath);
         },
     };
 };
@@ -12707,7 +12707,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) {
-        return ModelsApiFp(this.configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12720,7 +12720,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any) {
-        return ModelsApiFp(this.configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12733,7 +12733,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any) {
-        return ModelsApiFp(this.configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12746,7 +12746,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any) {
-        return ModelsApiFp(this.configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12758,7 +12758,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public deleteModelV1ModelsModelIdDelete(modelId: string, options?: any) {
-        return ModelsApiFp(this.configuration).deleteModelV1ModelsModelIdDelete(modelId, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).deleteModelV1ModelsModelIdDelete(modelId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12771,7 +12771,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any) {
-        return ModelsApiFp(this.configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12783,7 +12783,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public getModelV1ModelsModelIdGet(modelId: string, options?: any) {
-        return ModelsApiFp(this.configuration).getModelV1ModelsModelIdGet(modelId, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).getModelV1ModelsModelIdGet(modelId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12802,7 +12802,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', options?: any) {
-        return ModelsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12820,7 +12820,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12838,7 +12838,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return ModelsApiFp(this.configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12857,7 +12857,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return ModelsApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12870,7 +12870,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any) {
-        return ModelsApiFp(this.configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12883,7 +12883,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any) {
-        return ModelsApiFp(this.configuration).patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, options)(this.axios, this.basePath);
     }
 
     /**
@@ -12896,7 +12896,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, options?: any) {
-        return ModelsApiFp(this.configuration).replaceModelV1ModelsModelIdPut(modelId, modelIn, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).replaceModelV1ModelsModelIdPut(modelId, modelIn, options)(this.axios, this.basePath);
     }
 
 }
@@ -12916,7 +12916,7 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: async (datasetId: string, populationAttributeValueId: string, options: any = {}): Promise<RequestArgs> => {
+        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut.');
@@ -12940,8 +12940,8 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -12974,7 +12974,7 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete: async (populationAttributeValueId: string, options: any = {}): Promise<RequestArgs> => {
+        deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId: string, options: any = {}): RequestArgs {
             // verify required parameter 'populationAttributeValueId' is not null or undefined
             if (populationAttributeValueId === null || populationAttributeValueId === undefined) {
                 throw new RequiredError('populationAttributeValueId','Required parameter populationAttributeValueId was null or undefined when calling deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete.');
@@ -12993,8 +12993,8 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13027,7 +13027,7 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: async (datasetId: string, options: any = {}): Promise<RequestArgs> => {
+        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet.');
@@ -13046,8 +13046,8 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13080,7 +13080,7 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet: async (populationAttributeValueId: string, options: any = {}): Promise<RequestArgs> => {
+        getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId: string, options: any = {}): RequestArgs {
             // verify required parameter 'populationAttributeValueId' is not null or undefined
             if (populationAttributeValueId === null || populationAttributeValueId === undefined) {
                 throw new RequiredError('populationAttributeValueId','Required parameter populationAttributeValueId was null or undefined when calling getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet.');
@@ -13099,8 +13099,8 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13139,7 +13139,7 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributeValuesV1PopulationAttributeValuesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/population_attribute_values`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13153,8 +13153,8 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13216,7 +13216,7 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: async (datasetId: string, populationAttributeValueId: string, options: any = {}): Promise<RequestArgs> => {
+        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options: any = {}): RequestArgs {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete.');
@@ -13240,8 +13240,8 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13284,8 +13284,8 @@ export const PopulationAttributeValuesApiFp = function(configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await PopulationAttributeValuesApiAxiosParamCreator(configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options);
+        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = PopulationAttributeValuesApiAxiosParamCreator(configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13298,8 +13298,8 @@ export const PopulationAttributeValuesApiFp = function(configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await PopulationAttributeValuesApiAxiosParamCreator(configuration).deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, options);
+        deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = PopulationAttributeValuesApiAxiosParamCreator(configuration).deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13312,8 +13312,8 @@ export const PopulationAttributeValuesApiFp = function(configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>> {
-            const localVarAxiosArgs = await PopulationAttributeValuesApiAxiosParamCreator(configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options);
+        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>> {
+            const localVarAxiosArgs = PopulationAttributeValuesApiAxiosParamCreator(configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13326,8 +13326,8 @@ export const PopulationAttributeValuesApiFp = function(configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>> {
-            const localVarAxiosArgs = await PopulationAttributeValuesApiAxiosParamCreator(configuration).getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, options);
+        getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut> {
+            const localVarAxiosArgs = PopulationAttributeValuesApiAxiosParamCreator(configuration).getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13346,8 +13346,8 @@ export const PopulationAttributeValuesApiFp = function(configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>> {
-            const localVarAxiosArgs = await PopulationAttributeValuesApiAxiosParamCreator(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut> {
+            const localVarAxiosArgs = PopulationAttributeValuesApiAxiosParamCreator(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13361,8 +13361,8 @@ export const PopulationAttributeValuesApiFp = function(configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await PopulationAttributeValuesApiAxiosParamCreator(configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options);
+        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = PopulationAttributeValuesApiAxiosParamCreator(configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13386,7 +13386,7 @@ export const PopulationAttributeValuesApiFactory = function (configuration?: Con
          * @throws {RequiredError}
          */
         addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void> {
-            return PopulationAttributeValuesApiFp(configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options).then((request) => request(axios, basePath));
+            return PopulationAttributeValuesApiFp(configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options)(axios, basePath);
         },
         /**
          * Delete population attribute value.
@@ -13396,7 +13396,7 @@ export const PopulationAttributeValuesApiFactory = function (configuration?: Con
          * @throws {RequiredError}
          */
         deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId: string, options?: any): AxiosPromise<void> {
-            return PopulationAttributeValuesApiFp(configuration).deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, options).then((request) => request(axios, basePath));
+            return PopulationAttributeValuesApiFp(configuration).deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, options)(axios, basePath);
         },
         /**
          * Fetch all population attribute values of the dataset.
@@ -13406,7 +13406,7 @@ export const PopulationAttributeValuesApiFactory = function (configuration?: Con
          * @throws {RequiredError}
          */
         fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>> {
-            return PopulationAttributeValuesApiFp(configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options).then((request) => request(axios, basePath));
+            return PopulationAttributeValuesApiFp(configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options)(axios, basePath);
         },
         /**
          * Get population attribute value.
@@ -13416,7 +13416,7 @@ export const PopulationAttributeValuesApiFactory = function (configuration?: Con
          * @throws {RequiredError}
          */
         getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId: string, options?: any): AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut> {
-            return PopulationAttributeValuesApiFp(configuration).getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, options).then((request) => request(axios, basePath));
+            return PopulationAttributeValuesApiFp(configuration).getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, options)(axios, basePath);
         },
         /**
          * List population attribute values.
@@ -13432,7 +13432,7 @@ export const PopulationAttributeValuesApiFactory = function (configuration?: Con
          * @throws {RequiredError}
          */
         listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<PopulationAttributeValuePaginationOut> {
-            return PopulationAttributeValuesApiFp(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return PopulationAttributeValuesApiFp(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Remove a population attribute value from a dataset.
@@ -13443,7 +13443,7 @@ export const PopulationAttributeValuesApiFactory = function (configuration?: Con
          * @throws {RequiredError}
          */
         removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void> {
-            return PopulationAttributeValuesApiFp(configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options).then((request) => request(axios, basePath));
+            return PopulationAttributeValuesApiFp(configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options)(axios, basePath);
         },
     };
 };
@@ -13465,7 +13465,7 @@ export class PopulationAttributeValuesApi extends BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     public addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any) {
-        return PopulationAttributeValuesApiFp(this.configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributeValuesApiFp(this.configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -13477,7 +13477,7 @@ export class PopulationAttributeValuesApi extends BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     public deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId: string, options?: any) {
-        return PopulationAttributeValuesApiFp(this.configuration).deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributeValuesApiFp(this.configuration).deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -13489,7 +13489,7 @@ export class PopulationAttributeValuesApi extends BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     public fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any) {
-        return PopulationAttributeValuesApiFp(this.configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributeValuesApiFp(this.configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -13501,7 +13501,7 @@ export class PopulationAttributeValuesApi extends BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     public getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId: string, options?: any) {
-        return PopulationAttributeValuesApiFp(this.configuration).getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributeValuesApiFp(this.configuration).getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -13519,7 +13519,7 @@ export class PopulationAttributeValuesApi extends BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     public listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return PopulationAttributeValuesApiFp(this.configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributeValuesApiFp(this.configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -13532,7 +13532,7 @@ export class PopulationAttributeValuesApi extends BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     public removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any) {
-        return PopulationAttributeValuesApiFp(this.configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributeValuesApiFp(this.configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options)(this.axios, this.basePath);
     }
 
 }
@@ -13551,7 +13551,7 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createPopulationAttributeV1PopulationAttributesPost: async (populationAttributeIn: PopulationAttributeIn, options: any = {}): Promise<RequestArgs> => {
+        createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn: PopulationAttributeIn, options: any = {}): RequestArgs {
             // verify required parameter 'populationAttributeIn' is not null or undefined
             if (populationAttributeIn === null || populationAttributeIn === undefined) {
                 throw new RequiredError('populationAttributeIn','Required parameter populationAttributeIn was null or undefined when calling createPopulationAttributeV1PopulationAttributesPost.');
@@ -13569,8 +13569,8 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13608,7 +13608,7 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost: async (populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, options: any = {}): Promise<RequestArgs> => {
+        createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, options: any = {}): RequestArgs {
             // verify required parameter 'populationAttributeId' is not null or undefined
             if (populationAttributeId === null || populationAttributeId === undefined) {
                 throw new RequiredError('populationAttributeId','Required parameter populationAttributeId was null or undefined when calling createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost.');
@@ -13631,8 +13631,8 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13669,7 +13669,7 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete: async (populationAttributeId: string, options: any = {}): Promise<RequestArgs> => {
+        deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId: string, options: any = {}): RequestArgs {
             // verify required parameter 'populationAttributeId' is not null or undefined
             if (populationAttributeId === null || populationAttributeId === undefined) {
                 throw new RequiredError('populationAttributeId','Required parameter populationAttributeId was null or undefined when calling deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete.');
@@ -13688,8 +13688,8 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13722,7 +13722,7 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet: async (populationAttributeId: string, options: any = {}): Promise<RequestArgs> => {
+        getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId: string, options: any = {}): RequestArgs {
             // verify required parameter 'populationAttributeId' is not null or undefined
             if (populationAttributeId === null || populationAttributeId === undefined) {
                 throw new RequiredError('populationAttributeId','Required parameter populationAttributeId was null or undefined when calling getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet.');
@@ -13741,8 +13741,8 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13782,7 +13782,7 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: async (populationAttributeId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'populationAttributeId' is not null or undefined
             if (populationAttributeId === null || populationAttributeId === undefined) {
                 throw new RequiredError('populationAttributeId','Required parameter populationAttributeId was null or undefined when calling listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet.');
@@ -13801,8 +13801,8 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13869,7 +13869,7 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributesV1PopulationAttributesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listPopulationAttributesV1PopulationAttributesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/population_attributes`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13883,8 +13883,8 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -13954,8 +13954,8 @@ export const PopulationAttributesApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn: PopulationAttributeIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeOut>> {
-            const localVarAxiosArgs = await PopulationAttributesApiAxiosParamCreator(configuration).createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn, options);
+        createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn: PopulationAttributeIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeOut> {
+            const localVarAxiosArgs = PopulationAttributesApiAxiosParamCreator(configuration).createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13969,8 +13969,8 @@ export const PopulationAttributesApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>> {
-            const localVarAxiosArgs = await PopulationAttributesApiAxiosParamCreator(configuration).createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options);
+        createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut> {
+            const localVarAxiosArgs = PopulationAttributesApiAxiosParamCreator(configuration).createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13983,8 +13983,8 @@ export const PopulationAttributesApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await PopulationAttributesApiAxiosParamCreator(configuration).deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, options);
+        deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = PopulationAttributesApiAxiosParamCreator(configuration).deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13997,8 +13997,8 @@ export const PopulationAttributesApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeOut>> {
-            const localVarAxiosArgs = await PopulationAttributesApiAxiosParamCreator(configuration).getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, options);
+        getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeOut> {
+            const localVarAxiosArgs = PopulationAttributesApiAxiosParamCreator(configuration).getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14018,8 +14018,8 @@ export const PopulationAttributesApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>> {
-            const localVarAxiosArgs = await PopulationAttributesApiAxiosParamCreator(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut> {
+            const localVarAxiosArgs = PopulationAttributesApiAxiosParamCreator(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14038,8 +14038,8 @@ export const PopulationAttributesApiFp = function(configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listPopulationAttributesV1PopulationAttributesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributePaginationOut>> {
-            const localVarAxiosArgs = await PopulationAttributesApiAxiosParamCreator(configuration).listPopulationAttributesV1PopulationAttributesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listPopulationAttributesV1PopulationAttributesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributePaginationOut> {
+            const localVarAxiosArgs = PopulationAttributesApiAxiosParamCreator(configuration).listPopulationAttributesV1PopulationAttributesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14062,7 +14062,7 @@ export const PopulationAttributesApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn: PopulationAttributeIn, options?: any): AxiosPromise<PopulationAttributeOut> {
-            return PopulationAttributesApiFp(configuration).createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn, options).then((request) => request(axios, basePath));
+            return PopulationAttributesApiFp(configuration).createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn, options)(axios, basePath);
         },
         /**
          * Create a population attribute value.
@@ -14073,7 +14073,7 @@ export const PopulationAttributesApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, options?: any): AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut> {
-            return PopulationAttributesApiFp(configuration).createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options).then((request) => request(axios, basePath));
+            return PopulationAttributesApiFp(configuration).createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options)(axios, basePath);
         },
         /**
          * Delete population attribute.
@@ -14083,7 +14083,7 @@ export const PopulationAttributesApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId: string, options?: any): AxiosPromise<void> {
-            return PopulationAttributesApiFp(configuration).deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, options).then((request) => request(axios, basePath));
+            return PopulationAttributesApiFp(configuration).deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, options)(axios, basePath);
         },
         /**
          * Get population attribute.
@@ -14093,7 +14093,7 @@ export const PopulationAttributesApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId: string, options?: any): AxiosPromise<PopulationAttributeOut> {
-            return PopulationAttributesApiFp(configuration).getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, options).then((request) => request(axios, basePath));
+            return PopulationAttributesApiFp(configuration).getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, options)(axios, basePath);
         },
         /**
          * List a population attribute\'s values.
@@ -14110,7 +14110,7 @@ export const PopulationAttributesApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<PopulationAttributeValuePaginationOut> {
-            return PopulationAttributesApiFp(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return PopulationAttributesApiFp(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List population attributes.
@@ -14126,7 +14126,7 @@ export const PopulationAttributesApiFactory = function (configuration?: Configur
          * @throws {RequiredError}
          */
         listPopulationAttributesV1PopulationAttributesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<PopulationAttributePaginationOut> {
-            return PopulationAttributesApiFp(configuration).listPopulationAttributesV1PopulationAttributesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return PopulationAttributesApiFp(configuration).listPopulationAttributesV1PopulationAttributesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
     };
 };
@@ -14147,7 +14147,7 @@ export class PopulationAttributesApi extends BaseAPI {
      * @memberof PopulationAttributesApi
      */
     public createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn: PopulationAttributeIn, options?: any) {
-        return PopulationAttributesApiFp(this.configuration).createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributesApiFp(this.configuration).createPopulationAttributeV1PopulationAttributesPost(populationAttributeIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -14160,7 +14160,7 @@ export class PopulationAttributesApi extends BaseAPI {
      * @memberof PopulationAttributesApi
      */
     public createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, options?: any) {
-        return PopulationAttributesApiFp(this.configuration).createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributesApiFp(this.configuration).createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -14172,7 +14172,7 @@ export class PopulationAttributesApi extends BaseAPI {
      * @memberof PopulationAttributesApi
      */
     public deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId: string, options?: any) {
-        return PopulationAttributesApiFp(this.configuration).deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributesApiFp(this.configuration).deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -14184,7 +14184,7 @@ export class PopulationAttributesApi extends BaseAPI {
      * @memberof PopulationAttributesApi
      */
     public getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId: string, options?: any) {
-        return PopulationAttributesApiFp(this.configuration).getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributesApiFp(this.configuration).getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -14203,7 +14203,7 @@ export class PopulationAttributesApi extends BaseAPI {
      * @memberof PopulationAttributesApi
      */
     public listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return PopulationAttributesApiFp(this.configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributesApiFp(this.configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -14221,7 +14221,7 @@ export class PopulationAttributesApi extends BaseAPI {
      * @memberof PopulationAttributesApi
      */
     public listPopulationAttributesV1PopulationAttributesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return PopulationAttributesApiFp(this.configuration).listPopulationAttributesV1PopulationAttributesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return PopulationAttributesApiFp(this.configuration).listPopulationAttributesV1PopulationAttributesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
 }
@@ -14241,7 +14241,7 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createModelsV1StudiesStudyIdModelsPost: async (studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options: any = {}): Promise<RequestArgs> => {
+        createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options: any = {}): RequestArgs {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new RequiredError('studyId','Required parameter studyId was null or undefined when calling createModelsV1StudiesStudyIdModelsPost.');
@@ -14264,8 +14264,8 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -14302,7 +14302,7 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteStudyV1StudiesStudyIdDelete: async (studyId: string, options: any = {}): Promise<RequestArgs> => {
+        deleteStudyV1StudiesStudyIdDelete(studyId: string, options: any = {}): RequestArgs {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new RequiredError('studyId','Required parameter studyId was null or undefined when calling deleteStudyV1StudiesStudyIdDelete.');
@@ -14321,8 +14321,8 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -14355,7 +14355,7 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyV1StudiesStudyIdGet: async (studyId: string, options: any = {}): Promise<RequestArgs> => {
+        getStudyV1StudiesStudyIdGet(studyId: string, options: any = {}): RequestArgs {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new RequiredError('studyId','Required parameter studyId was null or undefined when calling getStudyV1StudiesStudyIdGet.');
@@ -14374,8 +14374,8 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -14414,7 +14414,7 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -14428,8 +14428,8 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -14496,7 +14496,7 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listStudiesV1StudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -14510,8 +14510,8 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -14579,7 +14579,7 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserStudiesV1UsersUserIdStudiesGet.');
@@ -14598,8 +14598,8 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -14661,7 +14661,7 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchStudyV1StudiesStudyIdPatch: async (studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options: any = {}): Promise<RequestArgs> => {
+        patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options: any = {}): RequestArgs {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new RequiredError('studyId','Required parameter studyId was null or undefined when calling patchStudyV1StudiesStudyIdPatch.');
@@ -14684,8 +14684,8 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -14732,8 +14732,8 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>> {
-            const localVarAxiosArgs = await StudiesApiAxiosParamCreator(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options);
+        createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>> {
+            const localVarAxiosArgs = StudiesApiAxiosParamCreator(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14746,8 +14746,8 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteStudyV1StudiesStudyIdDelete(studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await StudiesApiAxiosParamCreator(configuration).deleteStudyV1StudiesStudyIdDelete(studyId, options);
+        deleteStudyV1StudiesStudyIdDelete(studyId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = StudiesApiAxiosParamCreator(configuration).deleteStudyV1StudiesStudyIdDelete(studyId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14760,8 +14760,8 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStudyV1StudiesStudyIdGet(studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>> {
-            const localVarAxiosArgs = await StudiesApiAxiosParamCreator(configuration).getStudyV1StudiesStudyIdGet(studyId, options);
+        getStudyV1StudiesStudyIdGet(studyId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut> {
+            const localVarAxiosArgs = StudiesApiAxiosParamCreator(configuration).getStudyV1StudiesStudyIdGet(studyId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14780,8 +14780,8 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
-            const localVarAxiosArgs = await StudiesApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut> {
+            const localVarAxiosArgs = StudiesApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14800,8 +14800,8 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listStudiesV1StudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
-            const localVarAxiosArgs = await StudiesApiAxiosParamCreator(configuration).listStudiesV1StudiesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listStudiesV1StudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut> {
+            const localVarAxiosArgs = StudiesApiAxiosParamCreator(configuration).listStudiesV1StudiesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14821,8 +14821,8 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
-            const localVarAxiosArgs = await StudiesApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut> {
+            const localVarAxiosArgs = StudiesApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14836,8 +14836,8 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await StudiesApiAxiosParamCreator(configuration).patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options);
+        patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = StudiesApiAxiosParamCreator(configuration).patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14861,7 +14861,7 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any): AxiosPromise<Array<ModelOut>> {
-            return StudiesApiFp(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options).then((request) => request(axios, basePath));
+            return StudiesApiFp(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options)(axios, basePath);
         },
         /**
          * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
@@ -14871,7 +14871,7 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         deleteStudyV1StudiesStudyIdDelete(studyId: string, options?: any): AxiosPromise<void> {
-            return StudiesApiFp(configuration).deleteStudyV1StudiesStudyIdDelete(studyId, options).then((request) => request(axios, basePath));
+            return StudiesApiFp(configuration).deleteStudyV1StudiesStudyIdDelete(studyId, options)(axios, basePath);
         },
         /**
          * Get Study.
@@ -14881,7 +14881,7 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         getStudyV1StudiesStudyIdGet(studyId: string, options?: any): AxiosPromise<StudyOut> {
-            return StudiesApiFp(configuration).getStudyV1StudiesStudyIdGet(studyId, options).then((request) => request(axios, basePath));
+            return StudiesApiFp(configuration).getStudyV1StudiesStudyIdGet(studyId, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s studies.
@@ -14897,7 +14897,7 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<StudyPaginationOut> {
-            return StudiesApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return StudiesApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List Studies.
@@ -14913,7 +14913,7 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         listStudiesV1StudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<StudyPaginationOut> {
-            return StudiesApiFp(configuration).listStudiesV1StudiesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return StudiesApiFp(configuration).listStudiesV1StudiesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a user\'s studies.
@@ -14930,7 +14930,7 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<StudyPaginationOut> {
-            return StudiesApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return StudiesApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Modify Study resource with partial update.
@@ -14941,7 +14941,7 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          * @throws {RequiredError}
          */
         patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): AxiosPromise<void> {
-            return StudiesApiFp(configuration).patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options).then((request) => request(axios, basePath));
+            return StudiesApiFp(configuration).patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options)(axios, basePath);
         },
     };
 };
@@ -14963,7 +14963,7 @@ export class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     public createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any) {
-        return StudiesApiFp(this.configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -14975,7 +14975,7 @@ export class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     public deleteStudyV1StudiesStudyIdDelete(studyId: string, options?: any) {
-        return StudiesApiFp(this.configuration).deleteStudyV1StudiesStudyIdDelete(studyId, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).deleteStudyV1StudiesStudyIdDelete(studyId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -14987,7 +14987,7 @@ export class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     public getStudyV1StudiesStudyIdGet(studyId: string, options?: any) {
-        return StudiesApiFp(this.configuration).getStudyV1StudiesStudyIdGet(studyId, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).getStudyV1StudiesStudyIdGet(studyId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -15005,7 +15005,7 @@ export class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     public listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -15023,7 +15023,7 @@ export class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     public listStudiesV1StudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return StudiesApiFp(this.configuration).listStudiesV1StudiesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).listStudiesV1StudiesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -15042,7 +15042,7 @@ export class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     public listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return StudiesApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -15055,7 +15055,7 @@ export class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     public patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any) {
-        return StudiesApiFp(this.configuration).patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options)(this.axios, this.basePath);
     }
 
 }
@@ -15086,7 +15086,7 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: async (conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'conceptId' is not null or undefined
             if (conceptId === null || conceptId === undefined) {
                 throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet.');
@@ -15105,8 +15105,8 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -15204,7 +15204,7 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: async (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'featureId' is not null or undefined
             if (featureId === null || featureId === undefined) {
                 throw new RequiredError('featureId','Required parameter featureId was null or undefined when calling listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet.');
@@ -15223,8 +15223,8 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -15342,7 +15342,7 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet.');
@@ -15361,8 +15361,8 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -15475,7 +15475,7 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet.');
@@ -15494,8 +15494,8 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -15597,8 +15597,8 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
-            const localVarAxiosArgs = await SystemApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut> {
+            const localVarAxiosArgs = SystemApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15628,8 +15628,8 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>> {
-            const localVarAxiosArgs = await SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut> {
+            const localVarAxiosArgs = SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15659,8 +15659,8 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>> {
-            const localVarAxiosArgs = await SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut> {
+            const localVarAxiosArgs = SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15685,8 +15685,8 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>> {
-            const localVarAxiosArgs = await SystemApiAxiosParamCreator(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut> {
+            const localVarAxiosArgs = SystemApiAxiosParamCreator(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15721,7 +15721,7 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
-            return SystemApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
+            return SystemApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options)(axios, basePath);
         },
         /**
          * Get the features in the requested feature\'s system.
@@ -15748,7 +15748,7 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut> {
-            return SystemApiFp(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
+            return SystemApiFp(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options)(axios, basePath);
         },
         /**
          * Get the features in the requested variable\'s system.
@@ -15775,7 +15775,7 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut> {
-            return SystemApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
+            return SystemApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options)(axios, basePath);
         },
         /**
          * Get the variables in the requested variable\'s system.
@@ -15797,7 +15797,7 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @throws {RequiredError}
          */
         listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut> {
-            return SystemApiFp(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
+            return SystemApiFp(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options)(axios, basePath);
         },
     };
 };
@@ -15830,7 +15830,7 @@ export class SystemApi extends BaseAPI {
      * @memberof SystemApi
      */
     public listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any) {
-        return SystemApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(this.axios, this.basePath));
+        return SystemApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options)(this.axios, this.basePath);
     }
 
     /**
@@ -15859,7 +15859,7 @@ export class SystemApi extends BaseAPI {
      * @memberof SystemApi
      */
     public listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any) {
-        return SystemApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(this.axios, this.basePath));
+        return SystemApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options)(this.axios, this.basePath);
     }
 
     /**
@@ -15888,7 +15888,7 @@ export class SystemApi extends BaseAPI {
      * @memberof SystemApi
      */
     public listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any) {
-        return SystemApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(this.axios, this.basePath));
+        return SystemApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options)(this.axios, this.basePath);
     }
 
     /**
@@ -15912,7 +15912,7 @@ export class SystemApi extends BaseAPI {
      * @memberof SystemApi
      */
     public listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any) {
-        return SystemApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(this.axios, this.basePath));
+        return SystemApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options)(this.axios, this.basePath);
     }
 
 }
@@ -15933,7 +15933,7 @@ export const TimelineApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGlobalTimelineV1TimelineGet: async (types?: Array<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        fetchGlobalTimelineV1TimelineGet(types?: Array<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options: any = {}): RequestArgs {
             const localVarPath = `/v1/timeline`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -15947,8 +15947,8 @@ export const TimelineApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16004,8 +16004,8 @@ export const TimelineApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchGlobalTimelineV1TimelineGet(types?: Array<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TimelinePaginationOut>> {
-            const localVarAxiosArgs = await TimelineApiAxiosParamCreator(configuration).fetchGlobalTimelineV1TimelineGet(types, cursor, limit, options);
+        fetchGlobalTimelineV1TimelineGet(types?: Array<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<TimelinePaginationOut> {
+            const localVarAxiosArgs = TimelineApiAxiosParamCreator(configuration).fetchGlobalTimelineV1TimelineGet(types, cursor, limit, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -16030,7 +16030,7 @@ export const TimelineApiFactory = function (configuration?: Configuration, baseP
          * @throws {RequiredError}
          */
         fetchGlobalTimelineV1TimelineGet(types?: Array<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options?: any): AxiosPromise<TimelinePaginationOut> {
-            return TimelineApiFp(configuration).fetchGlobalTimelineV1TimelineGet(types, cursor, limit, options).then((request) => request(axios, basePath));
+            return TimelineApiFp(configuration).fetchGlobalTimelineV1TimelineGet(types, cursor, limit, options)(axios, basePath);
         },
     };
 };
@@ -16053,7 +16053,7 @@ export class TimelineApi extends BaseAPI {
      * @memberof TimelineApi
      */
     public fetchGlobalTimelineV1TimelineGet(types?: Array<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options?: any) {
-        return TimelineApiFp(this.configuration).fetchGlobalTimelineV1TimelineGet(types, cursor, limit, options).then((request) => request(this.axios, this.basePath));
+        return TimelineApiFp(this.configuration).fetchGlobalTimelineV1TimelineGet(types, cursor, limit, options)(this.axios, this.basePath);
     }
 
 }
@@ -16072,7 +16072,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserV1UserPost: async (userProfileIn: UserProfileIn, options: any = {}): Promise<RequestArgs> => {
+        createAUserV1UserPost(userProfileIn: UserProfileIn, options: any = {}): RequestArgs {
             // verify required parameter 'userProfileIn' is not null or undefined
             if (userProfileIn === null || userProfileIn === undefined) {
                 throw new RequiredError('userProfileIn','Required parameter userProfileIn was null or undefined when calling createAUserV1UserPost.');
@@ -16090,8 +16090,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16128,7 +16128,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet: async (includeAvatar?: boolean, options: any = {}): Promise<RequestArgs> => {
+        getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options: any = {}): RequestArgs {
             const localVarPath = `/v1/user`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16142,8 +16142,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16181,7 +16181,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserV1UsersUserIdGet: async (userId: string, includeAvatar?: boolean, options: any = {}): Promise<RequestArgs> => {
+        getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling getUserV1UsersUserIdGet.');
@@ -16200,8 +16200,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16244,7 +16244,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16258,8 +16258,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16326,7 +16326,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16340,8 +16340,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16408,7 +16408,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/features`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16422,8 +16422,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16490,7 +16490,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16504,8 +16504,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16572,7 +16572,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16586,8 +16586,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16654,7 +16654,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16668,8 +16668,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16737,7 +16737,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserConceptsV1UsersUserIdConceptsGet.');
@@ -16756,8 +16756,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16825,7 +16825,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserDatasetsV1UsersUserIdDatasetsGet.');
@@ -16844,8 +16844,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -16913,7 +16913,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserFeaturesV1UsersUserIdFeaturesGet.');
@@ -16932,8 +16932,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -17001,7 +17001,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserModelsV1UsersUserIdModelsGet.');
@@ -17020,8 +17020,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -17089,7 +17089,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserStudiesV1UsersUserIdStudiesGet.');
@@ -17108,8 +17108,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -17177,7 +17177,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserVariablesV1UsersUserIdVariablesGet.');
@@ -17196,8 +17196,8 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -17267,8 +17267,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAUserV1UserPost(userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).createAUserV1UserPost(userProfileIn, options);
+        createAUserV1UserPost(userProfileIn: UserProfileIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).createAUserV1UserPost(userProfileIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17281,8 +17281,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).getAuthenticatedUserV1UserGet(includeAvatar, options);
+        getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).getAuthenticatedUserV1UserGet(includeAvatar, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17296,8 +17296,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).getUserV1UsersUserIdGet(userId, includeAvatar, options);
+        getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).getUserV1UsersUserIdGet(userId, includeAvatar, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17316,8 +17316,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17336,8 +17336,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17356,8 +17356,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17376,8 +17376,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17396,8 +17396,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17416,8 +17416,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17437,8 +17437,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17458,8 +17458,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17479,8 +17479,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17500,8 +17500,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17521,8 +17521,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17542,8 +17542,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut> {
+            const localVarAxiosArgs = UsersApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17566,7 +17566,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         createAUserV1UserPost(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
-            return UsersApiFp(configuration).createAUserV1UserPost(userProfileIn, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).createAUserV1UserPost(userProfileIn, options)(axios, basePath);
         },
         /**
          * Fetch the authenticated user\'s profile.
@@ -17576,7 +17576,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut> {
-            return UsersApiFp(configuration).getAuthenticatedUserV1UserGet(includeAvatar, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).getAuthenticatedUserV1UserGet(includeAvatar, options)(axios, basePath);
         },
         /**
          * Fetch a single user\'s public profile.
@@ -17587,7 +17587,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPublicProfileOut> {
-            return UsersApiFp(configuration).getUserV1UsersUserIdGet(userId, includeAvatar, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).getUserV1UsersUserIdGet(userId, includeAvatar, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s concepts.
@@ -17603,7 +17603,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ConceptPaginationOut> {
-            return UsersApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s datasets.
@@ -17619,7 +17619,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<DatasetPaginationOut> {
-            return UsersApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s features.
@@ -17635,7 +17635,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<FeaturePaginationOut> {
-            return UsersApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s models.
@@ -17651,7 +17651,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return UsersApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s studies.
@@ -17667,7 +17667,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<StudyPaginationOut> {
-            return UsersApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s variables.
@@ -17683,7 +17683,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<VariablePaginationOut> {
-            return UsersApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a user\'s concepts.
@@ -17700,7 +17700,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ConceptPaginationOut> {
-            return UsersApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a user\'s datasets.
@@ -17717,7 +17717,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<DatasetPaginationOut> {
-            return UsersApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a user\'s features.
@@ -17734,7 +17734,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<FeaturePaginationOut> {
-            return UsersApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a user\'s models.
@@ -17751,7 +17751,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return UsersApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a user\'s studies.
@@ -17768,7 +17768,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<StudyPaginationOut> {
-            return UsersApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List a user\'s variables.
@@ -17785,7 +17785,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @throws {RequiredError}
          */
         listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<VariablePaginationOut> {
-            return UsersApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return UsersApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
     };
 };
@@ -17806,7 +17806,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public createAUserV1UserPost(userProfileIn: UserProfileIn, options?: any) {
-        return UsersApiFp(this.configuration).createAUserV1UserPost(userProfileIn, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).createAUserV1UserPost(userProfileIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17818,7 +17818,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: any) {
-        return UsersApiFp(this.configuration).getAuthenticatedUserV1UserGet(includeAvatar, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).getAuthenticatedUserV1UserGet(includeAvatar, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17831,7 +17831,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: any) {
-        return UsersApiFp(this.configuration).getUserV1UsersUserIdGet(userId, includeAvatar, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).getUserV1UsersUserIdGet(userId, includeAvatar, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17849,7 +17849,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17867,7 +17867,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17885,7 +17885,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17903,7 +17903,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17921,7 +17921,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17939,7 +17939,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17958,7 +17958,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17977,7 +17977,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -17996,7 +17996,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -18015,7 +18015,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -18034,7 +18034,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -18053,7 +18053,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
 }
@@ -18072,7 +18072,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAVariableV1VariablesPost: async (variableIn: VariableIn, options: any = {}): Promise<RequestArgs> => {
+        createAVariableV1VariablesPost(variableIn: VariableIn, options: any = {}): RequestArgs {
             // verify required parameter 'variableIn' is not null or undefined
             if (variableIn === null || variableIn === undefined) {
                 throw new RequiredError('variableIn','Required parameter variableIn was null or undefined when calling createAVariableV1VariablesPost.');
@@ -18090,8 +18090,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -18128,7 +18128,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteVariableV1VariablesVariableIdDelete: async (variableId: string, options: any = {}): Promise<RequestArgs> => {
+        deleteVariableV1VariablesVariableIdDelete(variableId: string, options: any = {}): RequestArgs {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling deleteVariableV1VariablesVariableIdDelete.');
@@ -18147,8 +18147,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -18181,7 +18181,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariableV1VariablesVariableIdGet: async (variableId: string, options: any = {}): Promise<RequestArgs> => {
+        getVariableV1VariablesVariableIdGet(variableId: string, options: any = {}): RequestArgs {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling getVariableV1VariablesVariableIdGet.');
@@ -18200,8 +18200,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -18240,7 +18240,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/user/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -18254,8 +18254,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -18333,7 +18333,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet.');
@@ -18352,8 +18352,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -18466,7 +18466,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): RequestArgs {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet.');
@@ -18485,8 +18485,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -18574,7 +18574,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserVariablesV1UsersUserIdVariablesGet.');
@@ -18593,8 +18593,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -18661,7 +18661,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listVariablesV1VariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): RequestArgs {
             const localVarPath = `/v1/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -18675,8 +18675,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -18738,7 +18738,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchVariableV1VariablesVariableIdPatch: async (variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options: any = {}): Promise<RequestArgs> => {
+        patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options: any = {}): RequestArgs {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling patchVariableV1VariablesVariableIdPatch.');
@@ -18761,8 +18761,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
             // authentication APIKeyHeader required
             if (configuration && configuration.apiKey) {
                 const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("x-api-key")
-                    : await configuration.apiKey;
+                    ? configuration.apiKey("x-api-key")
+                    : configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
 
@@ -18808,8 +18808,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAVariableV1VariablesPost(variableIn: VariableIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>> {
-            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).createAVariableV1VariablesPost(variableIn, options);
+        createAVariableV1VariablesPost(variableIn: VariableIn, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut> {
+            const localVarAxiosArgs = VariablesApiAxiosParamCreator(configuration).createAVariableV1VariablesPost(variableIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18822,8 +18822,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteVariableV1VariablesVariableIdDelete(variableId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).deleteVariableV1VariablesVariableIdDelete(variableId, options);
+        deleteVariableV1VariablesVariableIdDelete(variableId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = VariablesApiAxiosParamCreator(configuration).deleteVariableV1VariablesVariableIdDelete(variableId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18836,8 +18836,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getVariableV1VariablesVariableIdGet(variableId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>> {
-            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).getVariableV1VariablesVariableIdGet(variableId, options);
+        getVariableV1VariablesVariableIdGet(variableId: string, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut> {
+            const localVarAxiosArgs = VariablesApiAxiosParamCreator(configuration).getVariableV1VariablesVariableIdGet(variableId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18856,8 +18856,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
-            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut> {
+            const localVarAxiosArgs = VariablesApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18887,8 +18887,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>> {
-            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut> {
+            const localVarAxiosArgs = VariablesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18913,8 +18913,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>> {
-            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut> {
+            const localVarAxiosArgs = VariablesApiAxiosParamCreator(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18934,8 +18934,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
-            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut> {
+            const localVarAxiosArgs = VariablesApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18954,8 +18954,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listVariablesV1VariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
-            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        listVariablesV1VariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut> {
+            const localVarAxiosArgs = VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(query, id, page, pageSize, total, orderBy, ordering, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18969,8 +18969,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, options);
+        patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options?: any): (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void> {
+            const localVarAxiosArgs = VariablesApiAxiosParamCreator(configuration).patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -18993,7 +18993,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         createAVariableV1VariablesPost(variableIn: VariableIn, options?: any): AxiosPromise<VariableOut> {
-            return VariablesApiFp(configuration).createAVariableV1VariablesPost(variableIn, options).then((request) => request(axios, basePath));
+            return VariablesApiFp(configuration).createAVariableV1VariablesPost(variableIn, options)(axios, basePath);
         },
         /**
          * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
@@ -19003,7 +19003,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         deleteVariableV1VariablesVariableIdDelete(variableId: string, options?: any): AxiosPromise<void> {
-            return VariablesApiFp(configuration).deleteVariableV1VariablesVariableIdDelete(variableId, options).then((request) => request(axios, basePath));
+            return VariablesApiFp(configuration).deleteVariableV1VariablesVariableIdDelete(variableId, options)(axios, basePath);
         },
         /**
          * Get Variable.
@@ -19013,7 +19013,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         getVariableV1VariablesVariableIdGet(variableId: string, options?: any): AxiosPromise<VariableOut> {
-            return VariablesApiFp(configuration).getVariableV1VariablesVariableIdGet(variableId, options).then((request) => request(axios, basePath));
+            return VariablesApiFp(configuration).getVariableV1VariablesVariableIdGet(variableId, options)(axios, basePath);
         },
         /**
          * List authenticated user\'s variables.
@@ -19029,7 +19029,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<VariablePaginationOut> {
-            return VariablesApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return VariablesApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Get the features in the requested variable\'s system.
@@ -19056,7 +19056,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut> {
-            return VariablesApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
+            return VariablesApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options)(axios, basePath);
         },
         /**
          * Get the variables in the requested variable\'s system.
@@ -19078,7 +19078,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut> {
-            return VariablesApiFp(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
+            return VariablesApiFp(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options)(axios, basePath);
         },
         /**
          * List a user\'s variables.
@@ -19095,7 +19095,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<VariablePaginationOut> {
-            return VariablesApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return VariablesApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * List Variables.
@@ -19111,7 +19111,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         listVariablesV1VariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<VariablePaginationOut> {
-            return VariablesApiFp(configuration).listVariablesV1VariablesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+            return VariablesApiFp(configuration).listVariablesV1VariablesGet(query, id, page, pageSize, total, orderBy, ordering, options)(axios, basePath);
         },
         /**
          * Modify Variable resource with partial update.
@@ -19122,7 +19122,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options?: any): AxiosPromise<void> {
-            return VariablesApiFp(configuration).patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, options).then((request) => request(axios, basePath));
+            return VariablesApiFp(configuration).patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, options)(axios, basePath);
         },
     };
 };
@@ -19143,7 +19143,7 @@ export class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     public createAVariableV1VariablesPost(variableIn: VariableIn, options?: any) {
-        return VariablesApiFp(this.configuration).createAVariableV1VariablesPost(variableIn, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).createAVariableV1VariablesPost(variableIn, options)(this.axios, this.basePath);
     }
 
     /**
@@ -19155,7 +19155,7 @@ export class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     public deleteVariableV1VariablesVariableIdDelete(variableId: string, options?: any) {
-        return VariablesApiFp(this.configuration).deleteVariableV1VariablesVariableIdDelete(variableId, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).deleteVariableV1VariablesVariableIdDelete(variableId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -19167,7 +19167,7 @@ export class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     public getVariableV1VariablesVariableIdGet(variableId: string, options?: any) {
-        return VariablesApiFp(this.configuration).getVariableV1VariablesVariableIdGet(variableId, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).getVariableV1VariablesVariableIdGet(variableId, options)(this.axios, this.basePath);
     }
 
     /**
@@ -19185,7 +19185,7 @@ export class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     public listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -19214,7 +19214,7 @@ export class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     public listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any) {
-        return VariablesApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options)(this.axios, this.basePath);
     }
 
     /**
@@ -19238,7 +19238,7 @@ export class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     public listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any) {
-        return VariablesApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options)(this.axios, this.basePath);
     }
 
     /**
@@ -19257,7 +19257,7 @@ export class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     public listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return VariablesApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -19275,7 +19275,7 @@ export class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     public listVariablesV1VariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any) {
-        return VariablesApiFp(this.configuration).listVariablesV1VariablesGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).listVariablesV1VariablesGet(query, id, page, pageSize, total, orderBy, ordering, options)(this.axios, this.basePath);
     }
 
     /**
@@ -19288,7 +19288,7 @@ export class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     public patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options?: any) {
-        return VariablesApiFp(this.configuration).patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, options)(this.axios, this.basePath);
     }
 
 }
