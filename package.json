@@ -1,6 +1,6 @@
 {
   "name": "typescript-system-api",
-  "version": "1.0.0",
+  "version": "v1",
   "description": "OpenAPI client for typescript-system-api",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [

@@ -8596,10 +8596,11 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: async (datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: async (datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling listModelsUsingDatasetV1DatasetsDatasetIdModelsGet.');
@@ -8658,6 +8659,10 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (ordering !== undefined) {
                 localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
             }
 
 
@@ -9186,11 +9191,12 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options);
+        async listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -9420,11 +9426,12 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return DatasetsApiFp(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return DatasetsApiFp(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s datasets.
@@ -9852,6 +9859,13 @@ export interface DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRe
      * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
      */
     readonly ordering?: 'asc' | 'desc'
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
+     */
+    readonly containsVariableId?: string
 }
 
 /**
@@ -10137,7 +10151,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters: DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRequest, options?: any) {
-        return DatasetsApiFp(this.configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters.datasetId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters.datasetId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -13344,10 +13358,11 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserModelsV1UserModelsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13403,6 +13418,10 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['ordering'] = ordering;
             }
 
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
 
     
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
@@ -13426,10 +13445,11 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listModelsV1ModelsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13485,6 +13505,10 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
                 localVarQueryParameter['ordering'] = ordering;
             }
 
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
 
     
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
@@ -13509,10 +13533,11 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserModelsV1UsersUserIdModelsGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserModelsV1UsersUserIdModelsGet.');
@@ -13571,6 +13596,10 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
 
             if (ordering !== undefined) {
                 localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
             }
 
 
@@ -13915,11 +13944,12 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        async listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13935,11 +13965,12 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        async listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13956,11 +13987,12 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        async listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14122,11 +14154,12 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return ModelsApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return ModelsApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List Models.
@@ -14138,11 +14171,12 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return ModelsApiFp(configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+        listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return ModelsApiFp(configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s models.
@@ -14155,11 +14189,12 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return ModelsApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return ModelsApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * Bulk association patching.
@@ -14447,6 +14482,13 @@ export interface ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest {
      * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
      */
     readonly ordering?: 'asc' | 'desc'
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
+     */
+    readonly containsVariableId?: string
 }
 
 /**
@@ -14503,6 +14545,13 @@ export interface ModelsApiListModelsV1ModelsGetRequest {
      * @memberof ModelsApiListModelsV1ModelsGet
      */
     readonly ordering?: 'asc' | 'desc'
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof ModelsApiListModelsV1ModelsGet
+     */
+    readonly containsVariableId?: string
 }
 
 /**
@@ -14566,6 +14615,13 @@ export interface ModelsApiListUserModelsV1UsersUserIdModelsGetRequest {
      * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
      */
     readonly ordering?: 'asc' | 'desc'
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
+     */
+    readonly containsVariableId?: string
 }
 
 /**
@@ -14743,7 +14799,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public listAuthenticatedUserModelsV1UserModelsGet(requestParameters: ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest = {}, options?: any) {
-        return ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -14755,7 +14811,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public listModelsV1ModelsGet(requestParameters: ModelsApiListModelsV1ModelsGetRequest = {}, options?: any) {
-        return ModelsApiFp(this.configuration).listModelsV1ModelsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).listModelsV1ModelsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -14767,7 +14823,7 @@ export class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     public listUserModelsV1UsersUserIdModelsGet(requestParameters: ModelsApiListUserModelsV1UsersUserIdModelsGetRequest, options?: any) {
-        return ModelsApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -19342,10 +19398,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserModelsV1UserModelsGet: async (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -19399,6 +19456,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (ordering !== undefined) {
                 localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
             }
 
 
@@ -19853,10 +19914,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options: any = {}): Promise<RequestArgs> => {
+        listUserModelsV1UsersUserIdModelsGet: async (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserModelsV1UsersUserIdModelsGet.');
@@ -19915,6 +19977,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (ordering !== undefined) {
                 localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
             }
 
 
@@ -20228,11 +20294,12 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options);
+        async listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -20352,11 +20419,12 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options);
+        async listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -20502,11 +20570,12 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return UsersApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return UsersApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s studies.
@@ -20602,11 +20671,12 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
          * @param {'target_name' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', options?: any): AxiosPromise<ModelPaginationOut> {
-            return UsersApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, options).then((request) => request(axios, basePath));
+        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return UsersApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s studies.
@@ -20916,6 +20986,13 @@ export interface UsersApiListAuthenticatedUserModelsV1UserModelsGetRequest {
      * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
      */
     readonly ordering?: 'asc' | 'desc'
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
+     */
+    readonly containsVariableId?: string
 }
 
 /**
@@ -21280,6 +21357,13 @@ export interface UsersApiListUserModelsV1UsersUserIdModelsGetRequest {
      * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
      */
     readonly ordering?: 'asc' | 'desc'
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
+     */
+    readonly containsVariableId?: string
 }
 
 /**
@@ -21496,7 +21580,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserModelsV1UserModelsGet(requestParameters: UsersApiListAuthenticatedUserModelsV1UserModelsGetRequest = {}, options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21568,7 +21652,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserModelsV1UsersUserIdModelsGet(requestParameters: UsersApiListUserModelsV1UsersUserIdModelsGetRequest, options?: any) {
-        return UsersApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
