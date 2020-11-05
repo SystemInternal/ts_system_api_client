@@ -21,6 +21,19 @@ import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
 
 /**
+ * Values available for filtering associations.
+ * @export
+ * @interface AssociationFilters
+ */
+export interface AssociationFilters {
+    /**
+     * 
+     * @type {Array<Array<number | string>>}
+     * @memberof AssociationFilters
+     */
+    association_values_feature_contribution_method?: Array<Array<number | string>>;
+}
+/**
  * A statistical association between two features.
  * @export
  * @interface AssociationIn
@@ -203,6 +216,12 @@ export interface AssociationPaginationOut {
      * @memberof AssociationPaginationOut
      */
     _sorts?: Array<string>;
+    /**
+     * Collection of filter values that can be applied.
+     * @type {AssociationFilters}
+     * @memberof AssociationPaginationOut
+     */
+    _filters?: AssociationFilters;
 }
 /**
  * Association value input class.
