@@ -1,0 +1,21 @@
+name: Build client
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install and build client
+        run: |
+          npm install
+          npm run build
+      - name: Push back to repo
+        run: |
+          git config --global user.name 'SystemInternal'
+          git config --global user.email 'githubActions@system.com'
+          git commit -am "Build js client files"
+          git push
