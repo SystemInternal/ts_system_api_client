@@ -5494,6 +5494,30 @@ export interface VariableOut {
      * @memberof VariableOut
      */
     model_count?: number;
+    /**
+     * Number of models predicting this variable.
+     * @type {number}
+     * @memberof VariableOut
+     */
+    model_predict_count?: number;
+    /**
+     * Number of datasets using this variable.
+     * @type {number}
+     * @memberof VariableOut
+     */
+    dataset_count?: number;
+    /**
+     * Number of associations using this variable.
+     * @type {number}
+     * @memberof VariableOut
+     */
+    association_count?: number;
+    /**
+     * Number of features operationalizing this variable.
+     * @type {number}
+     * @memberof VariableOut
+     */
+    feature_count?: number;
 }
 /**
     * @export
