@@ -5751,6 +5751,22 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      */
     listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Bulk association patching.
      * @summary Patch Associations
      * @param {string} modelId
@@ -5818,6 +5834,22 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      */
     listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    /**
      * Bulk association patching.
      * @summary Patch Associations
      * @param {string} modelId
@@ -5884,6 +5916,22 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -6032,6 +6080,67 @@ export interface AssociationsApiListAssociationsV1ModelsModelIdAssociationsGetRe
     readonly sortBy?: string;
 }
 /**
+ * Request parameters for listAssociationsV1VariablesVariableIdAssociationsGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGetRequest
+ */
+export interface AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly variableId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly query?: string;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Order by this field.
+     * @type {'created_at' | 'last_updated_at'}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly orderBy?: 'created_at' | 'last_updated_at';
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly ordering?: 'asc' | 'desc';
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly sortBy?: string;
+}
+/**
  * Request parameters for patchAssociationsV1ModelsModelIdAssociationsPatch operation in AssociationsApi.
  * @export
  * @interface AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest
@@ -6102,6 +6211,15 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1ModelsModelIdAssociationsGet(requestParameters: AssociationsApiListAssociationsV1ModelsModelIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
+    /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters: AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -14318,6 +14436,22 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      */
     getVariableV1VariablesVariableIdGet: (variableId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
      * @param {string} [query] Search query.
@@ -14448,6 +14582,22 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      */
     getVariableV1VariablesVariableIdGet(variableId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>>;
     /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
      * @param {string} [query] Search query.
@@ -14577,6 +14727,22 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     getVariableV1VariablesVariableIdGet(variableId: string, options?: any): AxiosPromise<VariableOut>;
+    /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -14716,6 +14882,67 @@ export interface VariablesApiGetVariableV1VariablesVariableIdGetRequest {
      * @memberof VariablesApiGetVariableV1VariablesVariableIdGet
      */
     readonly variableId: string;
+}
+/**
+ * Request parameters for listAssociationsV1VariablesVariableIdAssociationsGet operation in VariablesApi.
+ * @export
+ * @interface VariablesApiListAssociationsV1VariablesVariableIdAssociationsGetRequest
+ */
+export interface VariablesApiListAssociationsV1VariablesVariableIdAssociationsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly variableId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly query?: string;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Order by this field.
+     * @type {'created_at' | 'last_updated_at'}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly orderBy?: 'created_at' | 'last_updated_at';
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly ordering?: 'asc' | 'desc';
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly sortBy?: string;
 }
 /**
  * Request parameters for listAuthenticatedUserVariablesV1UserVariablesGet operation in VariablesApi.
@@ -15141,6 +15368,15 @@ export declare class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     getVariableV1VariablesVariableIdGet(requestParameters: VariablesApiGetVariableV1VariablesVariableIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<VariableOut>>;
+    /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {VariablesApiListAssociationsV1VariablesVariableIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters: VariablesApiListAssociationsV1VariablesVariableIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
