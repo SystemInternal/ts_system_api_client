@@ -354,6 +354,7 @@ export declare enum AssociationValueInPermutationScoreTypeEnum {
     Aic = "aic",
     CorrelationActualForecast = "correlation_actual_forecast",
     ForecastVsActual = "forecast_vs_actual",
+    MeanSquaredPercentageError = "mean_squared_percentage_error",
     ConfusionMatrix = "confusion_matrix",
     MulticlassConfusionMatrix = "multiclass_confusion_matrix",
     RocCurve = "roc_curve"
@@ -530,6 +531,7 @@ export declare enum AssociationValueInBasePermutationScoreTypeEnum {
     Aic = "aic",
     CorrelationActualForecast = "correlation_actual_forecast",
     ForecastVsActual = "forecast_vs_actual",
+    MeanSquaredPercentageError = "mean_squared_percentage_error",
     ConfusionMatrix = "confusion_matrix",
     MulticlassConfusionMatrix = "multiclass_confusion_matrix",
     RocCurve = "roc_curve"
@@ -720,6 +722,7 @@ export declare enum AssociationValueOutPermutationScoreTypeEnum {
     Aic = "aic",
     CorrelationActualForecast = "correlation_actual_forecast",
     ForecastVsActual = "forecast_vs_actual",
+    MeanSquaredPercentageError = "mean_squared_percentage_error",
     ConfusionMatrix = "confusion_matrix",
     MulticlassConfusionMatrix = "multiclass_confusion_matrix",
     RocCurve = "roc_curve"
@@ -3499,6 +3502,7 @@ export declare enum ModelPerformanceBaseInScoreTypeEnum {
     Aic = "aic",
     CorrelationActualForecast = "correlation_actual_forecast",
     ForecastVsActual = "forecast_vs_actual",
+    MeanSquaredPercentageError = "mean_squared_percentage_error",
     ConfusionMatrix = "confusion_matrix",
     MulticlassConfusionMatrix = "multiclass_confusion_matrix",
     RocCurve = "roc_curve",
@@ -3630,6 +3634,7 @@ export declare enum ModelPerformanceInScoreTypeEnum {
     Aic = "aic",
     CorrelationActualForecast = "correlation_actual_forecast",
     ForecastVsActual = "forecast_vs_actual",
+    MeanSquaredPercentageError = "mean_squared_percentage_error",
     ConfusionMatrix = "confusion_matrix",
     MulticlassConfusionMatrix = "multiclass_confusion_matrix",
     RocCurve = "roc_curve"
@@ -3766,6 +3771,7 @@ export declare enum ModelPerformanceOutScoreTypeEnum {
     Aic = "aic",
     CorrelationActualForecast = "correlation_actual_forecast",
     ForecastVsActual = "forecast_vs_actual",
+    MeanSquaredPercentageError = "mean_squared_percentage_error",
     ConfusionMatrix = "confusion_matrix",
     MulticlassConfusionMatrix = "multiclass_confusion_matrix",
     RocCurve = "roc_curve"
