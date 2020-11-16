@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeTypeEnum = exports.VariableOutPermissionsEnum = exports.TestDatasetTransformationTypeEnum = exports.TableStatusEnum = exports.StudyOutStudyTypeEnum = exports.StudyOutPermissionsEnum = exports.SignificanceValueInGeneratedByEnum = exports.ResourceCollectionElementTypeEnum = exports.PopulationAttributeOutAttributeTypeEnum = exports.PopulationAttributeOutPermissionsEnum = exports.PopulationAttributeInAttributeTypeEnum = exports.PatchVariableOpOpEnum = exports.PatchStudyOpOpEnum = exports.PatchModelOpOpEnum = exports.PatchFeatureOpOpEnum = exports.PatchDatasetOpOpEnum = exports.PartialDependencePlotInGeneratedByEnum = exports.NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutPermissionsEnum = exports.NullHypothesisInLevelEnum = exports.NullHypothesisInTestTypeEnum = exports.ModelPerformanceOutScoreTypeEnum = exports.ModelPerformanceOutGeneratedByEnum = exports.ModelPerformanceInScoreTypeEnum = exports.ModelPerformanceInGeneratedByEnum = exports.ModelPerformanceBaseInScoreTypeEnum = exports.ModelPerformanceBaseInGeneratedByEnum = exports.ModelOutPermissionsEnum = exports.LocationOutAttributeTypeEnum = exports.LocationOutPermissionsEnum = exports.IntegrationCreateServiceTypeEnum = exports.IntegrationPermissionsEnum = exports.IntegrationServiceTypeEnum = exports.FreeTextOutAttributeTypeEnum = exports.FreeTextOutPermissionsEnum = exports.FeatureStatisticsGeneratedByEnum = exports.FeatureStatisticsFeatureTypeEnum = exports.FeatureOutPermissionsEnum = exports.EnterprisePermissionsEnum = exports.DeploymentStageEnum = exports.DateRangeOutAttributeTypeEnum = exports.DateRangeOutPermissionsEnum = exports.DatasetOutLicenseEnum = exports.DatasetOutPermissionsEnum = exports.DatasetInLicenseEnum = exports.ConfidenceIntervalInLevelEnum = exports.ConceptOutPermissionsEnum = exports.CategoryOutAttributeTypeEnum = exports.CategoryOutPermissionsEnum = exports.BulkPatchFeatureOpOpEnum = exports.BulkPatchAssociationOpOpEnum = exports.AuthorOutPermissionsEnum = exports.AssociationValueOutFeatureContributionMethodEnum = exports.AssociationValueOutGeneratedByEnum = exports.AssociationValueOutPermutationScoreTypeEnum = exports.AssociationValueInBaseFeatureContributionMethodEnum = exports.AssociationValueInBaseGeneratedByEnum = exports.AssociationValueInBasePermutationScoreTypeEnum = exports.AssociationValueInFeatureContributionMethodEnum = exports.AssociationValueInGeneratedByEnum = exports.AssociationValueInPermutationScoreTypeEnum = exports.AssociationOutPermissionsEnum = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeTypeEnum = exports.VariableOutPermissionsEnum = exports.TestDatasetTransformationTypeEnum = exports.TableStatusEnum = exports.StudyOutStudyTypeEnum = exports.StudyOutPermissionsEnum = exports.SignificanceValueOutGeneratedByEnum = exports.SignificanceValueInGeneratedByEnum = exports.ResourceCollectionElementTypeEnum = exports.PopulationAttributeOutAttributeTypeEnum = exports.PopulationAttributeOutPermissionsEnum = exports.PopulationAttributeInAttributeTypeEnum = exports.PatchVariableOpOpEnum = exports.PatchStudyOpOpEnum = exports.PatchModelOpOpEnum = exports.PatchFeatureOpOpEnum = exports.PatchDatasetOpOpEnum = exports.PartialDependencePlotInGeneratedByEnum = exports.NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutPermissionsEnum = exports.NullHypothesisOutLevelEnum = exports.NullHypothesisOutTestTypeEnum = exports.NullHypothesisInLevelEnum = exports.NullHypothesisInTestTypeEnum = exports.ModelPerformanceOutScoreTypeEnum = exports.ModelPerformanceOutGeneratedByEnum = exports.ModelPerformanceInScoreTypeEnum = exports.ModelPerformanceInGeneratedByEnum = exports.ModelPerformanceBaseInScoreTypeEnum = exports.ModelPerformanceBaseInGeneratedByEnum = exports.ModelOutPermissionsEnum = exports.LocationOutAttributeTypeEnum = exports.LocationOutPermissionsEnum = exports.IntegrationCreateServiceTypeEnum = exports.IntegrationPermissionsEnum = exports.IntegrationServiceTypeEnum = exports.FreeTextOutAttributeTypeEnum = exports.FreeTextOutPermissionsEnum = exports.FeatureStatisticsGeneratedByEnum = exports.FeatureStatisticsFeatureTypeEnum = exports.FeatureOutPermissionsEnum = exports.EnterprisePermissionsEnum = exports.DeploymentStageEnum = exports.DateRangeOutAttributeTypeEnum = exports.DateRangeOutPermissionsEnum = exports.DatasetOutLicenseEnum = exports.DatasetOutPermissionsEnum = exports.DatasetInLicenseEnum = exports.ConfidenceIntervalOutLevelEnum = exports.ConfidenceIntervalInLevelEnum = exports.ConceptOutPermissionsEnum = exports.CategoryOutAttributeTypeEnum = exports.CategoryOutPermissionsEnum = exports.BulkPatchFeatureOpOpEnum = exports.BulkPatchAssociationOpOpEnum = exports.AuthorOutPermissionsEnum = exports.AssociationValueOutFeatureContributionMethodEnum = exports.AssociationValueOutGeneratedByEnum = exports.AssociationValueOutPermutationScoreTypeEnum = exports.AssociationValueInBaseFeatureContributionMethodEnum = exports.AssociationValueInBaseGeneratedByEnum = exports.AssociationValueInBasePermutationScoreTypeEnum = exports.AssociationValueInFeatureContributionMethodEnum = exports.AssociationValueInGeneratedByEnum = exports.AssociationValueInPermutationScoreTypeEnum = exports.AssociationOutPermissionsEnum = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -453,6 +453,17 @@ var ConfidenceIntervalInLevelEnum;
     ConfidenceIntervalInLevelEnum["Nine"] = "ninety_nine";
     ConfidenceIntervalInLevelEnum["NinePointNine"] = "ninety_nine_point_nine";
 })(ConfidenceIntervalInLevelEnum = exports.ConfidenceIntervalInLevelEnum || (exports.ConfidenceIntervalInLevelEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var ConfidenceIntervalOutLevelEnum;
+(function (ConfidenceIntervalOutLevelEnum) {
+    ConfidenceIntervalOutLevelEnum["NinetyFive"] = "ninety_five";
+    ConfidenceIntervalOutLevelEnum["NinetyNine"] = "ninety_nine";
+    ConfidenceIntervalOutLevelEnum["NinetyNinePointNine"] = "ninety_nine_point_nine";
+    ConfidenceIntervalOutLevelEnum["Invalid"] = "invalid";
+})(ConfidenceIntervalOutLevelEnum = exports.ConfidenceIntervalOutLevelEnum || (exports.ConfidenceIntervalOutLevelEnum = {}));
 /**
     * @export
     * @enum {string}
@@ -955,6 +966,30 @@ var NullHypothesisInLevelEnum;
     * @export
     * @enum {string}
     */
+var NullHypothesisOutTestTypeEnum;
+(function (NullHypothesisOutTestTypeEnum) {
+    NullHypothesisOutTestTypeEnum["Ttest"] = "ttest";
+    NullHypothesisOutTestTypeEnum["Ztest"] = "ztest";
+    NullHypothesisOutTestTypeEnum["Anova"] = "anova";
+    NullHypothesisOutTestTypeEnum["Chisquared"] = "chisquared";
+    NullHypothesisOutTestTypeEnum["Htest"] = "htest";
+    NullHypothesisOutTestTypeEnum["Invalid"] = "invalid";
+})(NullHypothesisOutTestTypeEnum = exports.NullHypothesisOutTestTypeEnum || (exports.NullHypothesisOutTestTypeEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var NullHypothesisOutLevelEnum;
+(function (NullHypothesisOutLevelEnum) {
+    NullHypothesisOutLevelEnum["NinetyFive"] = "ninety_five";
+    NullHypothesisOutLevelEnum["NinetyNine"] = "ninety_nine";
+    NullHypothesisOutLevelEnum["NinetyNinePointNine"] = "ninety_nine_point_nine";
+    NullHypothesisOutLevelEnum["Invalid"] = "invalid";
+})(NullHypothesisOutLevelEnum = exports.NullHypothesisOutLevelEnum || (exports.NullHypothesisOutLevelEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
 var NumberRangeOutPermissionsEnum;
 (function (NumberRangeOutPermissionsEnum) {
     NumberRangeOutPermissionsEnum["Create"] = "create";
@@ -1094,6 +1129,17 @@ var SignificanceValueInGeneratedByEnum;
     SignificanceValueInGeneratedByEnum["RemoteEvaluator"] = "remote_evaluator";
     SignificanceValueInGeneratedByEnum["User"] = "user";
 })(SignificanceValueInGeneratedByEnum = exports.SignificanceValueInGeneratedByEnum || (exports.SignificanceValueInGeneratedByEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var SignificanceValueOutGeneratedByEnum;
+(function (SignificanceValueOutGeneratedByEnum) {
+    SignificanceValueOutGeneratedByEnum["LocalEvaluator"] = "local_evaluator";
+    SignificanceValueOutGeneratedByEnum["RemoteEvaluator"] = "remote_evaluator";
+    SignificanceValueOutGeneratedByEnum["User"] = "user";
+    SignificanceValueOutGeneratedByEnum["Invalid"] = "invalid";
+})(SignificanceValueOutGeneratedByEnum = exports.SignificanceValueOutGeneratedByEnum || (exports.SignificanceValueOutGeneratedByEnum = {}));
 /**
     * @export
     * @enum {string}
