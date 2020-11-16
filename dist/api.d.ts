@@ -4827,6 +4827,12 @@ export interface StudyLinks {
      * @memberof StudyLinks
      */
     self: string;
+    /**
+     * Link to study\'s authors.
+     * @type {string}
+     * @memberof StudyLinks
+     */
+    authors: string;
 }
 /**
  * A real world study.
@@ -6516,6 +6522,15 @@ export declare class AssociationsApi extends BaseAPI {
  */
 export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Add an author to a study.
+     * @summary Add Author To Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get Author.
      * @summary Get Author
      * @param {string} authorId
@@ -6538,12 +6553,30 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     listAuthorsV1AuthorsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Remove an author from a study.
+     * @summary Remove Author From Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * AuthorsApi - functional programming interface
  * @export
  */
 export declare const AuthorsApiFp: (configuration?: Configuration) => {
+    /**
+     * Add an author to a study.
+     * @summary Add Author To Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get Author.
      * @summary Get Author
@@ -6567,12 +6600,30 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listAuthorsV1AuthorsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
+    /**
+     * Remove an author from a study.
+     * @summary Remove Author From Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * AuthorsApi - factory interface
  * @export
  */
 export declare const AuthorsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Add an author to a study.
+     * @summary Add Author To Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
     /**
      * Get Author.
      * @summary Get Author
@@ -6596,7 +6647,35 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     listAuthorsV1AuthorsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
+    /**
+     * Remove an author from a study.
+     * @summary Remove Author From Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
 };
+/**
+ * Request parameters for addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut operation in AuthorsApi.
+ * @export
+ * @interface AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest
+ */
+export interface AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
+     */
+    readonly authorId: string;
+}
 /**
  * Request parameters for getAuthorV1AuthorsAuthorIdGet operation in AuthorsApi.
  * @export
@@ -6666,12 +6745,40 @@ export interface AuthorsApiListAuthorsV1AuthorsGetRequest {
     readonly sortBy?: string;
 }
 /**
+ * Request parameters for removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete operation in AuthorsApi.
+ * @export
+ * @interface AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest
+ */
+export interface AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
+     */
+    readonly authorId: string;
+}
+/**
  * AuthorsApi - object-oriented interface
  * @export
  * @class AuthorsApi
  * @extends {BaseAPI}
  */
 export declare class AuthorsApi extends BaseAPI {
+    /**
+     * Add an author to a study.
+     * @summary Add Author To Study
+     * @param {AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get Author.
      * @summary Get Author
@@ -6690,6 +6797,15 @@ export declare class AuthorsApi extends BaseAPI {
      * @memberof AuthorsApi
      */
     listAuthorsV1AuthorsGet(requestParameters?: AuthorsApiListAuthorsV1AuthorsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
+    /**
+     * Remove an author from a study.
+     * @summary Remove Author From Study
+     * @param {AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters: AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * ConceptsApi - axios parameter creator
@@ -11889,6 +12005,15 @@ export declare class PopulationAttributesApi extends BaseAPI {
  */
 export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Add an author to a study.
+     * @summary Add Author To Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
@@ -11929,6 +12054,22 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
+     * List a study\'s authors.
+     * @summary List Authors
+     * @param {string} studyId
+     * @param {string} [query] Search query.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAuthorsV1StudiesStudyIdAuthorsGet: (studyId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
@@ -11968,12 +12109,30 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     patchStudyV1StudiesStudyIdPatch: (studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any) => Promise<RequestArgs>;
+    /**
+     * Remove an author from a study.
+     * @summary Remove Author From Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * StudiesApi - functional programming interface
  * @export
  */
 export declare const StudiesApiFp: (configuration?: Configuration) => {
+    /**
+     * Add an author to a study.
+     * @summary Add Author To Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -12015,6 +12174,22 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
+     * List a study\'s authors.
+     * @summary List Authors
+     * @param {string} studyId
+     * @param {string} [query] Search query.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
+    /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
@@ -12054,12 +12229,30 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Remove an author from a study.
+     * @summary Remove Author From Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * StudiesApi - factory interface
  * @export
  */
 export declare const StudiesApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Add an author to a study.
+     * @summary Add Author To Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -12101,6 +12294,22 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      */
     listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
+     * List a study\'s authors.
+     * @summary List Authors
+     * @param {string} studyId
+     * @param {string} [query] Search query.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
+    /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
@@ -12140,7 +12349,35 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): AxiosPromise<void>;
+    /**
+     * Remove an author from a study.
+     * @summary Remove Author From Study
+     * @param {string} studyId
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
 };
+/**
+ * Request parameters for addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut operation in StudiesApi.
+ * @export
+ * @interface StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest
+ */
+export interface StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
+     */
+    readonly authorId: string;
+}
 /**
  * Request parameters for createModelsV1StudiesStudyIdModelsPost operation in StudiesApi.
  * @export
@@ -12238,6 +12475,67 @@ export interface StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @type {string}
      * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly sortBy?: string;
+}
+/**
+ * Request parameters for listAuthorsV1StudiesStudyIdAuthorsGet operation in StudiesApi.
+ * @export
+ * @interface StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest
+ */
+export interface StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly studyId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly query?: string;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Order by this field.
+     * @type {'created_at' | 'last_updated_at' | 'name'}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly orderBy?: 'created_at' | 'last_updated_at' | 'name';
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly ordering?: 'asc' | 'desc';
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
      */
     readonly sortBy?: string;
 }
@@ -12377,12 +12675,40 @@ export interface StudiesApiPatchStudyV1StudiesStudyIdPatchRequest {
     readonly patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>;
 }
 /**
+ * Request parameters for removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete operation in StudiesApi.
+ * @export
+ * @interface StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest
+ */
+export interface StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
+     */
+    readonly authorId: string;
+}
+/**
  * StudiesApi - object-oriented interface
  * @export
  * @class StudiesApi
  * @extends {BaseAPI}
  */
 export declare class StudiesApi extends BaseAPI {
+    /**
+     * Add an author to a study.
+     * @summary Add Author To Study
+     * @param {StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -12420,6 +12746,15 @@ export declare class StudiesApi extends BaseAPI {
      */
     listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters?: StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest, options?: any): Promise<import("axios").AxiosResponse<StudyPaginationOut>>;
     /**
+     * List a study\'s authors.
+     * @summary List Authors
+     * @param {StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters: StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
+    /**
      * List Studies.
      * @summary List Studies
      * @param {StudiesApiListStudiesV1StudiesGetRequest} requestParameters Request parameters.
@@ -12446,6 +12781,15 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     patchStudyV1StudiesStudyIdPatch(requestParameters: StudiesApiPatchStudyV1StudiesStudyIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Remove an author from a study.
+     * @summary Remove Author From Study
+     * @param {StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters: StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * SystemApi - axios parameter creator

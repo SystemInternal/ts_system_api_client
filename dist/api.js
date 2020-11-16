@@ -2129,6 +2129,59 @@ exports.AssociationsApi = AssociationsApi;
 exports.AuthorsApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Add an author to a study.
+         * @summary Add Author To Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId, authorId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut.');
+            }
+            // verify required parameter 'authorId' is not null or undefined
+            if (authorId === null || authorId === undefined) {
+                throw new base_1.RequiredError('authorId', 'Required parameter authorId was null or undefined when calling addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/authors/{author_id}`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)))
+                .replace(`{${"author_id"}}`, encodeURIComponent(String(authorId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get Author.
          * @summary Get Author
          * @param {string} authorId
@@ -2248,6 +2301,59 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Remove an author from a study.
+         * @summary Remove Author From Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId, authorId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete.');
+            }
+            // verify required parameter 'authorId' is not null or undefined
+            if (authorId === null || authorId === undefined) {
+                throw new base_1.RequiredError('authorId', 'Required parameter authorId was null or undefined when calling removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/authors/{author_id}`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)))
+                .replace(`{${"author_id"}}`, encodeURIComponent(String(authorId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -2256,6 +2362,23 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
  */
 exports.AuthorsApiFp = function (configuration) {
     return {
+        /**
+         * Add an author to a study.
+         * @summary Add Author To Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AuthorsApiAxiosParamCreator(configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
         /**
          * Get Author.
          * @summary Get Author
@@ -2295,6 +2418,23 @@ exports.AuthorsApiFp = function (configuration) {
                 };
             });
         },
+        /**
+         * Remove an author from a study.
+         * @summary Remove Author From Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AuthorsApiAxiosParamCreator(configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
     };
 };
 /**
@@ -2303,6 +2443,17 @@ exports.AuthorsApiFp = function (configuration) {
  */
 exports.AuthorsApiFactory = function (configuration, basePath, axios) {
     return {
+        /**
+         * Add an author to a study.
+         * @summary Add Author To Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options) {
+            return exports.AuthorsApiFp(configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options).then((request) => request(axios, basePath));
+        },
         /**
          * Get Author.
          * @summary Get Author
@@ -2330,6 +2481,17 @@ exports.AuthorsApiFactory = function (configuration, basePath, axios) {
         listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return exports.AuthorsApiFp(configuration).listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Remove an author from a study.
+         * @summary Remove Author From Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options) {
+            return exports.AuthorsApiFp(configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -2339,6 +2501,17 @@ exports.AuthorsApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class AuthorsApi extends base_1.BaseAPI {
+    /**
+     * Add an author to a study.
+     * @summary Add Author To Study
+     * @param {AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters, options) {
+        return exports.AuthorsApiFp(this.configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Get Author.
      * @summary Get Author
@@ -2360,6 +2533,17 @@ class AuthorsApi extends base_1.BaseAPI {
      */
     listAuthorsV1AuthorsGet(requestParameters = {}, options) {
         return exports.AuthorsApiFp(this.configuration).listAuthorsV1AuthorsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Remove an author from a study.
+     * @summary Remove Author From Study
+     * @param {AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters, options) {
+        return exports.AuthorsApiFp(this.configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.AuthorsApi = AuthorsApi;
@@ -9638,6 +9822,59 @@ exports.PopulationAttributesApi = PopulationAttributesApi;
 exports.StudiesApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Add an author to a study.
+         * @summary Add Author To Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId, authorId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut.');
+            }
+            // verify required parameter 'authorId' is not null or undefined
+            if (authorId === null || authorId === undefined) {
+                throw new base_1.RequiredError('authorId', 'Required parameter authorId was null or undefined when calling addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/authors/{author_id}`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)))
+                .replace(`{${"author_id"}}`, encodeURIComponent(String(authorId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create models and add to study.
          * @summary Create Models
          * @param {string} studyId
@@ -9802,6 +10039,85 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          */
         listAuthenticatedUserStudiesV1UserStudiesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/studies`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List a study\'s authors.
+         * @summary List Authors
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthorsV1StudiesStudyIdAuthorsGet: (studyId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAuthorsV1StudiesStudyIdAuthorsGet.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/authors`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -10066,6 +10382,59 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Remove an author from a study.
+         * @summary Remove Author From Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId, authorId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete.');
+            }
+            // verify required parameter 'authorId' is not null or undefined
+            if (authorId === null || authorId === undefined) {
+                throw new base_1.RequiredError('authorId', 'Required parameter authorId was null or undefined when calling removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/authors/{author_id}`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)))
+                .replace(`{${"author_id"}}`, encodeURIComponent(String(authorId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -10074,6 +10443,23 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
  */
 exports.StudiesApiFp = function (configuration) {
     return {
+        /**
+         * Add an author to a study.
+         * @summary Add Author To Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
         /**
          * Create models and add to study.
          * @summary Create Models
@@ -10147,6 +10533,30 @@ exports.StudiesApiFp = function (configuration) {
             });
         },
         /**
+         * List a study\'s authors.
+         * @summary List Authors
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * List Studies.
          * @summary List Studies
          * @param {string} [query] Search query.
@@ -10210,6 +10620,23 @@ exports.StudiesApiFp = function (configuration) {
                 };
             });
         },
+        /**
+         * Remove an author from a study.
+         * @summary Remove Author From Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
     };
 };
 /**
@@ -10218,6 +10645,17 @@ exports.StudiesApiFp = function (configuration) {
  */
 exports.StudiesApiFactory = function (configuration, basePath, axios) {
     return {
+        /**
+         * Add an author to a study.
+         * @summary Add Author To Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options) {
+            return exports.StudiesApiFp(configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options).then((request) => request(axios, basePath));
+        },
         /**
          * Create models and add to study.
          * @summary Create Models
@@ -10267,6 +10705,24 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
             return exports.StudiesApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
+         * List a study\'s authors.
+         * @summary List Authors
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.StudiesApiFp(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List Studies.
          * @summary List Studies
          * @param {string} [query] Search query.
@@ -10312,6 +10768,17 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
         patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options) {
             return exports.StudiesApiFp(configuration).patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Remove an author from a study.
+         * @summary Remove Author From Study
+         * @param {string} studyId
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options) {
+            return exports.StudiesApiFp(configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -10321,6 +10788,17 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class StudiesApi extends base_1.BaseAPI {
+    /**
+     * Add an author to a study.
+     * @summary Add Author To Study
+     * @param {StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters, options) {
+        return exports.StudiesApiFp(this.configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -10366,6 +10844,17 @@ class StudiesApi extends base_1.BaseAPI {
         return exports.StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * List a study\'s authors.
+     * @summary List Authors
+     * @param {StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters, options) {
+        return exports.StudiesApiFp(this.configuration).listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters.studyId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * List Studies.
      * @summary List Studies
      * @param {StudiesApiListStudiesV1StudiesGetRequest} requestParameters Request parameters.
@@ -10397,6 +10886,17 @@ class StudiesApi extends base_1.BaseAPI {
      */
     patchStudyV1StudiesStudyIdPatch(requestParameters, options) {
         return exports.StudiesApiFp(this.configuration).patchStudyV1StudiesStudyIdPatch(requestParameters.studyId, requestParameters.patchStudyOpArrayPatchStudyOp, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Remove an author from a study.
+     * @summary Remove Author From Study
+     * @param {StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters, options) {
+        return exports.StudiesApiFp(this.configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.StudiesApi = StudiesApi;
