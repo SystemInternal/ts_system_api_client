@@ -637,10 +637,10 @@ export interface AssociationValueOut {
     generated_by?: AssociationValueOutGeneratedByEnum;
     /**
      * Statistical significance value of the association.
-     * @type {SignificanceValueIn}
+     * @type {SignificanceValueOut}
      * @memberof AssociationValueOut
      */
-    significance_value?: SignificanceValueIn;
+    significance_value?: SignificanceValueOut;
     /**
      * Standard error of the Association value.
      * @type {number}
@@ -1387,6 +1387,43 @@ export enum ConfidenceIntervalInLevelEnum {
     Five = 'ninety_five',
     Nine = 'ninety_nine',
     NinePointNine = 'ninety_nine_point_nine'
+}
+
+/**
+ * Confidence interval output model.
+ * @export
+ * @interface ConfidenceIntervalOut
+ */
+export interface ConfidenceIntervalOut {
+    /**
+     * Confidence level for interval.
+     * @type {string}
+     * @memberof ConfidenceIntervalOut
+     */
+    level?: ConfidenceIntervalOutLevelEnum;
+    /**
+     * The lower bound of the CI.
+     * @type {number}
+     * @memberof ConfidenceIntervalOut
+     */
+    ci_lower?: number;
+    /**
+     * The upper bound of the CI.
+     * @type {number}
+     * @memberof ConfidenceIntervalOut
+     */
+    ci_upper?: number;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ConfidenceIntervalOutLevelEnum {
+    NinetyFive = 'ninety_five',
+    NinetyNine = 'ninety_nine',
+    NinetyNinePointNine = 'ninety_nine_point_nine',
+    Invalid = 'invalid'
 }
 
 /**
@@ -3885,6 +3922,67 @@ export enum NullHypothesisInLevelEnum {
 }
 
 /**
+ * Null hypothesis output model.
+ * @export
+ * @interface NullHypothesisOut
+ */
+export interface NullHypothesisOut {
+    /**
+     * Statistical test type.
+     * @type {string}
+     * @memberof NullHypothesisOut
+     */
+    test_type?: NullHypothesisOutTestTypeEnum;
+    /**
+     * Significance level used for the test
+     * @type {string}
+     * @memberof NullHypothesisOut
+     */
+    level?: NullHypothesisOutLevelEnum;
+    /**
+     * Null hypothesis value.
+     * @type {number}
+     * @memberof NullHypothesisOut
+     */
+    h0_value?: number;
+    /**
+     * p-value of the test, used with significance_level to determine significance.
+     * @type {number}
+     * @memberof NullHypothesisOut
+     */
+    p?: number;
+    /**
+     * Manual flag to directly indicate test is significant without using p-value.
+     * @type {boolean}
+     * @memberof NullHypothesisOut
+     */
+    is_significant?: boolean;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum NullHypothesisOutTestTypeEnum {
+    Ttest = 'ttest',
+    Ztest = 'ztest',
+    Anova = 'anova',
+    Chisquared = 'chisquared',
+    Htest = 'htest',
+    Invalid = 'invalid'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum NullHypothesisOutLevelEnum {
+    NinetyFive = 'ninety_five',
+    NinetyNine = 'ninety_nine',
+    NinetyNinePointNine = 'ninety_nine_point_nine',
+    Invalid = 'invalid'
+}
+
+/**
  * Number range population attribute value input.
  * @export
  * @interface NumberRangeIn
@@ -4718,6 +4816,43 @@ export enum SignificanceValueInGeneratedByEnum {
     LocalEvaluator = 'local_evaluator',
     RemoteEvaluator = 'remote_evaluator',
     User = 'user'
+}
+
+/**
+ * Statistical significance input information.
+ * @export
+ * @interface SignificanceValueOut
+ */
+export interface SignificanceValueOut {
+    /**
+     * Confidence interval data.
+     * @type {ConfidenceIntervalOut}
+     * @memberof SignificanceValueOut
+     */
+    confidence_interval?: ConfidenceIntervalOut;
+    /**
+     * Statistical test null hypothesis data.
+     * @type {NullHypothesisOut}
+     * @memberof SignificanceValueOut
+     */
+    null_hypothesis?: NullHypothesisOut;
+    /**
+     * Who generated this object.
+     * @type {string}
+     * @memberof SignificanceValueOut
+     */
+    generated_by?: SignificanceValueOutGeneratedByEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum SignificanceValueOutGeneratedByEnum {
+    LocalEvaluator = 'local_evaluator',
+    RemoteEvaluator = 'remote_evaluator',
+    User = 'user',
+    Invalid = 'invalid'
 }
 
 /**
