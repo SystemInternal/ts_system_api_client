@@ -2165,6 +2165,36 @@ export enum EnterprisePermissionsEnum {
 }
 
 /**
+ * External asset model.
+ * @export
+ * @interface ExternalAsset
+ */
+export interface ExternalAsset {
+    /**
+     * Asset uri.
+     * @type {string}
+     * @memberof ExternalAsset
+     */
+    uri?: string;
+    /**
+     * External asset type.
+     * @type {string}
+     * @memberof ExternalAsset
+     */
+    external_asset_type?: ExternalAssetExternalAssetTypeEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ExternalAssetExternalAssetTypeEnum {
+    Invalid = 'invalid',
+    Document = 'document',
+    Notebook = 'notebook'
+}
+
+/**
  * A real-world machine learning or statistical feature.
  * @export
  * @interface FeatureIn
@@ -4964,6 +4994,12 @@ export interface StudyOut {
      * @memberof StudyOut
      */
     lede?: string;
+    /**
+     * External assets data.
+     * @type {Array<ExternalAsset>}
+     * @memberof StudyOut
+     */
+    external_assets?: Array<ExternalAsset>;
     /**
      * Collection of links to related resources.
      * @type {StudyLinks}
