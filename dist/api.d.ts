@@ -38,6 +38,12 @@ export interface AssociationIn {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof AssociationIn
+     */
+    hidden?: boolean;
+    /**
      * The id of the features of this association
      * @type {Array<string>}
      * @memberof AssociationIn
@@ -135,6 +141,12 @@ export interface AssociationOut {
      * @memberof AssociationOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof AssociationOut
+     */
+    hidden?: boolean;
     /**
      * The id of the features of this association
      * @type {Array<string>}
@@ -835,6 +847,12 @@ export interface AuthorOut {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof AuthorOut
+     */
+    hidden?: boolean;
+    /**
      * Author\'s name.
      * @type {string}
      * @memberof AuthorOut
@@ -1062,6 +1080,12 @@ export interface CategoryIn {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof CategoryIn
+     */
+    hidden?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof CategoryIn
@@ -1131,6 +1155,12 @@ export interface CategoryOut {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof CategoryOut
+     */
+    hidden?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof CategoryOut
@@ -1191,6 +1221,12 @@ export interface ConceptIn {
      * @memberof ConceptIn
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof ConceptIn
+     */
+    hidden?: boolean;
     /**
      * The Concept\'s corresponding wikidata id.
      * @type {string}
@@ -1265,6 +1301,12 @@ export interface ConceptOut {
      * @memberof ConceptOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof ConceptOut
+     */
+    hidden?: boolean;
     /**
      * The Concept\'s corresponding wikidata id.
      * @type {string}
@@ -1418,6 +1460,12 @@ export interface DatasetIn {
      * @memberof DatasetIn
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof DatasetIn
+     */
+    hidden?: boolean;
     /**
      * Dataset name.
      * @type {string}
@@ -1627,6 +1675,12 @@ export interface DatasetOut {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof DatasetOut
+     */
+    hidden?: boolean;
+    /**
      * Dataset name.
      * @type {string}
      * @memberof DatasetOut
@@ -1834,6 +1888,12 @@ export interface DateRangeIn {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof DateRangeIn
+     */
+    hidden?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof DateRangeIn
@@ -1920,6 +1980,12 @@ export interface DateRangeOut {
      * @memberof DateRangeOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof DateRangeOut
+     */
+    hidden?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -2185,6 +2251,12 @@ export interface FeatureIn {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof FeatureIn
+     */
+    hidden?: boolean;
+    /**
      * Features\'s name.
      * @type {string}
      * @memberof FeatureIn
@@ -2276,6 +2348,12 @@ export interface FeatureOut {
      * @memberof FeatureOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof FeatureOut
+     */
+    hidden?: boolean;
     /**
      * Features\'s name.
      * @type {string}
@@ -2525,6 +2603,12 @@ export interface FreeTextIn {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof FreeTextIn
+     */
+    hidden?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof FreeTextIn
@@ -2593,6 +2677,12 @@ export interface FreeTextOut {
      * @memberof FreeTextOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof FreeTextOut
+     */
+    hidden?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -2978,6 +3068,12 @@ export interface LocationIn {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof LocationIn
+     */
+    hidden?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof LocationIn
@@ -3052,6 +3148,12 @@ export interface LocationOut {
      * @memberof LocationOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof LocationOut
+     */
+    hidden?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -3132,6 +3234,12 @@ export interface ModelIn {
      * @memberof ModelIn
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof ModelIn
+     */
+    hidden?: boolean;
     /**
      * Model algorithm.
      * @type {string}
@@ -3296,6 +3404,12 @@ export interface ModelOut {
      * @memberof ModelOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof ModelOut
+     */
+    hidden?: boolean;
     /**
      * Model algorithm.
      * @type {string}
@@ -3993,6 +4107,12 @@ export interface NumberRangeIn {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof NumberRangeIn
+     */
+    hidden?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof NumberRangeIn
@@ -4067,6 +4187,12 @@ export interface NumberRangeOut {
      * @memberof NumberRangeOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof NumberRangeOut
+     */
+    hidden?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -4486,6 +4612,12 @@ export interface PopulationAttributeIn {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof PopulationAttributeIn
+     */
+    hidden?: boolean;
+    /**
      * Population attribute\'s name.
      * @type {string}
      * @memberof PopulationAttributeIn
@@ -4597,6 +4729,12 @@ export interface PopulationAttributeOut {
      * @memberof PopulationAttributeOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof PopulationAttributeOut
+     */
+    hidden?: boolean;
     /**
      * Population attribute\'s name.
      * @type {string}
@@ -4916,6 +5054,12 @@ export interface StudyOut {
      * @memberof StudyOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof StudyOut
+     */
+    hidden?: boolean;
     /**
      * Study\'s name.
      * @type {string}
@@ -5508,6 +5652,12 @@ export interface VariableIn {
      */
     tags?: Array<string>;
     /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof VariableIn
+     */
+    hidden?: boolean;
+    /**
      * Variable\'s name.
      * @type {string}
      * @memberof VariableIn
@@ -5619,6 +5769,12 @@ export interface VariableOut {
      * @memberof VariableOut
      */
     tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof VariableOut
+     */
+    hidden?: boolean;
     /**
      * Variable\'s name.
      * @type {string}
@@ -5914,6 +6070,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @summary List Associations
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -5925,12 +6082,13 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -5942,12 +6100,13 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -5959,7 +6118,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -6016,6 +6175,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @summary List Associations
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6027,12 +6187,13 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6044,12 +6205,13 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6061,7 +6223,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -6118,6 +6280,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @summary List Associations
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6129,12 +6292,13 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6146,12 +6310,13 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6163,7 +6328,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -6269,6 +6434,12 @@ export interface AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsG
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
@@ -6336,6 +6507,12 @@ export interface AssociationsApiListAssociationsV1ModelsModelIdAssociationsGetRe
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
@@ -6402,6 +6579,12 @@ export interface AssociationsApiListAssociationsV1VariablesVariableIdAssociation
      * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -6576,6 +6759,7 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
      * @summary List Authors
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6586,7 +6770,7 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1AuthorsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthorsV1AuthorsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -6623,6 +6807,7 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
      * @summary List Authors
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6633,7 +6818,7 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1AuthorsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
+    listAuthorsV1AuthorsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -6670,6 +6855,7 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
      * @summary List Authors
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6680,7 +6866,7 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1AuthorsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
+    listAuthorsV1AuthorsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -6735,6 +6921,12 @@ export interface AuthorsApiListAuthorsV1AuthorsGetRequest {
      * @memberof AuthorsApiListAuthorsV1AuthorsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof AuthorsApiListAuthorsV1AuthorsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -6874,6 +7066,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6884,11 +7077,12 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserConceptsV1UserConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Concepts.
      * @summary List Concepts
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6899,7 +7093,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listConceptsV1ConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -6925,6 +7119,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary List User Concepts
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6935,7 +7130,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * ConceptsApi - functional programming interface
@@ -6970,6 +7165,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6980,11 +7176,12 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List Concepts.
      * @summary List Concepts
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -6995,7 +7192,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -7021,6 +7218,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @summary List User Concepts
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7031,7 +7229,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
 };
 /**
  * ConceptsApi - factory interface
@@ -7066,6 +7264,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7076,11 +7275,12 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List Concepts.
      * @summary List Concepts
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7091,7 +7291,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -7117,6 +7317,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @summary List User Concepts
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7127,7 +7328,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
 };
 /**
  * Request parameters for createConceptV1ConceptsPost operation in ConceptsApi.
@@ -7180,6 +7381,12 @@ export interface ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGetReques
      * @memberof ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -7235,6 +7442,12 @@ export interface ConceptsApiListConceptsV1ConceptsGetRequest {
      * @memberof ConceptsApiListConceptsV1ConceptsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1ConceptsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -7381,6 +7594,12 @@ export interface ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      * @memberof ConceptsApiListUserConceptsV1UsersUserIdConceptsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ConceptsApiListUserConceptsV1UsersUserIdConceptsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -7565,6 +7784,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary List Associations
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7576,11 +7796,12 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7591,12 +7812,13 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7607,11 +7829,12 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7622,12 +7845,13 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetsV1DatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7639,12 +7863,13 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7655,7 +7880,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -7763,6 +7988,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary List Associations
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7774,11 +8000,12 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7789,12 +8016,13 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7805,11 +8033,12 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7820,12 +8049,13 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7837,12 +8067,13 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7853,7 +8084,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -7961,6 +8192,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary List Associations
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7972,11 +8204,12 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -7987,12 +8220,13 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -8003,11 +8237,12 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -8018,12 +8253,13 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -8035,12 +8271,13 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -8051,7 +8288,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -8223,6 +8460,12 @@ export interface DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRe
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
@@ -8283,6 +8526,12 @@ export interface DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetReques
      * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -8345,6 +8594,12 @@ export interface DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
@@ -8399,6 +8654,12 @@ export interface DatasetsApiListDatasetsV1DatasetsGetRequest {
      * @memberof DatasetsApiListDatasetsV1DatasetsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DatasetsApiListDatasetsV1DatasetsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -8460,6 +8721,12 @@ export interface DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRe
      * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -8527,6 +8794,12 @@ export interface DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -9061,6 +9334,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9071,12 +9345,13 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9087,11 +9362,12 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Features.
      * @summary List Features
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9102,7 +9378,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listFeaturesV1FeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -9133,6 +9409,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @summary List User Features
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9143,7 +9420,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
      * @summary Patch Feature
@@ -9232,6 +9509,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9242,12 +9520,13 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9258,11 +9537,12 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List Features.
      * @summary List Features
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9273,7 +9553,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -9304,6 +9584,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @summary List User Features
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9314,7 +9595,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
      * @summary Patch Feature
@@ -9403,6 +9684,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9413,12 +9695,13 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9429,11 +9712,12 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List Features.
      * @summary List Features
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9444,7 +9728,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -9475,6 +9759,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @summary List User Features
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -9485,7 +9770,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
      * @summary Patch Feature
@@ -9618,6 +9903,12 @@ export interface FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGetReques
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
@@ -9679,6 +9970,12 @@ export interface FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
@@ -9733,6 +10030,12 @@ export interface FeaturesApiListFeaturesV1FeaturesGetRequest {
      * @memberof FeaturesApiListFeaturesV1FeaturesGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof FeaturesApiListFeaturesV1FeaturesGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -9909,6 +10212,12 @@ export interface FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
      * @memberof FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -10227,6 +10536,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @summary List Associations
      * @param {string} modelId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10238,11 +10548,12 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10254,11 +10565,12 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserModelsV1UserModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Models.
      * @summary List Models
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10270,12 +10582,13 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsV1ModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10287,7 +10600,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -10387,6 +10700,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @summary List Associations
      * @param {string} modelId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10398,11 +10712,12 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10414,11 +10729,12 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List Models.
      * @summary List Models
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10430,12 +10746,13 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10447,7 +10764,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -10547,6 +10864,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @summary List Associations
      * @param {string} modelId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10558,11 +10876,12 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10574,11 +10893,12 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List Models.
      * @summary List Models
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10590,12 +10910,13 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -10607,7 +10928,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -10776,6 +11097,12 @@ export interface ModelsApiListAssociationsV1ModelsModelIdAssociationsGetRequest 
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
@@ -10837,6 +11164,12 @@ export interface ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest {
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
@@ -10897,6 +11230,12 @@ export interface ModelsApiListModelsV1ModelsGetRequest {
      * @memberof ModelsApiListModelsV1ModelsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ModelsApiListModelsV1ModelsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -10964,6 +11303,12 @@ export interface ModelsApiListUserModelsV1UsersUserIdModelsGetRequest {
      * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -11246,6 +11591,7 @@ export declare const PopulationAttributeValuesApiAxiosParamCreator: (configurati
      * List population attribute values.
      * @summary List Population Attribute Values
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -11256,7 +11602,7 @@ export declare const PopulationAttributeValuesApiAxiosParamCreator: (configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributeValuesV1PopulationAttributeValuesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listPopulationAttributeValuesV1PopulationAttributeValuesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -11309,6 +11655,7 @@ export declare const PopulationAttributeValuesApiFp: (configuration?: Configurat
      * List population attribute values.
      * @summary List Population Attribute Values
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -11319,7 +11666,7 @@ export declare const PopulationAttributeValuesApiFp: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>>;
+    listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -11372,6 +11719,7 @@ export declare const PopulationAttributeValuesApiFactory: (configuration?: Confi
      * List population attribute values.
      * @summary List Population Attribute Values
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -11382,7 +11730,7 @@ export declare const PopulationAttributeValuesApiFactory: (configuration?: Confi
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributeValuePaginationOut>;
+    listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributeValuePaginationOut>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -11463,6 +11811,12 @@ export interface PopulationAttributeValuesApiListPopulationAttributeValuesV1Popu
      * @memberof PopulationAttributeValuesApiListPopulationAttributeValuesV1PopulationAttributeValuesGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof PopulationAttributeValuesApiListPopulationAttributeValuesV1PopulationAttributeValuesGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -11630,6 +11984,7 @@ export declare const PopulationAttributesApiAxiosParamCreator: (configuration?: 
      * @summary List A Population Attributes Values
      * @param {string} populationAttributeId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -11640,11 +11995,12 @@ export declare const PopulationAttributesApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: (populationAttributeId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: (populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List population attributes.
      * @summary List Population Attributes
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -11655,7 +12011,7 @@ export declare const PopulationAttributesApiAxiosParamCreator: (configuration?: 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributesV1PopulationAttributesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listPopulationAttributesV1PopulationAttributesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * PopulationAttributesApi - functional programming interface
@@ -11700,6 +12056,7 @@ export declare const PopulationAttributesApiFp: (configuration?: Configuration) 
      * @summary List A Population Attributes Values
      * @param {string} populationAttributeId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -11710,11 +12067,12 @@ export declare const PopulationAttributesApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>>;
+    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>>;
     /**
      * List population attributes.
      * @summary List Population Attributes
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -11725,7 +12083,7 @@ export declare const PopulationAttributesApiFp: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributesV1PopulationAttributesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributePaginationOut>>;
+    listPopulationAttributesV1PopulationAttributesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributePaginationOut>>;
 };
 /**
  * PopulationAttributesApi - factory interface
@@ -11770,6 +12128,7 @@ export declare const PopulationAttributesApiFactory: (configuration?: Configurat
      * @summary List A Population Attributes Values
      * @param {string} populationAttributeId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -11780,11 +12139,12 @@ export declare const PopulationAttributesApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributeValuePaginationOut>;
+    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributeValuePaginationOut>;
     /**
      * List population attributes.
      * @summary List Population Attributes
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -11795,7 +12155,7 @@ export declare const PopulationAttributesApiFactory: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributesV1PopulationAttributesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributePaginationOut>;
+    listPopulationAttributesV1PopulationAttributesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributePaginationOut>;
 };
 /**
  * Request parameters for createPopulationAttributeV1PopulationAttributesPost operation in PopulationAttributesApi.
@@ -11874,6 +12234,12 @@ export interface PopulationAttributesApiListAPopulationAttributesValuesV1Populat
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof PopulationAttributesApiListAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof PopulationAttributesApiListAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet
@@ -11928,6 +12294,12 @@ export interface PopulationAttributesApiListPopulationAttributesV1PopulationAttr
      * @memberof PopulationAttributesApiListPopulationAttributesV1PopulationAttributesGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof PopulationAttributesApiListPopulationAttributesV1PopulationAttributesGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -12076,6 +12448,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12086,12 +12459,13 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a study\'s authors.
      * @summary List Authors
      * @param {string} studyId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12102,11 +12476,12 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1StudiesStudyIdAuthorsGet: (studyId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthorsV1StudiesStudyIdAuthorsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12117,12 +12492,13 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12133,7 +12509,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study
@@ -12196,6 +12572,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12206,12 +12583,13 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a study\'s authors.
      * @summary List Authors
      * @param {string} studyId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12222,11 +12600,12 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
+    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
     /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12237,12 +12616,13 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12253,7 +12633,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study
@@ -12316,6 +12696,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12326,12 +12707,13 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a study\'s authors.
      * @summary List Authors
      * @param {string} studyId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12342,11 +12724,12 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
+    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
     /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12357,12 +12740,13 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -12373,7 +12757,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study
@@ -12470,6 +12854,12 @@ export interface StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
@@ -12531,6 +12921,12 @@ export interface StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest {
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
@@ -12585,6 +12981,12 @@ export interface StudiesApiListStudiesV1StudiesGetRequest {
      * @memberof StudiesApiListStudiesV1StudiesGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof StudiesApiListStudiesV1StudiesGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -12646,6 +13048,12 @@ export interface StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -13681,6 +14089,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13691,11 +14100,12 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserConceptsV1UserConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13706,11 +14116,12 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13721,11 +14132,12 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13737,11 +14149,12 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserModelsV1UserModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13752,11 +14165,12 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13767,12 +14181,13 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13783,12 +14198,13 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13799,12 +14215,13 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s features.
      * @summary List User Features
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13815,12 +14232,13 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13832,12 +14250,13 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13848,12 +14267,13 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13864,7 +14284,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * UsersApi - functional programming interface
@@ -13900,6 +14320,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13910,11 +14331,12 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13925,11 +14347,12 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13940,11 +14363,12 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13956,11 +14380,12 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13971,11 +14396,12 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -13986,12 +14412,13 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14002,12 +14429,13 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14018,12 +14446,13 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List a user\'s features.
      * @summary List User Features
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14034,12 +14463,13 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14051,12 +14481,13 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14067,12 +14498,13 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14083,7 +14515,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
 };
 /**
  * UsersApi - factory interface
@@ -14119,6 +14551,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14129,11 +14562,12 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14144,11 +14578,12 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14159,11 +14594,12 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14175,11 +14611,12 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14190,11 +14627,12 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14205,12 +14643,13 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14221,12 +14660,13 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14237,12 +14677,13 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List a user\'s features.
      * @summary List User Features
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14253,12 +14694,13 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14270,12 +14712,13 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14286,12 +14729,13 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -14302,7 +14746,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
 };
 /**
  * Request parameters for createAUserV1UserPost operation in UsersApi.
@@ -14362,6 +14806,12 @@ export interface UsersApiListAuthenticatedUserConceptsV1UserConceptsGetRequest {
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
@@ -14416,6 +14866,12 @@ export interface UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest {
      * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -14472,6 +14928,12 @@ export interface UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest {
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGet
@@ -14526,6 +14988,12 @@ export interface UsersApiListAuthenticatedUserModelsV1UserModelsGetRequest {
      * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -14588,6 +15056,12 @@ export interface UsersApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
@@ -14642,6 +15116,12 @@ export interface UsersApiListAuthenticatedUserVariablesV1UserVariablesGetRequest
      * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -14704,6 +15184,12 @@ export interface UsersApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
@@ -14764,6 +15250,12 @@ export interface UsersApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -14826,6 +15318,12 @@ export interface UsersApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserFeaturesV1UsersUserIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof UsersApiListUserFeaturesV1UsersUserIdFeaturesGet
@@ -14886,6 +15384,12 @@ export interface UsersApiListUserModelsV1UsersUserIdModelsGetRequest {
      * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -14954,6 +15458,12 @@ export interface UsersApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
@@ -15014,6 +15524,12 @@ export interface UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -15234,6 +15750,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @summary List Associations
      * @param {string} variableId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15245,11 +15762,12 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15260,7 +15778,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -15311,6 +15829,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @summary List User Variables
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15321,11 +15840,12 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Variables.
      * @summary List Variables
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15336,7 +15856,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet: (query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listVariablesV1VariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -15381,6 +15901,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @summary List Associations
      * @param {string} variableId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15392,11 +15913,12 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15407,7 +15929,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -15458,6 +15980,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @summary List User Variables
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15468,11 +15991,12 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List Variables.
      * @summary List Variables
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15483,7 +16007,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -15528,6 +16052,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @summary List Associations
      * @param {string} variableId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15539,11 +16064,12 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15554,7 +16080,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -15605,6 +16131,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @summary List User Variables
      * @param {string} userId
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15615,11 +16142,12 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List Variables.
      * @summary List Variables
      * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
      * @param {number} [page]
      * @param {number} [pageSize]
@@ -15630,7 +16158,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet(query?: string, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -15699,6 +16227,12 @@ export interface VariablesApiListAssociationsV1VariablesVariableIdAssociationsGe
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
@@ -15759,6 +16293,12 @@ export interface VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetReq
      * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}
@@ -16021,6 +16561,12 @@ export interface VariablesApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      */
     readonly query?: string;
     /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
      * Filter results by id.
      * @type {Array<string>}
      * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
@@ -16075,6 +16621,12 @@ export interface VariablesApiListVariablesV1VariablesGetRequest {
      * @memberof VariablesApiListVariablesV1VariablesGet
      */
     readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof VariablesApiListVariablesV1VariablesGet
+     */
+    readonly includeHidden?: boolean;
     /**
      * Filter results by id.
      * @type {Array<string>}

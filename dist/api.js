@@ -1446,6 +1446,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @summary List Associations
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -1457,7 +1458,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listAssociationsV1DatasetsDatasetIdAssociationsGet.');
@@ -1489,6 +1490,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -1529,6 +1533,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @summary List Associations
          * @param {string} modelId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -1540,7 +1545,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling listAssociationsV1ModelsModelIdAssociationsGet.');
@@ -1572,6 +1577,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -1612,6 +1620,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @summary List Associations
          * @param {string} variableId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -1623,7 +1632,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listAssociationsV1VariablesVariableIdAssociationsGet.');
@@ -1655,6 +1664,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -1826,6 +1838,7 @@ exports.AssociationsApiFp = function (configuration) {
          * @summary List Associations
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -1837,9 +1850,9 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -1851,6 +1864,7 @@ exports.AssociationsApiFp = function (configuration) {
          * @summary List Associations
          * @param {string} modelId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -1862,9 +1876,9 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -1876,6 +1890,7 @@ exports.AssociationsApiFp = function (configuration) {
          * @summary List Associations
          * @param {string} variableId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -1887,9 +1902,9 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -1970,6 +1985,7 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @summary List Associations
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -1981,14 +1997,15 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
-            return exports.AssociationsApiFp(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations in model.
          * @summary List Associations
          * @param {string} modelId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -2000,14 +2017,15 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
-            return exports.AssociationsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations using the Variable.
          * @summary List Associations
          * @param {string} variableId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -2019,8 +2037,8 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
-            return exports.AssociationsApiFp(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
         },
         /**
          * Bulk association patching.
@@ -2095,7 +2113,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations in model.
@@ -2106,7 +2124,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1ModelsModelIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations using the Variable.
@@ -2117,7 +2135,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Bulk association patching.
@@ -2242,6 +2260,7 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
          * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
          * @summary List Authors
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -2252,7 +2271,7 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1AuthorsGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthorsV1AuthorsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/authors`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -2279,6 +2298,9 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -2409,6 +2431,7 @@ exports.AuthorsApiFp = function (configuration) {
          * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
          * @summary List Authors
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -2419,9 +2442,9 @@ exports.AuthorsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AuthorsApiAxiosParamCreator(configuration).listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.AuthorsApiAxiosParamCreator(configuration).listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2478,6 +2501,7 @@ exports.AuthorsApiFactory = function (configuration, basePath, axios) {
          * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
          * @summary List Authors
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -2488,8 +2512,8 @@ exports.AuthorsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.AuthorsApiFp(configuration).listAuthorsV1AuthorsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.AuthorsApiFp(configuration).listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove an author from a study.
@@ -2542,7 +2566,7 @@ class AuthorsApi extends base_1.BaseAPI {
      * @memberof AuthorsApi
      */
     listAuthorsV1AuthorsGet(requestParameters = {}, options) {
-        return exports.AuthorsApiFp(this.configuration).listAuthorsV1AuthorsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.AuthorsApiFp(this.configuration).listAuthorsV1AuthorsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove an author from a study.
@@ -2710,6 +2734,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -2720,7 +2745,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserConceptsV1UserConceptsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -2747,6 +2772,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -2783,6 +2811,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * List Concepts.
          * @summary List Concepts
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -2793,7 +2822,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listConceptsV1ConceptsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -2820,6 +2849,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -2952,6 +2984,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @summary List User Concepts
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -2962,7 +2995,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserConceptsV1UsersUserIdConceptsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserConceptsV1UsersUserIdConceptsGet.');
@@ -2994,6 +3027,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -3086,6 +3122,7 @@ exports.ConceptsApiFp = function (configuration) {
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -3096,9 +3133,9 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3109,6 +3146,7 @@ exports.ConceptsApiFp = function (configuration) {
          * List Concepts.
          * @summary List Concepts
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -3119,9 +3157,9 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listConceptsV1ConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3161,6 +3199,7 @@ exports.ConceptsApiFp = function (configuration) {
          * @summary List User Concepts
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -3171,9 +3210,9 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3222,6 +3261,7 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -3232,13 +3272,14 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.ConceptsApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.ConceptsApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List Concepts.
          * @summary List Concepts
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -3249,8 +3290,8 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.ConceptsApiFp(configuration).listConceptsV1ConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.ConceptsApiFp(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the concepts in the requested concept\'s system.
@@ -3279,6 +3320,7 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @summary List User Concepts
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -3289,8 +3331,8 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.ConceptsApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.ConceptsApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3343,7 +3385,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters = {}, options) {
-        return exports.ConceptsApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Concepts.
@@ -3354,7 +3396,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     listConceptsV1ConceptsGet(requestParameters = {}, options) {
-        return exports.ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the concepts in the requested concept\'s system.
@@ -3376,7 +3418,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     listUserConceptsV1UsersUserIdConceptsGet(requestParameters, options) {
-        return exports.ConceptsApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ConceptsApi = ConceptsApi;
@@ -3746,6 +3788,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary List Associations
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -3757,7 +3800,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listAssociationsV1DatasetsDatasetIdAssociationsGet.');
@@ -3789,6 +3832,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -3828,6 +3874,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -3838,7 +3885,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -3865,6 +3912,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -3902,6 +3952,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary List Dataset Features
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -3912,7 +3963,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet.');
@@ -3944,6 +3995,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -3980,6 +4034,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * Get all Datasets.
          * @summary List Datasets
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -3990,7 +4045,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetsV1DatasetsGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDatasetsV1DatasetsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -4017,6 +4072,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -4054,6 +4112,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary List Models Using Dataset
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4065,7 +4124,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listModelsUsingDatasetV1DatasetsDatasetIdModelsGet.');
@@ -4097,6 +4156,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -4137,6 +4199,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary List User Datasets
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4147,7 +4210,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserDatasetsV1UsersUserIdDatasetsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserDatasetsV1UsersUserIdDatasetsGet.');
@@ -4179,6 +4242,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -4556,6 +4622,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary List Associations
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4567,9 +4634,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -4580,6 +4647,7 @@ exports.DatasetsApiFp = function (configuration) {
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4590,9 +4658,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -4604,6 +4672,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary List Dataset Features
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4614,9 +4683,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -4627,6 +4696,7 @@ exports.DatasetsApiFp = function (configuration) {
          * Get all Datasets.
          * @summary List Datasets
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4637,9 +4707,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetsV1DatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listDatasetsV1DatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -4651,6 +4721,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary List Models Using Dataset
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4662,9 +4733,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -4676,6 +4747,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary List User Datasets
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4686,9 +4758,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -4850,6 +4922,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @summary List Associations
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4861,13 +4934,14 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
-            return exports.DatasetsApiFp(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+            return exports.DatasetsApiFp(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4878,14 +4952,15 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.DatasetsApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.DatasetsApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4896,13 +4971,14 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.DatasetsApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.DatasetsApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all Datasets.
          * @summary List Datasets
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4913,14 +4989,15 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetsV1DatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.DatasetsApiFp(configuration).listDatasetsV1DatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.DatasetsApiFp(configuration).listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models that use the dataset either directly or through child datasets.
          * @summary List Models Using Dataset
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4932,14 +5009,15 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.DatasetsApiFp(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.DatasetsApiFp(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s datasets.
          * @summary List User Datasets
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -4950,8 +5028,8 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.DatasetsApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.DatasetsApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Dataset resource with partial update.
@@ -5092,7 +5170,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s datasets.
@@ -5103,7 +5181,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters = {}, options) {
-        return exports.DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a datasets features.
@@ -5114,7 +5192,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get all Datasets.
@@ -5125,7 +5203,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listDatasetsV1DatasetsGet(requestParameters = {}, options) {
-        return exports.DatasetsApiFp(this.configuration).listDatasetsV1DatasetsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listDatasetsV1DatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get models that use the dataset either directly or through child datasets.
@@ -5136,7 +5214,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters.datasetId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s datasets.
@@ -5147,7 +5225,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Dataset resource with partial update.
@@ -5832,6 +5910,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s features.
          * @summary List Authenticated User Features
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -5842,7 +5921,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserFeaturesV1UserFeaturesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/features`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -5869,6 +5948,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -5906,6 +5988,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @summary List Dataset Features
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -5916,7 +5999,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet.');
@@ -5948,6 +6031,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -5984,6 +6070,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * List Features.
          * @summary List Features
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -5994,7 +6081,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeaturesV1FeaturesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listFeaturesV1FeaturesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/features`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -6021,6 +6108,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -6173,6 +6263,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @summary List User Features
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -6183,7 +6274,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserFeaturesV1UsersUserIdFeaturesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserFeaturesV1UsersUserIdFeaturesGet.');
@@ -6215,6 +6306,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -6554,6 +6648,7 @@ exports.FeaturesApiFp = function (configuration) {
          * List authenticated user\'s features.
          * @summary List Authenticated User Features
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -6564,9 +6659,9 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6578,6 +6673,7 @@ exports.FeaturesApiFp = function (configuration) {
          * @summary List Dataset Features
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -6588,9 +6684,9 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6601,6 +6697,7 @@ exports.FeaturesApiFp = function (configuration) {
          * List Features.
          * @summary List Features
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -6611,9 +6708,9 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeaturesV1FeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listFeaturesV1FeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6658,6 +6755,7 @@ exports.FeaturesApiFp = function (configuration) {
          * @summary List User Features
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -6668,9 +6766,9 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6809,6 +6907,7 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * List authenticated user\'s features.
          * @summary List Authenticated User Features
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -6819,14 +6918,15 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.FeaturesApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.FeaturesApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} datasetId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -6837,13 +6937,14 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.FeaturesApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.FeaturesApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List Features.
          * @summary List Features
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -6854,8 +6955,8 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeaturesV1FeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.FeaturesApiFp(configuration).listFeaturesV1FeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.FeaturesApiFp(configuration).listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested feature\'s system.
@@ -6889,6 +6990,7 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @summary List User Features
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -6899,8 +7001,8 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.FeaturesApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.FeaturesApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
@@ -7018,7 +7120,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters = {}, options) {
-        return exports.FeaturesApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a datasets features.
@@ -7029,7 +7131,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Features.
@@ -7040,7 +7142,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listFeaturesV1FeaturesGet(requestParameters = {}, options) {
-        return exports.FeaturesApiFp(this.configuration).listFeaturesV1FeaturesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listFeaturesV1FeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the features in the requested feature\'s system.
@@ -7062,7 +7164,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
@@ -7486,6 +7588,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @summary List Associations
          * @param {string} modelId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -7497,7 +7600,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling listAssociationsV1ModelsModelIdAssociationsGet.');
@@ -7529,6 +7632,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -7568,6 +7674,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s models.
          * @summary List Authenticated User Models
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -7579,7 +7686,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserModelsV1UserModelsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -7606,6 +7713,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -7645,6 +7755,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * List Models.
          * @summary List Models
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -7656,7 +7767,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listModelsV1ModelsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -7683,6 +7794,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -7723,6 +7837,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @summary List User Models
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -7734,7 +7849,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserModelsV1UsersUserIdModelsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserModelsV1UsersUserIdModelsGet.');
@@ -7766,6 +7881,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -8096,6 +8214,7 @@ exports.ModelsApiFp = function (configuration) {
          * @summary List Associations
          * @param {string} modelId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -8107,9 +8226,9 @@ exports.ModelsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -8120,6 +8239,7 @@ exports.ModelsApiFp = function (configuration) {
          * List authenticated user\'s models.
          * @summary List Authenticated User Models
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -8131,9 +8251,9 @@ exports.ModelsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -8144,6 +8264,7 @@ exports.ModelsApiFp = function (configuration) {
          * List Models.
          * @summary List Models
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -8155,9 +8276,9 @@ exports.ModelsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -8169,6 +8290,7 @@ exports.ModelsApiFp = function (configuration) {
          * @summary List User Models
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -8180,9 +8302,9 @@ exports.ModelsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -8328,6 +8450,7 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @summary List Associations
          * @param {string} modelId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -8339,13 +8462,14 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
-            return exports.ModelsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+            return exports.ModelsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s models.
          * @summary List Authenticated User Models
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -8357,13 +8481,14 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.ModelsApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.ModelsApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List Models.
          * @summary List Models
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -8375,14 +8500,15 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.ModelsApiFp(configuration).listModelsV1ModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.ModelsApiFp(configuration).listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s models.
          * @summary List User Models
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -8394,8 +8520,8 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.ModelsApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.ModelsApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * Bulk association patching.
@@ -8525,7 +8651,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listAssociationsV1ModelsModelIdAssociationsGet(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s models.
@@ -8536,7 +8662,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listAuthenticatedUserModelsV1UserModelsGet(requestParameters = {}, options) {
-        return exports.ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Models.
@@ -8547,7 +8673,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listModelsV1ModelsGet(requestParameters = {}, options) {
-        return exports.ModelsApiFp(this.configuration).listModelsV1ModelsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listModelsV1ModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s models.
@@ -8558,7 +8684,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listUserModelsV1UsersUserIdModelsGet(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Bulk association patching.
@@ -8799,6 +8925,7 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
          * List population attribute values.
          * @summary List Population Attribute Values
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -8809,7 +8936,7 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributeValuesV1PopulationAttributeValuesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listPopulationAttributeValuesV1PopulationAttributeValuesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/population_attribute_values`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -8836,6 +8963,9 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -8998,6 +9128,7 @@ exports.PopulationAttributeValuesApiFp = function (configuration) {
          * List population attribute values.
          * @summary List Population Attribute Values
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -9008,9 +9139,9 @@ exports.PopulationAttributeValuesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.PopulationAttributeValuesApiAxiosParamCreator(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.PopulationAttributeValuesApiAxiosParamCreator(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -9087,6 +9218,7 @@ exports.PopulationAttributeValuesApiFactory = function (configuration, basePath,
          * List population attribute values.
          * @summary List Population Attribute Values
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -9097,8 +9229,8 @@ exports.PopulationAttributeValuesApiFactory = function (configuration, basePath,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.PopulationAttributeValuesApiFp(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.PopulationAttributeValuesApiFp(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a population attribute value from a dataset.
@@ -9173,7 +9305,7 @@ class PopulationAttributeValuesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     listPopulationAttributeValuesV1PopulationAttributeValuesGet(requestParameters = {}, options) {
-        return exports.PopulationAttributeValuesApiFp(this.configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributeValuesApiFp(this.configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove a population attribute value from a dataset.
@@ -9397,6 +9529,7 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
          * @summary List A Population Attributes Values
          * @param {string} populationAttributeId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -9407,7 +9540,7 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: (populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: (populationAttributeId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'populationAttributeId' is not null or undefined
             if (populationAttributeId === null || populationAttributeId === undefined) {
                 throw new base_1.RequiredError('populationAttributeId', 'Required parameter populationAttributeId was null or undefined when calling listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet.');
@@ -9439,6 +9572,9 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -9475,6 +9611,7 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
          * List population attributes.
          * @summary List Population Attributes
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -9485,7 +9622,7 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributesV1PopulationAttributesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listPopulationAttributesV1PopulationAttributesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/population_attributes`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -9512,6 +9649,9 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -9622,6 +9762,7 @@ exports.PopulationAttributesApiFp = function (configuration) {
          * @summary List A Population Attributes Values
          * @param {string} populationAttributeId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -9632,9 +9773,9 @@ exports.PopulationAttributesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.PopulationAttributesApiAxiosParamCreator(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.PopulationAttributesApiAxiosParamCreator(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -9645,6 +9786,7 @@ exports.PopulationAttributesApiFp = function (configuration) {
          * List population attributes.
          * @summary List Population Attributes
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -9655,9 +9797,9 @@ exports.PopulationAttributesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributesV1PopulationAttributesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.PopulationAttributesApiAxiosParamCreator(configuration).listPopulationAttributesV1PopulationAttributesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.PopulationAttributesApiAxiosParamCreator(configuration).listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -9718,6 +9860,7 @@ exports.PopulationAttributesApiFactory = function (configuration, basePath, axio
          * @summary List A Population Attributes Values
          * @param {string} populationAttributeId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -9728,13 +9871,14 @@ exports.PopulationAttributesApiFactory = function (configuration, basePath, axio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.PopulationAttributesApiFp(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.PopulationAttributesApiFp(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List population attributes.
          * @summary List Population Attributes
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -9745,8 +9889,8 @@ exports.PopulationAttributesApiFactory = function (configuration, basePath, axio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributesV1PopulationAttributesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.PopulationAttributesApiFp(configuration).listPopulationAttributesV1PopulationAttributesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.PopulationAttributesApiFp(configuration).listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -9810,7 +9954,7 @@ class PopulationAttributesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributesApi
      */
     listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(requestParameters, options) {
-        return exports.PopulationAttributesApiFp(this.configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(requestParameters.populationAttributeId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributesApiFp(this.configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(requestParameters.populationAttributeId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List population attributes.
@@ -9821,7 +9965,7 @@ class PopulationAttributesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributesApi
      */
     listPopulationAttributesV1PopulationAttributesGet(requestParameters = {}, options) {
-        return exports.PopulationAttributesApiFp(this.configuration).listPopulationAttributesV1PopulationAttributesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributesApiFp(this.configuration).listPopulationAttributesV1PopulationAttributesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.PopulationAttributesApi = PopulationAttributesApi;
@@ -10037,6 +10181,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10047,7 +10192,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserStudiesV1UserStudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -10074,6 +10219,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -10111,6 +10259,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @summary List Authors
          * @param {string} studyId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10121,7 +10270,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1StudiesStudyIdAuthorsGet: (studyId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthorsV1StudiesStudyIdAuthorsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAuthorsV1StudiesStudyIdAuthorsGet.');
@@ -10153,6 +10302,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -10189,6 +10341,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * List Studies.
          * @summary List Studies
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10199,7 +10352,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listStudiesV1StudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -10226,6 +10379,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -10263,6 +10419,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @summary List User Studies
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10273,7 +10430,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserStudiesV1UsersUserIdStudiesGet.');
@@ -10305,6 +10462,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -10523,6 +10683,7 @@ exports.StudiesApiFp = function (configuration) {
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10533,9 +10694,9 @@ exports.StudiesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -10547,6 +10708,7 @@ exports.StudiesApiFp = function (configuration) {
          * @summary List Authors
          * @param {string} studyId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10557,9 +10719,9 @@ exports.StudiesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -10570,6 +10732,7 @@ exports.StudiesApiFp = function (configuration) {
          * List Studies.
          * @summary List Studies
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10580,9 +10743,9 @@ exports.StudiesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listStudiesV1StudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -10594,6 +10757,7 @@ exports.StudiesApiFp = function (configuration) {
          * @summary List User Studies
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10604,9 +10768,9 @@ exports.StudiesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -10701,6 +10865,7 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10711,14 +10876,15 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.StudiesApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.StudiesApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List a study\'s authors.
          * @summary List Authors
          * @param {string} studyId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10729,13 +10895,14 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.StudiesApiFp(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.StudiesApiFp(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List Studies.
          * @summary List Studies
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10746,14 +10913,15 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.StudiesApiFp(configuration).listStudiesV1StudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.StudiesApiFp(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s studies.
          * @summary List User Studies
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -10764,8 +10932,8 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.StudiesApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.StudiesApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Study resource with partial update.
@@ -10851,7 +11019,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters = {}, options) {
-        return exports.StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a study\'s authors.
@@ -10862,7 +11030,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters.studyId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Studies.
@@ -10873,7 +11041,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listStudiesV1StudiesGet(requestParameters = {}, options) {
-        return exports.StudiesApiFp(this.configuration).listStudiesV1StudiesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listStudiesV1StudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s studies.
@@ -10884,7 +11052,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listUserStudiesV1UsersUserIdStudiesGet(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Study resource with partial update.
@@ -11909,6 +12077,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -11919,7 +12088,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserConceptsV1UserConceptsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -11946,6 +12115,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -11982,6 +12154,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -11992,7 +12165,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -12019,6 +12192,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12055,6 +12231,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s features.
          * @summary List Authenticated User Features
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12065,7 +12242,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserFeaturesV1UserFeaturesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/features`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -12092,6 +12269,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12128,6 +12308,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s models.
          * @summary List Authenticated User Models
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12139,7 +12320,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserModelsV1UserModelsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -12166,6 +12347,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12205,6 +12389,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12215,7 +12400,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserStudiesV1UserStudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -12242,6 +12427,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12278,6 +12466,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s variables.
          * @summary List Authenticated User Variables
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12288,7 +12477,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserVariablesV1UserVariablesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -12315,6 +12504,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12352,6 +12544,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @summary List User Concepts
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12362,7 +12555,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserConceptsV1UsersUserIdConceptsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserConceptsV1UsersUserIdConceptsGet.');
@@ -12394,6 +12587,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12431,6 +12627,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @summary List User Datasets
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12441,7 +12638,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserDatasetsV1UsersUserIdDatasetsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserDatasetsV1UsersUserIdDatasetsGet.');
@@ -12473,6 +12670,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12510,6 +12710,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @summary List User Features
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12520,7 +12721,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserFeaturesV1UsersUserIdFeaturesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserFeaturesV1UsersUserIdFeaturesGet.');
@@ -12552,6 +12753,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12589,6 +12793,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @summary List User Models
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12600,7 +12805,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserModelsV1UsersUserIdModelsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserModelsV1UsersUserIdModelsGet.');
@@ -12632,6 +12837,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12672,6 +12880,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @summary List User Studies
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12682,7 +12891,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserStudiesV1UsersUserIdStudiesGet.');
@@ -12714,6 +12923,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12751,6 +12963,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @summary List User Variables
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12761,7 +12974,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserVariablesV1UsersUserIdVariablesGet.');
@@ -12793,6 +13006,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -12886,6 +13102,7 @@ exports.UsersApiFp = function (configuration) {
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12896,9 +13113,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12909,6 +13126,7 @@ exports.UsersApiFp = function (configuration) {
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12919,9 +13137,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12932,6 +13150,7 @@ exports.UsersApiFp = function (configuration) {
          * List authenticated user\'s features.
          * @summary List Authenticated User Features
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12942,9 +13161,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12955,6 +13174,7 @@ exports.UsersApiFp = function (configuration) {
          * List authenticated user\'s models.
          * @summary List Authenticated User Models
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12966,9 +13186,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12979,6 +13199,7 @@ exports.UsersApiFp = function (configuration) {
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -12989,9 +13210,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -13002,6 +13223,7 @@ exports.UsersApiFp = function (configuration) {
          * List authenticated user\'s variables.
          * @summary List Authenticated User Variables
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13012,9 +13234,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -13026,6 +13248,7 @@ exports.UsersApiFp = function (configuration) {
          * @summary List User Concepts
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13036,9 +13259,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -13050,6 +13273,7 @@ exports.UsersApiFp = function (configuration) {
          * @summary List User Datasets
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13060,9 +13284,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -13074,6 +13298,7 @@ exports.UsersApiFp = function (configuration) {
          * @summary List User Features
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13084,9 +13309,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -13098,6 +13323,7 @@ exports.UsersApiFp = function (configuration) {
          * @summary List User Models
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13109,9 +13335,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -13123,6 +13349,7 @@ exports.UsersApiFp = function (configuration) {
          * @summary List User Studies
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13133,9 +13360,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -13147,6 +13374,7 @@ exports.UsersApiFp = function (configuration) {
          * @summary List User Variables
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13157,9 +13385,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -13209,6 +13437,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13219,13 +13448,14 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13236,13 +13466,14 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s features.
          * @summary List Authenticated User Features
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13253,13 +13484,14 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s models.
          * @summary List Authenticated User Models
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13271,13 +13503,14 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13288,13 +13521,14 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s variables.
          * @summary List Authenticated User Variables
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13305,14 +13539,15 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s concepts.
          * @summary List User Concepts
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13323,14 +13558,15 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.UsersApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s datasets.
          * @summary List User Datasets
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13341,14 +13577,15 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.UsersApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s features.
          * @summary List User Features
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13359,14 +13596,15 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.UsersApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s models.
          * @summary List User Models
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13378,14 +13616,15 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.UsersApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.UsersApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s studies.
          * @summary List User Studies
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13396,14 +13635,15 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.UsersApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s variables.
          * @summary List User Variables
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13414,8 +13654,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.UsersApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -13468,7 +13708,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s datasets.
@@ -13479,7 +13719,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s features.
@@ -13490,7 +13730,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s models.
@@ -13501,7 +13741,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserModelsV1UserModelsGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s studies.
@@ -13512,7 +13752,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s variables.
@@ -13523,7 +13763,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s concepts.
@@ -13534,7 +13774,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserConceptsV1UsersUserIdConceptsGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s datasets.
@@ -13545,7 +13785,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s features.
@@ -13556,7 +13796,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s models.
@@ -13567,7 +13807,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserModelsV1UsersUserIdModelsGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s studies.
@@ -13578,7 +13818,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserStudiesV1UsersUserIdStudiesGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s variables.
@@ -13589,7 +13829,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserVariablesV1UsersUserIdVariablesGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.UsersApi = UsersApi;
@@ -13747,6 +13987,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @summary List Associations
          * @param {string} variableId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13758,7 +13999,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listAssociationsV1VariablesVariableIdAssociationsGet.');
@@ -13790,6 +14031,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -13829,6 +14073,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * List authenticated user\'s variables.
          * @summary List Authenticated User Variables
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -13839,7 +14084,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserVariablesV1UserVariablesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13866,6 +14111,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -14113,6 +14361,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @summary List User Variables
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -14123,7 +14372,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserVariablesV1UsersUserIdVariablesGet.');
@@ -14155,6 +14404,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -14191,6 +14443,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * List Variables.
          * @summary List Variables
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -14201,7 +14454,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet: (query, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listVariablesV1VariablesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -14228,6 +14481,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
             }
             if (id) {
                 localVarQueryParameter['id'] = id;
@@ -14376,6 +14632,7 @@ exports.VariablesApiFp = function (configuration) {
          * @summary List Associations
          * @param {string} variableId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -14387,9 +14644,9 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14400,6 +14657,7 @@ exports.VariablesApiFp = function (configuration) {
          * List authenticated user\'s variables.
          * @summary List Authenticated User Variables
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -14410,9 +14668,9 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14485,6 +14743,7 @@ exports.VariablesApiFp = function (configuration) {
          * @summary List User Variables
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -14495,9 +14754,9 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14508,6 +14767,7 @@ exports.VariablesApiFp = function (configuration) {
          * List Variables.
          * @summary List Variables
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -14518,9 +14778,9 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14587,6 +14847,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @summary List Associations
          * @param {string} variableId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -14598,13 +14859,14 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
-            return exports.VariablesApiFp(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options) {
+            return exports.VariablesApiFp(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s variables.
          * @summary List Authenticated User Variables
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -14615,8 +14877,8 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.VariablesApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.VariablesApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested variable\'s system.
@@ -14672,6 +14934,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @summary List User Variables
          * @param {string} userId
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -14682,13 +14945,14 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.VariablesApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.VariablesApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List Variables.
          * @summary List Variables
          * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
          * @param {number} [page]
          * @param {number} [pageSize]
@@ -14699,8 +14963,8 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.VariablesApiFp(configuration).listVariablesV1VariablesGet(query, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+            return exports.VariablesApiFp(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Variable resource with partial update.
@@ -14764,7 +15028,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s variables.
@@ -14775,7 +15039,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters = {}, options) {
-        return exports.VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the features in the requested variable\'s system.
@@ -14808,7 +15072,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listUserVariablesV1UsersUserIdVariablesGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Variables.
@@ -14819,7 +15083,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listVariablesV1VariablesGet(requestParameters = {}, options) {
-        return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.query, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Variable resource with partial update.
