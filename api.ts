@@ -5061,6 +5061,80 @@ export enum SignificanceValueOutGeneratedByEnum {
 }
 
 /**
+ * A real world study.
+ * @export
+ * @interface StudyIn
+ */
+export interface StudyIn {
+    /**
+     * Tags to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof StudyIn
+     */
+    tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof StudyIn
+     */
+    hidden?: boolean;
+    /**
+     * Study\'s name.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    name: string;
+    /**
+     * Study\'s description.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    description?: string;
+    /**
+     * The source (e.g. github link) of the study.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    source?: string;
+    /**
+     * The type of study.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    study_type?: StudyInStudyTypeEnum;
+    /**
+     * The DOI of the study.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    doi?: string;
+    /**
+     * The lede of the study.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    lede?: string;
+    /**
+     * External assets data.
+     * @type {Array<ExternalAsset>}
+     * @memberof StudyIn
+     */
+    external_assets?: Array<ExternalAsset>;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum StudyInStudyTypeEnum {
+    Invalid = 'invalid',
+    SupervisedMl = 'supervised_ml',
+    UnsupervisedMl = 'unsupervised_ml',
+    StatisticalInference = 'statistical_inference',
+    RandomizedControlTrial = 'randomized_control_trial'
+}
+
+/**
  * Study resource links.
  * @export
  * @interface StudyLinks
@@ -18871,6 +18945,62 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Create a Study.
+         * @summary Create A Study.
+         * @param {StudyIn} studyIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAStudyV1StudiesPost: async (studyIn: StudyIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'studyIn' is not null or undefined
+            if (studyIn === null || studyIn === undefined) {
+                throw new RequiredError('studyIn','Required parameter studyIn was null or undefined when calling createAStudyV1StudiesPost.');
+            }
+            const localVarPath = `/v1/studies`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof studyIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(studyIn !== undefined ? studyIn : {}) : (studyIn || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Create models and add to study.
          * @summary Create Models
          * @param {string} studyId 
@@ -19564,6 +19694,20 @@ export const StudiesApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Create a Study.
+         * @summary Create A Study.
+         * @param {StudyIn} studyIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createAStudyV1StudiesPost(studyIn: StudyIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>> {
+            const localVarAxiosArgs = await StudiesApiAxiosParamCreator(configuration).createAStudyV1StudiesPost(studyIn, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Create models and add to study.
          * @summary Create Models
          * @param {string} studyId 
@@ -19747,6 +19891,16 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
             return StudiesApiFp(configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a Study.
+         * @summary Create A Study.
+         * @param {StudyIn} studyIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAStudyV1StudiesPost(studyIn: StudyIn, options?: any): AxiosPromise<StudyOut> {
+            return StudiesApiFp(configuration).createAStudyV1StudiesPost(studyIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create models and add to study.
          * @summary Create Models
          * @param {string} studyId 
@@ -19895,6 +20049,20 @@ export interface StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutReq
      * @memberof StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
      */
     readonly authorId: string
+}
+
+/**
+ * Request parameters for createAStudyV1StudiesPost operation in StudiesApi.
+ * @export
+ * @interface StudiesApiCreateAStudyV1StudiesPostRequest
+ */
+export interface StudiesApiCreateAStudyV1StudiesPostRequest {
+    /**
+     * 
+     * @type {StudyIn}
+     * @memberof StudiesApiCreateAStudyV1StudiesPost
+     */
+    readonly studyIn: StudyIn
 }
 
 /**
@@ -20299,6 +20467,18 @@ export class StudiesApi extends BaseAPI {
      */
     public addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: any) {
         return StudiesApiFp(this.configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a Study.
+     * @summary Create A Study.
+     * @param {StudiesApiCreateAStudyV1StudiesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    public createAStudyV1StudiesPost(requestParameters: StudiesApiCreateAStudyV1StudiesPostRequest, options?: any) {
+        return StudiesApiFp(this.configuration).createAStudyV1StudiesPost(requestParameters.studyIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
