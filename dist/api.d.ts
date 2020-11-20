@@ -780,6 +780,43 @@ export declare enum AssociationValueOutFeatureContributionMethodEnum {
     Invalid = "invalid"
 }
 /**
+ * An Author input data.
+ * @export
+ * @interface AuthorIn
+ */
+export interface AuthorIn {
+    /**
+     * Tags to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof AuthorIn
+     */
+    tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof AuthorIn
+     */
+    hidden?: boolean;
+    /**
+     * Author\'s name.
+     * @type {string}
+     * @memberof AuthorIn
+     */
+    name: string;
+    /**
+     * Author\'s affiliation
+     * @type {Array<string>}
+     * @memberof AuthorIn
+     */
+    affiliation?: Array<string>;
+    /**
+     * Author\'s ORCID
+     * @type {string}
+     * @memberof AuthorIn
+     */
+    orcid?: string;
+}
+/**
  * Author resource links.
  * @export
  * @interface AuthorLinks
@@ -6748,6 +6785,22 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Create an Author.
+     * @summary Create Author
+     * @param {AuthorIn} authorIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAuthorV1AuthorsPost: (authorIn: AuthorIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete an Author.
+     * @summary Delete Author
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteAuthorV1AuthorsAuthorIdDelete: (authorId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get Author.
      * @summary Get Author
      * @param {string} authorId
@@ -6796,6 +6849,22 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Create an Author.
+     * @summary Create Author
+     * @param {AuthorIn} authorIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAuthorV1AuthorsPost(authorIn: AuthorIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
+    /**
+     * Delete an Author.
+     * @summary Delete Author
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteAuthorV1AuthorsAuthorIdDelete(authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Get Author.
      * @summary Get Author
      * @param {string} authorId
@@ -6843,6 +6912,22 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Create an Author.
+     * @summary Create Author
+     * @param {AuthorIn} authorIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAuthorV1AuthorsPost(authorIn: AuthorIn, options?: any): AxiosPromise<AuthorOut>;
+    /**
+     * Delete an Author.
+     * @summary Delete Author
+     * @param {string} authorId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteAuthorV1AuthorsAuthorIdDelete(authorId: string, options?: any): AxiosPromise<void>;
     /**
      * Get Author.
      * @summary Get Author
@@ -6893,6 +6978,32 @@ export interface AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutReq
      *
      * @type {string}
      * @memberof AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
+     */
+    readonly authorId: string;
+}
+/**
+ * Request parameters for createAuthorV1AuthorsPost operation in AuthorsApi.
+ * @export
+ * @interface AuthorsApiCreateAuthorV1AuthorsPostRequest
+ */
+export interface AuthorsApiCreateAuthorV1AuthorsPostRequest {
+    /**
+     *
+     * @type {AuthorIn}
+     * @memberof AuthorsApiCreateAuthorV1AuthorsPost
+     */
+    readonly authorIn: AuthorIn;
+}
+/**
+ * Request parameters for deleteAuthorV1AuthorsAuthorIdDelete operation in AuthorsApi.
+ * @export
+ * @interface AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest
+ */
+export interface AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiDeleteAuthorV1AuthorsAuthorIdDelete
      */
     readonly authorId: string;
 }
@@ -7005,6 +7116,24 @@ export declare class AuthorsApi extends BaseAPI {
      * @memberof AuthorsApi
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Create an Author.
+     * @summary Create Author
+     * @param {AuthorsApiCreateAuthorV1AuthorsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    createAuthorV1AuthorsPost(requestParameters: AuthorsApiCreateAuthorV1AuthorsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut>>;
+    /**
+     * Delete an Author.
+     * @summary Delete Author
+     * @param {AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    deleteAuthorV1AuthorsAuthorIdDelete(requestParameters: AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get Author.
      * @summary Get Author

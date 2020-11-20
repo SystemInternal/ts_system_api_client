@@ -2210,6 +2210,102 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create an Author.
+         * @summary Create Author
+         * @param {AuthorIn} authorIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAuthorV1AuthorsPost: (authorIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'authorIn' is not null or undefined
+            if (authorIn === null || authorIn === undefined) {
+                throw new base_1.RequiredError('authorIn', 'Required parameter authorIn was null or undefined when calling createAuthorV1AuthorsPost.');
+            }
+            const localVarPath = `/v1/authors`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof authorIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(authorIn !== undefined ? authorIn : {}) : (authorIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete an Author.
+         * @summary Delete Author
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAuthorV1AuthorsAuthorIdDelete: (authorId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'authorId' is not null or undefined
+            if (authorId === null || authorId === undefined) {
+                throw new base_1.RequiredError('authorId', 'Required parameter authorId was null or undefined when calling deleteAuthorV1AuthorsAuthorIdDelete.');
+            }
+            const localVarPath = `/v1/authors/{author_id}`
+                .replace(`{${"author_id"}}`, encodeURIComponent(String(authorId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get Author.
          * @summary Get Author
          * @param {string} authorId
@@ -2412,6 +2508,38 @@ exports.AuthorsApiFp = function (configuration) {
             });
         },
         /**
+         * Create an Author.
+         * @summary Create Author
+         * @param {AuthorIn} authorIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAuthorV1AuthorsPost(authorIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AuthorsApiAxiosParamCreator(configuration).createAuthorV1AuthorsPost(authorIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete an Author.
+         * @summary Delete Author
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAuthorV1AuthorsAuthorIdDelete(authorId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AuthorsApiAxiosParamCreator(configuration).deleteAuthorV1AuthorsAuthorIdDelete(authorId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get Author.
          * @summary Get Author
          * @param {string} authorId
@@ -2488,6 +2616,26 @@ exports.AuthorsApiFactory = function (configuration, basePath, axios) {
             return exports.AuthorsApiFp(configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create an Author.
+         * @summary Create Author
+         * @param {AuthorIn} authorIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAuthorV1AuthorsPost(authorIn, options) {
+            return exports.AuthorsApiFp(configuration).createAuthorV1AuthorsPost(authorIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete an Author.
+         * @summary Delete Author
+         * @param {string} authorId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAuthorV1AuthorsAuthorIdDelete(authorId, options) {
+            return exports.AuthorsApiFp(configuration).deleteAuthorV1AuthorsAuthorIdDelete(authorId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get Author.
          * @summary Get Author
          * @param {string} authorId
@@ -2545,6 +2693,28 @@ class AuthorsApi extends base_1.BaseAPI {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters, options) {
         return exports.AuthorsApiFp(this.configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create an Author.
+     * @summary Create Author
+     * @param {AuthorsApiCreateAuthorV1AuthorsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    createAuthorV1AuthorsPost(requestParameters, options) {
+        return exports.AuthorsApiFp(this.configuration).createAuthorV1AuthorsPost(requestParameters.authorIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete an Author.
+     * @summary Delete Author
+     * @param {AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    deleteAuthorV1AuthorsAuthorIdDelete(requestParameters, options) {
+        return exports.AuthorsApiFp(this.configuration).deleteAuthorV1AuthorsAuthorIdDelete(requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Author.
