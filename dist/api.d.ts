@@ -5019,6 +5019,78 @@ export declare enum SignificanceValueOutGeneratedByEnum {
     Invalid = "invalid"
 }
 /**
+ * A real world study.
+ * @export
+ * @interface StudyIn
+ */
+export interface StudyIn {
+    /**
+     * Tags to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof StudyIn
+     */
+    tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof StudyIn
+     */
+    hidden?: boolean;
+    /**
+     * Study\'s name.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    name: string;
+    /**
+     * Study\'s description.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    description?: string;
+    /**
+     * The source (e.g. github link) of the study.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    source?: string;
+    /**
+     * The type of study.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    study_type?: StudyInStudyTypeEnum;
+    /**
+     * The DOI of the study.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    doi?: string;
+    /**
+     * The lede of the study.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    lede?: string;
+    /**
+     * External assets data.
+     * @type {Array<ExternalAsset>}
+     * @memberof StudyIn
+     */
+    external_assets?: Array<ExternalAsset>;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum StudyInStudyTypeEnum {
+    Invalid = "invalid",
+    SupervisedMl = "supervised_ml",
+    UnsupervisedMl = "unsupervised_ml",
+    StatisticalInference = "statistical_inference",
+    RandomizedControlTrial = "randomized_control_trial"
+}
+/**
  * Study resource links.
  * @export
  * @interface StudyLinks
@@ -12549,6 +12621,14 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a Study.
+     * @summary Create A Study.
+     * @param {StudyIn} studyIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAStudyV1StudiesPost: (studyIn: StudyIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
@@ -12673,6 +12753,14 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Create a Study.
+     * @summary Create A Study.
+     * @param {StudyIn} studyIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAStudyV1StudiesPost(studyIn: StudyIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
+    /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
@@ -12796,6 +12884,14 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Create a Study.
+     * @summary Create A Study.
+     * @param {StudyIn} studyIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAStudyV1StudiesPost(studyIn: StudyIn, options?: any): AxiosPromise<StudyOut>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -12924,6 +13020,19 @@ export interface StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutReq
      * @memberof StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
      */
     readonly authorId: string;
+}
+/**
+ * Request parameters for createAStudyV1StudiesPost operation in StudiesApi.
+ * @export
+ * @interface StudiesApiCreateAStudyV1StudiesPostRequest
+ */
+export interface StudiesApiCreateAStudyV1StudiesPostRequest {
+    /**
+     *
+     * @type {StudyIn}
+     * @memberof StudiesApiCreateAStudyV1StudiesPost
+     */
+    readonly studyIn: StudyIn;
 }
 /**
  * Request parameters for createModelsV1StudiesStudyIdModelsPost operation in StudiesApi.
@@ -13280,6 +13389,15 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Create a Study.
+     * @summary Create A Study.
+     * @param {StudiesApiCreateAStudyV1StudiesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    createAStudyV1StudiesPost(requestParameters: StudiesApiCreateAStudyV1StudiesPostRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
     /**
      * Create models and add to study.
      * @summary Create Models
