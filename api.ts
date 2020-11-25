@@ -5120,6 +5120,12 @@ export interface StudyIn {
      * @memberof StudyIn
      */
     external_assets?: Array<ExternalAsset>;
+    /**
+     * Optional add flow context flag.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    add_context?: StudyInAddContextEnum;
 }
 
 /**
@@ -5132,6 +5138,14 @@ export enum StudyInStudyTypeEnum {
     UnsupervisedMl = 'unsupervised_ml',
     StatisticalInference = 'statistical_inference',
     RandomizedControlTrial = 'randomized_control_trial'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum StudyInAddContextEnum {
+    Relationship = 'relationship',
+    QuickProject = 'quick_project'
 }
 
 /**
@@ -5152,6 +5166,12 @@ export interface StudyLinks {
      * @memberof StudyLinks
      */
     authors: string;
+    /**
+     * Link to study\'s models.
+     * @type {string}
+     * @memberof StudyLinks
+     */
+    models: string;
 }
 /**
  * A real world study.
@@ -5256,6 +5276,12 @@ export interface StudyOut {
      */
     external_assets?: Array<ExternalAsset>;
     /**
+     * Optional add flow context flag.
+     * @type {string}
+     * @memberof StudyOut
+     */
+    add_context?: StudyOutAddContextEnum;
+    /**
      * Collection of links to related resources.
      * @type {StudyLinks}
      * @memberof StudyOut
@@ -5289,6 +5315,14 @@ export enum StudyOutStudyTypeEnum {
     UnsupervisedMl = 'unsupervised_ml',
     StatisticalInference = 'statistical_inference',
     RandomizedControlTrial = 'randomized_control_trial'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum StudyOutAddContextEnum {
+    Relationship = 'relationship',
+    QuickProject = 'quick_project'
 }
 
 /**
@@ -18945,7 +18979,7 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Create a Study.
+         * 
          * @summary Create A Study.
          * @param {StudyIn} studyIn 
          * @param {*} [options] Override http request option.
@@ -19694,7 +19728,7 @@ export const StudiesApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * Create a Study.
+         * 
          * @summary Create A Study.
          * @param {StudyIn} studyIn 
          * @param {*} [options] Override http request option.
@@ -19891,7 +19925,7 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
             return StudiesApiFp(configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Create a Study.
+         * 
          * @summary Create A Study.
          * @param {StudyIn} studyIn 
          * @param {*} [options] Override http request option.
@@ -20470,7 +20504,7 @@ export class StudiesApi extends BaseAPI {
     }
 
     /**
-     * Create a Study.
+     * 
      * @summary Create A Study.
      * @param {StudiesApiCreateAStudyV1StudiesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
