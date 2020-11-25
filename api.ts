@@ -52,6 +52,19 @@ export interface AssociationIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AssociationIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AssociationIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * The id of the features of this association
      * @type {Array<string>}
      * @memberof AssociationIn
@@ -138,12 +151,6 @@ export interface AssociationOut {
      */
     _permissions?: Array<AssociationOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof AssociationOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof AssociationOut
@@ -155,6 +162,19 @@ export interface AssociationOut {
      * @memberof AssociationOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AssociationOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AssociationOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * The id of the features of this association
      * @type {Array<string>}
@@ -810,6 +830,19 @@ export interface AuthorIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AuthorIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AuthorIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * Author\'s name.
      * @type {string}
      * @memberof AuthorIn
@@ -884,12 +917,6 @@ export interface AuthorOut {
      */
     _permissions?: Array<AuthorOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof AuthorOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof AuthorOut
@@ -901,6 +928,19 @@ export interface AuthorOut {
      * @memberof AuthorOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AuthorOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AuthorOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Author\'s name.
      * @type {string}
@@ -1139,6 +1179,19 @@ export interface CategoryIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof CategoryIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof CategoryIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof CategoryIn
@@ -1194,12 +1247,6 @@ export interface CategoryOut {
      */
     _permissions?: Array<CategoryOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof CategoryOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof CategoryOut
@@ -1211,6 +1258,19 @@ export interface CategoryOut {
      * @memberof CategoryOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof CategoryOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof CategoryOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -1279,6 +1339,19 @@ export interface ConceptIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ConceptIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ConceptIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * The Concept\'s corresponding wikidata id.
      * @type {string}
      * @memberof ConceptIn
@@ -1341,12 +1414,6 @@ export interface ConceptOut {
      */
     _permissions?: Array<ConceptOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof ConceptOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof ConceptOut
@@ -1358,6 +1425,19 @@ export interface ConceptOut {
      * @memberof ConceptOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ConceptOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ConceptOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * The Concept\'s corresponding wikidata id.
      * @type {string}
@@ -1523,6 +1603,19 @@ export interface DatasetIn {
      * @memberof DatasetIn
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DatasetIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DatasetIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Dataset name.
      * @type {string}
@@ -1722,12 +1815,6 @@ export interface DatasetOut {
      */
     _permissions?: Array<DatasetOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof DatasetOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof DatasetOut
@@ -1739,6 +1826,19 @@ export interface DatasetOut {
      * @memberof DatasetOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DatasetOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DatasetOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Dataset name.
      * @type {string}
@@ -1955,6 +2055,19 @@ export interface DateRangeIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DateRangeIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DateRangeIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof DateRangeIn
@@ -2028,12 +2141,6 @@ export interface DateRangeOut {
      */
     _permissions?: Array<DateRangeOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof DateRangeOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof DateRangeOut
@@ -2045,6 +2152,19 @@ export interface DateRangeOut {
      * @memberof DateRangeOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DateRangeOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DateRangeOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -2316,6 +2436,19 @@ export interface FeatureIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FeatureIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FeatureIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * Features\'s name.
      * @type {string}
      * @memberof FeatureIn
@@ -2396,12 +2529,6 @@ export interface FeatureOut {
      */
     _permissions?: Array<FeatureOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof FeatureOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof FeatureOut
@@ -2413,6 +2540,19 @@ export interface FeatureOut {
      * @memberof FeatureOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FeatureOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FeatureOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Features\'s name.
      * @type {string}
@@ -2670,6 +2810,19 @@ export interface FreeTextIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FreeTextIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FreeTextIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof FreeTextIn
@@ -2725,12 +2878,6 @@ export interface FreeTextOut {
      */
     _permissions?: Array<FreeTextOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof FreeTextOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof FreeTextOut
@@ -2742,6 +2889,19 @@ export interface FreeTextOut {
      * @memberof FreeTextOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FreeTextOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FreeTextOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -3137,6 +3297,19 @@ export interface LocationIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof LocationIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof LocationIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof LocationIn
@@ -3198,12 +3371,6 @@ export interface LocationOut {
      */
     _permissions?: Array<LocationOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof LocationOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof LocationOut
@@ -3215,6 +3382,19 @@ export interface LocationOut {
      * @memberof LocationOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof LocationOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof LocationOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -3301,6 +3481,19 @@ export interface ModelIn {
      * @memberof ModelIn
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ModelIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ModelIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Model algorithm.
      * @type {string}
@@ -3454,12 +3647,6 @@ export interface ModelOut {
      */
     _permissions?: Array<ModelOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof ModelOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof ModelOut
@@ -3471,6 +3658,19 @@ export interface ModelOut {
      * @memberof ModelOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ModelOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ModelOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Model algorithm.
      * @type {string}
@@ -4182,6 +4382,19 @@ export interface NumberRangeIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof NumberRangeIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof NumberRangeIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
      * @memberof NumberRangeIn
@@ -4243,12 +4456,6 @@ export interface NumberRangeOut {
      */
     _permissions?: Array<NumberRangeOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof NumberRangeOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof NumberRangeOut
@@ -4260,6 +4467,19 @@ export interface NumberRangeOut {
      * @memberof NumberRangeOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof NumberRangeOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof NumberRangeOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -4691,6 +4911,19 @@ export interface PopulationAttributeIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof PopulationAttributeIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof PopulationAttributeIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * Population attribute\'s name.
      * @type {string}
      * @memberof PopulationAttributeIn
@@ -4791,12 +5024,6 @@ export interface PopulationAttributeOut {
      */
     _permissions?: Array<PopulationAttributeOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof PopulationAttributeOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof PopulationAttributeOut
@@ -4808,6 +5035,19 @@ export interface PopulationAttributeOut {
      * @memberof PopulationAttributeOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof PopulationAttributeOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof PopulationAttributeOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Population attribute\'s name.
      * @type {string}
@@ -5079,6 +5319,19 @@ export interface StudyIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof StudyIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof StudyIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * Study\'s name.
      * @type {string}
      * @memberof StudyIn
@@ -5216,12 +5469,6 @@ export interface StudyOut {
      */
     _permissions?: Array<StudyOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof StudyOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof StudyOut
@@ -5233,6 +5480,19 @@ export interface StudyOut {
      * @memberof StudyOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof StudyOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof StudyOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Study\'s name.
      * @type {string}
@@ -5847,6 +6107,19 @@ export interface VariableIn {
      */
     hidden?: boolean;
     /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof VariableIn
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof VariableIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
      * Variable\'s name.
      * @type {string}
      * @memberof VariableIn
@@ -5945,12 +6218,6 @@ export interface VariableOut {
      */
     _permissions?: Array<VariableOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof VariableOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof VariableOut
@@ -5962,6 +6229,19 @@ export interface VariableOut {
      * @memberof VariableOut
      */
     hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof VariableOut
+     */
+    _private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof VariableOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Variable\'s name.
      * @type {string}
