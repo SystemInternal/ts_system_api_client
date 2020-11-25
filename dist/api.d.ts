@@ -5078,6 +5078,12 @@ export interface StudyIn {
      * @memberof StudyIn
      */
     external_assets?: Array<ExternalAsset>;
+    /**
+     * Optional add flow context flag.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    add_context?: StudyInAddContextEnum;
 }
 /**
     * @export
@@ -5089,6 +5095,14 @@ export declare enum StudyInStudyTypeEnum {
     UnsupervisedMl = "unsupervised_ml",
     StatisticalInference = "statistical_inference",
     RandomizedControlTrial = "randomized_control_trial"
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum StudyInAddContextEnum {
+    Relationship = "relationship",
+    QuickProject = "quick_project"
 }
 /**
  * Study resource links.
@@ -5108,6 +5122,12 @@ export interface StudyLinks {
      * @memberof StudyLinks
      */
     authors: string;
+    /**
+     * Link to study\'s models.
+     * @type {string}
+     * @memberof StudyLinks
+     */
+    models: string;
 }
 /**
  * A real world study.
@@ -5212,6 +5232,12 @@ export interface StudyOut {
      */
     external_assets?: Array<ExternalAsset>;
     /**
+     * Optional add flow context flag.
+     * @type {string}
+     * @memberof StudyOut
+     */
+    add_context?: StudyOutAddContextEnum;
+    /**
      * Collection of links to related resources.
      * @type {StudyLinks}
      * @memberof StudyOut
@@ -5244,6 +5270,14 @@ export declare enum StudyOutStudyTypeEnum {
     UnsupervisedMl = "unsupervised_ml",
     StatisticalInference = "statistical_inference",
     RandomizedControlTrial = "randomized_control_trial"
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum StudyOutAddContextEnum {
+    Relationship = "relationship",
+    QuickProject = "quick_project"
 }
 /**
  * Study pagination out.
@@ -12621,7 +12655,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Create a Study.
+     *
      * @summary Create A Study.
      * @param {StudyIn} studyIn
      * @param {*} [options] Override http request option.
@@ -12753,7 +12787,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Create a Study.
+     *
      * @summary Create A Study.
      * @param {StudyIn} studyIn
      * @param {*} [options] Override http request option.
@@ -12885,7 +12919,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
     /**
-     * Create a Study.
+     *
      * @summary Create A Study.
      * @param {StudyIn} studyIn
      * @param {*} [options] Override http request option.
@@ -13390,7 +13424,7 @@ export declare class StudiesApi extends BaseAPI {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Create a Study.
+     *
      * @summary Create A Study.
      * @param {StudiesApiCreateAStudyV1StudiesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
