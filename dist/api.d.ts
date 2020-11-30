@@ -42,19 +42,38 @@ export interface AssociationIn {
      * @type {boolean}
      * @memberof AssociationIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
-     * The id of the features of this association
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AssociationIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AssociationIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
+     * The id of the features of the association. Use this for normal association.
      * @type {Array<string>}
      * @memberof AssociationIn
      */
-    feature_ids: Array<string>;
+    feature_ids?: Array<string>;
+    /**
+     * The id of the variables for a variable/variable association.
+     * @type {Array<string>}
+     * @memberof AssociationIn
+     */
+    variable_ids?: Array<string>;
     /**
      * Values of the association.
      * @type {Array<AssociationValueIn>}
      * @memberof AssociationIn
      */
-    association_values: Array<AssociationValueIn>;
+    association_values?: Array<AssociationValueIn>;
     /**
      * The partial dependence plot information.
      * @type {Array<PartialDependencePlotIn>}
@@ -130,12 +149,6 @@ export interface AssociationOut {
      */
     _permissions?: Array<AssociationOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof AssociationOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof AssociationOut
@@ -146,13 +159,32 @@ export interface AssociationOut {
      * @type {boolean}
      * @memberof AssociationOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
-     * The id of the features of this association
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AssociationOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AssociationOut
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
+     * The id of the features of the association. Use this for normal association.
      * @type {Array<string>}
      * @memberof AssociationOut
      */
-    feature_ids: Array<string>;
+    feature_ids?: Array<string>;
+    /**
+     * The id of the variables for a variable/variable association.
+     * @type {Array<string>}
+     * @memberof AssociationOut
+     */
+    variable_ids?: Array<string>;
     /**
      * Values of the association.
      * @type {Array<AssociationValueOut>}
@@ -796,7 +828,20 @@ export interface AuthorIn {
      * @type {boolean}
      * @memberof AuthorIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AuthorIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AuthorIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Author\'s name.
      * @type {string}
@@ -872,12 +917,6 @@ export interface AuthorOut {
      */
     _permissions?: Array<AuthorOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof AuthorOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof AuthorOut
@@ -888,7 +927,20 @@ export interface AuthorOut {
      * @type {boolean}
      * @memberof AuthorOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AuthorOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof AuthorOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Author\'s name.
      * @type {string}
@@ -1121,7 +1173,20 @@ export interface CategoryIn {
      * @type {boolean}
      * @memberof CategoryIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof CategoryIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof CategoryIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -1180,12 +1245,6 @@ export interface CategoryOut {
      */
     _permissions?: Array<CategoryOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof CategoryOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof CategoryOut
@@ -1196,7 +1255,20 @@ export interface CategoryOut {
      * @type {boolean}
      * @memberof CategoryOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof CategoryOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof CategoryOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -1263,7 +1335,20 @@ export interface ConceptIn {
      * @type {boolean}
      * @memberof ConceptIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ConceptIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ConceptIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * The Concept\'s corresponding wikidata id.
      * @type {string}
@@ -1327,12 +1412,6 @@ export interface ConceptOut {
      */
     _permissions?: Array<ConceptOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof ConceptOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof ConceptOut
@@ -1343,7 +1422,20 @@ export interface ConceptOut {
      * @type {boolean}
      * @memberof ConceptOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ConceptOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ConceptOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * The Concept\'s corresponding wikidata id.
      * @type {string}
@@ -1502,7 +1594,20 @@ export interface DatasetIn {
      * @type {boolean}
      * @memberof DatasetIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DatasetIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DatasetIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Dataset name.
      * @type {string}
@@ -1700,12 +1805,6 @@ export interface DatasetOut {
      */
     _permissions?: Array<DatasetOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof DatasetOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof DatasetOut
@@ -1716,7 +1815,20 @@ export interface DatasetOut {
      * @type {boolean}
      * @memberof DatasetOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DatasetOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DatasetOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Dataset name.
      * @type {string}
@@ -1929,7 +2041,20 @@ export interface DateRangeIn {
      * @type {boolean}
      * @memberof DateRangeIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DateRangeIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DateRangeIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -2006,12 +2131,6 @@ export interface DateRangeOut {
      */
     _permissions?: Array<DateRangeOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof DateRangeOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof DateRangeOut
@@ -2022,7 +2141,20 @@ export interface DateRangeOut {
      * @type {boolean}
      * @memberof DateRangeOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DateRangeOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DateRangeOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -2292,7 +2424,20 @@ export interface FeatureIn {
      * @type {boolean}
      * @memberof FeatureIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FeatureIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FeatureIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Features\'s name.
      * @type {string}
@@ -2374,12 +2519,6 @@ export interface FeatureOut {
      */
     _permissions?: Array<FeatureOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof FeatureOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof FeatureOut
@@ -2390,7 +2529,20 @@ export interface FeatureOut {
      * @type {boolean}
      * @memberof FeatureOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FeatureOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FeatureOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Features\'s name.
      * @type {string}
@@ -2644,7 +2796,20 @@ export interface FreeTextIn {
      * @type {boolean}
      * @memberof FreeTextIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FreeTextIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FreeTextIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -2703,12 +2868,6 @@ export interface FreeTextOut {
      */
     _permissions?: Array<FreeTextOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof FreeTextOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof FreeTextOut
@@ -2719,7 +2878,20 @@ export interface FreeTextOut {
      * @type {boolean}
      * @memberof FreeTextOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FreeTextOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof FreeTextOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -3109,7 +3281,20 @@ export interface LocationIn {
      * @type {boolean}
      * @memberof LocationIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof LocationIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof LocationIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -3174,12 +3359,6 @@ export interface LocationOut {
      */
     _permissions?: Array<LocationOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof LocationOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof LocationOut
@@ -3190,7 +3369,20 @@ export interface LocationOut {
      * @type {boolean}
      * @memberof LocationOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof LocationOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof LocationOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -3276,7 +3468,20 @@ export interface ModelIn {
      * @type {boolean}
      * @memberof ModelIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ModelIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ModelIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Model algorithm.
      * @type {string}
@@ -3430,12 +3635,6 @@ export interface ModelOut {
      */
     _permissions?: Array<ModelOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof ModelOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof ModelOut
@@ -3446,7 +3645,20 @@ export interface ModelOut {
      * @type {boolean}
      * @memberof ModelOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ModelOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof ModelOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Model algorithm.
      * @type {string}
@@ -4148,7 +4360,20 @@ export interface NumberRangeIn {
      * @type {boolean}
      * @memberof NumberRangeIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof NumberRangeIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof NumberRangeIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -4213,12 +4438,6 @@ export interface NumberRangeOut {
      */
     _permissions?: Array<NumberRangeOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof NumberRangeOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof NumberRangeOut
@@ -4229,7 +4448,20 @@ export interface NumberRangeOut {
      * @type {boolean}
      * @memberof NumberRangeOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof NumberRangeOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof NumberRangeOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * External ids map from source to id.
      * @type {{ [key: string]: string; }}
@@ -4653,7 +4885,20 @@ export interface PopulationAttributeIn {
      * @type {boolean}
      * @memberof PopulationAttributeIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof PopulationAttributeIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof PopulationAttributeIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Population attribute\'s name.
      * @type {string}
@@ -4755,12 +5000,6 @@ export interface PopulationAttributeOut {
      */
     _permissions?: Array<PopulationAttributeOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof PopulationAttributeOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof PopulationAttributeOut
@@ -4771,7 +5010,20 @@ export interface PopulationAttributeOut {
      * @type {boolean}
      * @memberof PopulationAttributeOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof PopulationAttributeOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof PopulationAttributeOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Population attribute\'s name.
      * @type {string}
@@ -5035,7 +5287,20 @@ export interface StudyIn {
      * @type {boolean}
      * @memberof StudyIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof StudyIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof StudyIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Study\'s name.
      * @type {string}
@@ -5172,12 +5437,6 @@ export interface StudyOut {
      */
     _permissions?: Array<StudyOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof StudyOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof StudyOut
@@ -5188,7 +5447,20 @@ export interface StudyOut {
      * @type {boolean}
      * @memberof StudyOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof StudyOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof StudyOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Study\'s name.
      * @type {string}
@@ -5799,7 +6071,20 @@ export interface VariableIn {
      * @type {boolean}
      * @memberof VariableIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof VariableIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof VariableIn
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Variable\'s name.
      * @type {string}
@@ -5901,12 +6186,6 @@ export interface VariableOut {
      */
     _permissions?: Array<VariableOutPermissionsEnum>;
     /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof VariableOut
-     */
-    _private?: boolean;
-    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof VariableOut
@@ -5917,7 +6196,20 @@ export interface VariableOut {
      * @type {boolean}
      * @memberof VariableOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof VariableOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof VariableOut
+     * @deprecated
+     */
+    _private?: boolean;
     /**
      * Variable\'s name.
      * @type {string}
@@ -6222,10 +6514,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -6240,10 +6533,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -6258,10 +6552,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -6327,10 +6622,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -6345,10 +6641,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -6363,10 +6660,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -6432,10 +6730,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -6450,10 +6749,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -6468,10 +6768,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -6630,6 +6931,12 @@ export interface AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsG
      * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
      */
     readonly isInteraction?: boolean;
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
+     */
+    readonly isVariableAssociation?: boolean;
 }
 /**
  * Request parameters for listAssociationsV1ModelsModelIdAssociationsGet operation in AssociationsApi.
@@ -6703,6 +7010,12 @@ export interface AssociationsApiListAssociationsV1ModelsModelIdAssociationsGetRe
      * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
      */
     readonly isInteraction?: boolean;
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
+     */
+    readonly isVariableAssociation?: boolean;
 }
 /**
  * Request parameters for listAssociationsV1VariablesVariableIdAssociationsGet operation in AssociationsApi.
@@ -6776,6 +7089,12 @@ export interface AssociationsApiListAssociationsV1VariablesVariableIdAssociation
      * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
      */
     readonly isInteraction?: boolean;
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly isVariableAssociation?: boolean;
 }
 /**
  * Request parameters for patchAssociationsV1ModelsModelIdAssociationsPatch operation in AssociationsApi.
@@ -8028,10 +8347,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -8232,10 +8552,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -8436,10 +8757,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -8748,6 +9070,12 @@ export interface DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRe
      * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
      */
     readonly isInteraction?: boolean;
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
+     */
+    readonly isVariableAssociation?: boolean;
 }
 /**
  * Request parameters for listAuthenticatedUserDatasetsV1UserDatasetsGet operation in DatasetsApi.
@@ -10780,10 +11108,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -10944,10 +11273,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -11108,10 +11438,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -11385,6 +11716,12 @@ export interface ModelsApiListAssociationsV1ModelsModelIdAssociationsGetRequest 
      * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
      */
     readonly isInteraction?: boolean;
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
+     */
+    readonly isVariableAssociation?: boolean;
 }
 /**
  * Request parameters for listAuthenticatedUserModelsV1UserModelsGet operation in ModelsApi.
@@ -12763,6 +13100,14 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     patchStudyV1StudiesStudyIdPatch: (studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any) => Promise<RequestArgs>;
     /**
+     * Publish the study making it visible to other users.
+     * @summary Publish Study
+     * @param {string} studyId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    publishStudyV1StudiesStudyIdPublishPost: (studyId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Remove an author from a study.
      * @summary Remove Author From Study
      * @param {string} studyId
@@ -12895,6 +13240,14 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Publish the study making it visible to other users.
+     * @summary Publish Study
+     * @param {string} studyId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    publishStudyV1StudiesStudyIdPublishPost(studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
+    /**
      * Remove an author from a study.
      * @summary Remove Author From Study
      * @param {string} studyId
@@ -13026,6 +13379,14 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): AxiosPromise<void>;
+    /**
+     * Publish the study making it visible to other users.
+     * @summary Publish Study
+     * @param {string} studyId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    publishStudyV1StudiesStudyIdPublishPost(studyId: string, options?: any): AxiosPromise<StudyOut>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -13389,6 +13750,19 @@ export interface StudiesApiPatchStudyV1StudiesStudyIdPatchRequest {
     readonly patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>;
 }
 /**
+ * Request parameters for publishStudyV1StudiesStudyIdPublishPost operation in StudiesApi.
+ * @export
+ * @interface StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest
+ */
+export interface StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiPublishStudyV1StudiesStudyIdPublishPost
+     */
+    readonly studyId: string;
+}
+/**
  * Request parameters for removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete operation in StudiesApi.
  * @export
  * @interface StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest
@@ -13504,6 +13878,15 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     patchStudyV1StudiesStudyIdPatch(requestParameters: StudiesApiPatchStudyV1StudiesStudyIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Publish the study making it visible to other users.
+     * @summary Publish Study
+     * @param {StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    publishStudyV1StudiesStudyIdPublishPost(requestParameters: StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -16040,10 +16423,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -16191,10 +16575,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -16342,10 +16727,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -16561,6 +16947,12 @@ export interface VariablesApiListAssociationsV1VariablesVariableIdAssociationsGe
      * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
      */
     readonly isInteraction?: boolean;
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly isVariableAssociation?: boolean;
 }
 /**
  * Request parameters for listAuthenticatedUserVariablesV1UserVariablesGet operation in VariablesApi.
