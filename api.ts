@@ -28,10 +28,10 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 export interface AssociationFilters {
     /**
      * 
-     * @type {Array<Array<number | string>>}
+     * @type {Array<FeatureContributionMethodFilterCounts>}
      * @memberof AssociationFilters
      */
-    association_values_feature_contribution_method?: Array<Array<number | string>>;
+    association_values_feature_contribution_method?: Array<FeatureContributionMethodFilterCounts>;
 }
 /**
  * A statistical association between two features.
@@ -2429,6 +2429,25 @@ export enum ExternalAssetExternalAssetTypeEnum {
     Notebook = 'notebook'
 }
 
+/**
+ * Feature contribution filter count info.
+ * @export
+ * @interface FeatureContributionMethodFilterCounts
+ */
+export interface FeatureContributionMethodFilterCounts {
+    /**
+     * 
+     * @type {string}
+     * @memberof FeatureContributionMethodFilterCounts
+     */
+    method?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof FeatureContributionMethodFilterCounts
+     */
+    count?: number;
+}
 /**
  * A real-world machine learning or statistical feature.
  * @export
@@ -5754,7 +5773,7 @@ export interface TestDataset {
      * @type {object}
      * @memberof TestDataset
      */
-    transformation_details?: object;
+    details?: object;
 }
 
 /**
