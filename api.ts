@@ -50,13 +50,13 @@ export interface AssociationIn {
      * @type {boolean}
      * @memberof AssociationIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof AssociationIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -167,13 +167,13 @@ export interface AssociationOut {
      * @type {boolean}
      * @memberof AssociationOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof AssociationOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -840,13 +840,13 @@ export interface AuthorIn {
      * @type {boolean}
      * @memberof AuthorIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof AuthorIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -939,13 +939,13 @@ export interface AuthorOut {
      * @type {boolean}
      * @memberof AuthorOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof AuthorOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -1189,13 +1189,13 @@ export interface CategoryIn {
      * @type {boolean}
      * @memberof CategoryIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof CategoryIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -1269,13 +1269,13 @@ export interface CategoryOut {
      * @type {boolean}
      * @memberof CategoryOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof CategoryOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -1349,13 +1349,13 @@ export interface ConceptIn {
      * @type {boolean}
      * @memberof ConceptIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof ConceptIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -1436,13 +1436,13 @@ export interface ConceptOut {
      * @type {boolean}
      * @memberof ConceptOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof ConceptOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -1614,13 +1614,13 @@ export interface DatasetIn {
      * @type {boolean}
      * @memberof DatasetIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof DatasetIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -1837,13 +1837,13 @@ export interface DatasetOut {
      * @type {boolean}
      * @memberof DatasetOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof DatasetOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -2065,13 +2065,13 @@ export interface DateRangeIn {
      * @type {boolean}
      * @memberof DateRangeIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof DateRangeIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -2163,13 +2163,13 @@ export interface DateRangeOut {
      * @type {boolean}
      * @memberof DateRangeOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof DateRangeOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -2446,13 +2446,13 @@ export interface FeatureIn {
      * @type {boolean}
      * @memberof FeatureIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof FeatureIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -2551,13 +2551,13 @@ export interface FeatureOut {
      * @type {boolean}
      * @memberof FeatureOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof FeatureOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -2820,13 +2820,13 @@ export interface FreeTextIn {
      * @type {boolean}
      * @memberof FreeTextIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof FreeTextIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -2900,13 +2900,13 @@ export interface FreeTextOut {
      * @type {boolean}
      * @memberof FreeTextOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof FreeTextOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -3307,13 +3307,13 @@ export interface LocationIn {
      * @type {boolean}
      * @memberof LocationIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof LocationIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -3393,13 +3393,13 @@ export interface LocationOut {
      * @type {boolean}
      * @memberof LocationOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof LocationOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -3492,13 +3492,13 @@ export interface ModelIn {
      * @type {boolean}
      * @memberof ModelIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof ModelIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -3669,13 +3669,13 @@ export interface ModelOut {
      * @type {boolean}
      * @memberof ModelOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof ModelOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -4392,13 +4392,13 @@ export interface NumberRangeIn {
      * @type {boolean}
      * @memberof NumberRangeIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof NumberRangeIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -4478,13 +4478,13 @@ export interface NumberRangeOut {
      * @type {boolean}
      * @memberof NumberRangeOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof NumberRangeOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -4921,13 +4921,13 @@ export interface PopulationAttributeIn {
      * @type {boolean}
      * @memberof PopulationAttributeIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof PopulationAttributeIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -5046,13 +5046,13 @@ export interface PopulationAttributeOut {
      * @type {boolean}
      * @memberof PopulationAttributeOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof PopulationAttributeOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -5329,13 +5329,13 @@ export interface StudyIn {
      * @type {boolean}
      * @memberof StudyIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof StudyIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -5491,13 +5491,13 @@ export interface StudyOut {
      * @type {boolean}
      * @memberof StudyOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof StudyOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -6117,13 +6117,13 @@ export interface VariableIn {
      * @type {boolean}
      * @memberof VariableIn
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof VariableIn
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
@@ -6240,13 +6240,13 @@ export interface VariableOut {
      * @type {boolean}
      * @memberof VariableOut
      */
-    hidden?: boolean;
+    is_hidden?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
      * @memberof VariableOut
      */
-    _private?: boolean;
+    is_private?: boolean;
     /**
      * Notes whether the resource is private or not
      * @type {boolean}
