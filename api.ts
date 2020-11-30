@@ -19925,6 +19925,59 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Publish the study making it visible to other users.
+         * @summary Publish Study
+         * @param {string} studyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        publishStudyV1StudiesStudyIdPublishPost: async (studyId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new RequiredError('studyId','Required parameter studyId was null or undefined when calling publishStudyV1StudiesStudyIdPublishPost.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/publish`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Remove an author from a study.
          * @summary Remove Author From Study
          * @param {string} studyId 
@@ -20170,6 +20223,20 @@ export const StudiesApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Publish the study making it visible to other users.
+         * @summary Publish Study
+         * @param {string} studyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async publishStudyV1StudiesStudyIdPublishPost(studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>> {
+            const localVarAxiosArgs = await StudiesApiAxiosParamCreator(configuration).publishStudyV1StudiesStudyIdPublishPost(studyId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Remove an author from a study.
          * @summary Remove Author From Study
          * @param {string} studyId 
@@ -20329,6 +20396,16 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          */
         patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): AxiosPromise<void> {
             return StudiesApiFp(configuration).patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Publish the study making it visible to other users.
+         * @summary Publish Study
+         * @param {string} studyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        publishStudyV1StudiesStudyIdPublishPost(studyId: string, options?: any): AxiosPromise<StudyOut> {
+            return StudiesApiFp(configuration).publishStudyV1StudiesStudyIdPublishPost(studyId, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove an author from a study.
@@ -20744,6 +20821,20 @@ export interface StudiesApiPatchStudyV1StudiesStudyIdPatchRequest {
 }
 
 /**
+ * Request parameters for publishStudyV1StudiesStudyIdPublishPost operation in StudiesApi.
+ * @export
+ * @interface StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest
+ */
+export interface StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof StudiesApiPublishStudyV1StudiesStudyIdPublishPost
+     */
+    readonly studyId: string
+}
+
+/**
  * Request parameters for removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete operation in StudiesApi.
  * @export
  * @interface StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest
@@ -20889,6 +20980,18 @@ export class StudiesApi extends BaseAPI {
      */
     public patchStudyV1StudiesStudyIdPatch(requestParameters: StudiesApiPatchStudyV1StudiesStudyIdPatchRequest, options?: any) {
         return StudiesApiFp(this.configuration).patchStudyV1StudiesStudyIdPatch(requestParameters.studyId, requestParameters.patchStudyOpArrayPatchStudyOp, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Publish the study making it visible to other users.
+     * @summary Publish Study
+     * @param {StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    public publishStudyV1StudiesStudyIdPublishPost(requestParameters: StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest, options?: any) {
+        return StudiesApiFp(this.configuration).publishStudyV1StudiesStudyIdPublishPost(requestParameters.studyId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
