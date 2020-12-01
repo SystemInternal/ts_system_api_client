@@ -217,6 +217,12 @@ export interface AssociationOut {
      * @memberof AssociationOut
      */
     model_id: string;
+    /**
+     * The feature data.
+     * @type {Array<FeatureOut>}
+     * @memberof AssociationOut
+     */
+    features?: Array<FeatureOut>;
 }
 
 /**
@@ -2614,6 +2620,12 @@ export interface FeatureOut {
      * @memberof FeatureOut
      */
     model_count?: number;
+    /**
+     * The variable this feature operationalizes.
+     * @type {VariableOut}
+     * @memberof FeatureOut
+     */
+    variable?: VariableOut;
 }
 
 /**
