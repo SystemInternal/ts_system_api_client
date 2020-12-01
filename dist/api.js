@@ -1472,6 +1472,97 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet.');
+            }
+            const localVarPath = `/v1/user/studies/{study_id}/associations`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
@@ -1587,6 +1678,97 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             }
             const localVarPath = `/v1/models/{model_id}/associations`
                 .replace(`{${"model_id"}}`, encodeURIComponent(String(modelId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get associations in a project.
+         * @summary List Associations
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1StudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAssociationsV1StudiesStudyIdAssociationsGet.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/associations`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -1876,6 +2058,33 @@ exports.AssociationsApiFp = function (configuration) {
             });
         },
         /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
@@ -1923,6 +2132,33 @@ exports.AssociationsApiFp = function (configuration) {
         listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get associations in a project.
+         * @summary List Associations
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2026,6 +2262,27 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
             return exports.AssociationsApiFp(configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options).then((request) => request(axios, basePath));
         },
         /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
@@ -2066,6 +2323,27 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          */
         listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return exports.AssociationsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get associations in a project.
+         * @summary List Associations
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations using the Variable.
@@ -2153,6 +2431,17 @@ class AssociationsApi extends base_1.BaseAPI {
         return exports.AssociationsApiFp(this.configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters.associationId, requestParameters.modelId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * List association in study by authenticated user.
+     * @summary List Associations In The Authenticated User\'S Study.
+     * @param {AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters, options) {
+        return exports.AssociationsApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRequest} requestParameters Request parameters.
@@ -2173,6 +2462,17 @@ class AssociationsApi extends base_1.BaseAPI {
      */
     listAssociationsV1ModelsModelIdAssociationsGet(requestParameters, options) {
         return exports.AssociationsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get associations in a project.
+     * @summary List Associations
+     * @param {AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters, options) {
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations using the Variable.
@@ -10457,6 +10757,97 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get associations in a project.
+         * @summary List Associations
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1StudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAssociationsV1StudiesStudyIdAssociationsGet.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/associations`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
          * @param {string} [query] Search query.
@@ -11022,6 +11413,33 @@ exports.StudiesApiFp = function (configuration) {
             });
         },
         /**
+         * Get associations in a project.
+         * @summary List Associations
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
          * @param {string} [query] Search query.
@@ -11230,6 +11648,27 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
             return exports.StudiesApiFp(configuration).getStudyV1StudiesStudyIdGet(studyId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get associations in a project.
+         * @summary List Associations
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.StudiesApiFp(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
          * @param {string} [query] Search query.
@@ -11398,6 +11837,17 @@ class StudiesApi extends base_1.BaseAPI {
      */
     getStudyV1StudiesStudyIdGet(requestParameters, options) {
         return exports.StudiesApiFp(this.configuration).getStudyV1StudiesStudyIdGet(requestParameters.studyId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get associations in a project.
+     * @summary List Associations
+     * @param {StudiesApiListAssociationsV1StudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters, options) {
+        return exports.StudiesApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s studies.
@@ -12474,6 +12924,97 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet.');
+            }
+            const localVarPath = `/v1/user/studies/{study_id}/associations`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
@@ -13499,6 +14040,33 @@ exports.UsersApiFp = function (configuration) {
             });
         },
         /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
@@ -13834,6 +14402,27 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
             return exports.UsersApiFp(configuration).getUserV1UsersUserIdGet(userId, includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} studyId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.UsersApiFp(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
@@ -14098,6 +14687,17 @@ class UsersApi extends base_1.BaseAPI {
      */
     getUserV1UsersUserIdGet(requestParameters, options) {
         return exports.UsersApiFp(this.configuration).getUserV1UsersUserIdGet(requestParameters.userId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List association in study by authenticated user.
+     * @summary List Associations In The Authenticated User\'S Study.
+     * @param {UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters, options) {
+        return exports.UsersApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s concepts.
