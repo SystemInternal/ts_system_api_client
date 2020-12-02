@@ -8605,6 +8605,15 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId: string, featureId: string, index?: boolean, options?: any) => Promise<RequestArgs>;
     /**
+     * Add a parent dataset.
+     * @summary Add Parent Dataset
+     * @param {string} datasetId
+     * @param {string} parentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: (datasetId: string, parentId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
      * @param {string} datasetId
@@ -8707,6 +8716,23 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get parents of this dataset.
+     * @summary List Dataset Parents
+     * @param {string} datasetId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {string} [query] Search query.
@@ -8776,6 +8802,15 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId: string, featureId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Remove a parent dataset.
+     * @summary Remove Parent Dataset
+     * @param {string} datasetId
+     * @param {string} parentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete: (datasetId: string, parentId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
      * @param {string} datasetId
@@ -8809,6 +8844,15 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Add a parent dataset.
+     * @summary Add Parent Dataset
+     * @param {string} datasetId
+     * @param {string} parentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -8912,6 +8956,23 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
+     * Get parents of this dataset.
+     * @summary List Dataset Parents
+     * @param {string} datasetId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {string} [query] Search query.
@@ -8981,6 +9042,15 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Remove a parent dataset.
+     * @summary Remove Parent Dataset
+     * @param {string} datasetId
+     * @param {string} parentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
      * @param {string} datasetId
@@ -9014,6 +9084,15 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void>;
+    /**
+     * Add a parent dataset.
+     * @summary Add Parent Dataset
+     * @param {string} datasetId
+     * @param {string} parentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, options?: any): AxiosPromise<void>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -9117,6 +9196,23 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
+     * Get parents of this dataset.
+     * @summary List Dataset Parents
+     * @param {string} datasetId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {string} [query] Search query.
@@ -9186,6 +9282,15 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): AxiosPromise<void>;
     /**
+     * Remove a parent dataset.
+     * @summary Remove Parent Dataset
+     * @param {string} datasetId
+     * @param {string} parentId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, options?: any): AxiosPromise<void>;
+    /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
      * @param {string} datasetId
@@ -9228,6 +9333,25 @@ export interface DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatur
      * @memberof DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
      */
     readonly index?: boolean;
+}
+/**
+ * Request parameters for addParentDatasetV1DatasetsDatasetIdParentsParentIdPut operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest
+ */
+export interface DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
+     */
+    readonly datasetId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
+     */
+    readonly parentId: string;
 }
 /**
  * Request parameters for addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut operation in DatasetsApi.
@@ -9527,6 +9651,73 @@ export interface DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
     readonly sortBy?: string;
 }
 /**
+ * Request parameters for listDatasetParentsV1DatasetsDatasetIdParentsGet operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest
+ */
+export interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly datasetId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Order by this field.
+     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly ordering?: 'asc' | 'desc';
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly sortBy?: string;
+}
+/**
  * Request parameters for listDatasetsV1DatasetsGet operation in DatasetsApi.
  * @export
  * @interface DatasetsApiListDatasetsV1DatasetsGetRequest
@@ -9766,6 +9957,25 @@ export interface DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesF
     readonly featureId: string;
 }
 /**
+ * Request parameters for removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest
+ */
+export interface DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDelete
+     */
+    readonly datasetId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDelete
+     */
+    readonly parentId: string;
+}
+/**
  * Request parameters for removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete operation in DatasetsApi.
  * @export
  * @interface DatasetsApiRemovePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest
@@ -9819,6 +10029,15 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters: DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add a parent dataset.
+     * @summary Add Parent Dataset
+     * @param {DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters: DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -9901,6 +10120,15 @@ export declare class DatasetsApi extends BaseAPI {
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters: DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
     /**
+     * Get parents of this dataset.
+     * @summary List Dataset Parents
+     * @param {DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters: DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetPaginationOut>>;
+    /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {DatasetsApiListDatasetsV1DatasetsGetRequest} requestParameters Request parameters.
@@ -9945,6 +10173,15 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters: DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Remove a parent dataset.
+     * @summary Remove Parent Dataset
+     * @param {DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(requestParameters: DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
