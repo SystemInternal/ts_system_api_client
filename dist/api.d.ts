@@ -13646,10 +13646,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -13805,10 +13806,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -13964,10 +13966,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -14356,6 +14359,12 @@ export interface StudiesApiListStudiesV1StudiesGetRequest {
      * @memberof StudiesApiListStudiesV1StudiesGet
      */
     readonly sortBy?: string;
+    /**
+     * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @type {string}
+     * @memberof StudiesApiListStudiesV1StudiesGet
+     */
+    readonly variableRelationship?: string;
 }
 /**
  * Request parameters for listUserStudiesV1UsersUserIdStudiesGet operation in StudiesApi.

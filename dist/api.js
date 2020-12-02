@@ -11341,10 +11341,11 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listStudiesV1StudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -11395,6 +11396,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             }
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (variableRelationship !== undefined) {
+                localVarQueryParameter['variable_relationship'] = variableRelationship;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -11822,12 +11826,13 @@ exports.StudiesApiFp = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12039,11 +12044,12 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.StudiesApiFp(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, options) {
+            return exports.StudiesApiFp(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s studies.
@@ -12202,7 +12208,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listStudiesV1StudiesGet(requestParameters = {}, options) {
-        return exports.StudiesApiFp(this.configuration).listStudiesV1StudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listStudiesV1StudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableRelationship, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s studies.
