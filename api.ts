@@ -10598,6 +10598,65 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Add a parent dataset.
+         * @summary Add Parent Dataset
+         * @param {string} datasetId 
+         * @param {string} parentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: async (datasetId: string, parentId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling addParentDatasetV1DatasetsDatasetIdParentsParentIdPut.');
+            }
+            // verify required parameter 'parentId' is not null or undefined
+            if (parentId === null || parentId === undefined) {
+                throw new RequiredError('parentId','Required parameter parentId was null or undefined when calling addParentDatasetV1DatasetsDatasetIdParentsParentIdPut.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/parents/{parent_id}`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)))
+                .replace(`{${"parent_id"}}`, encodeURIComponent(String(parentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Add a population attribute value to a dataset.
          * @summary Add Population Attribute Value To Dataset
          * @param {string} datasetId 
@@ -11232,6 +11291,104 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Get parents of this dataset.
+         * @summary List Dataset Parents
+         * @param {string} datasetId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDatasetParentsV1DatasetsDatasetIdParentsGet: async (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling listDatasetParentsV1DatasetsDatasetIdParentsGet.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/parents`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get all Datasets.
          * @summary List Datasets
          * @param {string} [query] Search query.
@@ -11646,6 +11803,65 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Remove a parent dataset.
+         * @summary Remove Parent Dataset
+         * @param {string} datasetId 
+         * @param {string} parentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete: async (datasetId: string, parentId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete.');
+            }
+            // verify required parameter 'parentId' is not null or undefined
+            if (parentId === null || parentId === undefined) {
+                throw new RequiredError('parentId','Required parameter parentId was null or undefined when calling removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/parents/{parent_id}`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)))
+                .replace(`{${"parent_id"}}`, encodeURIComponent(String(parentId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Remove a population attribute value from a dataset.
          * @summary Remove Population Attribute Value From Dataset
          * @param {string} datasetId 
@@ -11786,6 +12002,21 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          */
         async addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Add a parent dataset.
+         * @summary Add Parent Dataset
+         * @param {string} datasetId 
+         * @param {string} parentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -11948,6 +12179,29 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get parents of this dataset.
+         * @summary List Dataset Parents
+         * @param {string} datasetId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get all Datasets.
          * @summary List Datasets
          * @param {string} [query] Search query.
@@ -12047,6 +12301,21 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Remove a parent dataset.
+         * @summary Remove Parent Dataset
+         * @param {string} datasetId 
+         * @param {string} parentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId, parentId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Remove a population attribute value from a dataset.
          * @summary Remove Population Attribute Value From Dataset
          * @param {string} datasetId 
@@ -12096,6 +12365,17 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          */
         addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void> {
             return DatasetsApiFp(configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a parent dataset.
+         * @summary Add Parent Dataset
+         * @param {string} datasetId 
+         * @param {string} parentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, options?: any): AxiosPromise<void> {
+            return DatasetsApiFp(configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a population attribute value to a dataset.
@@ -12218,6 +12498,25 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
             return DatasetsApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get parents of this dataset.
+         * @summary List Dataset Parents
+         * @param {string} datasetId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return DatasetsApiFp(configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get all Datasets.
          * @summary List Datasets
          * @param {string} [query] Search query.
@@ -12297,6 +12596,17 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
             return DatasetsApiFp(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Remove a parent dataset.
+         * @summary Remove Parent Dataset
+         * @param {string} datasetId 
+         * @param {string} parentId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, options?: any): AxiosPromise<void> {
+            return DatasetsApiFp(configuration).removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId, parentId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Remove a population attribute value from a dataset.
          * @summary Remove Population Attribute Value From Dataset
          * @param {string} datasetId 
@@ -12347,6 +12657,27 @@ export interface DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatur
      * @memberof DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
      */
     readonly index?: boolean
+}
+
+/**
+ * Request parameters for addParentDatasetV1DatasetsDatasetIdParentsParentIdPut operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest
+ */
+export interface DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
+     */
+    readonly datasetId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
+     */
+    readonly parentId: string
 }
 
 /**
@@ -12686,6 +13017,83 @@ export interface DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
 }
 
 /**
+ * Request parameters for listDatasetParentsV1DatasetsDatasetIdParentsGet operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest
+ */
+export interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly datasetId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Order by this field.
+     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name'
+
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly ordering?: 'asc' | 'desc'
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly sortBy?: string
+}
+
+/**
  * Request parameters for listDatasetsV1DatasetsGet operation in DatasetsApi.
  * @export
  * @interface DatasetsApiListDatasetsV1DatasetsGetRequest
@@ -12959,6 +13367,27 @@ export interface DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesF
 }
 
 /**
+ * Request parameters for removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest
+ */
+export interface DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDelete
+     */
+    readonly datasetId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDelete
+     */
+    readonly parentId: string
+}
+
+/**
  * Request parameters for removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete operation in DatasetsApi.
  * @export
  * @interface DatasetsApiRemovePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest
@@ -13017,6 +13446,18 @@ export class DatasetsApi extends BaseAPI {
      */
     public addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters: DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest, options?: any) {
         return DatasetsApiFp(this.configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters.datasetId, requestParameters.featureId, requestParameters.index, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Add a parent dataset.
+     * @summary Add Parent Dataset
+     * @param {DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    public addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters: DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest, options?: any) {
+        return DatasetsApiFp(this.configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters.datasetId, requestParameters.parentId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -13128,6 +13569,18 @@ export class DatasetsApi extends BaseAPI {
     }
 
     /**
+     * Get parents of this dataset.
+     * @summary List Dataset Parents
+     * @param {DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    public listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters: DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest, options?: any) {
+        return DatasetsApiFp(this.configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {DatasetsApiListDatasetsV1DatasetsGetRequest} requestParameters Request parameters.
@@ -13185,6 +13638,18 @@ export class DatasetsApi extends BaseAPI {
      */
     public removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters: DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest, options?: any) {
         return DatasetsApiFp(this.configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters.datasetId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Remove a parent dataset.
+     * @summary Remove Parent Dataset
+     * @param {DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    public removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(requestParameters: DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest, options?: any) {
+        return DatasetsApiFp(this.configuration).removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(requestParameters.datasetId, requestParameters.parentId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
