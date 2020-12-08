@@ -11604,11 +11604,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
-     * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+     * @param {Array<ModelIn>} modelIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost: (studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any) => Promise<RequestArgs>;
+    createModelsV1StudiesStudyIdModelsPost: (studyId: string, modelIn: Array<ModelIn>, options?: any) => Promise<RequestArgs>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -11769,11 +11769,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
-     * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+     * @param {Array<ModelIn>} modelIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
+    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -11934,11 +11934,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
-     * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+     * @param {Array<ModelIn>} modelIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any): AxiosPromise<Array<ModelOut>>;
+    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, options?: any): AxiosPromise<Array<ModelOut>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -12114,10 +12114,10 @@ export interface ModelsApiCreateModelsV1StudiesStudyIdModelsPostRequest {
     readonly studyId: string;
     /**
      *
-     * @type {Array<ModelIn> | ModelIn}
+     * @type {Array<ModelIn>}
      * @memberof ModelsApiCreateModelsV1StudiesStudyIdModelsPost
      */
-    readonly arrayModelInModelIn: Array<ModelIn> | ModelIn;
+    readonly modelIn: Array<ModelIn>;
 }
 /**
  * Request parameters for deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete operation in ModelsApi.
@@ -13561,11 +13561,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
-     * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+     * @param {Array<ModelIn>} modelIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost: (studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any) => Promise<RequestArgs>;
+    createModelsV1StudiesStudyIdModelsPost: (studyId: string, modelIn: Array<ModelIn>, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
@@ -13721,11 +13721,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
-     * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+     * @param {Array<ModelIn>} modelIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
+    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
@@ -13881,11 +13881,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
-     * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+     * @param {Array<ModelIn>} modelIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, arrayModelInModelIn: Array<ModelIn> | ModelIn, options?: any): AxiosPromise<Array<ModelOut>>;
+    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, options?: any): AxiosPromise<Array<ModelOut>>;
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
@@ -14061,10 +14061,10 @@ export interface StudiesApiCreateModelsV1StudiesStudyIdModelsPostRequest {
     readonly studyId: string;
     /**
      *
-     * @type {Array<ModelIn> | ModelIn}
+     * @type {Array<ModelIn>}
      * @memberof StudiesApiCreateModelsV1StudiesStudyIdModelsPost
      */
-    readonly arrayModelInModelIn: Array<ModelIn> | ModelIn;
+    readonly modelIn: Array<ModelIn>;
 }
 /**
  * Request parameters for deleteStudyV1StudiesStudyIdDelete operation in StudiesApi.

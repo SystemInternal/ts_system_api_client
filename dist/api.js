@@ -8123,18 +8123,18 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * Create models and add to study.
          * @summary Create Models
          * @param {string} studyId
-         * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+         * @param {Array<ModelIn>} modelIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createModelsV1StudiesStudyIdModelsPost: (studyId, arrayModelInModelIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createModelsV1StudiesStudyIdModelsPost: (studyId, modelIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling createModelsV1StudiesStudyIdModelsPost.');
             }
-            // verify required parameter 'arrayModelInModelIn' is not null or undefined
-            if (arrayModelInModelIn === null || arrayModelInModelIn === undefined) {
-                throw new base_1.RequiredError('arrayModelInModelIn', 'Required parameter arrayModelInModelIn was null or undefined when calling createModelsV1StudiesStudyIdModelsPost.');
+            // verify required parameter 'modelIn' is not null or undefined
+            if (modelIn === null || modelIn === undefined) {
+                throw new base_1.RequiredError('modelIn', 'Required parameter modelIn was null or undefined when calling createModelsV1StudiesStudyIdModelsPost.');
             }
             const localVarPath = `/v1/studies/{study_id}/models`
                 .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
@@ -8167,8 +8167,8 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof arrayModelInModelIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(arrayModelInModelIn !== undefined ? arrayModelInModelIn : {}) : (arrayModelInModelIn || "");
+            const needsSerialization = (typeof modelIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(modelIn !== undefined ? modelIn : {}) : (modelIn || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -8963,13 +8963,13 @@ exports.ModelsApiFp = function (configuration) {
          * Create models and add to study.
          * @summary Create Models
          * @param {string} studyId
-         * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+         * @param {Array<ModelIn>} modelIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options) {
+        createModelsV1StudiesStudyIdModelsPost(studyId, modelIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, modelIn, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -9236,12 +9236,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * Create models and add to study.
          * @summary Create Models
          * @param {string} studyId
-         * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+         * @param {Array<ModelIn>} modelIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options) {
-            return exports.ModelsApiFp(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options).then((request) => request(axios, basePath));
+        createModelsV1StudiesStudyIdModelsPost(studyId, modelIn, options) {
+            return exports.ModelsApiFp(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, modelIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete an Association.
@@ -9437,7 +9437,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     createModelsV1StudiesStudyIdModelsPost(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).createModelsV1StudiesStudyIdModelsPost(requestParameters.studyId, requestParameters.arrayModelInModelIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).createModelsV1StudiesStudyIdModelsPost(requestParameters.studyId, requestParameters.modelIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete an Association.
@@ -10933,18 +10933,18 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * Create models and add to study.
          * @summary Create Models
          * @param {string} studyId
-         * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+         * @param {Array<ModelIn>} modelIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createModelsV1StudiesStudyIdModelsPost: (studyId, arrayModelInModelIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createModelsV1StudiesStudyIdModelsPost: (studyId, modelIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling createModelsV1StudiesStudyIdModelsPost.');
             }
-            // verify required parameter 'arrayModelInModelIn' is not null or undefined
-            if (arrayModelInModelIn === null || arrayModelInModelIn === undefined) {
-                throw new base_1.RequiredError('arrayModelInModelIn', 'Required parameter arrayModelInModelIn was null or undefined when calling createModelsV1StudiesStudyIdModelsPost.');
+            // verify required parameter 'modelIn' is not null or undefined
+            if (modelIn === null || modelIn === undefined) {
+                throw new base_1.RequiredError('modelIn', 'Required parameter modelIn was null or undefined when calling createModelsV1StudiesStudyIdModelsPost.');
             }
             const localVarPath = `/v1/studies/{study_id}/models`
                 .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
@@ -10977,8 +10977,8 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof arrayModelInModelIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(arrayModelInModelIn !== undefined ? arrayModelInModelIn : {}) : (arrayModelInModelIn || "");
+            const needsSerialization = (typeof modelIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(modelIn !== undefined ? modelIn : {}) : (modelIn || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -11693,13 +11693,13 @@ exports.StudiesApiFp = function (configuration) {
          * Create models and add to study.
          * @summary Create Models
          * @param {string} studyId
-         * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+         * @param {Array<ModelIn>} modelIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options) {
+        createModelsV1StudiesStudyIdModelsPost(studyId, modelIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, modelIn, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11947,12 +11947,12 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * Create models and add to study.
          * @summary Create Models
          * @param {string} studyId
-         * @param {Array<ModelIn> | ModelIn} arrayModelInModelIn
+         * @param {Array<ModelIn>} modelIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options) {
-            return exports.StudiesApiFp(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, arrayModelInModelIn, options).then((request) => request(axios, basePath));
+        createModelsV1StudiesStudyIdModelsPost(studyId, modelIn, options) {
+            return exports.StudiesApiFp(configuration).createModelsV1StudiesStudyIdModelsPost(studyId, modelIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
@@ -12142,7 +12142,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     createModelsV1StudiesStudyIdModelsPost(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).createModelsV1StudiesStudyIdModelsPost(requestParameters.studyId, requestParameters.arrayModelInModelIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).createModelsV1StudiesStudyIdModelsPost(requestParameters.studyId, requestParameters.modelIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
