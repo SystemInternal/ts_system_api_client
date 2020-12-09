@@ -4701,6 +4701,25 @@ export interface NumericalFeatureStatisticsSimpleBase {
     percent_missing?: number;
 }
 /**
+ * Object tag model.
+ * @export
+ * @interface ObjectTags
+ */
+export interface ObjectTags {
+    /**
+     *
+     * @type {Array<ConceptOut>}
+     * @memberof ObjectTags
+     */
+    concepts?: Array<ConceptOut>;
+    /**
+     *
+     * @type {Array<VariableOut>}
+     * @memberof ObjectTags
+     */
+    variables?: Array<VariableOut>;
+}
+/**
  * Partial dependence plot input.
  * @export
  * @interface PartialDependencePlotIn
@@ -5552,6 +5571,12 @@ export interface StudyOut {
      * @memberof StudyOut
      */
     subgraph_id?: string;
+    /**
+     * Object\'s tagged to this study.
+     * @type {ObjectTags}
+     * @memberof StudyOut
+     */
+    object_tags?: ObjectTags;
 }
 /**
     * @export
@@ -13613,10 +13638,12 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a study\'s authors.
      * @summary List Authors
@@ -13646,11 +13673,13 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -13664,10 +13693,12 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study
@@ -13694,6 +13725,24 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Tag the study with object with provided id.
+     * @summary Remove Object Tag From Study
+     * @param {string} studyId
+     * @param {string} tagObjectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete: (studyId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Tag the study with object with provided id.
+     * @summary Tag Study With Object
+     * @param {string} studyId
+     * @param {string} tagObjectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut: (studyId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * StudiesApi - functional programming interface
@@ -13773,10 +13822,12 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a study\'s authors.
      * @summary List Authors
@@ -13806,11 +13857,13 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -13824,10 +13877,12 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study
@@ -13854,6 +13909,24 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Tag the study with object with provided id.
+     * @summary Remove Object Tag From Study
+     * @param {string} studyId
+     * @param {string} tagObjectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Tag the study with object with provided id.
+     * @summary Tag Study With Object
+     * @param {string} studyId
+     * @param {string} tagObjectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * StudiesApi - factory interface
@@ -13933,10 +14006,12 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a study\'s authors.
      * @summary List Authors
@@ -13966,11 +14041,13 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -13984,10 +14061,12 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study
@@ -14014,6 +14093,24 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Tag the study with object with provided id.
+     * @summary Remove Object Tag From Study
+     * @param {string} studyId
+     * @param {string} tagObjectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Tag the study with object with provided id.
+     * @summary Tag Study With Object
+     * @param {string} studyId
+     * @param {string} tagObjectId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
 };
 /**
  * Request parameters for addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut operation in StudiesApi.
@@ -14231,6 +14328,18 @@ export interface StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
      */
     readonly sortBy?: string;
+    /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly variableTag?: string;
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly conceptTag?: string;
 }
 /**
  * Request parameters for listAuthorsV1StudiesStudyIdAuthorsGet operation in StudiesApi.
@@ -14360,6 +14469,18 @@ export interface StudiesApiListStudiesV1StudiesGetRequest {
      */
     readonly sortBy?: string;
     /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof StudiesApiListStudiesV1StudiesGet
+     */
+    readonly variableTag?: string;
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof StudiesApiListStudiesV1StudiesGet
+     */
+    readonly conceptTag?: string;
+    /**
      * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @type {string}
      * @memberof StudiesApiListStudiesV1StudiesGet
@@ -14432,6 +14553,18 @@ export interface StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
      */
     readonly sortBy?: string;
+    /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly variableTag?: string;
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly conceptTag?: string;
 }
 /**
  * Request parameters for patchStudyV1StudiesStudyIdPatch operation in StudiesApi.
@@ -14483,6 +14616,44 @@ export interface StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdD
      * @memberof StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
      */
     readonly authorId: string;
+}
+/**
+ * Request parameters for removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete operation in StudiesApi.
+ * @export
+ * @interface StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest
+ */
+export interface StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete
+     */
+    readonly tagObjectId: string;
+}
+/**
+ * Request parameters for tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut operation in StudiesApi.
+ * @export
+ * @interface StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest
+ */
+export interface StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut
+     */
+    readonly tagObjectId: string;
 }
 /**
  * StudiesApi - object-oriented interface
@@ -14608,6 +14779,24 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters: StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Tag the study with object with provided id.
+     * @summary Remove Object Tag From Study
+     * @param {StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(requestParameters: StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Tag the study with object with provided id.
+     * @summary Tag Study With Object
+     * @param {StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(requestParameters: StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * SystemApi - axios parameter creator
@@ -15557,10 +15746,12 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -15659,10 +15850,12 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -15807,10 +16000,12 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -15909,10 +16104,12 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -16057,10 +16254,12 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -16159,10 +16358,12 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableTag] Filter studies with variable tag
+     * @param {string} [conceptTag] Filter studies with concept tag
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -16615,6 +16816,18 @@ export interface UsersApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
      */
     readonly sortBy?: string;
+    /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly variableTag?: string;
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly conceptTag?: string;
 }
 /**
  * Request parameters for listAuthenticatedUserVariablesV1UserVariablesGet operation in UsersApi.
@@ -17017,6 +17230,18 @@ export interface UsersApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
      */
     readonly sortBy?: string;
+    /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly variableTag?: string;
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly conceptTag?: string;
 }
 /**
  * Request parameters for listUserVariablesV1UsersUserIdVariablesGet operation in UsersApi.

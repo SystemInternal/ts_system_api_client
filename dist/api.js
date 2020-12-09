@@ -11181,10 +11181,12 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserStudiesV1UserStudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -11235,6 +11237,12 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             }
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -11341,11 +11349,13 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listStudiesV1StudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -11397,6 +11407,12 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
             }
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
             if (variableRelationship !== undefined) {
                 localVarQueryParameter['variable_relationship'] = variableRelationship;
             }
@@ -11423,10 +11439,12 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserStudiesV1UsersUserIdStudiesGet.');
@@ -11482,6 +11500,12 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             }
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -11648,6 +11672,112 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Tag the study with object with provided id.
+         * @summary Remove Object Tag From Study
+         * @param {string} studyId
+         * @param {string} tagObjectId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete: (studyId, tagObjectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete.');
+            }
+            // verify required parameter 'tagObjectId' is not null or undefined
+            if (tagObjectId === null || tagObjectId === undefined) {
+                throw new base_1.RequiredError('tagObjectId', 'Required parameter tagObjectId was null or undefined when calling removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/object_tags/{tag_object_id}`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)))
+                .replace(`{${"tag_object_id"}}`, encodeURIComponent(String(tagObjectId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Tag the study with object with provided id.
+         * @summary Tag Study With Object
+         * @param {string} studyId
+         * @param {string} tagObjectId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut: (studyId, tagObjectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut.');
+            }
+            // verify required parameter 'tagObjectId' is not null or undefined
+            if (tagObjectId === null || tagObjectId === undefined) {
+                throw new base_1.RequiredError('tagObjectId', 'Required parameter tagObjectId was null or undefined when calling tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/object_tags/{tag_object_id}`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)))
+                .replace(`{${"tag_object_id"}}`, encodeURIComponent(String(tagObjectId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -11777,12 +11907,14 @@ exports.StudiesApiFp = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11826,13 +11958,15 @@ exports.StudiesApiFp = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, options) {
+        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11852,12 +11986,14 @@ exports.StudiesApiFp = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11908,6 +12044,40 @@ exports.StudiesApiFp = function (configuration) {
         removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Tag the study with object with provided id.
+         * @summary Remove Object Tag From Study
+         * @param {string} studyId
+         * @param {string} tagObjectId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Tag the study with object with provided id.
+         * @summary Tag Study With Object
+         * @param {string} studyId
+         * @param {string} tagObjectId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12007,11 +12177,13 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.StudiesApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.StudiesApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List a study\'s authors.
@@ -12044,12 +12216,14 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, options) {
-            return exports.StudiesApiFp(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, options).then((request) => request(axios, basePath));
+        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, options) {
+            return exports.StudiesApiFp(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s studies.
@@ -12064,11 +12238,13 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.StudiesApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.StudiesApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Study resource with partial update.
@@ -12101,6 +12277,28 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          */
         removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options) {
             return exports.StudiesApiFp(configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Tag the study with object with provided id.
+         * @summary Remove Object Tag From Study
+         * @param {string} studyId
+         * @param {string} tagObjectId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, options) {
+            return exports.StudiesApiFp(configuration).removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Tag the study with object with provided id.
+         * @summary Tag Study With Object
+         * @param {string} studyId
+         * @param {string} tagObjectId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, options) {
+            return exports.StudiesApiFp(configuration).tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -12186,7 +12384,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters = {}, options) {
-        return exports.StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a study\'s authors.
@@ -12208,7 +12406,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listStudiesV1StudiesGet(requestParameters = {}, options) {
-        return exports.StudiesApiFp(this.configuration).listStudiesV1StudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableRelationship, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listStudiesV1StudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.variableRelationship, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s studies.
@@ -12219,7 +12417,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listUserStudiesV1UsersUserIdStudiesGet(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Study resource with partial update.
@@ -12253,6 +12451,28 @@ class StudiesApi extends base_1.BaseAPI {
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters, options) {
         return exports.StudiesApiFp(this.configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Tag the study with object with provided id.
+     * @summary Remove Object Tag From Study
+     * @param {StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(requestParameters, options) {
+        return exports.StudiesApiFp(this.configuration).removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(requestParameters.studyId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Tag the study with object with provided id.
+     * @summary Tag Study With Object
+     * @param {StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(requestParameters, options) {
+        return exports.StudiesApiFp(this.configuration).tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(requestParameters.studyId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.StudiesApi = StudiesApi;
@@ -13666,10 +13886,12 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserStudiesV1UserStudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13720,6 +13942,12 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -14157,10 +14385,12 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserStudiesV1UsersUserIdStudiesGet.');
@@ -14216,6 +14446,12 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -14503,12 +14739,14 @@ exports.UsersApiFp = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14653,12 +14891,14 @@ exports.UsersApiFp = function (configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14835,11 +15075,13 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s variables.
@@ -14949,11 +15191,13 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.UsersApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.UsersApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s variables.
@@ -15080,7 +15324,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s variables.
@@ -15146,7 +15390,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserStudiesV1UsersUserIdStudiesGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s variables.
