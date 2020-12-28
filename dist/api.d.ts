@@ -11667,6 +11667,14 @@ export declare class FeaturesApi extends BaseAPI {
  */
 export declare const ModeldbApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Get algorithms by id.
+     * @summary Get Algorithm
+     * @param {string} algorithmId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet: (algorithmId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * List available algorithms in ModelDB.
      * @summary List Algorithms
      * @param {*} [options] Override http request option.
@@ -11679,6 +11687,14 @@ export declare const ModeldbApiAxiosParamCreator: (configuration?: Configuration
  * @export
  */
 export declare const ModeldbApiFp: (configuration?: Configuration) => {
+    /**
+     * Get algorithms by id.
+     * @summary Get Algorithm
+     * @param {string} algorithmId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmOut>>;
     /**
      * List available algorithms in ModelDB.
      * @summary List Algorithms
@@ -11693,6 +11709,14 @@ export declare const ModeldbApiFp: (configuration?: Configuration) => {
  */
 export declare const ModeldbApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
+     * Get algorithms by id.
+     * @summary Get Algorithm
+     * @param {string} algorithmId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId: string, options?: any): AxiosPromise<AlgorithmOut>;
+    /**
      * List available algorithms in ModelDB.
      * @summary List Algorithms
      * @param {*} [options] Override http request option.
@@ -11701,12 +11725,34 @@ export declare const ModeldbApiFactory: (configuration?: Configuration, basePath
     listAlgorithmsV1ModeldbAlgorithmsGet(options?: any): AxiosPromise<AlgorithmListResult>;
 };
 /**
+ * Request parameters for getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet operation in ModeldbApi.
+ * @export
+ * @interface ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest
+ */
+export interface ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet
+     */
+    readonly algorithmId: string;
+}
+/**
  * ModeldbApi - object-oriented interface
  * @export
  * @class ModeldbApi
  * @extends {BaseAPI}
  */
 export declare class ModeldbApi extends BaseAPI {
+    /**
+     * Get algorithms by id.
+     * @summary Get Algorithm
+     * @param {ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModeldbApi
+     */
+    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters: ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<AlgorithmOut>>;
     /**
      * List available algorithms in ModelDB.
      * @summary List Algorithms

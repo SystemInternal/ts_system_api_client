@@ -8065,6 +8065,53 @@ exports.FeaturesApi = FeaturesApi;
 exports.ModeldbApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Get algorithms by id.
+         * @summary Get Algorithm
+         * @param {string} algorithmId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet: (algorithmId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'algorithmId' is not null or undefined
+            if (algorithmId === null || algorithmId === undefined) {
+                throw new base_1.RequiredError('algorithmId', 'Required parameter algorithmId was null or undefined when calling getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet.');
+            }
+            const localVarPath = `/v1/modeldb/algorithms/{algorithm_id}`
+                .replace(`{${"algorithm_id"}}`, encodeURIComponent(String(algorithmId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * List available algorithms in ModelDB.
          * @summary List Algorithms
          * @param {*} [options] Override http request option.
@@ -8114,6 +8161,22 @@ exports.ModeldbApiAxiosParamCreator = function (configuration) {
 exports.ModeldbApiFp = function (configuration) {
     return {
         /**
+         * Get algorithms by id.
+         * @summary Get Algorithm
+         * @param {string} algorithmId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ModeldbApiAxiosParamCreator(configuration).getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * List available algorithms in ModelDB.
          * @summary List Algorithms
          * @param {*} [options] Override http request option.
@@ -8137,6 +8200,16 @@ exports.ModeldbApiFp = function (configuration) {
 exports.ModeldbApiFactory = function (configuration, basePath, axios) {
     return {
         /**
+         * Get algorithms by id.
+         * @summary Get Algorithm
+         * @param {string} algorithmId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId, options) {
+            return exports.ModeldbApiFp(configuration).getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List available algorithms in ModelDB.
          * @summary List Algorithms
          * @param {*} [options] Override http request option.
@@ -8154,6 +8227,17 @@ exports.ModeldbApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class ModeldbApi extends base_1.BaseAPI {
+    /**
+     * Get algorithms by id.
+     * @summary Get Algorithm
+     * @param {ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModeldbApi
+     */
+    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters, options) {
+        return exports.ModeldbApiFp(this.configuration).getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters.algorithmId, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * List available algorithms in ModelDB.
      * @summary List Algorithms
