@@ -25604,6 +25604,62 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Update the authenticated user\'s profile.
+         * @summary Update Authenticated User Profile
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAuthenticatedUserProfileV1UserPut: async (userProfileIn: UserProfileIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userProfileIn' is not null or undefined
+            if (userProfileIn === null || userProfileIn === undefined) {
+                throw new RequiredError('userProfileIn','Required parameter userProfileIn was null or undefined when calling updateAuthenticatedUserProfileV1UserPut.');
+            }
+            const localVarPath = `/v1/user`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof userProfileIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(userProfileIn !== undefined ? userProfileIn : {}) : (userProfileIn || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -25957,6 +26013,20 @@ export const UsersApiFp = function(configuration?: Configuration) {
                 return axios.request(axiosRequestArgs);
             };
         },
+        /**
+         * Update the authenticated user\'s profile.
+         * @summary Update Authenticated User Profile
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).updateAuthenticatedUserProfileV1UserPut(userProfileIn, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
     }
 };
 
@@ -26245,6 +26315,16 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          */
         listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut> {
             return UsersApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update the authenticated user\'s profile.
+         * @summary Update Authenticated User Profile
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return UsersApiFp(configuration).updateAuthenticatedUserProfileV1UserPut(userProfileIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -27314,6 +27394,20 @@ export interface UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest {
 }
 
 /**
+ * Request parameters for updateAuthenticatedUserProfileV1UserPut operation in UsersApi.
+ * @export
+ * @interface UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest
+ */
+export interface UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest {
+    /**
+     * 
+     * @type {UserProfileIn}
+     * @memberof UsersApiUpdateAuthenticatedUserProfileV1UserPut
+     */
+    readonly userProfileIn: UserProfileIn
+}
+
+/**
  * UsersApi - object-oriented interface
  * @export
  * @class UsersApi
@@ -27510,6 +27604,18 @@ export class UsersApi extends BaseAPI {
      */
     public listUserVariablesV1UsersUserIdVariablesGet(requestParameters: UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest, options?: any) {
         return UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update the authenticated user\'s profile.
+     * @summary Update Authenticated User Profile
+     * @param {UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public updateAuthenticatedUserProfileV1UserPut(requestParameters: UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest, options?: any) {
+        return UsersApiFp(this.configuration).updateAuthenticatedUserProfileV1UserPut(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
