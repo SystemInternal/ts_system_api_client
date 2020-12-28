@@ -15885,6 +15885,14 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update the authenticated user\'s profile.
+     * @summary Update Authenticated User Profile
+     * @param {UserProfileIn} userProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAuthenticatedUserProfileV1UserPut: (userProfileIn: UserProfileIn, options?: any) => Promise<RequestArgs>;
 };
 /**
  * UsersApi - functional programming interface
@@ -16139,6 +16147,14 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    /**
+     * Update the authenticated user\'s profile.
+     * @summary Update Authenticated User Profile
+     * @param {UserProfileIn} userProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
 };
 /**
  * UsersApi - factory interface
@@ -16393,6 +16409,14 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    /**
+     * Update the authenticated user\'s profile.
+     * @summary Update Authenticated User Profile
+     * @param {UserProfileIn} userProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
 };
 /**
  * Request parameters for createAUserV1UserPost operation in UsersApi.
@@ -17323,6 +17347,19 @@ export interface UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest {
     readonly sortBy?: string;
 }
 /**
+ * Request parameters for updateAuthenticatedUserProfileV1UserPut operation in UsersApi.
+ * @export
+ * @interface UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest
+ */
+export interface UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest {
+    /**
+     *
+     * @type {UserProfileIn}
+     * @memberof UsersApiUpdateAuthenticatedUserProfileV1UserPut
+     */
+    readonly userProfileIn: UserProfileIn;
+}
+/**
  * UsersApi - object-oriented interface
  * @export
  * @class UsersApi
@@ -17473,6 +17510,15 @@ export declare class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     listUserVariablesV1UsersUserIdVariablesGet(requestParameters: UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest, options?: any): Promise<import("axios").AxiosResponse<VariablePaginationOut>>;
+    /**
+     * Update the authenticated user\'s profile.
+     * @summary Update Authenticated User Profile
+     * @param {UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    updateAuthenticatedUserProfileV1UserPut(requestParameters: UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
 }
 /**
  * VariablesApi - axios parameter creator
