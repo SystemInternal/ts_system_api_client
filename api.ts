@@ -21,6 +21,44 @@ import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
 
 /**
+ * List of algorithms model.
+ * @export
+ * @interface AlgorithmListResult
+ */
+export interface AlgorithmListResult {
+    /**
+     * 
+     * @type {Array<AlgorithmOut>}
+     * @memberof AlgorithmListResult
+     */
+    items: Array<AlgorithmOut>;
+}
+/**
+ * Algorithm output model.
+ * @export
+ * @interface AlgorithmOut
+ */
+export interface AlgorithmOut {
+    /**
+     * 
+     * @type {string}
+     * @memberof AlgorithmOut
+     */
+    algorithm_id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AlgorithmOut
+     */
+    display_name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AlgorithmOut
+     */
+    description: string;
+}
+/**
  * Values available for filtering associations.
  * @export
  * @interface AssociationFilters
@@ -16451,6 +16489,122 @@ export class FeaturesApi extends BaseAPI {
      */
     public replaceFeatureV1FeaturesFeatureIdPut(requestParameters: FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest, options?: any) {
         return FeaturesApiFp(this.configuration).replaceFeatureV1FeaturesFeatureIdPut(requestParameters.featureId, requestParameters.featureIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * ModeldbApi - axios parameter creator
+ * @export
+ */
+export const ModeldbApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * List available algorithms in ModelDB.
+         * @summary List Algorithms
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAlgorithmsV1ModeldbAlgorithmsGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/modeldb/algorithms`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ModeldbApi - functional programming interface
+ * @export
+ */
+export const ModeldbApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * List available algorithms in ModelDB.
+         * @summary List Algorithms
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAlgorithmsV1ModeldbAlgorithmsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmListResult>> {
+            const localVarAxiosArgs = await ModeldbApiAxiosParamCreator(configuration).listAlgorithmsV1ModeldbAlgorithmsGet(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * ModeldbApi - factory interface
+ * @export
+ */
+export const ModeldbApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * List available algorithms in ModelDB.
+         * @summary List Algorithms
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAlgorithmsV1ModeldbAlgorithmsGet(options?: any): AxiosPromise<AlgorithmListResult> {
+            return ModeldbApiFp(configuration).listAlgorithmsV1ModeldbAlgorithmsGet(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * ModeldbApi - object-oriented interface
+ * @export
+ * @class ModeldbApi
+ * @extends {BaseAPI}
+ */
+export class ModeldbApi extends BaseAPI {
+    /**
+     * List available algorithms in ModelDB.
+     * @summary List Algorithms
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModeldbApi
+     */
+    public listAlgorithmsV1ModeldbAlgorithmsGet(options?: any) {
+        return ModeldbApiFp(this.configuration).listAlgorithmsV1ModeldbAlgorithmsGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
