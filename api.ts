@@ -9512,10 +9512,11 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserConceptsV1UserConceptsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -9579,6 +9580,10 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['sort_by'] = sortBy;
             }
 
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
+            }
+
 
     
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
@@ -9604,10 +9609,11 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+        listConceptsV1ConceptsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -9669,6 +9675,10 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
             }
 
 
@@ -9810,10 +9820,11 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+        listUserConceptsV1UsersUserIdConceptsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserConceptsV1UsersUserIdConceptsGet.');
@@ -9880,6 +9891,10 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
             }
 
 
@@ -9958,11 +9973,12 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+        async listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -9980,11 +9996,12 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+        async listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10029,11 +10046,12 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+        async listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -10090,11 +10108,12 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut> {
-            return ConceptsApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return ConceptsApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List Concepts.
@@ -10108,11 +10127,12 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut> {
-            return ConceptsApiFp(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return ConceptsApiFp(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the concepts in the requested concept\'s system.
@@ -10149,11 +10169,12 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut> {
-            return ConceptsApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return ConceptsApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -10268,6 +10289,13 @@ export interface ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGetReques
      * @memberof ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGet
+     */
+    readonly inConceptGraph?: boolean
 }
 
 /**
@@ -10338,6 +10366,13 @@ export interface ConceptsApiListConceptsV1ConceptsGetRequest {
      * @memberof ConceptsApiListConceptsV1ConceptsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1ConceptsGet
+     */
+    readonly inConceptGraph?: boolean
 }
 
 /**
@@ -10513,6 +10548,13 @@ export interface ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      * @memberof ConceptsApiListUserConceptsV1UsersUserIdConceptsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof ConceptsApiListUserConceptsV1UsersUserIdConceptsGet
+     */
+    readonly inConceptGraph?: boolean
 }
 
 /**
@@ -10567,7 +10609,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters: ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGetRequest = {}, options?: any) {
-        return ConceptsApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10579,7 +10621,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public listConceptsV1ConceptsGet(requestParameters: ConceptsApiListConceptsV1ConceptsGetRequest = {}, options?: any) {
-        return ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10603,7 +10645,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public listUserConceptsV1UsersUserIdConceptsGet(requestParameters: ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest, options?: any) {
-        return ConceptsApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -24709,10 +24751,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserConceptsV1UserConceptsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -24774,6 +24817,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
             }
 
 
@@ -25277,10 +25324,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+        listUserConceptsV1UsersUserIdConceptsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserConceptsV1UsersUserIdConceptsGet.');
@@ -25347,6 +25395,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
             }
 
 
@@ -26012,11 +26064,12 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+        async listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -26148,11 +26201,12 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+        async listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -26363,11 +26417,12 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut> {
-            return UsersApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return UsersApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s datasets.
@@ -26475,11 +26530,12 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<ConceptPaginationOut> {
-            return UsersApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return UsersApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s datasets.
@@ -26800,6 +26856,13 @@ export interface UsersApiListAuthenticatedUserConceptsV1UserConceptsGetRequest {
      * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
+     */
+    readonly inConceptGraph?: boolean
 }
 
 /**
@@ -27248,6 +27311,13 @@ export interface UsersApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
+     */
+    readonly inConceptGraph?: boolean
 }
 
 /**
@@ -27734,7 +27804,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters: UsersApiListAuthenticatedUserConceptsV1UserConceptsGetRequest = {}, options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27806,7 +27876,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserConceptsV1UsersUserIdConceptsGet(requestParameters: UsersApiListUserConceptsV1UsersUserIdConceptsGetRequest, options?: any) {
-        return UsersApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
