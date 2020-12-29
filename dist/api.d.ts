@@ -3110,6 +3110,12 @@ export interface Integration {
      */
     enterprise: string;
     /**
+     * API Endpoint.
+     * @type {string}
+     * @memberof Integration
+     */
+    endpoint: string;
+    /**
      * The actions the requesting user is allowed to perform on this resource.
      * @type {Array<string>}
      * @memberof Integration
