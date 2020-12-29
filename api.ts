@@ -5677,6 +5677,12 @@ export interface StudyOut {
      * @memberof StudyOut
      */
     object_tags?: ObjectTags;
+    /**
+     * Authors of the study.
+     * @type {Array<AuthorOut>}
+     * @memberof StudyOut
+     */
+    authors?: Array<AuthorOut>;
 }
 
 /**
