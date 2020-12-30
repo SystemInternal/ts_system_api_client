@@ -5764,6 +5764,12 @@ export interface Table {
      */
     name?: string;
     /**
+     * Active status.
+     * @type {boolean}
+     * @memberof Table
+     */
+    active?: boolean;
+    /**
      * Schema name.
      * @type {string}
      * @memberof Table
