@@ -8729,10 +8729,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Add Parent Dataset
      * @param {string} datasetId
      * @param {string} parentId
+     * @param {boolean} [reconcileFeatures]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: (datasetId: string, parentId: string, options?: any) => Promise<RequestArgs>;
+    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: (datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -8969,10 +8970,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary Add Parent Dataset
      * @param {string} datasetId
      * @param {string} parentId
+     * @param {boolean} [reconcileFeatures]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -9209,10 +9211,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary Add Parent Dataset
      * @param {string} datasetId
      * @param {string} parentId
+     * @param {boolean} [reconcileFeatures]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, options?: any): AxiosPromise<void>;
+    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): AxiosPromise<void>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -9472,6 +9475,12 @@ export interface DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPu
      * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
      */
     readonly parentId: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
+     */
+    readonly reconcileFeatures?: boolean;
 }
 /**
  * Request parameters for addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut operation in DatasetsApi.
