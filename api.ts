@@ -10737,10 +10737,11 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @summary Add Parent Dataset
          * @param {string} datasetId 
          * @param {string} parentId 
+         * @param {boolean} [reconcileFeatures] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: async (datasetId: string, parentId: string, options: any = {}): Promise<RequestArgs> => {
+        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: async (datasetId: string, parentId: string, reconcileFeatures?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling addParentDatasetV1DatasetsDatasetIdParentsParentIdPut.');
@@ -10776,6 +10777,10 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (reconcileFeatures !== undefined) {
+                localVarQueryParameter['reconcile_features'] = reconcileFeatures;
             }
 
 
@@ -12147,11 +12152,12 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @summary Add Parent Dataset
          * @param {string} datasetId 
          * @param {string} parentId 
+         * @param {boolean} [reconcileFeatures] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, options);
+        async addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, reconcileFeatures, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -12506,11 +12512,12 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @summary Add Parent Dataset
          * @param {string} datasetId 
          * @param {string} parentId 
+         * @param {boolean} [reconcileFeatures] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, options?: any): AxiosPromise<void> {
-            return DatasetsApiFp(configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, options).then((request) => request(axios, basePath));
+        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): AxiosPromise<void> {
+            return DatasetsApiFp(configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, reconcileFeatures, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a population attribute value to a dataset.
@@ -12813,6 +12820,13 @@ export interface DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPu
      * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
      */
     readonly parentId: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
+     */
+    readonly reconcileFeatures?: boolean
 }
 
 /**
@@ -13592,7 +13606,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters: DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest, options?: any) {
-        return DatasetsApiFp(this.configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters.datasetId, requestParameters.parentId, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters.datasetId, requestParameters.parentId, requestParameters.reconcileFeatures, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
