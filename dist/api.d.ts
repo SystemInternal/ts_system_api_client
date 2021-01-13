@@ -1058,6 +1058,50 @@ export interface AuthorPaginationOut {
     _sorts?: Array<string>;
 }
 /**
+ * Credentials for an integration without password.
+ * @export
+ * @interface BigQueryCredentials
+ */
+export interface BigQueryCredentials {
+    /**
+     * Integration location.
+     * @type {string}
+     * @memberof BigQueryCredentials
+     */
+    location: string;
+    /**
+     * Integration project.
+     * @type {string}
+     * @memberof BigQueryCredentials
+     */
+    project: string;
+}
+/**
+ * Input credentials for a BigQuery integration.
+ * @export
+ * @interface BigQueryCredentialsIn
+ */
+export interface BigQueryCredentialsIn {
+    /**
+     * Integration location.
+     * @type {string}
+     * @memberof BigQueryCredentialsIn
+     */
+    location: string;
+    /**
+     * Integration project.
+     * @type {string}
+     * @memberof BigQueryCredentialsIn
+     */
+    project: string;
+    /**
+     * Integration credentials.
+     * @type {string}
+     * @memberof BigQueryCredentialsIn
+     */
+    raw_credentials: string;
+}
+/**
  *
  * @export
  * @interface BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
@@ -3099,10 +3143,10 @@ export interface Integration {
     service_type: IntegrationServiceTypeEnum;
     /**
      * Integration credentials.
-     * @type {IntegrationCredentialsBase}
+     * @type {RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials}
      * @memberof Integration
      */
-    credentials: IntegrationCredentialsBase;
+    credentials: RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials;
     /**
      * Enterprise link.
      * @type {string}
@@ -3134,7 +3178,8 @@ export interface Integration {
     */
 export declare enum IntegrationServiceTypeEnum {
     REDSHIFT = "REDSHIFT",
-    SNOWFLAKE = "SNOWFLAKE"
+    SNOWFLAKE = "SNOWFLAKE",
+    BIGQUERY = "BIGQUERY"
 }
 /**
     * @export
@@ -3178,10 +3223,10 @@ export interface IntegrationCreate {
     service_type: IntegrationCreateServiceTypeEnum;
     /**
      * Integration credentials.
-     * @type {IntegrationCredentialsIn}
+     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn}
      * @memberof IntegrationCreate
      */
-    credentials: IntegrationCredentialsIn;
+    credentials: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn;
     /**
      * Enterprise link.
      * @type {string}
@@ -3195,99 +3240,8 @@ export interface IntegrationCreate {
     */
 export declare enum IntegrationCreateServiceTypeEnum {
     REDSHIFT = "REDSHIFT",
-    SNOWFLAKE = "SNOWFLAKE"
-}
-/**
- * Credentials for an integration without password.
- * @export
- * @interface IntegrationCredentialsBase
- */
-export interface IntegrationCredentialsBase {
-    /**
-     * Integration database name.
-     * @type {string}
-     * @memberof IntegrationCredentialsBase
-     */
-    db_name: string;
-    /**
-     * Integration user name.
-     * @type {string}
-     * @memberof IntegrationCredentialsBase
-     */
-    db_user: string;
-    /**
-     * Integration host (Required for Redshift).
-     * @type {string}
-     * @memberof IntegrationCredentialsBase
-     */
-    db_host?: string;
-    /**
-     * Integration port (Required for Redshift).
-     * @type {number}
-     * @memberof IntegrationCredentialsBase
-     */
-    db_port?: number;
-    /**
-     * Integration account name (Required for Snowflake).
-     * @type {string}
-     * @memberof IntegrationCredentialsBase
-     */
-    db_account?: string;
-    /**
-     * Integration warehouse name (Required for Snowflake).
-     * @type {string}
-     * @memberof IntegrationCredentialsBase
-     */
-    db_warehouse?: string;
-}
-/**
- * Input credentials for an integration.
- * @export
- * @interface IntegrationCredentialsIn
- */
-export interface IntegrationCredentialsIn {
-    /**
-     * Integration database name.
-     * @type {string}
-     * @memberof IntegrationCredentialsIn
-     */
-    db_name: string;
-    /**
-     * Integration user name.
-     * @type {string}
-     * @memberof IntegrationCredentialsIn
-     */
-    db_user: string;
-    /**
-     * Integration host (Required for Redshift).
-     * @type {string}
-     * @memberof IntegrationCredentialsIn
-     */
-    db_host?: string;
-    /**
-     * Integration port (Required for Redshift).
-     * @type {number}
-     * @memberof IntegrationCredentialsIn
-     */
-    db_port?: number;
-    /**
-     * Integration account name (Required for Snowflake).
-     * @type {string}
-     * @memberof IntegrationCredentialsIn
-     */
-    db_account?: string;
-    /**
-     * Integration warehouse name (Required for Snowflake).
-     * @type {string}
-     * @memberof IntegrationCredentialsIn
-     */
-    db_warehouse?: string;
-    /**
-     * Integration password.
-     * @type {string}
-     * @memberof IntegrationCredentialsIn
-     */
-    db_password: string;
+    SNOWFLAKE = "SNOWFLAKE",
+    BIGQUERY = "BIGQUERY"
 }
 /**
  * Input Integration model for updates.
@@ -3315,10 +3269,10 @@ export interface IntegrationUpdateIn {
     views?: Array<Table>;
     /**
      * Integration credentials.
-     * @type {IntegrationCredentialsIn}
+     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn}
      * @memberof IntegrationUpdateIn
      */
-    credentials?: IntegrationCredentialsIn;
+    credentials?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn;
 }
 /**
  * Represent a line plot.
@@ -5261,6 +5215,74 @@ export interface PopulationAttributeValuePaginationOut {
     _sorts?: Array<string>;
 }
 /**
+ * Credentials for a Redshift integration without password.
+ * @export
+ * @interface RedshiftCredentials
+ */
+export interface RedshiftCredentials {
+    /**
+     * Integration database name.
+     * @type {string}
+     * @memberof RedshiftCredentials
+     */
+    db_name: string;
+    /**
+     * Integration user name.
+     * @type {string}
+     * @memberof RedshiftCredentials
+     */
+    db_user: string;
+    /**
+     * Integration host (Required for Redshift).
+     * @type {string}
+     * @memberof RedshiftCredentials
+     */
+    db_host: string;
+    /**
+     * Integration port (Required for Redshift).
+     * @type {number}
+     * @memberof RedshiftCredentials
+     */
+    db_port: number;
+}
+/**
+ * Input credentials for a Redshift integration.
+ * @export
+ * @interface RedshiftCredentialsIn
+ */
+export interface RedshiftCredentialsIn {
+    /**
+     * Integration database name.
+     * @type {string}
+     * @memberof RedshiftCredentialsIn
+     */
+    db_name: string;
+    /**
+     * Integration user name.
+     * @type {string}
+     * @memberof RedshiftCredentialsIn
+     */
+    db_user: string;
+    /**
+     * Integration host (Required for Redshift).
+     * @type {string}
+     * @memberof RedshiftCredentialsIn
+     */
+    db_host: string;
+    /**
+     * Integration port (Required for Redshift).
+     * @type {number}
+     * @memberof RedshiftCredentialsIn
+     */
+    db_port: number;
+    /**
+     * Integration password.
+     * @type {string}
+     * @memberof RedshiftCredentialsIn
+     */
+    db_password: string;
+}
+/**
  * Generic resource collection element.
  * @export
  * @interface ResourceCollectionElement
@@ -5363,6 +5385,74 @@ export declare enum SignificanceValueOutGeneratedByEnum {
     RemoteEvaluator = "remote_evaluator",
     User = "user",
     Invalid = "invalid"
+}
+/**
+ * Credentials for a Snowflake integration without password.
+ * @export
+ * @interface SnowflakeCredentials
+ */
+export interface SnowflakeCredentials {
+    /**
+     * Integration database name.
+     * @type {string}
+     * @memberof SnowflakeCredentials
+     */
+    db_name: string;
+    /**
+     * Integration user name.
+     * @type {string}
+     * @memberof SnowflakeCredentials
+     */
+    db_user: string;
+    /**
+     * Integration account name.
+     * @type {string}
+     * @memberof SnowflakeCredentials
+     */
+    db_account: string;
+    /**
+     * Integration warehouse name.
+     * @type {string}
+     * @memberof SnowflakeCredentials
+     */
+    db_warehouse: string;
+}
+/**
+ * Input credentials for a Snowflake integration.
+ * @export
+ * @interface SnowflakeCredentialsIn
+ */
+export interface SnowflakeCredentialsIn {
+    /**
+     * Integration database name.
+     * @type {string}
+     * @memberof SnowflakeCredentialsIn
+     */
+    db_name: string;
+    /**
+     * Integration user name.
+     * @type {string}
+     * @memberof SnowflakeCredentialsIn
+     */
+    db_user: string;
+    /**
+     * Integration account name.
+     * @type {string}
+     * @memberof SnowflakeCredentialsIn
+     */
+    db_account: string;
+    /**
+     * Integration warehouse name.
+     * @type {string}
+     * @memberof SnowflakeCredentialsIn
+     */
+    db_warehouse: string;
+    /**
+     * Integration password.
+     * @type {string}
+     * @memberof SnowflakeCredentialsIn
+     */
+    db_password: string;
 }
 /**
  * A real world study.

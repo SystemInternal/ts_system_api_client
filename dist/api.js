@@ -647,6 +647,7 @@ var IntegrationServiceTypeEnum;
 (function (IntegrationServiceTypeEnum) {
     IntegrationServiceTypeEnum["REDSHIFT"] = "REDSHIFT";
     IntegrationServiceTypeEnum["SNOWFLAKE"] = "SNOWFLAKE";
+    IntegrationServiceTypeEnum["BIGQUERY"] = "BIGQUERY";
 })(IntegrationServiceTypeEnum = exports.IntegrationServiceTypeEnum || (exports.IntegrationServiceTypeEnum = {}));
 /**
     * @export
@@ -667,6 +668,7 @@ var IntegrationCreateServiceTypeEnum;
 (function (IntegrationCreateServiceTypeEnum) {
     IntegrationCreateServiceTypeEnum["REDSHIFT"] = "REDSHIFT";
     IntegrationCreateServiceTypeEnum["SNOWFLAKE"] = "SNOWFLAKE";
+    IntegrationCreateServiceTypeEnum["BIGQUERY"] = "BIGQUERY";
 })(IntegrationCreateServiceTypeEnum = exports.IntegrationCreateServiceTypeEnum || (exports.IntegrationCreateServiceTypeEnum = {}));
 /**
     * @export
