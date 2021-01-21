@@ -13870,7 +13870,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
     /**
-     *
+     * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn} studyIn
      * @param {*} [options] Override http request option.
@@ -13996,13 +13996,13 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
     listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Study resource with partial update.
-     * @summary Patch Study
+     * @summary Patch Study Endpoint
      * @param {string} studyId
      * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchStudyV1StudiesStudyIdPatch: (studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any) => Promise<RequestArgs>;
+    patchStudyEndpointV1StudiesStudyIdPatch: (studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any) => Promise<RequestArgs>;
     /**
      * Publish the study making it visible to other users.
      * @summary Publish Study
@@ -14054,7 +14054,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     *
+     * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn} studyIn
      * @param {*} [options] Override http request option.
@@ -14180,13 +14180,13 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
     listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * Modify Study resource with partial update.
-     * @summary Patch Study
+     * @summary Patch Study Endpoint
      * @param {string} studyId
      * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    patchStudyEndpointV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Publish the study making it visible to other users.
      * @summary Publish Study
@@ -14238,7 +14238,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
     /**
-     *
+     * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn} studyIn
      * @param {*} [options] Override http request option.
@@ -14364,13 +14364,13 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
     listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * Modify Study resource with partial update.
-     * @summary Patch Study
+     * @summary Patch Study Endpoint
      * @param {string} studyId
      * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchStudyV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): AxiosPromise<void>;
+    patchStudyEndpointV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): AxiosPromise<void>;
     /**
      * Publish the study making it visible to other users.
      * @summary Publish Study
@@ -14862,21 +14862,21 @@ export interface StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest {
     readonly conceptTag?: string;
 }
 /**
- * Request parameters for patchStudyV1StudiesStudyIdPatch operation in StudiesApi.
+ * Request parameters for patchStudyEndpointV1StudiesStudyIdPatch operation in StudiesApi.
  * @export
- * @interface StudiesApiPatchStudyV1StudiesStudyIdPatchRequest
+ * @interface StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest
  */
-export interface StudiesApiPatchStudyV1StudiesStudyIdPatchRequest {
+export interface StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest {
     /**
      *
      * @type {string}
-     * @memberof StudiesApiPatchStudyV1StudiesStudyIdPatch
+     * @memberof StudiesApiPatchStudyEndpointV1StudiesStudyIdPatch
      */
     readonly studyId: string;
     /**
      *
      * @type {PatchStudyOp | Array<PatchStudyOp>}
-     * @memberof StudiesApiPatchStudyV1StudiesStudyIdPatch
+     * @memberof StudiesApiPatchStudyEndpointV1StudiesStudyIdPatch
      */
     readonly patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>;
 }
@@ -14967,7 +14967,7 @@ export declare class StudiesApi extends BaseAPI {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     *
+     * Create a Study.
      * @summary Create A Study.
      * @param {StudiesApiCreateAStudyV1StudiesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -15049,13 +15049,13 @@ export declare class StudiesApi extends BaseAPI {
     listUserStudiesV1UsersUserIdStudiesGet(requestParameters: StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest, options?: any): Promise<import("axios").AxiosResponse<StudyPaginationOut>>;
     /**
      * Modify Study resource with partial update.
-     * @summary Patch Study
-     * @param {StudiesApiPatchStudyV1StudiesStudyIdPatchRequest} requestParameters Request parameters.
+     * @summary Patch Study Endpoint
+     * @param {StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StudiesApi
      */
-    patchStudyV1StudiesStudyIdPatch(requestParameters: StudiesApiPatchStudyV1StudiesStudyIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    patchStudyEndpointV1StudiesStudyIdPatch(requestParameters: StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Publish the study making it visible to other users.
      * @summary Publish Study

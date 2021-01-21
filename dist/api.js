@@ -11099,7 +11099,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         *
+         * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn} studyIn
          * @param {*} [options] Override http request option.
@@ -11737,20 +11737,20 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Modify Study resource with partial update.
-         * @summary Patch Study
+         * @summary Patch Study Endpoint
          * @param {string} studyId
          * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchStudyV1StudiesStudyIdPatch: (studyId, patchStudyOpArrayPatchStudyOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        patchStudyEndpointV1StudiesStudyIdPatch: (studyId, patchStudyOpArrayPatchStudyOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
-                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling patchStudyV1StudiesStudyIdPatch.');
+                throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling patchStudyEndpointV1StudiesStudyIdPatch.');
             }
             // verify required parameter 'patchStudyOpArrayPatchStudyOp' is not null or undefined
             if (patchStudyOpArrayPatchStudyOp === null || patchStudyOpArrayPatchStudyOp === undefined) {
-                throw new base_1.RequiredError('patchStudyOpArrayPatchStudyOp', 'Required parameter patchStudyOpArrayPatchStudyOp was null or undefined when calling patchStudyV1StudiesStudyIdPatch.');
+                throw new base_1.RequiredError('patchStudyOpArrayPatchStudyOp', 'Required parameter patchStudyOpArrayPatchStudyOp was null or undefined when calling patchStudyEndpointV1StudiesStudyIdPatch.');
             }
             const localVarPath = `/v1/studies/{study_id}`
                 .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
@@ -12022,7 +12022,7 @@ exports.StudiesApiFp = function (configuration) {
             });
         },
         /**
-         *
+         * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn} studyIn
          * @param {*} [options] Override http request option.
@@ -12220,15 +12220,15 @@ exports.StudiesApiFp = function (configuration) {
         },
         /**
          * Modify Study resource with partial update.
-         * @summary Patch Study
+         * @summary Patch Study Endpoint
          * @param {string} studyId
          * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options) {
+        patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12322,7 +12322,7 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
             return exports.StudiesApiFp(configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options).then((request) => request(axios, basePath));
         },
         /**
-         *
+         * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn} studyIn
          * @param {*} [options] Override http request option.
@@ -12466,14 +12466,14 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
         },
         /**
          * Modify Study resource with partial update.
-         * @summary Patch Study
+         * @summary Patch Study Endpoint
          * @param {string} studyId
          * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options) {
-            return exports.StudiesApiFp(configuration).patchStudyV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options).then((request) => request(axios, basePath));
+        patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options) {
+            return exports.StudiesApiFp(configuration).patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options).then((request) => request(axios, basePath));
         },
         /**
          * Publish the study making it visible to other users.
@@ -12539,7 +12539,7 @@ class StudiesApi extends base_1.BaseAPI {
         return exports.StudiesApiFp(this.configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *
+     * Create a Study.
      * @summary Create A Study.
      * @param {StudiesApiCreateAStudyV1StudiesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -12639,14 +12639,14 @@ class StudiesApi extends base_1.BaseAPI {
     }
     /**
      * Modify Study resource with partial update.
-     * @summary Patch Study
-     * @param {StudiesApiPatchStudyV1StudiesStudyIdPatchRequest} requestParameters Request parameters.
+     * @summary Patch Study Endpoint
+     * @param {StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StudiesApi
      */
-    patchStudyV1StudiesStudyIdPatch(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).patchStudyV1StudiesStudyIdPatch(requestParameters.studyId, requestParameters.patchStudyOpArrayPatchStudyOp, options).then((request) => request(this.axios, this.basePath));
+    patchStudyEndpointV1StudiesStudyIdPatch(requestParameters, options) {
+        return exports.StudiesApiFp(this.configuration).patchStudyEndpointV1StudiesStudyIdPatch(requestParameters.studyId, requestParameters.patchStudyOpArrayPatchStudyOp, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Publish the study making it visible to other users.
