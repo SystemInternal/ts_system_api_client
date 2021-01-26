@@ -8955,10 +8955,12 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetsV1DatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -9196,10 +9198,12 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -9437,10 +9441,12 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -9996,6 +10002,18 @@ export interface DatasetsApiListDatasetsV1DatasetsGetRequest {
      * @memberof DatasetsApiListDatasetsV1DatasetsGet
      */
     readonly sortBy?: string;
+    /**
+     * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @type {string}
+     * @memberof DatasetsApiListDatasetsV1DatasetsGet
+     */
+    readonly variableRelationship?: string;
+    /**
+     * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @type {string}
+     * @memberof DatasetsApiListDatasetsV1DatasetsGet
+     */
+    readonly featureRelationship?: string;
 }
 /**
  * Request parameters for listModelsUsingDatasetV1DatasetsDatasetIdModelsGet operation in DatasetsApi.
@@ -13971,10 +13989,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -14155,10 +14174,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -14339,10 +14359,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -14781,6 +14802,12 @@ export interface StudiesApiListStudiesV1StudiesGetRequest {
      * @memberof StudiesApiListStudiesV1StudiesGet
      */
     readonly variableRelationship?: string;
+    /**
+     * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @type {string}
+     * @memberof StudiesApiListStudiesV1StudiesGet
+     */
+    readonly featureRelationship?: string;
 }
 /**
  * Request parameters for listUserStudiesV1UsersUserIdStudiesGet operation in StudiesApi.
