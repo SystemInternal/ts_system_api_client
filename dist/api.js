@@ -15795,6 +15795,55 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create mulitple Variables.
+         * @summary Create Multiple Variables.
+         * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleVariablesV1VariablesBulkPost: (arrayVariableInVariableIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'arrayVariableInVariableIn' is not null or undefined
+            if (arrayVariableInVariableIn === null || arrayVariableInVariableIn === undefined) {
+                throw new base_1.RequiredError('arrayVariableInVariableIn', 'Required parameter arrayVariableInVariableIn was null or undefined when calling createMultipleVariablesV1VariablesBulkPost.');
+            }
+            const localVarPath = `/v1/variables/bulk`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof arrayVariableInVariableIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(arrayVariableInVariableIn !== undefined ? arrayVariableInVariableIn : {}) : (arrayVariableInVariableIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
          * @summary Delete Variable
          * @param {string} variableId
@@ -16506,6 +16555,22 @@ exports.VariablesApiFp = function (configuration) {
             });
         },
         /**
+         * Create mulitple Variables.
+         * @summary Create Multiple Variables.
+         * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
          * @summary Delete Variable
          * @param {string} variableId
@@ -16734,6 +16799,16 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
             return exports.VariablesApiFp(configuration).createAVariableV1VariablesPost(variableIn, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create mulitple Variables.
+         * @summary Create Multiple Variables.
+         * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, options) {
+            return exports.VariablesApiFp(configuration).createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
          * @summary Delete Variable
          * @param {string} variableId
@@ -16908,6 +16983,17 @@ class VariablesApi extends base_1.BaseAPI {
      */
     createAVariableV1VariablesPost(requestParameters, options) {
         return exports.VariablesApiFp(this.configuration).createAVariableV1VariablesPost(requestParameters.variableIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create mulitple Variables.
+     * @summary Create Multiple Variables.
+     * @param {VariablesApiCreateMultipleVariablesV1VariablesBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    createMultipleVariablesV1VariablesBulkPost(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).createMultipleVariablesV1VariablesBulkPost(requestParameters.arrayVariableInVariableIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.

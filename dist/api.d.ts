@@ -17862,6 +17862,14 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      */
     createAVariableV1VariablesPost: (variableIn: VariableIn, options?: any) => Promise<RequestArgs>;
     /**
+     * Create mulitple Variables.
+     * @summary Create Multiple Variables.
+     * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleVariablesV1VariablesBulkPost: (arrayVariableInVariableIn: Array<VariableIn> | VariableIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
      * @param {string} variableId
@@ -18013,6 +18021,14 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     createAVariableV1VariablesPost(variableIn: VariableIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>>;
+    /**
+     * Create mulitple Variables.
+     * @summary Create Multiple Variables.
+     * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn: Array<VariableIn> | VariableIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VariableOut>>>;
     /**
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
@@ -18166,6 +18182,14 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      */
     createAVariableV1VariablesPost(variableIn: VariableIn, options?: any): AxiosPromise<VariableOut>;
     /**
+     * Create mulitple Variables.
+     * @summary Create Multiple Variables.
+     * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn: Array<VariableIn> | VariableIn, options?: any): AxiosPromise<Array<VariableOut>>;
+    /**
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
      * @param {string} variableId
@@ -18316,6 +18340,19 @@ export interface VariablesApiCreateAVariableV1VariablesPostRequest {
      * @memberof VariablesApiCreateAVariableV1VariablesPost
      */
     readonly variableIn: VariableIn;
+}
+/**
+ * Request parameters for createMultipleVariablesV1VariablesBulkPost operation in VariablesApi.
+ * @export
+ * @interface VariablesApiCreateMultipleVariablesV1VariablesBulkPostRequest
+ */
+export interface VariablesApiCreateMultipleVariablesV1VariablesBulkPostRequest {
+    /**
+     *
+     * @type {Array<VariableIn> | VariableIn}
+     * @memberof VariablesApiCreateMultipleVariablesV1VariablesBulkPost
+     */
+    readonly arrayVariableInVariableIn: Array<VariableIn> | VariableIn;
 }
 /**
  * Request parameters for deleteVariableV1VariablesVariableIdDelete operation in VariablesApi.
@@ -18846,6 +18883,15 @@ export declare class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     createAVariableV1VariablesPost(requestParameters: VariablesApiCreateAVariableV1VariablesPostRequest, options?: any): Promise<import("axios").AxiosResponse<VariableOut>>;
+    /**
+     * Create mulitple Variables.
+     * @summary Create Multiple Variables.
+     * @param {VariablesApiCreateMultipleVariablesV1VariablesBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    createMultipleVariablesV1VariablesBulkPost(requestParameters: VariablesApiCreateMultipleVariablesV1VariablesBulkPostRequest, options?: any): Promise<import("axios").AxiosResponse<VariableOut[]>>;
     /**
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
