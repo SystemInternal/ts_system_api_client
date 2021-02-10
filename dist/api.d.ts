@@ -6734,6 +6734,26 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      */
     listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
+     * List Associations.
+     * @summary List Associations
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAssociationsV1AssociationsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
@@ -6880,6 +6900,26 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      */
     listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
+     * List Associations.
+     * @summary List Associations
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    /**
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
@@ -7025,6 +7065,26 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    /**
+     * List Associations.
+     * @summary List Associations
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [isInteraction] Is association from interaction model?
+     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -7265,6 +7325,91 @@ export interface AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1Us
      * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+}
+/**
+ * Request parameters for listAssociationsV1AssociationsGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiListAssociationsV1AssociationsGetRequest
+ */
+export interface AssociationsApiListAssociationsV1AssociationsGetRequest {
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Order by this field.
+     * @type {'created_at' | 'last_updated_at'}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly orderBy?: 'created_at' | 'last_updated_at';
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly ordering?: 'asc' | 'desc';
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is association from interaction model?
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly isInteraction?: boolean;
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly isVariableAssociation?: boolean;
+    /**
+     * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly variableRelationship?: string;
+    /**
+     * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly featureRelationship?: string;
 }
 /**
  * Request parameters for listAssociationsV1DatasetsDatasetIdAssociationsGet operation in AssociationsApi.
@@ -7653,6 +7798,15 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters: AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
+    /**
+     * List Associations.
+     * @summary List Associations
+     * @param {AssociationsApiListAssociationsV1AssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listAssociationsV1AssociationsGet(requestParameters?: AssociationsApiListAssociationsV1AssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations

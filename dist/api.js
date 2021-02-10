@@ -1565,6 +1565,99 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * List Associations.
+         * @summary List Associations
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+         * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1AssociationsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/associations`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+            if (variableRelationship !== undefined) {
+                localVarQueryParameter['variable_relationship'] = variableRelationship;
+            }
+            if (featureRelationship !== undefined) {
+                localVarQueryParameter['feature_relationship'] = featureRelationship;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
@@ -2087,6 +2180,34 @@ exports.AssociationsApiFp = function (configuration) {
             });
         },
         /**
+         * List Associations.
+         * @summary List Associations
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+         * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
@@ -2285,6 +2406,28 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
             return exports.AssociationsApiFp(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
+         * List Associations.
+         * @summary List Associations
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+         * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
@@ -2442,6 +2585,17 @@ class AssociationsApi extends base_1.BaseAPI {
      */
     listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters, options) {
         return exports.AssociationsApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Associations.
+     * @summary List Associations
+     * @param {AssociationsApiListAssociationsV1AssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listAssociationsV1AssociationsGet(requestParameters = {}, options) {
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1AssociationsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations derived from the Dataset.
