@@ -7073,6 +7073,118 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
+         * List Associations.
+         * @summary List Associations
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+         * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1AssociationsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/associations`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+
+            if (variableRelationship !== undefined) {
+                localVarQueryParameter['variable_relationship'] = variableRelationship;
+            }
+
+            if (featureRelationship !== undefined) {
+                localVarQueryParameter['feature_relationship'] = featureRelationship;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId 
@@ -7661,6 +7773,32 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * List Associations.
+         * @summary List Associations
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+         * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
+            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId 
@@ -7848,6 +7986,28 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          */
         listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut> {
             return AssociationsApiFp(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Associations.
+         * @summary List Associations
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+         * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut> {
+            return AssociationsApiFp(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations derived from the Dataset.
@@ -8120,6 +8280,104 @@ export interface AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1Us
      * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean
+}
+
+/**
+ * Request parameters for listAssociationsV1AssociationsGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiListAssociationsV1AssociationsGetRequest
+ */
+export interface AssociationsApiListAssociationsV1AssociationsGetRequest {
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Order by this field.
+     * @type {'created_at' | 'last_updated_at'}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly orderBy?: 'created_at' | 'last_updated_at'
+
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly ordering?: 'asc' | 'desc'
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is association from interaction model?
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly isInteraction?: boolean
+
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly isVariableAssociation?: boolean
+
+    /**
+     * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly variableRelationship?: string
+
+    /**
+     * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly featureRelationship?: string
 }
 
 /**
@@ -8572,6 +8830,18 @@ export class AssociationsApi extends BaseAPI {
      */
     public listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters: AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGetRequest, options?: any) {
         return AssociationsApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List Associations.
+     * @summary List Associations
+     * @param {AssociationsApiListAssociationsV1AssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public listAssociationsV1AssociationsGet(requestParameters: AssociationsApiListAssociationsV1AssociationsGetRequest = {}, options?: any) {
+        return AssociationsApiFp(this.configuration).listAssociationsV1AssociationsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
