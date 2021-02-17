@@ -1580,10 +1580,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1AssociationsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1AssociationsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/associations`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -1646,6 +1647,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             }
             if (featureRelationship !== undefined) {
                 localVarQueryParameter['feature_relationship'] = featureRelationship;
+            }
+            if (conceptRelationship !== undefined) {
+                localVarQueryParameter['concept_relationship'] = conceptRelationship;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -2195,12 +2199,13 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options) {
+        listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2421,11 +2426,12 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options) {
-            return exports.AssociationsApiFp(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
+        listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations derived from the Dataset.
@@ -2595,7 +2601,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1AssociationsGet(requestParameters = {}, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1AssociationsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1AssociationsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.variableRelationship, requestParameters.featureRelationship, requestParameters.conceptRelationship, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations derived from the Dataset.

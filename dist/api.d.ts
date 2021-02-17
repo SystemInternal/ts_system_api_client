@@ -6749,10 +6749,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1AssociationsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -6915,10 +6916,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -7081,10 +7083,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -7410,6 +7413,12 @@ export interface AssociationsApiListAssociationsV1AssociationsGetRequest {
      * @memberof AssociationsApiListAssociationsV1AssociationsGet
      */
     readonly featureRelationship?: string;
+    /**
+     * Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly conceptRelationship?: string;
 }
 /**
  * Request parameters for listAssociationsV1DatasetsDatasetIdAssociationsGet operation in AssociationsApi.
