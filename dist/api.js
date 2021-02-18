@@ -8340,12 +8340,13 @@ exports.ModeldbApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * List available algorithms in ModelDB.
+         * List available algorithms in ModelDB. Search with algorithm class if passed.
          * @summary List Algorithms
+         * @param {string} [algorithmClass]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAlgorithmsV1ModeldbAlgorithmsGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAlgorithmsV1ModeldbAlgorithmsGet: (algorithmClass, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/modeldb/algorithms`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -8369,6 +8370,9 @@ exports.ModeldbApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (algorithmClass !== undefined) {
+                localVarQueryParameter['algorithm_class'] = algorithmClass;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -8405,14 +8409,15 @@ exports.ModeldbApiFp = function (configuration) {
             });
         },
         /**
-         * List available algorithms in ModelDB.
+         * List available algorithms in ModelDB. Search with algorithm class if passed.
          * @summary List Algorithms
+         * @param {string} [algorithmClass]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAlgorithmsV1ModeldbAlgorithmsGet(options) {
+        listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModeldbApiAxiosParamCreator(configuration).listAlgorithmsV1ModeldbAlgorithmsGet(options);
+                const localVarAxiosArgs = yield exports.ModeldbApiAxiosParamCreator(configuration).listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -8438,13 +8443,14 @@ exports.ModeldbApiFactory = function (configuration, basePath, axios) {
             return exports.ModeldbApiFp(configuration).getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId, options).then((request) => request(axios, basePath));
         },
         /**
-         * List available algorithms in ModelDB.
+         * List available algorithms in ModelDB. Search with algorithm class if passed.
          * @summary List Algorithms
+         * @param {string} [algorithmClass]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAlgorithmsV1ModeldbAlgorithmsGet(options) {
-            return exports.ModeldbApiFp(configuration).listAlgorithmsV1ModeldbAlgorithmsGet(options).then((request) => request(axios, basePath));
+        listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass, options) {
+            return exports.ModeldbApiFp(configuration).listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -8467,14 +8473,15 @@ class ModeldbApi extends base_1.BaseAPI {
         return exports.ModeldbApiFp(this.configuration).getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters.algorithmId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * List available algorithms in ModelDB.
+     * List available algorithms in ModelDB. Search with algorithm class if passed.
      * @summary List Algorithms
+     * @param {ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ModeldbApi
      */
-    listAlgorithmsV1ModeldbAlgorithmsGet(options) {
-        return exports.ModeldbApiFp(this.configuration).listAlgorithmsV1ModeldbAlgorithmsGet(options).then((request) => request(this.axios, this.basePath));
+    listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters = {}, options) {
+        return exports.ModeldbApiFp(this.configuration).listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters.algorithmClass, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ModeldbApi = ModeldbApi;
