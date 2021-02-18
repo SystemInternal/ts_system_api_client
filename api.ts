@@ -7088,10 +7088,11 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1AssociationsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options: any = {}): Promise<RequestArgs> => {
+        listAssociationsV1AssociationsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/associations`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -7169,6 +7170,10 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
 
             if (featureRelationship !== undefined) {
                 localVarQueryParameter['feature_relationship'] = featureRelationship;
+            }
+
+            if (conceptRelationship !== undefined) {
+                localVarQueryParameter['concept_relationship'] = conceptRelationship;
             }
 
 
@@ -7788,11 +7793,12 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
-            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options);
+        async listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
+            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -8003,11 +8009,12 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+         * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut> {
-            return AssociationsApiFp(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
+        listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut> {
+            return AssociationsApiFp(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations derived from the Dataset.
@@ -8378,6 +8385,13 @@ export interface AssociationsApiListAssociationsV1AssociationsGetRequest {
      * @memberof AssociationsApiListAssociationsV1AssociationsGet
      */
     readonly featureRelationship?: string
+
+    /**
+     * Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly conceptRelationship?: string
 }
 
 /**
@@ -8841,7 +8855,7 @@ export class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     public listAssociationsV1AssociationsGet(requestParameters: AssociationsApiListAssociationsV1AssociationsGetRequest = {}, options?: any) {
-        return AssociationsApiFp(this.configuration).listAssociationsV1AssociationsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
+        return AssociationsApiFp(this.configuration).listAssociationsV1AssociationsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.variableRelationship, requestParameters.featureRelationship, requestParameters.conceptRelationship, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -17085,12 +17099,13 @@ export const ModeldbApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * List available algorithms in ModelDB.
+         * List available algorithms in ModelDB. Search with algorithm class if passed.
          * @summary List Algorithms
+         * @param {string} [algorithmClass] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAlgorithmsV1ModeldbAlgorithmsGet: async (options: any = {}): Promise<RequestArgs> => {
+        listAlgorithmsV1ModeldbAlgorithmsGet: async (algorithmClass?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/modeldb/algorithms`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -17116,6 +17131,10 @@ export const ModeldbApiAxiosParamCreator = function (configuration?: Configurati
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (algorithmClass !== undefined) {
+                localVarQueryParameter['algorithm_class'] = algorithmClass;
             }
 
 
@@ -17155,13 +17174,14 @@ export const ModeldbApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * List available algorithms in ModelDB.
+         * List available algorithms in ModelDB. Search with algorithm class if passed.
          * @summary List Algorithms
+         * @param {string} [algorithmClass] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAlgorithmsV1ModeldbAlgorithmsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmListResult>> {
-            const localVarAxiosArgs = await ModeldbApiAxiosParamCreator(configuration).listAlgorithmsV1ModeldbAlgorithmsGet(options);
+        async listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmListResult>> {
+            const localVarAxiosArgs = await ModeldbApiAxiosParamCreator(configuration).listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -17187,13 +17207,14 @@ export const ModeldbApiFactory = function (configuration?: Configuration, basePa
             return ModeldbApiFp(configuration).getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId, options).then((request) => request(axios, basePath));
         },
         /**
-         * List available algorithms in ModelDB.
+         * List available algorithms in ModelDB. Search with algorithm class if passed.
          * @summary List Algorithms
+         * @param {string} [algorithmClass] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAlgorithmsV1ModeldbAlgorithmsGet(options?: any): AxiosPromise<AlgorithmListResult> {
-            return ModeldbApiFp(configuration).listAlgorithmsV1ModeldbAlgorithmsGet(options).then((request) => request(axios, basePath));
+        listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass?: string, options?: any): AxiosPromise<AlgorithmListResult> {
+            return ModeldbApiFp(configuration).listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -17210,6 +17231,20 @@ export interface ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest 
      * @memberof ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet
      */
     readonly algorithmId: string
+}
+
+/**
+ * Request parameters for listAlgorithmsV1ModeldbAlgorithmsGet operation in ModeldbApi.
+ * @export
+ * @interface ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest
+ */
+export interface ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGet
+     */
+    readonly algorithmClass?: string
 }
 
 /**
@@ -17232,14 +17267,15 @@ export class ModeldbApi extends BaseAPI {
     }
 
     /**
-     * List available algorithms in ModelDB.
+     * List available algorithms in ModelDB. Search with algorithm class if passed.
      * @summary List Algorithms
+     * @param {ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ModeldbApi
      */
-    public listAlgorithmsV1ModeldbAlgorithmsGet(options?: any) {
-        return ModeldbApiFp(this.configuration).listAlgorithmsV1ModeldbAlgorithmsGet(options).then((request) => request(this.axios, this.basePath));
+    public listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters: ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest = {}, options?: any) {
+        return ModeldbApiFp(this.configuration).listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters.algorithmClass, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
