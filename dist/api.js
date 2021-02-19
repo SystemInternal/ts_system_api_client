@@ -603,6 +603,7 @@ var FeatureStatisticsFeatureTypeEnum;
     FeatureStatisticsFeatureTypeEnum["File"] = "file";
     FeatureStatisticsFeatureTypeEnum["TimeSeries"] = "time_series";
     FeatureStatisticsFeatureTypeEnum["Dynamic"] = "dynamic";
+    FeatureStatisticsFeatureTypeEnum["String"] = "string";
 })(FeatureStatisticsFeatureTypeEnum = exports.FeatureStatisticsFeatureTypeEnum || (exports.FeatureStatisticsFeatureTypeEnum = {}));
 /**
     * @export

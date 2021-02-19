@@ -2347,7 +2347,7 @@ export declare enum DeploymentStageEnum {
     Invalid = "invalid"
 }
 /**
- * Represent time series statistics for a time series feature type.
+ * Represent dynamic series statistics for a dynamic feature type.
  * @export
  * @interface DynamicFeatureStatistics
  */
@@ -2770,6 +2770,12 @@ export interface FeatureStatistics {
      * @memberof FeatureStatistics
      */
     dynamic_feature_statistics?: DynamicFeatureStatistics;
+    /**
+     * Statistics for a string feature.
+     * @type {StringFeatureStatistics}
+     * @memberof FeatureStatistics
+     */
+    string_feature_statistics?: StringFeatureStatistics;
 }
 /**
     * @export
@@ -2786,7 +2792,8 @@ export declare enum FeatureStatisticsFeatureTypeEnum {
     Video = "video",
     File = "file",
     TimeSeries = "time_series",
-    Dynamic = "dynamic"
+    Dynamic = "dynamic",
+    String = "string"
 }
 /**
     * @export
@@ -5453,6 +5460,94 @@ export interface SnowflakeCredentialsIn {
      * @memberof SnowflakeCredentialsIn
      */
     db_password: string;
+}
+/**
+ * Represent statistics for a string feature.
+ * @export
+ * @interface StringFeatureStatistics
+ */
+export interface StringFeatureStatistics {
+    /**
+     * Percentage of column values that are missing or zero-length.
+     * @type {number}
+     * @memberof StringFeatureStatistics
+     */
+    percent_missing_or_empty?: number;
+    /**
+     * Minimum of the lengths of non-missing values.
+     * @type {number}
+     * @memberof StringFeatureStatistics
+     */
+    min_string_length?: number;
+    /**
+     * Maximum of the lengths of non-missing values.
+     * @type {number}
+     * @memberof StringFeatureStatistics
+     */
+    max_string_length?: number;
+    /**
+     * Mean of the lengths of non-missing values.
+     * @type {number}
+     * @memberof StringFeatureStatistics
+     */
+    mean_string_length?: number;
+    /**
+     * Number of distinct non-missing values of the column.
+     * @type {number}
+     * @memberof StringFeatureStatistics
+     */
+    distinct_values?: number;
+    /**
+     * Histogram depicting the distribution of string length in the feature.
+     * @type {Histogram}
+     * @memberof StringFeatureStatistics
+     */
+    character_length_distribution?: Histogram;
+    /**
+     * Historical stats in form timestamp to value.
+     * @type {{ [key: string]: StringFeatureStatisticsSimpleBase; }}
+     * @memberof StringFeatureStatistics
+     */
+    history?: {
+        [key: string]: StringFeatureStatisticsSimpleBase;
+    };
+}
+/**
+ * Represent statistics for string feature.  These fields will be included in the stats history.
+ * @export
+ * @interface StringFeatureStatisticsSimpleBase
+ */
+export interface StringFeatureStatisticsSimpleBase {
+    /**
+     * Percentage of column values that are missing or zero-length.
+     * @type {number}
+     * @memberof StringFeatureStatisticsSimpleBase
+     */
+    percent_missing_or_empty?: number;
+    /**
+     * Minimum of the lengths of non-missing values.
+     * @type {number}
+     * @memberof StringFeatureStatisticsSimpleBase
+     */
+    min_string_length?: number;
+    /**
+     * Maximum of the lengths of non-missing values.
+     * @type {number}
+     * @memberof StringFeatureStatisticsSimpleBase
+     */
+    max_string_length?: number;
+    /**
+     * Mean of the lengths of non-missing values.
+     * @type {number}
+     * @memberof StringFeatureStatisticsSimpleBase
+     */
+    mean_string_length?: number;
+    /**
+     * Number of distinct non-missing values of the column.
+     * @type {number}
+     * @memberof StringFeatureStatisticsSimpleBase
+     */
+    distinct_values?: number;
 }
 /**
  * A real world study.
