@@ -1686,6 +1686,55 @@ export enum ConfidenceIntervalOutLevelEnum {
 }
 
 /**
+ * A System Database Usage Object.
+ * @export
+ * @interface DatabaseUsage
+ */
+export interface DatabaseUsage {
+    /**
+     * Text of query run on database.
+     * @type {string}
+     * @memberof DatabaseUsage
+     */
+    query_text?: string;
+    /**
+     * List of database user IDs for users that have run this query.
+     * @type {Array<string>}
+     * @memberof DatabaseUsage
+     */
+    db_user_ids?: Array<string>;
+    /**
+     * Latest value for database query\'s label.
+     * @type {string}
+     * @memberof DatabaseUsage
+     */
+    latest_label?: string;
+    /**
+     * Latest start timestamp for query with this query_text.
+     * @type {string}
+     * @memberof DatabaseUsage
+     */
+    latest_timestamp?: string;
+    /**
+     * Number of times this query has been run over specified time span.
+     * @type {number}
+     * @memberof DatabaseUsage
+     */
+    run_count?: number;
+    /**
+     * Names of tables referenced in this query.
+     * @type {Array<string>}
+     * @memberof DatabaseUsage
+     */
+    tables_referenced?: Array<string>;
+    /**
+     * Names of features referenced in this query, indexed by table name.
+     * @type {{ [key: string]: Array<string>; }}
+     * @memberof DatabaseUsage
+     */
+    features_referenced?: { [key: string]: Array<string>; };
+}
+/**
  * A System Dataset Resource.
  * @export
  * @interface DatasetIn
@@ -1824,6 +1873,12 @@ export interface DatasetIn {
      * @memberof DatasetIn
      */
     db_language?: string;
+    /**
+     * Database Usage JSON object (stored as string) used to populate Usage tab.
+     * @type {Array<DatabaseUsage>}
+     * @memberof DatasetIn
+     */
+    db_usage?: Array<DatabaseUsage>;
 }
 
 /**
@@ -2047,6 +2102,12 @@ export interface DatasetOut {
      * @memberof DatasetOut
      */
     db_language?: string;
+    /**
+     * Database Usage JSON object (stored as string) used to populate Usage tab.
+     * @type {Array<DatabaseUsage>}
+     * @memberof DatasetOut
+     */
+    db_usage?: Array<DatabaseUsage>;
     /**
      * Collection of links to related resources.
      * @type {DatasetLinks}
