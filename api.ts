@@ -1211,6 +1211,31 @@ export enum BulkPatchFeatureOpOpEnum {
 }
 
 /**
+ * Model to represent calibrator bucket params.
+ * @export
+ * @interface CalibratorBucketParams
+ */
+export interface CalibratorBucketParams {
+    /**
+     * Bucket edges for calibrators.
+     * @type {Array<number>}
+     * @memberof CalibratorBucketParams
+     */
+    buckets: Array<number>;
+    /**
+     * Max value of this relationship type.
+     * @type {number}
+     * @memberof CalibratorBucketParams
+     */
+    max_value: number;
+    /**
+     * Min value of this relationship type.
+     * @type {number}
+     * @memberof CalibratorBucketParams
+     */
+    min_value: number;
+}
+/**
  * Represent a structured statistics for a categorical (including binary) feature type.
  * @export
  * @interface CategoricalFeatureStatistics
@@ -5387,6 +5412,224 @@ export interface RedshiftCredentialsIn {
     db_password: string;
 }
 /**
+ * Model to represent directionality of an Association.
+ * @export
+ * @interface RelationshipDirection
+ */
+export interface RelationshipDirection {
+    /**
+     * Relationship value.
+     * @type {number}
+     * @memberof RelationshipDirection
+     */
+    relationship_value: number;
+    /**
+     * Direction of the association.
+     * @type {string}
+     * @memberof RelationshipDirection
+     */
+    level: RelationshipDirectionLevelEnum;
+    /**
+     * Type of relationship.
+     * @type {string}
+     * @memberof RelationshipDirection
+     */
+    relationship_type: RelationshipDirectionRelationshipTypeEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RelationshipDirectionLevelEnum {
+    Positive = 'positive',
+    Negative = 'negative',
+    Zero = 'zero',
+    Invalid = 'invalid'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RelationshipDirectionRelationshipTypeEnum {
+    Invalid = 'invalid',
+    SiPearsonR = 'si_pearson_r',
+    SiKendallTau = 'si_kendall_tau',
+    SiCramerV = 'si_cramer_v',
+    MlPermutationF1 = 'ml_permutation_f1',
+    MlPermutationR2 = 'ml_permutation_r2',
+    SiEffectSizeR = 'si_effect_size_r',
+    SiEffectSizeD = 'si_effect_size_d'
+}
+
+/**
+ * Model to represent reproducibility of an Association.
+ * @export
+ * @interface RelationshipReproducibility
+ */
+export interface RelationshipReproducibility {
+    /**
+     * Type of study.
+     * @type {string}
+     * @memberof RelationshipReproducibility
+     */
+    study_type: RelationshipReproducibilityStudyTypeEnum;
+    /**
+     * Reproducibility of the association.
+     * @type {string}
+     * @memberof RelationshipReproducibility
+     */
+    level: RelationshipReproducibilityLevelEnum;
+    /**
+     * Has experiment description.
+     * @type {boolean}
+     * @memberof RelationshipReproducibility
+     */
+    has_experiment_description: boolean;
+    /**
+     * Has experiment source.
+     * @type {boolean}
+     * @memberof RelationshipReproducibility
+     */
+    has_experiment_source: boolean;
+    /**
+     * Has experiment doi.
+     * @type {boolean}
+     * @memberof RelationshipReproducibility
+     */
+    has_experiment_doi: boolean;
+    /**
+     * Has experiment control.
+     * @type {boolean}
+     * @memberof RelationshipReproducibility
+     */
+    has_experiment_control: boolean;
+    /**
+     * Has model hyperparams.
+     * @type {boolean}
+     * @memberof RelationshipReproducibility
+     */
+    has_model_hyperparams: boolean;
+    /**
+     * Has training dataset url.
+     * @type {boolean}
+     * @memberof RelationshipReproducibility
+     */
+    has_training_ds_url: boolean;
+    /**
+     * Has training dataset description url.
+     * @type {boolean}
+     * @memberof RelationshipReproducibility
+     */
+    has_training_ds_desc_url: boolean;
+    /**
+     * Has source dataset.
+     * @type {boolean}
+     * @memberof RelationshipReproducibility
+     */
+    has_source_ds: boolean;
+    /**
+     * Has pdp.
+     * @type {boolean}
+     * @memberof RelationshipReproducibility
+     */
+    has_pdp: boolean;
+    /**
+     * Has significance.
+     * @type {boolean}
+     * @memberof RelationshipReproducibility
+     */
+    has_significance: boolean;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RelationshipReproducibilityStudyTypeEnum {
+    Invalid = 'invalid',
+    SupervisedMl = 'supervised_ml',
+    UnsupervisedMl = 'unsupervised_ml',
+    StatisticalInference = 'statistical_inference',
+    RandomizedControlTrial = 'randomized_control_trial'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RelationshipReproducibilityLevelEnum {
+    Invalid = 'invalid',
+    Low = 'low',
+    Medium = 'medium',
+    High = 'high'
+}
+
+/**
+ * Model to represent strength of an Association.
+ * @export
+ * @interface RelationshipStrength
+ */
+export interface RelationshipStrength {
+    /**
+     * Strength of the association.
+     * @type {string}
+     * @memberof RelationshipStrength
+     */
+    level: RelationshipStrengthLevelEnum;
+    /**
+     * Relationship value.
+     * @type {number}
+     * @memberof RelationshipStrength
+     */
+    relationship_value: number;
+    /**
+     * Type of relationship.
+     * @type {string}
+     * @memberof RelationshipStrength
+     */
+    relationship_type: RelationshipStrengthRelationshipTypeEnum;
+    /**
+     * Relationship model performance value.
+     * @type {number}
+     * @memberof RelationshipStrength
+     */
+    relationship_model_performance: number;
+    /**
+     * Max values map.
+     * @type {{ [key: string]: CalibratorBucketParams; }}
+     * @memberof RelationshipStrength
+     */
+    all_max_values: { [key: string]: CalibratorBucketParams; };
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RelationshipStrengthLevelEnum {
+    Invalid = 'invalid',
+    VeryWeak = 'very_weak',
+    Weak = 'weak',
+    Moderate = 'moderate',
+    Strong = 'strong',
+    VeryStrong = 'very_strong'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RelationshipStrengthRelationshipTypeEnum {
+    Invalid = 'invalid',
+    SiPearsonR = 'si_pearson_r',
+    SiKendallTau = 'si_kendall_tau',
+    SiCramerV = 'si_cramer_v',
+    MlPermutationF1 = 'ml_permutation_f1',
+    MlPermutationR2 = 'ml_permutation_r2',
+    SiEffectSizeR = 'si_effect_size_r',
+    SiEffectSizeD = 'si_effect_size_d'
+}
+
+/**
  * Generic resource collection element.
  * @export
  * @interface ResourceCollectionElement
@@ -7119,6 +7362,165 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
+         * Get direction of this association.
+         * @summary Get Relationship Direction
+         * @param {string} associationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipDirectionV1AssociationsAssociationIdDirectionGet: async (associationId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'associationId' is not null or undefined
+            if (associationId === null || associationId === undefined) {
+                throw new RequiredError('associationId','Required parameter associationId was null or undefined when calling getRelationshipDirectionV1AssociationsAssociationIdDirectionGet.');
+            }
+            const localVarPath = `/v1/associations/{association_id}/direction`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get reproducibility of this association.
+         * @summary Get Relationship Reproducibility
+         * @param {string} associationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet: async (associationId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'associationId' is not null or undefined
+            if (associationId === null || associationId === undefined) {
+                throw new RequiredError('associationId','Required parameter associationId was null or undefined when calling getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet.');
+            }
+            const localVarPath = `/v1/associations/{association_id}/reproducibility`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get strength of this association.
+         * @summary Get Relationship Strength
+         * @param {string} associationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipStrengthV1AssociationsAssociationIdStrengthGet: async (associationId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'associationId' is not null or undefined
+            if (associationId === null || associationId === undefined) {
+                throw new RequiredError('associationId','Required parameter associationId was null or undefined when calling getRelationshipStrengthV1AssociationsAssociationIdStrengthGet.');
+            }
+            const localVarPath = `/v1/associations/{association_id}/strength`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List association in study by authenticated user.
          * @summary List Associations In The Authenticated User\'S Study.
          * @param {string} studyId 
@@ -7907,6 +8309,48 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get direction of this association.
+         * @summary Get Relationship Direction
+         * @param {string} associationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipDirection>> {
+            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get reproducibility of this association.
+         * @summary Get Relationship Reproducibility
+         * @param {string} associationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipReproducibility>> {
+            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get strength of this association.
+         * @summary Get Relationship Strength
+         * @param {string} associationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipStrength>> {
+            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * List association in study by authenticated user.
          * @summary List Associations In The Authenticated User\'S Study.
          * @param {string} studyId 
@@ -8125,6 +8569,36 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          */
         getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut> {
             return AssociationsApiFp(configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get direction of this association.
+         * @summary Get Relationship Direction
+         * @param {string} associationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId: string, options?: any): AxiosPromise<RelationshipDirection> {
+            return AssociationsApiFp(configuration).getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get reproducibility of this association.
+         * @summary Get Relationship Reproducibility
+         * @param {string} associationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId: string, options?: any): AxiosPromise<RelationshipReproducibility> {
+            return AssociationsApiFp(configuration).getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get strength of this association.
+         * @summary Get Relationship Strength
+         * @param {string} associationId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId: string, options?: any): AxiosPromise<RelationshipStrength> {
+            return AssociationsApiFp(configuration).getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId, options).then((request) => request(axios, basePath));
         },
         /**
          * List association in study by authenticated user.
@@ -8350,6 +8824,48 @@ export interface AssociationsApiGetAssociationV1ModelsModelIdAssociationsAssocia
      * @memberof AssociationsApiGetAssociationV1ModelsModelIdAssociationsAssociationIdGet
      */
     readonly modelId: string
+}
+
+/**
+ * Request parameters for getRelationshipDirectionV1AssociationsAssociationIdDirectionGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGetRequest
+ */
+export interface AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGet
+     */
+    readonly associationId: string
+}
+
+/**
+ * Request parameters for getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiGetRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGetRequest
+ */
+export interface AssociationsApiGetRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiGetRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet
+     */
+    readonly associationId: string
+}
+
+/**
+ * Request parameters for getRelationshipStrengthV1AssociationsAssociationIdStrengthGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest
+ */
+export interface AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGet
+     */
+    readonly associationId: string
 }
 
 /**
@@ -8986,6 +9502,42 @@ export class AssociationsApi extends BaseAPI {
      */
     public getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters: AssociationsApiGetAssociationV1ModelsModelIdAssociationsAssociationIdGetRequest, options?: any) {
         return AssociationsApiFp(this.configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters.associationId, requestParameters.modelId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get direction of this association.
+     * @summary Get Relationship Direction
+     * @param {AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(requestParameters: AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGetRequest, options?: any) {
+        return AssociationsApiFp(this.configuration).getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(requestParameters.associationId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get reproducibility of this association.
+     * @summary Get Relationship Reproducibility
+     * @param {AssociationsApiGetRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(requestParameters: AssociationsApiGetRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGetRequest, options?: any) {
+        return AssociationsApiFp(this.configuration).getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(requestParameters.associationId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get strength of this association.
+     * @summary Get Relationship Strength
+     * @param {AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(requestParameters: AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest, options?: any) {
+        return AssociationsApiFp(this.configuration).getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(requestParameters.associationId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10243,8 +10795,8 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -10253,7 +10805,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: async (conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: async (conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'conceptId' is not null or undefined
             if (conceptId === null || conceptId === undefined) {
                 throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet.');
@@ -10556,8 +11108,8 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -10566,7 +11118,7 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
+        async listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
             const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -10683,8 +11235,8 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -10693,7 +11245,7 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
             return ConceptsApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
         },
         /**
@@ -10965,17 +11517,17 @@ export interface ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConcept
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
      */
-    readonly minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
      */
-    readonly maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
@@ -15443,8 +15995,8 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -15458,7 +16010,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: async (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: async (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'featureId' is not null or undefined
             if (featureId === null || featureId === undefined) {
                 throw new RequiredError('featureId','Required parameter featureId was null or undefined when calling listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet.');
@@ -16075,8 +16627,8 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -16090,7 +16642,7 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>> {
+        async listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>> {
             const localVarAxiosArgs = await FeaturesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -16309,8 +16861,8 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -16324,7 +16876,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut> {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut> {
             return FeaturesApiFp(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
         },
         /**
@@ -16772,17 +17324,17 @@ export interface FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeature
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
      */
-    readonly minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
      */
-    readonly maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
@@ -23736,8 +24288,8 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -23746,7 +24298,7 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: async (conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: async (conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'conceptId' is not null or undefined
             if (conceptId === null || conceptId === undefined) {
                 throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet.');
@@ -23849,8 +24401,8 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -23864,7 +24416,7 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: async (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: async (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'featureId' is not null or undefined
             if (featureId === null || featureId === undefined) {
                 throw new RequiredError('featureId','Required parameter featureId was null or undefined when calling listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet.');
@@ -23987,8 +24539,8 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -24002,7 +24554,7 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet.');
@@ -24125,8 +24677,8 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -24135,7 +24687,7 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet.');
@@ -24247,8 +24799,8 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -24257,7 +24809,7 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
+        async listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
             const localVarAxiosArgs = await SystemApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -24273,8 +24825,8 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -24288,7 +24840,7 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>> {
+        async listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>> {
             const localVarAxiosArgs = await SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -24304,8 +24856,8 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -24319,7 +24871,7 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>> {
+        async listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>> {
             const localVarAxiosArgs = await SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -24335,8 +24887,8 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -24345,7 +24897,7 @@ export const SystemApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>> {
+        async listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>> {
             const localVarAxiosArgs = await SystemApiAxiosParamCreator(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -24370,8 +24922,8 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -24380,7 +24932,7 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
             return SystemApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
         },
         /**
@@ -24392,8 +24944,8 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -24407,7 +24959,7 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut> {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut> {
             return SystemApiFp(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
         },
         /**
@@ -24419,8 +24971,8 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -24434,7 +24986,7 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut> {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut> {
             return SystemApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
         },
         /**
@@ -24446,8 +24998,8 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -24456,7 +25008,7 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut> {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut> {
             return SystemApiFp(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
         },
     };
@@ -24512,17 +25064,17 @@ export interface SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsG
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
      */
-    readonly minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
      */
-    readonly maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
@@ -24610,17 +25162,17 @@ export interface SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesG
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
      */
-    readonly minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
      */
-    readonly maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
@@ -24743,17 +25295,17 @@ export interface SystemApiListSystemOfFeaturesV1VariablesVariableIdSystemFeature
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof SystemApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
      */
-    readonly minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof SystemApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
      */
-    readonly maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
@@ -24876,17 +25428,17 @@ export interface SystemApiListSystemOfVariablesV1VariablesVariableIdSystemVariab
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof SystemApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
      */
-    readonly minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof SystemApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
      */
-    readonly maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
@@ -29135,8 +29687,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -29150,7 +29702,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet.');
@@ -29273,8 +29825,8 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -29283,7 +29835,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: async (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new RequiredError('variableId','Required parameter variableId was null or undefined when calling listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet.');
@@ -29761,8 +30313,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -29776,7 +30328,7 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>> {
+        async listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>> {
             const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -29792,8 +30344,8 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -29802,7 +30354,7 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>> {
+        async listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>> {
             const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -29969,8 +30521,8 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
@@ -29984,7 +30536,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut> {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut> {
             return VariablesApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
         },
         /**
@@ -29996,8 +30548,8 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
          * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
-         * @param {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength] 
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility] 
          * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility] 
          * @param {number} [page] 
@@ -30006,7 +30558,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut> {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut> {
             return VariablesApiFp(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
         },
         /**
@@ -30336,17 +30888,17 @@ export interface VariablesApiListSystemOfFeaturesV1VariablesVariableIdSystemFeat
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof VariablesApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
      */
-    readonly minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof VariablesApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
      */
-    readonly maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
@@ -30469,17 +31021,17 @@ export interface VariablesApiListSystemOfVariablesV1VariablesVariableIdSystemVar
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof VariablesApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
      */
-    readonly minStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
-     * @type {'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
+     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
      * @memberof VariablesApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
      */
-    readonly maxStrength?: 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
+    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'
 
     /**
      * 
