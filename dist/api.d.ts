@@ -5555,7 +5555,7 @@ export interface RelationshipStrength {
      * @type {number}
      * @memberof RelationshipStrength
      */
-    relationship_model_performance: number;
+    relationship_model_performance?: number;
     /**
      * Max values map.
      * @type {{ [key: string]: CalibratorBucketParams; }}
