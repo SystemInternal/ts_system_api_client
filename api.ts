@@ -3585,6 +3585,66 @@ export enum LocationOutAttributeTypeEnum {
 }
 
 /**
+ * A Message object.
+ * @export
+ * @interface Message
+ */
+export interface Message {
+    /**
+     * 
+     * @type {number}
+     * @memberof Message
+     */
+    id?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Message
+     */
+    message?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Message
+     */
+    message_type?: MessageMessageTypeEnum;
+    /**
+     * Creation datse
+     * @type {string}
+     * @memberof Message
+     */
+    created?: string;
+    /**
+     * The list of tables to retrieve
+     * @type {Array<MessageAttributes>}
+     * @memberof Message
+     */
+    attributes?: Array<MessageAttributes>;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MessageMessageTypeEnum {
+    ERROR = 'ERROR',
+    STATUS = 'STATUS'
+}
+
+/**
+ * A Message attribute object.
+ * @export
+ * @interface MessageAttributes
+ */
+export interface MessageAttributes {
+    /**
+     * 
+     * @type {string}
+     * @memberof MessageAttributes
+     */
+    data?: string;
+}
+/**
  * Values available for filtering models.
  * @export
  * @interface ModelFilters
@@ -15012,6 +15072,62 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
+         * Create a new message.
+         * @summary Create Message
+         * @param {Message} message 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMessageV1EnterpriseMessagesPost: async (message: Message, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'message' is not null or undefined
+            if (message === null || message === undefined) {
+                throw new RequiredError('message','Required parameter message was null or undefined when calling createMessageV1EnterpriseMessagesPost.');
+            }
+            const localVarPath = `/v1/enterprise/messages`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof message !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(message !== undefined ? message : {}) : (message || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get the Enterprise.
          * @summary Get Enterprise
          * @param {*} [options] Override http request option.
@@ -15072,6 +15188,59 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
             }
             const localVarPath = `/v1/enterprise/integrations/{integration_id}`
                 .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a Message.
+         * @summary Get Message
+         * @param {string} messageId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMessageV1EnterpriseMessagesMessageIdGet: async (messageId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'messageId' is not null or undefined
+            if (messageId === null || messageId === undefined) {
+                throw new RequiredError('messageId','Required parameter messageId was null or undefined when calling getMessageV1EnterpriseMessagesMessageIdGet.');
+            }
+            const localVarPath = `/v1/enterprise/messages/{message_id}`
+                .replace(`{${"message_id"}}`, encodeURIComponent(String(messageId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -15173,6 +15342,68 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Update a Message.
+         * @summary Update Message
+         * @param {string} messageId 
+         * @param {Message} message 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMessageV1EnterpriseMessagesMessageIdPatch: async (messageId: string, message: Message, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'messageId' is not null or undefined
+            if (messageId === null || messageId === undefined) {
+                throw new RequiredError('messageId','Required parameter messageId was null or undefined when calling updateMessageV1EnterpriseMessagesMessageIdPatch.');
+            }
+            // verify required parameter 'message' is not null or undefined
+            if (message === null || message === undefined) {
+                throw new RequiredError('message','Required parameter message was null or undefined when calling updateMessageV1EnterpriseMessagesMessageIdPatch.');
+            }
+            const localVarPath = `/v1/enterprise/messages/{message_id}`
+                .replace(`{${"message_id"}}`, encodeURIComponent(String(messageId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof message !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(message !== undefined ? message : {}) : (message || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -15191,6 +15422,20 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          */
         async createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
             const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Create a new message.
+         * @summary Create Message
+         * @param {Message} message 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createMessageV1EnterpriseMessagesPost(message: Message, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Message>> {
+            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).createMessageV1EnterpriseMessagesPost(message, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15224,6 +15469,20 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get a Message.
+         * @summary Get Message
+         * @param {string} messageId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Message>> {
+            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).getMessageV1EnterpriseMessagesMessageIdGet(messageId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Update an Integration.
          * @summary Update Integration
          * @param {string} integrationId 
@@ -15233,6 +15492,21 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          */
         async updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
             const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Update a Message.
+         * @summary Update Message
+         * @param {string} messageId 
+         * @param {Message} message 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, message: Message, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Message>> {
+            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, message, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15258,6 +15532,16 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
             return EnterpriseApiFp(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a new message.
+         * @summary Create Message
+         * @param {Message} message 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMessageV1EnterpriseMessagesPost(message: Message, options?: any): AxiosPromise<Message> {
+            return EnterpriseApiFp(configuration).createMessageV1EnterpriseMessagesPost(message, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get the Enterprise.
          * @summary Get Enterprise
          * @param {*} [options] Override http request option.
@@ -15277,6 +15561,16 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
             return EnterpriseApiFp(configuration).getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get a Message.
+         * @summary Get Message
+         * @param {string} messageId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, options?: any): AxiosPromise<Message> {
+            return EnterpriseApiFp(configuration).getMessageV1EnterpriseMessagesMessageIdGet(messageId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update an Integration.
          * @summary Update Integration
          * @param {string} integrationId 
@@ -15286,6 +15580,17 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
          */
         updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): AxiosPromise<Integration> {
             return EnterpriseApiFp(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a Message.
+         * @summary Update Message
+         * @param {string} messageId 
+         * @param {Message} message 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, message: Message, options?: any): AxiosPromise<Message> {
+            return EnterpriseApiFp(configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, message, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -15305,6 +15610,20 @@ export interface EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostReque
 }
 
 /**
+ * Request parameters for createMessageV1EnterpriseMessagesPost operation in EnterpriseApi.
+ * @export
+ * @interface EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest
+ */
+export interface EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest {
+    /**
+     * 
+     * @type {Message}
+     * @memberof EnterpriseApiCreateMessageV1EnterpriseMessagesPost
+     */
+    readonly message: Message
+}
+
+/**
  * Request parameters for getIntegrationV1EnterpriseIntegrationsIntegrationIdGet operation in EnterpriseApi.
  * @export
  * @interface EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest
@@ -15316,6 +15635,20 @@ export interface EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationI
      * @memberof EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGet
      */
     readonly integrationId: string
+}
+
+/**
+ * Request parameters for getMessageV1EnterpriseMessagesMessageIdGet operation in EnterpriseApi.
+ * @export
+ * @interface EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest
+ */
+export interface EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGet
+     */
+    readonly messageId: string
 }
 
 /**
@@ -15340,6 +15673,27 @@ export interface EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrati
 }
 
 /**
+ * Request parameters for updateMessageV1EnterpriseMessagesMessageIdPatch operation in EnterpriseApi.
+ * @export
+ * @interface EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest
+ */
+export interface EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatch
+     */
+    readonly messageId: string
+
+    /**
+     * 
+     * @type {Message}
+     * @memberof EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatch
+     */
+    readonly message: Message
+}
+
+/**
  * EnterpriseApi - object-oriented interface
  * @export
  * @class EnterpriseApi
@@ -15356,6 +15710,18 @@ export class EnterpriseApi extends BaseAPI {
      */
     public createIntegrationV1EnterpriseIntegrationsPost(requestParameters: EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest, options?: any) {
         return EnterpriseApiFp(this.configuration).createIntegrationV1EnterpriseIntegrationsPost(requestParameters.integrationCreate, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new message.
+     * @summary Create Message
+     * @param {EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    public createMessageV1EnterpriseMessagesPost(requestParameters: EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest, options?: any) {
+        return EnterpriseApiFp(this.configuration).createMessageV1EnterpriseMessagesPost(requestParameters.message, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15382,6 +15748,18 @@ export class EnterpriseApi extends BaseAPI {
     }
 
     /**
+     * Get a Message.
+     * @summary Get Message
+     * @param {EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    public getMessageV1EnterpriseMessagesMessageIdGet(requestParameters: EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest, options?: any) {
+        return EnterpriseApiFp(this.configuration).getMessageV1EnterpriseMessagesMessageIdGet(requestParameters.messageId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Update an Integration.
      * @summary Update Integration
      * @param {EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest} requestParameters Request parameters.
@@ -15391,6 +15769,18 @@ export class EnterpriseApi extends BaseAPI {
      */
     public updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters: EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest, options?: any) {
         return EnterpriseApiFp(this.configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters.integrationId, requestParameters.integrationUpdateIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a Message.
+     * @summary Update Message
+     * @param {EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    public updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters: EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest, options?: any) {
+        return EnterpriseApiFp(this.configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters.messageId, requestParameters.message, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
