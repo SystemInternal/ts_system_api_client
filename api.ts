@@ -3669,11 +3669,11 @@ export interface Message {
      */
     created?: string;
     /**
-     * The list of tables to retrieve
-     * @type {Array<MessageAttributes>}
+     * The message attributes
+     * @type {MessageAttributes}
      * @memberof Message
      */
-    attributes?: Array<MessageAttributes>;
+    attributes?: MessageAttributes;
 }
 
 /**
