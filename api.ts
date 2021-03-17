@@ -2555,6 +2555,12 @@ export interface Enterprise {
      */
     integrations?: Array<Integration>;
     /**
+     * The enterprise messages
+     * @type {Array<Message>}
+     * @memberof Enterprise
+     */
+    messages?: Array<Message>;
+    /**
      * The actions the requesting user is allowed to perform on this resource.
      * @type {Array<string>}
      * @memberof Enterprise
@@ -3245,6 +3251,12 @@ export interface Integration {
      */
     views?: Array<Table>;
     /**
+     * The integration messages
+     * @type {Array<Message>}
+     * @memberof Integration
+     */
+    messages?: Array<Message>;
+    /**
      * 
      * @type {number}
      * @memberof Integration
@@ -3274,6 +3286,18 @@ export interface Integration {
      * @memberof Integration
      */
     endpoint: string;
+    /**
+     * Integration IP address.
+     * @type {string}
+     * @memberof Integration
+     */
+    ip_address: string;
+    /**
+     * Integration lamdba names.
+     * @type {string}
+     * @memberof Integration
+     */
+    lambda_arn: string;
     /**
      * The actions the requesting user is allowed to perform on this resource.
      * @type {Array<string>}
@@ -3333,6 +3357,12 @@ export interface IntegrationCreate {
      */
     views?: Array<Table>;
     /**
+     * The integration messages
+     * @type {Array<Message>}
+     * @memberof IntegrationCreate
+     */
+    messages?: Array<Message>;
+    /**
      * The integration type.
      * @type {string}
      * @memberof IntegrationCreate
@@ -3386,6 +3416,30 @@ export interface IntegrationUpdateIn {
      * @memberof IntegrationUpdateIn
      */
     views?: Array<Table>;
+    /**
+     * The integration messages
+     * @type {Array<Message>}
+     * @memberof IntegrationUpdateIn
+     */
+    messages?: Array<Message>;
+    /**
+     * API Endpoint.
+     * @type {string}
+     * @memberof IntegrationUpdateIn
+     */
+    endpoint?: string;
+    /**
+     * Integration IP address.
+     * @type {string}
+     * @memberof IntegrationUpdateIn
+     */
+    ip_address?: string;
+    /**
+     * Integration lamdba names.
+     * @type {string}
+     * @memberof IntegrationUpdateIn
+     */
+    lambda_arn?: string;
     /**
      * Integration credentials.
      * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn}
@@ -3609,7 +3663,7 @@ export interface Message {
      */
     message_type?: MessageMessageTypeEnum;
     /**
-     * Creation datse
+     * Creation date
      * @type {string}
      * @memberof Message
      */
@@ -3628,7 +3682,7 @@ export interface Message {
     */
 export enum MessageMessageTypeEnum {
     ERROR = 'ERROR',
-    STATUS = 'STATUS'
+    DATASETCREATED = 'DATASET_CREATED'
 }
 
 /**
