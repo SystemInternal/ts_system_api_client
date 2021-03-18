@@ -3705,10 +3705,10 @@ export interface MessageIn {
     message_type?: MessageInMessageTypeEnum;
     /**
      * The message attributes
-     * @type {string}
+     * @type {any}
      * @memberof MessageIn
      */
-    attributes?: string;
+    attributes?: any | null;
     /**
      * Integration link.
      * @type {string}
@@ -3746,10 +3746,10 @@ export interface MessageOut {
     message_type?: MessageOutMessageTypeEnum;
     /**
      * The message attributes
-     * @type {string}
+     * @type {any}
      * @memberof MessageOut
      */
-    attributes?: string;
+    attributes?: any | null;
     /**
      * Integration link.
      * @type {string}
