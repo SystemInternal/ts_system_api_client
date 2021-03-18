@@ -3702,7 +3702,7 @@ export interface Message {
      * @type {string}
      * @memberof Message
      */
-    message?: string;
+    message: string;
     /**
      * 
      * @type {string}
@@ -3721,6 +3721,12 @@ export interface Message {
      * @memberof Message
      */
     attributes?: MessageAttributes;
+    /**
+     * Integration link.
+     * @type {string}
+     * @memberof Message
+     */
+    integration: string;
 }
 
 /**
