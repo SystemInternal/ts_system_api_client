@@ -3239,6 +3239,12 @@ export interface Integration {
      */
     name?: string;
     /**
+     * Integration state.
+     * @type {string}
+     * @memberof Integration
+     */
+    state?: IntegrationStateEnum;
+    /**
      * The list of tables to retrieve
      * @type {Array<Table>}
      * @memberof Integration
@@ -3316,6 +3322,15 @@ export interface Integration {
     * @export
     * @enum {string}
     */
+export enum IntegrationStateEnum {
+    INITIAL = 'INITIAL',
+    ACTIVE = 'ACTIVE',
+    INACTIVE = 'INACTIVE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
 export enum IntegrationServiceTypeEnum {
     REDSHIFT = 'REDSHIFT',
     SNOWFLAKE = 'SNOWFLAKE',
@@ -3344,6 +3359,12 @@ export interface IntegrationCreate {
      * @memberof IntegrationCreate
      */
     name?: string;
+    /**
+     * Integration state.
+     * @type {string}
+     * @memberof IntegrationCreate
+     */
+    state?: IntegrationCreateStateEnum;
     /**
      * The list of tables to retrieve
      * @type {Array<Table>}
@@ -3386,6 +3407,15 @@ export interface IntegrationCreate {
     * @export
     * @enum {string}
     */
+export enum IntegrationCreateStateEnum {
+    INITIAL = 'INITIAL',
+    ACTIVE = 'ACTIVE',
+    INACTIVE = 'INACTIVE'
+}
+/**
+    * @export
+    * @enum {string}
+    */
 export enum IntegrationCreateServiceTypeEnum {
     REDSHIFT = 'REDSHIFT',
     SNOWFLAKE = 'SNOWFLAKE',
@@ -3404,6 +3434,12 @@ export interface IntegrationUpdateIn {
      * @memberof IntegrationUpdateIn
      */
     name?: string;
+    /**
+     * Integration state.
+     * @type {string}
+     * @memberof IntegrationUpdateIn
+     */
+    state?: IntegrationUpdateInStateEnum;
     /**
      * The list of tables to retrieve
      * @type {Array<Table>}
@@ -3447,6 +3483,17 @@ export interface IntegrationUpdateIn {
      */
     credentials?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum IntegrationUpdateInStateEnum {
+    INITIAL = 'INITIAL',
+    ACTIVE = 'ACTIVE',
+    INACTIVE = 'INACTIVE'
+}
+
 /**
  * Represent a line plot.
  * @export
