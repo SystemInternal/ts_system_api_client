@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeTypeEnum = exports.VariableOutPermissionsEnum = exports.TestDatasetTransformationTypeEnum = exports.TableStatusEnum = exports.StudyOutAddContextEnum = exports.StudyOutStudyTypeEnum = exports.StudyOutPermissionsEnum = exports.StudyInAddContextEnum = exports.StudyInStudyTypeEnum = exports.SignificanceValueOutGeneratedByEnum = exports.SignificanceValueInGeneratedByEnum = exports.ResourceCollectionElementTypeEnum = exports.RelationshipStrengthRelationshipTypeEnum = exports.RelationshipStrengthLevelEnum = exports.RelationshipReproducibilityLevelEnum = exports.RelationshipReproducibilityStudyTypeEnum = exports.RelationshipDirectionRelationshipTypeEnum = exports.RelationshipDirectionLevelEnum = exports.PopulationAttributeOutAttributeTypeEnum = exports.PopulationAttributeOutPermissionsEnum = exports.PopulationAttributeInAttributeTypeEnum = exports.PatchVariableOpOpEnum = exports.PatchStudyOpOpEnum = exports.PatchModelOpOpEnum = exports.PatchFeatureOpOpEnum = exports.PatchDatasetOpOpEnum = exports.PartialDependencePlotInGeneratedByEnum = exports.NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutPermissionsEnum = exports.NullHypothesisOutLevelEnum = exports.NullHypothesisOutTestTypeEnum = exports.NullHypothesisInLevelEnum = exports.NullHypothesisInTestTypeEnum = exports.ModelPerformanceOutScoreTypeEnum = exports.ModelPerformanceOutGeneratedByEnum = exports.ModelPerformanceInScoreTypeEnum = exports.ModelPerformanceInGeneratedByEnum = exports.ModelPerformanceBaseInScoreTypeEnum = exports.ModelPerformanceBaseInGeneratedByEnum = exports.ModelOutPermissionsEnum = exports.LocationOutAttributeTypeEnum = exports.LocationOutPermissionsEnum = exports.IntegrationCreateServiceTypeEnum = exports.IntegrationPermissionsEnum = exports.IntegrationServiceTypeEnum = exports.FreeTextOutAttributeTypeEnum = exports.FreeTextOutPermissionsEnum = exports.FeatureStatisticsGeneratedByEnum = exports.FeatureStatisticsFeatureTypeEnum = exports.FeatureOutPermissionsEnum = exports.ExternalAssetExternalAssetTypeEnum = exports.EnterprisePermissionsEnum = exports.DeploymentStageEnum = exports.DateRangeOutAttributeTypeEnum = exports.DateRangeOutPermissionsEnum = exports.DatasetOutLicenseEnum = exports.DatasetOutPermissionsEnum = exports.DatasetInLicenseEnum = exports.ConfidenceIntervalOutLevelEnum = exports.ConfidenceIntervalInLevelEnum = exports.ConceptOutPermissionsEnum = exports.CategoryOutAttributeTypeEnum = exports.CategoryOutPermissionsEnum = exports.BulkPatchFeatureOpOpEnum = exports.BulkPatchAssociationOpOpEnum = exports.AuthorOutPermissionsEnum = exports.AssociationValueOutFeatureContributionMethodEnum = exports.AssociationValueOutGeneratedByEnum = exports.AssociationValueOutPermutationScoreTypeEnum = exports.AssociationValueInBaseFeatureContributionMethodEnum = exports.AssociationValueInBaseGeneratedByEnum = exports.AssociationValueInBasePermutationScoreTypeEnum = exports.AssociationValueInFeatureContributionMethodEnum = exports.AssociationValueInGeneratedByEnum = exports.AssociationValueInPermutationScoreTypeEnum = exports.AssociationOutPermissionsEnum = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeTypeEnum = exports.VariableOutPermissionsEnum = exports.TestDatasetTransformationTypeEnum = exports.TableStatusEnum = exports.StudyOutAddContextEnum = exports.StudyOutStudyTypeEnum = exports.StudyOutPermissionsEnum = exports.StudyInAddContextEnum = exports.StudyInStudyTypeEnum = exports.SignificanceValueOutGeneratedByEnum = exports.SignificanceValueInGeneratedByEnum = exports.ResourceCollectionElementTypeEnum = exports.RelationshipStrengthRelationshipTypeEnum = exports.RelationshipStrengthLevelEnum = exports.RelationshipReproducibilityLevelEnum = exports.RelationshipReproducibilityStudyTypeEnum = exports.RelationshipDirectionRelationshipTypeEnum = exports.RelationshipDirectionLevelEnum = exports.PopulationAttributeOutAttributeTypeEnum = exports.PopulationAttributeOutPermissionsEnum = exports.PopulationAttributeInAttributeTypeEnum = exports.PatchVariableOpOpEnum = exports.PatchStudyOpOpEnum = exports.PatchModelOpOpEnum = exports.PatchFeatureOpOpEnum = exports.PatchDatasetOpOpEnum = exports.PartialDependencePlotInGeneratedByEnum = exports.NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutPermissionsEnum = exports.NullHypothesisOutLevelEnum = exports.NullHypothesisOutTestTypeEnum = exports.NullHypothesisInLevelEnum = exports.NullHypothesisInTestTypeEnum = exports.ModelPerformanceOutScoreTypeEnum = exports.ModelPerformanceOutGeneratedByEnum = exports.ModelPerformanceInScoreTypeEnum = exports.ModelPerformanceInGeneratedByEnum = exports.ModelPerformanceBaseInScoreTypeEnum = exports.ModelPerformanceBaseInGeneratedByEnum = exports.ModelOutPermissionsEnum = exports.MessageOutMessageTypeEnum = exports.MessageInMessageTypeEnum = exports.LocationOutAttributeTypeEnum = exports.LocationOutPermissionsEnum = exports.IntegrationUpdateInStateEnum = exports.IntegrationCreateServiceTypeEnum = exports.IntegrationCreateStateEnum = exports.IntegrationPermissionsEnum = exports.IntegrationServiceTypeEnum = exports.IntegrationStateEnum = exports.FreeTextOutAttributeTypeEnum = exports.FreeTextOutPermissionsEnum = exports.FeatureStatisticsGeneratedByEnum = exports.FeatureStatisticsFeatureTypeEnum = exports.FeatureOutPermissionsEnum = exports.ExternalAssetExternalAssetTypeEnum = exports.EnterprisePermissionsEnum = exports.DeploymentStageEnum = exports.DateRangeOutAttributeTypeEnum = exports.DateRangeOutPermissionsEnum = exports.DatasetOutLicenseEnum = exports.DatasetOutPermissionsEnum = exports.DatasetInLicenseEnum = exports.ConfidenceIntervalOutLevelEnum = exports.ConfidenceIntervalInLevelEnum = exports.ConceptOutPermissionsEnum = exports.CategoryOutAttributeTypeEnum = exports.CategoryOutPermissionsEnum = exports.BulkPatchFeatureOpOpEnum = exports.BulkPatchAssociationOpOpEnum = exports.AuthorOutPermissionsEnum = exports.AssociationValueOutFeatureContributionMethodEnum = exports.AssociationValueOutGeneratedByEnum = exports.AssociationValueOutPermutationScoreTypeEnum = exports.AssociationValueInBaseFeatureContributionMethodEnum = exports.AssociationValueInBaseGeneratedByEnum = exports.AssociationValueInBasePermutationScoreTypeEnum = exports.AssociationValueInFeatureContributionMethodEnum = exports.AssociationValueInGeneratedByEnum = exports.AssociationValueInPermutationScoreTypeEnum = exports.AssociationOutPermissionsEnum = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -644,6 +644,16 @@ var FreeTextOutAttributeTypeEnum;
     * @export
     * @enum {string}
     */
+var IntegrationStateEnum;
+(function (IntegrationStateEnum) {
+    IntegrationStateEnum["INITIAL"] = "INITIAL";
+    IntegrationStateEnum["ACTIVE"] = "ACTIVE";
+    IntegrationStateEnum["INACTIVE"] = "INACTIVE";
+})(IntegrationStateEnum = exports.IntegrationStateEnum || (exports.IntegrationStateEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
 var IntegrationServiceTypeEnum;
 (function (IntegrationServiceTypeEnum) {
     IntegrationServiceTypeEnum["REDSHIFT"] = "REDSHIFT";
@@ -665,12 +675,32 @@ var IntegrationPermissionsEnum;
     * @export
     * @enum {string}
     */
+var IntegrationCreateStateEnum;
+(function (IntegrationCreateStateEnum) {
+    IntegrationCreateStateEnum["INITIAL"] = "INITIAL";
+    IntegrationCreateStateEnum["ACTIVE"] = "ACTIVE";
+    IntegrationCreateStateEnum["INACTIVE"] = "INACTIVE";
+})(IntegrationCreateStateEnum = exports.IntegrationCreateStateEnum || (exports.IntegrationCreateStateEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
 var IntegrationCreateServiceTypeEnum;
 (function (IntegrationCreateServiceTypeEnum) {
     IntegrationCreateServiceTypeEnum["REDSHIFT"] = "REDSHIFT";
     IntegrationCreateServiceTypeEnum["SNOWFLAKE"] = "SNOWFLAKE";
     IntegrationCreateServiceTypeEnum["BIGQUERY"] = "BIGQUERY";
 })(IntegrationCreateServiceTypeEnum = exports.IntegrationCreateServiceTypeEnum || (exports.IntegrationCreateServiceTypeEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var IntegrationUpdateInStateEnum;
+(function (IntegrationUpdateInStateEnum) {
+    IntegrationUpdateInStateEnum["INITIAL"] = "INITIAL";
+    IntegrationUpdateInStateEnum["ACTIVE"] = "ACTIVE";
+    IntegrationUpdateInStateEnum["INACTIVE"] = "INACTIVE";
+})(IntegrationUpdateInStateEnum = exports.IntegrationUpdateInStateEnum || (exports.IntegrationUpdateInStateEnum = {}));
 /**
     * @export
     * @enum {string}
@@ -695,6 +725,24 @@ var LocationOutAttributeTypeEnum;
     LocationOutAttributeTypeEnum["FreeText"] = "free_text";
     LocationOutAttributeTypeEnum["Location"] = "location";
 })(LocationOutAttributeTypeEnum = exports.LocationOutAttributeTypeEnum || (exports.LocationOutAttributeTypeEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var MessageInMessageTypeEnum;
+(function (MessageInMessageTypeEnum) {
+    MessageInMessageTypeEnum["ERROR"] = "ERROR";
+    MessageInMessageTypeEnum["DATASETCREATED"] = "DATASET_CREATED";
+})(MessageInMessageTypeEnum = exports.MessageInMessageTypeEnum || (exports.MessageInMessageTypeEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var MessageOutMessageTypeEnum;
+(function (MessageOutMessageTypeEnum) {
+    MessageOutMessageTypeEnum["ERROR"] = "ERROR";
+    MessageOutMessageTypeEnum["DATASETCREATED"] = "DATASET_CREATED";
+})(MessageOutMessageTypeEnum = exports.MessageOutMessageTypeEnum || (exports.MessageOutMessageTypeEnum = {}));
 /**
     * @export
     * @enum {string}
@@ -6709,6 +6757,55 @@ exports.EnterpriseApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create a new message.
+         * @summary Create Message
+         * @param {MessageIn} messageIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMessageV1EnterpriseMessagesPost: (messageIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'messageIn' is not null or undefined
+            if (messageIn === null || messageIn === undefined) {
+                throw new base_1.RequiredError('messageIn', 'Required parameter messageIn was null or undefined when calling createMessageV1EnterpriseMessagesPost.');
+            }
+            const localVarPath = `/v1/enterprise/messages`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof messageIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(messageIn !== undefined ? messageIn : {}) : (messageIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get the Enterprise.
          * @summary Get Enterprise
          * @param {*} [options] Override http request option.
@@ -6797,6 +6894,53 @@ exports.EnterpriseApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get a Message.
+         * @summary Get Message
+         * @param {string} messageId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMessageV1EnterpriseMessagesMessageIdGet: (messageId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'messageId' is not null or undefined
+            if (messageId === null || messageId === undefined) {
+                throw new base_1.RequiredError('messageId', 'Required parameter messageId was null or undefined when calling getMessageV1EnterpriseMessagesMessageIdGet.');
+            }
+            const localVarPath = `/v1/enterprise/messages/{message_id}`
+                .replace(`{${"message_id"}}`, encodeURIComponent(String(messageId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Update an Integration.
          * @summary Update Integration
          * @param {string} integrationId
@@ -6851,6 +6995,61 @@ exports.EnterpriseApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Update a Message.
+         * @summary Update Message
+         * @param {string} messageId
+         * @param {MessageIn} messageIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMessageV1EnterpriseMessagesMessageIdPatch: (messageId, messageIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'messageId' is not null or undefined
+            if (messageId === null || messageId === undefined) {
+                throw new base_1.RequiredError('messageId', 'Required parameter messageId was null or undefined when calling updateMessageV1EnterpriseMessagesMessageIdPatch.');
+            }
+            // verify required parameter 'messageIn' is not null or undefined
+            if (messageIn === null || messageIn === undefined) {
+                throw new base_1.RequiredError('messageIn', 'Required parameter messageIn was null or undefined when calling updateMessageV1EnterpriseMessagesMessageIdPatch.');
+            }
+            const localVarPath = `/v1/enterprise/messages/{message_id}`
+                .replace(`{${"message_id"}}`, encodeURIComponent(String(messageId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PATCH' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof messageIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(messageIn !== undefined ? messageIn : {}) : (messageIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -6869,6 +7068,22 @@ exports.EnterpriseApiFp = function (configuration) {
         createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.EnterpriseApiAxiosParamCreator(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new message.
+         * @summary Create Message
+         * @param {MessageIn} messageIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMessageV1EnterpriseMessagesPost(messageIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.EnterpriseApiAxiosParamCreator(configuration).createMessageV1EnterpriseMessagesPost(messageIn, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6907,6 +7122,22 @@ exports.EnterpriseApiFp = function (configuration) {
             });
         },
         /**
+         * Get a Message.
+         * @summary Get Message
+         * @param {string} messageId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMessageV1EnterpriseMessagesMessageIdGet(messageId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.EnterpriseApiAxiosParamCreator(configuration).getMessageV1EnterpriseMessagesMessageIdGet(messageId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Update an Integration.
          * @summary Update Integration
          * @param {string} integrationId
@@ -6917,6 +7148,23 @@ exports.EnterpriseApiFp = function (configuration) {
         updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.EnterpriseApiAxiosParamCreator(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Update a Message.
+         * @summary Update Message
+         * @param {string} messageId
+         * @param {MessageIn} messageIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, messageIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.EnterpriseApiAxiosParamCreator(configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, messageIn, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6942,6 +7190,16 @@ exports.EnterpriseApiFactory = function (configuration, basePath, axios) {
             return exports.EnterpriseApiFp(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a new message.
+         * @summary Create Message
+         * @param {MessageIn} messageIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMessageV1EnterpriseMessagesPost(messageIn, options) {
+            return exports.EnterpriseApiFp(configuration).createMessageV1EnterpriseMessagesPost(messageIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get the Enterprise.
          * @summary Get Enterprise
          * @param {*} [options] Override http request option.
@@ -6961,6 +7219,16 @@ exports.EnterpriseApiFactory = function (configuration, basePath, axios) {
             return exports.EnterpriseApiFp(configuration).getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get a Message.
+         * @summary Get Message
+         * @param {string} messageId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMessageV1EnterpriseMessagesMessageIdGet(messageId, options) {
+            return exports.EnterpriseApiFp(configuration).getMessageV1EnterpriseMessagesMessageIdGet(messageId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update an Integration.
          * @summary Update Integration
          * @param {string} integrationId
@@ -6970,6 +7238,17 @@ exports.EnterpriseApiFactory = function (configuration, basePath, axios) {
          */
         updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options) {
             return exports.EnterpriseApiFp(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a Message.
+         * @summary Update Message
+         * @param {string} messageId
+         * @param {MessageIn} messageIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, messageIn, options) {
+            return exports.EnterpriseApiFp(configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, messageIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -6990,6 +7269,17 @@ class EnterpriseApi extends base_1.BaseAPI {
      */
     createIntegrationV1EnterpriseIntegrationsPost(requestParameters, options) {
         return exports.EnterpriseApiFp(this.configuration).createIntegrationV1EnterpriseIntegrationsPost(requestParameters.integrationCreate, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new message.
+     * @summary Create Message
+     * @param {EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    createMessageV1EnterpriseMessagesPost(requestParameters, options) {
+        return exports.EnterpriseApiFp(this.configuration).createMessageV1EnterpriseMessagesPost(requestParameters.messageIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the Enterprise.
@@ -7013,6 +7303,17 @@ class EnterpriseApi extends base_1.BaseAPI {
         return exports.EnterpriseApiFp(this.configuration).getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters.integrationId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Get a Message.
+     * @summary Get Message
+     * @param {EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    getMessageV1EnterpriseMessagesMessageIdGet(requestParameters, options) {
+        return exports.EnterpriseApiFp(this.configuration).getMessageV1EnterpriseMessagesMessageIdGet(requestParameters.messageId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Update an Integration.
      * @summary Update Integration
      * @param {EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest} requestParameters Request parameters.
@@ -7022,6 +7323,17 @@ class EnterpriseApi extends base_1.BaseAPI {
      */
     updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters, options) {
         return exports.EnterpriseApiFp(this.configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters.integrationId, requestParameters.integrationUpdateIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Update a Message.
+     * @summary Update Message
+     * @param {EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters, options) {
+        return exports.EnterpriseApiFp(this.configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters.messageId, requestParameters.messageIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.EnterpriseApi = EnterpriseApi;

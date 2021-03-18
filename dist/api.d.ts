@@ -2539,6 +2539,12 @@ export interface Enterprise {
      */
     integrations?: Array<Integration>;
     /**
+     * The enterprise messages
+     * @type {Array<MessageOut>}
+     * @memberof Enterprise
+     */
+    messages?: Array<MessageOut>;
+    /**
      * The actions the requesting user is allowed to perform on this resource.
      * @type {Array<string>}
      * @memberof Enterprise
@@ -3213,6 +3219,12 @@ export interface Integration {
      */
     name?: string;
     /**
+     * Integration state.
+     * @type {string}
+     * @memberof Integration
+     */
+    state?: IntegrationStateEnum;
+    /**
      * The list of tables to retrieve
      * @type {Array<Table>}
      * @memberof Integration
@@ -3224,6 +3236,12 @@ export interface Integration {
      * @memberof Integration
      */
     views?: Array<Table>;
+    /**
+     * The integration messages
+     * @type {Array<MessageOut>}
+     * @memberof Integration
+     */
+    messages?: Array<MessageOut>;
     /**
      *
      * @type {number}
@@ -3255,6 +3273,18 @@ export interface Integration {
      */
     endpoint: string;
     /**
+     * Integration IP address.
+     * @type {string}
+     * @memberof Integration
+     */
+    ip_address: string;
+    /**
+     * Integration lamdba names.
+     * @type {string}
+     * @memberof Integration
+     */
+    lambda_arn: string;
+    /**
      * The actions the requesting user is allowed to perform on this resource.
      * @type {Array<string>}
      * @memberof Integration
@@ -3266,6 +3296,15 @@ export interface Integration {
      * @memberof Integration
      */
     on_premise?: boolean;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum IntegrationStateEnum {
+    INITIAL = "INITIAL",
+    ACTIVE = "ACTIVE",
+    INACTIVE = "INACTIVE"
 }
 /**
     * @export
@@ -3299,6 +3338,12 @@ export interface IntegrationCreate {
      */
     name?: string;
     /**
+     * Integration state.
+     * @type {string}
+     * @memberof IntegrationCreate
+     */
+    state?: IntegrationCreateStateEnum;
+    /**
      * The list of tables to retrieve
      * @type {Array<Table>}
      * @memberof IntegrationCreate
@@ -3310,6 +3355,12 @@ export interface IntegrationCreate {
      * @memberof IntegrationCreate
      */
     views?: Array<Table>;
+    /**
+     * The integration messages
+     * @type {Array<MessageOut>}
+     * @memberof IntegrationCreate
+     */
+    messages?: Array<MessageOut>;
     /**
      * The integration type.
      * @type {string}
@@ -3333,6 +3384,15 @@ export interface IntegrationCreate {
     * @export
     * @enum {string}
     */
+export declare enum IntegrationCreateStateEnum {
+    INITIAL = "INITIAL",
+    ACTIVE = "ACTIVE",
+    INACTIVE = "INACTIVE"
+}
+/**
+    * @export
+    * @enum {string}
+    */
 export declare enum IntegrationCreateServiceTypeEnum {
     REDSHIFT = "REDSHIFT",
     SNOWFLAKE = "SNOWFLAKE",
@@ -3351,6 +3411,12 @@ export interface IntegrationUpdateIn {
      */
     name?: string;
     /**
+     * Integration state.
+     * @type {string}
+     * @memberof IntegrationUpdateIn
+     */
+    state?: IntegrationUpdateInStateEnum;
+    /**
      * The list of tables to retrieve
      * @type {Array<Table>}
      * @memberof IntegrationUpdateIn
@@ -3363,11 +3429,44 @@ export interface IntegrationUpdateIn {
      */
     views?: Array<Table>;
     /**
+     * The integration messages
+     * @type {Array<MessageOut>}
+     * @memberof IntegrationUpdateIn
+     */
+    messages?: Array<MessageOut>;
+    /**
+     * API Endpoint.
+     * @type {string}
+     * @memberof IntegrationUpdateIn
+     */
+    endpoint?: string;
+    /**
+     * Integration IP address.
+     * @type {string}
+     * @memberof IntegrationUpdateIn
+     */
+    ip_address?: string;
+    /**
+     * Integration lamdba names.
+     * @type {string}
+     * @memberof IntegrationUpdateIn
+     */
+    lambda_arn?: string;
+    /**
      * Integration credentials.
      * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn}
      * @memberof IntegrationUpdateIn
      */
     credentials?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum IntegrationUpdateInStateEnum {
+    INITIAL = "INITIAL",
+    ACTIVE = "ACTIVE",
+    INACTIVE = "INACTIVE"
 }
 /**
  * Represent a line plot.
@@ -3561,6 +3660,96 @@ export declare enum LocationOutAttributeTypeEnum {
     NumberRange = "number_range",
     FreeText = "free_text",
     Location = "location"
+}
+/**
+ * A Message object.
+ * @export
+ * @interface MessageIn
+ */
+export interface MessageIn {
+    /**
+     *
+     * @type {string}
+     * @memberof MessageIn
+     */
+    message: string;
+    /**
+     *
+     * @type {string}
+     * @memberof MessageIn
+     */
+    message_type?: MessageInMessageTypeEnum;
+    /**
+     * The message attributes
+     * @type {string}
+     * @memberof MessageIn
+     */
+    attributes?: string;
+    /**
+     * Integration link.
+     * @type {string}
+     * @memberof MessageIn
+     */
+    integration: string;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum MessageInMessageTypeEnum {
+    ERROR = "ERROR",
+    DATASETCREATED = "DATASET_CREATED"
+}
+/**
+ * A Message object.
+ * @export
+ * @interface MessageOut
+ */
+export interface MessageOut {
+    /**
+     *
+     * @type {string}
+     * @memberof MessageOut
+     */
+    message: string;
+    /**
+     *
+     * @type {string}
+     * @memberof MessageOut
+     */
+    message_type?: MessageOutMessageTypeEnum;
+    /**
+     * The message attributes
+     * @type {string}
+     * @memberof MessageOut
+     */
+    attributes?: string;
+    /**
+     * Integration link.
+     * @type {string}
+     * @memberof MessageOut
+     */
+    integration: string;
+    /**
+     *
+     * @type {number}
+     * @memberof MessageOut
+     */
+    id?: number;
+    /**
+     * Creation date
+     * @type {string}
+     * @memberof MessageOut
+     */
+    created?: string;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum MessageOutMessageTypeEnum {
+    ERROR = "ERROR",
+    DATASETCREATED = "DATASET_CREATED"
 }
 /**
  * Values available for filtering models.
@@ -11159,6 +11348,14 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      */
     createIntegrationV1EnterpriseIntegrationsPost: (integrationCreate: IntegrationCreate, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a new message.
+     * @summary Create Message
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMessageV1EnterpriseMessagesPost: (messageIn: MessageIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Get the Enterprise.
      * @summary Get Enterprise
      * @param {*} [options] Override http request option.
@@ -11174,6 +11371,14 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      */
     getIntegrationV1EnterpriseIntegrationsIntegrationIdGet: (integrationId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get a Message.
+     * @summary Get Message
+     * @param {string} messageId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMessageV1EnterpriseMessagesMessageIdGet: (messageId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Update an Integration.
      * @summary Update Integration
      * @param {string} integrationId
@@ -11182,6 +11387,15 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * @throws {RequiredError}
      */
     updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: (integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a Message.
+     * @summary Update Message
+     * @param {string} messageId
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateMessageV1EnterpriseMessagesMessageIdPatch: (messageId: string, messageIn: MessageIn, options?: any) => Promise<RequestArgs>;
 };
 /**
  * EnterpriseApi - functional programming interface
@@ -11196,6 +11410,14 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    /**
+     * Create a new message.
+     * @summary Create Message
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
     /**
      * Get the Enterprise.
      * @summary Get Enterprise
@@ -11212,6 +11434,14 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      */
     getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
     /**
+     * Get a Message.
+     * @summary Get Message
+     * @param {string} messageId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
+    /**
      * Update an Integration.
      * @summary Update Integration
      * @param {string} integrationId
@@ -11220,6 +11450,15 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    /**
+     * Update a Message.
+     * @summary Update Message
+     * @param {string} messageId
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
 };
 /**
  * EnterpriseApi - factory interface
@@ -11234,6 +11473,14 @@ export declare const EnterpriseApiFactory: (configuration?: Configuration, baseP
      * @throws {RequiredError}
      */
     createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, options?: any): AxiosPromise<Integration>;
+    /**
+     * Create a new message.
+     * @summary Create Message
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, options?: any): AxiosPromise<MessageOut>;
     /**
      * Get the Enterprise.
      * @summary Get Enterprise
@@ -11250,6 +11497,14 @@ export declare const EnterpriseApiFactory: (configuration?: Configuration, baseP
      */
     getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, options?: any): AxiosPromise<Integration>;
     /**
+     * Get a Message.
+     * @summary Get Message
+     * @param {string} messageId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, options?: any): AxiosPromise<MessageOut>;
+    /**
      * Update an Integration.
      * @summary Update Integration
      * @param {string} integrationId
@@ -11258,6 +11513,15 @@ export declare const EnterpriseApiFactory: (configuration?: Configuration, baseP
      * @throws {RequiredError}
      */
     updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): AxiosPromise<Integration>;
+    /**
+     * Update a Message.
+     * @summary Update Message
+     * @param {string} messageId
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, options?: any): AxiosPromise<MessageOut>;
 };
 /**
  * Request parameters for createIntegrationV1EnterpriseIntegrationsPost operation in EnterpriseApi.
@@ -11273,6 +11537,19 @@ export interface EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostReque
     readonly integrationCreate: IntegrationCreate;
 }
 /**
+ * Request parameters for createMessageV1EnterpriseMessagesPost operation in EnterpriseApi.
+ * @export
+ * @interface EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest
+ */
+export interface EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest {
+    /**
+     *
+     * @type {MessageIn}
+     * @memberof EnterpriseApiCreateMessageV1EnterpriseMessagesPost
+     */
+    readonly messageIn: MessageIn;
+}
+/**
  * Request parameters for getIntegrationV1EnterpriseIntegrationsIntegrationIdGet operation in EnterpriseApi.
  * @export
  * @interface EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest
@@ -11284,6 +11561,19 @@ export interface EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationI
      * @memberof EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGet
      */
     readonly integrationId: string;
+}
+/**
+ * Request parameters for getMessageV1EnterpriseMessagesMessageIdGet operation in EnterpriseApi.
+ * @export
+ * @interface EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest
+ */
+export interface EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGet
+     */
+    readonly messageId: string;
 }
 /**
  * Request parameters for updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch operation in EnterpriseApi.
@@ -11305,6 +11595,25 @@ export interface EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrati
     readonly integrationUpdateIn: IntegrationUpdateIn;
 }
 /**
+ * Request parameters for updateMessageV1EnterpriseMessagesMessageIdPatch operation in EnterpriseApi.
+ * @export
+ * @interface EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest
+ */
+export interface EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatch
+     */
+    readonly messageId: string;
+    /**
+     *
+     * @type {MessageIn}
+     * @memberof EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatch
+     */
+    readonly messageIn: MessageIn;
+}
+/**
  * EnterpriseApi - object-oriented interface
  * @export
  * @class EnterpriseApi
@@ -11320,6 +11629,15 @@ export declare class EnterpriseApi extends BaseAPI {
      * @memberof EnterpriseApi
      */
     createIntegrationV1EnterpriseIntegrationsPost(requestParameters: EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<Integration>>;
+    /**
+     * Create a new message.
+     * @summary Create Message
+     * @param {EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    createMessageV1EnterpriseMessagesPost(requestParameters: EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest, options?: any): Promise<import("axios").AxiosResponse<MessageOut>>;
     /**
      * Get the Enterprise.
      * @summary Get Enterprise
@@ -11338,6 +11656,15 @@ export declare class EnterpriseApi extends BaseAPI {
      */
     getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters: EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<Integration>>;
     /**
+     * Get a Message.
+     * @summary Get Message
+     * @param {EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    getMessageV1EnterpriseMessagesMessageIdGet(requestParameters: EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<MessageOut>>;
+    /**
      * Update an Integration.
      * @summary Update Integration
      * @param {EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest} requestParameters Request parameters.
@@ -11346,6 +11673,15 @@ export declare class EnterpriseApi extends BaseAPI {
      * @memberof EnterpriseApi
      */
     updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters: EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<Integration>>;
+    /**
+     * Update a Message.
+     * @summary Update Message
+     * @param {EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters: EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<MessageOut>>;
 }
 /**
  * FeaturesApi - axios parameter creator
