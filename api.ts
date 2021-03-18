@@ -2556,10 +2556,10 @@ export interface Enterprise {
     integrations?: Array<Integration>;
     /**
      * The enterprise messages
-     * @type {Array<Message>}
+     * @type {Array<MessageOut>}
      * @memberof Enterprise
      */
-    messages?: Array<Message>;
+    messages?: Array<MessageOut>;
     /**
      * The actions the requesting user is allowed to perform on this resource.
      * @type {Array<string>}
@@ -3258,10 +3258,10 @@ export interface Integration {
     views?: Array<Table>;
     /**
      * The integration messages
-     * @type {Array<Message>}
+     * @type {Array<MessageOut>}
      * @memberof Integration
      */
-    messages?: Array<Message>;
+    messages?: Array<MessageOut>;
     /**
      * 
      * @type {number}
@@ -3379,10 +3379,10 @@ export interface IntegrationCreate {
     views?: Array<Table>;
     /**
      * The integration messages
-     * @type {Array<Message>}
+     * @type {Array<MessageOut>}
      * @memberof IntegrationCreate
      */
-    messages?: Array<Message>;
+    messages?: Array<MessageOut>;
     /**
      * The integration type.
      * @type {string}
@@ -3454,10 +3454,10 @@ export interface IntegrationUpdateIn {
     views?: Array<Table>;
     /**
      * The integration messages
-     * @type {Array<Message>}
+     * @type {Array<MessageOut>}
      * @memberof IntegrationUpdateIn
      */
-    messages?: Array<Message>;
+    messages?: Array<MessageOut>;
     /**
      * API Endpoint.
      * @type {string}
@@ -3686,59 +3686,6 @@ export enum LocationOutAttributeTypeEnum {
 }
 
 /**
- * A Message object.
- * @export
- * @interface Message
- */
-export interface Message {
-    /**
-     * 
-     * @type {number}
-     * @memberof Message
-     */
-    id?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Message
-     */
-    message: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Message
-     */
-    message_type?: MessageMessageTypeEnum;
-    /**
-     * Creation date
-     * @type {string}
-     * @memberof Message
-     */
-    created?: string;
-    /**
-     * The message attributes
-     * @type {MessageAttributes}
-     * @memberof Message
-     */
-    attributes?: MessageAttributes;
-    /**
-     * Integration link.
-     * @type {string}
-     * @memberof Message
-     */
-    integration: string;
-}
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum MessageMessageTypeEnum {
-    ERROR = 'ERROR',
-    DATASETCREATED = 'DATASET_CREATED'
-}
-
-/**
  * A Message attribute object.
  * @export
  * @interface MessageAttributes
@@ -3751,6 +3698,100 @@ export interface MessageAttributes {
      */
     data?: string;
 }
+/**
+ * A Message object.
+ * @export
+ * @interface MessageIn
+ */
+export interface MessageIn {
+    /**
+     * 
+     * @type {string}
+     * @memberof MessageIn
+     */
+    message: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MessageIn
+     */
+    message_type?: MessageInMessageTypeEnum;
+    /**
+     * The message attributes
+     * @type {MessageAttributes}
+     * @memberof MessageIn
+     */
+    attributes?: MessageAttributes;
+    /**
+     * Integration link.
+     * @type {string}
+     * @memberof MessageIn
+     */
+    integration: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MessageInMessageTypeEnum {
+    ERROR = 'ERROR',
+    DATASETCREATED = 'DATASET_CREATED'
+}
+
+/**
+ * A Message object.
+ * @export
+ * @interface MessageOut
+ */
+export interface MessageOut {
+    /**
+     * 
+     * @type {string}
+     * @memberof MessageOut
+     */
+    message: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MessageOut
+     */
+    message_type?: MessageOutMessageTypeEnum;
+    /**
+     * The message attributes
+     * @type {MessageAttributes}
+     * @memberof MessageOut
+     */
+    attributes?: MessageAttributes;
+    /**
+     * Integration link.
+     * @type {string}
+     * @memberof MessageOut
+     */
+    integration: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof MessageOut
+     */
+    id?: number;
+    /**
+     * Creation date
+     * @type {string}
+     * @memberof MessageOut
+     */
+    created?: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum MessageOutMessageTypeEnum {
+    ERROR = 'ERROR',
+    DATASETCREATED = 'DATASET_CREATED'
+}
+
 /**
  * Values available for filtering models.
  * @export
@@ -15181,14 +15222,14 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Create a new message.
          * @summary Create Message
-         * @param {Message} message 
+         * @param {MessageIn} messageIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMessageV1EnterpriseMessagesPost: async (message: Message, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'message' is not null or undefined
-            if (message === null || message === undefined) {
-                throw new RequiredError('message','Required parameter message was null or undefined when calling createMessageV1EnterpriseMessagesPost.');
+        createMessageV1EnterpriseMessagesPost: async (messageIn: MessageIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'messageIn' is not null or undefined
+            if (messageIn === null || messageIn === undefined) {
+                throw new RequiredError('messageIn','Required parameter messageIn was null or undefined when calling createMessageV1EnterpriseMessagesPost.');
             }
             const localVarPath = `/v1/enterprise/messages`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -15226,8 +15267,8 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof message !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(message !== undefined ? message : {}) : (message || "");
+            const needsSerialization = (typeof messageIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(messageIn !== undefined ? messageIn : {}) : (messageIn || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -15453,18 +15494,18 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * Update a Message.
          * @summary Update Message
          * @param {string} messageId 
-         * @param {Message} message 
+         * @param {MessageIn} messageIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateMessageV1EnterpriseMessagesMessageIdPatch: async (messageId: string, message: Message, options: any = {}): Promise<RequestArgs> => {
+        updateMessageV1EnterpriseMessagesMessageIdPatch: async (messageId: string, messageIn: MessageIn, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'messageId' is not null or undefined
             if (messageId === null || messageId === undefined) {
                 throw new RequiredError('messageId','Required parameter messageId was null or undefined when calling updateMessageV1EnterpriseMessagesMessageIdPatch.');
             }
-            // verify required parameter 'message' is not null or undefined
-            if (message === null || message === undefined) {
-                throw new RequiredError('message','Required parameter message was null or undefined when calling updateMessageV1EnterpriseMessagesMessageIdPatch.');
+            // verify required parameter 'messageIn' is not null or undefined
+            if (messageIn === null || messageIn === undefined) {
+                throw new RequiredError('messageIn','Required parameter messageIn was null or undefined when calling updateMessageV1EnterpriseMessagesMessageIdPatch.');
             }
             const localVarPath = `/v1/enterprise/messages/{message_id}`
                 .replace(`{${"message_id"}}`, encodeURIComponent(String(messageId)));
@@ -15503,8 +15544,8 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof message !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(message !== undefined ? message : {}) : (message || "");
+            const needsSerialization = (typeof messageIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(messageIn !== undefined ? messageIn : {}) : (messageIn || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -15537,12 +15578,12 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
         /**
          * Create a new message.
          * @summary Create Message
-         * @param {Message} message 
+         * @param {MessageIn} messageIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createMessageV1EnterpriseMessagesPost(message: Message, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Message>> {
-            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).createMessageV1EnterpriseMessagesPost(message, options);
+        async createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>> {
+            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).createMessageV1EnterpriseMessagesPost(messageIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15582,7 +15623,7 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Message>> {
+        async getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>> {
             const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).getMessageV1EnterpriseMessagesMessageIdGet(messageId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -15608,12 +15649,12 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * Update a Message.
          * @summary Update Message
          * @param {string} messageId 
-         * @param {Message} message 
+         * @param {MessageIn} messageIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, message: Message, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Message>> {
-            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, message, options);
+        async updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>> {
+            const localVarAxiosArgs = await EnterpriseApiAxiosParamCreator(configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, messageIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15641,12 +15682,12 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
         /**
          * Create a new message.
          * @summary Create Message
-         * @param {Message} message 
+         * @param {MessageIn} messageIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMessageV1EnterpriseMessagesPost(message: Message, options?: any): AxiosPromise<Message> {
-            return EnterpriseApiFp(configuration).createMessageV1EnterpriseMessagesPost(message, options).then((request) => request(axios, basePath));
+        createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, options?: any): AxiosPromise<MessageOut> {
+            return EnterpriseApiFp(configuration).createMessageV1EnterpriseMessagesPost(messageIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the Enterprise.
@@ -15674,7 +15715,7 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, options?: any): AxiosPromise<Message> {
+        getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, options?: any): AxiosPromise<MessageOut> {
             return EnterpriseApiFp(configuration).getMessageV1EnterpriseMessagesMessageIdGet(messageId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -15692,12 +15733,12 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
          * Update a Message.
          * @summary Update Message
          * @param {string} messageId 
-         * @param {Message} message 
+         * @param {MessageIn} messageIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, message: Message, options?: any): AxiosPromise<Message> {
-            return EnterpriseApiFp(configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, message, options).then((request) => request(axios, basePath));
+        updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, options?: any): AxiosPromise<MessageOut> {
+            return EnterpriseApiFp(configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, messageIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -15724,10 +15765,10 @@ export interface EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostReque
 export interface EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest {
     /**
      * 
-     * @type {Message}
+     * @type {MessageIn}
      * @memberof EnterpriseApiCreateMessageV1EnterpriseMessagesPost
      */
-    readonly message: Message
+    readonly messageIn: MessageIn
 }
 
 /**
@@ -15794,10 +15835,10 @@ export interface EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchReq
 
     /**
      * 
-     * @type {Message}
+     * @type {MessageIn}
      * @memberof EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatch
      */
-    readonly message: Message
+    readonly messageIn: MessageIn
 }
 
 /**
@@ -15828,7 +15869,7 @@ export class EnterpriseApi extends BaseAPI {
      * @memberof EnterpriseApi
      */
     public createMessageV1EnterpriseMessagesPost(requestParameters: EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest, options?: any) {
-        return EnterpriseApiFp(this.configuration).createMessageV1EnterpriseMessagesPost(requestParameters.message, options).then((request) => request(this.axios, this.basePath));
+        return EnterpriseApiFp(this.configuration).createMessageV1EnterpriseMessagesPost(requestParameters.messageIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15887,7 +15928,7 @@ export class EnterpriseApi extends BaseAPI {
      * @memberof EnterpriseApi
      */
     public updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters: EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest, options?: any) {
-        return EnterpriseApiFp(this.configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters.messageId, requestParameters.message, options).then((request) => request(this.axios, this.basePath));
+        return EnterpriseApiFp(this.configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters.messageId, requestParameters.messageIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
