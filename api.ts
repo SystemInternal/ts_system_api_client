@@ -3686,19 +3686,6 @@ export enum LocationOutAttributeTypeEnum {
 }
 
 /**
- * A Message attribute object.
- * @export
- * @interface MessageAttributes
- */
-export interface MessageAttributes {
-    /**
-     * 
-     * @type {string}
-     * @memberof MessageAttributes
-     */
-    data?: string;
-}
-/**
  * A Message object.
  * @export
  * @interface MessageIn
@@ -3718,10 +3705,10 @@ export interface MessageIn {
     message_type?: MessageInMessageTypeEnum;
     /**
      * The message attributes
-     * @type {MessageAttributes}
+     * @type {string}
      * @memberof MessageIn
      */
-    attributes?: MessageAttributes;
+    attributes?: string;
     /**
      * Integration link.
      * @type {string}
@@ -3759,10 +3746,10 @@ export interface MessageOut {
     message_type?: MessageOutMessageTypeEnum;
     /**
      * The message attributes
-     * @type {MessageAttributes}
+     * @type {string}
      * @memberof MessageOut
      */
-    attributes?: MessageAttributes;
+    attributes?: string;
     /**
      * Integration link.
      * @type {string}
