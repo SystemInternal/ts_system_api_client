@@ -5016,7 +5016,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -5181,7 +5181,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -5263,7 +5263,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
@@ -5436,7 +5436,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -5956,7 +5956,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -6007,7 +6007,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -6031,7 +6031,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
@@ -6084,7 +6084,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -6308,7 +6308,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -6347,7 +6347,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -6365,7 +6365,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
@@ -6406,7 +6406,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -14727,7 +14727,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -15220,7 +15220,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -15812,7 +15812,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -15964,7 +15964,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -16188,7 +16188,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
@@ -16304,7 +16304,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.

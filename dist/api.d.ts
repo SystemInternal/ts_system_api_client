@@ -9789,13 +9789,13 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -9824,13 +9824,13 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get all Datasets.
      * @summary List Datasets
@@ -9840,7 +9840,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
@@ -9848,7 +9848,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetsV1DatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -9877,13 +9877,13 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -10033,13 +10033,13 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -10068,13 +10068,13 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Get all Datasets.
      * @summary List Datasets
@@ -10084,7 +10084,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
@@ -10092,7 +10092,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -10121,13 +10121,13 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -10277,13 +10277,13 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -10312,13 +10312,13 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Get all Datasets.
      * @summary List Datasets
@@ -10328,7 +10328,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
@@ -10336,7 +10336,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -10365,13 +10365,13 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -10681,10 +10681,10 @@ export interface DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetReques
     readonly total?: boolean;
     /**
      * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
+     * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
+    readonly orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name';
     /**
      * Order ascending or descending.
      * @type {'asc' | 'desc'}
@@ -10821,10 +10821,10 @@ export interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetReque
     readonly total?: boolean;
     /**
      * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
+     * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
      */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
+    readonly orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name';
     /**
      * Order ascending or descending.
      * @type {'asc' | 'desc'}
@@ -10882,10 +10882,10 @@ export interface DatasetsApiListDatasetsV1DatasetsGetRequest {
     readonly total?: boolean;
     /**
      * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
+     * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof DatasetsApiListDatasetsV1DatasetsGet
      */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
+    readonly orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name';
     /**
      * Order ascending or descending.
      * @type {'asc' | 'desc'}
@@ -11034,10 +11034,10 @@ export interface DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
     readonly total?: boolean;
     /**
      * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
+     * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
+    readonly orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name';
     /**
      * Order ascending or descending.
      * @type {'asc' | 'desc'}
@@ -17113,13 +17113,13 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -17217,13 +17217,13 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -17381,13 +17381,13 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -17485,13 +17485,13 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -17649,13 +17649,13 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -17753,13 +17753,13 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -18077,10 +18077,10 @@ export interface UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest {
     readonly total?: boolean;
     /**
      * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
+     * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
+    readonly orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name';
     /**
      * Order ascending or descending.
      * @type {'asc' | 'desc'}
@@ -18491,10 +18491,10 @@ export interface UsersApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
     readonly total?: boolean;
     /**
      * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
+     * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
+    readonly orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name';
     /**
      * Order ascending or descending.
      * @type {'asc' | 'desc'}
