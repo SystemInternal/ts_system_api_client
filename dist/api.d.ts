@@ -7269,10 +7269,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @summary Create Associations
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {boolean} [mergeFeatures]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost: (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) => Promise<RequestArgs>;
+    createAssociationsV1ModelsModelIdAssociationsPost: (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -7460,10 +7461,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @summary Create Associations
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {boolean} [mergeFeatures]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
+    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -7651,10 +7653,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @summary Create Associations
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {boolean} [mergeFeatures]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>>;
+    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): AxiosPromise<Array<AssociationOut>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -7850,6 +7853,12 @@ export interface AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPos
      * @memberof AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPost
      */
     readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPost
+     */
+    readonly mergeFeatures?: boolean;
 }
 /**
  * Request parameters for deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete operation in AssociationsApi.
@@ -13030,10 +13039,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @summary Create Associations
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {boolean} [mergeFeatures]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost: (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) => Promise<RequestArgs>;
+    createAssociationsV1ModelsModelIdAssociationsPost: (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -13195,10 +13205,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @summary Create Associations
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {boolean} [mergeFeatures]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
+    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -13360,10 +13371,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @summary Create Associations
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {boolean} [mergeFeatures]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>>;
+    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): AxiosPromise<Array<AssociationOut>>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -13533,6 +13545,12 @@ export interface ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPostReque
      * @memberof ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPost
      */
     readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPost
+     */
+    readonly mergeFeatures?: boolean;
 }
 /**
  * Request parameters for createModelsV1StudiesStudyIdModelsPost operation in ModelsApi.

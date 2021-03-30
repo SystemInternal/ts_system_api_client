@@ -1388,10 +1388,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @summary Create Associations
          * @param {string} modelId
          * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {boolean} [mergeFeatures]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAssociationsV1ModelsModelIdAssociationsPost: (modelId, associationInArrayAssociationIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAssociationsV1ModelsModelIdAssociationsPost: (modelId, associationInArrayAssociationIn, mergeFeatures, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling createAssociationsV1ModelsModelIdAssociationsPost.');
@@ -1424,6 +1425,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (mergeFeatures !== undefined) {
+                localVarQueryParameter['merge_features'] = mergeFeatures;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
@@ -2360,12 +2364,13 @@ exports.AssociationsApiFp = function (configuration) {
          * @summary Create Associations
          * @param {string} modelId
          * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {boolean} [mergeFeatures]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options) {
+        createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, mergeFeatures, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, mergeFeatures, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2665,11 +2670,12 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @summary Create Associations
          * @param {string} modelId
          * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {boolean} [mergeFeatures]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options) {
-            return exports.AssociationsApiFp(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options).then((request) => request(axios, basePath));
+        createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, mergeFeatures, options) {
+            return exports.AssociationsApiFp(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, mergeFeatures, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete an Association.
@@ -2891,7 +2897,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     createAssociationsV1ModelsModelIdAssociationsPost(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).createAssociationsV1ModelsModelIdAssociationsPost(requestParameters.modelId, requestParameters.associationInArrayAssociationIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).createAssociationsV1ModelsModelIdAssociationsPost(requestParameters.modelId, requestParameters.associationInArrayAssociationIn, requestParameters.mergeFeatures, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete an Association.
@@ -9138,10 +9144,11 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @summary Create Associations
          * @param {string} modelId
          * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {boolean} [mergeFeatures]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAssociationsV1ModelsModelIdAssociationsPost: (modelId, associationInArrayAssociationIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAssociationsV1ModelsModelIdAssociationsPost: (modelId, associationInArrayAssociationIn, mergeFeatures, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling createAssociationsV1ModelsModelIdAssociationsPost.');
@@ -9174,6 +9181,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (mergeFeatures !== undefined) {
+                localVarQueryParameter['merge_features'] = mergeFeatures;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
@@ -10016,12 +10026,13 @@ exports.ModelsApiFp = function (configuration) {
          * @summary Create Associations
          * @param {string} modelId
          * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {boolean} [mergeFeatures]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options) {
+        createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, mergeFeatures, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, mergeFeatures, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -10295,11 +10306,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @summary Create Associations
          * @param {string} modelId
          * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {boolean} [mergeFeatures]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options) {
-            return exports.ModelsApiFp(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, options).then((request) => request(axios, basePath));
+        createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, mergeFeatures, options) {
+            return exports.ModelsApiFp(configuration).createAssociationsV1ModelsModelIdAssociationsPost(modelId, associationInArrayAssociationIn, mergeFeatures, options).then((request) => request(axios, basePath));
         },
         /**
          * Create models and add to study.
@@ -10495,7 +10507,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     createAssociationsV1ModelsModelIdAssociationsPost(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).createAssociationsV1ModelsModelIdAssociationsPost(requestParameters.modelId, requestParameters.associationInArrayAssociationIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).createAssociationsV1ModelsModelIdAssociationsPost(requestParameters.modelId, requestParameters.associationInArrayAssociationIn, requestParameters.mergeFeatures, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create models and add to study.
