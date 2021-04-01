@@ -1260,6 +1260,12 @@ export interface CategoricalFeatureStatistics {
      */
     frequency?: Frequency;
     /**
+     * Distinct Values that the categorical feature takes.
+     * @type {Array<string>}
+     * @memberof CategoricalFeatureStatistics
+     */
+    distinct_values?: Array<string>;
+    /**
      * Historical stats in form timestamp to value.
      * @type {{ [key: string]: CategoricalFeatureStatisticsSimpleBase; }}
      * @memberof CategoricalFeatureStatistics
