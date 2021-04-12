@@ -1151,6 +1151,7 @@ export interface BulkPatchAssociationOp {
     */
 export declare enum BulkPatchAssociationOpOpEnum {
     Update = "update",
+    Append = "append",
     Delete = "delete"
 }
 /**
@@ -1190,6 +1191,7 @@ export interface BulkPatchFeatureOp {
     */
 export declare enum BulkPatchFeatureOpOpEnum {
     Update = "update",
+    Append = "append",
     Delete = "delete"
 }
 /**
@@ -2663,6 +2665,12 @@ export interface FeatureIn {
      * @memberof FeatureIn
      */
     variable_id?: string;
+    /**
+     * Filtered by values.
+     * @type {Array<FilterValue>}
+     * @memberof FeatureIn
+     */
+    filtered_by_values?: Array<FilterValue>;
 }
 /**
  * Variable resource links.
@@ -2768,6 +2776,12 @@ export interface FeatureOut {
      * @memberof FeatureOut
      */
     variable_id?: string;
+    /**
+     * Filtered by values.
+     * @type {Array<FilterValue>}
+     * @memberof FeatureOut
+     */
+    filtered_by_values?: Array<FilterValue>;
     /**
      * Collection of links to related resources.
      * @type {FeatureLinks}
@@ -2961,6 +2975,51 @@ export interface FeatureSystemOfFeaturesPaginationOut {
      * @memberof FeatureSystemOfFeaturesPaginationOut
      */
     ds_pop_ids?: Array<string>;
+}
+/**
+ * A Filter value object model.
+ * @export
+ * @interface FilterValue
+ */
+export interface FilterValue {
+    /**
+     * Retrieval status.
+     * @type {string}
+     * @memberof FilterValue
+     */
+    filter_type?: FilterValueFilterTypeEnum;
+    /**
+     * Filter value.
+     * @type {string}
+     * @memberof FilterValue
+     */
+    value?: string;
+    /**
+     * User who filtered by this value.
+     * @type {string}
+     * @memberof FilterValue
+     */
+    added_by?: string;
+    /**
+     * Time this value was added.
+     * @type {string}
+     * @memberof FilterValue
+     */
+    added_on?: string;
+    /**
+     * Related filter values used in conjunction with this filter.
+     * @type {Array<RelatedFilterValue>}
+     * @memberof FilterValue
+     */
+    related_values?: Array<RelatedFilterValue>;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum FilterValueFilterTypeEnum {
+    Filter = "filter",
+    Sort = "sort"
 }
 /**
  * Next/prev Pagination links with first and last urls.
@@ -5072,6 +5131,7 @@ export interface PatchDatasetOp {
     */
 export declare enum PatchDatasetOpOpEnum {
     Update = "update",
+    Append = "append",
     Delete = "delete"
 }
 /**
@@ -5105,6 +5165,7 @@ export interface PatchFeatureOp {
     */
 export declare enum PatchFeatureOpOpEnum {
     Update = "update",
+    Append = "append",
     Delete = "delete"
 }
 /**
@@ -5138,6 +5199,7 @@ export interface PatchModelOp {
     */
 export declare enum PatchModelOpOpEnum {
     Update = "update",
+    Append = "append",
     Delete = "delete"
 }
 /**
@@ -5171,6 +5233,7 @@ export interface PatchStudyOp {
     */
 export declare enum PatchStudyOpOpEnum {
     Update = "update",
+    Append = "append",
     Delete = "delete"
 }
 /**
@@ -5204,6 +5267,7 @@ export interface PatchVariableOp {
     */
 export declare enum PatchVariableOpOpEnum {
     Update = "update",
+    Append = "append",
     Delete = "delete"
 }
 /**
@@ -5571,6 +5635,51 @@ export interface RedshiftCredentialsIn {
      * @memberof RedshiftCredentialsIn
      */
     db_password: string;
+}
+/**
+ * A related filter value object model.
+ * @export
+ * @interface RelatedFilterValue
+ */
+export interface RelatedFilterValue {
+    /**
+     * Retrieval status.
+     * @type {string}
+     * @memberof RelatedFilterValue
+     */
+    filter_type?: RelatedFilterValueFilterTypeEnum;
+    /**
+     * Filter value.
+     * @type {string}
+     * @memberof RelatedFilterValue
+     */
+    value?: string;
+    /**
+     * User who filtered by this value.
+     * @type {string}
+     * @memberof RelatedFilterValue
+     */
+    added_by?: string;
+    /**
+     * Time this value was added.
+     * @type {string}
+     * @memberof RelatedFilterValue
+     */
+    added_on?: string;
+    /**
+     * Feature.
+     * @type {string}
+     * @memberof RelatedFilterValue
+     */
+    feature_id?: string;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum RelatedFilterValueFilterTypeEnum {
+    Filter = "filter",
+    Sort = "sort"
 }
 /**
  * Model to represent directionality of an Association.
