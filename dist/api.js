@@ -1409,6 +1409,61 @@ var VariableTypeTypeEnum;
 exports.AssociationsApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+         * @summary Create Associations
+         * @param {string} datasetId
+         * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAssociationsV1DatasetsDatasetIdAssociationsPost: (datasetId, associationInArrayAssociationIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling createAssociationsV1DatasetsDatasetIdAssociationsPost.');
+            }
+            // verify required parameter 'associationInArrayAssociationIn' is not null or undefined
+            if (associationInArrayAssociationIn === null || associationInArrayAssociationIn === undefined) {
+                throw new base_1.RequiredError('associationInArrayAssociationIn', 'Required parameter associationInArrayAssociationIn was null or undefined when calling createAssociationsV1DatasetsDatasetIdAssociationsPost.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/associations`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof associationInArrayAssociationIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(associationInArrayAssociationIn !== undefined ? associationInArrayAssociationIn : {}) : (associationInArrayAssociationIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
          * @summary Create Associations
          * @param {string} modelId
@@ -2385,6 +2440,23 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
 exports.AssociationsApiFp = function (configuration) {
     return {
         /**
+         * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+         * @summary Create Associations
+         * @param {string} datasetId
+         * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId, associationInArrayAssociationIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId, associationInArrayAssociationIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
          * @summary Create Associations
          * @param {string} modelId
@@ -2691,6 +2763,17 @@ exports.AssociationsApiFp = function (configuration) {
 exports.AssociationsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
+         * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+         * @summary Create Associations
+         * @param {string} datasetId
+         * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId, associationInArrayAssociationIn, options) {
+            return exports.AssociationsApiFp(configuration).createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId, associationInArrayAssociationIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
          * @summary Create Associations
          * @param {string} modelId
@@ -2913,6 +2996,17 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class AssociationsApi extends base_1.BaseAPI {
+    /**
+     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+     * @summary Create Associations
+     * @param {AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(requestParameters, options) {
+        return exports.AssociationsApiFp(this.configuration).createAssociationsV1DatasetsDatasetIdAssociationsPost(requestParameters.datasetId, requestParameters.associationInArrayAssociationIn, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
@@ -4758,6 +4852,61 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+         * @summary Create Associations
+         * @param {string} datasetId
+         * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAssociationsV1DatasetsDatasetIdAssociationsPost: (datasetId, associationInArrayAssociationIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling createAssociationsV1DatasetsDatasetIdAssociationsPost.');
+            }
+            // verify required parameter 'associationInArrayAssociationIn' is not null or undefined
+            if (associationInArrayAssociationIn === null || associationInArrayAssociationIn === undefined) {
+                throw new base_1.RequiredError('associationInArrayAssociationIn', 'Required parameter associationInArrayAssociationIn was null or undefined when calling createAssociationsV1DatasetsDatasetIdAssociationsPost.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/associations`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof associationInArrayAssociationIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(associationInArrayAssociationIn !== undefined ? associationInArrayAssociationIn : {}) : (associationInArrayAssociationIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create a new Dataset.
          * @summary Create Dataset
          * @param {DatasetIn} datasetIn
@@ -5888,6 +6037,23 @@ exports.DatasetsApiFp = function (configuration) {
             });
         },
         /**
+         * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+         * @summary Create Associations
+         * @param {string} datasetId
+         * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId, associationInArrayAssociationIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId, associationInArrayAssociationIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Create a new Dataset.
          * @summary Create Dataset
          * @param {DatasetIn} datasetIn
@@ -6270,6 +6436,17 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
             return exports.DatasetsApiFp(configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId, featureIn, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+         * @summary Create Associations
+         * @param {string} datasetId
+         * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId, associationInArrayAssociationIn, options) {
+            return exports.DatasetsApiFp(configuration).createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId, associationInArrayAssociationIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a new Dataset.
          * @summary Create Dataset
          * @param {DatasetIn} datasetIn
@@ -6553,6 +6730,17 @@ class DatasetsApi extends base_1.BaseAPI {
      */
     createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(requestParameters, options) {
         return exports.DatasetsApiFp(this.configuration).createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(requestParameters.datasetId, requestParameters.featureIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+     * @summary Create Associations
+     * @param {DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(requestParameters, options) {
+        return exports.DatasetsApiFp(this.configuration).createAssociationsV1DatasetsDatasetIdAssociationsPost(requestParameters.datasetId, requestParameters.associationInArrayAssociationIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new Dataset.

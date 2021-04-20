@@ -7380,6 +7380,15 @@ export declare enum VariableTypeTypeEnum {
  */
 export declare const AssociationsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+     * @summary Create Associations
+     * @param {string} datasetId
+     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAssociationsV1DatasetsDatasetIdAssociationsPost: (datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) => Promise<RequestArgs>;
+    /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
      * @param {string} modelId
@@ -7571,6 +7580,15 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
  * @export
  */
 export declare const AssociationsApiFp: (configuration?: Configuration) => {
+    /**
+     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+     * @summary Create Associations
+     * @param {string} datasetId
+     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
     /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
@@ -7764,6 +7782,15 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
  */
 export declare const AssociationsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
+     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+     * @summary Create Associations
+     * @param {string} datasetId
+     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>>;
+    /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
      * @param {string} modelId
@@ -7950,6 +7977,25 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void>;
 };
+/**
+ * Request parameters for createAssociationsV1DatasetsDatasetIdAssociationsPost operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest
+ */
+export interface AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
+     */
+    readonly datasetId: string;
+    /**
+     *
+     * @type {AssociationIn | Array<AssociationIn>}
+     * @memberof AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
+     */
+    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
+}
 /**
  * Request parameters for createAssociationsV1ModelsModelIdAssociationsPost operation in AssociationsApi.
  * @export
@@ -8583,6 +8629,15 @@ export interface AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatc
  * @extends {BaseAPI}
  */
 export declare class AssociationsApi extends BaseAPI {
+    /**
+     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+     * @summary Create Associations
+     * @param {AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(requestParameters: AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
     /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
@@ -9854,6 +9909,15 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost: (datasetId: string, featureIn: Array<FeatureIn>, options?: any) => Promise<RequestArgs>;
     /**
+     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+     * @summary Create Associations
+     * @param {string} datasetId
+     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAssociationsV1DatasetsDatasetIdAssociationsPost: (datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) => Promise<RequestArgs>;
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {DatasetIn} datasetIn
@@ -10098,6 +10162,15 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>>;
     /**
+     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+     * @summary Create Associations
+     * @param {string} datasetId
+     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {DatasetIn} datasetIn
@@ -10341,6 +10414,15 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): AxiosPromise<Array<FeatureOut>>;
+    /**
+     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+     * @summary Create Associations
+     * @param {string} datasetId
+     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>>;
     /**
      * Create a new Dataset.
      * @summary Create Dataset
@@ -10629,6 +10711,25 @@ export interface DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPo
      * @memberof DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
      */
     readonly featureIn: Array<FeatureIn>;
+}
+/**
+ * Request parameters for createAssociationsV1DatasetsDatasetIdAssociationsPost operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest
+ */
+export interface DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
+     */
+    readonly datasetId: string;
+    /**
+     *
+     * @type {AssociationIn | Array<AssociationIn>}
+     * @memberof DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
+     */
+    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
 }
 /**
  * Request parameters for createDatasetV1DatasetsPost operation in DatasetsApi.
@@ -11313,6 +11414,15 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(requestParameters: DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut[]>>;
+    /**
+     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
+     * @summary Create Associations
+     * @param {DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(requestParameters: DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
     /**
      * Create a new Dataset.
      * @summary Create Dataset
