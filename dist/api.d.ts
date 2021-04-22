@@ -1640,7 +1640,7 @@ export interface ConfidenceIntervalIn {
      * @type {string}
      * @memberof ConfidenceIntervalIn
      */
-    level: ConfidenceIntervalInLevelEnum;
+    level?: ConfidenceIntervalInLevelEnum;
     /**
      * The lower bound of the CI.
      * @type {number}
@@ -4616,13 +4616,13 @@ export interface NullHypothesisIn {
      * @type {string}
      * @memberof NullHypothesisIn
      */
-    test_type: NullHypothesisInTestTypeEnum;
+    test_type?: NullHypothesisInTestTypeEnum;
     /**
      * Significance level used for the test
      * @type {string}
      * @memberof NullHypothesisIn
      */
-    level: NullHypothesisInLevelEnum;
+    level?: NullHypothesisInLevelEnum;
     /**
      * Null hypothesis value.
      * @type {number}
