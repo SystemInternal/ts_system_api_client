@@ -4662,7 +4662,7 @@ export interface NullHypothesisIn {
      * @type {number}
      * @memberof NullHypothesisIn
      */
-    h0_value: number;
+    h0_value?: number;
     /**
      * p-value of the test, used with significance_level to determine significance.
      * @type {number}
