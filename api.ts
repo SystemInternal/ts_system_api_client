@@ -2539,6 +2539,49 @@ export interface DynamicFeatureStatisticsSimpleBase {
     max_series_length?: number;
 }
 /**
+ * Edge Typed Link model.
+ * @export
+ * @interface EdgeTypedLink
+ */
+export interface EdgeTypedLink {
+    /**
+     * 
+     * @type {string}
+     * @memberof EdgeTypedLink
+     */
+    source: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdgeTypedLink
+     */
+    target: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdgeTypedLink
+     */
+    edgeType: EdgeTypedLinkEdgeTypeEnum;
+    /**
+     * Query Count of a dataset relationship.
+     * @type {number}
+     * @memberof EdgeTypedLink
+     */
+    numQueries?: number;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum EdgeTypedLinkEdgeTypeEnum {
+    DatasetRelationship = 'dataset_relationship',
+    ConceptRelationship = 'concept_relationship',
+    VariableRelationship = 'variable_relationship',
+    FeatureRelationship = 'feature_relationship'
+}
+
+/**
  * An Enterprise Resource.
  * @export
  * @interface Enterprise
@@ -3260,6 +3303,25 @@ export interface Frequency {
      * @memberof Frequency
      */
     index?: Array<string>;
+}
+/**
+ * Graph Data model.
+ * @export
+ * @interface GraphData
+ */
+export interface GraphData {
+    /**
+     * Nodes of graph data.
+     * @type {Array<OjbectTypedNode>}
+     * @memberof GraphData
+     */
+    nodes: Array<OjbectTypedNode>;
+    /**
+     * Links of graph data.
+     * @type {Array<EdgeTypedLink>}
+     * @memberof GraphData
+     */
+    links: Array<EdgeTypedLink>;
 }
 /**
  * 
@@ -5096,6 +5158,43 @@ export interface ObjectTags {
      */
     variables?: Array<VariableOut>;
 }
+/**
+ * Object Typed Node model.
+ * @export
+ * @interface OjbectTypedNode
+ */
+export interface OjbectTypedNode {
+    /**
+     * 
+     * @type {string}
+     * @memberof OjbectTypedNode
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OjbectTypedNode
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OjbectTypedNode
+     */
+    objectType: OjbectTypedNodeObjectTypeEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum OjbectTypedNodeObjectTypeEnum {
+    Dataset = 'dataset',
+    Concept = 'concept',
+    Variable = 'variable',
+    Feature = 'feature'
+}
+
 /**
  * Partial dependence plot input.
  * @export
@@ -18641,6 +18740,122 @@ export class FeaturesApi extends BaseAPI {
      */
     public replaceFeatureV1FeaturesFeatureIdPut(requestParameters: FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest, options?: any) {
         return FeaturesApiFp(this.configuration).replaceFeatureV1FeaturesFeatureIdPut(requestParameters.featureId, requestParameters.featureIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * GraphApi - axios parameter creator
+ * @export
+ */
+export const GraphApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1GraphDatasetGraphGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/graph/dataset_graph`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * GraphApi - functional programming interface
+ * @export
+ */
+export const GraphApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDatasetGraphV1GraphDatasetGraphGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await GraphApiAxiosParamCreator(configuration).getDatasetGraphV1GraphDatasetGraphGet(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * GraphApi - factory interface
+ * @export
+ */
+export const GraphApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1GraphDatasetGraphGet(options?: any): AxiosPromise<GraphData> {
+            return GraphApiFp(configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * GraphApi - object-oriented interface
+ * @export
+ * @class GraphApi
+ * @extends {BaseAPI}
+ */
+export class GraphApi extends BaseAPI {
+    /**
+     * Fetch dataset graph.
+     * @summary Get Dataset Graph
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    public getDatasetGraphV1GraphDatasetGraphGet(options?: any) {
+        return GraphApiFp(this.configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
