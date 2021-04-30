@@ -2523,6 +2523,47 @@ export interface DynamicFeatureStatisticsSimpleBase {
     max_series_length?: number;
 }
 /**
+ * Edge Typed Link model.
+ * @export
+ * @interface EdgeTypedLink
+ */
+export interface EdgeTypedLink {
+    /**
+     *
+     * @type {string}
+     * @memberof EdgeTypedLink
+     */
+    source: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EdgeTypedLink
+     */
+    target: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EdgeTypedLink
+     */
+    edgeType: EdgeTypedLinkEdgeTypeEnum;
+    /**
+     * Query Count of a dataset relationship.
+     * @type {number}
+     * @memberof EdgeTypedLink
+     */
+    numQueries?: number;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum EdgeTypedLinkEdgeTypeEnum {
+    DatasetRelationship = "dataset_relationship",
+    ConceptRelationship = "concept_relationship",
+    VariableRelationship = "variable_relationship",
+    FeatureRelationship = "feature_relationship"
+}
+/**
  * An Enterprise Resource.
  * @export
  * @interface Enterprise
@@ -3238,6 +3279,25 @@ export interface Frequency {
      * @memberof Frequency
      */
     index?: Array<string>;
+}
+/**
+ * Graph Data model.
+ * @export
+ * @interface GraphData
+ */
+export interface GraphData {
+    /**
+     * Nodes of graph data.
+     * @type {Array<OjbectTypedNode>}
+     * @memberof GraphData
+     */
+    nodes: Array<OjbectTypedNode>;
+    /**
+     * Links of graph data.
+     * @type {Array<EdgeTypedLink>}
+     * @memberof GraphData
+     */
+    links: Array<EdgeTypedLink>;
 }
 /**
  *
@@ -5065,6 +5125,41 @@ export interface ObjectTags {
      * @memberof ObjectTags
      */
     variables?: Array<VariableOut>;
+}
+/**
+ * Object Typed Node model.
+ * @export
+ * @interface OjbectTypedNode
+ */
+export interface OjbectTypedNode {
+    /**
+     *
+     * @type {string}
+     * @memberof OjbectTypedNode
+     */
+    id: string;
+    /**
+     *
+     * @type {string}
+     * @memberof OjbectTypedNode
+     */
+    name: string;
+    /**
+     *
+     * @type {string}
+     * @memberof OjbectTypedNode
+     */
+    objectType: OjbectTypedNodeObjectTypeEnum;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum OjbectTypedNodeObjectTypeEnum {
+    Dataset = "dataset",
+    Concept = "concept",
+    Variable = "variable",
+    Feature = "feature"
 }
 /**
  * Partial dependence plot input.
@@ -13135,6 +13230,61 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     replaceFeatureV1FeaturesFeatureIdPut(requestParameters: FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
+}
+/**
+ * GraphApi - axios parameter creator
+ * @export
+ */
+export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Fetch dataset graph.
+     * @summary Get Dataset Graph
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDatasetGraphV1GraphDatasetGraphGet: (options?: any) => Promise<RequestArgs>;
+};
+/**
+ * GraphApi - functional programming interface
+ * @export
+ */
+export declare const GraphApiFp: (configuration?: Configuration) => {
+    /**
+     * Fetch dataset graph.
+     * @summary Get Dataset Graph
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDatasetGraphV1GraphDatasetGraphGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+};
+/**
+ * GraphApi - factory interface
+ * @export
+ */
+export declare const GraphApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Fetch dataset graph.
+     * @summary Get Dataset Graph
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDatasetGraphV1GraphDatasetGraphGet(options?: any): AxiosPromise<GraphData>;
+};
+/**
+ * GraphApi - object-oriented interface
+ * @export
+ * @class GraphApi
+ * @extends {BaseAPI}
+ */
+export declare class GraphApi extends BaseAPI {
+    /**
+     * Fetch dataset graph.
+     * @summary Get Dataset Graph
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getDatasetGraphV1GraphDatasetGraphGet(options?: any): Promise<import("axios").AxiosResponse<GraphData>>;
 }
 /**
  * ModeldbApi - axios parameter creator

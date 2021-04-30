@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeTypeEnum = exports.VariableOutPermissionsEnum = exports.TestDatasetTransformationTypeEnum = exports.TableStatusEnum = exports.StudyOutAddContextEnum = exports.StudyOutStudyTypeEnum = exports.StudyOutPermissionsEnum = exports.StudyInAddContextEnum = exports.StudyInStudyTypeEnum = exports.SignificanceValueOutGeneratedByEnum = exports.SignificanceValueInGeneratedByEnum = exports.ResourceCollectionElementTypeEnum = exports.RelationshipStrengthRelationshipTypeEnum = exports.RelationshipStrengthLevelEnum = exports.RelationshipReproducibilityLevelEnum = exports.RelationshipReproducibilityStudyTypeEnum = exports.RelationshipDirectionRelationshipTypeEnum = exports.RelationshipDirectionLevelEnum = exports.RelatedFilterValueFilterTypeEnum = exports.PopulationAttributeOutAttributeTypeEnum = exports.PopulationAttributeOutPermissionsEnum = exports.PopulationAttributeInAttributeTypeEnum = exports.PatchVariableOpOpEnum = exports.PatchStudyOpOpEnum = exports.PatchModelOpOpEnum = exports.PatchFeatureOpOpEnum = exports.PatchDatasetOpOpEnum = exports.PartialDependencePlotInGeneratedByEnum = exports.NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutPermissionsEnum = exports.NullHypothesisOutLevelEnum = exports.NullHypothesisOutTestTypeEnum = exports.NullHypothesisInLevelEnum = exports.NullHypothesisInTestTypeEnum = exports.ModelPerformanceOutScoreTypeEnum = exports.ModelPerformanceOutGeneratedByEnum = exports.ModelPerformanceInScoreTypeEnum = exports.ModelPerformanceInGeneratedByEnum = exports.ModelPerformanceBaseInScoreTypeEnum = exports.ModelPerformanceBaseInGeneratedByEnum = exports.ModelOutPermissionsEnum = exports.MessageOutMessageTypeEnum = exports.MessageInMessageTypeEnum = exports.LocationOutAttributeTypeEnum = exports.LocationOutPermissionsEnum = exports.IntegrationUpdateInStateEnum = exports.IntegrationCreateServiceTypeEnum = exports.IntegrationCreateStateEnum = exports.IntegrationPermissionsEnum = exports.IntegrationServiceTypeEnum = exports.IntegrationStateEnum = exports.FreeTextOutAttributeTypeEnum = exports.FreeTextOutPermissionsEnum = exports.FilterValueFilterTypeEnum = exports.FeatureStatisticsGeneratedByEnum = exports.FeatureStatisticsFeatureTypeEnum = exports.FeatureOutPermissionsEnum = exports.ExternalAssetExternalAssetTypeEnum = exports.EnterprisePermissionsEnum = exports.DeploymentStageEnum = exports.DateRangeOutAttributeTypeEnum = exports.DateRangeOutPermissionsEnum = exports.DatasetOutLicenseEnum = exports.DatasetOutPermissionsEnum = exports.DatasetInLicenseEnum = exports.ConfidenceIntervalOutLevelEnum = exports.ConfidenceIntervalInLevelEnum = exports.ConceptOutPermissionsEnum = exports.CategoryOutAttributeTypeEnum = exports.CategoryOutPermissionsEnum = exports.BulkPatchFeatureOpOpEnum = exports.BulkPatchAssociationOpOpEnum = exports.AuthorOutPermissionsEnum = exports.AssociationValueOutFeatureContributionMethodEnum = exports.AssociationValueOutGeneratedByEnum = exports.AssociationValueOutPermutationScoreTypeEnum = exports.AssociationValueInBaseFeatureContributionMethodEnum = exports.AssociationValueInBaseGeneratedByEnum = exports.AssociationValueInBasePermutationScoreTypeEnum = exports.AssociationValueInFeatureContributionMethodEnum = exports.AssociationValueInGeneratedByEnum = exports.AssociationValueInPermutationScoreTypeEnum = exports.AssociationOutPermissionsEnum = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeTypeEnum = exports.VariableOutPermissionsEnum = exports.TestDatasetTransformationTypeEnum = exports.TableStatusEnum = exports.StudyOutAddContextEnum = exports.StudyOutStudyTypeEnum = exports.StudyOutPermissionsEnum = exports.StudyInAddContextEnum = exports.StudyInStudyTypeEnum = exports.SignificanceValueOutGeneratedByEnum = exports.SignificanceValueInGeneratedByEnum = exports.ResourceCollectionElementTypeEnum = exports.RelationshipStrengthRelationshipTypeEnum = exports.RelationshipStrengthLevelEnum = exports.RelationshipReproducibilityLevelEnum = exports.RelationshipReproducibilityStudyTypeEnum = exports.RelationshipDirectionRelationshipTypeEnum = exports.RelationshipDirectionLevelEnum = exports.RelatedFilterValueFilterTypeEnum = exports.PopulationAttributeOutAttributeTypeEnum = exports.PopulationAttributeOutPermissionsEnum = exports.PopulationAttributeInAttributeTypeEnum = exports.PatchVariableOpOpEnum = exports.PatchStudyOpOpEnum = exports.PatchModelOpOpEnum = exports.PatchFeatureOpOpEnum = exports.PatchDatasetOpOpEnum = exports.PartialDependencePlotInGeneratedByEnum = exports.OjbectTypedNodeObjectTypeEnum = exports.NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutPermissionsEnum = exports.NullHypothesisOutLevelEnum = exports.NullHypothesisOutTestTypeEnum = exports.NullHypothesisInLevelEnum = exports.NullHypothesisInTestTypeEnum = exports.ModelPerformanceOutScoreTypeEnum = exports.ModelPerformanceOutGeneratedByEnum = exports.ModelPerformanceInScoreTypeEnum = exports.ModelPerformanceInGeneratedByEnum = exports.ModelPerformanceBaseInScoreTypeEnum = exports.ModelPerformanceBaseInGeneratedByEnum = exports.ModelOutPermissionsEnum = exports.MessageOutMessageTypeEnum = exports.MessageInMessageTypeEnum = exports.LocationOutAttributeTypeEnum = exports.LocationOutPermissionsEnum = exports.IntegrationUpdateInStateEnum = exports.IntegrationCreateServiceTypeEnum = exports.IntegrationCreateStateEnum = exports.IntegrationPermissionsEnum = exports.IntegrationServiceTypeEnum = exports.IntegrationStateEnum = exports.FreeTextOutAttributeTypeEnum = exports.FreeTextOutPermissionsEnum = exports.FilterValueFilterTypeEnum = exports.FeatureStatisticsGeneratedByEnum = exports.FeatureStatisticsFeatureTypeEnum = exports.FeatureOutPermissionsEnum = exports.ExternalAssetExternalAssetTypeEnum = exports.EnterprisePermissionsEnum = exports.EdgeTypedLinkEdgeTypeEnum = exports.DeploymentStageEnum = exports.DateRangeOutAttributeTypeEnum = exports.DateRangeOutPermissionsEnum = exports.DatasetOutLicenseEnum = exports.DatasetOutPermissionsEnum = exports.DatasetInLicenseEnum = exports.ConfidenceIntervalOutLevelEnum = exports.ConfidenceIntervalInLevelEnum = exports.ConceptOutPermissionsEnum = exports.CategoryOutAttributeTypeEnum = exports.CategoryOutPermissionsEnum = exports.BulkPatchFeatureOpOpEnum = exports.BulkPatchAssociationOpOpEnum = exports.AuthorOutPermissionsEnum = exports.AssociationValueOutFeatureContributionMethodEnum = exports.AssociationValueOutGeneratedByEnum = exports.AssociationValueOutPermutationScoreTypeEnum = exports.AssociationValueInBaseFeatureContributionMethodEnum = exports.AssociationValueInBaseGeneratedByEnum = exports.AssociationValueInBasePermutationScoreTypeEnum = exports.AssociationValueInFeatureContributionMethodEnum = exports.AssociationValueInGeneratedByEnum = exports.AssociationValueInPermutationScoreTypeEnum = exports.AssociationOutPermissionsEnum = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -560,6 +560,17 @@ var DeploymentStageEnum;
     * @export
     * @enum {string}
     */
+var EdgeTypedLinkEdgeTypeEnum;
+(function (EdgeTypedLinkEdgeTypeEnum) {
+    EdgeTypedLinkEdgeTypeEnum["DatasetRelationship"] = "dataset_relationship";
+    EdgeTypedLinkEdgeTypeEnum["ConceptRelationship"] = "concept_relationship";
+    EdgeTypedLinkEdgeTypeEnum["VariableRelationship"] = "variable_relationship";
+    EdgeTypedLinkEdgeTypeEnum["FeatureRelationship"] = "feature_relationship";
+})(EdgeTypedLinkEdgeTypeEnum = exports.EdgeTypedLinkEdgeTypeEnum || (exports.EdgeTypedLinkEdgeTypeEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
 var EnterprisePermissionsEnum;
 (function (EnterprisePermissionsEnum) {
     EnterprisePermissionsEnum["Create"] = "create";
@@ -1082,6 +1093,17 @@ var NumberRangeOutAttributeTypeEnum;
     NumberRangeOutAttributeTypeEnum["FreeText"] = "free_text";
     NumberRangeOutAttributeTypeEnum["Location"] = "location";
 })(NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutAttributeTypeEnum || (exports.NumberRangeOutAttributeTypeEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var OjbectTypedNodeObjectTypeEnum;
+(function (OjbectTypedNodeObjectTypeEnum) {
+    OjbectTypedNodeObjectTypeEnum["Dataset"] = "dataset";
+    OjbectTypedNodeObjectTypeEnum["Concept"] = "concept";
+    OjbectTypedNodeObjectTypeEnum["Variable"] = "variable";
+    OjbectTypedNodeObjectTypeEnum["Feature"] = "feature";
+})(OjbectTypedNodeObjectTypeEnum = exports.OjbectTypedNodeObjectTypeEnum || (exports.OjbectTypedNodeObjectTypeEnum = {}));
 /**
     * @export
     * @enum {string}
@@ -9147,6 +9169,114 @@ class FeaturesApi extends base_1.BaseAPI {
     }
 }
 exports.FeaturesApi = FeaturesApi;
+/**
+ * GraphApi - axios parameter creator
+ * @export
+ */
+exports.GraphApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1GraphDatasetGraphGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/graph/dataset_graph`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * GraphApi - functional programming interface
+ * @export
+ */
+exports.GraphApiFp = function (configuration) {
+    return {
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1GraphDatasetGraphGet(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getDatasetGraphV1GraphDatasetGraphGet(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * GraphApi - factory interface
+ * @export
+ */
+exports.GraphApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1GraphDatasetGraphGet(options) {
+            return exports.GraphApiFp(configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * GraphApi - object-oriented interface
+ * @export
+ * @class GraphApi
+ * @extends {BaseAPI}
+ */
+class GraphApi extends base_1.BaseAPI {
+    /**
+     * Fetch dataset graph.
+     * @summary Get Dataset Graph
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getDatasetGraphV1GraphDatasetGraphGet(options) {
+        return exports.GraphApiFp(this.configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.GraphApi = GraphApi;
 /**
  * ModeldbApi - axios parameter creator
  * @export
