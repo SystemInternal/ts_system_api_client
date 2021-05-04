@@ -59,6 +59,44 @@ export interface AlgorithmOut {
     description: string;
 }
 /**
+ * Object tag model.
+ * @export
+ * @interface AppSchemaDatasetsObjectTags
+ */
+export interface AppSchemaDatasetsObjectTags {
+    /**
+     * 
+     * @type {Array<ConceptOut>}
+     * @memberof AppSchemaDatasetsObjectTags
+     */
+    concepts?: Array<ConceptOut>;
+    /**
+     * 
+     * @type {Array<VariableOut>}
+     * @memberof AppSchemaDatasetsObjectTags
+     */
+    variables?: Array<VariableOut>;
+}
+/**
+ * Object tag model.
+ * @export
+ * @interface AppSchemaStudiesObjectTags
+ */
+export interface AppSchemaStudiesObjectTags {
+    /**
+     * 
+     * @type {Array<ConceptOut>}
+     * @memberof AppSchemaStudiesObjectTags
+     */
+    concepts?: Array<ConceptOut>;
+    /**
+     * 
+     * @type {Array<VariableOut>}
+     * @memberof AppSchemaStudiesObjectTags
+     */
+    variables?: Array<VariableOut>;
+}
+/**
  * Values available for filtering associations.
  * @export
  * @interface AssociationFilters
@@ -2165,6 +2203,12 @@ export interface DatasetOut {
      * @memberof DatasetOut
      */
     model_count?: number;
+    /**
+     * Object\'s tagged to this study.
+     * @type {AppSchemaDatasetsObjectTags}
+     * @memberof DatasetOut
+     */
+    object_tags?: AppSchemaDatasetsObjectTags;
 }
 
 /**
@@ -2538,6 +2582,49 @@ export interface DynamicFeatureStatisticsSimpleBase {
      */
     max_series_length?: number;
 }
+/**
+ * Edge Typed Link model.
+ * @export
+ * @interface EdgeTypedLink
+ */
+export interface EdgeTypedLink {
+    /**
+     * 
+     * @type {string}
+     * @memberof EdgeTypedLink
+     */
+    source: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdgeTypedLink
+     */
+    target: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EdgeTypedLink
+     */
+    edgeType: EdgeTypedLinkEdgeTypeEnum;
+    /**
+     * Query Count of a dataset relationship.
+     * @type {number}
+     * @memberof EdgeTypedLink
+     */
+    numQueries?: number;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum EdgeTypedLinkEdgeTypeEnum {
+    DatasetRelationship = 'dataset_relationship',
+    ConceptRelationship = 'concept_relationship',
+    VariableRelationship = 'variable_relationship',
+    FeatureRelationship = 'feature_relationship'
+}
+
 /**
  * An Enterprise Resource.
  * @export
@@ -3260,6 +3347,25 @@ export interface Frequency {
      * @memberof Frequency
      */
     index?: Array<string>;
+}
+/**
+ * Graph Data model.
+ * @export
+ * @interface GraphData
+ */
+export interface GraphData {
+    /**
+     * Nodes of graph data.
+     * @type {Array<OjbectTypedNode>}
+     * @memberof GraphData
+     */
+    nodes: Array<OjbectTypedNode>;
+    /**
+     * Links of graph data.
+     * @type {Array<EdgeTypedLink>}
+     * @memberof GraphData
+     */
+    links: Array<EdgeTypedLink>;
 }
 /**
  * 
@@ -5078,24 +5184,42 @@ export interface NumericalFeatureStatisticsSimpleBase {
     percent_missing?: number;
 }
 /**
- * Object tag model.
+ * Object Typed Node model.
  * @export
- * @interface ObjectTags
+ * @interface OjbectTypedNode
  */
-export interface ObjectTags {
+export interface OjbectTypedNode {
     /**
      * 
-     * @type {Array<ConceptOut>}
-     * @memberof ObjectTags
+     * @type {string}
+     * @memberof OjbectTypedNode
      */
-    concepts?: Array<ConceptOut>;
+    id: string;
     /**
      * 
-     * @type {Array<VariableOut>}
-     * @memberof ObjectTags
+     * @type {string}
+     * @memberof OjbectTypedNode
      */
-    variables?: Array<VariableOut>;
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OjbectTypedNode
+     */
+    objectType: OjbectTypedNodeObjectTypeEnum;
 }
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum OjbectTypedNodeObjectTypeEnum {
+    Dataset = 'dataset',
+    Concept = 'concept',
+    Variable = 'variable',
+    Feature = 'feature'
+}
+
 /**
  * Partial dependence plot input.
  * @export
@@ -6474,10 +6598,10 @@ export interface StudyOut {
     subgraph_id?: string;
     /**
      * Object\'s tagged to this study.
-     * @type {ObjectTags}
+     * @type {AppSchemaStudiesObjectTags}
      * @memberof StudyOut
      */
-    object_tags?: ObjectTags;
+    object_tags?: AppSchemaStudiesObjectTags;
     /**
      * Authors of the study.
      * @type {Array<AuthorOut>}
@@ -12843,10 +12967,12 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -12908,6 +13034,14 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
             }
 
 
@@ -13039,10 +13173,12 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetParentsV1DatasetsDatasetIdParentsGet: async (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+        listDatasetParentsV1DatasetsDatasetIdParentsGet: async (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling listDatasetParentsV1DatasetsDatasetIdParentsGet.');
@@ -13111,6 +13247,14 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['sort_by'] = sortBy;
             }
 
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
 
     
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
@@ -13136,12 +13280,14 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetsV1DatasetsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options: any = {}): Promise<RequestArgs> => {
+        listDatasetsV1DatasetsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13203,6 +13349,14 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
             }
 
             if (variableRelationship !== undefined) {
@@ -13342,10 +13496,12 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+        listUserDatasetsV1UsersUserIdDatasetsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserDatasetsV1UsersUserIdDatasetsGet.');
@@ -13412,6 +13568,14 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
             }
 
 
@@ -13509,6 +13673,65 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             const localVarPath = `/v1/datasets/{dataset_id}/features/{feature_id}`
                 .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)))
                 .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Tag the dataset with object with provided id.
+         * @summary Remove Object Tag From Dataset
+         * @param {string} datasetId 
+         * @param {string} tagObjectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete: async (datasetId: string, tagObjectId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete.');
+            }
+            // verify required parameter 'tagObjectId' is not null or undefined
+            if (tagObjectId === null || tagObjectId === undefined) {
+                throw new RequiredError('tagObjectId','Required parameter tagObjectId was null or undefined when calling removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/object_tags/{tag_object_id}`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)))
+                .replace(`{${"tag_object_id"}}`, encodeURIComponent(String(tagObjectId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -13728,6 +13951,65 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Tag the dataset with object with provided id.
+         * @summary Tag Study With Object
+         * @param {string} datasetId 
+         * @param {string} tagObjectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut: async (datasetId: string, tagObjectId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut.');
+            }
+            // verify required parameter 'tagObjectId' is not null or undefined
+            if (tagObjectId === null || tagObjectId === undefined) {
+                throw new RequiredError('tagObjectId','Required parameter tagObjectId was null or undefined when calling tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/object_tags/{tag_object_id}`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)))
+                .replace(`{${"tag_object_id"}}`, encodeURIComponent(String(tagObjectId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -13907,11 +14189,13 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+        async listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13954,11 +14238,13 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+        async listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -13976,13 +14262,15 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, featureRelationship, options);
+        async listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14025,11 +14313,13 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+        async listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14060,6 +14350,21 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          */
         async removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Tag the dataset with object with provided id.
+         * @summary Remove Object Tag From Dataset
+         * @param {string} datasetId 
+         * @param {string} tagObjectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId, tagObjectId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14105,6 +14410,21 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          */
         async replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>> {
             const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Tag the dataset with object with provided id.
+         * @summary Tag Study With Object
+         * @param {string} datasetId 
+         * @param {string} tagObjectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId, tagObjectId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -14249,11 +14569,13 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
-            return DatasetsApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return DatasetsApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
@@ -14288,11 +14610,13 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
-            return DatasetsApiFp(configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return DatasetsApiFp(configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all Datasets.
@@ -14306,13 +14630,15 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
          * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
-            return DatasetsApiFp(configuration).listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
+        listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return DatasetsApiFp(configuration).listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models that use the dataset either directly or through child datasets.
@@ -14347,11 +14673,13 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
-            return DatasetsApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return DatasetsApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Dataset resource with partial update.
@@ -14374,6 +14702,17 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          */
         removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): AxiosPromise<void> {
             return DatasetsApiFp(configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Tag the dataset with object with provided id.
+         * @summary Remove Object Tag From Dataset
+         * @param {string} datasetId 
+         * @param {string} tagObjectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId: string, tagObjectId: string, options?: any): AxiosPromise<void> {
+            return DatasetsApiFp(configuration).removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId, tagObjectId, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a parent dataset.
@@ -14407,6 +14746,17 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          */
         replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options?: any): AxiosPromise<DatasetOut> {
             return DatasetsApiFp(configuration).replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Tag the dataset with object with provided id.
+         * @summary Tag Study With Object
+         * @param {string} datasetId 
+         * @param {string} tagObjectId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId: string, tagObjectId: string, options?: any): AxiosPromise<void> {
+            return DatasetsApiFp(configuration).tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId, tagObjectId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -14745,6 +15095,20 @@ export interface DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetReques
      * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly conceptTag?: string
 }
 
 /**
@@ -14906,6 +15270,20 @@ export interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetReque
      * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly conceptTag?: string
 }
 
 /**
@@ -14976,6 +15354,20 @@ export interface DatasetsApiListDatasetsV1DatasetsGetRequest {
      * @memberof DatasetsApiListDatasetsV1DatasetsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof DatasetsApiListDatasetsV1DatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof DatasetsApiListDatasetsV1DatasetsGet
+     */
+    readonly conceptTag?: string
 
     /**
      * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
@@ -15151,6 +15543,20 @@ export interface DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly conceptTag?: string
 }
 
 /**
@@ -15193,6 +15599,27 @@ export interface DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesF
      * @memberof DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
      */
     readonly featureId: string
+}
+
+/**
+ * Request parameters for removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest
+ */
+export interface DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete
+     */
+    readonly datasetId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete
+     */
+    readonly tagObjectId: string
 }
 
 /**
@@ -15256,6 +15683,27 @@ export interface DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest {
      * @memberof DatasetsApiReplaceDatasetV1DatasetsDatasetIdPut
      */
     readonly datasetIn: DatasetIn
+}
+
+/**
+ * Request parameters for tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPutRequest
+ */
+export interface DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPutRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut
+     */
+    readonly datasetId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut
+     */
+    readonly tagObjectId: string
 }
 
 /**
@@ -15394,7 +15842,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters: DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest = {}, options?: any) {
-        return DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15418,7 +15866,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters: DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest, options?: any) {
-        return DatasetsApiFp(this.configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15430,7 +15878,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public listDatasetsV1DatasetsGet(requestParameters: DatasetsApiListDatasetsV1DatasetsGetRequest = {}, options?: any) {
-        return DatasetsApiFp(this.configuration).listDatasetsV1DatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listDatasetsV1DatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15454,7 +15902,7 @@ export class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     public listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters: DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest, options?: any) {
-        return DatasetsApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15479,6 +15927,18 @@ export class DatasetsApi extends BaseAPI {
      */
     public removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters: DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest, options?: any) {
         return DatasetsApiFp(this.configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters.datasetId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Tag the dataset with object with provided id.
+     * @summary Remove Object Tag From Dataset
+     * @param {DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    public removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(requestParameters: DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest, options?: any) {
+        return DatasetsApiFp(this.configuration).removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(requestParameters.datasetId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15515,6 +15975,18 @@ export class DatasetsApi extends BaseAPI {
      */
     public replaceDatasetV1DatasetsDatasetIdPut(requestParameters: DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest, options?: any) {
         return DatasetsApiFp(this.configuration).replaceDatasetV1DatasetsDatasetIdPut(requestParameters.datasetId, requestParameters.datasetIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Tag the dataset with object with provided id.
+     * @summary Tag Study With Object
+     * @param {DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    public tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(requestParameters: DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPutRequest, options?: any) {
+        return DatasetsApiFp(this.configuration).tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(requestParameters.datasetId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -18641,6 +19113,122 @@ export class FeaturesApi extends BaseAPI {
      */
     public replaceFeatureV1FeaturesFeatureIdPut(requestParameters: FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest, options?: any) {
         return FeaturesApiFp(this.configuration).replaceFeatureV1FeaturesFeatureIdPut(requestParameters.featureId, requestParameters.featureIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * GraphApi - axios parameter creator
+ * @export
+ */
+export const GraphApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1GraphDatasetGraphGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/graph/dataset_graph`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * GraphApi - functional programming interface
+ * @export
+ */
+export const GraphApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDatasetGraphV1GraphDatasetGraphGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await GraphApiAxiosParamCreator(configuration).getDatasetGraphV1GraphDatasetGraphGet(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * GraphApi - factory interface
+ * @export
+ */
+export const GraphApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1GraphDatasetGraphGet(options?: any): AxiosPromise<GraphData> {
+            return GraphApiFp(configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * GraphApi - object-oriented interface
+ * @export
+ * @class GraphApi
+ * @extends {BaseAPI}
+ */
+export class GraphApi extends BaseAPI {
+    /**
+     * Fetch dataset graph.
+     * @summary Get Dataset Graph
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    public getDatasetGraphV1GraphDatasetGraphGet(options?: any) {
+        return GraphApiFp(this.configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -27002,10 +27590,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -27067,6 +27657,14 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
             }
 
 
@@ -27591,10 +28189,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options: any = {}): Promise<RequestArgs> => {
+        listUserDatasetsV1UsersUserIdDatasetsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new RequiredError('userId','Required parameter userId was null or undefined when calling listUserDatasetsV1UsersUserIdDatasetsGet.');
@@ -27661,6 +28261,14 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
             }
 
 
@@ -28261,11 +28869,13 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+        async listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -28401,11 +29011,13 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+        async listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -28614,11 +29226,13 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
-            return UsersApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return UsersApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s features.
@@ -28730,11 +29344,13 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
-            return UsersApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return UsersApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s features.
@@ -29115,6 +29731,20 @@ export interface UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest {
      * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly conceptTag?: string
 }
 
 /**
@@ -29591,6 +30221,20 @@ export interface UsersApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
     readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly conceptTag?: string
 }
 
 /**
@@ -30026,7 +30670,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters: UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest = {}, options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30098,7 +30742,7 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters: UsersApiListUserDatasetsV1UsersUserIdDatasetsGetRequest, options?: any) {
-        return UsersApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
