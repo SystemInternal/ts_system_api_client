@@ -13838,6 +13838,24 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      */
     listAuthenticatedUserModelsV1UserModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get models in a project.
+     * @summary List Models In Study
+     * @param {string} studyId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * List Models.
      * @summary List Models
      * @param {string} [query] Search query.
@@ -14004,6 +14022,24 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      */
     listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
+     * Get models in a project.
+     * @summary List Models In Study
+     * @param {string} studyId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    /**
      * List Models.
      * @summary List Models
      * @param {string} [query] Search query.
@@ -14169,6 +14205,24 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    /**
+     * Get models in a project.
+     * @summary List Models In Study
+     * @param {string} studyId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List Models.
      * @summary List Models
@@ -14506,6 +14560,79 @@ export interface ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest {
     readonly containsVariableId?: string;
 }
 /**
+ * Request parameters for listModelsInStudyV1StudiesStudyIdModelsGet operation in ModelsApi.
+ * @export
+ * @interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest
+ */
+export interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly studyId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Order by this field.
+     * @type {'target_name' | 'created_at' | 'last_updated_at'}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at';
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly ordering?: 'asc' | 'desc';
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly containsVariableId?: string;
+}
+/**
  * Request parameters for listModelsV1ModelsGet operation in ModelsApi.
  * @export
  * @interface ModelsApiListModelsV1ModelsGetRequest
@@ -14790,6 +14917,15 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     listAuthenticatedUserModelsV1UserModelsGet(requestParameters?: ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
+    /**
+     * Get models in a project.
+     * @summary List Models In Study
+     * @param {ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModelsApi
+     */
+    listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters: ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
     /**
      * List Models.
      * @summary List Models
@@ -15794,6 +15930,24 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     listAuthorsV1StudiesStudyIdAuthorsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get models in a project.
+     * @summary List Models In Study
+     * @param {string} studyId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
@@ -15979,6 +16133,24 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
     /**
+     * Get models in a project.
+     * @summary List Models In Study
+     * @param {string} studyId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
@@ -16163,6 +16335,24 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
+    /**
+     * Get models in a project.
+     * @summary List Models In Study
+     * @param {string} studyId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List Studies.
      * @summary List Studies
@@ -16544,6 +16734,79 @@ export interface StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest {
     readonly sortBy?: string;
 }
 /**
+ * Request parameters for listModelsInStudyV1StudiesStudyIdModelsGet operation in StudiesApi.
+ * @export
+ * @interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest
+ */
+export interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly studyId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Order by this field.
+     * @type {'target_name' | 'created_at' | 'last_updated_at'}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at';
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly ordering?: 'asc' | 'desc';
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly containsVariableId?: string;
+}
+/**
  * Request parameters for listStudiesV1StudiesGet operation in StudiesApi.
  * @export
  * @interface StudiesApiListStudiesV1StudiesGetRequest
@@ -16875,6 +17138,15 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters: StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
+    /**
+     * Get models in a project.
+     * @summary List Models In Study
+     * @param {StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters: StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
     /**
      * List Studies.
      * @summary List Studies
