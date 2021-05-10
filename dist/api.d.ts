@@ -1153,6 +1153,19 @@ export interface BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete {
     ids: Array<string>;
 }
 /**
+ *
+ * @export
+ * @interface BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+ */
+export interface BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    ids: Array<string>;
+}
+/**
  * Patch a `Association` with provided data.
  * @export
  * @interface BulkPatchAssociationOp
@@ -7537,6 +7550,15 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
     /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {string} datasetId
+     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
+    /**
      * Get an Association.
      * @summary Get Association
      * @param {string} associationId
@@ -7738,6 +7760,15 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {string} datasetId
+     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Get an Association.
      * @summary Get Association
      * @param {string} associationId
@@ -7938,6 +7969,15 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): AxiosPromise<void>;
+    /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {string} datasetId
+     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -8178,6 +8218,25 @@ export interface AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDel
      * @memberof AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
      */
     readonly bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete;
+}
+/**
+ * Request parameters for deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest
+ */
+export interface AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    readonly datasetId: string;
+    /**
+     *
+     * @type {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete}
+     * @memberof AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    readonly bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete;
 }
 /**
  * Request parameters for getAssociationV1ModelsModelIdAssociationsAssociationIdGet operation in AssociationsApi.
@@ -8785,6 +8844,15 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters: AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters: AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -10054,6 +10122,15 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     deleteDatasetV1DatasetsDatasetIdDelete: (datasetId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {string} datasetId
+     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
+    /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
@@ -10333,6 +10410,15 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {string} datasetId
+     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
@@ -10611,6 +10697,15 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {string} datasetId
+     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
@@ -10954,6 +11049,25 @@ export interface DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest {
      * @memberof DatasetsApiDeleteDatasetV1DatasetsDatasetIdDelete
      */
     readonly datasetId: string;
+}
+/**
+ * Request parameters for deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest
+ */
+export interface DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    readonly datasetId: string;
+    /**
+     *
+     * @type {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete}
+     * @memberof DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    readonly bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete;
 }
 /**
  * Request parameters for fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet operation in DatasetsApi.
@@ -11725,6 +11839,15 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     deleteDatasetV1DatasetsDatasetIdDelete(requestParameters: DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters: DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values

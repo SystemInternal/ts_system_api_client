@@ -1653,6 +1653,61 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete.');
+            }
+            // verify required parameter 'bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete' is not null or undefined
+            if (bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete === null || bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete === undefined) {
+                throw new base_1.RequiredError('bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete', 'Required parameter bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete was null or undefined when calling deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/associations`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete !== undefined ? bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete : {}) : (bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get an Association.
          * @summary Get Association
          * @param {string} associationId
@@ -2531,6 +2586,23 @@ exports.AssociationsApiFp = function (configuration) {
             });
         },
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get an Association.
          * @summary Get Association
          * @param {string} associationId
@@ -2830,6 +2902,17 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
             return exports.AssociationsApiFp(configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options) {
+            return exports.AssociationsApiFp(configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get an Association.
          * @summary Get Association
          * @param {string} associationId
@@ -3061,6 +3144,17 @@ class AssociationsApi extends base_1.BaseAPI {
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters, options) {
         return exports.AssociationsApiFp(this.configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters.modelId, requestParameters.bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters, options) {
+        return exports.AssociationsApiFp(this.configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters.datasetId, requestParameters.bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get an Association.
@@ -5025,6 +5119,61 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete.');
+            }
+            // verify required parameter 'bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete' is not null or undefined
+            if (bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete === null || bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete === undefined) {
+                throw new base_1.RequiredError('bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete', 'Required parameter bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete was null or undefined when calling deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/associations`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete !== undefined ? bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete : {}) : (bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId
@@ -6246,6 +6395,23 @@ exports.DatasetsApiFp = function (configuration) {
             });
         },
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId
@@ -6669,6 +6835,17 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
             return exports.DatasetsApiFp(configuration).deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options) {
+            return exports.DatasetsApiFp(configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId
@@ -6995,6 +7172,17 @@ class DatasetsApi extends base_1.BaseAPI {
      */
     deleteDatasetV1DatasetsDatasetIdDelete(requestParameters, options) {
         return exports.DatasetsApiFp(this.configuration).deleteDatasetV1DatasetsDatasetIdDelete(requestParameters.datasetId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters, options) {
+        return exports.DatasetsApiFp(this.configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters.datasetId, requestParameters.bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch all population attribute values of the dataset.
