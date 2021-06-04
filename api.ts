@@ -1167,6 +1167,19 @@ export interface BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete {
     ids: Array<string>;
 }
 /**
+ * 
+ * @export
+ * @interface BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+ */
+export interface BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    ids: Array<string>;
+}
+/**
  * Patch a `Association` with provided data.
  * @export
  * @interface BulkPatchAssociationOp
@@ -7808,6 +7821,68 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId 
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: async (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete.');
+            }
+            // verify required parameter 'bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete' is not null or undefined
+            if (bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete === null || bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete === undefined) {
+                throw new RequiredError('bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete','Required parameter bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete was null or undefined when calling deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/associations`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete !== undefined ? bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete : {}) : (bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get an Association.
          * @summary Get Association
          * @param {string} associationId 
@@ -8815,6 +8890,21 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId 
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await AssociationsApiAxiosParamCreator(configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get an Association.
          * @summary Get Association
          * @param {string} associationId 
@@ -9093,6 +9183,17 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
             return AssociationsApiFp(configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId 
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void> {
+            return AssociationsApiFp(configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get an Association.
          * @summary Get Association
          * @param {string} associationId 
@@ -9364,6 +9465,27 @@ export interface AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDel
      * @memberof AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
      */
     readonly bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+}
+
+/**
+ * Request parameters for deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest
+ */
+export interface AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    readonly datasetId: string
+
+    /**
+     * 
+     * @type {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete}
+     * @memberof AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    readonly bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
 }
 
 /**
@@ -10063,6 +10185,18 @@ export class AssociationsApi extends BaseAPI {
      */
     public deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters: AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest, options?: any) {
         return AssociationsApiFp(this.configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters.modelId, requestParameters.bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters: AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest, options?: any) {
+        return AssociationsApiFp(this.configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters.datasetId, requestParameters.bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -12742,6 +12876,68 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId 
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: async (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'datasetId' is not null or undefined
+            if (datasetId === null || datasetId === undefined) {
+                throw new RequiredError('datasetId','Required parameter datasetId was null or undefined when calling deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete.');
+            }
+            // verify required parameter 'bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete' is not null or undefined
+            if (bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete === null || bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete === undefined) {
+                throw new RequiredError('bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete','Required parameter bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete was null or undefined when calling deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete.');
+            }
+            const localVarPath = `/v1/datasets/{dataset_id}/associations`
+                .replace(`{${"dataset_id"}}`, encodeURIComponent(String(datasetId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete !== undefined ? bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete : {}) : (bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId 
@@ -14125,6 +14321,21 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId 
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await DatasetsApiAxiosParamCreator(configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId 
@@ -14517,6 +14728,17 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
             return DatasetsApiFp(configuration).deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete multiple Associations in a Model.
+         * @summary Delete Interaction Associations
+         * @param {string} datasetId 
+         * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void> {
+            return DatasetsApiFp(configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId 
@@ -14906,6 +15128,27 @@ export interface DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest {
      * @memberof DatasetsApiDeleteDatasetV1DatasetsDatasetIdDelete
      */
     readonly datasetId: string
+}
+
+/**
+ * Request parameters for deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest
+ */
+export interface DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    readonly datasetId: string
+
+    /**
+     * 
+     * @type {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete}
+     * @memberof DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    readonly bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
 }
 
 /**
@@ -15795,6 +16038,18 @@ export class DatasetsApi extends BaseAPI {
      */
     public deleteDatasetV1DatasetsDatasetIdDelete(requestParameters: DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest, options?: any) {
         return DatasetsApiFp(this.configuration).deleteDatasetV1DatasetsDatasetIdDelete(requestParameters.datasetId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete multiple Associations in a Model.
+     * @summary Delete Interaction Associations
+     * @param {DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    public deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters: DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest, options?: any) {
+        return DatasetsApiFp(this.configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters.datasetId, requestParameters.bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -20101,6 +20356,109 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
+         * Get models in a project.
+         * @summary List Models In Study
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listModelsInStudyV1StudiesStudyIdModelsGet: async (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new RequiredError('studyId','Required parameter studyId was null or undefined when calling listModelsInStudyV1StudiesStudyIdModelsGet.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/models`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List Models.
          * @summary List Models
          * @param {string} [query] Search query.
@@ -20648,6 +21006,30 @@ export const ModelsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get models in a project.
+         * @summary List Models In Study
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await ModelsApiAxiosParamCreator(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * List Models.
          * @summary List Models
          * @param {string} [query] Search query.
@@ -20863,6 +21245,26 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          */
         listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
             return ModelsApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get models in a project.
+         * @summary List Models In Study
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return ModelsApiFp(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List Models.
@@ -21248,6 +21650,90 @@ export interface ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest {
 }
 
 /**
+ * Request parameters for listModelsInStudyV1StudiesStudyIdModelsGet operation in ModelsApi.
+ * @export
+ * @interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest
+ */
+export interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly studyId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Order by this field.
+     * @type {'target_name' | 'created_at' | 'last_updated_at'}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at'
+
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly ordering?: 'asc' | 'desc'
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly containsVariableId?: string
+}
+
+/**
  * Request parameters for listModelsV1ModelsGet operation in ModelsApi.
  * @export
  * @interface ModelsApiListModelsV1ModelsGetRequest
@@ -21584,6 +22070,18 @@ export class ModelsApi extends BaseAPI {
      */
     public listAuthenticatedUserModelsV1UserModelsGet(requestParameters: ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest = {}, options?: any) {
         return ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get models in a project.
+     * @summary List Models In Study
+     * @param {ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModelsApi
+     */
+    public listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters: ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest, options?: any) {
+        return ModelsApiFp(this.configuration).listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23953,6 +24451,109 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Get models in a project.
+         * @summary List Models In Study
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listModelsInStudyV1StudiesStudyIdModelsGet: async (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'studyId' is not null or undefined
+            if (studyId === null || studyId === undefined) {
+                throw new RequiredError('studyId','Required parameter studyId was null or undefined when calling listModelsInStudyV1StudiesStudyIdModelsGet.');
+            }
+            const localVarPath = `/v1/studies/{study_id}/models`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List Studies.
          * @summary List Studies
          * @param {string} [query] Search query.
@@ -24618,6 +25219,30 @@ export const StudiesApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get models in a project.
+         * @summary List Models In Study
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await StudiesApiAxiosParamCreator(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * List Studies.
          * @summary List Studies
          * @param {string} [query] Search query.
@@ -24862,6 +25487,26 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          */
         listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut> {
             return StudiesApiFp(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get models in a project.
+         * @summary List Models In Study
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return StudiesApiFp(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List Studies.
@@ -25300,6 +25945,90 @@ export interface StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest {
 }
 
 /**
+ * Request parameters for listModelsInStudyV1StudiesStudyIdModelsGet operation in StudiesApi.
+ * @export
+ * @interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest
+ */
+export interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly studyId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Order by this field.
+     * @type {'target_name' | 'created_at' | 'last_updated_at'}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at'
+
+    /**
+     * Order ascending or descending.
+     * @type {'asc' | 'desc'}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly ordering?: 'asc' | 'desc'
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly containsVariableId?: string
+}
+
+/**
  * Request parameters for listStudiesV1StudiesGet operation in StudiesApi.
  * @export
  * @interface StudiesApiListStudiesV1StudiesGetRequest
@@ -25687,6 +26416,18 @@ export class StudiesApi extends BaseAPI {
      */
     public listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters: StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest, options?: any) {
         return StudiesApiFp(this.configuration).listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get models in a project.
+     * @summary List Models In Study
+     * @param {StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    public listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters: StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest, options?: any) {
+        return StudiesApiFp(this.configuration).listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
