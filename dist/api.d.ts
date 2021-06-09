@@ -321,6 +321,12 @@ export interface AssociationPaginationOut {
      */
     items?: Array<AssociationOut>;
     /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof AssociationPaginationOut
+     */
+    ids?: Array<string>;
+    /**
      * Total number of results available.
      * @type {number}
      * @memberof AssociationPaginationOut
@@ -1083,6 +1089,12 @@ export interface AuthorPaginationOut {
      */
     items?: Array<AuthorOut>;
     /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof AuthorPaginationOut
+     */
+    ids?: Array<string>;
+    /**
      * Total number of results available.
      * @type {number}
      * @memberof AuthorPaginationOut
@@ -1668,6 +1680,12 @@ export interface ConceptPaginationOut {
      */
     items?: Array<ConceptOut>;
     /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof ConceptPaginationOut
+     */
+    ids?: Array<string>;
+    /**
      * Total number of results available.
      * @type {number}
      * @memberof ConceptPaginationOut
@@ -2252,6 +2270,12 @@ export interface DatasetPaginationOut {
      * @memberof DatasetPaginationOut
      */
     items?: Array<DatasetOut>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof DatasetPaginationOut
+     */
+    ids?: Array<string>;
     /**
      * Total number of results available.
      * @type {number}
@@ -2928,6 +2952,12 @@ export interface FeaturePaginationOut {
      */
     items?: Array<FeatureOut>;
     /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof FeaturePaginationOut
+     */
+    ids?: Array<string>;
+    /**
      * Total number of results available.
      * @type {number}
      * @memberof FeaturePaginationOut
@@ -3035,6 +3065,12 @@ export interface FeatureSystemOfFeaturesPaginationOut {
      * @memberof FeatureSystemOfFeaturesPaginationOut
      */
     items?: Array<FeatureOut>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof FeatureSystemOfFeaturesPaginationOut
+     */
+    ids?: Array<string>;
     /**
      * Total number of results available.
      * @type {number}
@@ -4273,6 +4309,12 @@ export interface ModelPaginationOut {
      * @memberof ModelPaginationOut
      */
     items?: Array<ModelOut>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof ModelPaginationOut
+     */
+    ids?: Array<string>;
     /**
      * Total number of results available.
      * @type {number}
@@ -5639,6 +5681,12 @@ export interface PopulationAttributePaginationOut {
      */
     items?: Array<PopulationAttributeOut>;
     /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof PopulationAttributePaginationOut
+     */
+    ids?: Array<string>;
+    /**
      * Total number of results available.
      * @type {number}
      * @memberof PopulationAttributePaginationOut
@@ -5688,6 +5736,12 @@ export interface PopulationAttributeValuePaginationOut {
      * @memberof PopulationAttributeValuePaginationOut
      */
     items?: Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof PopulationAttributeValuePaginationOut
+     */
+    ids?: Array<string>;
     /**
      * Total number of results available.
      * @type {number}
@@ -6612,6 +6666,12 @@ export interface StudyPaginationOut {
      */
     items?: Array<StudyOut>;
     /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof StudyPaginationOut
+     */
+    ids?: Array<string>;
+    /**
      * Total number of results available.
      * @type {number}
      * @memberof StudyPaginationOut
@@ -6642,6 +6702,12 @@ export interface SystemOfConceptsPaginationOut {
      * @memberof SystemOfConceptsPaginationOut
      */
     items?: Array<ConceptOut>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof SystemOfConceptsPaginationOut
+     */
+    ids?: Array<string>;
     /**
      * Total number of results available.
      * @type {number}
@@ -6935,6 +7001,12 @@ export interface TimelinePaginationOut {
      * @memberof TimelinePaginationOut
      */
     items?: Array<ResourceCollectionElement>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof TimelinePaginationOut
+     */
+    ids?: Array<string>;
     /**
      * Total number of results available.
      * @type {number}
@@ -7362,6 +7434,12 @@ export interface VariablePaginationOut {
      */
     items?: Array<VariableOut>;
     /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof VariablePaginationOut
+     */
+    ids?: Array<string>;
+    /**
      * Total number of results available.
      * @type {number}
      * @memberof VariablePaginationOut
@@ -7392,6 +7470,12 @@ export interface VariableSystemOfFeaturesPaginationOut {
      * @memberof VariableSystemOfFeaturesPaginationOut
      */
     items?: Array<FeatureOut>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof VariableSystemOfFeaturesPaginationOut
+     */
+    ids?: Array<string>;
     /**
      * Total number of results available.
      * @type {number}
@@ -7449,6 +7533,12 @@ export interface VariableSystemOfVariablesPaginationOut {
      * @memberof VariableSystemOfVariablesPaginationOut
      */
     items?: Array<VariableOut>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof VariableSystemOfVariablesPaginationOut
+     */
+    ids?: Array<string>;
     /**
      * Total number of results available.
      * @type {number}
@@ -7601,6 +7691,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7609,7 +7700,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List Associations.
      * @summary List Associations
@@ -7619,6 +7710,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7630,7 +7722,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1AssociationsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -7641,6 +7733,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7649,7 +7742,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -7660,6 +7753,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7668,7 +7762,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -7679,6 +7773,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7687,7 +7782,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -7698,6 +7793,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7706,7 +7802,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -7811,6 +7907,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7819,7 +7916,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List Associations.
      * @summary List Associations
@@ -7829,6 +7926,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7840,7 +7938,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -7851,6 +7949,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7859,7 +7958,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -7870,6 +7969,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7878,7 +7978,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -7889,6 +7989,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7897,7 +7998,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -7908,6 +8009,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7916,7 +8018,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -8021,6 +8123,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -8029,7 +8132,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List Associations.
      * @summary List Associations
@@ -8039,6 +8142,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -8050,7 +8154,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -8061,6 +8165,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -8069,7 +8174,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -8080,6 +8185,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -8088,7 +8194,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -8099,6 +8205,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -8107,7 +8214,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -8118,6 +8225,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -8126,7 +8234,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -8345,6 +8453,12 @@ export interface AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1Us
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
      * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
@@ -8417,6 +8531,12 @@ export interface AssociationsApiListAssociationsV1AssociationsGetRequest {
      * @memberof AssociationsApiListAssociationsV1AssociationsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
@@ -8515,6 +8635,12 @@ export interface AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsG
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
      * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
@@ -8593,6 +8719,12 @@ export interface AssociationsApiListAssociationsV1ModelsModelIdAssociationsGetRe
      * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
@@ -8673,6 +8805,12 @@ export interface AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGetR
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
      * @memberof AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGet
@@ -8751,6 +8889,12 @@ export interface AssociationsApiListAssociationsV1VariablesVariableIdAssociation
      * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
@@ -9000,13 +9144,14 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1AuthorsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthorsV1AuthorsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -9064,13 +9209,14 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1AuthorsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
+    listAuthorsV1AuthorsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -9128,13 +9274,14 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1AuthorsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
+    listAuthorsV1AuthorsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -9245,6 +9392,12 @@ export interface AuthorsApiListAuthorsV1AuthorsGetRequest {
      * @memberof AuthorsApiListAuthorsV1AuthorsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof AuthorsApiListAuthorsV1AuthorsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
@@ -9383,6 +9536,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9390,7 +9544,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserConceptsV1UserConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List Concepts.
      * @summary List Concepts
@@ -9400,6 +9554,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9407,7 +9562,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listConceptsV1ConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -9424,10 +9579,11 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: (conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any) => Promise<RequestArgs>;
+    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: (conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -9438,6 +9594,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9445,7 +9602,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
 };
 /**
  * ConceptsApi - functional programming interface
@@ -9485,6 +9642,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9492,7 +9650,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List Concepts.
      * @summary List Concepts
@@ -9502,6 +9660,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9509,7 +9668,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -9526,10 +9685,11 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>>;
+    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -9540,6 +9700,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9547,7 +9708,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
 };
 /**
  * ConceptsApi - factory interface
@@ -9587,6 +9748,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9594,7 +9756,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List Concepts.
      * @summary List Concepts
@@ -9604,6 +9766,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9611,7 +9774,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -9628,10 +9791,11 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut>;
+    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -9642,6 +9806,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9649,7 +9814,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
 };
 /**
  * Request parameters for createConceptV1ConceptsPost operation in ConceptsApi.
@@ -9733,6 +9898,12 @@ export interface ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGetReques
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
      * @memberof ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGet
@@ -9799,6 +9970,12 @@ export interface ConceptsApiListConceptsV1ConceptsGetRequest {
      * @memberof ConceptsApiListConceptsV1ConceptsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1ConceptsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
@@ -9908,6 +10085,12 @@ export interface ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConcept
      * @memberof ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
+     */
+    readonly idsOnly?: boolean;
 }
 /**
  * Request parameters for listUserConceptsV1UsersUserIdConceptsGet operation in ConceptsApi.
@@ -9957,6 +10140,12 @@ export interface ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      * @memberof ConceptsApiListUserConceptsV1UsersUserIdConceptsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ConceptsApiListUserConceptsV1UsersUserIdConceptsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
@@ -10156,6 +10345,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10164,7 +10354,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -10174,6 +10364,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10182,7 +10373,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -10193,6 +10384,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10200,7 +10392,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
@@ -10211,6 +10403,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10219,7 +10412,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get all Datasets.
      * @summary List Datasets
@@ -10229,6 +10422,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10239,7 +10433,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetsV1DatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -10250,6 +10444,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10257,7 +10452,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -10268,6 +10463,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10276,7 +10472,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -10444,6 +10640,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10452,7 +10649,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -10462,6 +10659,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10470,7 +10668,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -10481,6 +10679,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10488,7 +10687,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
@@ -10499,6 +10698,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10507,7 +10707,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Get all Datasets.
      * @summary List Datasets
@@ -10517,6 +10717,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10527,7 +10728,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -10538,6 +10739,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10545,7 +10747,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -10556,6 +10758,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10564,7 +10767,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -10732,6 +10935,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10740,7 +10944,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -10750,6 +10954,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10758,7 +10963,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -10769,6 +10974,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10776,7 +10982,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
@@ -10787,6 +10993,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10795,7 +11002,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Get all Datasets.
      * @summary List Datasets
@@ -10805,6 +11012,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10815,7 +11023,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -10826,6 +11034,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10833,7 +11042,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -10844,6 +11053,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10852,7 +11062,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -11144,6 +11354,12 @@ export interface DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRe
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
      * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
@@ -11216,6 +11432,12 @@ export interface DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetReques
      * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
@@ -11296,6 +11518,12 @@ export interface DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
@@ -11369,6 +11597,12 @@ export interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetReque
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
@@ -11441,6 +11675,12 @@ export interface DatasetsApiListDatasetsV1DatasetsGetRequest {
      * @memberof DatasetsApiListDatasetsV1DatasetsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DatasetsApiListDatasetsV1DatasetsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
@@ -11533,6 +11773,12 @@ export interface DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRe
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'target_name' | 'created_at' | 'last_updated_at'}
      * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
@@ -11605,6 +11851,12 @@ export interface DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
@@ -12399,6 +12651,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12406,7 +12659,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -12417,6 +12670,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12424,7 +12678,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List Features.
      * @summary List Features
@@ -12434,6 +12688,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12441,7 +12696,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listFeaturesV1FeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -12463,10 +12718,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any) => Promise<RequestArgs>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -12477,6 +12733,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12484,7 +12741,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
      * @summary Patch Feature
@@ -12578,6 +12835,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12585,7 +12843,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -12596,6 +12854,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12603,7 +12862,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List Features.
      * @summary List Features
@@ -12613,6 +12872,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12620,7 +12880,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -12642,10 +12902,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -12656,6 +12917,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12663,7 +12925,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
      * @summary Patch Feature
@@ -12757,6 +13019,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12764,7 +13027,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -12775,6 +13038,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12782,7 +13046,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List Features.
      * @summary List Features
@@ -12792,6 +13056,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12799,7 +13064,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -12821,10 +13086,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -12835,6 +13101,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -12842,7 +13109,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
      * @summary Patch Feature
@@ -13005,6 +13272,12 @@ export interface FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGetReques
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
@@ -13078,6 +13351,12 @@ export interface FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
@@ -13144,6 +13423,12 @@ export interface FeaturesApiListFeaturesV1FeaturesGetRequest {
      * @memberof FeaturesApiListFeaturesV1FeaturesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListFeaturesV1FeaturesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
@@ -13283,6 +13568,12 @@ export interface FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeature
      * @memberof FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
+     */
+    readonly idsOnly?: boolean;
 }
 /**
  * Request parameters for listUserFeaturesV1UsersUserIdFeaturesGet operation in FeaturesApi.
@@ -13332,6 +13623,12 @@ export interface FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
      * @memberof FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
@@ -13811,6 +14108,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13819,7 +14117,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -13829,6 +14127,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13836,7 +14135,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserModelsV1UserModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -13847,6 +14146,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13854,7 +14154,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Models.
      * @summary List Models
@@ -13864,6 +14164,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13871,7 +14172,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsV1ModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -13882,6 +14183,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13889,7 +14191,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -13995,6 +14297,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14003,7 +14306,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -14013,6 +14316,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14020,7 +14324,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -14031,6 +14335,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14038,7 +14343,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List Models.
      * @summary List Models
@@ -14048,6 +14353,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14055,7 +14361,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -14066,6 +14372,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14073,7 +14380,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -14179,6 +14486,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14187,7 +14495,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -14197,6 +14505,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14204,7 +14513,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -14215,6 +14524,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14222,7 +14532,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List Models.
      * @summary List Models
@@ -14232,6 +14542,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14239,7 +14550,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -14250,6 +14561,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14257,7 +14569,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -14462,6 +14774,12 @@ export interface ModelsApiListAssociationsV1ModelsModelIdAssociationsGetRequest 
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
      * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
@@ -14534,6 +14852,12 @@ export interface ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest {
      * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'target_name' | 'created_at' | 'last_updated_at'}
@@ -14608,6 +14932,12 @@ export interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'target_name' | 'created_at' | 'last_updated_at'}
      * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
@@ -14674,6 +15004,12 @@ export interface ModelsApiListModelsV1ModelsGetRequest {
      * @memberof ModelsApiListModelsV1ModelsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ModelsApiListModelsV1ModelsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'target_name' | 'created_at' | 'last_updated_at'}
@@ -14747,6 +15083,12 @@ export interface ModelsApiListUserModelsV1UsersUserIdModelsGetRequest {
      * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'target_name' | 'created_at' | 'last_updated_at'}
@@ -15019,13 +15361,14 @@ export declare const PopulationAttributeValuesApiAxiosParamCreator: (configurati
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributeValuesV1PopulationAttributeValuesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listPopulationAttributeValuesV1PopulationAttributeValuesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -15083,13 +15426,14 @@ export declare const PopulationAttributeValuesApiFp: (configuration?: Configurat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>>;
+    listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -15147,13 +15491,14 @@ export declare const PopulationAttributeValuesApiFactory: (configuration?: Confi
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributeValuePaginationOut>;
+    listPopulationAttributeValuesV1PopulationAttributeValuesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributeValuePaginationOut>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -15264,6 +15609,12 @@ export interface PopulationAttributeValuesApiListPopulationAttributeValuesV1Popu
      * @memberof PopulationAttributeValuesApiListPopulationAttributeValuesV1PopulationAttributeValuesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof PopulationAttributeValuesApiListPopulationAttributeValuesV1PopulationAttributeValuesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
@@ -15412,13 +15763,14 @@ export declare const PopulationAttributesApiAxiosParamCreator: (configuration?: 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: (populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: (populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List population attributes.
      * @summary List Population Attributes
@@ -15428,13 +15780,14 @@ export declare const PopulationAttributesApiAxiosParamCreator: (configuration?: 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributesV1PopulationAttributesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listPopulationAttributesV1PopulationAttributesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * PopulationAttributesApi - functional programming interface
@@ -15484,13 +15837,14 @@ export declare const PopulationAttributesApiFp: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>>;
+    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>>;
     /**
      * List population attributes.
      * @summary List Population Attributes
@@ -15500,13 +15854,14 @@ export declare const PopulationAttributesApiFp: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributesV1PopulationAttributesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributePaginationOut>>;
+    listPopulationAttributesV1PopulationAttributesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributePaginationOut>>;
 };
 /**
  * PopulationAttributesApi - factory interface
@@ -15556,13 +15911,14 @@ export declare const PopulationAttributesApiFactory: (configuration?: Configurat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributeValuePaginationOut>;
+    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributeValuePaginationOut>;
     /**
      * List population attributes.
      * @summary List Population Attributes
@@ -15572,13 +15928,14 @@ export declare const PopulationAttributesApiFactory: (configuration?: Configurat
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listPopulationAttributesV1PopulationAttributesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributePaginationOut>;
+    listPopulationAttributesV1PopulationAttributesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<PopulationAttributePaginationOut>;
 };
 /**
  * Request parameters for createPopulationAttributeV1PopulationAttributesPost operation in PopulationAttributesApi.
@@ -15687,6 +16044,12 @@ export interface PopulationAttributesApiListAPopulationAttributesValuesV1Populat
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof PopulationAttributesApiListAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
      * @memberof PopulationAttributesApiListAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet
@@ -15747,6 +16110,12 @@ export interface PopulationAttributesApiListPopulationAttributesV1PopulationAttr
      * @memberof PopulationAttributesApiListPopulationAttributesV1PopulationAttributesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof PopulationAttributesApiListPopulationAttributesV1PopulationAttributesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
@@ -15885,6 +16254,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -15893,7 +16263,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -15903,6 +16273,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -15911,7 +16282,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a study\'s authors.
      * @summary List Authors
@@ -15922,13 +16293,14 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1StudiesStudyIdAuthorsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthorsV1StudiesStudyIdAuthorsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -15939,6 +16311,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -15946,7 +16319,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Studies.
      * @summary List Studies
@@ -15956,6 +16329,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -15966,7 +16340,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -15977,6 +16351,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -15985,7 +16360,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study Endpoint
@@ -16088,6 +16463,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16096,7 +16472,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -16106,6 +16482,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16114,7 +16491,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a study\'s authors.
      * @summary List Authors
@@ -16125,13 +16502,14 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
+    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -16142,6 +16520,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16149,7 +16528,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List Studies.
      * @summary List Studies
@@ -16159,6 +16538,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16169,7 +16549,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -16180,6 +16560,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16188,7 +16569,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study Endpoint
@@ -16291,6 +16672,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16299,7 +16681,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -16309,6 +16691,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16317,7 +16700,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a study\'s authors.
      * @summary List Authors
@@ -16328,13 +16711,14 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
+    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -16345,6 +16729,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16352,7 +16737,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List Studies.
      * @summary List Studies
@@ -16362,6 +16747,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16372,7 +16758,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -16383,6 +16769,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16391,7 +16778,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study Endpoint
@@ -16563,6 +16950,12 @@ export interface StudiesApiListAssociationsV1StudiesStudyIdAssociationsGetReques
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
      * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
@@ -16635,6 +17028,12 @@ export interface StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
@@ -16715,6 +17114,12 @@ export interface StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest {
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
      * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
@@ -16782,6 +17187,12 @@ export interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'target_name' | 'created_at' | 'last_updated_at'}
      * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
@@ -16848,6 +17259,12 @@ export interface StudiesApiListStudiesV1StudiesGetRequest {
      * @memberof StudiesApiListStudiesV1StudiesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof StudiesApiListStudiesV1StudiesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
@@ -16939,6 +17356,12 @@ export interface StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
@@ -17232,10 +17655,11 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: (conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any) => Promise<RequestArgs>;
+    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: (conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -17257,10 +17681,11 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any) => Promise<RequestArgs>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -17282,10 +17707,11 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any) => Promise<RequestArgs>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -17302,10 +17728,11 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any) => Promise<RequestArgs>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
 };
 /**
  * SystemApi - functional programming interface
@@ -17328,10 +17755,11 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>>;
+    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -17353,10 +17781,11 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -17378,10 +17807,11 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -17398,10 +17828,11 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>>;
 };
 /**
  * SystemApi - factory interface
@@ -17424,10 +17855,11 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut>;
+    listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: 'path_count' | 'created_at', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -17449,10 +17881,11 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -17474,10 +17907,11 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -17494,10 +17928,11 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut>;
 };
 /**
  * Request parameters for listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet operation in SystemApi.
@@ -17583,6 +18018,12 @@ export interface SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsG
      * @memberof SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
+     */
+    readonly idsOnly?: boolean;
 }
 /**
  * Request parameters for listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet operation in SystemApi.
@@ -17698,6 +18139,12 @@ export interface SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesG
      * @memberof SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
+     */
+    readonly idsOnly?: boolean;
 }
 /**
  * Request parameters for listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet operation in SystemApi.
@@ -17813,6 +18260,12 @@ export interface SystemApiListSystemOfFeaturesV1VariablesVariableIdSystemFeature
      * @memberof SystemApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof SystemApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
+     */
+    readonly idsOnly?: boolean;
 }
 /**
  * Request parameters for listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet operation in SystemApi.
@@ -17898,6 +18351,12 @@ export interface SystemApiListSystemOfVariablesV1VariablesVariableIdSystemVariab
      * @memberof SystemApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof SystemApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
+     */
+    readonly idsOnly?: boolean;
 }
 /**
  * SystemApi - object-oriented interface
@@ -18073,6 +18532,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18081,7 +18541,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
@@ -18091,6 +18551,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18098,7 +18559,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserConceptsV1UserConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -18108,6 +18569,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18116,7 +18578,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -18126,6 +18588,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18133,7 +18596,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -18143,6 +18606,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18150,7 +18614,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserModelsV1UserModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -18160,6 +18624,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18168,7 +18633,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -18178,6 +18643,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18185,7 +18651,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -18196,6 +18662,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18203,7 +18670,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -18214,6 +18681,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18222,7 +18690,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -18233,6 +18701,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18240,7 +18709,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -18251,6 +18720,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18258,7 +18728,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -18269,6 +18739,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18277,7 +18748,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -18288,6 +18759,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18295,7 +18767,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
@@ -18345,6 +18817,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18353,7 +18826,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
@@ -18363,6 +18836,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18370,7 +18844,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -18380,6 +18854,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18388,7 +18863,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -18398,6 +18873,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18405,7 +18881,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -18415,6 +18891,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18422,7 +18899,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -18432,6 +18909,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18440,7 +18918,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -18450,6 +18928,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18457,7 +18936,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -18468,6 +18947,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18475,7 +18955,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -18486,6 +18966,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18494,7 +18975,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -18505,6 +18986,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18512,7 +18994,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -18523,6 +19005,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18530,7 +19013,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -18541,6 +19024,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18549,7 +19033,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -18560,6 +19044,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18567,7 +19052,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
@@ -18617,6 +19102,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18625,7 +19111,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
@@ -18635,6 +19121,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18642,7 +19129,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -18652,6 +19139,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18660,7 +19148,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -18670,6 +19158,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18677,7 +19166,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -18687,6 +19176,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18694,7 +19184,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -18704,6 +19194,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18712,7 +19203,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -18722,6 +19213,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18729,7 +19221,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -18740,6 +19232,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18747,7 +19240,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -18758,6 +19251,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18766,7 +19260,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -18777,6 +19271,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18784,7 +19279,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -18795,6 +19290,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18802,7 +19298,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -18813,6 +19309,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18821,7 +19318,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -18832,6 +19329,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18839,7 +19337,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
@@ -18943,6 +19441,12 @@ export interface UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudi
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
      * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
@@ -19016,6 +19520,12 @@ export interface UsersApiListAuthenticatedUserConceptsV1UserConceptsGetRequest {
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
      * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
@@ -19082,6 +19592,12 @@ export interface UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest {
      * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
@@ -19156,6 +19672,12 @@ export interface UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest {
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGet
@@ -19223,6 +19745,12 @@ export interface UsersApiListAuthenticatedUserModelsV1UserModelsGetRequest {
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'target_name' | 'created_at' | 'last_updated_at'}
      * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
@@ -19289,6 +19817,12 @@ export interface UsersApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
@@ -19363,6 +19897,12 @@ export interface UsersApiListAuthenticatedUserVariablesV1UserVariablesGetRequest
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
@@ -19436,6 +19976,12 @@ export interface UsersApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
      * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
@@ -19508,6 +20054,12 @@ export interface UsersApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
@@ -19588,6 +20140,12 @@ export interface UsersApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserFeaturesV1UsersUserIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
      * @memberof UsersApiListUserFeaturesV1UsersUserIdFeaturesGet
@@ -19661,6 +20219,12 @@ export interface UsersApiListUserModelsV1UsersUserIdModelsGetRequest {
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'target_name' | 'created_at' | 'last_updated_at'}
      * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
@@ -19733,6 +20297,12 @@ export interface UsersApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at' | 'name'}
@@ -19812,6 +20382,12 @@ export interface UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
@@ -20058,6 +20634,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20066,7 +20643,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -20076,6 +20653,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20083,7 +20661,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -20105,10 +20683,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any) => Promise<RequestArgs>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -20125,10 +20704,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any) => Promise<RequestArgs>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -20139,6 +20719,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20146,7 +20727,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List Variables.
      * @summary List Variables
@@ -20156,6 +20737,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20163,7 +20745,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listVariablesV1VariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -20221,6 +20803,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20229,7 +20812,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -20239,6 +20822,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20246,7 +20830,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -20268,10 +20852,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -20288,10 +20873,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -20302,6 +20888,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20309,7 +20896,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List Variables.
      * @summary List Variables
@@ -20319,6 +20906,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20326,7 +20914,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -20384,6 +20972,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20392,7 +20981,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -20402,6 +20991,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20409,7 +20999,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -20431,10 +21021,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -20451,10 +21042,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -20465,6 +21057,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20472,7 +21065,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List Variables.
      * @summary List Variables
@@ -20482,6 +21075,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {number} [page]
      * @param {number} [pageSize]
      * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -20489,7 +21083,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -20601,6 +21195,12 @@ export interface VariablesApiListAssociationsV1VariablesVariableIdAssociationsGe
      */
     readonly total?: boolean;
     /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
      * Order by this field.
      * @type {'created_at' | 'last_updated_at'}
      * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
@@ -20673,6 +21273,12 @@ export interface VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetReq
      * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
@@ -20812,6 +21418,12 @@ export interface VariablesApiListSystemOfFeaturesV1VariablesVariableIdSystemFeat
      * @memberof VariablesApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof VariablesApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
+     */
+    readonly idsOnly?: boolean;
 }
 /**
  * Request parameters for listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet operation in VariablesApi.
@@ -20897,6 +21509,12 @@ export interface VariablesApiListSystemOfVariablesV1VariablesVariableIdSystemVar
      * @memberof VariablesApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof VariablesApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
+     */
+    readonly idsOnly?: boolean;
 }
 /**
  * Request parameters for listUserVariablesV1UsersUserIdVariablesGet operation in VariablesApi.
@@ -20946,6 +21564,12 @@ export interface VariablesApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
@@ -21013,6 +21637,12 @@ export interface VariablesApiListVariablesV1VariablesGetRequest {
      * @memberof VariablesApiListVariablesV1VariablesGet
      */
     readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof VariablesApiListVariablesV1VariablesGet
+     */
+    readonly idsOnly?: boolean;
     /**
      * Order by this field.
      * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}

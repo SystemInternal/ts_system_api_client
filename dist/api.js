@@ -1911,6 +1911,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -1919,7 +1920,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet.');
@@ -1967,6 +1968,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -2001,6 +2005,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2012,7 +2017,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1AssociationsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1AssociationsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/associations`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -2054,6 +2059,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -2099,6 +2107,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2107,7 +2116,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listAssociationsV1DatasetsDatasetIdAssociationsGet.');
@@ -2155,6 +2164,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -2190,6 +2202,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2198,7 +2211,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling listAssociationsV1ModelsModelIdAssociationsGet.');
@@ -2246,6 +2259,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -2281,6 +2297,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2289,7 +2306,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1StudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAssociationsV1StudiesStudyIdAssociationsGet.');
@@ -2337,6 +2354,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -2372,6 +2392,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2380,7 +2401,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listAssociationsV1VariablesVariableIdAssociationsGet.');
@@ -2427,6 +2448,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -2677,6 +2701,7 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2685,9 +2710,9 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2703,6 +2728,7 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2714,9 +2740,9 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options) {
+        listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2733,6 +2759,7 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2741,9 +2768,9 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2760,6 +2787,7 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2768,9 +2796,9 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2787,6 +2815,7 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2795,9 +2824,9 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2814,6 +2843,7 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2822,9 +2852,9 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -2963,6 +2993,7 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2971,8 +3002,8 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
-            return exports.AssociationsApiFp(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * List Associations.
@@ -2983,6 +3014,7 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -2994,8 +3026,8 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options) {
-            return exports.AssociationsApiFp(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options).then((request) => request(axios, basePath));
+        listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1AssociationsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, variableRelationship, featureRelationship, conceptRelationship, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations derived from the Dataset.
@@ -3007,6 +3039,7 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -3015,8 +3048,8 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
-            return exports.AssociationsApiFp(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations in model.
@@ -3028,6 +3061,7 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -3036,8 +3070,8 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
-            return exports.AssociationsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations in a project.
@@ -3049,6 +3083,7 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -3057,8 +3092,8 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
-            return exports.AssociationsApiFp(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations using the Variable.
@@ -3070,6 +3105,7 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -3078,8 +3114,8 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
-            return exports.AssociationsApiFp(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Bulk association patching.
@@ -3209,7 +3245,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Associations.
@@ -3220,7 +3256,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1AssociationsGet(requestParameters = {}, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1AssociationsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.variableRelationship, requestParameters.featureRelationship, requestParameters.conceptRelationship, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1AssociationsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.variableRelationship, requestParameters.featureRelationship, requestParameters.conceptRelationship, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations derived from the Dataset.
@@ -3231,7 +3267,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations in model.
@@ -3242,7 +3278,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1ModelsModelIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations in a project.
@@ -3253,7 +3289,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations using the Variable.
@@ -3264,7 +3300,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Bulk association patching.
@@ -3490,13 +3526,14 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1AuthorsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthorsV1AuthorsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/authors`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -3538,6 +3575,9 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -3693,15 +3733,16 @@ exports.AuthorsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.AuthorsApiAxiosParamCreator(configuration).listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.AuthorsApiAxiosParamCreator(configuration).listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -3783,14 +3824,15 @@ exports.AuthorsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.AuthorsApiFp(configuration).listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.AuthorsApiFp(configuration).listAuthorsV1AuthorsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove an author from a study.
@@ -3865,7 +3907,7 @@ class AuthorsApi extends base_1.BaseAPI {
      * @memberof AuthorsApi
      */
     listAuthorsV1AuthorsGet(requestParameters = {}, options) {
-        return exports.AuthorsApiFp(this.configuration).listAuthorsV1AuthorsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.AuthorsApiFp(this.configuration).listAuthorsV1AuthorsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove an author from a study.
@@ -4038,6 +4080,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -4045,7 +4088,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserConceptsV1UserConceptsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -4088,6 +4131,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -4119,6 +4165,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -4126,7 +4173,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listConceptsV1ConceptsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -4169,6 +4216,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -4207,10 +4257,11 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: (conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: (conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'conceptId' is not null or undefined
             if (conceptId === null || conceptId === undefined) {
                 throw new base_1.RequiredError('conceptId', 'Required parameter conceptId was null or undefined when calling listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet.');
@@ -4276,6 +4327,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -4296,6 +4350,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -4303,7 +4358,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserConceptsV1UsersUserIdConceptsGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserConceptsV1UsersUserIdConceptsGet.');
@@ -4350,6 +4405,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -4438,6 +4496,7 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -4445,9 +4504,9 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options) {
+        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options);
+                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -4463,6 +4522,7 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -4470,9 +4530,9 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options) {
+        listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options);
+                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -4495,12 +4555,13 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options) {
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
+                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -4517,6 +4578,7 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -4524,9 +4586,9 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options) {
+        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options);
+                const localVarAxiosArgs = yield exports.ConceptsApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -4580,6 +4642,7 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -4587,8 +4650,8 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options) {
-            return exports.ConceptsApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+            return exports.ConceptsApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List Concepts.
@@ -4599,6 +4662,7 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -4606,8 +4670,8 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options) {
-            return exports.ConceptsApiFp(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+            return exports.ConceptsApiFp(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the concepts in the requested concept\'s system.
@@ -4625,11 +4689,12 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options) {
-            return exports.ConceptsApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return exports.ConceptsApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s concepts.
@@ -4641,6 +4706,7 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -4648,8 +4714,8 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options) {
-            return exports.ConceptsApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+            return exports.ConceptsApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -4702,7 +4768,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters = {}, options) {
-        return exports.ConceptsApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Concepts.
@@ -4713,7 +4779,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     listConceptsV1ConceptsGet(requestParameters = {}, options) {
-        return exports.ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the concepts in the requested concept\'s system.
@@ -4724,7 +4790,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters, options) {
-        return exports.ConceptsApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters.conceptId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters.conceptId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s concepts.
@@ -4735,7 +4801,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     listUserConceptsV1UsersUserIdConceptsGet(requestParameters, options) {
-        return exports.ConceptsApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ConceptsApi = ConceptsApi;
@@ -5277,6 +5343,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -5285,7 +5352,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listAssociationsV1DatasetsDatasetIdAssociationsGet.');
@@ -5333,6 +5400,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -5367,6 +5437,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -5375,7 +5446,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -5418,6 +5489,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -5453,6 +5527,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -5460,7 +5535,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet.');
@@ -5508,6 +5583,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -5540,6 +5618,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -5548,7 +5627,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listDatasetParentsV1DatasetsDatasetIdParentsGet.');
@@ -5596,6 +5675,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -5630,6 +5712,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -5640,7 +5723,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetsV1DatasetsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDatasetsV1DatasetsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -5683,6 +5766,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -5724,6 +5810,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -5731,7 +5818,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listModelsUsingDatasetV1DatasetsDatasetIdModelsGet.');
@@ -5779,6 +5866,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -5811,6 +5901,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -5819,7 +5910,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserDatasetsV1UsersUserIdDatasetsGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserDatasetsV1UsersUserIdDatasetsGet.');
@@ -5866,6 +5957,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -6453,6 +6547,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6461,9 +6556,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6479,6 +6574,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6487,9 +6583,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6506,6 +6602,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6513,9 +6610,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6532,6 +6629,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6540,9 +6638,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6558,6 +6656,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6568,9 +6667,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options) {
+        listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6587,6 +6686,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6594,9 +6694,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6613,6 +6713,7 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6621,9 +6722,9 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+                const localVarAxiosArgs = yield exports.DatasetsApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -6875,6 +6976,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6883,8 +6985,8 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
-            return exports.DatasetsApiFp(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.DatasetsApiFp(configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s datasets.
@@ -6895,6 +6997,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6903,8 +7006,8 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
-            return exports.DatasetsApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.DatasetsApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
@@ -6916,6 +7019,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6923,8 +7027,8 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
-            return exports.DatasetsApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.DatasetsApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * Get parents of this dataset.
@@ -6936,6 +7040,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6944,8 +7049,8 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
-            return exports.DatasetsApiFp(configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.DatasetsApiFp(configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * Get all Datasets.
@@ -6956,6 +7061,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6966,8 +7072,8 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options) {
-            return exports.DatasetsApiFp(configuration).listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
+        listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options) {
+            return exports.DatasetsApiFp(configuration).listDatasetsV1DatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models that use the dataset either directly or through child datasets.
@@ -6979,6 +7085,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -6986,8 +7093,8 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.DatasetsApiFp(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.DatasetsApiFp(configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s datasets.
@@ -6999,6 +7106,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -7007,8 +7115,8 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
-            return exports.DatasetsApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.DatasetsApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Dataset resource with partial update.
@@ -7215,7 +7323,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s datasets.
@@ -7226,7 +7334,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters = {}, options) {
-        return exports.DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a datasets features.
@@ -7237,7 +7345,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get parents of this dataset.
@@ -7248,7 +7356,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get all Datasets.
@@ -7259,7 +7367,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listDatasetsV1DatasetsGet(requestParameters = {}, options) {
-        return exports.DatasetsApiFp(this.configuration).listDatasetsV1DatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listDatasetsV1DatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get models that use the dataset either directly or through child datasets.
@@ -7270,7 +7378,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s datasets.
@@ -7281,7 +7389,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Dataset resource with partial update.
@@ -8268,6 +8376,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -8275,7 +8384,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserFeaturesV1UserFeaturesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/features`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -8318,6 +8427,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -8350,6 +8462,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -8357,7 +8470,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             if (datasetId === null || datasetId === undefined) {
                 throw new base_1.RequiredError('datasetId', 'Required parameter datasetId was null or undefined when calling listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet.');
@@ -8405,6 +8518,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -8436,6 +8552,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -8443,7 +8560,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeaturesV1FeaturesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listFeaturesV1FeaturesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/features`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -8485,6 +8602,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -8529,10 +8649,11 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'featureId' is not null or undefined
             if (featureId === null || featureId === undefined) {
                 throw new base_1.RequiredError('featureId', 'Required parameter featureId was null or undefined when calling listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet.');
@@ -8613,6 +8734,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -8633,6 +8757,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -8640,7 +8765,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserFeaturesV1UsersUserIdFeaturesGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserFeaturesV1UsersUserIdFeaturesGet.');
@@ -8687,6 +8812,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -9022,6 +9150,7 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9029,9 +9158,9 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options);
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -9048,6 +9177,7 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9055,9 +9185,9 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options);
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -9073,6 +9203,7 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9080,9 +9211,9 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
+        listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options);
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -9110,12 +9241,13 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options) {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -9132,6 +9264,7 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9139,9 +9272,9 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options);
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -9285,6 +9418,7 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9292,8 +9426,8 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
-            return exports.FeaturesApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.FeaturesApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
@@ -9305,6 +9439,7 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9312,8 +9447,8 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
-            return exports.FeaturesApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.FeaturesApiFp(configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List Features.
@@ -9324,6 +9459,7 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9331,8 +9467,8 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
-            return exports.FeaturesApiFp(configuration).listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.FeaturesApiFp(configuration).listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested feature\'s system.
@@ -9355,11 +9491,12 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options) {
-            return exports.FeaturesApiFp(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return exports.FeaturesApiFp(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s features.
@@ -9371,6 +9508,7 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -9378,8 +9516,8 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
-            return exports.FeaturesApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.FeaturesApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
@@ -9497,7 +9635,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters = {}, options) {
-        return exports.FeaturesApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a datasets features.
@@ -9508,7 +9646,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Features.
@@ -9519,7 +9657,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listFeaturesV1FeaturesGet(requestParameters = {}, options) {
-        return exports.FeaturesApiFp(this.configuration).listFeaturesV1FeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listFeaturesV1FeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the features in the requested feature\'s system.
@@ -9530,7 +9668,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters.featureId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters.featureId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s features.
@@ -9541,7 +9679,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
@@ -10281,6 +10419,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10289,7 +10428,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             if (modelId === null || modelId === undefined) {
                 throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling listAssociationsV1ModelsModelIdAssociationsGet.');
@@ -10337,6 +10476,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -10371,6 +10513,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10378,7 +10521,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserModelsV1UserModelsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -10421,6 +10564,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -10453,6 +10599,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10460,7 +10607,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listModelsInStudyV1StudiesStudyIdModelsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listModelsInStudyV1StudiesStudyIdModelsGet.');
@@ -10508,6 +10655,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -10539,6 +10689,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10546,7 +10697,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listModelsV1ModelsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -10589,6 +10740,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -10621,6 +10775,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -10628,7 +10783,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserModelsV1UsersUserIdModelsGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserModelsV1UsersUserIdModelsGet.');
@@ -10675,6 +10830,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -10999,6 +11157,7 @@ exports.ModelsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -11007,9 +11166,9 @@ exports.ModelsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11025,6 +11184,7 @@ exports.ModelsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -11032,9 +11192,9 @@ exports.ModelsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11051,6 +11211,7 @@ exports.ModelsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -11058,9 +11219,9 @@ exports.ModelsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11076,6 +11237,7 @@ exports.ModelsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -11083,9 +11245,9 @@ exports.ModelsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11102,6 +11264,7 @@ exports.ModelsApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -11109,9 +11272,9 @@ exports.ModelsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -11263,6 +11426,7 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -11271,8 +11435,8 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
-            return exports.ModelsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.ModelsApiFp(configuration).listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s models.
@@ -11283,6 +11447,7 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -11290,8 +11455,8 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.ModelsApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.ModelsApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models in a project.
@@ -11303,6 +11468,7 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -11310,8 +11476,8 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.ModelsApiFp(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.ModelsApiFp(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List Models.
@@ -11322,6 +11488,7 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -11329,8 +11496,8 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.ModelsApiFp(configuration).listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.ModelsApiFp(configuration).listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s models.
@@ -11342,6 +11509,7 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -11349,8 +11517,8 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.ModelsApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.ModelsApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * Bulk association patching.
@@ -11480,7 +11648,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listAssociationsV1ModelsModelIdAssociationsGet(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s models.
@@ -11491,7 +11659,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listAuthenticatedUserModelsV1UserModelsGet(requestParameters = {}, options) {
-        return exports.ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get models in a project.
@@ -11502,7 +11670,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Models.
@@ -11513,7 +11681,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listModelsV1ModelsGet(requestParameters = {}, options) {
-        return exports.ModelsApiFp(this.configuration).listModelsV1ModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listModelsV1ModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s models.
@@ -11524,7 +11692,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listUserModelsV1UsersUserIdModelsGet(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Bulk association patching.
@@ -11770,13 +11938,14 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributeValuesV1PopulationAttributeValuesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listPopulationAttributeValuesV1PopulationAttributeValuesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/population_attribute_values`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -11818,6 +11987,9 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -11973,15 +12145,16 @@ exports.PopulationAttributeValuesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.PopulationAttributeValuesApiAxiosParamCreator(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.PopulationAttributeValuesApiAxiosParamCreator(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12063,14 +12236,15 @@ exports.PopulationAttributeValuesApiFactory = function (configuration, basePath,
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.PopulationAttributeValuesApiFp(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.PopulationAttributeValuesApiFp(configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a population attribute value from a dataset.
@@ -12145,7 +12319,7 @@ class PopulationAttributeValuesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     listPopulationAttributeValuesV1PopulationAttributeValuesGet(requestParameters = {}, options) {
-        return exports.PopulationAttributeValuesApiFp(this.configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributeValuesApiFp(this.configuration).listPopulationAttributeValuesV1PopulationAttributeValuesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove a population attribute value from a dataset.
@@ -12374,13 +12548,14 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: (populationAttributeId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: (populationAttributeId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'populationAttributeId' is not null or undefined
             if (populationAttributeId === null || populationAttributeId === undefined) {
                 throw new base_1.RequiredError('populationAttributeId', 'Required parameter populationAttributeId was null or undefined when calling listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet.');
@@ -12428,6 +12603,9 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -12456,13 +12634,14 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributesV1PopulationAttributesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listPopulationAttributesV1PopulationAttributesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/population_attributes`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -12504,6 +12683,9 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -12607,15 +12789,16 @@ exports.PopulationAttributesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.PopulationAttributesApiAxiosParamCreator(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.PopulationAttributesApiAxiosParamCreator(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12631,15 +12814,16 @@ exports.PopulationAttributesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.PopulationAttributesApiAxiosParamCreator(configuration).listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.PopulationAttributesApiAxiosParamCreator(configuration).listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -12705,14 +12889,15 @@ exports.PopulationAttributesApiFactory = function (configuration, basePath, axio
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.PopulationAttributesApiFp(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.PopulationAttributesApiFp(configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List population attributes.
@@ -12723,14 +12908,15 @@ exports.PopulationAttributesApiFactory = function (configuration, basePath, axio
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.PopulationAttributesApiFp(configuration).listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.PopulationAttributesApiFp(configuration).listPopulationAttributesV1PopulationAttributesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -12794,7 +12980,7 @@ class PopulationAttributesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributesApi
      */
     listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(requestParameters, options) {
-        return exports.PopulationAttributesApiFp(this.configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(requestParameters.populationAttributeId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributesApiFp(this.configuration).listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(requestParameters.populationAttributeId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List population attributes.
@@ -12805,7 +12991,7 @@ class PopulationAttributesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributesApi
      */
     listPopulationAttributesV1PopulationAttributesGet(requestParameters = {}, options) {
-        return exports.PopulationAttributesApiFp(this.configuration).listPopulationAttributesV1PopulationAttributesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributesApiFp(this.configuration).listPopulationAttributesV1PopulationAttributesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.PopulationAttributesApi = PopulationAttributesApi;
@@ -13076,6 +13262,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13084,7 +13271,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1StudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAssociationsV1StudiesStudyIdAssociationsGet.');
@@ -13132,6 +13319,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -13166,6 +13356,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13174,7 +13365,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserStudiesV1UserStudiesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13217,6 +13408,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -13252,13 +13446,14 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1StudiesStudyIdAuthorsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthorsV1StudiesStudyIdAuthorsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAuthorsV1StudiesStudyIdAuthorsGet.');
@@ -13306,6 +13501,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -13335,6 +13533,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13342,7 +13541,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listModelsInStudyV1StudiesStudyIdModelsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listModelsInStudyV1StudiesStudyIdModelsGet.');
@@ -13390,6 +13589,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -13421,6 +13623,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13431,7 +13634,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listStudiesV1StudiesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -13474,6 +13677,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -13515,6 +13721,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13523,7 +13730,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserStudiesV1UsersUserIdStudiesGet.');
@@ -13570,6 +13777,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -13957,6 +14167,7 @@ exports.StudiesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13965,9 +14176,9 @@ exports.StudiesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -13983,6 +14194,7 @@ exports.StudiesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -13991,9 +14203,9 @@ exports.StudiesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14010,15 +14222,16 @@ exports.StudiesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
+        listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14035,6 +14248,7 @@ exports.StudiesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14042,9 +14256,9 @@ exports.StudiesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14060,6 +14274,7 @@ exports.StudiesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14070,9 +14285,9 @@ exports.StudiesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options) {
+        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14089,6 +14304,7 @@ exports.StudiesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14097,9 +14313,9 @@ exports.StudiesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+                const localVarAxiosArgs = yield exports.StudiesApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -14260,6 +14476,7 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14268,8 +14485,8 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
-            return exports.StudiesApiFp(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.StudiesApiFp(configuration).listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s studies.
@@ -14280,6 +14497,7 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14288,8 +14506,8 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
-            return exports.StudiesApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.StudiesApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List a study\'s authors.
@@ -14301,14 +14519,15 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options) {
-            return exports.StudiesApiFp(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.StudiesApiFp(configuration).listAuthorsV1StudiesStudyIdAuthorsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models in a project.
@@ -14320,6 +14539,7 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14327,8 +14547,8 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.StudiesApiFp(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.StudiesApiFp(configuration).listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List Studies.
@@ -14339,6 +14559,7 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14349,8 +14570,8 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options) {
-            return exports.StudiesApiFp(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
+        listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options) {
+            return exports.StudiesApiFp(configuration).listStudiesV1StudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s studies.
@@ -14362,6 +14583,7 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -14370,8 +14592,8 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
-            return exports.StudiesApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.StudiesApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Study resource with partial update.
@@ -14500,7 +14722,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s studies.
@@ -14511,7 +14733,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters = {}, options) {
-        return exports.StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a study\'s authors.
@@ -14522,7 +14744,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get models in a project.
@@ -14533,7 +14755,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Studies.
@@ -14544,7 +14766,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listStudiesV1StudiesGet(requestParameters = {}, options) {
-        return exports.StudiesApiFp(this.configuration).listStudiesV1StudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listStudiesV1StudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s studies.
@@ -14555,7 +14777,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listUserStudiesV1UsersUserIdStudiesGet(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Study resource with partial update.
@@ -14636,10 +14858,11 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: (conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: (conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'conceptId' is not null or undefined
             if (conceptId === null || conceptId === undefined) {
                 throw new base_1.RequiredError('conceptId', 'Required parameter conceptId was null or undefined when calling listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet.');
@@ -14705,6 +14928,9 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -14736,10 +14962,11 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'featureId' is not null or undefined
             if (featureId === null || featureId === undefined) {
                 throw new base_1.RequiredError('featureId', 'Required parameter featureId was null or undefined when calling listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet.');
@@ -14820,6 +15047,9 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -14851,10 +15081,11 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet.');
@@ -14935,6 +15166,9 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -14961,10 +15195,11 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet.');
@@ -15030,6 +15265,9 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -15064,12 +15302,13 @@ exports.SystemApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options) {
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
+                const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -15097,12 +15336,13 @@ exports.SystemApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options) {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
+                const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -15130,12 +15370,13 @@ exports.SystemApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options) {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
+                const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -15158,12 +15399,13 @@ exports.SystemApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options) {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
+                const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -15194,11 +15436,12 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options) {
-            return exports.SystemApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
+        listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return exports.SystemApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested feature\'s system.
@@ -15221,11 +15464,12 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options) {
-            return exports.SystemApiFp(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return exports.SystemApiFp(configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested variable\'s system.
@@ -15248,11 +15492,12 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options) {
-            return exports.SystemApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return exports.SystemApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the variables in the requested variable\'s system.
@@ -15270,11 +15515,12 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options) {
-            return exports.SystemApiFp(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return exports.SystemApiFp(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -15294,7 +15540,7 @@ class SystemApi extends base_1.BaseAPI {
      * @memberof SystemApi
      */
     listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters, options) {
-        return exports.SystemApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters.conceptId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, options).then((request) => request(this.axios, this.basePath));
+        return exports.SystemApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters.conceptId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the features in the requested feature\'s system.
@@ -15305,7 +15551,7 @@ class SystemApi extends base_1.BaseAPI {
      * @memberof SystemApi
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters, options) {
-        return exports.SystemApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters.featureId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, options).then((request) => request(this.axios, this.basePath));
+        return exports.SystemApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters.featureId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the features in the requested variable\'s system.
@@ -15316,7 +15562,7 @@ class SystemApi extends base_1.BaseAPI {
      * @memberof SystemApi
      */
     listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters, options) {
-        return exports.SystemApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, options).then((request) => request(this.axios, this.basePath));
+        return exports.SystemApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the variables in the requested variable\'s system.
@@ -15327,7 +15573,7 @@ class SystemApi extends base_1.BaseAPI {
      * @memberof SystemApi
      */
     listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters, options) {
-        return exports.SystemApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, options).then((request) => request(this.axios, this.basePath));
+        return exports.SystemApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SystemApi = SystemApi;
@@ -15619,6 +15865,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -15627,7 +15874,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             if (studyId === null || studyId === undefined) {
                 throw new base_1.RequiredError('studyId', 'Required parameter studyId was null or undefined when calling listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet.');
@@ -15675,6 +15922,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -15709,6 +15959,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -15716,7 +15967,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserConceptsV1UserConceptsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/concepts`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -15759,6 +16010,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -15790,6 +16044,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -15798,7 +16053,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/datasets`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -15841,6 +16096,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -15875,6 +16133,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -15882,7 +16141,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserFeaturesV1UserFeaturesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/features`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -15925,6 +16184,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -15956,6 +16218,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -15963,7 +16226,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserModelsV1UserModelsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16006,6 +16269,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -16037,6 +16303,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16045,7 +16312,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserStudiesV1UserStudiesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/studies`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16088,6 +16355,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -16122,6 +16392,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16129,7 +16400,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserVariablesV1UserVariablesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -16172,6 +16443,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -16204,6 +16478,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16211,7 +16486,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserConceptsV1UsersUserIdConceptsGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserConceptsV1UsersUserIdConceptsGet.');
@@ -16259,6 +16534,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -16291,6 +16569,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16299,7 +16578,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserDatasetsV1UsersUserIdDatasetsGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserDatasetsV1UsersUserIdDatasetsGet.');
@@ -16347,6 +16626,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -16382,6 +16664,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16389,7 +16672,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserFeaturesV1UsersUserIdFeaturesGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserFeaturesV1UsersUserIdFeaturesGet.');
@@ -16437,6 +16720,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -16469,6 +16755,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16476,7 +16763,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserModelsV1UsersUserIdModelsGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserModelsV1UsersUserIdModelsGet.');
@@ -16524,6 +16811,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -16556,6 +16846,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16564,7 +16855,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserStudiesV1UsersUserIdStudiesGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserStudiesV1UsersUserIdStudiesGet.');
@@ -16612,6 +16903,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -16647,6 +16941,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16654,7 +16949,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserVariablesV1UsersUserIdVariablesGet.');
@@ -16701,6 +16996,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -16840,6 +17138,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16848,9 +17147,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16866,6 +17165,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16873,9 +17173,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options) {
+        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16891,6 +17191,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16899,9 +17200,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16917,6 +17218,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16924,9 +17226,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16942,6 +17244,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16949,9 +17252,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16967,6 +17270,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -16975,9 +17279,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16993,6 +17297,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17000,9 +17305,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -17019,6 +17324,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17026,9 +17332,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options) {
+        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -17045,6 +17351,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17053,9 +17360,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -17072,6 +17379,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17079,9 +17387,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -17098,6 +17406,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17105,9 +17414,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
+        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -17124,6 +17433,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17132,9 +17442,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -17151,6 +17461,7 @@ exports.UsersApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17158,9 +17469,9 @@ exports.UsersApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -17232,6 +17543,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17240,8 +17552,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
-            return exports.UsersApiFp(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.UsersApiFp(configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s concepts.
@@ -17252,6 +17564,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17259,8 +17572,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserConceptsV1UserConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s datasets.
@@ -17271,6 +17584,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17279,8 +17593,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s features.
@@ -17291,6 +17605,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17298,8 +17613,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s models.
@@ -17310,6 +17625,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17317,8 +17633,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s studies.
@@ -17329,6 +17645,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17337,8 +17654,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s variables.
@@ -17349,6 +17666,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17356,8 +17674,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s concepts.
@@ -17369,6 +17687,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17376,8 +17695,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options) {
-            return exports.UsersApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+            return exports.UsersApiFp(configuration).listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s datasets.
@@ -17389,6 +17708,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17397,8 +17717,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
-            return exports.UsersApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.UsersApiFp(configuration).listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s features.
@@ -17410,6 +17730,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17417,8 +17738,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options) {
-            return exports.UsersApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.UsersApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s models.
@@ -17430,6 +17751,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17437,8 +17759,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.UsersApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return exports.UsersApiFp(configuration).listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s studies.
@@ -17450,6 +17772,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17458,8 +17781,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
-            return exports.UsersApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return exports.UsersApiFp(configuration).listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s variables.
@@ -17471,6 +17794,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17478,8 +17802,8 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.UsersApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+            return exports.UsersApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * Update the authenticated user\'s profile.
@@ -17542,7 +17866,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s concepts.
@@ -17553,7 +17877,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserConceptsV1UserConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s datasets.
@@ -17564,7 +17888,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s features.
@@ -17575,7 +17899,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s models.
@@ -17586,7 +17910,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserModelsV1UserModelsGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s studies.
@@ -17597,7 +17921,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s variables.
@@ -17608,7 +17932,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s concepts.
@@ -17619,7 +17943,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserConceptsV1UsersUserIdConceptsGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s datasets.
@@ -17630,7 +17954,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s features.
@@ -17641,7 +17965,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s models.
@@ -17652,7 +17976,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserModelsV1UsersUserIdModelsGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s studies.
@@ -17663,7 +17987,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserStudiesV1UsersUserIdStudiesGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s variables.
@@ -17674,7 +17998,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserVariablesV1UsersUserIdVariablesGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update the authenticated user\'s profile.
@@ -17897,6 +18221,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17905,7 +18230,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listAssociationsV1VariablesVariableIdAssociationsGet.');
@@ -17953,6 +18278,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -17987,6 +18315,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -17994,7 +18323,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserVariablesV1UserVariablesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -18036,6 +18365,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -18080,10 +18412,11 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet.');
@@ -18164,6 +18497,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -18190,10 +18526,11 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             if (variableId === null || variableId === undefined) {
                 throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet.');
@@ -18259,6 +18596,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -18279,6 +18619,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18286,7 +18627,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserVariablesV1UsersUserIdVariablesGet.');
@@ -18334,6 +18675,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
             }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -18365,6 +18709,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18372,7 +18717,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet: (query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listVariablesV1VariablesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -18414,6 +18759,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (total !== undefined) {
                 localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
@@ -18574,6 +18922,7 @@ exports.VariablesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18582,9 +18931,9 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -18600,6 +18949,7 @@ exports.VariablesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18607,9 +18957,9 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -18637,12 +18987,13 @@ exports.VariablesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options) {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -18665,12 +19016,13 @@ exports.VariablesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options) {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -18687,6 +19039,7 @@ exports.VariablesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18694,9 +19047,9 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -18712,6 +19065,7 @@ exports.VariablesApiFp = function (configuration) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18719,9 +19073,9 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -18803,6 +19157,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18811,8 +19166,8 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
-            return exports.VariablesApiFp(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.VariablesApiFp(configuration).listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s variables.
@@ -18823,6 +19178,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18830,8 +19186,8 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.VariablesApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+            return exports.VariablesApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested variable\'s system.
@@ -18854,11 +19210,12 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options) {
-            return exports.VariablesApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, options).then((request) => request(axios, basePath));
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return exports.VariablesApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the variables in the requested variable\'s system.
@@ -18876,11 +19233,12 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options) {
-            return exports.VariablesApiFp(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, options).then((request) => request(axios, basePath));
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return exports.VariablesApiFp(configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s variables.
@@ -18892,6 +19250,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18899,8 +19258,8 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.VariablesApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+            return exports.VariablesApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List Variables.
@@ -18911,6 +19270,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page]
          * @param {number} [pageSize]
          * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
          * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
@@ -18918,8 +19278,8 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.VariablesApiFp(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+            return exports.VariablesApiFp(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Variable resource with partial update.
@@ -18994,7 +19354,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s variables.
@@ -19005,7 +19365,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters = {}, options) {
-        return exports.VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the features in the requested variable\'s system.
@@ -19016,7 +19376,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the variables in the requested variable\'s system.
@@ -19027,7 +19387,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s variables.
@@ -19038,7 +19398,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listUserVariablesV1UsersUserIdVariablesGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Variables.
@@ -19049,7 +19409,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listVariablesV1VariablesGet(requestParameters = {}, options) {
-        return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Variable resource with partial update.
