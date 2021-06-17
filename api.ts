@@ -2681,6 +2681,12 @@ export interface Enterprise {
      */
     name: string;
     /**
+     * Enterprise Identity Provider.
+     * @type {string}
+     * @memberof Enterprise
+     */
+    identity_provider: string;
+    /**
      * The list of integrations to retrieve
      * @type {Array<Integration>}
      * @memberof Enterprise
