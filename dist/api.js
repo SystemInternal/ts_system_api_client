@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeTypeEnum = exports.VariableOutPermissionsEnum = exports.TestDatasetTransformationTypeEnum = exports.TableStatusEnum = exports.StudyOutAddContextEnum = exports.StudyOutStudyTypeEnum = exports.StudyOutPermissionsEnum = exports.StudyInAddContextEnum = exports.StudyInStudyTypeEnum = exports.SignificanceValueOutGeneratedByEnum = exports.SignificanceValueInGeneratedByEnum = exports.ResourceCollectionElementTypeEnum = exports.RelationshipStrengthRelationshipTypeEnum = exports.RelationshipStrengthLevelEnum = exports.RelationshipReproducibilityLevelEnum = exports.RelationshipReproducibilityStudyTypeEnum = exports.RelationshipDirectionRelationshipTypeEnum = exports.RelationshipDirectionLevelEnum = exports.RelatedFilterValueFilterTypeEnum = exports.PopulationAttributeOutAttributeTypeEnum = exports.PopulationAttributeOutPermissionsEnum = exports.PopulationAttributeInAttributeTypeEnum = exports.PatchVariableOpOpEnum = exports.PatchStudyOpOpEnum = exports.PatchModelOpOpEnum = exports.PatchFeatureOpOpEnum = exports.PatchDatasetOpOpEnum = exports.PartialDependencePlotInGeneratedByEnum = exports.OjbectTypedNodeObjectTypeEnum = exports.NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutPermissionsEnum = exports.NullHypothesisOutLevelEnum = exports.NullHypothesisOutTestTypeEnum = exports.NullHypothesisInLevelEnum = exports.NullHypothesisInTestTypeEnum = exports.ModelPerformanceOutScoreTypeEnum = exports.ModelPerformanceOutGeneratedByEnum = exports.ModelPerformanceInScoreTypeEnum = exports.ModelPerformanceInGeneratedByEnum = exports.ModelPerformanceBaseInScoreTypeEnum = exports.ModelPerformanceBaseInGeneratedByEnum = exports.ModelOutPermissionsEnum = exports.MessageOutMessageTypeEnum = exports.MessageInMessageTypeEnum = exports.LocationOutAttributeTypeEnum = exports.LocationOutPermissionsEnum = exports.IntegrationUpdateInStateEnum = exports.IntegrationCreateServiceTypeEnum = exports.IntegrationCreateStateEnum = exports.IntegrationPermissionsEnum = exports.IntegrationServiceTypeEnum = exports.IntegrationStateEnum = exports.FreeTextOutAttributeTypeEnum = exports.FreeTextOutPermissionsEnum = exports.FilterValueFilterTypeEnum = exports.FeatureStatisticsGeneratedByEnum = exports.FeatureStatisticsFeatureTypeEnum = exports.FeatureOutPermissionsEnum = exports.ExternalAssetExternalAssetTypeEnum = exports.EnterprisePermissionsEnum = exports.EdgeTypedLinkEdgeTypeEnum = exports.DeploymentStageEnum = exports.DateRangeOutAttributeTypeEnum = exports.DateRangeOutPermissionsEnum = exports.DatasetOutLicenseEnum = exports.DatasetOutPermissionsEnum = exports.DatasetInLicenseEnum = exports.ConfidenceIntervalOutLevelEnum = exports.ConfidenceIntervalInLevelEnum = exports.ConceptOutPermissionsEnum = exports.CategoryOutAttributeTypeEnum = exports.CategoryOutPermissionsEnum = exports.BulkPatchFeatureOpOpEnum = exports.BulkPatchAssociationOpOpEnum = exports.AuthorOutPermissionsEnum = exports.AssociationValueOutFeatureContributionMethodEnum = exports.AssociationValueOutGeneratedByEnum = exports.AssociationValueOutPermutationScoreTypeEnum = exports.AssociationValueInBaseFeatureContributionMethodEnum = exports.AssociationValueInBaseGeneratedByEnum = exports.AssociationValueInBasePermutationScoreTypeEnum = exports.AssociationValueInFeatureContributionMethodEnum = exports.AssociationValueInGeneratedByEnum = exports.AssociationValueInPermutationScoreTypeEnum = exports.AssociationOutPermissionsEnum = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeTypeEnum = exports.VariableOutPermissionsEnum = exports.TestDatasetTransformationTypeEnum = exports.TeamUserInRoleEnum = exports.TeamOutPermissionsEnum = exports.TableStatusEnum = exports.StudyOutAddContextEnum = exports.StudyOutStudyTypeEnum = exports.StudyOutPermissionsEnum = exports.StudyInAddContextEnum = exports.StudyInStudyTypeEnum = exports.SignificanceValueOutGeneratedByEnum = exports.SignificanceValueInGeneratedByEnum = exports.ResourceCollectionElementTypeEnum = exports.RelationshipStrengthRelationshipTypeEnum = exports.RelationshipStrengthLevelEnum = exports.RelationshipReproducibilityLevelEnum = exports.RelationshipReproducibilityStudyTypeEnum = exports.RelationshipDirectionRelationshipTypeEnum = exports.RelationshipDirectionLevelEnum = exports.RelatedFilterValueFilterTypeEnum = exports.PopulationAttributeOutAttributeTypeEnum = exports.PopulationAttributeOutPermissionsEnum = exports.PopulationAttributeInAttributeTypeEnum = exports.PatchVariableOpOpEnum = exports.PatchStudyOpOpEnum = exports.PatchModelOpOpEnum = exports.PatchFeatureOpOpEnum = exports.PatchDatasetOpOpEnum = exports.PartialDependencePlotInGeneratedByEnum = exports.OjbectTypedNodeObjectTypeEnum = exports.NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutPermissionsEnum = exports.NullHypothesisOutLevelEnum = exports.NullHypothesisOutTestTypeEnum = exports.NullHypothesisInLevelEnum = exports.NullHypothesisInTestTypeEnum = exports.ModelPerformanceOutScoreTypeEnum = exports.ModelPerformanceOutGeneratedByEnum = exports.ModelPerformanceInScoreTypeEnum = exports.ModelPerformanceInGeneratedByEnum = exports.ModelPerformanceBaseInScoreTypeEnum = exports.ModelPerformanceBaseInGeneratedByEnum = exports.ModelOutPermissionsEnum = exports.MessageOutMessageTypeEnum = exports.MessageInMessageTypeEnum = exports.LocationOutAttributeTypeEnum = exports.LocationOutPermissionsEnum = exports.IntegrationUpdateInStateEnum = exports.IntegrationCreateServiceTypeEnum = exports.IntegrationCreateStateEnum = exports.IntegrationPermissionsEnum = exports.IntegrationServiceTypeEnum = exports.IntegrationStateEnum = exports.FreeTextOutAttributeTypeEnum = exports.FreeTextOutPermissionsEnum = exports.FilterValueFilterTypeEnum = exports.FeatureStatisticsGeneratedByEnum = exports.FeatureStatisticsFeatureTypeEnum = exports.FeatureOutPermissionsEnum = exports.ExternalAssetExternalAssetTypeEnum = exports.EnterprisePermissionsEnum = exports.EdgeTypedLinkEdgeTypeEnum = exports.DeploymentStageEnum = exports.DateRangeOutAttributeTypeEnum = exports.DateRangeOutPermissionsEnum = exports.DatasetOutLicenseEnum = exports.DatasetOutPermissionsEnum = exports.DatasetInLicenseEnum = exports.ConfidenceIntervalOutLevelEnum = exports.ConfidenceIntervalInLevelEnum = exports.ConceptOutPermissionsEnum = exports.CategoryOutAttributeTypeEnum = exports.CategoryOutPermissionsEnum = exports.BulkPatchFeatureOpOpEnum = exports.BulkPatchAssociationOpOpEnum = exports.AuthorOutPermissionsEnum = exports.AssociationValueOutFeatureContributionMethodEnum = exports.AssociationValueOutGeneratedByEnum = exports.AssociationValueOutPermutationScoreTypeEnum = exports.AssociationValueInBaseFeatureContributionMethodEnum = exports.AssociationValueInBaseGeneratedByEnum = exports.AssociationValueInBasePermutationScoreTypeEnum = exports.AssociationValueInFeatureContributionMethodEnum = exports.AssociationValueInGeneratedByEnum = exports.AssociationValueInPermutationScoreTypeEnum = exports.AssociationOutPermissionsEnum = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -1303,6 +1303,7 @@ var ResourceCollectionElementTypeEnum;
     ResourceCollectionElementTypeEnum["PopulationAttribute"] = "population_attribute";
     ResourceCollectionElementTypeEnum["PopulationAttributeValue"] = "population_attribute_value";
     ResourceCollectionElementTypeEnum["Association"] = "association";
+    ResourceCollectionElementTypeEnum["Team"] = "team";
 })(ResourceCollectionElementTypeEnum = exports.ResourceCollectionElementTypeEnum || (exports.ResourceCollectionElementTypeEnum = {}));
 /**
     * @export
@@ -1388,6 +1389,27 @@ var TableStatusEnum;
     TableStatusEnum["Success"] = "success";
     TableStatusEnum["Failure"] = "failure";
 })(TableStatusEnum = exports.TableStatusEnum || (exports.TableStatusEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var TeamOutPermissionsEnum;
+(function (TeamOutPermissionsEnum) {
+    TeamOutPermissionsEnum["Create"] = "create";
+    TeamOutPermissionsEnum["View"] = "view";
+    TeamOutPermissionsEnum["Edit"] = "edit";
+    TeamOutPermissionsEnum["Delete"] = "delete";
+})(TeamOutPermissionsEnum = exports.TeamOutPermissionsEnum || (exports.TeamOutPermissionsEnum = {}));
+/**
+    * @export
+    * @enum {string}
+    */
+var TeamUserInRoleEnum;
+(function (TeamUserInRoleEnum) {
+    TeamUserInRoleEnum["Reader"] = "reader";
+    TeamUserInRoleEnum["Writer"] = "writer";
+    TeamUserInRoleEnum["Admin"] = "admin";
+})(TeamUserInRoleEnum = exports.TeamUserInRoleEnum || (exports.TeamUserInRoleEnum = {}));
 /**
     * @export
     * @enum {string}
@@ -15578,6 +15600,219 @@ class SystemApi extends base_1.BaseAPI {
 }
 exports.SystemApi = SystemApi;
 /**
+ * TeamsApi - axios parameter creator
+ * @export
+ */
+exports.TeamsApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Add a user to a team by email.
+         * @summary Add A User To A Team.
+         * @param {string} teamId
+         * @param {TeamUserIn} teamUserIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToATeamV1TeamsTeamIdUsersPost: (teamId, teamUserIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersPost.');
+            }
+            // verify required parameter 'teamUserIn' is not null or undefined
+            if (teamUserIn === null || teamUserIn === undefined) {
+                throw new base_1.RequiredError('teamUserIn', 'Required parameter teamUserIn was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/users`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof teamUserIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(teamUserIn !== undefined ? teamUserIn : {}) : (teamUserIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create an Team.
+         * @summary Post Team
+         * @param {TeamIn} teamIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postTeamV1TeamsPost: (teamIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamIn' is not null or undefined
+            if (teamIn === null || teamIn === undefined) {
+                throw new base_1.RequiredError('teamIn', 'Required parameter teamIn was null or undefined when calling postTeamV1TeamsPost.');
+            }
+            const localVarPath = `/v1/teams`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof teamIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(teamIn !== undefined ? teamIn : {}) : (teamIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * TeamsApi - functional programming interface
+ * @export
+ */
+exports.TeamsApiFp = function (configuration) {
+    return {
+        /**
+         * Add a user to a team by email.
+         * @summary Add A User To A Team.
+         * @param {string} teamId
+         * @param {TeamUserIn} teamUserIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create an Team.
+         * @summary Post Team
+         * @param {TeamIn} teamIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postTeamV1TeamsPost(teamIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).postTeamV1TeamsPost(teamIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * TeamsApi - factory interface
+ * @export
+ */
+exports.TeamsApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         * Add a user to a team by email.
+         * @summary Add A User To A Team.
+         * @param {string} teamId
+         * @param {TeamUserIn} teamUserIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options) {
+            return exports.TeamsApiFp(configuration).addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create an Team.
+         * @summary Post Team
+         * @param {TeamIn} teamIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postTeamV1TeamsPost(teamIn, options) {
+            return exports.TeamsApiFp(configuration).postTeamV1TeamsPost(teamIn, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * TeamsApi - object-oriented interface
+ * @export
+ * @class TeamsApi
+ * @extends {BaseAPI}
+ */
+class TeamsApi extends base_1.BaseAPI {
+    /**
+     * Add a user to a team by email.
+     * @summary Add A User To A Team.
+     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters.teamId, requestParameters.teamUserIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create an Team.
+     * @summary Post Team
+     * @param {TeamsApiPostTeamV1TeamsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    postTeamV1TeamsPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).postTeamV1TeamsPost(requestParameters.teamIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.TeamsApi = TeamsApi;
+/**
  * TimelineApi - axios parameter creator
  * @export
  */
@@ -15586,7 +15821,7 @@ exports.TimelineApiAxiosParamCreator = function (configuration) {
         /**
          * Fetch resource creation timeline in reverse chronological order.
          * @summary Fetch Global Timeline
-         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>} [types]
+         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>} [types]
          * @param {string} [cursor] A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
          * @param {number} [limit]
          * @param {*} [options] Override http request option.
@@ -15647,7 +15882,7 @@ exports.TimelineApiFp = function (configuration) {
         /**
          * Fetch resource creation timeline in reverse chronological order.
          * @summary Fetch Global Timeline
-         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>} [types]
+         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>} [types]
          * @param {string} [cursor] A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
          * @param {number} [limit]
          * @param {*} [options] Override http request option.
@@ -15673,7 +15908,7 @@ exports.TimelineApiFactory = function (configuration, basePath, axios) {
         /**
          * Fetch resource creation timeline in reverse chronological order.
          * @summary Fetch Global Timeline
-         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>} [types]
+         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>} [types]
          * @param {string} [cursor] A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
          * @param {number} [limit]
          * @param {*} [options] Override http request option.

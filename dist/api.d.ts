@@ -6121,7 +6121,8 @@ export declare enum ResourceCollectionElementTypeEnum {
     Concept = "concept",
     PopulationAttribute = "population_attribute",
     PopulationAttributeValue = "population_attribute_value",
-    Association = "association"
+    Association = "association",
+    Team = "team"
 }
 /**
  * Statistical significance input information.
@@ -6804,6 +6805,137 @@ export declare enum TableStatusEnum {
     Pending = "pending",
     Success = "success",
     Failure = "failure"
+}
+/**
+ * An Team input data.
+ * @export
+ * @interface TeamIn
+ */
+export interface TeamIn {
+    /**
+     * Team\'s name.
+     * @type {string}
+     * @memberof TeamIn
+     */
+    name: string;
+    /**
+     * Team\'s logo
+     * @type {Array<string>}
+     * @memberof TeamIn
+     */
+    logo?: Array<string>;
+}
+/**
+ * Team resource links.
+ * @export
+ * @interface TeamLinks
+ */
+export interface TeamLinks {
+    /**
+     * Link to this resource.
+     * @type {string}
+     * @memberof TeamLinks
+     */
+    self: string;
+}
+/**
+ * Team output model.
+ * @export
+ * @interface TeamOut
+ */
+export interface TeamOut {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamOut
+     */
+    id: string;
+    /**
+     * User who created this resource.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    created_by?: string;
+    /**
+     * Time when resource was created.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    created_at?: string;
+    /**
+     * User who made the last edit.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    last_updated_by?: string;
+    /**
+     * Time of last edit.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    last_updated_at?: string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof TeamOut
+     */
+    _permissions?: Array<TeamOutPermissionsEnum>;
+    /**
+     * Team\'s name.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    name: string;
+    /**
+     * Team\'s logo
+     * @type {Array<string>}
+     * @memberof TeamOut
+     */
+    logo?: Array<string>;
+    /**
+     * Collection of links to related resources.
+     * @type {TeamLinks}
+     * @memberof TeamOut
+     */
+    _links?: TeamLinks;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum TeamOutPermissionsEnum {
+    Create = "create",
+    View = "view",
+    Edit = "edit",
+    Delete = "delete"
+}
+/**
+ * User input for adding to a team.
+ * @export
+ * @interface TeamUserIn
+ */
+export interface TeamUserIn {
+    /**
+     * User email address.
+     * @type {string}
+     * @memberof TeamUserIn
+     */
+    email: string;
+    /**
+     * User role
+     * @type {string}
+     * @memberof TeamUserIn
+     */
+    role: TeamUserInRoleEnum;
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export declare enum TeamUserInRoleEnum {
+    Reader = "reader",
+    Writer = "writer",
+    Admin = "admin"
 }
 /**
  * Represent a test dataset.
@@ -18409,6 +18541,133 @@ export declare class SystemApi extends BaseAPI {
     listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters: SystemApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGetRequest, options?: any): Promise<import("axios").AxiosResponse<VariableSystemOfVariablesPaginationOut>>;
 }
 /**
+ * TeamsApi - axios parameter creator
+ * @export
+ */
+export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Add a user to a team by email.
+     * @summary Add A User To A Team.
+     * @param {string} teamId
+     * @param {TeamUserIn} teamUserIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAUserToATeamV1TeamsTeamIdUsersPost: (teamId: string, teamUserIn: TeamUserIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create an Team.
+     * @summary Post Team
+     * @param {TeamIn} teamIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postTeamV1TeamsPost: (teamIn: TeamIn, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * TeamsApi - functional programming interface
+ * @export
+ */
+export declare const TeamsApiFp: (configuration?: Configuration) => {
+    /**
+     * Add a user to a team by email.
+     * @summary Add A User To A Team.
+     * @param {string} teamId
+     * @param {TeamUserIn} teamUserIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Create an Team.
+     * @summary Post Team
+     * @param {TeamIn} teamIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postTeamV1TeamsPost(teamIn: TeamIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TeamOut>>;
+};
+/**
+ * TeamsApi - factory interface
+ * @export
+ */
+export declare const TeamsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Add a user to a team by email.
+     * @summary Add A User To A Team.
+     * @param {string} teamId
+     * @param {TeamUserIn} teamUserIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): AxiosPromise<void>;
+    /**
+     * Create an Team.
+     * @summary Post Team
+     * @param {TeamIn} teamIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postTeamV1TeamsPost(teamIn: TeamIn, options?: any): AxiosPromise<TeamOut>;
+};
+/**
+ * Request parameters for addAUserToATeamV1TeamsTeamIdUsersPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest
+ */
+export interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {TeamUserIn}
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     */
+    readonly teamUserIn: TeamUserIn;
+}
+/**
+ * Request parameters for postTeamV1TeamsPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiPostTeamV1TeamsPostRequest
+ */
+export interface TeamsApiPostTeamV1TeamsPostRequest {
+    /**
+     *
+     * @type {TeamIn}
+     * @memberof TeamsApiPostTeamV1TeamsPost
+     */
+    readonly teamIn: TeamIn;
+}
+/**
+ * TeamsApi - object-oriented interface
+ * @export
+ * @class TeamsApi
+ * @extends {BaseAPI}
+ */
+export declare class TeamsApi extends BaseAPI {
+    /**
+     * Add a user to a team by email.
+     * @summary Add A User To A Team.
+     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Create an Team.
+     * @summary Post Team
+     * @param {TeamsApiPostTeamV1TeamsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    postTeamV1TeamsPost(requestParameters: TeamsApiPostTeamV1TeamsPostRequest, options?: any): Promise<import("axios").AxiosResponse<TeamOut>>;
+}
+/**
  * TimelineApi - axios parameter creator
  * @export
  */
@@ -18416,13 +18675,13 @@ export declare const TimelineApiAxiosParamCreator: (configuration?: Configuratio
     /**
      * Fetch resource creation timeline in reverse chronological order.
      * @summary Fetch Global Timeline
-     * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>} [types]
+     * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>} [types]
      * @param {string} [cursor] A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGlobalTimelineV1TimelineGet: (types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options?: any) => Promise<RequestArgs>;
+    fetchGlobalTimelineV1TimelineGet: (types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>, cursor?: string, limit?: number, options?: any) => Promise<RequestArgs>;
 };
 /**
  * TimelineApi - functional programming interface
@@ -18432,13 +18691,13 @@ export declare const TimelineApiFp: (configuration?: Configuration) => {
     /**
      * Fetch resource creation timeline in reverse chronological order.
      * @summary Fetch Global Timeline
-     * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>} [types]
+     * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>} [types]
      * @param {string} [cursor] A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGlobalTimelineV1TimelineGet(types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TimelinePaginationOut>>;
+    fetchGlobalTimelineV1TimelineGet(types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>, cursor?: string, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TimelinePaginationOut>>;
 };
 /**
  * TimelineApi - factory interface
@@ -18448,13 +18707,13 @@ export declare const TimelineApiFactory: (configuration?: Configuration, basePat
     /**
      * Fetch resource creation timeline in reverse chronological order.
      * @summary Fetch Global Timeline
-     * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>} [types]
+     * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>} [types]
      * @param {string} [cursor] A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
      * @param {number} [limit]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGlobalTimelineV1TimelineGet(types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options?: any): AxiosPromise<TimelinePaginationOut>;
+    fetchGlobalTimelineV1TimelineGet(types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>, cursor?: string, limit?: number, options?: any): AxiosPromise<TimelinePaginationOut>;
 };
 /**
  * Request parameters for fetchGlobalTimelineV1TimelineGet operation in TimelineApi.
@@ -18464,10 +18723,10 @@ export declare const TimelineApiFactory: (configuration?: Configuration, basePat
 export interface TimelineApiFetchGlobalTimelineV1TimelineGetRequest {
     /**
      *
-     * @type {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>}
+     * @type {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>}
      * @memberof TimelineApiFetchGlobalTimelineV1TimelineGet
      */
-    readonly types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>;
+    readonly types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>;
     /**
      * A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
      * @type {string}
