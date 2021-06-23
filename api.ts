@@ -2681,6 +2681,12 @@ export interface Enterprise {
      */
     name: string;
     /**
+     * Enterprise Identity Provider.
+     * @type {string}
+     * @memberof Enterprise
+     */
+    identity_provider: string;
+    /**
      * The list of integrations to retrieve
      * @type {Array<Integration>}
      * @memberof Enterprise
@@ -6168,7 +6174,8 @@ export enum ResourceCollectionElementTypeEnum {
     Concept = 'concept',
     PopulationAttribute = 'population_attribute',
     PopulationAttributeValue = 'population_attribute_value',
-    Association = 'association'
+    Association = 'association',
+    Team = 'team'
 }
 
 /**
@@ -6857,6 +6864,141 @@ export enum TableStatusEnum {
     Pending = 'pending',
     Success = 'success',
     Failure = 'failure'
+}
+
+/**
+ * An Team input data.
+ * @export
+ * @interface TeamIn
+ */
+export interface TeamIn {
+    /**
+     * Team\'s name.
+     * @type {string}
+     * @memberof TeamIn
+     */
+    name: string;
+    /**
+     * Team\'s logo
+     * @type {Array<string>}
+     * @memberof TeamIn
+     */
+    logo?: Array<string>;
+}
+/**
+ * Team resource links.
+ * @export
+ * @interface TeamLinks
+ */
+export interface TeamLinks {
+    /**
+     * Link to this resource.
+     * @type {string}
+     * @memberof TeamLinks
+     */
+    self: string;
+}
+/**
+ * Team output model.
+ * @export
+ * @interface TeamOut
+ */
+export interface TeamOut {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamOut
+     */
+    id: string;
+    /**
+     * User who created this resource.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    created_by?: string;
+    /**
+     * Time when resource was created.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    created_at?: string;
+    /**
+     * User who made the last edit.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    last_updated_by?: string;
+    /**
+     * Time of last edit.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    last_updated_at?: string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TeamOut
+     */
+    _permissions?: Array<TeamOutPermissionsEnum>;
+    /**
+     * Team\'s name.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    name: string;
+    /**
+     * Team\'s logo
+     * @type {Array<string>}
+     * @memberof TeamOut
+     */
+    logo?: Array<string>;
+    /**
+     * Collection of links to related resources.
+     * @type {TeamLinks}
+     * @memberof TeamOut
+     */
+    _links?: TeamLinks;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamOutPermissionsEnum {
+    Create = 'create',
+    View = 'view',
+    Edit = 'edit',
+    Delete = 'delete'
+}
+
+/**
+ * User input for adding to a team.
+ * @export
+ * @interface TeamUserIn
+ */
+export interface TeamUserIn {
+    /**
+     * User email address.
+     * @type {string}
+     * @memberof TeamUserIn
+     */
+    email: string;
+    /**
+     * User role
+     * @type {string}
+     * @memberof TeamUserIn
+     */
+    role: TeamUserInRoleEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum TeamUserInRoleEnum {
+    Reader = 'reader',
+    Writer = 'writer',
+    Admin = 'admin'
 }
 
 /**
@@ -28441,6 +28583,269 @@ export class SystemApi extends BaseAPI {
 
 
 /**
+ * TeamsApi - axios parameter creator
+ * @export
+ */
+export const TeamsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Add a user to a team by email.
+         * @summary Add A User To A Team.
+         * @param {string} teamId 
+         * @param {TeamUserIn} teamUserIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToATeamV1TeamsTeamIdUsersPost: async (teamId: string, teamUserIn: TeamUserIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersPost.');
+            }
+            // verify required parameter 'teamUserIn' is not null or undefined
+            if (teamUserIn === null || teamUserIn === undefined) {
+                throw new RequiredError('teamUserIn','Required parameter teamUserIn was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/users`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof teamUserIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(teamUserIn !== undefined ? teamUserIn : {}) : (teamUserIn || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create an Team.
+         * @summary Post Team
+         * @param {TeamIn} teamIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postTeamV1TeamsPost: async (teamIn: TeamIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamIn' is not null or undefined
+            if (teamIn === null || teamIn === undefined) {
+                throw new RequiredError('teamIn','Required parameter teamIn was null or undefined when calling postTeamV1TeamsPost.');
+            }
+            const localVarPath = `/v1/teams`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof teamIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(teamIn !== undefined ? teamIn : {}) : (teamIn || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TeamsApi - functional programming interface
+ * @export
+ */
+export const TeamsApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Add a user to a team by email.
+         * @summary Add A User To A Team.
+         * @param {string} teamId 
+         * @param {TeamUserIn} teamUserIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Create an Team.
+         * @summary Post Team
+         * @param {TeamIn} teamIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async postTeamV1TeamsPost(teamIn: TeamIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TeamOut>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).postTeamV1TeamsPost(teamIn, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * TeamsApi - factory interface
+ * @export
+ */
+export const TeamsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Add a user to a team by email.
+         * @summary Add A User To A Team.
+         * @param {string} teamId 
+         * @param {TeamUserIn} teamUserIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): AxiosPromise<void> {
+            return TeamsApiFp(configuration).addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create an Team.
+         * @summary Post Team
+         * @param {TeamIn} teamIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postTeamV1TeamsPost(teamIn: TeamIn, options?: any): AxiosPromise<TeamOut> {
+            return TeamsApiFp(configuration).postTeamV1TeamsPost(teamIn, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for addAUserToATeamV1TeamsTeamIdUsersPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest
+ */
+export interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {TeamUserIn}
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     */
+    readonly teamUserIn: TeamUserIn
+}
+
+/**
+ * Request parameters for postTeamV1TeamsPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiPostTeamV1TeamsPostRequest
+ */
+export interface TeamsApiPostTeamV1TeamsPostRequest {
+    /**
+     * 
+     * @type {TeamIn}
+     * @memberof TeamsApiPostTeamV1TeamsPost
+     */
+    readonly teamIn: TeamIn
+}
+
+/**
+ * TeamsApi - object-oriented interface
+ * @export
+ * @class TeamsApi
+ * @extends {BaseAPI}
+ */
+export class TeamsApi extends BaseAPI {
+    /**
+     * Add a user to a team by email.
+     * @summary Add A User To A Team.
+     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest, options?: any) {
+        return TeamsApiFp(this.configuration).addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters.teamId, requestParameters.teamUserIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create an Team.
+     * @summary Post Team
+     * @param {TeamsApiPostTeamV1TeamsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public postTeamV1TeamsPost(requestParameters: TeamsApiPostTeamV1TeamsPostRequest, options?: any) {
+        return TeamsApiFp(this.configuration).postTeamV1TeamsPost(requestParameters.teamIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
  * TimelineApi - axios parameter creator
  * @export
  */
@@ -28449,13 +28854,13 @@ export const TimelineApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Fetch resource creation timeline in reverse chronological order.
          * @summary Fetch Global Timeline
-         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>} [types] 
+         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>} [types] 
          * @param {string} [cursor] A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
          * @param {number} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGlobalTimelineV1TimelineGet: async (types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options: any = {}): Promise<RequestArgs> => {
+        fetchGlobalTimelineV1TimelineGet: async (types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>, cursor?: string, limit?: number, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/timeline`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -28520,13 +28925,13 @@ export const TimelineApiFp = function(configuration?: Configuration) {
         /**
          * Fetch resource creation timeline in reverse chronological order.
          * @summary Fetch Global Timeline
-         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>} [types] 
+         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>} [types] 
          * @param {string} [cursor] A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
          * @param {number} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchGlobalTimelineV1TimelineGet(types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TimelinePaginationOut>> {
+        async fetchGlobalTimelineV1TimelineGet(types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>, cursor?: string, limit?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TimelinePaginationOut>> {
             const localVarAxiosArgs = await TimelineApiAxiosParamCreator(configuration).fetchGlobalTimelineV1TimelineGet(types, cursor, limit, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -28545,13 +28950,13 @@ export const TimelineApiFactory = function (configuration?: Configuration, baseP
         /**
          * Fetch resource creation timeline in reverse chronological order.
          * @summary Fetch Global Timeline
-         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>} [types] 
+         * @param {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>} [types] 
          * @param {string} [cursor] A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
          * @param {number} [limit] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGlobalTimelineV1TimelineGet(types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>, cursor?: string, limit?: number, options?: any): AxiosPromise<TimelinePaginationOut> {
+        fetchGlobalTimelineV1TimelineGet(types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>, cursor?: string, limit?: number, options?: any): AxiosPromise<TimelinePaginationOut> {
             return TimelineApiFp(configuration).fetchGlobalTimelineV1TimelineGet(types, cursor, limit, options).then((request) => request(axios, basePath));
         },
     };
@@ -28565,10 +28970,10 @@ export const TimelineApiFactory = function (configuration?: Configuration, baseP
 export interface TimelineApiFetchGlobalTimelineV1TimelineGetRequest {
     /**
      * 
-     * @type {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>}
+     * @type {Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>}
      * @memberof TimelineApiFetchGlobalTimelineV1TimelineGet
      */
-    readonly types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association'>
+    readonly types?: Set<'variable' | 'dataset' | 'feature' | 'study' | 'model' | 'author' | 'concept' | 'population_attribute' | 'population_attribute_value' | 'association' | 'team'>
 
     /**
      * A cursor used for pagination. The client should not attempt to construct a cursor on their own but instead use provided cursor from previous response.
