@@ -3423,6 +3423,31 @@ export interface GraphData {
     links: Array<EdgeTypedLink>;
 }
 /**
+ * GraphQL query model.
+ * @export
+ * @interface GraphQLQuery
+ */
+export interface GraphQLQuery {
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphQLQuery
+     */
+    query: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphQLQuery
+     */
+    operationName?: string;
+    /**
+     * 
+     * @type {any}
+     * @memberof GraphQLQuery
+     */
+    variables?: any | null;
+}
+/**
  * 
  * @export
  * @interface HTTPValidationError
@@ -20038,6 +20063,148 @@ export class GraphApi extends BaseAPI {
      */
     public getDatasetGraphV1GraphDatasetGraphGet(options?: any) {
         return GraphApiFp(this.configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * GraphqlApi - axios parameter creator
+ * @export
+ */
+export const GraphqlApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Forward GraphQL request to SystemDB.
+         * @summary Post Graphql
+         * @param {GraphQLQuery} graphQLQuery 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postGraphqlV1GraphqlPost: async (graphQLQuery: GraphQLQuery, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'graphQLQuery' is not null or undefined
+            if (graphQLQuery === null || graphQLQuery === undefined) {
+                throw new RequiredError('graphQLQuery','Required parameter graphQLQuery was null or undefined when calling postGraphqlV1GraphqlPost.');
+            }
+            const localVarPath = `/v1/graphql`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof graphQLQuery !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(graphQLQuery !== undefined ? graphQLQuery : {}) : (graphQLQuery || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * GraphqlApi - functional programming interface
+ * @export
+ */
+export const GraphqlApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Forward GraphQL request to SystemDB.
+         * @summary Post Graphql
+         * @param {GraphQLQuery} graphQLQuery 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await GraphqlApiAxiosParamCreator(configuration).postGraphqlV1GraphqlPost(graphQLQuery, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+    }
+};
+
+/**
+ * GraphqlApi - factory interface
+ * @export
+ */
+export const GraphqlApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    return {
+        /**
+         * Forward GraphQL request to SystemDB.
+         * @summary Post Graphql
+         * @param {GraphQLQuery} graphQLQuery 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: any): AxiosPromise<any> {
+            return GraphqlApiFp(configuration).postGraphqlV1GraphqlPost(graphQLQuery, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for postGraphqlV1GraphqlPost operation in GraphqlApi.
+ * @export
+ * @interface GraphqlApiPostGraphqlV1GraphqlPostRequest
+ */
+export interface GraphqlApiPostGraphqlV1GraphqlPostRequest {
+    /**
+     * 
+     * @type {GraphQLQuery}
+     * @memberof GraphqlApiPostGraphqlV1GraphqlPost
+     */
+    readonly graphQLQuery: GraphQLQuery
+}
+
+/**
+ * GraphqlApi - object-oriented interface
+ * @export
+ * @class GraphqlApi
+ * @extends {BaseAPI}
+ */
+export class GraphqlApi extends BaseAPI {
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {GraphqlApiPostGraphqlV1GraphqlPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphqlApi
+     */
+    public postGraphqlV1GraphqlPost(requestParameters: GraphqlApiPostGraphqlV1GraphqlPostRequest, options?: any) {
+        return GraphqlApiFp(this.configuration).postGraphqlV1GraphqlPost(requestParameters.graphQLQuery, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
