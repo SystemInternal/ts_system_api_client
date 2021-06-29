@@ -3399,6 +3399,31 @@ export interface GraphData {
     links: Array<EdgeTypedLink>;
 }
 /**
+ * GraphQL query model.
+ * @export
+ * @interface GraphQLQuery
+ */
+export interface GraphQLQuery {
+    /**
+     *
+     * @type {string}
+     * @memberof GraphQLQuery
+     */
+    query: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GraphQLQuery
+     */
+    operationName?: string;
+    /**
+     *
+     * @type {any}
+     * @memberof GraphQLQuery
+     */
+    variables?: any | null;
+}
+/**
  *
  * @export
  * @interface HTTPValidationError
@@ -14050,6 +14075,78 @@ export declare class GraphApi extends BaseAPI {
      * @memberof GraphApi
      */
     getDatasetGraphV1GraphDatasetGraphGet(options?: any): Promise<import("axios").AxiosResponse<GraphData>>;
+}
+/**
+ * GraphqlApi - axios parameter creator
+ * @export
+ */
+export declare const GraphqlApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {GraphQLQuery} graphQLQuery
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postGraphqlV1GraphqlPost: (graphQLQuery: GraphQLQuery, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * GraphqlApi - functional programming interface
+ * @export
+ */
+export declare const GraphqlApiFp: (configuration?: Configuration) => {
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {GraphQLQuery} graphQLQuery
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+};
+/**
+ * GraphqlApi - factory interface
+ * @export
+ */
+export declare const GraphqlApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {GraphQLQuery} graphQLQuery
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: any): AxiosPromise<any>;
+};
+/**
+ * Request parameters for postGraphqlV1GraphqlPost operation in GraphqlApi.
+ * @export
+ * @interface GraphqlApiPostGraphqlV1GraphqlPostRequest
+ */
+export interface GraphqlApiPostGraphqlV1GraphqlPostRequest {
+    /**
+     *
+     * @type {GraphQLQuery}
+     * @memberof GraphqlApiPostGraphqlV1GraphqlPost
+     */
+    readonly graphQLQuery: GraphQLQuery;
+}
+/**
+ * GraphqlApi - object-oriented interface
+ * @export
+ * @class GraphqlApi
+ * @extends {BaseAPI}
+ */
+export declare class GraphqlApi extends BaseAPI {
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {GraphqlApiPostGraphqlV1GraphqlPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphqlApi
+     */
+    postGraphqlV1GraphqlPost(requestParameters: GraphqlApiPostGraphqlV1GraphqlPostRequest, options?: any): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * ModeldbApi - axios parameter creator

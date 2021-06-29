@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeTypeEnum = exports.VariableOutPermissionsEnum = exports.TestDatasetTransformationTypeEnum = exports.TeamUserInRoleEnum = exports.TeamOutPermissionsEnum = exports.TableStatusEnum = exports.StudyOutAddContextEnum = exports.StudyOutStudyTypeEnum = exports.StudyOutPermissionsEnum = exports.StudyInAddContextEnum = exports.StudyInStudyTypeEnum = exports.SignificanceValueOutGeneratedByEnum = exports.SignificanceValueInGeneratedByEnum = exports.ResourceCollectionElementTypeEnum = exports.RelationshipStrengthRelationshipTypeEnum = exports.RelationshipStrengthLevelEnum = exports.RelationshipReproducibilityLevelEnum = exports.RelationshipReproducibilityStudyTypeEnum = exports.RelationshipDirectionRelationshipTypeEnum = exports.RelationshipDirectionLevelEnum = exports.RelatedFilterValueFilterTypeEnum = exports.PopulationAttributeOutAttributeTypeEnum = exports.PopulationAttributeOutPermissionsEnum = exports.PopulationAttributeInAttributeTypeEnum = exports.PatchVariableOpOpEnum = exports.PatchStudyOpOpEnum = exports.PatchModelOpOpEnum = exports.PatchFeatureOpOpEnum = exports.PatchDatasetOpOpEnum = exports.PartialDependencePlotInGeneratedByEnum = exports.OjbectTypedNodeObjectTypeEnum = exports.NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutPermissionsEnum = exports.NullHypothesisOutLevelEnum = exports.NullHypothesisOutTestTypeEnum = exports.NullHypothesisInLevelEnum = exports.NullHypothesisInTestTypeEnum = exports.ModelPerformanceOutScoreTypeEnum = exports.ModelPerformanceOutGeneratedByEnum = exports.ModelPerformanceInScoreTypeEnum = exports.ModelPerformanceInGeneratedByEnum = exports.ModelPerformanceBaseInScoreTypeEnum = exports.ModelPerformanceBaseInGeneratedByEnum = exports.ModelOutPermissionsEnum = exports.MessageOutMessageTypeEnum = exports.MessageInMessageTypeEnum = exports.LocationOutAttributeTypeEnum = exports.LocationOutPermissionsEnum = exports.IntegrationUpdateInStateEnum = exports.IntegrationCreateServiceTypeEnum = exports.IntegrationCreateStateEnum = exports.IntegrationPermissionsEnum = exports.IntegrationServiceTypeEnum = exports.IntegrationStateEnum = exports.FreeTextOutAttributeTypeEnum = exports.FreeTextOutPermissionsEnum = exports.FilterValueFilterTypeEnum = exports.FeatureStatisticsGeneratedByEnum = exports.FeatureStatisticsFeatureTypeEnum = exports.FeatureOutPermissionsEnum = exports.ExternalAssetExternalAssetTypeEnum = exports.EnterprisePermissionsEnum = exports.EdgeTypedLinkEdgeTypeEnum = exports.DeploymentStageEnum = exports.DateRangeOutAttributeTypeEnum = exports.DateRangeOutPermissionsEnum = exports.DatasetOutLicenseEnum = exports.DatasetOutPermissionsEnum = exports.DatasetInLicenseEnum = exports.ConfidenceIntervalOutLevelEnum = exports.ConfidenceIntervalInLevelEnum = exports.ConceptOutPermissionsEnum = exports.CategoryOutAttributeTypeEnum = exports.CategoryOutPermissionsEnum = exports.BulkPatchFeatureOpOpEnum = exports.BulkPatchAssociationOpOpEnum = exports.AuthorOutPermissionsEnum = exports.AssociationValueOutFeatureContributionMethodEnum = exports.AssociationValueOutGeneratedByEnum = exports.AssociationValueOutPermutationScoreTypeEnum = exports.AssociationValueInBaseFeatureContributionMethodEnum = exports.AssociationValueInBaseGeneratedByEnum = exports.AssociationValueInBasePermutationScoreTypeEnum = exports.AssociationValueInFeatureContributionMethodEnum = exports.AssociationValueInGeneratedByEnum = exports.AssociationValueInPermutationScoreTypeEnum = exports.AssociationOutPermissionsEnum = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeTypeEnum = exports.VariableOutPermissionsEnum = exports.TestDatasetTransformationTypeEnum = exports.TeamUserInRoleEnum = exports.TeamOutPermissionsEnum = exports.TableStatusEnum = exports.StudyOutAddContextEnum = exports.StudyOutStudyTypeEnum = exports.StudyOutPermissionsEnum = exports.StudyInAddContextEnum = exports.StudyInStudyTypeEnum = exports.SignificanceValueOutGeneratedByEnum = exports.SignificanceValueInGeneratedByEnum = exports.ResourceCollectionElementTypeEnum = exports.RelationshipStrengthRelationshipTypeEnum = exports.RelationshipStrengthLevelEnum = exports.RelationshipReproducibilityLevelEnum = exports.RelationshipReproducibilityStudyTypeEnum = exports.RelationshipDirectionRelationshipTypeEnum = exports.RelationshipDirectionLevelEnum = exports.RelatedFilterValueFilterTypeEnum = exports.PopulationAttributeOutAttributeTypeEnum = exports.PopulationAttributeOutPermissionsEnum = exports.PopulationAttributeInAttributeTypeEnum = exports.PatchVariableOpOpEnum = exports.PatchStudyOpOpEnum = exports.PatchModelOpOpEnum = exports.PatchFeatureOpOpEnum = exports.PatchDatasetOpOpEnum = exports.PartialDependencePlotInGeneratedByEnum = exports.OjbectTypedNodeObjectTypeEnum = exports.NumberRangeOutAttributeTypeEnum = exports.NumberRangeOutPermissionsEnum = exports.NullHypothesisOutLevelEnum = exports.NullHypothesisOutTestTypeEnum = exports.NullHypothesisInLevelEnum = exports.NullHypothesisInTestTypeEnum = exports.ModelPerformanceOutScoreTypeEnum = exports.ModelPerformanceOutGeneratedByEnum = exports.ModelPerformanceInScoreTypeEnum = exports.ModelPerformanceInGeneratedByEnum = exports.ModelPerformanceBaseInScoreTypeEnum = exports.ModelPerformanceBaseInGeneratedByEnum = exports.ModelOutPermissionsEnum = exports.MessageOutMessageTypeEnum = exports.MessageInMessageTypeEnum = exports.LocationOutAttributeTypeEnum = exports.LocationOutPermissionsEnum = exports.IntegrationUpdateInStateEnum = exports.IntegrationCreateServiceTypeEnum = exports.IntegrationCreateStateEnum = exports.IntegrationPermissionsEnum = exports.IntegrationServiceTypeEnum = exports.IntegrationStateEnum = exports.FreeTextOutAttributeTypeEnum = exports.FreeTextOutPermissionsEnum = exports.FilterValueFilterTypeEnum = exports.FeatureStatisticsGeneratedByEnum = exports.FeatureStatisticsFeatureTypeEnum = exports.FeatureOutPermissionsEnum = exports.ExternalAssetExternalAssetTypeEnum = exports.EnterprisePermissionsEnum = exports.EdgeTypedLinkEdgeTypeEnum = exports.DeploymentStageEnum = exports.DateRangeOutAttributeTypeEnum = exports.DateRangeOutPermissionsEnum = exports.DatasetOutLicenseEnum = exports.DatasetOutPermissionsEnum = exports.DatasetInLicenseEnum = exports.ConfidenceIntervalOutLevelEnum = exports.ConfidenceIntervalInLevelEnum = exports.ConceptOutPermissionsEnum = exports.CategoryOutAttributeTypeEnum = exports.CategoryOutPermissionsEnum = exports.BulkPatchFeatureOpOpEnum = exports.BulkPatchAssociationOpOpEnum = exports.AuthorOutPermissionsEnum = exports.AssociationValueOutFeatureContributionMethodEnum = exports.AssociationValueOutGeneratedByEnum = exports.AssociationValueOutPermutationScoreTypeEnum = exports.AssociationValueInBaseFeatureContributionMethodEnum = exports.AssociationValueInBaseGeneratedByEnum = exports.AssociationValueInBasePermutationScoreTypeEnum = exports.AssociationValueInFeatureContributionMethodEnum = exports.AssociationValueInGeneratedByEnum = exports.AssociationValueInPermutationScoreTypeEnum = exports.AssociationOutPermissionsEnum = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -9857,6 +9857,125 @@ class GraphApi extends base_1.BaseAPI {
     }
 }
 exports.GraphApi = GraphApi;
+/**
+ * GraphqlApi - axios parameter creator
+ * @export
+ */
+exports.GraphqlApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Forward GraphQL request to SystemDB.
+         * @summary Post Graphql
+         * @param {GraphQLQuery} graphQLQuery
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postGraphqlV1GraphqlPost: (graphQLQuery, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'graphQLQuery' is not null or undefined
+            if (graphQLQuery === null || graphQLQuery === undefined) {
+                throw new base_1.RequiredError('graphQLQuery', 'Required parameter graphQLQuery was null or undefined when calling postGraphqlV1GraphqlPost.');
+            }
+            const localVarPath = `/v1/graphql`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof graphQLQuery !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(graphQLQuery !== undefined ? graphQLQuery : {}) : (graphQLQuery || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * GraphqlApi - functional programming interface
+ * @export
+ */
+exports.GraphqlApiFp = function (configuration) {
+    return {
+        /**
+         * Forward GraphQL request to SystemDB.
+         * @summary Post Graphql
+         * @param {GraphQLQuery} graphQLQuery
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postGraphqlV1GraphqlPost(graphQLQuery, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.GraphqlApiAxiosParamCreator(configuration).postGraphqlV1GraphqlPost(graphQLQuery, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * GraphqlApi - factory interface
+ * @export
+ */
+exports.GraphqlApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         * Forward GraphQL request to SystemDB.
+         * @summary Post Graphql
+         * @param {GraphQLQuery} graphQLQuery
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postGraphqlV1GraphqlPost(graphQLQuery, options) {
+            return exports.GraphqlApiFp(configuration).postGraphqlV1GraphqlPost(graphQLQuery, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * GraphqlApi - object-oriented interface
+ * @export
+ * @class GraphqlApi
+ * @extends {BaseAPI}
+ */
+class GraphqlApi extends base_1.BaseAPI {
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {GraphqlApiPostGraphqlV1GraphqlPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphqlApi
+     */
+    postGraphqlV1GraphqlPost(requestParameters, options) {
+        return exports.GraphqlApiFp(this.configuration).postGraphqlV1GraphqlPost(requestParameters.graphQLQuery, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.GraphqlApi = GraphqlApi;
 /**
  * ModeldbApi - axios parameter creator
  * @export
