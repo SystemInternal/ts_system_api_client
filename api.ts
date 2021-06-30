@@ -6904,6 +6904,12 @@ export interface TeamIn {
      */
     name: string;
     /**
+     * Identifier of the team.
+     * @type {string}
+     * @memberof TeamIn
+     */
+    slug: string;
+    /**
      * Team\'s logo
      * @type {Array<string>}
      * @memberof TeamIn
@@ -6971,6 +6977,12 @@ export interface TeamOut {
      * @memberof TeamOut
      */
     name: string;
+    /**
+     * Identifier of the team.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    slug: string;
     /**
      * Team\'s logo
      * @type {Array<string>}
@@ -28758,22 +28770,22 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Add a user to a team by email.
          * @summary Add A User To A Team.
-         * @param {string} teamId 
+         * @param {string} teamSlug 
          * @param {TeamUserIn} teamUserIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAUserToATeamV1TeamsTeamIdUsersPost: async (teamId: string, teamUserIn: TeamUserIn, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'teamId' is not null or undefined
-            if (teamId === null || teamId === undefined) {
-                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersPost.');
+        addAUserToATeamV1TeamsTeamSlugUsersPost: async (teamSlug: string, teamUserIn: TeamUserIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new RequiredError('teamSlug','Required parameter teamSlug was null or undefined when calling addAUserToATeamV1TeamsTeamSlugUsersPost.');
             }
             // verify required parameter 'teamUserIn' is not null or undefined
             if (teamUserIn === null || teamUserIn === undefined) {
-                throw new RequiredError('teamUserIn','Required parameter teamUserIn was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersPost.');
+                throw new RequiredError('teamUserIn','Required parameter teamUserIn was null or undefined when calling addAUserToATeamV1TeamsTeamSlugUsersPost.');
             }
-            const localVarPath = `/v1/teams/{team_id}/users`
-                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarPath = `/v1/teams/{team_slug}/users`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -28885,13 +28897,13 @@ export const TeamsApiFp = function(configuration?: Configuration) {
         /**
          * Add a user to a team by email.
          * @summary Add A User To A Team.
-         * @param {string} teamId 
+         * @param {string} teamSlug 
          * @param {TeamUserIn} teamUserIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options);
+        async addAUserToATeamV1TeamsTeamSlugUsersPost(teamSlug: string, teamUserIn: TeamUserIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).addAUserToATeamV1TeamsTeamSlugUsersPost(teamSlug, teamUserIn, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -28923,13 +28935,13 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
         /**
          * Add a user to a team by email.
          * @summary Add A User To A Team.
-         * @param {string} teamId 
+         * @param {string} teamSlug 
          * @param {TeamUserIn} teamUserIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): AxiosPromise<void> {
-            return TeamsApiFp(configuration).addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options).then((request) => request(axios, basePath));
+        addAUserToATeamV1TeamsTeamSlugUsersPost(teamSlug: string, teamUserIn: TeamUserIn, options?: any): AxiosPromise<void> {
+            return TeamsApiFp(configuration).addAUserToATeamV1TeamsTeamSlugUsersPost(teamSlug, teamUserIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Create an Team.
@@ -28945,22 +28957,22 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
 };
 
 /**
- * Request parameters for addAUserToATeamV1TeamsTeamIdUsersPost operation in TeamsApi.
+ * Request parameters for addAUserToATeamV1TeamsTeamSlugUsersPost operation in TeamsApi.
  * @export
- * @interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest
+ * @interface TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPostRequest
  */
-export interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest {
+export interface TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPostRequest {
     /**
      * 
      * @type {string}
-     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPost
      */
-    readonly teamId: string
+    readonly teamSlug: string
 
     /**
      * 
      * @type {TeamUserIn}
-     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPost
      */
     readonly teamUserIn: TeamUserIn
 }
@@ -28989,13 +29001,13 @@ export class TeamsApi extends BaseAPI {
     /**
      * Add a user to a team by email.
      * @summary Add A User To A Team.
-     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
+     * @param {TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest, options?: any) {
-        return TeamsApiFp(this.configuration).addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters.teamId, requestParameters.teamUserIn, options).then((request) => request(this.axios, this.basePath));
+    public addAUserToATeamV1TeamsTeamSlugUsersPost(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPostRequest, options?: any) {
+        return TeamsApiFp(this.configuration).addAUserToATeamV1TeamsTeamSlugUsersPost(requestParameters.teamSlug, requestParameters.teamUserIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
