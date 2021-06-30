@@ -6844,6 +6844,12 @@ export interface TeamIn {
      */
     name: string;
     /**
+     * Identifier of the team.
+     * @type {string}
+     * @memberof TeamIn
+     */
+    slug: string;
+    /**
      * Team\'s logo
      * @type {Array<string>}
      * @memberof TeamIn
@@ -6911,6 +6917,12 @@ export interface TeamOut {
      * @memberof TeamOut
      */
     name: string;
+    /**
+     * Identifier of the team.
+     * @type {string}
+     * @memberof TeamOut
+     */
+    slug: string;
     /**
      * Team\'s logo
      * @type {Array<string>}
@@ -18645,12 +18657,12 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * Add a user to a team by email.
      * @summary Add A User To A Team.
-     * @param {string} teamId
+     * @param {string} teamSlug
      * @param {TeamUserIn} teamUserIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAUserToATeamV1TeamsTeamIdUsersPost: (teamId: string, teamUserIn: TeamUserIn, options?: any) => Promise<RequestArgs>;
+    addAUserToATeamV1TeamsTeamSlugUsersPost: (teamSlug: string, teamUserIn: TeamUserIn, options?: any) => Promise<RequestArgs>;
     /**
      * Create an Team.
      * @summary Post Team
@@ -18668,12 +18680,12 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
     /**
      * Add a user to a team by email.
      * @summary Add A User To A Team.
-     * @param {string} teamId
+     * @param {string} teamSlug
      * @param {TeamUserIn} teamUserIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addAUserToATeamV1TeamsTeamSlugUsersPost(teamSlug: string, teamUserIn: TeamUserIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Create an Team.
      * @summary Post Team
@@ -18691,12 +18703,12 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
     /**
      * Add a user to a team by email.
      * @summary Add A User To A Team.
-     * @param {string} teamId
+     * @param {string} teamSlug
      * @param {TeamUserIn} teamUserIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): AxiosPromise<void>;
+    addAUserToATeamV1TeamsTeamSlugUsersPost(teamSlug: string, teamUserIn: TeamUserIn, options?: any): AxiosPromise<void>;
     /**
      * Create an Team.
      * @summary Post Team
@@ -18707,21 +18719,21 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
     postTeamV1TeamsPost(teamIn: TeamIn, options?: any): AxiosPromise<TeamOut>;
 };
 /**
- * Request parameters for addAUserToATeamV1TeamsTeamIdUsersPost operation in TeamsApi.
+ * Request parameters for addAUserToATeamV1TeamsTeamSlugUsersPost operation in TeamsApi.
  * @export
- * @interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest
+ * @interface TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPostRequest
  */
-export interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest {
+export interface TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPostRequest {
     /**
      *
      * @type {string}
-     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPost
      */
-    readonly teamId: string;
+    readonly teamSlug: string;
     /**
      *
      * @type {TeamUserIn}
-     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPost
      */
     readonly teamUserIn: TeamUserIn;
 }
@@ -18748,12 +18760,12 @@ export declare class TeamsApi extends BaseAPI {
     /**
      * Add a user to a team by email.
      * @summary Add A User To A Team.
-     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
+     * @param {TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    addAUserToATeamV1TeamsTeamSlugUsersPost(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPostRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Create an Team.
      * @summary Post Team
