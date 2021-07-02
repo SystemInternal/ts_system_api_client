@@ -2407,6 +2407,107 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
         /**
          * Get associations using the Variable.
          * @summary List Associations
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet: (teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}/associations`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get associations using the Variable.
+         * @summary List Associations
          * @param {string} variableId
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -2858,6 +2959,35 @@ exports.AssociationsApiFp = function (configuration) {
         /**
          * Get associations using the Variable.
          * @summary List Associations
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get associations using the Variable.
+         * @summary List Associations
          * @param {string} variableId
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -3120,6 +3250,29 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
         /**
          * Get associations using the Variable.
          * @summary List Associations
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.AssociationsApiFp(configuration).listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get associations using the Variable.
+         * @summary List Associations
          * @param {string} variableId
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -3312,6 +3465,17 @@ class AssociationsApi extends base_1.BaseAPI {
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters, options) {
         return exports.AssociationsApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {AssociationsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(requestParameters, options) {
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations using the Variable.
@@ -15204,6 +15368,131 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
         /**
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
+         * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
+         * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
+         * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
+         * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet: (teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}/system/features`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (hops !== undefined) {
+                localVarQueryParameter['hops'] = hops;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (includePathPopIds !== undefined) {
+                localVarQueryParameter['include_path_pop_ids'] = includePathPopIds;
+            }
+            if (pathPopFilter !== undefined) {
+                localVarQueryParameter['path_pop_filter'] = pathPopFilter;
+            }
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+            if (maxStrength !== undefined) {
+                localVarQueryParameter['max_strength'] = maxStrength;
+            }
+            if (minReproducibility !== undefined) {
+                localVarQueryParameter['min_reproducibility'] = minReproducibility;
+            }
+            if (maxReproducibility !== undefined) {
+                localVarQueryParameter['max_reproducibility'] = maxReproducibility;
+            }
+            if (license) {
+                localVarQueryParameter['license'] = license;
+            }
+            if (dsIdx) {
+                localVarQueryParameter['ds_idx'] = dsIdx;
+            }
+            if (includeDatasetIndexIds !== undefined) {
+                localVarQueryParameter['include_dataset_index_ids'] = includeDatasetIndexIds;
+            }
+            if (includeDatasetPopIds !== undefined) {
+                localVarQueryParameter['include_dataset_pop_ids'] = includeDatasetPopIds;
+            }
+            if (dsPopFilter !== undefined) {
+                localVarQueryParameter['ds_pop_filter'] = dsPopFilter;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get the features in the requested variable\'s system.
+         * @summary List System Of Features
          * @param {string} variableId
          * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
@@ -15297,6 +15586,111 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
             }
             if (dsPopFilter !== undefined) {
                 localVarQueryParameter['ds_pop_filter'] = dsPopFilter;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get the variables in the requested variable\'s system.
+         * @summary List System Of Variables
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet: (teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}/system/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (hops !== undefined) {
+                localVarQueryParameter['hops'] = hops;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (includePathPopIds !== undefined) {
+                localVarQueryParameter['include_path_pop_ids'] = includePathPopIds;
+            }
+            if (pathPopFilter !== undefined) {
+                localVarQueryParameter['path_pop_filter'] = pathPopFilter;
+            }
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+            if (maxStrength !== undefined) {
+                localVarQueryParameter['max_strength'] = maxStrength;
+            }
+            if (minReproducibility !== undefined) {
+                localVarQueryParameter['min_reproducibility'] = minReproducibility;
+            }
+            if (maxReproducibility !== undefined) {
+                localVarQueryParameter['max_reproducibility'] = maxReproducibility;
             }
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
@@ -15493,6 +15887,41 @@ exports.SystemApiFp = function (configuration) {
         /**
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
+         * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
+         * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
+         * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
+         * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get the features in the requested variable\'s system.
+         * @summary List System Of Features
          * @param {string} variableId
          * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
@@ -15518,6 +15947,36 @@ exports.SystemApiFp = function (configuration) {
         listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get the variables in the requested variable\'s system.
+         * @summary List System Of Variables
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.SystemApiAxiosParamCreator(configuration).listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -15615,6 +16074,35 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
         /**
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
+         * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
+         * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
+         * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
+         * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return exports.SystemApiFp(configuration).listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the features in the requested variable\'s system.
+         * @summary List System Of Features
          * @param {string} variableId
          * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
@@ -15639,6 +16127,30 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          */
         listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return exports.SystemApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the variables in the requested variable\'s system.
+         * @summary List System Of Variables
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return exports.SystemApiFp(configuration).listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the variables in the requested variable\'s system.
@@ -15697,6 +16209,17 @@ class SystemApi extends base_1.BaseAPI {
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
+     * @param {SystemApiListSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemApi
+     */
+    listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(requestParameters, options) {
+        return exports.SystemApiFp(this.configuration).listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get the features in the requested variable\'s system.
+     * @summary List System Of Features
      * @param {SystemApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15704,6 +16227,17 @@ class SystemApi extends base_1.BaseAPI {
      */
     listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters, options) {
         return exports.SystemApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get the variables in the requested variable\'s system.
+     * @summary List System Of Variables
+     * @param {SystemApiListSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemApi
+     */
+    listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(requestParameters, options) {
+        return exports.SystemApiFp(this.configuration).listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the variables in the requested variable\'s system.
@@ -15774,6 +16308,705 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             const needsSerialization = (typeof teamUserIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data = needsSerialization ? JSON.stringify(teamUserIn !== undefined ? teamUserIn : {}) : (teamUserIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a Variable.
+         * @summary Create A Variable.
+         * @param {string} teamSlug
+         * @param {VariableIn} variableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAVariableV1TeamsTeamSlugVariablesPost: (teamSlug, variableIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling createAVariableV1TeamsTeamSlugVariablesPost.');
+            }
+            // verify required parameter 'variableIn' is not null or undefined
+            if (variableIn === null || variableIn === undefined) {
+                throw new base_1.RequiredError('variableIn', 'Required parameter variableIn was null or undefined when calling createAVariableV1TeamsTeamSlugVariablesPost.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof variableIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(variableIn !== undefined ? variableIn : {}) : (variableIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create mulitple Variables.
+         * @summary Create Multiple Variables.
+         * @param {string} teamSlug
+         * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost: (teamSlug, arrayVariableInVariableIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost.');
+            }
+            // verify required parameter 'arrayVariableInVariableIn' is not null or undefined
+            if (arrayVariableInVariableIn === null || arrayVariableInVariableIn === undefined) {
+                throw new base_1.RequiredError('arrayVariableInVariableIn', 'Required parameter arrayVariableInVariableIn was null or undefined when calling createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/bulk`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof arrayVariableInVariableIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(arrayVariableInVariableIn !== undefined ? arrayVariableInVariableIn : {}) : (arrayVariableInVariableIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
+         * @summary Delete Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete: (teamSlug, variableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get Variable.
+         * @summary Get Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariableV1TeamsTeamSlugVariablesVariableIdGet: (teamSlug, variableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling getVariableV1TeamsTeamSlugVariablesVariableIdGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling getVariableV1TeamsTeamSlugVariablesVariableIdGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get associations using the Variable.
+         * @summary List Associations
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet: (teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}/associations`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get the features in the requested variable\'s system.
+         * @summary List System Of Features
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
+         * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
+         * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
+         * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
+         * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet: (teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}/system/features`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (hops !== undefined) {
+                localVarQueryParameter['hops'] = hops;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (includePathPopIds !== undefined) {
+                localVarQueryParameter['include_path_pop_ids'] = includePathPopIds;
+            }
+            if (pathPopFilter !== undefined) {
+                localVarQueryParameter['path_pop_filter'] = pathPopFilter;
+            }
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+            if (maxStrength !== undefined) {
+                localVarQueryParameter['max_strength'] = maxStrength;
+            }
+            if (minReproducibility !== undefined) {
+                localVarQueryParameter['min_reproducibility'] = minReproducibility;
+            }
+            if (maxReproducibility !== undefined) {
+                localVarQueryParameter['max_reproducibility'] = maxReproducibility;
+            }
+            if (license) {
+                localVarQueryParameter['license'] = license;
+            }
+            if (dsIdx) {
+                localVarQueryParameter['ds_idx'] = dsIdx;
+            }
+            if (includeDatasetIndexIds !== undefined) {
+                localVarQueryParameter['include_dataset_index_ids'] = includeDatasetIndexIds;
+            }
+            if (includeDatasetPopIds !== undefined) {
+                localVarQueryParameter['include_dataset_pop_ids'] = includeDatasetPopIds;
+            }
+            if (dsPopFilter !== undefined) {
+                localVarQueryParameter['ds_pop_filter'] = dsPopFilter;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get the variables in the requested variable\'s system.
+         * @summary List System Of Variables
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet: (teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}/system/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (hops !== undefined) {
+                localVarQueryParameter['hops'] = hops;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (includePathPopIds !== undefined) {
+                localVarQueryParameter['include_path_pop_ids'] = includePathPopIds;
+            }
+            if (pathPopFilter !== undefined) {
+                localVarQueryParameter['path_pop_filter'] = pathPopFilter;
+            }
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+            if (maxStrength !== undefined) {
+                localVarQueryParameter['max_strength'] = maxStrength;
+            }
+            if (minReproducibility !== undefined) {
+                localVarQueryParameter['min_reproducibility'] = minReproducibility;
+            }
+            if (maxReproducibility !== undefined) {
+                localVarQueryParameter['max_reproducibility'] = maxReproducibility;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List Variables.
+         * @summary List Variables
+         * @param {string} teamSlug
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listVariablesV1TeamsTeamSlugVariablesGet: (teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listVariablesV1TeamsTeamSlugVariablesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (inVariableGraph !== undefined) {
+                localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchVariableV1TeamsTeamSlugVariablesVariableIdPatch: (teamSlug, variableId, patchVariableOpArrayPatchVariableOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling patchVariableV1TeamsTeamSlugVariablesVariableIdPatch.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling patchVariableV1TeamsTeamSlugVariablesVariableIdPatch.');
+            }
+            // verify required parameter 'patchVariableOpArrayPatchVariableOp' is not null or undefined
+            if (patchVariableOpArrayPatchVariableOp === null || patchVariableOpArrayPatchVariableOp === undefined) {
+                throw new base_1.RequiredError('patchVariableOpArrayPatchVariableOp', 'Required parameter patchVariableOpArrayPatchVariableOp was null or undefined when calling patchVariableV1TeamsTeamSlugVariablesVariableIdPatch.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PATCH' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof patchVariableOpArrayPatchVariableOp !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(patchVariableOpArrayPatchVariableOp !== undefined ? patchVariableOpArrayPatchVariableOp : {}) : (patchVariableOpArrayPatchVariableOp || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -15854,6 +17087,213 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Create a Variable.
+         * @summary Create A Variable.
+         * @param {string} teamSlug
+         * @param {VariableIn} variableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAVariableV1TeamsTeamSlugVariablesPost(teamSlug, variableIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).createAVariableV1TeamsTeamSlugVariablesPost(teamSlug, variableIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create mulitple Variables.
+         * @summary Create Multiple Variables.
+         * @param {string} teamSlug
+         * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(teamSlug, arrayVariableInVariableIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(teamSlug, arrayVariableInVariableIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
+         * @summary Delete Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(teamSlug, variableId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(teamSlug, variableId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get Variable.
+         * @summary Get Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug, variableId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug, variableId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get associations using the Variable.
+         * @summary List Associations
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get the features in the requested variable\'s system.
+         * @summary List System Of Features
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
+         * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
+         * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
+         * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
+         * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get the variables in the requested variable\'s system.
+         * @summary List System Of Variables
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List Variables.
+         * @summary List Variables
+         * @param {string} teamSlug
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listVariablesV1TeamsTeamSlugVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listVariablesV1TeamsTeamSlugVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(teamSlug, variableId, patchVariableOpArrayPatchVariableOp, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(teamSlug, variableId, patchVariableOpArrayPatchVariableOp, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Create an Team.
          * @summary Post Team
          * @param {TeamIn} teamIn
@@ -15889,6 +17329,159 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).addAUserToATeamV1TeamsTeamSlugUsersPost(teamSlug, teamUserIn, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a Variable.
+         * @summary Create A Variable.
+         * @param {string} teamSlug
+         * @param {VariableIn} variableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAVariableV1TeamsTeamSlugVariablesPost(teamSlug, variableIn, options) {
+            return exports.TeamsApiFp(configuration).createAVariableV1TeamsTeamSlugVariablesPost(teamSlug, variableIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create mulitple Variables.
+         * @summary Create Multiple Variables.
+         * @param {string} teamSlug
+         * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(teamSlug, arrayVariableInVariableIn, options) {
+            return exports.TeamsApiFp(configuration).createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(teamSlug, arrayVariableInVariableIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
+         * @summary Delete Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(teamSlug, variableId, options) {
+            return exports.TeamsApiFp(configuration).deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(teamSlug, variableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get Variable.
+         * @summary Get Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug, variableId, options) {
+            return exports.TeamsApiFp(configuration).getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug, variableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get associations using the Variable.
+         * @summary List Associations
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.TeamsApiFp(configuration).listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the features in the requested variable\'s system.
+         * @summary List System Of Features
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
+         * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
+         * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
+         * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
+         * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return exports.TeamsApiFp(configuration).listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the variables in the requested variable\'s system.
+         * @summary List System Of Variables
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return exports.TeamsApiFp(configuration).listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Variables.
+         * @summary List Variables
+         * @param {string} teamSlug
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listVariablesV1TeamsTeamSlugVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+            return exports.TeamsApiFp(configuration).listVariablesV1TeamsTeamSlugVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(teamSlug, variableId, patchVariableOpArrayPatchVariableOp, options) {
+            return exports.TeamsApiFp(configuration).patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(teamSlug, variableId, patchVariableOpArrayPatchVariableOp, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create an Team.
          * @summary Post Team
          * @param {TeamIn} teamIn
@@ -15917,6 +17510,105 @@ class TeamsApi extends base_1.BaseAPI {
      */
     addAUserToATeamV1TeamsTeamSlugUsersPost(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).addAUserToATeamV1TeamsTeamSlugUsersPost(requestParameters.teamSlug, requestParameters.teamUserIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a Variable.
+     * @summary Create A Variable.
+     * @param {TeamsApiCreateAVariableV1TeamsTeamSlugVariablesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createAVariableV1TeamsTeamSlugVariablesPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).createAVariableV1TeamsTeamSlugVariablesPost(requestParameters.teamSlug, requestParameters.variableIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create mulitple Variables.
+     * @summary Create Multiple Variables.
+     * @param {TeamsApiCreateMultipleVariablesV1TeamsTeamSlugVariablesBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(requestParameters.teamSlug, requestParameters.arrayVariableInVariableIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
+     * @summary Delete Variable
+     * @param {TeamsApiDeleteVariableV1TeamsTeamSlugVariablesVariableIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(requestParameters.teamSlug, requestParameters.variableId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get Variable.
+     * @summary Get Variable
+     * @param {TeamsApiGetVariableV1TeamsTeamSlugVariablesVariableIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getVariableV1TeamsTeamSlugVariablesVariableIdGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getVariableV1TeamsTeamSlugVariablesVariableIdGet(requestParameters.teamSlug, requestParameters.variableId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {TeamsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get the features in the requested variable\'s system.
+     * @summary List System Of Features
+     * @param {TeamsApiListSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get the variables in the requested variable\'s system.
+     * @summary List System Of Variables
+     * @param {TeamsApiListSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Variables.
+     * @summary List Variables
+     * @param {TeamsApiListVariablesV1TeamsTeamSlugVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listVariablesV1TeamsTeamSlugVariablesGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).listVariablesV1TeamsTeamSlugVariablesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Variable
+     * @param {TeamsApiPatchVariableV1TeamsTeamSlugVariablesVariableIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(requestParameters.teamSlug, requestParameters.variableId, requestParameters.patchVariableOpArrayPatchVariableOp, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create an Team.
@@ -18376,16 +20068,22 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
         /**
          * Create a Variable.
          * @summary Create A Variable.
+         * @param {string} teamSlug
          * @param {VariableIn} variableIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAVariableV1VariablesPost: (variableIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAVariableV1TeamsTeamSlugVariablesPost: (teamSlug, variableIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling createAVariableV1TeamsTeamSlugVariablesPost.');
+            }
             // verify required parameter 'variableIn' is not null or undefined
             if (variableIn === null || variableIn === undefined) {
-                throw new base_1.RequiredError('variableIn', 'Required parameter variableIn was null or undefined when calling createAVariableV1VariablesPost.');
+                throw new base_1.RequiredError('variableIn', 'Required parameter variableIn was null or undefined when calling createAVariableV1TeamsTeamSlugVariablesPost.');
             }
-            const localVarPath = `/v1/variables`;
+            const localVarPath = `/v1/teams/{team_slug}/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -18423,18 +20121,77 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create a Variable.
+         * @summary Create A Variable.
+         * @param {VariableIn} variableIn
+         * @param {string} [teamSlug]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAVariableV1VariablesPost: (variableIn, teamSlug, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'variableIn' is not null or undefined
+            if (variableIn === null || variableIn === undefined) {
+                throw new base_1.RequiredError('variableIn', 'Required parameter variableIn was null or undefined when calling createAVariableV1VariablesPost.');
+            }
+            const localVarPath = `/v1/variables`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof variableIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(variableIn !== undefined ? variableIn : {}) : (variableIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create mulitple Variables.
          * @summary Create Multiple Variables.
+         * @param {string} teamSlug
          * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMultipleVariablesV1VariablesBulkPost: (arrayVariableInVariableIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost: (teamSlug, arrayVariableInVariableIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost.');
+            }
             // verify required parameter 'arrayVariableInVariableIn' is not null or undefined
             if (arrayVariableInVariableIn === null || arrayVariableInVariableIn === undefined) {
-                throw new base_1.RequiredError('arrayVariableInVariableIn', 'Required parameter arrayVariableInVariableIn was null or undefined when calling createMultipleVariablesV1VariablesBulkPost.');
+                throw new base_1.RequiredError('arrayVariableInVariableIn', 'Required parameter arrayVariableInVariableIn was null or undefined when calling createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost.');
             }
-            const localVarPath = `/v1/variables/bulk`;
+            const localVarPath = `/v1/teams/{team_slug}/variables/bulk`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -18472,6 +20229,112 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create mulitple Variables.
+         * @summary Create Multiple Variables.
+         * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {string} [teamSlug]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleVariablesV1VariablesBulkPost: (arrayVariableInVariableIn, teamSlug, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'arrayVariableInVariableIn' is not null or undefined
+            if (arrayVariableInVariableIn === null || arrayVariableInVariableIn === undefined) {
+                throw new base_1.RequiredError('arrayVariableInVariableIn', 'Required parameter arrayVariableInVariableIn was null or undefined when calling createMultipleVariablesV1VariablesBulkPost.');
+            }
+            const localVarPath = `/v1/variables/bulk`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof arrayVariableInVariableIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(arrayVariableInVariableIn !== undefined ? arrayVariableInVariableIn : {}) : (arrayVariableInVariableIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
+         * @summary Delete Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete: (teamSlug, variableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
          * @summary Delete Variable
          * @param {string} variableId
@@ -18491,6 +20354,59 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
                 baseOptions = configuration.baseOptions;
             }
             const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get Variable.
+         * @summary Get Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariableV1TeamsTeamSlugVariablesVariableIdGet: (teamSlug, variableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling getVariableV1TeamsTeamSlugVariablesVariableIdGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling getVariableV1TeamsTeamSlugVariablesVariableIdGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
@@ -18554,6 +20470,107 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get associations using the Variable.
+         * @summary List Associations
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet: (teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}/associations`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -18748,6 +20765,131 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
         /**
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
+         * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
+         * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
+         * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
+         * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet: (teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}/system/features`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (hops !== undefined) {
+                localVarQueryParameter['hops'] = hops;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (includePathPopIds !== undefined) {
+                localVarQueryParameter['include_path_pop_ids'] = includePathPopIds;
+            }
+            if (pathPopFilter !== undefined) {
+                localVarQueryParameter['path_pop_filter'] = pathPopFilter;
+            }
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+            if (maxStrength !== undefined) {
+                localVarQueryParameter['max_strength'] = maxStrength;
+            }
+            if (minReproducibility !== undefined) {
+                localVarQueryParameter['min_reproducibility'] = minReproducibility;
+            }
+            if (maxReproducibility !== undefined) {
+                localVarQueryParameter['max_reproducibility'] = maxReproducibility;
+            }
+            if (license) {
+                localVarQueryParameter['license'] = license;
+            }
+            if (dsIdx) {
+                localVarQueryParameter['ds_idx'] = dsIdx;
+            }
+            if (includeDatasetIndexIds !== undefined) {
+                localVarQueryParameter['include_dataset_index_ids'] = includeDatasetIndexIds;
+            }
+            if (includeDatasetPopIds !== undefined) {
+                localVarQueryParameter['include_dataset_pop_ids'] = includeDatasetPopIds;
+            }
+            if (dsPopFilter !== undefined) {
+                localVarQueryParameter['ds_pop_filter'] = dsPopFilter;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get the features in the requested variable\'s system.
+         * @summary List System Of Features
          * @param {string} variableId
          * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
@@ -18841,6 +20983,111 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (dsPopFilter !== undefined) {
                 localVarQueryParameter['ds_pop_filter'] = dsPopFilter;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get the variables in the requested variable\'s system.
+         * @summary List System Of Variables
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet: (teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}/system/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (hops !== undefined) {
+                localVarQueryParameter['hops'] = hops;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (includePathPopIds !== undefined) {
+                localVarQueryParameter['include_path_pop_ids'] = includePathPopIds;
+            }
+            if (pathPopFilter !== undefined) {
+                localVarQueryParameter['path_pop_filter'] = pathPopFilter;
+            }
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+            if (maxStrength !== undefined) {
+                localVarQueryParameter['max_strength'] = maxStrength;
+            }
+            if (minReproducibility !== undefined) {
+                localVarQueryParameter['min_reproducibility'] = minReproducibility;
+            }
+            if (maxReproducibility !== undefined) {
+                localVarQueryParameter['max_reproducibility'] = maxReproducibility;
             }
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
@@ -19057,6 +21304,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
         /**
          * List Variables.
          * @summary List Variables
+         * @param {string} teamSlug
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -19071,8 +21319,13 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/variables`;
+        listVariablesV1TeamsTeamSlugVariablesGet: (teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling listVariablesV1TeamsTeamSlugVariablesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -19134,6 +21387,156 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List Variables.
+         * @summary List Variables
+         * @param {string} [teamSlug]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listVariablesV1VariablesGet: (teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/variables`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (inVariableGraph !== undefined) {
+                localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchVariableV1TeamsTeamSlugVariablesVariableIdPatch: (teamSlug, variableId, patchVariableOpArrayPatchVariableOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamSlug' is not null or undefined
+            if (teamSlug === null || teamSlug === undefined) {
+                throw new base_1.RequiredError('teamSlug', 'Required parameter teamSlug was null or undefined when calling patchVariableV1TeamsTeamSlugVariablesVariableIdPatch.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling patchVariableV1TeamsTeamSlugVariablesVariableIdPatch.');
+            }
+            // verify required parameter 'patchVariableOpArrayPatchVariableOp' is not null or undefined
+            if (patchVariableOpArrayPatchVariableOp === null || patchVariableOpArrayPatchVariableOp === undefined) {
+                throw new base_1.RequiredError('patchVariableOpArrayPatchVariableOp', 'Required parameter patchVariableOpArrayPatchVariableOp was null or undefined when calling patchVariableV1TeamsTeamSlugVariablesVariableIdPatch.');
+            }
+            const localVarPath = `/v1/teams/{team_slug}/variables/{variable_id}`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PATCH' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof patchVariableOpArrayPatchVariableOp !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(patchVariableOpArrayPatchVariableOp !== undefined ? patchVariableOpArrayPatchVariableOp : {}) : (patchVariableOpArrayPatchVariableOp || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -19205,13 +21608,48 @@ exports.VariablesApiFp = function (configuration) {
         /**
          * Create a Variable.
          * @summary Create A Variable.
+         * @param {string} teamSlug
          * @param {VariableIn} variableIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAVariableV1VariablesPost(variableIn, options) {
+        createAVariableV1TeamsTeamSlugVariablesPost(teamSlug, variableIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).createAVariableV1VariablesPost(variableIn, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).createAVariableV1TeamsTeamSlugVariablesPost(teamSlug, variableIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a Variable.
+         * @summary Create A Variable.
+         * @param {VariableIn} variableIn
+         * @param {string} [teamSlug]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAVariableV1VariablesPost(variableIn, teamSlug, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).createAVariableV1VariablesPost(variableIn, teamSlug, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create mulitple Variables.
+         * @summary Create Multiple Variables.
+         * @param {string} teamSlug
+         * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(teamSlug, arrayVariableInVariableIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(teamSlug, arrayVariableInVariableIn, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -19222,12 +21660,30 @@ exports.VariablesApiFp = function (configuration) {
          * Create mulitple Variables.
          * @summary Create Multiple Variables.
          * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {string} [teamSlug]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, options) {
+        createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, teamSlug, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, teamSlug, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
+         * @summary Delete Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(teamSlug, variableId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(teamSlug, variableId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -19253,6 +21709,23 @@ exports.VariablesApiFp = function (configuration) {
         /**
          * Get Variable.
          * @summary Get Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug, variableId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug, variableId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get Variable.
+         * @summary Get Variable
          * @param {string} variableId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -19260,6 +21733,35 @@ exports.VariablesApiFp = function (configuration) {
         getVariableV1VariablesVariableIdGet(variableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).getVariableV1VariablesVariableIdGet(variableId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get associations using the Variable.
+         * @summary List Associations
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -19323,6 +21825,41 @@ exports.VariablesApiFp = function (configuration) {
         /**
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
+         * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
+         * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
+         * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
+         * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get the features in the requested variable\'s system.
+         * @summary List System Of Features
          * @param {string} variableId
          * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
@@ -19348,6 +21885,36 @@ exports.VariablesApiFp = function (configuration) {
         listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get the variables in the requested variable\'s system.
+         * @summary List System Of Variables
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -19413,6 +21980,7 @@ exports.VariablesApiFp = function (configuration) {
         /**
          * List Variables.
          * @summary List Variables
+         * @param {string} teamSlug
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -19427,9 +21995,54 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listVariablesV1TeamsTeamSlugVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1TeamsTeamSlugVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List Variables.
+         * @summary List Variables
+         * @param {string} [teamSlug]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listVariablesV1VariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(teamSlug, variableId, patchVariableOpArrayPatchVariableOp, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(teamSlug, variableId, patchVariableOpArrayPatchVariableOp, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -19464,22 +22077,57 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
         /**
          * Create a Variable.
          * @summary Create A Variable.
+         * @param {string} teamSlug
          * @param {VariableIn} variableIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAVariableV1VariablesPost(variableIn, options) {
-            return exports.VariablesApiFp(configuration).createAVariableV1VariablesPost(variableIn, options).then((request) => request(axios, basePath));
+        createAVariableV1TeamsTeamSlugVariablesPost(teamSlug, variableIn, options) {
+            return exports.VariablesApiFp(configuration).createAVariableV1TeamsTeamSlugVariablesPost(teamSlug, variableIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a Variable.
+         * @summary Create A Variable.
+         * @param {VariableIn} variableIn
+         * @param {string} [teamSlug]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAVariableV1VariablesPost(variableIn, teamSlug, options) {
+            return exports.VariablesApiFp(configuration).createAVariableV1VariablesPost(variableIn, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create mulitple Variables.
+         * @summary Create Multiple Variables.
+         * @param {string} teamSlug
+         * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(teamSlug, arrayVariableInVariableIn, options) {
+            return exports.VariablesApiFp(configuration).createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(teamSlug, arrayVariableInVariableIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Create mulitple Variables.
          * @summary Create Multiple Variables.
          * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
+         * @param {string} [teamSlug]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, options) {
-            return exports.VariablesApiFp(configuration).createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, options).then((request) => request(axios, basePath));
+        createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, teamSlug, options) {
+            return exports.VariablesApiFp(configuration).createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
+         * @summary Delete Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(teamSlug, variableId, options) {
+            return exports.VariablesApiFp(configuration).deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(teamSlug, variableId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
@@ -19494,12 +22142,46 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
         /**
          * Get Variable.
          * @summary Get Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug, variableId, options) {
+            return exports.VariablesApiFp(configuration).getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug, variableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get Variable.
+         * @summary Get Variable
          * @param {string} variableId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         getVariableV1VariablesVariableIdGet(variableId, options) {
             return exports.VariablesApiFp(configuration).getVariableV1VariablesVariableIdGet(variableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get associations using the Variable.
+         * @summary List Associations
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return exports.VariablesApiFp(configuration).listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations using the Variable.
@@ -19546,6 +22228,35 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
         /**
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
+         * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
+         * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
+         * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
+         * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return exports.VariablesApiFp(configuration).listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the features in the requested variable\'s system.
+         * @summary List System Of Features
          * @param {string} variableId
          * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
@@ -19570,6 +22281,30 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          */
         listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return exports.VariablesApiFp(configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the variables in the requested variable\'s system.
+         * @summary List System Of Variables
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
+         * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
+         * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return exports.VariablesApiFp(configuration).listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the variables in the requested variable\'s system.
@@ -19618,6 +22353,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
         /**
          * List Variables.
          * @summary List Variables
+         * @param {string} teamSlug
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -19632,8 +22368,41 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.VariablesApiFp(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listVariablesV1TeamsTeamSlugVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+            return exports.VariablesApiFp(configuration).listVariablesV1TeamsTeamSlugVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Variables.
+         * @summary List Variables
+         * @param {string} [teamSlug]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
+         * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listVariablesV1VariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+            return exports.VariablesApiFp(configuration).listVariablesV1VariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Variable
+         * @param {string} teamSlug
+         * @param {string} variableId
+         * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(teamSlug, variableId, patchVariableOpArrayPatchVariableOp, options) {
+            return exports.VariablesApiFp(configuration).patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(teamSlug, variableId, patchVariableOpArrayPatchVariableOp, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Variable resource with partial update.
@@ -19658,13 +22427,35 @@ class VariablesApi extends base_1.BaseAPI {
     /**
      * Create a Variable.
      * @summary Create A Variable.
+     * @param {VariablesApiCreateAVariableV1TeamsTeamSlugVariablesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    createAVariableV1TeamsTeamSlugVariablesPost(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).createAVariableV1TeamsTeamSlugVariablesPost(requestParameters.teamSlug, requestParameters.variableIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a Variable.
+     * @summary Create A Variable.
      * @param {VariablesApiCreateAVariableV1VariablesPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VariablesApi
      */
     createAVariableV1VariablesPost(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).createAVariableV1VariablesPost(requestParameters.variableIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).createAVariableV1VariablesPost(requestParameters.variableIn, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create mulitple Variables.
+     * @summary Create Multiple Variables.
+     * @param {VariablesApiCreateMultipleVariablesV1TeamsTeamSlugVariablesBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(requestParameters.teamSlug, requestParameters.arrayVariableInVariableIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create mulitple Variables.
@@ -19675,7 +22466,18 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     createMultipleVariablesV1VariablesBulkPost(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).createMultipleVariablesV1VariablesBulkPost(requestParameters.arrayVariableInVariableIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).createMultipleVariablesV1VariablesBulkPost(requestParameters.arrayVariableInVariableIn, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
+     * @summary Delete Variable
+     * @param {VariablesApiDeleteVariableV1TeamsTeamSlugVariablesVariableIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(requestParameters.teamSlug, requestParameters.variableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
@@ -19691,6 +22493,17 @@ class VariablesApi extends base_1.BaseAPI {
     /**
      * Get Variable.
      * @summary Get Variable
+     * @param {VariablesApiGetVariableV1TeamsTeamSlugVariablesVariableIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    getVariableV1TeamsTeamSlugVariablesVariableIdGet(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).getVariableV1TeamsTeamSlugVariablesVariableIdGet(requestParameters.teamSlug, requestParameters.variableId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get Variable.
+     * @summary Get Variable
      * @param {VariablesApiGetVariableV1VariablesVariableIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -19698,6 +22511,17 @@ class VariablesApi extends base_1.BaseAPI {
      */
     getVariableV1VariablesVariableIdGet(requestParameters, options) {
         return exports.VariablesApiFp(this.configuration).getVariableV1VariablesVariableIdGet(requestParameters.variableId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get associations using the Variable.
+     * @summary List Associations
+     * @param {VariablesApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations using the Variable.
@@ -19724,6 +22548,17 @@ class VariablesApi extends base_1.BaseAPI {
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
+     * @param {VariablesApiListSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get the features in the requested variable\'s system.
+     * @summary List System Of Features
      * @param {VariablesApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -19731,6 +22566,17 @@ class VariablesApi extends base_1.BaseAPI {
      */
     listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters, options) {
         return exports.VariablesApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get the variables in the requested variable\'s system.
+     * @summary List System Of Variables
+     * @param {VariablesApiListSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the variables in the requested variable\'s system.
@@ -19757,13 +22603,35 @@ class VariablesApi extends base_1.BaseAPI {
     /**
      * List Variables.
      * @summary List Variables
+     * @param {VariablesApiListVariablesV1TeamsTeamSlugVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    listVariablesV1TeamsTeamSlugVariablesGet(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).listVariablesV1TeamsTeamSlugVariablesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Variables.
+     * @summary List Variables
      * @param {VariablesApiListVariablesV1VariablesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VariablesApi
      */
     listVariablesV1VariablesGet(requestParameters = {}, options) {
-        return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Variable
+     * @param {VariablesApiPatchVariableV1TeamsTeamSlugVariablesVariableIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).patchVariableV1TeamsTeamSlugVariablesVariableIdPatch(requestParameters.teamSlug, requestParameters.variableId, requestParameters.patchVariableOpArrayPatchVariableOp, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Variable resource with partial update.
