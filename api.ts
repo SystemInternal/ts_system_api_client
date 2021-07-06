@@ -37324,7 +37324,6 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
         /**
          * List Variables.
          * @summary List Variables
-         * @param {string} [teamSlug] 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -37336,10 +37335,11 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet: async (teamSlug?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listVariablesV1VariablesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -37365,10 +37365,6 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
-
-            if (teamSlug !== undefined) {
-                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
             if (query !== undefined) {
@@ -37413,6 +37409,10 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
 
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -37935,7 +37935,6 @@ export const VariablesApiFp = function(configuration?: Configuration) {
         /**
          * List Variables.
          * @summary List Variables
-         * @param {string} [teamSlug] 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -37947,11 +37946,12 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listVariablesV1VariablesGet(teamSlug?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
-            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+        async listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamSlug, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -38297,7 +38297,6 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
         /**
          * List Variables.
          * @summary List Variables
-         * @param {string} [teamSlug] 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -38309,11 +38308,12 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(teamSlug?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
-            return VariablesApiFp(configuration).listVariablesV1VariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<VariablePaginationOut> {
+            return VariablesApiFp(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Variable resource with partial update.
@@ -39475,13 +39475,6 @@ export interface VariablesApiListVariablesV1TeamsTeamSlugVariablesGetRequest {
  */
 export interface VariablesApiListVariablesV1VariablesGetRequest {
     /**
-     * 
-     * @type {string}
-     * @memberof VariablesApiListVariablesV1VariablesGet
-     */
-    readonly teamSlug?: string
-
-    /**
      * Search query.
      * @type {string}
      * @memberof VariablesApiListVariablesV1VariablesGet
@@ -39557,6 +39550,13 @@ export interface VariablesApiListVariablesV1VariablesGetRequest {
      * @memberof VariablesApiListVariablesV1VariablesGet
      */
     readonly inVariableGraph?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof VariablesApiListVariablesV1VariablesGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -39828,7 +39828,7 @@ export class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     public listVariablesV1VariablesGet(requestParameters: VariablesApiListVariablesV1VariablesGetRequest = {}, options?: any) {
-        return VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
