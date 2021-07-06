@@ -1167,19 +1167,6 @@ export interface BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete {
 /**
  *
  * @export
- * @interface BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
- */
-export interface BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete {
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     */
-    ids: Array<string>;
-}
-/**
- *
- * @export
  * @interface BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
  */
 export interface BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete {
@@ -1187,19 +1174,6 @@ export interface BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociation
      *
      * @type {Array<string>}
      * @memberof BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     */
-    ids: Array<string>;
-}
-/**
- *
- * @export
- * @interface BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
- */
-export interface BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete {
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
      */
     ids: Array<string>;
 }
@@ -7808,43 +7782,20 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @summary Create Associations
      * @param {string} datasetId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost: (datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamSlug?: string, options?: any) => Promise<RequestArgs>;
+    createAssociationsV1DatasetsDatasetIdAssociationsPost: (datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) => Promise<RequestArgs>;
     /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
      * @param {boolean} [mergeFeatures]
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost: (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost: (teamSlug: string, datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost: (teamSlug: string, modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any) => Promise<RequestArgs>;
+    createAssociationsV1ModelsModelIdAssociationsPost: (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -7854,16 +7805,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @throws {RequiredError}
      */
     deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId: string, associationId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete: (teamSlug: string, modelId: string, associationId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
@@ -7875,16 +7816,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
     deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
     /**
      * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: (teamSlug: string, modelId: string, bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
      * @param {string} datasetId
      * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
@@ -7892,16 +7823,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @throws {RequiredError}
      */
     deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: (teamSlug: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -7912,16 +7833,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      */
     getAssociationV1ModelsModelIdAssociationsAssociationIdGet: (associationId: string, modelId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet: (teamSlug: string, associationId: string, modelId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {string} associationId
@@ -7929,15 +7840,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @throws {RequiredError}
      */
     getRelationshipDirectionV1AssociationsAssociationIdDirectionGet: (associationId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get direction of this association.
-     * @summary Get Relationship Direction
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet: (teamSlug: string, associationId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get reproducibility of this association.
      * @summary Get Relationship Reproducibility
@@ -7947,15 +7849,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      */
     getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet: (associationId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get reproducibility of this association.
-     * @summary Get Relationship Reproducibility
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet: (teamSlug: string, associationId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get strength of this association.
      * @summary Get Relationship Strength
      * @param {string} associationId
@@ -7963,15 +7856,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @throws {RequiredError}
      */
     getRelationshipStrengthV1AssociationsAssociationIdStrengthGet: (associationId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet: (teamSlug: string, associationId: string, options?: any) => Promise<RequestArgs>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -8010,11 +7894,10 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, teamSlug?: string, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1AssociationsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -8076,92 +7959,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      */
     listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
-     * List Associations.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugAssociationsGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet: (teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet: (teamSlug: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet: (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} teamSlug
@@ -8211,16 +8008,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @throws {RequiredError}
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any) => Promise<RequestArgs>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch: (teamSlug: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any) => Promise<RequestArgs>;
 };
 /**
  * AssociationsApi - functional programming interface
@@ -8232,43 +8019,20 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @summary Create Associations
      * @param {string} datasetId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
     /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
      * @param {boolean} [mergeFeatures]
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost(teamSlug: string, datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost(teamSlug: string, modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
+    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -8278,16 +8042,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete(teamSlug: string, modelId: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
@@ -8299,16 +8053,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
     deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete(teamSlug: string, modelId: string, bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
      * @param {string} datasetId
      * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
@@ -8316,16 +8060,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete(teamSlug: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -8336,16 +8070,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      */
     getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
     /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet(teamSlug: string, associationId: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
-    /**
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {string} associationId
@@ -8353,15 +8077,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipDirection>>;
-    /**
-     * Get direction of this association.
-     * @summary Get Relationship Direction
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet(teamSlug: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipDirection>>;
     /**
      * Get reproducibility of this association.
      * @summary Get Relationship Reproducibility
@@ -8371,15 +8086,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      */
     getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipReproducibility>>;
     /**
-     * Get reproducibility of this association.
-     * @summary Get Relationship Reproducibility
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet(teamSlug: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipReproducibility>>;
-    /**
      * Get strength of this association.
      * @summary Get Relationship Strength
      * @param {string} associationId
@@ -8387,15 +8093,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipStrength>>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet(teamSlug: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipStrength>>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -8434,11 +8131,10 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -8500,92 +8196,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
-     * List Associations.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugAssociationsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet(teamSlug: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} teamSlug
@@ -8635,16 +8245,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch(teamSlug: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * AssociationsApi - factory interface
@@ -8656,43 +8256,20 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @summary Create Associations
      * @param {string} datasetId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamSlug?: string, options?: any): AxiosPromise<Array<AssociationOut>>;
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>>;
     /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
      * @param {boolean} [mergeFeatures]
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamSlug?: string, options?: any): AxiosPromise<Array<AssociationOut>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost(teamSlug: string, datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost(teamSlug: string, modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): AxiosPromise<Array<AssociationOut>>;
+    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): AxiosPromise<Array<AssociationOut>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -8702,16 +8279,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete(teamSlug: string, modelId: string, associationId: string, options?: any): AxiosPromise<void>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
@@ -8723,16 +8290,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
     deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): AxiosPromise<void>;
     /**
      * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete(teamSlug: string, modelId: string, bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete, options?: any): AxiosPromise<void>;
-    /**
-     * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
      * @param {string} datasetId
      * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
@@ -8740,16 +8297,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete(teamSlug: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -8760,16 +8307,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      */
     getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut>;
     /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet(teamSlug: string, associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut>;
-    /**
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {string} associationId
@@ -8777,15 +8314,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId: string, options?: any): AxiosPromise<RelationshipDirection>;
-    /**
-     * Get direction of this association.
-     * @summary Get Relationship Direction
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet(teamSlug: string, associationId: string, options?: any): AxiosPromise<RelationshipDirection>;
     /**
      * Get reproducibility of this association.
      * @summary Get Relationship Reproducibility
@@ -8795,15 +8323,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      */
     getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId: string, options?: any): AxiosPromise<RelationshipReproducibility>;
     /**
-     * Get reproducibility of this association.
-     * @summary Get Relationship Reproducibility
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet(teamSlug: string, associationId: string, options?: any): AxiosPromise<RelationshipReproducibility>;
-    /**
      * Get strength of this association.
      * @summary Get Relationship Strength
      * @param {string} associationId
@@ -8811,15 +8330,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId: string, options?: any): AxiosPromise<RelationshipStrength>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet(teamSlug: string, associationId: string, options?: any): AxiosPromise<RelationshipStrength>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -8858,11 +8368,10 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, teamSlug?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -8924,92 +8433,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
-     * List Associations.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugAssociationsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet(teamSlug: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} teamSlug
@@ -9059,16 +8482,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch(teamSlug: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void>;
 };
 /**
  * Request parameters for createAssociationsV1DatasetsDatasetIdAssociationsPost operation in AssociationsApi.
@@ -9088,12 +8501,6 @@ export interface AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociation
      * @memberof AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
      */
     readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
-     */
-    readonly teamSlug?: string;
 }
 /**
  * Request parameters for createAssociationsV1ModelsModelIdAssociationsPost operation in AssociationsApi.
@@ -9119,68 +8526,6 @@ export interface AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPos
      * @memberof AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPost
      */
     readonly mergeFeatures?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost operation in AssociationsApi.
- * @export
- * @interface AssociationsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest
- */
-export interface AssociationsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {AssociationIn | Array<AssociationIn>}
-     * @memberof AssociationsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost
-     */
-    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-}
-/**
- * Request parameters for createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost operation in AssociationsApi.
- * @export
- * @interface AssociationsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest
- */
-export interface AssociationsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {AssociationIn | Array<AssociationIn>}
-     * @memberof AssociationsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-    /**
-     *
-     * @type {boolean}
-     * @memberof AssociationsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly mergeFeatures?: boolean;
 }
 /**
  * Request parameters for deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete operation in AssociationsApi.
@@ -9198,31 +8543,6 @@ export interface AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAsso
      *
      * @type {string}
      * @memberof AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly associationId: string;
-}
-/**
- * Request parameters for deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete operation in AssociationsApi.
- * @export
- * @interface AssociationsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest
- */
-export interface AssociationsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete
      */
     readonly associationId: string;
 }
@@ -9246,31 +8566,6 @@ export interface AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDel
     readonly bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete;
 }
 /**
- * Request parameters for deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete operation in AssociationsApi.
- * @export
- * @interface AssociationsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest
- */
-export interface AssociationsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete}
-     * @memberof AssociationsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     */
-    readonly bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete;
-}
-/**
  * Request parameters for deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete operation in AssociationsApi.
  * @export
  * @interface AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest
@@ -9288,31 +8583,6 @@ export interface AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetId
      * @memberof AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
      */
     readonly bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete;
-}
-/**
- * Request parameters for deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete operation in AssociationsApi.
- * @export
- * @interface AssociationsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest
- */
-export interface AssociationsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete}
-     * @memberof AssociationsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     */
-    readonly bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete;
 }
 /**
  * Request parameters for getAssociationV1ModelsModelIdAssociationsAssociationIdGet operation in AssociationsApi.
@@ -9334,31 +8604,6 @@ export interface AssociationsApiGetAssociationV1ModelsModelIdAssociationsAssocia
     readonly modelId: string;
 }
 /**
- * Request parameters for getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet operation in AssociationsApi.
- * @export
- * @interface AssociationsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest
- */
-export interface AssociationsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet
-     */
-    readonly associationId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet
-     */
-    readonly modelId: string;
-}
-/**
  * Request parameters for getRelationshipDirectionV1AssociationsAssociationIdDirectionGet operation in AssociationsApi.
  * @export
  * @interface AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGetRequest
@@ -9368,25 +8613,6 @@ export interface AssociationsApiGetRelationshipDirectionV1AssociationsAssociatio
      *
      * @type {string}
      * @memberof AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGet
-     */
-    readonly associationId: string;
-}
-/**
- * Request parameters for getRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet operation in AssociationsApi.
- * @export
- * @interface AssociationsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGetRequest
- */
-export interface AssociationsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet
      */
     readonly associationId: string;
 }
@@ -9404,25 +8630,6 @@ export interface AssociationsApiGetRelationshipReproducibilityV1AssociationsAsso
     readonly associationId: string;
 }
 /**
- * Request parameters for getRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet operation in AssociationsApi.
- * @export
- * @interface AssociationsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGetRequest
- */
-export interface AssociationsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet
-     */
-    readonly associationId: string;
-}
-/**
  * Request parameters for getRelationshipStrengthV1AssociationsAssociationIdStrengthGet operation in AssociationsApi.
  * @export
  * @interface AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest
@@ -9432,25 +8639,6 @@ export interface AssociationsApiGetRelationshipStrengthV1AssociationsAssociation
      *
      * @type {string}
      * @memberof AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGet
-     */
-    readonly associationId: string;
-}
-/**
- * Request parameters for getRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet operation in AssociationsApi.
- * @export
- * @interface AssociationsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGetRequest
- */
-export interface AssociationsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet
      */
     readonly associationId: string;
 }
@@ -9635,12 +8823,6 @@ export interface AssociationsApiListAssociationsV1AssociationsGetRequest {
      * @memberof AssociationsApiListAssociationsV1AssociationsGet
      */
     readonly conceptRelationship?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1AssociationsGet
-     */
-    readonly teamSlug?: string;
 }
 /**
  * Request parameters for listAssociationsV1DatasetsDatasetIdAssociationsGet operation in AssociationsApi.
@@ -9898,382 +9080,6 @@ export interface AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGetR
     readonly isVariableAssociation?: boolean;
 }
 /**
- * Request parameters for listAssociationsV1TeamsTeamSlugAssociationsGet operation in AssociationsApi.
- * @export
- * @interface AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGetRequest
- */
-export interface AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
-    /**
-     * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly variableRelationship?: string;
-    /**
-     * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly featureRelationship?: string;
-    /**
-     * Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly conceptRelationship?: string;
-}
-/**
- * Request parameters for listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet operation in AssociationsApi.
- * @export
- * @interface AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest
- */
-export interface AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly datasetId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
-}
-/**
- * Request parameters for listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet operation in AssociationsApi.
- * @export
- * @interface AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest
- */
-export interface AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly modelId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
-}
-/**
- * Request parameters for listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet operation in AssociationsApi.
- * @export
- * @interface AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest
- */
-export interface AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly studyId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
-}
-/**
  * Request parameters for listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet operation in AssociationsApi.
  * @export
  * @interface AssociationsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGetRequest
@@ -10469,31 +9275,6 @@ export interface AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatc
     readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
 }
 /**
- * Request parameters for patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch operation in AssociationsApi.
- * @export
- * @interface AssociationsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest
- */
-export interface AssociationsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {Array<BulkPatchAssociationOp>}
-     * @memberof AssociationsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch
-     */
-    readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
-}
-/**
  * AssociationsApi - object-oriented interface
  * @export
  * @class AssociationsApi
@@ -10519,24 +9300,6 @@ export declare class AssociationsApi extends BaseAPI {
      */
     createAssociationsV1ModelsModelIdAssociationsPost(requestParameters: AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
     /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {AssociationsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost(requestParameters: AssociationsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {AssociationsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost(requestParameters: AssociationsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
-    /**
      * Delete an Association.
      * @summary Delete Association
      * @param {AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest} requestParameters Request parameters.
@@ -10545,15 +9308,6 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(requestParameters: AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {AssociationsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete(requestParameters: AssociationsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
@@ -10565,15 +9319,6 @@ export declare class AssociationsApi extends BaseAPI {
     deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters: AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {AssociationsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete(requestParameters: AssociationsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
      * @param {AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -10581,15 +9326,6 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters: AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {AssociationsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete(requestParameters: AssociationsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -10600,15 +9336,6 @@ export declare class AssociationsApi extends BaseAPI {
      */
     getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters: AssociationsApiGetAssociationV1ModelsModelIdAssociationsAssociationIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
     /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {AssociationsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet(requestParameters: AssociationsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
-    /**
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGetRequest} requestParameters Request parameters.
@@ -10617,15 +9344,6 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(requestParameters: AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGetRequest, options?: any): Promise<import("axios").AxiosResponse<RelationshipDirection>>;
-    /**
-     * Get direction of this association.
-     * @summary Get Relationship Direction
-     * @param {AssociationsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    getRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet(requestParameters: AssociationsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGetRequest, options?: any): Promise<import("axios").AxiosResponse<RelationshipDirection>>;
     /**
      * Get reproducibility of this association.
      * @summary Get Relationship Reproducibility
@@ -10636,15 +9354,6 @@ export declare class AssociationsApi extends BaseAPI {
      */
     getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(requestParameters: AssociationsApiGetRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGetRequest, options?: any): Promise<import("axios").AxiosResponse<RelationshipReproducibility>>;
     /**
-     * Get reproducibility of this association.
-     * @summary Get Relationship Reproducibility
-     * @param {AssociationsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    getRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet(requestParameters: AssociationsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGetRequest, options?: any): Promise<import("axios").AxiosResponse<RelationshipReproducibility>>;
-    /**
      * Get strength of this association.
      * @summary Get Relationship Strength
      * @param {AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest} requestParameters Request parameters.
@@ -10653,15 +9362,6 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(requestParameters: AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest, options?: any): Promise<import("axios").AxiosResponse<RelationshipStrength>>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {AssociationsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    getRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet(requestParameters: AssociationsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGetRequest, options?: any): Promise<import("axios").AxiosResponse<RelationshipStrength>>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -10708,42 +9408,6 @@ export declare class AssociationsApi extends BaseAPI {
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters: AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
     /**
-     * List Associations.
-     * @summary List Associations
-     * @param {AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    listAssociationsV1TeamsTeamSlugAssociationsGet(requestParameters: AssociationsApiListAssociationsV1TeamsTeamSlugAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet(requestParameters: AssociationsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet(requestParameters: AssociationsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet(requestParameters: AssociationsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
      * Get associations using the Variable.
      * @summary List Associations
      * @param {AssociationsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGetRequest} requestParameters Request parameters.
@@ -10770,15 +9434,6 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch(requestParameters: AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {AssociationsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch(requestParameters: AssociationsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * AuthorsApi - axios parameter creator
@@ -10795,33 +9450,13 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut: (teamSlug: string, studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Create an Author.
      * @summary Create Author
      * @param {AuthorIn} authorIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAuthorV1AuthorsPost: (authorIn: AuthorIn, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {string} teamSlug
-     * @param {AuthorIn} authorIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAuthorV1TeamsTeamSlugAuthorsPost: (teamSlug: string, authorIn: AuthorIn, options?: any) => Promise<RequestArgs>;
+    createAuthorV1AuthorsPost: (authorIn: AuthorIn, options?: any) => Promise<RequestArgs>;
     /**
      * Delete an Author.
      * @summary Delete Author
@@ -10831,15 +9466,6 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      */
     deleteAuthorV1AuthorsAuthorIdDelete: (authorId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete: (teamSlug: string, authorId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get Author.
      * @summary Get Author
      * @param {string} authorId
@@ -10848,15 +9474,6 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      */
     getAuthorV1AuthorsAuthorIdGet: (authorId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get Author.
-     * @summary Get Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet: (teamSlug: string, authorId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
      * @summary List Authors
      * @param {string} [query] Search query.
@@ -10869,29 +9486,10 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1AuthorsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugAuthorsGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthorsV1AuthorsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -10901,16 +9499,6 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete: (teamSlug: string, studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * AuthorsApi - functional programming interface
@@ -10927,33 +9515,13 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut(teamSlug: string, studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Create an Author.
      * @summary Create Author
      * @param {AuthorIn} authorIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAuthorV1AuthorsPost(authorIn: AuthorIn, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {string} teamSlug
-     * @param {AuthorIn} authorIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAuthorV1TeamsTeamSlugAuthorsPost(teamSlug: string, authorIn: AuthorIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
+    createAuthorV1AuthorsPost(authorIn: AuthorIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
     /**
      * Delete an Author.
      * @summary Delete Author
@@ -10963,15 +9531,6 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      */
     deleteAuthorV1AuthorsAuthorIdDelete(authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete(teamSlug: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Get Author.
      * @summary Get Author
      * @param {string} authorId
@@ -10980,15 +9539,6 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      */
     getAuthorV1AuthorsAuthorIdGet(authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
     /**
-     * Get Author.
-     * @summary Get Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet(teamSlug: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
-    /**
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
      * @summary List Authors
      * @param {string} [query] Search query.
@@ -11001,29 +9551,10 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1AuthorsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
-    /**
-     * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugAuthorsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
+    listAuthorsV1AuthorsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -11033,16 +9564,6 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete(teamSlug: string, studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * AuthorsApi - factory interface
@@ -11059,33 +9580,13 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut(teamSlug: string, studyId: string, authorId: string, options?: any): AxiosPromise<void>;
-    /**
      * Create an Author.
      * @summary Create Author
      * @param {AuthorIn} authorIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAuthorV1AuthorsPost(authorIn: AuthorIn, teamSlug?: string, options?: any): AxiosPromise<AuthorOut>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {string} teamSlug
-     * @param {AuthorIn} authorIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAuthorV1TeamsTeamSlugAuthorsPost(teamSlug: string, authorIn: AuthorIn, options?: any): AxiosPromise<AuthorOut>;
+    createAuthorV1AuthorsPost(authorIn: AuthorIn, options?: any): AxiosPromise<AuthorOut>;
     /**
      * Delete an Author.
      * @summary Delete Author
@@ -11095,15 +9596,6 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      */
     deleteAuthorV1AuthorsAuthorIdDelete(authorId: string, options?: any): AxiosPromise<void>;
     /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete(teamSlug: string, authorId: string, options?: any): AxiosPromise<void>;
-    /**
      * Get Author.
      * @summary Get Author
      * @param {string} authorId
@@ -11112,15 +9604,6 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      */
     getAuthorV1AuthorsAuthorIdGet(authorId: string, options?: any): AxiosPromise<AuthorOut>;
     /**
-     * Get Author.
-     * @summary Get Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet(teamSlug: string, authorId: string, options?: any): AxiosPromise<AuthorOut>;
-    /**
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
      * @summary List Authors
      * @param {string} [query] Search query.
@@ -11133,29 +9616,10 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1AuthorsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, teamSlug?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
-    /**
-     * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugAuthorsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
+    listAuthorsV1AuthorsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -11165,16 +9629,6 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete(teamSlug: string, studyId: string, authorId: string, options?: any): AxiosPromise<void>;
 };
 /**
  * Request parameters for addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut operation in AuthorsApi.
@@ -11196,31 +9650,6 @@ export interface AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutReq
     readonly authorId: string;
 }
 /**
- * Request parameters for addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut operation in AuthorsApi.
- * @export
- * @interface AuthorsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest
- */
-export interface AuthorsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly authorId: string;
-}
-/**
  * Request parameters for createAuthorV1AuthorsPost operation in AuthorsApi.
  * @export
  * @interface AuthorsApiCreateAuthorV1AuthorsPostRequest
@@ -11230,31 +9659,6 @@ export interface AuthorsApiCreateAuthorV1AuthorsPostRequest {
      *
      * @type {AuthorIn}
      * @memberof AuthorsApiCreateAuthorV1AuthorsPost
-     */
-    readonly authorIn: AuthorIn;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiCreateAuthorV1AuthorsPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createAuthorV1TeamsTeamSlugAuthorsPost operation in AuthorsApi.
- * @export
- * @interface AuthorsApiCreateAuthorV1TeamsTeamSlugAuthorsPostRequest
- */
-export interface AuthorsApiCreateAuthorV1TeamsTeamSlugAuthorsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiCreateAuthorV1TeamsTeamSlugAuthorsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {AuthorIn}
-     * @memberof AuthorsApiCreateAuthorV1TeamsTeamSlugAuthorsPost
      */
     readonly authorIn: AuthorIn;
 }
@@ -11272,25 +9676,6 @@ export interface AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest {
     readonly authorId: string;
 }
 /**
- * Request parameters for deleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete operation in AuthorsApi.
- * @export
- * @interface AuthorsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDeleteRequest
- */
-export interface AuthorsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete
-     */
-    readonly authorId: string;
-}
-/**
  * Request parameters for getAuthorV1AuthorsAuthorIdGet operation in AuthorsApi.
  * @export
  * @interface AuthorsApiGetAuthorV1AuthorsAuthorIdGetRequest
@@ -11300,25 +9685,6 @@ export interface AuthorsApiGetAuthorV1AuthorsAuthorIdGetRequest {
      *
      * @type {string}
      * @memberof AuthorsApiGetAuthorV1AuthorsAuthorIdGet
-     */
-    readonly authorId: string;
-}
-/**
- * Request parameters for getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet operation in AuthorsApi.
- * @export
- * @interface AuthorsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGetRequest
- */
-export interface AuthorsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGet
      */
     readonly authorId: string;
 }
@@ -11388,85 +9754,6 @@ export interface AuthorsApiListAuthorsV1AuthorsGetRequest {
      * @memberof AuthorsApiListAuthorsV1AuthorsGet
      */
     readonly sortBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiListAuthorsV1AuthorsGet
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for listAuthorsV1TeamsTeamSlugAuthorsGet operation in AuthorsApi.
- * @export
- * @interface AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGetRequest
- */
-export interface AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at' | 'name'}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly sortBy?: string;
 }
 /**
  * Request parameters for removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete operation in AuthorsApi.
@@ -11488,31 +9775,6 @@ export interface AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdD
     readonly authorId: string;
 }
 /**
- * Request parameters for removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete operation in AuthorsApi.
- * @export
- * @interface AuthorsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest
- */
-export interface AuthorsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly authorId: string;
-}
-/**
  * AuthorsApi - object-oriented interface
  * @export
  * @class AuthorsApi
@@ -11529,15 +9791,6 @@ export declare class AuthorsApi extends BaseAPI {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {AuthorsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut(requestParameters: AuthorsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Create an Author.
      * @summary Create Author
      * @param {AuthorsApiCreateAuthorV1AuthorsPostRequest} requestParameters Request parameters.
@@ -11546,15 +9799,6 @@ export declare class AuthorsApi extends BaseAPI {
      * @memberof AuthorsApi
      */
     createAuthorV1AuthorsPost(requestParameters: AuthorsApiCreateAuthorV1AuthorsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut>>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {AuthorsApiCreateAuthorV1TeamsTeamSlugAuthorsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    createAuthorV1TeamsTeamSlugAuthorsPost(requestParameters: AuthorsApiCreateAuthorV1TeamsTeamSlugAuthorsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut>>;
     /**
      * Delete an Author.
      * @summary Delete Author
@@ -11565,15 +9809,6 @@ export declare class AuthorsApi extends BaseAPI {
      */
     deleteAuthorV1AuthorsAuthorIdDelete(requestParameters: AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {AuthorsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    deleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete(requestParameters: AuthorsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Get Author.
      * @summary Get Author
      * @param {AuthorsApiGetAuthorV1AuthorsAuthorIdGetRequest} requestParameters Request parameters.
@@ -11582,15 +9817,6 @@ export declare class AuthorsApi extends BaseAPI {
      * @memberof AuthorsApi
      */
     getAuthorV1AuthorsAuthorIdGet(requestParameters: AuthorsApiGetAuthorV1AuthorsAuthorIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut>>;
-    /**
-     * Get Author.
-     * @summary Get Author
-     * @param {AuthorsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet(requestParameters: AuthorsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut>>;
     /**
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
      * @summary List Authors
@@ -11601,15 +9827,6 @@ export declare class AuthorsApi extends BaseAPI {
      */
     listAuthorsV1AuthorsGet(requestParameters?: AuthorsApiListAuthorsV1AuthorsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
     /**
-     * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
-     * @summary List Authors
-     * @param {AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    listAuthorsV1TeamsTeamSlugAuthorsGet(requestParameters: AuthorsApiListAuthorsV1TeamsTeamSlugAuthorsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
-    /**
      * Remove an author from a study.
      * @summary Remove Author From Study
      * @param {AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
@@ -11618,15 +9835,6 @@ export declare class AuthorsApi extends BaseAPI {
      * @memberof AuthorsApi
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters: AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {AuthorsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete(requestParameters: AuthorsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * ConceptsApi - axios parameter creator
@@ -12388,17 +10596,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId: string, featureId: string, index?: boolean, options?: any) => Promise<RequestArgs>;
     /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut: (teamSlug: string, datasetId: string, featureId: string, index?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
      * Add a parent dataset.
      * @summary Add Parent Dataset
      * @param {string} datasetId
@@ -12409,17 +10606,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: (datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any) => Promise<RequestArgs>;
     /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {boolean} [reconcileFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut: (teamSlug: string, datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
      * @param {string} datasetId
@@ -12429,73 +10615,31 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Create and attach Features to Dataset in bulk.
      * @summary Create And Attach Features
      * @param {string} datasetId
      * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost: (datasetId: string, featureIn: Array<FeatureIn>, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost: (teamSlug: string, datasetId: string, featureIn: Array<FeatureIn>, options?: any) => Promise<RequestArgs>;
+    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost: (datasetId: string, featureIn: Array<FeatureIn>, options?: any) => Promise<RequestArgs>;
     /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
      * @param {string} datasetId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost: (datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost: (teamSlug: string, datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) => Promise<RequestArgs>;
+    createAssociationsV1DatasetsDatasetIdAssociationsPost: (datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {DatasetIn} datasetIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createDatasetV1DatasetsPost: (datasetIn: DatasetIn, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {string} teamSlug
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createDatasetV1TeamsTeamSlugDatasetsPost: (teamSlug: string, datasetIn: DatasetIn, options?: any) => Promise<RequestArgs>;
+    createDatasetV1DatasetsPost: (datasetIn: DatasetIn, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -12504,15 +10648,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     deleteDatasetV1DatasetsDatasetIdDelete: (datasetId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete: (teamSlug: string, datasetId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
@@ -12523,16 +10658,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
     /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: (teamSlug: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
-    /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
@@ -12541,15 +10666,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: (datasetId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet: (teamSlug: string, datasetId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get a Dataset.
      * @summary Get Dataset
      * @param {string} datasetId
@@ -12557,15 +10673,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     getDatasetV1DatasetsDatasetIdGet: (datasetId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get a Dataset.
-     * @summary Get Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getDatasetV1TeamsTeamSlugDatasetsDatasetIdGet: (teamSlug: string, datasetId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -12586,27 +10693,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet: (teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -12646,26 +10732,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet: (teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
      * @param {string} datasetId
@@ -12686,27 +10752,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get parents of this dataset.
-     * @summary List Dataset Parents
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet: (teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {string} [query] Search query.
@@ -12723,33 +10768,10 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} [conceptTag] Filter datasets with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get all Datasets.
-     * @summary List Datasets
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetsV1TeamsTeamSlugDatasetsGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetsV1DatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -12769,26 +10791,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get models that use the dataset either directly or through child datasets.
-     * @summary List Models Using Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet: (teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -12819,16 +10821,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     patchDatasetV1DatasetsDatasetIdPatch: (datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any) => Promise<RequestArgs>;
     /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch: (teamSlug: string, datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any) => Promise<RequestArgs>;
-    /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
      * @param {string} datasetId
@@ -12837,16 +10829,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId: string, featureId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete: (teamSlug: string, datasetId: string, featureId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Tag the dataset with object with provided id.
      * @summary Remove Object Tag From Dataset
@@ -12857,16 +10839,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete: (datasetId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete: (teamSlug: string, datasetId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Remove a parent dataset.
      * @summary Remove Parent Dataset
      * @param {string} datasetId
@@ -12875,16 +10847,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete: (datasetId: string, parentId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete: (teamSlug: string, datasetId: string, parentId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -12895,16 +10857,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Replace a Dataset.
      * @summary Replace Dataset
      * @param {string} datasetId
@@ -12914,16 +10866,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      */
     replaceDatasetV1DatasetsDatasetIdPut: (datasetId: string, datasetIn: DatasetIn, options?: any) => Promise<RequestArgs>;
     /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut: (teamSlug: string, datasetId: string, datasetIn: DatasetIn, options?: any) => Promise<RequestArgs>;
-    /**
      * Tag the dataset with object with provided id.
      * @summary Tag Study With Object
      * @param {string} datasetId
@@ -12932,16 +10874,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut: (datasetId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut: (teamSlug: string, datasetId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * DatasetsApi - functional programming interface
@@ -12959,17 +10891,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut(teamSlug: string, datasetId: string, featureId: string, index?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Add a parent dataset.
      * @summary Add Parent Dataset
      * @param {string} datasetId
@@ -12980,17 +10901,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {boolean} [reconcileFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut(teamSlug: string, datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
      * @param {string} datasetId
@@ -13000,73 +10910,31 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Create and attach Features to Dataset in bulk.
      * @summary Create And Attach Features
      * @param {string} datasetId
      * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost(teamSlug: string, datasetId: string, featureIn: Array<FeatureIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>>;
+    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>>;
     /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
      * @param {string} datasetId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost(teamSlug: string, datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
     /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {DatasetIn} datasetIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createDatasetV1DatasetsPost(datasetIn: DatasetIn, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {string} teamSlug
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createDatasetV1TeamsTeamSlugDatasetsPost(teamSlug: string, datasetIn: DatasetIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
+    createDatasetV1DatasetsPost(datasetIn: DatasetIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -13075,15 +10943,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete(teamSlug: string, datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
@@ -13094,16 +10953,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete(teamSlug: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
@@ -13112,15 +10961,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>>;
     /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet(teamSlug: string, datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>>;
-    /**
      * Get a Dataset.
      * @summary Get Dataset
      * @param {string} datasetId
@@ -13128,15 +10968,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getDatasetV1DatasetsDatasetIdGet(datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
-    /**
-     * Get a Dataset.
-     * @summary Get Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getDatasetV1TeamsTeamSlugDatasetsDatasetIdGet(teamSlug: string, datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -13157,27 +10988,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -13217,26 +11027,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
-    /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
      * @param {string} datasetId
@@ -13257,27 +11047,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
-     * Get parents of this dataset.
-     * @summary List Dataset Parents
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
-    /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {string} [query] Search query.
@@ -13294,33 +11063,10 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {string} [conceptTag] Filter datasets with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
-    /**
-     * Get all Datasets.
-     * @summary List Datasets
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetsV1TeamsTeamSlugDatasetsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -13340,26 +11086,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
-    /**
-     * Get models that use the dataset either directly or through child datasets.
-     * @summary List Models Using Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -13390,16 +11116,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch(teamSlug: string, datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
      * @param {string} datasetId
@@ -13408,16 +11124,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete(teamSlug: string, datasetId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Tag the dataset with object with provided id.
      * @summary Remove Object Tag From Dataset
@@ -13428,16 +11134,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete(teamSlug: string, datasetId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Remove a parent dataset.
      * @summary Remove Parent Dataset
      * @param {string} datasetId
@@ -13446,16 +11142,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete(teamSlug: string, datasetId: string, parentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -13466,16 +11152,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Replace a Dataset.
      * @summary Replace Dataset
      * @param {string} datasetId
@@ -13485,16 +11161,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      */
     replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
     /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut(teamSlug: string, datasetId: string, datasetIn: DatasetIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
-    /**
      * Tag the dataset with object with provided id.
      * @summary Tag Study With Object
      * @param {string} datasetId
@@ -13503,16 +11169,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut(teamSlug: string, datasetId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * DatasetsApi - factory interface
@@ -13530,17 +11186,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void>;
     /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut(teamSlug: string, datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void>;
-    /**
      * Add a parent dataset.
      * @summary Add Parent Dataset
      * @param {string} datasetId
@@ -13551,17 +11196,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): AxiosPromise<void>;
     /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {boolean} [reconcileFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut(teamSlug: string, datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): AxiosPromise<void>;
-    /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
      * @param {string} datasetId
@@ -13571,73 +11205,31 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
     /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
-    /**
      * Create and attach Features to Dataset in bulk.
      * @summary Create And Attach Features
      * @param {string} datasetId
      * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, teamSlug?: string, options?: any): AxiosPromise<Array<FeatureOut>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost(teamSlug: string, datasetId: string, featureIn: Array<FeatureIn>, options?: any): AxiosPromise<Array<FeatureOut>>;
+    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): AxiosPromise<Array<FeatureOut>>;
     /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
      * @param {string} datasetId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamSlug?: string, options?: any): AxiosPromise<Array<AssociationOut>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost(teamSlug: string, datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>>;
+    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>>;
     /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {DatasetIn} datasetIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createDatasetV1DatasetsPost(datasetIn: DatasetIn, teamSlug?: string, options?: any): AxiosPromise<DatasetOut>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {string} teamSlug
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createDatasetV1TeamsTeamSlugDatasetsPost(teamSlug: string, datasetIn: DatasetIn, options?: any): AxiosPromise<DatasetOut>;
+    createDatasetV1DatasetsPost(datasetIn: DatasetIn, options?: any): AxiosPromise<DatasetOut>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -13646,15 +11238,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete(teamSlug: string, datasetId: string, options?: any): AxiosPromise<void>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
@@ -13665,16 +11248,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
     /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete(teamSlug: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
-    /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
@@ -13683,15 +11256,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
     /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet(teamSlug: string, datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
-    /**
      * Get a Dataset.
      * @summary Get Dataset
      * @param {string} datasetId
@@ -13699,15 +11263,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     getDatasetV1DatasetsDatasetIdGet(datasetId: string, options?: any): AxiosPromise<DatasetOut>;
-    /**
-     * Get a Dataset.
-     * @summary Get Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getDatasetV1TeamsTeamSlugDatasetsDatasetIdGet(teamSlug: string, datasetId: string, options?: any): AxiosPromise<DatasetOut>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -13728,27 +11283,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -13788,26 +11322,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
-    /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
      * @param {string} datasetId
@@ -13828,27 +11342,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
-     * Get parents of this dataset.
-     * @summary List Dataset Parents
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
-    /**
      * Get all Datasets.
      * @summary List Datasets
      * @param {string} [query] Search query.
@@ -13865,33 +11358,10 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {string} [conceptTag] Filter datasets with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamSlug?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
-    /**
-     * Get all Datasets.
-     * @summary List Datasets
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetsV1TeamsTeamSlugDatasetsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -13911,26 +11381,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
-    /**
-     * Get models that use the dataset either directly or through child datasets.
-     * @summary List Models Using Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -13961,16 +11411,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): AxiosPromise<void>;
     /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch(teamSlug: string, datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): AxiosPromise<void>;
-    /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
      * @param {string} datasetId
@@ -13979,16 +11419,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete(teamSlug: string, datasetId: string, featureId: string, options?: any): AxiosPromise<void>;
     /**
      * Tag the dataset with object with provided id.
      * @summary Remove Object Tag From Dataset
@@ -13999,16 +11429,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
     /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete(teamSlug: string, datasetId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
-    /**
      * Remove a parent dataset.
      * @summary Remove Parent Dataset
      * @param {string} datasetId
@@ -14017,16 +11437,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete(teamSlug: string, datasetId: string, parentId: string, options?: any): AxiosPromise<void>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -14037,16 +11447,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
     /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
-    /**
      * Replace a Dataset.
      * @summary Replace Dataset
      * @param {string} datasetId
@@ -14056,16 +11456,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      */
     replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options?: any): AxiosPromise<DatasetOut>;
     /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut(teamSlug: string, datasetId: string, datasetIn: DatasetIn, options?: any): AxiosPromise<DatasetOut>;
-    /**
      * Tag the dataset with object with provided id.
      * @summary Tag Study With Object
      * @param {string} datasetId
@@ -14074,16 +11464,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut(teamSlug: string, datasetId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
 };
 /**
  * Request parameters for addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut operation in DatasetsApi.
@@ -14107,37 +11487,6 @@ export interface DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatur
      * If true, then set the feature as the dataset index.
      * @type {boolean}
      * @memberof DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly index?: boolean;
-}
-/**
- * Request parameters for addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut operation in DatasetsApi.
- * @export
- * @interface DatasetsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest
- */
-export interface DatasetsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly featureId: string;
-    /**
-     * If true, then set the feature as the dataset index.
-     * @type {boolean}
-     * @memberof DatasetsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
      */
     readonly index?: boolean;
 }
@@ -14167,37 +11516,6 @@ export interface DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPu
     readonly reconcileFeatures?: boolean;
 }
 /**
- * Request parameters for addParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut operation in DatasetsApi.
- * @export
- * @interface DatasetsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPutRequest
- */
-export interface DatasetsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut
-     */
-    readonly parentId: string;
-    /**
-     *
-     * @type {boolean}
-     * @memberof DatasetsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut
-     */
-    readonly reconcileFeatures?: boolean;
-}
-/**
  * Request parameters for addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut operation in DatasetsApi.
  * @export
  * @interface DatasetsApiAddPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest
@@ -14213,31 +11531,6 @@ export interface DatasetsApiAddPopulationAttributeValueToDatasetV1DatasetsDatase
      *
      * @type {string}
      * @memberof DatasetsApiAddPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
-     */
-    readonly populationAttributeValueId: string;
-}
-/**
- * Request parameters for addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut operation in DatasetsApi.
- * @export
- * @interface DatasetsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest
- */
-export interface DatasetsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
      */
     readonly populationAttributeValueId: string;
 }
@@ -14259,37 +11552,6 @@ export interface DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPo
      * @memberof DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
      */
     readonly featureIn: Array<FeatureIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost operation in DatasetsApi.
- * @export
- * @interface DatasetsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest
- */
-export interface DatasetsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {Array<FeatureIn>}
-     * @memberof DatasetsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost
-     */
-    readonly featureIn: Array<FeatureIn>;
 }
 /**
  * Request parameters for createAssociationsV1DatasetsDatasetIdAssociationsPost operation in DatasetsApi.
@@ -14309,37 +11571,6 @@ export interface DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPos
      * @memberof DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
      */
     readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost operation in DatasetsApi.
- * @export
- * @interface DatasetsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest
- */
-export interface DatasetsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {AssociationIn | Array<AssociationIn>}
-     * @memberof DatasetsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost
-     */
-    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
 }
 /**
  * Request parameters for createDatasetV1DatasetsPost operation in DatasetsApi.
@@ -14353,31 +11584,6 @@ export interface DatasetsApiCreateDatasetV1DatasetsPostRequest {
      * @memberof DatasetsApiCreateDatasetV1DatasetsPost
      */
     readonly datasetIn: DatasetIn;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateDatasetV1DatasetsPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createDatasetV1TeamsTeamSlugDatasetsPost operation in DatasetsApi.
- * @export
- * @interface DatasetsApiCreateDatasetV1TeamsTeamSlugDatasetsPostRequest
- */
-export interface DatasetsApiCreateDatasetV1TeamsTeamSlugDatasetsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateDatasetV1TeamsTeamSlugDatasetsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {DatasetIn}
-     * @memberof DatasetsApiCreateDatasetV1TeamsTeamSlugDatasetsPost
-     */
-    readonly datasetIn: DatasetIn;
 }
 /**
  * Request parameters for deleteDatasetV1DatasetsDatasetIdDelete operation in DatasetsApi.
@@ -14389,25 +11595,6 @@ export interface DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest {
      *
      * @type {string}
      * @memberof DatasetsApiDeleteDatasetV1DatasetsDatasetIdDelete
-     */
-    readonly datasetId: string;
-}
-/**
- * Request parameters for deleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDeleteRequest
- */
-export interface DatasetsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete
      */
     readonly datasetId: string;
 }
@@ -14431,31 +11618,6 @@ export interface DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAsso
     readonly bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete;
 }
 /**
- * Request parameters for deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest
- */
-export interface DatasetsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete}
-     * @memberof DatasetsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     */
-    readonly bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete;
-}
-/**
  * Request parameters for fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet operation in DatasetsApi.
  * @export
  * @interface DatasetsApiFetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGetRequest
@@ -14469,25 +11631,6 @@ export interface DatasetsApiFetchDatasetPopulationAttributeValuesV1DatasetsDatas
     readonly datasetId: string;
 }
 /**
- * Request parameters for fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet operation in DatasetsApi.
- * @export
- * @interface DatasetsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest
- */
-export interface DatasetsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet
-     */
-    readonly datasetId: string;
-}
-/**
  * Request parameters for getDatasetV1DatasetsDatasetIdGet operation in DatasetsApi.
  * @export
  * @interface DatasetsApiGetDatasetV1DatasetsDatasetIdGetRequest
@@ -14497,25 +11640,6 @@ export interface DatasetsApiGetDatasetV1DatasetsDatasetIdGetRequest {
      *
      * @type {string}
      * @memberof DatasetsApiGetDatasetV1DatasetsDatasetIdGet
-     */
-    readonly datasetId: string;
-}
-/**
- * Request parameters for getDatasetV1TeamsTeamSlugDatasetsDatasetIdGet operation in DatasetsApi.
- * @export
- * @interface DatasetsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGetRequest
- */
-export interface DatasetsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGet
      */
     readonly datasetId: string;
 }
@@ -14601,97 +11725,6 @@ export interface DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRe
      * Include only variable-variable associations.
      * @type {boolean}
      * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
-}
-/**
- * Request parameters for listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet operation in DatasetsApi.
- * @export
- * @interface DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest
- */
-export interface DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly datasetId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
 }
@@ -14854,91 +11887,6 @@ export interface DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
     readonly inFeatureGraph?: boolean;
 }
 /**
- * Request parameters for listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet operation in DatasetsApi.
- * @export
- * @interface DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest
- */
-export interface DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly datasetId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is Feature in the Feature Graph?
-     * @type {boolean}
-     * @memberof DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly inFeatureGraph?: boolean;
-}
-/**
  * Request parameters for listDatasetParentsV1DatasetsDatasetIdParentsGet operation in DatasetsApi.
  * @export
  * @interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest
@@ -15020,97 +11968,6 @@ export interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetReque
      * Filter datasets with concept tag
      * @type {string}
      * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
-     */
-    readonly conceptTag?: string;
-}
-/**
- * Request parameters for listDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet operation in DatasetsApi.
- * @export
- * @interface DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGetRequest
- */
-export interface DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly datasetId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter datasets with variable tag
-     * @type {string}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly variableTag?: string;
-    /**
-     * Filter datasets with concept tag
-     * @type {string}
-     * @memberof DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
      */
     readonly conceptTag?: string;
 }
@@ -15204,109 +12061,6 @@ export interface DatasetsApiListDatasetsV1DatasetsGetRequest {
      * @memberof DatasetsApiListDatasetsV1DatasetsGet
      */
     readonly featureRelationship?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetsV1DatasetsGet
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for listDatasetsV1TeamsTeamSlugDatasetsGet operation in DatasetsApi.
- * @export
- * @interface DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGetRequest
- */
-export interface DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter datasets with variable tag
-     * @type {string}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly variableTag?: string;
-    /**
-     * Filter datasets with concept tag
-     * @type {string}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly conceptTag?: string;
-    /**
-     * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly variableRelationship?: string;
-    /**
-     * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly featureRelationship?: string;
 }
 /**
  * Request parameters for listModelsUsingDatasetV1DatasetsDatasetIdModelsGet operation in DatasetsApi.
@@ -15384,91 +12138,6 @@ export interface DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRe
      * Filter models containing a variable via an association
      * @type {string}
      * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
-     */
-    readonly containsVariableId?: string;
-}
-/**
- * Request parameters for listModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet operation in DatasetsApi.
- * @export
- * @interface DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGetRequest
- */
-export interface DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly datasetId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'target_name' | 'created_at' | 'last_updated_at'}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter models containing a variable via an association
-     * @type {string}
-     * @memberof DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
      */
     readonly containsVariableId?: string;
 }
@@ -15577,31 +12246,6 @@ export interface DatasetsApiPatchDatasetV1DatasetsDatasetIdPatchRequest {
     readonly patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>;
 }
 /**
- * Request parameters for patchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch operation in DatasetsApi.
- * @export
- * @interface DatasetsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatchRequest
- */
-export interface DatasetsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {PatchDatasetOp | Array<PatchDatasetOp>}
-     * @memberof DatasetsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch
-     */
-    readonly patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>;
-}
-/**
  * Request parameters for removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete operation in DatasetsApi.
  * @export
  * @interface DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest
@@ -15617,31 +12261,6 @@ export interface DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesF
      *
      * @type {string}
      * @memberof DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly featureId: string;
-}
-/**
- * Request parameters for removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest
- */
-export interface DatasetsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete
      */
     readonly featureId: string;
 }
@@ -15665,31 +12284,6 @@ export interface DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectT
     readonly tagObjectId: string;
 }
 /**
- * Request parameters for removeObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest
- */
-export interface DatasetsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete
-     */
-    readonly tagObjectId: string;
-}
-/**
  * Request parameters for removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete operation in DatasetsApi.
  * @export
  * @interface DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest
@@ -15705,31 +12299,6 @@ export interface DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentI
      *
      * @type {string}
      * @memberof DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDelete
-     */
-    readonly parentId: string;
-}
-/**
- * Request parameters for removeParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDeleteRequest
- */
-export interface DatasetsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete
      */
     readonly parentId: string;
 }
@@ -15753,31 +12322,6 @@ export interface DatasetsApiRemovePopulationAttributeValueFromDatasetV1DatasetsD
     readonly populationAttributeValueId: string;
 }
 /**
- * Request parameters for removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest
- */
-export interface DatasetsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
-     */
-    readonly populationAttributeValueId: string;
-}
-/**
  * Request parameters for replaceDatasetV1DatasetsDatasetIdPut operation in DatasetsApi.
  * @export
  * @interface DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest
@@ -15793,31 +12337,6 @@ export interface DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest {
      *
      * @type {DatasetIn}
      * @memberof DatasetsApiReplaceDatasetV1DatasetsDatasetIdPut
-     */
-    readonly datasetIn: DatasetIn;
-}
-/**
- * Request parameters for replaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut operation in DatasetsApi.
- * @export
- * @interface DatasetsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPutRequest
- */
-export interface DatasetsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {DatasetIn}
-     * @memberof DatasetsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut
      */
     readonly datasetIn: DatasetIn;
 }
@@ -15841,31 +12360,6 @@ export interface DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagOb
     readonly tagObjectId: string;
 }
 /**
- * Request parameters for tagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut operation in DatasetsApi.
- * @export
- * @interface DatasetsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPutRequest
- */
-export interface DatasetsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut
-     */
-    readonly tagObjectId: string;
-}
-/**
  * DatasetsApi - object-oriented interface
  * @export
  * @class DatasetsApi
@@ -15882,15 +12376,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters: DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {DatasetsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut(requestParameters: DatasetsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Add a parent dataset.
      * @summary Add Parent Dataset
      * @param {DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest} requestParameters Request parameters.
@@ -15899,15 +12384,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters: DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {DatasetsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    addParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut(requestParameters: DatasetsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -15918,15 +12394,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters: DatasetsApiAddPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {DatasetsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters: DatasetsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Create and attach Features to Dataset in bulk.
      * @summary Create And Attach Features
      * @param {DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest} requestParameters Request parameters.
@@ -15935,15 +12402,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(requestParameters: DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut[]>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {DatasetsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost(requestParameters: DatasetsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut[]>>;
     /**
      * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
      * @summary Create Associations
@@ -15954,15 +12412,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     createAssociationsV1DatasetsDatasetIdAssociationsPost(requestParameters: DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
     /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {DatasetsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost(requestParameters: DatasetsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
-    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {DatasetsApiCreateDatasetV1DatasetsPostRequest} requestParameters Request parameters.
@@ -15971,15 +12420,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     createDatasetV1DatasetsPost(requestParameters: DatasetsApiCreateDatasetV1DatasetsPostRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetOut>>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {DatasetsApiCreateDatasetV1TeamsTeamSlugDatasetsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    createDatasetV1TeamsTeamSlugDatasetsPost(requestParameters: DatasetsApiCreateDatasetV1TeamsTeamSlugDatasetsPostRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetOut>>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -15990,15 +12430,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     deleteDatasetV1DatasetsDatasetIdDelete(requestParameters: DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {DatasetsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    deleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete(requestParameters: DatasetsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
      * @param {DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
@@ -16007,15 +12438,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters: DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {DatasetsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete(requestParameters: DatasetsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
@@ -16026,15 +12448,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(requestParameters: DatasetsApiFetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGetRequest, options?: any): Promise<import("axios").AxiosResponse<(CategoryOut | DateRangeOut | FreeTextOut | LocationOut | NumberRangeOut)[]>>;
     /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {DatasetsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet(requestParameters: DatasetsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest, options?: any): Promise<import("axios").AxiosResponse<(CategoryOut | DateRangeOut | FreeTextOut | LocationOut | NumberRangeOut)[]>>;
-    /**
      * Get a Dataset.
      * @summary Get Dataset
      * @param {DatasetsApiGetDatasetV1DatasetsDatasetIdGetRequest} requestParameters Request parameters.
@@ -16044,15 +12457,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     getDatasetV1DatasetsDatasetIdGet(requestParameters: DatasetsApiGetDatasetV1DatasetsDatasetIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetOut>>;
     /**
-     * Get a Dataset.
-     * @summary Get Dataset
-     * @param {DatasetsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    getDatasetV1TeamsTeamSlugDatasetsDatasetIdGet(requestParameters: DatasetsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetOut>>;
-    /**
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRequest} requestParameters Request parameters.
@@ -16061,15 +12465,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters: DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet(requestParameters: DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -16089,15 +12484,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters: DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
     /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet(requestParameters: DatasetsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
-    /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
      * @param {DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest} requestParameters Request parameters.
@@ -16106,15 +12492,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters: DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetPaginationOut>>;
-    /**
-     * Get parents of this dataset.
-     * @summary List Dataset Parents
-     * @param {DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    listDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet(requestParameters: DatasetsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetPaginationOut>>;
     /**
      * Get all Datasets.
      * @summary List Datasets
@@ -16125,15 +12502,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     listDatasetsV1DatasetsGet(requestParameters?: DatasetsApiListDatasetsV1DatasetsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetPaginationOut>>;
     /**
-     * Get all Datasets.
-     * @summary List Datasets
-     * @param {DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    listDatasetsV1TeamsTeamSlugDatasetsGet(requestParameters: DatasetsApiListDatasetsV1TeamsTeamSlugDatasetsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetPaginationOut>>;
-    /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
      * @param {DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRequest} requestParameters Request parameters.
@@ -16142,15 +12510,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters: DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
-    /**
-     * Get models that use the dataset either directly or through child datasets.
-     * @summary List Models Using Dataset
-     * @param {DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    listModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet(requestParameters: DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -16170,15 +12529,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     patchDatasetV1DatasetsDatasetIdPatch(requestParameters: DatasetsApiPatchDatasetV1DatasetsDatasetIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {DatasetsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    patchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch(requestParameters: DatasetsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
      * @param {DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest} requestParameters Request parameters.
@@ -16187,15 +12537,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters: DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {DatasetsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters: DatasetsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Tag the dataset with object with provided id.
      * @summary Remove Object Tag From Dataset
@@ -16206,15 +12547,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(requestParameters: DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {DatasetsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    removeObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete(requestParameters: DatasetsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Remove a parent dataset.
      * @summary Remove Parent Dataset
      * @param {DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest} requestParameters Request parameters.
@@ -16223,15 +12555,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(requestParameters: DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {DatasetsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    removeParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete(requestParameters: DatasetsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -16242,15 +12565,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters: DatasetsApiRemovePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {DatasetsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters: DatasetsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Replace a Dataset.
      * @summary Replace Dataset
      * @param {DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest} requestParameters Request parameters.
@@ -16260,15 +12574,6 @@ export declare class DatasetsApi extends BaseAPI {
      */
     replaceDatasetV1DatasetsDatasetIdPut(requestParameters: DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetOut>>;
     /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {DatasetsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    replaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut(requestParameters: DatasetsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetOut>>;
-    /**
      * Tag the dataset with object with provided id.
      * @summary Tag Study With Object
      * @param {DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
@@ -16277,15 +12582,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(requestParameters: DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {DatasetsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    tagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut(requestParameters: DatasetsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * EnterpriseApi - axios parameter creator
@@ -16652,54 +12948,22 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId: string, featureId: string, index?: boolean, options?: any) => Promise<RequestArgs>;
     /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut: (teamSlug: string, datasetId: string, featureId: string, index?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
      * Create and attach Features to Dataset in bulk.
      * @summary Create And Attach Features
      * @param {string} datasetId
      * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost: (datasetId: string, featureIn: Array<FeatureIn>, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost: (teamSlug: string, datasetId: string, featureIn: Array<FeatureIn>, options?: any) => Promise<RequestArgs>;
+    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost: (datasetId: string, featureIn: Array<FeatureIn>, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new Feature.
      * @summary Create Feature
      * @param {FeatureIn} featureIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeatureV1FeaturesPost: (featureIn: FeatureIn, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {string} teamSlug
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createFeatureV1TeamsTeamSlugFeaturesPost: (teamSlug: string, featureIn: FeatureIn, options?: any) => Promise<RequestArgs>;
+    createFeatureV1FeaturesPost: (featureIn: FeatureIn, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a feature.
      * @summary Delete Feature
@@ -16709,15 +12973,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      */
     deleteFeatureV1FeaturesFeatureIdDelete: (featureId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete: (teamSlug: string, featureId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get feature.
      * @summary Get Feature
      * @param {string} featureId
@@ -16725,15 +12980,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     getFeatureV1FeaturesFeatureIdGet: (featureId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get feature.
-     * @summary Get Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeatureV1TeamsTeamSlugFeaturesFeatureIdGet: (teamSlug: string, featureId: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -16772,26 +13018,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet: (teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
      * List Features.
      * @summary List Features
      * @param {string} [query] Search query.
@@ -16805,30 +13031,10 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * List Features.
-     * @summary List Features
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listFeaturesV1TeamsTeamSlugFeaturesGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listFeaturesV1FeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -16855,33 +13061,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
-     * @param {number} [hops] Number of hops.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
-     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
-     * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
-     * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
-     * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
-     * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
-     * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet: (teamSlug: string, featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -16911,16 +13090,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      */
     patchFeatureV1FeaturesFeatureIdPatch: (featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any) => Promise<RequestArgs>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
-     * @summary Patch Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch: (teamSlug: string, featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any) => Promise<RequestArgs>;
-    /**
      * Batch feature patching.
      * @summary Patch Multiple Features
      * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
@@ -16928,15 +13097,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     patchMultipleFeaturesV1FeaturesPatch: (bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any) => Promise<RequestArgs>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {string} teamSlug
-     * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch: (teamSlug: string, bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any) => Promise<RequestArgs>;
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
@@ -16947,16 +13107,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId: string, featureId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete: (teamSlug: string, datasetId: string, featureId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Replace a Feature.
      * @summary Replace Feature
      * @param {string} featureId
@@ -16965,16 +13115,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     replaceFeatureV1FeaturesFeatureIdPut: (featureId: string, featureIn: FeatureIn, options?: any) => Promise<RequestArgs>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut: (teamSlug: string, featureId: string, featureIn: FeatureIn, options?: any) => Promise<RequestArgs>;
 };
 /**
  * FeaturesApi - functional programming interface
@@ -16992,54 +13132,22 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut(teamSlug: string, datasetId: string, featureId: string, index?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Create and attach Features to Dataset in bulk.
      * @summary Create And Attach Features
      * @param {string} datasetId
      * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost(teamSlug: string, datasetId: string, featureIn: Array<FeatureIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>>;
+    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>>;
     /**
      * Create a new Feature.
      * @summary Create Feature
      * @param {FeatureIn} featureIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeatureV1FeaturesPost(featureIn: FeatureIn, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {string} teamSlug
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createFeatureV1TeamsTeamSlugFeaturesPost(teamSlug: string, featureIn: FeatureIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
+    createFeatureV1FeaturesPost(featureIn: FeatureIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
     /**
      * Delete a feature.
      * @summary Delete Feature
@@ -17049,15 +13157,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      */
     deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete(teamSlug: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Get feature.
      * @summary Get Feature
      * @param {string} featureId
@@ -17065,15 +13164,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getFeatureV1FeaturesFeatureIdGet(featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
-    /**
-     * Get feature.
-     * @summary Get Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeatureV1TeamsTeamSlugFeaturesFeatureIdGet(teamSlug: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -17112,26 +13202,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
-    /**
      * List Features.
      * @summary List Features
      * @param {string} [query] Search query.
@@ -17145,30 +13215,10 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
-    /**
-     * List Features.
-     * @summary List Features
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listFeaturesV1TeamsTeamSlugFeaturesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -17195,33 +13245,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
-    /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
-     * @param {number} [hops] Number of hops.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
-     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
-     * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
-     * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
-     * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
-     * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
-     * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet(teamSlug: string, featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -17251,16 +13274,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      */
     patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
-     * @summary Patch Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch(teamSlug: string, featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Batch feature patching.
      * @summary Patch Multiple Features
      * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
@@ -17268,15 +13281,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {string} teamSlug
-     * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch(teamSlug: string, bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
@@ -17287,16 +13291,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete(teamSlug: string, datasetId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Replace a Feature.
      * @summary Replace Feature
      * @param {string} featureId
@@ -17305,16 +13299,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut(teamSlug: string, featureId: string, featureIn: FeatureIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
 };
 /**
  * FeaturesApi - factory interface
@@ -17332,54 +13316,22 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void>;
     /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut(teamSlug: string, datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void>;
-    /**
      * Create and attach Features to Dataset in bulk.
      * @summary Create And Attach Features
      * @param {string} datasetId
      * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, teamSlug?: string, options?: any): AxiosPromise<Array<FeatureOut>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost(teamSlug: string, datasetId: string, featureIn: Array<FeatureIn>, options?: any): AxiosPromise<Array<FeatureOut>>;
+    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, options?: any): AxiosPromise<Array<FeatureOut>>;
     /**
      * Create a new Feature.
      * @summary Create Feature
      * @param {FeatureIn} featureIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createFeatureV1FeaturesPost(featureIn: FeatureIn, teamSlug?: string, options?: any): AxiosPromise<FeatureOut>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {string} teamSlug
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createFeatureV1TeamsTeamSlugFeaturesPost(teamSlug: string, featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut>;
+    createFeatureV1FeaturesPost(featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut>;
     /**
      * Delete a feature.
      * @summary Delete Feature
@@ -17389,15 +13341,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      */
     deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, options?: any): AxiosPromise<void>;
     /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete(teamSlug: string, featureId: string, options?: any): AxiosPromise<void>;
-    /**
      * Get feature.
      * @summary Get Feature
      * @param {string} featureId
@@ -17405,15 +13348,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     getFeatureV1FeaturesFeatureIdGet(featureId: string, options?: any): AxiosPromise<FeatureOut>;
-    /**
-     * Get feature.
-     * @summary Get Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeatureV1TeamsTeamSlugFeaturesFeatureIdGet(teamSlug: string, featureId: string, options?: any): AxiosPromise<FeatureOut>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -17452,26 +13386,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
-    /**
      * List Features.
      * @summary List Features
      * @param {string} [query] Search query.
@@ -17485,30 +13399,10 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
-    /**
-     * List Features.
-     * @summary List Features
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listFeaturesV1TeamsTeamSlugFeaturesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -17535,33 +13429,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
-    /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
-     * @param {number} [hops] Number of hops.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
-     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
-     * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
-     * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
-     * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
-     * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
-     * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet(teamSlug: string, featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -17591,16 +13458,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      */
     patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): AxiosPromise<void>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
-     * @summary Patch Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch(teamSlug: string, featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): AxiosPromise<void>;
-    /**
      * Batch feature patching.
      * @summary Patch Multiple Features
      * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
@@ -17608,15 +13465,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any): AxiosPromise<void>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {string} teamSlug
-     * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch(teamSlug: string, bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any): AxiosPromise<void>;
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
@@ -17627,16 +13475,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): AxiosPromise<void>;
     /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete(teamSlug: string, datasetId: string, featureId: string, options?: any): AxiosPromise<void>;
-    /**
      * Replace a Feature.
      * @summary Replace Feature
      * @param {string} featureId
@@ -17645,16 +13483,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut(teamSlug: string, featureId: string, featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut>;
 };
 /**
  * Request parameters for addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut operation in FeaturesApi.
@@ -17682,37 +13510,6 @@ export interface FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatur
     readonly index?: boolean;
 }
 /**
- * Request parameters for addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest
- */
-export interface FeaturesApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly featureId: string;
-    /**
-     * If true, then set the feature as the dataset index.
-     * @type {boolean}
-     * @memberof FeaturesApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly index?: boolean;
-}
-/**
  * Request parameters for createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost operation in FeaturesApi.
  * @export
  * @interface FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest
@@ -17730,37 +13527,6 @@ export interface FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPo
      * @memberof FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
      */
     readonly featureIn: Array<FeatureIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost operation in FeaturesApi.
- * @export
- * @interface FeaturesApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest
- */
-export interface FeaturesApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {Array<FeatureIn>}
-     * @memberof FeaturesApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost
-     */
-    readonly featureIn: Array<FeatureIn>;
 }
 /**
  * Request parameters for createFeatureV1FeaturesPost operation in FeaturesApi.
@@ -17772,31 +13538,6 @@ export interface FeaturesApiCreateFeatureV1FeaturesPostRequest {
      *
      * @type {FeatureIn}
      * @memberof FeaturesApiCreateFeatureV1FeaturesPost
-     */
-    readonly featureIn: FeatureIn;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiCreateFeatureV1FeaturesPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createFeatureV1TeamsTeamSlugFeaturesPost operation in FeaturesApi.
- * @export
- * @interface FeaturesApiCreateFeatureV1TeamsTeamSlugFeaturesPostRequest
- */
-export interface FeaturesApiCreateFeatureV1TeamsTeamSlugFeaturesPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiCreateFeatureV1TeamsTeamSlugFeaturesPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {FeatureIn}
-     * @memberof FeaturesApiCreateFeatureV1TeamsTeamSlugFeaturesPost
      */
     readonly featureIn: FeatureIn;
 }
@@ -17814,25 +13555,6 @@ export interface FeaturesApiDeleteFeatureV1FeaturesFeatureIdDeleteRequest {
     readonly featureId: string;
 }
 /**
- * Request parameters for deleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete operation in FeaturesApi.
- * @export
- * @interface FeaturesApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDeleteRequest
- */
-export interface FeaturesApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete
-     */
-    readonly featureId: string;
-}
-/**
  * Request parameters for getFeatureV1FeaturesFeatureIdGet operation in FeaturesApi.
  * @export
  * @interface FeaturesApiGetFeatureV1FeaturesFeatureIdGetRequest
@@ -17842,25 +13564,6 @@ export interface FeaturesApiGetFeatureV1FeaturesFeatureIdGetRequest {
      *
      * @type {string}
      * @memberof FeaturesApiGetFeatureV1FeaturesFeatureIdGet
-     */
-    readonly featureId: string;
-}
-/**
- * Request parameters for getFeatureV1TeamsTeamSlugFeaturesFeatureIdGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGetRequest
- */
-export interface FeaturesApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGet
      */
     readonly featureId: string;
 }
@@ -18017,91 +13720,6 @@ export interface FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
     readonly inFeatureGraph?: boolean;
 }
 /**
- * Request parameters for listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest
- */
-export interface FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly datasetId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is Feature in the Feature Graph?
-     * @type {boolean}
-     * @memberof FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly inFeatureGraph?: boolean;
-}
-/**
  * Request parameters for listFeaturesV1FeaturesGet operation in FeaturesApi.
  * @export
  * @interface FeaturesApiListFeaturesV1FeaturesGetRequest
@@ -18171,91 +13789,6 @@ export interface FeaturesApiListFeaturesV1FeaturesGetRequest {
      * Is Feature in the Feature Graph?
      * @type {boolean}
      * @memberof FeaturesApiListFeaturesV1FeaturesGet
-     */
-    readonly inFeatureGraph?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListFeaturesV1FeaturesGet
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for listFeaturesV1TeamsTeamSlugFeaturesGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGetRequest
- */
-export interface FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is Feature in the Feature Graph?
-     * @type {boolean}
-     * @memberof FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
 }
@@ -18381,133 +13914,6 @@ export interface FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeature
     readonly idsOnly?: boolean;
 }
 /**
- * Request parameters for listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet operation in FeaturesApi.
- * @export
- * @interface FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest
- */
-export interface FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly featureId: string;
-    /**
-     * Order by this field.
-     * @type {'path_count' | 'created_at' | 'model_count'}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly orderBy?: 'path_count' | 'created_at' | 'model_count';
-    /**
-     * Number of hops.
-     * @type {number}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly hops?: number;
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Include in response available population ids for filtering.
-     * @type {boolean}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly includePathPopIds?: boolean;
-    /**
-     * Stringified list of lists of population id for path filtering.
-     * @type {string}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly pathPopFilter?: string;
-    /**
-     *
-     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong';
-    /**
-     *
-     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong';
-    /**
-     *
-     * @type {'invalid' | 'low' | 'medium' | 'high'}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly minReproducibility?: 'invalid' | 'low' | 'medium' | 'high';
-    /**
-     *
-     * @type {'invalid' | 'low' | 'medium' | 'high'}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high';
-    /**
-     * Filter results by available dataset license.
-     * @type {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>;
-    /**
-     * Only include Features that are members of datasets with this index.
-     * @type {Array<string>}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly dsIdx?: Array<string>;
-    /**
-     * Include in response available dataset index ids for filtering.
-     * @type {boolean}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly includeDatasetIndexIds?: boolean;
-    /**
-     * Include in response available dataset population ids for filtering.
-     * @type {boolean}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly includeDatasetPopIds?: boolean;
-    /**
-     * Stringified list of lists of population id for dataset filtering.
-     * @type {string}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly dsPopFilter?: string;
-    /**
-     *
-     * @type {number}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly idsOnly?: boolean;
-}
-/**
  * Request parameters for listUserFeaturesV1UsersUserIdFeaturesGet operation in FeaturesApi.
  * @export
  * @interface FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest
@@ -18606,31 +14012,6 @@ export interface FeaturesApiPatchFeatureV1FeaturesFeatureIdPatchRequest {
     readonly patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>;
 }
 /**
- * Request parameters for patchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch operation in FeaturesApi.
- * @export
- * @interface FeaturesApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatchRequest
- */
-export interface FeaturesApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch
-     */
-    readonly featureId: string;
-    /**
-     *
-     * @type {PatchFeatureOp | Array<PatchFeatureOp>}
-     * @memberof FeaturesApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch
-     */
-    readonly patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>;
-}
-/**
  * Request parameters for patchMultipleFeaturesV1FeaturesPatch operation in FeaturesApi.
  * @export
  * @interface FeaturesApiPatchMultipleFeaturesV1FeaturesPatchRequest
@@ -18640,25 +14021,6 @@ export interface FeaturesApiPatchMultipleFeaturesV1FeaturesPatchRequest {
      *
      * @type {Array<BulkPatchFeatureOp>}
      * @memberof FeaturesApiPatchMultipleFeaturesV1FeaturesPatch
-     */
-    readonly bulkPatchFeatureOp: Array<BulkPatchFeatureOp>;
-}
-/**
- * Request parameters for patchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch operation in FeaturesApi.
- * @export
- * @interface FeaturesApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatchRequest
- */
-export interface FeaturesApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {Array<BulkPatchFeatureOp>}
-     * @memberof FeaturesApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch
      */
     readonly bulkPatchFeatureOp: Array<BulkPatchFeatureOp>;
 }
@@ -18682,31 +14044,6 @@ export interface FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesF
     readonly featureId: string;
 }
 /**
- * Request parameters for removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete operation in FeaturesApi.
- * @export
- * @interface FeaturesApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest
- */
-export interface FeaturesApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly featureId: string;
-}
-/**
  * Request parameters for replaceFeatureV1FeaturesFeatureIdPut operation in FeaturesApi.
  * @export
  * @interface FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest
@@ -18722,31 +14059,6 @@ export interface FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest {
      *
      * @type {FeatureIn}
      * @memberof FeaturesApiReplaceFeatureV1FeaturesFeatureIdPut
-     */
-    readonly featureIn: FeatureIn;
-}
-/**
- * Request parameters for replaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPutRequest
- */
-export interface FeaturesApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut
-     */
-    readonly featureId: string;
-    /**
-     *
-     * @type {FeatureIn}
-     * @memberof FeaturesApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut
      */
     readonly featureIn: FeatureIn;
 }
@@ -18767,15 +14079,6 @@ export declare class FeaturesApi extends BaseAPI {
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters: FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {FeaturesApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut(requestParameters: FeaturesApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Create and attach Features to Dataset in bulk.
      * @summary Create And Attach Features
      * @param {FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest} requestParameters Request parameters.
@@ -18784,15 +14087,6 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(requestParameters: FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut[]>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {FeaturesApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost(requestParameters: FeaturesApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut[]>>;
     /**
      * Create a new Feature.
      * @summary Create Feature
@@ -18803,15 +14097,6 @@ export declare class FeaturesApi extends BaseAPI {
      */
     createFeatureV1FeaturesPost(requestParameters: FeaturesApiCreateFeatureV1FeaturesPostRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
     /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {FeaturesApiCreateFeatureV1TeamsTeamSlugFeaturesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    createFeatureV1TeamsTeamSlugFeaturesPost(requestParameters: FeaturesApiCreateFeatureV1TeamsTeamSlugFeaturesPostRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
-    /**
      * Delete a feature.
      * @summary Delete Feature
      * @param {FeaturesApiDeleteFeatureV1FeaturesFeatureIdDeleteRequest} requestParameters Request parameters.
@@ -18821,15 +14106,6 @@ export declare class FeaturesApi extends BaseAPI {
      */
     deleteFeatureV1FeaturesFeatureIdDelete(requestParameters: FeaturesApiDeleteFeatureV1FeaturesFeatureIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {FeaturesApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    deleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete(requestParameters: FeaturesApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Get feature.
      * @summary Get Feature
      * @param {FeaturesApiGetFeatureV1FeaturesFeatureIdGetRequest} requestParameters Request parameters.
@@ -18838,15 +14114,6 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     getFeatureV1FeaturesFeatureIdGet(requestParameters: FeaturesApiGetFeatureV1FeaturesFeatureIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
-    /**
-     * Get feature.
-     * @summary Get Feature
-     * @param {FeaturesApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    getFeatureV1TeamsTeamSlugFeaturesFeatureIdGet(requestParameters: FeaturesApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -18866,15 +14133,6 @@ export declare class FeaturesApi extends BaseAPI {
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters: FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
     /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet(requestParameters: FeaturesApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
-    /**
      * List Features.
      * @summary List Features
      * @param {FeaturesApiListFeaturesV1FeaturesGetRequest} requestParameters Request parameters.
@@ -18884,15 +14142,6 @@ export declare class FeaturesApi extends BaseAPI {
      */
     listFeaturesV1FeaturesGet(requestParameters?: FeaturesApiListFeaturesV1FeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
     /**
-     * List Features.
-     * @summary List Features
-     * @param {FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    listFeaturesV1TeamsTeamSlugFeaturesGet(requestParameters: FeaturesApiListFeaturesV1TeamsTeamSlugFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
-    /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGetRequest} requestParameters Request parameters.
@@ -18901,15 +14150,6 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters: FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureSystemOfFeaturesPaginationOut>>;
-    /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet(requestParameters: FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureSystemOfFeaturesPaginationOut>>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -18929,15 +14169,6 @@ export declare class FeaturesApi extends BaseAPI {
      */
     patchFeatureV1FeaturesFeatureIdPatch(requestParameters: FeaturesApiPatchFeatureV1FeaturesFeatureIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
-     * @summary Patch Feature
-     * @param {FeaturesApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    patchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch(requestParameters: FeaturesApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Batch feature patching.
      * @summary Patch Multiple Features
      * @param {FeaturesApiPatchMultipleFeaturesV1FeaturesPatchRequest} requestParameters Request parameters.
@@ -18946,15 +14177,6 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     patchMultipleFeaturesV1FeaturesPatch(requestParameters: FeaturesApiPatchMultipleFeaturesV1FeaturesPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {FeaturesApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    patchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch(requestParameters: FeaturesApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
@@ -18965,15 +14187,6 @@ export declare class FeaturesApi extends BaseAPI {
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters: FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {FeaturesApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters: FeaturesApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Replace a Feature.
      * @summary Replace Feature
      * @param {FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest} requestParameters Request parameters.
@@ -18982,15 +14195,6 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     replaceFeatureV1FeaturesFeatureIdPut(requestParameters: FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {FeaturesApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    replaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut(requestParameters: FeaturesApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
 }
 /**
  * GraphApi - axios parameter creator
@@ -19248,42 +14452,19 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
      * @param {boolean} [mergeFeatures]
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost: (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost: (teamSlug: string, modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any) => Promise<RequestArgs>;
+    createAssociationsV1ModelsModelIdAssociationsPost: (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
      * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost: (studyId: string, modelIn: Array<ModelIn>, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost: (teamSlug: string, studyId: string, modelIn: Array<ModelIn>, options?: any) => Promise<RequestArgs>;
+    createModelsV1StudiesStudyIdModelsPost: (studyId: string, modelIn: Array<ModelIn>, options?: any) => Promise<RequestArgs>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -19294,16 +14475,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      */
     deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId: string, associationId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete: (teamSlug: string, modelId: string, associationId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
      * @param {string} modelId
@@ -19313,16 +14484,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
     /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: (teamSlug: string, modelId: string, bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
-    /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
      * @param {string} modelId
@@ -19330,15 +14491,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @throws {RequiredError}
      */
     deleteModelV1ModelsModelIdDelete: (modelId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteModelV1TeamsTeamSlugModelsModelIdDelete: (teamSlug: string, modelId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -19349,16 +14501,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      */
     getAssociationV1ModelsModelIdAssociationsAssociationIdGet: (associationId: string, modelId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet: (teamSlug: string, associationId: string, modelId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get Model.
      * @summary Get Model
      * @param {string} modelId
@@ -19366,15 +14508,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @throws {RequiredError}
      */
     getModelV1ModelsModelIdGet: (modelId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get Model.
-     * @summary Get Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getModelV1TeamsTeamSlugModelsModelIdGet: (teamSlug: string, modelId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -19395,27 +14528,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @throws {RequiredError}
      */
     listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet: (teamSlug: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -19454,26 +14566,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      */
     listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet: (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
-    /**
      * List Models.
      * @summary List Models
      * @param {string} [query] Search query.
@@ -19487,30 +14579,10 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * List Models.
-     * @summary List Models
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsV1TeamsTeamSlugModelsGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsV1ModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -19540,16 +14612,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any) => Promise<RequestArgs>;
     /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch: (teamSlug: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any) => Promise<RequestArgs>;
-    /**
      * Modify Model resource with partial update.
      * @summary Patch Model
      * @param {string} modelId
@@ -19559,35 +14621,14 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      */
     patchModelV1ModelsModelIdPatch: (modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any) => Promise<RequestArgs>;
     /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchModelV1TeamsTeamSlugModelsModelIdPatch: (teamSlug: string, modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any) => Promise<RequestArgs>;
-    /**
      * Replace a Model.
      * @summary Replace Model
      * @param {string} modelId
      * @param {ModelIn} modelIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    replaceModelV1ModelsModelIdPut: (modelId: string, modelIn: ModelIn, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {ModelIn} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceModelV1TeamsTeamSlugModelsModelIdPut: (teamSlug: string, modelId: string, modelIn: ModelIn, options?: any) => Promise<RequestArgs>;
+    replaceModelV1ModelsModelIdPut: (modelId: string, modelIn: ModelIn, options?: any) => Promise<RequestArgs>;
 };
 /**
  * ModelsApi - functional programming interface
@@ -19600,42 +14641,19 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
      * @param {boolean} [mergeFeatures]
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost(teamSlug: string, modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
+    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
     /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
      * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost(teamSlug: string, studyId: string, modelIn: Array<ModelIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
+    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -19646,16 +14664,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      */
     deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete(teamSlug: string, modelId: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
      * @param {string} modelId
@@ -19665,16 +14673,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete(teamSlug: string, modelId: string, bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
      * @param {string} modelId
@@ -19682,15 +14680,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteModelV1ModelsModelIdDelete(modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteModelV1TeamsTeamSlugModelsModelIdDelete(teamSlug: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -19701,16 +14690,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      */
     getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
     /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet(teamSlug: string, associationId: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
-    /**
      * Get Model.
      * @summary Get Model
      * @param {string} modelId
@@ -19718,15 +14697,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getModelV1ModelsModelIdGet(modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
-    /**
-     * Get Model.
-     * @summary Get Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getModelV1TeamsTeamSlugModelsModelIdGet(teamSlug: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -19747,27 +14717,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet(teamSlug: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -19806,26 +14755,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      */
     listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
-    /**
      * List Models.
      * @summary List Models
      * @param {string} [query] Search query.
@@ -19839,30 +14768,10 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
-    /**
-     * List Models.
-     * @summary List Models
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsV1TeamsTeamSlugModelsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -19892,16 +14801,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch(teamSlug: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Modify Model resource with partial update.
      * @summary Patch Model
      * @param {string} modelId
@@ -19911,35 +14810,14 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      */
     patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchModelV1TeamsTeamSlugModelsModelIdPatch(teamSlug: string, modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Replace a Model.
      * @summary Replace Model
      * @param {string} modelId
      * @param {ModelIn} modelIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {ModelIn} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceModelV1TeamsTeamSlugModelsModelIdPut(teamSlug: string, modelId: string, modelIn: ModelIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
+    replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
 };
 /**
  * ModelsApi - factory interface
@@ -19952,42 +14830,19 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {string} modelId
      * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
      * @param {boolean} [mergeFeatures]
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamSlug?: string, options?: any): AxiosPromise<Array<AssociationOut>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost(teamSlug: string, modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): AxiosPromise<Array<AssociationOut>>;
+    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): AxiosPromise<Array<AssociationOut>>;
     /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
      * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, teamSlug?: string, options?: any): AxiosPromise<Array<ModelOut>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost(teamSlug: string, studyId: string, modelIn: Array<ModelIn>, options?: any): AxiosPromise<Array<ModelOut>>;
+    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, options?: any): AxiosPromise<Array<ModelOut>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -19998,16 +14853,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      */
     deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): AxiosPromise<void>;
     /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete(teamSlug: string, modelId: string, associationId: string, options?: any): AxiosPromise<void>;
-    /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
      * @param {string} modelId
@@ -20017,16 +14862,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): AxiosPromise<void>;
     /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete(teamSlug: string, modelId: string, bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete, options?: any): AxiosPromise<void>;
-    /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
      * @param {string} modelId
@@ -20034,15 +14869,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     deleteModelV1ModelsModelIdDelete(modelId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteModelV1TeamsTeamSlugModelsModelIdDelete(teamSlug: string, modelId: string, options?: any): AxiosPromise<void>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -20053,16 +14879,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      */
     getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut>;
     /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet(teamSlug: string, associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut>;
-    /**
      * Get Model.
      * @summary Get Model
      * @param {string} modelId
@@ -20070,15 +14886,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     getModelV1ModelsModelIdGet(modelId: string, options?: any): AxiosPromise<ModelOut>;
-    /**
-     * Get Model.
-     * @summary Get Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getModelV1TeamsTeamSlugModelsModelIdGet(teamSlug: string, modelId: string, options?: any): AxiosPromise<ModelOut>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -20099,27 +14906,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet(teamSlug: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -20158,26 +14944,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      */
     listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
-    /**
      * List Models.
      * @summary List Models
      * @param {string} [query] Search query.
@@ -20191,30 +14957,10 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any): AxiosPromise<ModelPaginationOut>;
-    /**
-     * List Models.
-     * @summary List Models
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsV1TeamsTeamSlugModelsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -20244,16 +14990,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void>;
     /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch(teamSlug: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void>;
-    /**
      * Modify Model resource with partial update.
      * @summary Patch Model
      * @param {string} modelId
@@ -20263,35 +14999,14 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      */
     patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): AxiosPromise<void>;
     /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchModelV1TeamsTeamSlugModelsModelIdPatch(teamSlug: string, modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): AxiosPromise<void>;
-    /**
      * Replace a Model.
      * @summary Replace Model
      * @param {string} modelId
      * @param {ModelIn} modelIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, teamSlug?: string, options?: any): AxiosPromise<ModelOut>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {ModelIn} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceModelV1TeamsTeamSlugModelsModelIdPut(teamSlug: string, modelId: string, modelIn: ModelIn, options?: any): AxiosPromise<ModelOut>;
+    replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, options?: any): AxiosPromise<ModelOut>;
 };
 /**
  * Request parameters for createAssociationsV1ModelsModelIdAssociationsPost operation in ModelsApi.
@@ -20317,43 +15032,6 @@ export interface ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPostReque
      * @memberof ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPost
      */
     readonly mergeFeatures?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost operation in ModelsApi.
- * @export
- * @interface ModelsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest
- */
-export interface ModelsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {AssociationIn | Array<AssociationIn>}
-     * @memberof ModelsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-    /**
-     *
-     * @type {boolean}
-     * @memberof ModelsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly mergeFeatures?: boolean;
 }
 /**
  * Request parameters for createModelsV1StudiesStudyIdModelsPost operation in ModelsApi.
@@ -20371,37 +15049,6 @@ export interface ModelsApiCreateModelsV1StudiesStudyIdModelsPostRequest {
      *
      * @type {Array<ModelIn>}
      * @memberof ModelsApiCreateModelsV1StudiesStudyIdModelsPost
-     */
-    readonly modelIn: Array<ModelIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiCreateModelsV1StudiesStudyIdModelsPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost operation in ModelsApi.
- * @export
- * @interface ModelsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest
- */
-export interface ModelsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPost
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {Array<ModelIn>}
-     * @memberof ModelsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPost
      */
     readonly modelIn: Array<ModelIn>;
 }
@@ -20425,31 +15072,6 @@ export interface ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociatio
     readonly associationId: string;
 }
 /**
- * Request parameters for deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete operation in ModelsApi.
- * @export
- * @interface ModelsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest
- */
-export interface ModelsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly associationId: string;
-}
-/**
  * Request parameters for deleteAssociationsV1ModelsModelIdAssociationsDelete operation in ModelsApi.
  * @export
  * @interface ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest
@@ -20469,31 +15091,6 @@ export interface ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteReq
     readonly bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete;
 }
 /**
- * Request parameters for deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete operation in ModelsApi.
- * @export
- * @interface ModelsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest
- */
-export interface ModelsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete}
-     * @memberof ModelsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     */
-    readonly bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete;
-}
-/**
  * Request parameters for deleteModelV1ModelsModelIdDelete operation in ModelsApi.
  * @export
  * @interface ModelsApiDeleteModelV1ModelsModelIdDeleteRequest
@@ -20503,25 +15100,6 @@ export interface ModelsApiDeleteModelV1ModelsModelIdDeleteRequest {
      *
      * @type {string}
      * @memberof ModelsApiDeleteModelV1ModelsModelIdDelete
-     */
-    readonly modelId: string;
-}
-/**
- * Request parameters for deleteModelV1TeamsTeamSlugModelsModelIdDelete operation in ModelsApi.
- * @export
- * @interface ModelsApiDeleteModelV1TeamsTeamSlugModelsModelIdDeleteRequest
- */
-export interface ModelsApiDeleteModelV1TeamsTeamSlugModelsModelIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteModelV1TeamsTeamSlugModelsModelIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteModelV1TeamsTeamSlugModelsModelIdDelete
      */
     readonly modelId: string;
 }
@@ -20545,31 +15123,6 @@ export interface ModelsApiGetAssociationV1ModelsModelIdAssociationsAssociationId
     readonly modelId: string;
 }
 /**
- * Request parameters for getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet operation in ModelsApi.
- * @export
- * @interface ModelsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest
- */
-export interface ModelsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet
-     */
-    readonly associationId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet
-     */
-    readonly modelId: string;
-}
-/**
  * Request parameters for getModelV1ModelsModelIdGet operation in ModelsApi.
  * @export
  * @interface ModelsApiGetModelV1ModelsModelIdGetRequest
@@ -20579,25 +15132,6 @@ export interface ModelsApiGetModelV1ModelsModelIdGetRequest {
      *
      * @type {string}
      * @memberof ModelsApiGetModelV1ModelsModelIdGet
-     */
-    readonly modelId: string;
-}
-/**
- * Request parameters for getModelV1TeamsTeamSlugModelsModelIdGet operation in ModelsApi.
- * @export
- * @interface ModelsApiGetModelV1TeamsTeamSlugModelsModelIdGetRequest
- */
-export interface ModelsApiGetModelV1TeamsTeamSlugModelsModelIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiGetModelV1TeamsTeamSlugModelsModelIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiGetModelV1TeamsTeamSlugModelsModelIdGet
      */
     readonly modelId: string;
 }
@@ -20683,97 +15217,6 @@ export interface ModelsApiListAssociationsV1ModelsModelIdAssociationsGetRequest 
      * Include only variable-variable associations.
      * @type {boolean}
      * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
-}
-/**
- * Request parameters for listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet operation in ModelsApi.
- * @export
- * @interface ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest
- */
-export interface ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly modelId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
 }
@@ -20930,91 +15373,6 @@ export interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
     readonly containsVariableId?: string;
 }
 /**
- * Request parameters for listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet operation in ModelsApi.
- * @export
- * @interface ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest
- */
-export interface ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly studyId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'target_name' | 'created_at' | 'last_updated_at'}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter models containing a variable via an association
-     * @type {string}
-     * @memberof ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly containsVariableId?: string;
-}
-/**
  * Request parameters for listModelsV1ModelsGet operation in ModelsApi.
  * @export
  * @interface ModelsApiListModelsV1ModelsGetRequest
@@ -21084,91 +15442,6 @@ export interface ModelsApiListModelsV1ModelsGetRequest {
      * Filter models containing a variable via an association
      * @type {string}
      * @memberof ModelsApiListModelsV1ModelsGet
-     */
-    readonly containsVariableId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListModelsV1ModelsGet
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for listModelsV1TeamsTeamSlugModelsGet operation in ModelsApi.
- * @export
- * @interface ModelsApiListModelsV1TeamsTeamSlugModelsGetRequest
- */
-export interface ModelsApiListModelsV1TeamsTeamSlugModelsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'target_name' | 'created_at' | 'last_updated_at'}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter models containing a variable via an association
-     * @type {string}
-     * @memberof ModelsApiListModelsV1TeamsTeamSlugModelsGet
      */
     readonly containsVariableId?: string;
 }
@@ -21271,31 +15544,6 @@ export interface ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatchReque
     readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
 }
 /**
- * Request parameters for patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch operation in ModelsApi.
- * @export
- * @interface ModelsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest
- */
-export interface ModelsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {Array<BulkPatchAssociationOp>}
-     * @memberof ModelsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch
-     */
-    readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
-}
-/**
  * Request parameters for patchModelV1ModelsModelIdPatch operation in ModelsApi.
  * @export
  * @interface ModelsApiPatchModelV1ModelsModelIdPatchRequest
@@ -21311,31 +15559,6 @@ export interface ModelsApiPatchModelV1ModelsModelIdPatchRequest {
      *
      * @type {PatchModelOp | Array<PatchModelOp>}
      * @memberof ModelsApiPatchModelV1ModelsModelIdPatch
-     */
-    readonly patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>;
-}
-/**
- * Request parameters for patchModelV1TeamsTeamSlugModelsModelIdPatch operation in ModelsApi.
- * @export
- * @interface ModelsApiPatchModelV1TeamsTeamSlugModelsModelIdPatchRequest
- */
-export interface ModelsApiPatchModelV1TeamsTeamSlugModelsModelIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPatchModelV1TeamsTeamSlugModelsModelIdPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPatchModelV1TeamsTeamSlugModelsModelIdPatch
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {PatchModelOp | Array<PatchModelOp>}
-     * @memberof ModelsApiPatchModelV1TeamsTeamSlugModelsModelIdPatch
      */
     readonly patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>;
 }
@@ -21357,37 +15580,6 @@ export interface ModelsApiReplaceModelV1ModelsModelIdPutRequest {
      * @memberof ModelsApiReplaceModelV1ModelsModelIdPut
      */
     readonly modelIn: ModelIn;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiReplaceModelV1ModelsModelIdPut
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for replaceModelV1TeamsTeamSlugModelsModelIdPut operation in ModelsApi.
- * @export
- * @interface ModelsApiReplaceModelV1TeamsTeamSlugModelsModelIdPutRequest
- */
-export interface ModelsApiReplaceModelV1TeamsTeamSlugModelsModelIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiReplaceModelV1TeamsTeamSlugModelsModelIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiReplaceModelV1TeamsTeamSlugModelsModelIdPut
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {ModelIn}
-     * @memberof ModelsApiReplaceModelV1TeamsTeamSlugModelsModelIdPut
-     */
-    readonly modelIn: ModelIn;
 }
 /**
  * ModelsApi - object-oriented interface
@@ -21406,15 +15598,6 @@ export declare class ModelsApi extends BaseAPI {
      */
     createAssociationsV1ModelsModelIdAssociationsPost(requestParameters: ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
     /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {ModelsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost(requestParameters: ModelsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
-    /**
      * Create models and add to study.
      * @summary Create Models
      * @param {ModelsApiCreateModelsV1StudiesStudyIdModelsPostRequest} requestParameters Request parameters.
@@ -21423,15 +15606,6 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     createModelsV1StudiesStudyIdModelsPost(requestParameters: ModelsApiCreateModelsV1StudiesStudyIdModelsPostRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut[]>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {ModelsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost(requestParameters: ModelsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut[]>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -21442,15 +15616,6 @@ export declare class ModelsApi extends BaseAPI {
      */
     deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(requestParameters: ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {ModelsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete(requestParameters: ModelsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
      * @param {ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest} requestParameters Request parameters.
@@ -21459,15 +15624,6 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters: ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {ModelsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete(requestParameters: ModelsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
@@ -21478,15 +15634,6 @@ export declare class ModelsApi extends BaseAPI {
      */
     deleteModelV1ModelsModelIdDelete(requestParameters: ModelsApiDeleteModelV1ModelsModelIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {ModelsApiDeleteModelV1TeamsTeamSlugModelsModelIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    deleteModelV1TeamsTeamSlugModelsModelIdDelete(requestParameters: ModelsApiDeleteModelV1TeamsTeamSlugModelsModelIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Get an Association.
      * @summary Get Association
      * @param {ModelsApiGetAssociationV1ModelsModelIdAssociationsAssociationIdGetRequest} requestParameters Request parameters.
@@ -21495,15 +15642,6 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters: ModelsApiGetAssociationV1ModelsModelIdAssociationsAssociationIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
-    /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {ModelsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet(requestParameters: ModelsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
     /**
      * Get Model.
      * @summary Get Model
@@ -21514,15 +15652,6 @@ export declare class ModelsApi extends BaseAPI {
      */
     getModelV1ModelsModelIdGet(requestParameters: ModelsApiGetModelV1ModelsModelIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut>>;
     /**
-     * Get Model.
-     * @summary Get Model
-     * @param {ModelsApiGetModelV1TeamsTeamSlugModelsModelIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    getModelV1TeamsTeamSlugModelsModelIdGet(requestParameters: ModelsApiGetModelV1TeamsTeamSlugModelsModelIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut>>;
-    /**
      * Get associations in model.
      * @summary List Associations
      * @param {ModelsApiListAssociationsV1ModelsModelIdAssociationsGetRequest} requestParameters Request parameters.
@@ -21531,15 +15660,6 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     listAssociationsV1ModelsModelIdAssociationsGet(requestParameters: ModelsApiListAssociationsV1ModelsModelIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet(requestParameters: ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -21559,15 +15679,6 @@ export declare class ModelsApi extends BaseAPI {
      */
     listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters: ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
     /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet(requestParameters: ModelsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
-    /**
      * List Models.
      * @summary List Models
      * @param {ModelsApiListModelsV1ModelsGetRequest} requestParameters Request parameters.
@@ -21576,15 +15687,6 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     listModelsV1ModelsGet(requestParameters?: ModelsApiListModelsV1ModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
-    /**
-     * List Models.
-     * @summary List Models
-     * @param {ModelsApiListModelsV1TeamsTeamSlugModelsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    listModelsV1TeamsTeamSlugModelsGet(requestParameters: ModelsApiListModelsV1TeamsTeamSlugModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -21604,15 +15706,6 @@ export declare class ModelsApi extends BaseAPI {
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch(requestParameters: ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {ModelsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch(requestParameters: ModelsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Modify Model resource with partial update.
      * @summary Patch Model
      * @param {ModelsApiPatchModelV1ModelsModelIdPatchRequest} requestParameters Request parameters.
@@ -21622,15 +15715,6 @@ export declare class ModelsApi extends BaseAPI {
      */
     patchModelV1ModelsModelIdPatch(requestParameters: ModelsApiPatchModelV1ModelsModelIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {ModelsApiPatchModelV1TeamsTeamSlugModelsModelIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    patchModelV1TeamsTeamSlugModelsModelIdPatch(requestParameters: ModelsApiPatchModelV1TeamsTeamSlugModelsModelIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Replace a Model.
      * @summary Replace Model
      * @param {ModelsApiReplaceModelV1ModelsModelIdPutRequest} requestParameters Request parameters.
@@ -21639,15 +15723,6 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     replaceModelV1ModelsModelIdPut(requestParameters: ModelsApiReplaceModelV1ModelsModelIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut>>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {ModelsApiReplaceModelV1TeamsTeamSlugModelsModelIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    replaceModelV1TeamsTeamSlugModelsModelIdPut(requestParameters: ModelsApiReplaceModelV1TeamsTeamSlugModelsModelIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut>>;
 }
 /**
  * PopulationAttributeValuesApi - axios parameter creator
@@ -21664,16 +15739,6 @@ export declare const PopulationAttributeValuesApiAxiosParamCreator: (configurati
      */
     addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Delete population attribute value.
      * @summary Delete Population Attribute Value
      * @param {string} populationAttributeValueId
@@ -21689,15 +15754,6 @@ export declare const PopulationAttributeValuesApiAxiosParamCreator: (configurati
      * @throws {RequiredError}
      */
     fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: (datasetId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet: (teamSlug: string, datasetId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get population attribute value.
      * @summary Get Population Attribute Value
@@ -21732,16 +15788,6 @@ export declare const PopulationAttributeValuesApiAxiosParamCreator: (configurati
      * @throws {RequiredError}
      */
     removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * PopulationAttributeValuesApi - functional programming interface
@@ -21758,16 +15804,6 @@ export declare const PopulationAttributeValuesApiFp: (configuration?: Configurat
      */
     addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Delete population attribute value.
      * @summary Delete Population Attribute Value
      * @param {string} populationAttributeValueId
@@ -21783,15 +15819,6 @@ export declare const PopulationAttributeValuesApiFp: (configuration?: Configurat
      * @throws {RequiredError}
      */
     fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>>;
-    /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet(teamSlug: string, datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>>;
     /**
      * Get population attribute value.
      * @summary Get Population Attribute Value
@@ -21826,16 +15853,6 @@ export declare const PopulationAttributeValuesApiFp: (configuration?: Configurat
      * @throws {RequiredError}
      */
     removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * PopulationAttributeValuesApi - factory interface
@@ -21852,16 +15869,6 @@ export declare const PopulationAttributeValuesApiFactory: (configuration?: Confi
      */
     addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
     /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
-    /**
      * Delete population attribute value.
      * @summary Delete Population Attribute Value
      * @param {string} populationAttributeValueId
@@ -21877,15 +15884,6 @@ export declare const PopulationAttributeValuesApiFactory: (configuration?: Confi
      * @throws {RequiredError}
      */
     fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
-    /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet(teamSlug: string, datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
     /**
      * Get population attribute value.
      * @summary Get Population Attribute Value
@@ -21920,16 +15918,6 @@ export declare const PopulationAttributeValuesApiFactory: (configuration?: Confi
      * @throws {RequiredError}
      */
     removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
 };
 /**
  * Request parameters for addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut operation in PopulationAttributeValuesApi.
@@ -21947,31 +15935,6 @@ export interface PopulationAttributeValuesApiAddPopulationAttributeValueToDatase
      *
      * @type {string}
      * @memberof PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
-     */
-    readonly populationAttributeValueId: string;
-}
-/**
- * Request parameters for addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut operation in PopulationAttributeValuesApi.
- * @export
- * @interface PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest
- */
-export interface PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
      */
     readonly populationAttributeValueId: string;
 }
@@ -21998,25 +15961,6 @@ export interface PopulationAttributeValuesApiFetchDatasetPopulationAttributeValu
      *
      * @type {string}
      * @memberof PopulationAttributeValuesApiFetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet
-     */
-    readonly datasetId: string;
-}
-/**
- * Request parameters for fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet operation in PopulationAttributeValuesApi.
- * @export
- * @interface PopulationAttributeValuesApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest
- */
-export interface PopulationAttributeValuesApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof PopulationAttributeValuesApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof PopulationAttributeValuesApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet
      */
     readonly datasetId: string;
 }
@@ -22120,31 +16064,6 @@ export interface PopulationAttributeValuesApiRemovePopulationAttributeValueFromD
     readonly populationAttributeValueId: string;
 }
 /**
- * Request parameters for removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete operation in PopulationAttributeValuesApi.
- * @export
- * @interface PopulationAttributeValuesApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest
- */
-export interface PopulationAttributeValuesApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof PopulationAttributeValuesApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof PopulationAttributeValuesApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof PopulationAttributeValuesApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
-     */
-    readonly populationAttributeValueId: string;
-}
-/**
  * PopulationAttributeValuesApi - object-oriented interface
  * @export
  * @class PopulationAttributeValuesApi
@@ -22160,15 +16079,6 @@ export declare class PopulationAttributeValuesApi extends BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters: PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PopulationAttributeValuesApi
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters: PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Delete population attribute value.
      * @summary Delete Population Attribute Value
@@ -22187,15 +16097,6 @@ export declare class PopulationAttributeValuesApi extends BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(requestParameters: PopulationAttributeValuesApiFetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGetRequest, options?: any): Promise<import("axios").AxiosResponse<(CategoryOut | DateRangeOut | FreeTextOut | LocationOut | NumberRangeOut)[]>>;
-    /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {PopulationAttributeValuesApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PopulationAttributeValuesApi
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet(requestParameters: PopulationAttributeValuesApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest, options?: any): Promise<import("axios").AxiosResponse<(CategoryOut | DateRangeOut | FreeTextOut | LocationOut | NumberRangeOut)[]>>;
     /**
      * Get population attribute value.
      * @summary Get Population Attribute Value
@@ -22223,15 +16124,6 @@ export declare class PopulationAttributeValuesApi extends BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters: PopulationAttributeValuesApiRemovePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {PopulationAttributeValuesApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PopulationAttributeValuesApi
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters: PopulationAttributeValuesApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * PopulationAttributesApi - axios parameter creator
@@ -22730,53 +16622,22 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut: (teamSlug: string, studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn} studyIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1StudiesPost: (studyIn: StudyIn, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {string} teamSlug
-     * @param {StudyIn} studyIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAStudyV1TeamsTeamSlugStudiesPost: (teamSlug: string, studyIn: StudyIn, options?: any) => Promise<RequestArgs>;
+    createAStudyV1StudiesPost: (studyIn: StudyIn, options?: any) => Promise<RequestArgs>;
     /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
      * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost: (studyId: string, modelIn: Array<ModelIn>, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost: (teamSlug: string, studyId: string, modelIn: Array<ModelIn>, options?: any) => Promise<RequestArgs>;
+    createModelsV1StudiesStudyIdModelsPost: (studyId: string, modelIn: Array<ModelIn>, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
@@ -22786,15 +16647,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     deleteStudyV1StudiesStudyIdDelete: (studyId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteStudyV1TeamsTeamSlugStudiesStudyIdDelete: (teamSlug: string, studyId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get Study.
      * @summary Get Study
      * @param {string} studyId
@@ -22802,15 +16654,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     getStudyV1StudiesStudyIdGet: (studyId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get Study.
-     * @summary Get Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getStudyV1TeamsTeamSlugStudiesStudyIdGet: (teamSlug: string, studyId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -22831,27 +16674,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet: (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -22890,25 +16712,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     listAuthorsV1StudiesStudyIdAuthorsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * List a study\'s authors.
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet: (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
@@ -22928,26 +16731,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet: (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
-    /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
@@ -22964,33 +16747,10 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamSlug?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * List Studies.
-     * @summary List Studies
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter studies with variable tag
-     * @param {string} [conceptTag] Filter studies with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listStudiesV1TeamsTeamSlugStudiesGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -23021,16 +16781,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     patchStudyEndpointV1StudiesStudyIdPatch: (studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any) => Promise<RequestArgs>;
     /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch: (teamSlug: string, studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any) => Promise<RequestArgs>;
-    /**
      * Publish the study making it visible to other users.
      * @summary Publish Study
      * @param {string} studyId
@@ -23038,15 +16788,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     publishStudyV1StudiesStudyIdPublishPost: (studyId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    publishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost: (teamSlug: string, studyId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -23056,16 +16797,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete: (teamSlug: string, studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Tag the study with object with provided id.
      * @summary Remove Object Tag From Study
@@ -23077,16 +16808,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
     removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete: (studyId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete: (teamSlug: string, studyId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Tag the study with object with provided id.
      * @summary Tag Study With Object
      * @param {string} studyId
      * @param {string} tagObjectId
@@ -23094,16 +16815,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut: (studyId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut: (teamSlug: string, studyId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * StudiesApi - functional programming interface
@@ -23120,53 +16831,22 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut(teamSlug: string, studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn} studyIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1StudiesPost(studyIn: StudyIn, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {string} teamSlug
-     * @param {StudyIn} studyIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAStudyV1TeamsTeamSlugStudiesPost(teamSlug: string, studyIn: StudyIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
+    createAStudyV1StudiesPost(studyIn: StudyIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
      * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost(teamSlug: string, studyId: string, modelIn: Array<ModelIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
+    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
@@ -23176,15 +16856,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     deleteStudyV1StudiesStudyIdDelete(studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteStudyV1TeamsTeamSlugStudiesStudyIdDelete(teamSlug: string, studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Get Study.
      * @summary Get Study
      * @param {string} studyId
@@ -23192,15 +16863,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getStudyV1StudiesStudyIdGet(studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
-    /**
-     * Get Study.
-     * @summary Get Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getStudyV1TeamsTeamSlugStudiesStudyIdGet(teamSlug: string, studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -23221,27 +16883,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -23280,25 +16921,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
     /**
-     * List a study\'s authors.
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
-    /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
@@ -23318,26 +16940,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
-    /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
@@ -23354,33 +16956,10 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
-    /**
-     * List Studies.
-     * @summary List Studies
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter studies with variable tag
-     * @param {string} [conceptTag] Filter studies with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listStudiesV1TeamsTeamSlugStudiesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -23411,16 +16990,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     patchStudyEndpointV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch(teamSlug: string, studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Publish the study making it visible to other users.
      * @summary Publish Study
      * @param {string} studyId
@@ -23428,15 +16997,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     publishStudyV1StudiesStudyIdPublishPost(studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    publishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost(teamSlug: string, studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -23446,16 +17006,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete(teamSlug: string, studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Tag the study with object with provided id.
      * @summary Remove Object Tag From Study
@@ -23467,16 +17017,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
     removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete(teamSlug: string, studyId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Tag the study with object with provided id.
      * @summary Tag Study With Object
      * @param {string} studyId
      * @param {string} tagObjectId
@@ -23484,16 +17024,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(teamSlug: string, studyId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * StudiesApi - factory interface
@@ -23510,53 +17040,22 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut(teamSlug: string, studyId: string, authorId: string, options?: any): AxiosPromise<void>;
-    /**
      * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn} studyIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1StudiesPost(studyIn: StudyIn, teamSlug?: string, options?: any): AxiosPromise<StudyOut>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {string} teamSlug
-     * @param {StudyIn} studyIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAStudyV1TeamsTeamSlugStudiesPost(teamSlug: string, studyIn: StudyIn, options?: any): AxiosPromise<StudyOut>;
+    createAStudyV1StudiesPost(studyIn: StudyIn, options?: any): AxiosPromise<StudyOut>;
     /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} studyId
      * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, teamSlug?: string, options?: any): AxiosPromise<Array<ModelOut>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost(teamSlug: string, studyId: string, modelIn: Array<ModelIn>, options?: any): AxiosPromise<Array<ModelOut>>;
+    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, options?: any): AxiosPromise<Array<ModelOut>>;
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
@@ -23566,15 +17065,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      */
     deleteStudyV1StudiesStudyIdDelete(studyId: string, options?: any): AxiosPromise<void>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteStudyV1TeamsTeamSlugStudiesStudyIdDelete(teamSlug: string, studyId: string, options?: any): AxiosPromise<void>;
-    /**
      * Get Study.
      * @summary Get Study
      * @param {string} studyId
@@ -23582,15 +17072,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     getStudyV1StudiesStudyIdGet(studyId: string, options?: any): AxiosPromise<StudyOut>;
-    /**
-     * Get Study.
-     * @summary Get Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getStudyV1TeamsTeamSlugStudiesStudyIdGet(teamSlug: string, studyId: string, options?: any): AxiosPromise<StudyOut>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -23611,27 +17092,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -23670,25 +17130,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      */
     listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
     /**
-     * List a study\'s authors.
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
-    /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
@@ -23708,26 +17149,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      */
     listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
-    /**
      * List Studies.
      * @summary List Studies
      * @param {string} [query] Search query.
@@ -23744,33 +17165,10 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamSlug?: string, options?: any): AxiosPromise<StudyPaginationOut>;
-    /**
-     * List Studies.
-     * @summary List Studies
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter studies with variable tag
-     * @param {string} [conceptTag] Filter studies with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listStudiesV1TeamsTeamSlugStudiesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -23801,16 +17199,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      */
     patchStudyEndpointV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): AxiosPromise<void>;
     /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch(teamSlug: string, studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): AxiosPromise<void>;
-    /**
      * Publish the study making it visible to other users.
      * @summary Publish Study
      * @param {string} studyId
@@ -23818,15 +17206,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     publishStudyV1StudiesStudyIdPublishPost(studyId: string, options?: any): AxiosPromise<StudyOut>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    publishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost(teamSlug: string, studyId: string, options?: any): AxiosPromise<StudyOut>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -23836,16 +17215,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete(teamSlug: string, studyId: string, authorId: string, options?: any): AxiosPromise<void>;
     /**
      * Tag the study with object with provided id.
      * @summary Remove Object Tag From Study
@@ -23857,16 +17226,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
     removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
     /**
      * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete(teamSlug: string, studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Tag the study with object with provided id.
      * @summary Tag Study With Object
      * @param {string} studyId
      * @param {string} tagObjectId
@@ -23874,16 +17233,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(teamSlug: string, studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
 };
 /**
  * Request parameters for addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut operation in StudiesApi.
@@ -23905,31 +17254,6 @@ export interface StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutReq
     readonly authorId: string;
 }
 /**
- * Request parameters for addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut operation in StudiesApi.
- * @export
- * @interface StudiesApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest
- */
-export interface StudiesApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly authorId: string;
-}
-/**
  * Request parameters for createAStudyV1StudiesPost operation in StudiesApi.
  * @export
  * @interface StudiesApiCreateAStudyV1StudiesPostRequest
@@ -23939,31 +17263,6 @@ export interface StudiesApiCreateAStudyV1StudiesPostRequest {
      *
      * @type {StudyIn}
      * @memberof StudiesApiCreateAStudyV1StudiesPost
-     */
-    readonly studyIn: StudyIn;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiCreateAStudyV1StudiesPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createAStudyV1TeamsTeamSlugStudiesPost operation in StudiesApi.
- * @export
- * @interface StudiesApiCreateAStudyV1TeamsTeamSlugStudiesPostRequest
- */
-export interface StudiesApiCreateAStudyV1TeamsTeamSlugStudiesPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiCreateAStudyV1TeamsTeamSlugStudiesPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {StudyIn}
-     * @memberof StudiesApiCreateAStudyV1TeamsTeamSlugStudiesPost
      */
     readonly studyIn: StudyIn;
 }
@@ -23985,37 +17284,6 @@ export interface StudiesApiCreateModelsV1StudiesStudyIdModelsPostRequest {
      * @memberof StudiesApiCreateModelsV1StudiesStudyIdModelsPost
      */
     readonly modelIn: Array<ModelIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiCreateModelsV1StudiesStudyIdModelsPost
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost operation in StudiesApi.
- * @export
- * @interface StudiesApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest
- */
-export interface StudiesApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPost
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {Array<ModelIn>}
-     * @memberof StudiesApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPost
-     */
-    readonly modelIn: Array<ModelIn>;
 }
 /**
  * Request parameters for deleteStudyV1StudiesStudyIdDelete operation in StudiesApi.
@@ -24031,25 +17299,6 @@ export interface StudiesApiDeleteStudyV1StudiesStudyIdDeleteRequest {
     readonly studyId: string;
 }
 /**
- * Request parameters for deleteStudyV1TeamsTeamSlugStudiesStudyIdDelete operation in StudiesApi.
- * @export
- * @interface StudiesApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDeleteRequest
- */
-export interface StudiesApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDelete
-     */
-    readonly studyId: string;
-}
-/**
  * Request parameters for getStudyV1StudiesStudyIdGet operation in StudiesApi.
  * @export
  * @interface StudiesApiGetStudyV1StudiesStudyIdGetRequest
@@ -24059,25 +17308,6 @@ export interface StudiesApiGetStudyV1StudiesStudyIdGetRequest {
      *
      * @type {string}
      * @memberof StudiesApiGetStudyV1StudiesStudyIdGet
-     */
-    readonly studyId: string;
-}
-/**
- * Request parameters for getStudyV1TeamsTeamSlugStudiesStudyIdGet operation in StudiesApi.
- * @export
- * @interface StudiesApiGetStudyV1TeamsTeamSlugStudiesStudyIdGetRequest
- */
-export interface StudiesApiGetStudyV1TeamsTeamSlugStudiesStudyIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiGetStudyV1TeamsTeamSlugStudiesStudyIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiGetStudyV1TeamsTeamSlugStudiesStudyIdGet
      */
     readonly studyId: string;
 }
@@ -24163,97 +17393,6 @@ export interface StudiesApiListAssociationsV1StudiesStudyIdAssociationsGetReques
      * Include only variable-variable associations.
      * @type {boolean}
      * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
-}
-/**
- * Request parameters for listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet operation in StudiesApi.
- * @export
- * @interface StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest
- */
-export interface StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly studyId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
 }
@@ -24410,85 +17549,6 @@ export interface StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest {
     readonly sortBy?: string;
 }
 /**
- * Request parameters for listAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet operation in StudiesApi.
- * @export
- * @interface StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGetRequest
- */
-export interface StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly studyId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at' | 'name'}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly sortBy?: string;
-}
-/**
  * Request parameters for listModelsInStudyV1StudiesStudyIdModelsGet operation in StudiesApi.
  * @export
  * @interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest
@@ -24564,91 +17624,6 @@ export interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      * Filter models containing a variable via an association
      * @type {string}
      * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
-     */
-    readonly containsVariableId?: string;
-}
-/**
- * Request parameters for listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet operation in StudiesApi.
- * @export
- * @interface StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest
- */
-export interface StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly studyId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'target_name' | 'created_at' | 'last_updated_at'}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter models containing a variable via an association
-     * @type {string}
-     * @memberof StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
      */
     readonly containsVariableId?: string;
 }
@@ -24740,109 +17715,6 @@ export interface StudiesApiListStudiesV1StudiesGetRequest {
      * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @type {string}
      * @memberof StudiesApiListStudiesV1StudiesGet
-     */
-    readonly featureRelationship?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListStudiesV1StudiesGet
-     */
-    readonly teamSlug?: string;
-}
-/**
- * Request parameters for listStudiesV1TeamsTeamSlugStudiesGet operation in StudiesApi.
- * @export
- * @interface StudiesApiListStudiesV1TeamsTeamSlugStudiesGetRequest
- */
-export interface StudiesApiListStudiesV1TeamsTeamSlugStudiesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at' | 'name'}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter studies with variable tag
-     * @type {string}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly variableTag?: string;
-    /**
-     * Filter studies with concept tag
-     * @type {string}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly conceptTag?: string;
-    /**
-     * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly variableRelationship?: string;
-    /**
-     * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof StudiesApiListStudiesV1TeamsTeamSlugStudiesGet
      */
     readonly featureRelationship?: string;
 }
@@ -24951,31 +17823,6 @@ export interface StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest {
     readonly patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>;
 }
 /**
- * Request parameters for patchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch operation in StudiesApi.
- * @export
- * @interface StudiesApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatchRequest
- */
-export interface StudiesApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {PatchStudyOp | Array<PatchStudyOp>}
-     * @memberof StudiesApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch
-     */
-    readonly patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>;
-}
-/**
  * Request parameters for publishStudyV1StudiesStudyIdPublishPost operation in StudiesApi.
  * @export
  * @interface StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest
@@ -24985,25 +17832,6 @@ export interface StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest {
      *
      * @type {string}
      * @memberof StudiesApiPublishStudyV1StudiesStudyIdPublishPost
-     */
-    readonly studyId: string;
-}
-/**
- * Request parameters for publishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost operation in StudiesApi.
- * @export
- * @interface StudiesApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPostRequest
- */
-export interface StudiesApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost
      */
     readonly studyId: string;
 }
@@ -25027,31 +17855,6 @@ export interface StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdD
     readonly authorId: string;
 }
 /**
- * Request parameters for removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete operation in StudiesApi.
- * @export
- * @interface StudiesApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest
- */
-export interface StudiesApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly authorId: string;
-}
-/**
  * Request parameters for removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete operation in StudiesApi.
  * @export
  * @interface StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest
@@ -25067,31 +17870,6 @@ export interface StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTag
      *
      * @type {string}
      * @memberof StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete
-     */
-    readonly tagObjectId: string;
-}
-/**
- * Request parameters for removeObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete operation in StudiesApi.
- * @export
- * @interface StudiesApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDeleteRequest
- */
-export interface StudiesApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete
      */
     readonly tagObjectId: string;
 }
@@ -25115,31 +17893,6 @@ export interface StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObject
     readonly tagObjectId: string;
 }
 /**
- * Request parameters for tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut operation in StudiesApi.
- * @export
- * @interface StudiesApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPutRequest
- */
-export interface StudiesApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut
-     */
-    readonly tagObjectId: string;
-}
-/**
  * StudiesApi - object-oriented interface
  * @export
  * @class StudiesApi
@@ -25156,15 +17909,6 @@ export declare class StudiesApi extends BaseAPI {
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {StudiesApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut(requestParameters: StudiesApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Create a Study.
      * @summary Create A Study.
      * @param {StudiesApiCreateAStudyV1StudiesPostRequest} requestParameters Request parameters.
@@ -25173,15 +17917,6 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     createAStudyV1StudiesPost(requestParameters: StudiesApiCreateAStudyV1StudiesPostRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {StudiesApiCreateAStudyV1TeamsTeamSlugStudiesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    createAStudyV1TeamsTeamSlugStudiesPost(requestParameters: StudiesApiCreateAStudyV1TeamsTeamSlugStudiesPostRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -25192,15 +17927,6 @@ export declare class StudiesApi extends BaseAPI {
      */
     createModelsV1StudiesStudyIdModelsPost(requestParameters: StudiesApiCreateModelsV1StudiesStudyIdModelsPostRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut[]>>;
     /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {StudiesApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost(requestParameters: StudiesApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut[]>>;
-    /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
      * @param {StudiesApiDeleteStudyV1StudiesStudyIdDeleteRequest} requestParameters Request parameters.
@@ -25209,15 +17935,6 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     deleteStudyV1StudiesStudyIdDelete(requestParameters: StudiesApiDeleteStudyV1StudiesStudyIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {StudiesApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    deleteStudyV1TeamsTeamSlugStudiesStudyIdDelete(requestParameters: StudiesApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get Study.
      * @summary Get Study
@@ -25228,15 +17945,6 @@ export declare class StudiesApi extends BaseAPI {
      */
     getStudyV1StudiesStudyIdGet(requestParameters: StudiesApiGetStudyV1StudiesStudyIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
     /**
-     * Get Study.
-     * @summary Get Study
-     * @param {StudiesApiGetStudyV1TeamsTeamSlugStudiesStudyIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    getStudyV1TeamsTeamSlugStudiesStudyIdGet(requestParameters: StudiesApiGetStudyV1TeamsTeamSlugStudiesStudyIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
-    /**
      * Get associations in a project.
      * @summary List Associations
      * @param {StudiesApiListAssociationsV1StudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
@@ -25245,15 +17953,6 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters: StudiesApiListAssociationsV1StudiesStudyIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet(requestParameters: StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -25273,15 +17972,6 @@ export declare class StudiesApi extends BaseAPI {
      */
     listAuthorsV1StudiesStudyIdAuthorsGet(requestParameters: StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
     /**
-     * List a study\'s authors.
-     * @summary List Authors
-     * @param {StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    listAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet(requestParameters: StudiesApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
-    /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest} requestParameters Request parameters.
@@ -25291,15 +17981,6 @@ export declare class StudiesApi extends BaseAPI {
      */
     listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters: StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
     /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet(requestParameters: StudiesApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
-    /**
      * List Studies.
      * @summary List Studies
      * @param {StudiesApiListStudiesV1StudiesGetRequest} requestParameters Request parameters.
@@ -25308,15 +17989,6 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     listStudiesV1StudiesGet(requestParameters?: StudiesApiListStudiesV1StudiesGetRequest, options?: any): Promise<import("axios").AxiosResponse<StudyPaginationOut>>;
-    /**
-     * List Studies.
-     * @summary List Studies
-     * @param {StudiesApiListStudiesV1TeamsTeamSlugStudiesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    listStudiesV1TeamsTeamSlugStudiesGet(requestParameters: StudiesApiListStudiesV1TeamsTeamSlugStudiesGetRequest, options?: any): Promise<import("axios").AxiosResponse<StudyPaginationOut>>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -25336,15 +18008,6 @@ export declare class StudiesApi extends BaseAPI {
      */
     patchStudyEndpointV1StudiesStudyIdPatch(requestParameters: StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {StudiesApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    patchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch(requestParameters: StudiesApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Publish the study making it visible to other users.
      * @summary Publish Study
      * @param {StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest} requestParameters Request parameters.
@@ -25354,15 +18017,6 @@ export declare class StudiesApi extends BaseAPI {
      */
     publishStudyV1StudiesStudyIdPublishPost(requestParameters: StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
     /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {StudiesApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    publishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost(requestParameters: StudiesApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPostRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
-    /**
      * Remove an author from a study.
      * @summary Remove Author From Study
      * @param {StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
@@ -25371,15 +18025,6 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters: StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {StudiesApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete(requestParameters: StudiesApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Tag the study with object with provided id.
      * @summary Remove Object Tag From Study
@@ -25391,15 +18036,6 @@ export declare class StudiesApi extends BaseAPI {
     removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(requestParameters: StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {StudiesApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    removeObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete(requestParameters: StudiesApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Tag the study with object with provided id.
      * @summary Tag Study With Object
      * @param {StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -25407,15 +18043,6 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(requestParameters: StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {StudiesApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(requestParameters: StudiesApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * SystemApi - axios parameter creator
@@ -25469,33 +18096,6 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * @throws {RequiredError}
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
-     * @param {number} [hops] Number of hops.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
-     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
-     * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
-     * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
-     * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
-     * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
-     * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet: (teamSlug: string, featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -25646,33 +18246,6 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
     /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
-     * @param {number} [hops] Number of hops.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
-     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
-     * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
-     * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
-     * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
-     * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
-     * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet(teamSlug: string, featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
-    /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
      * @param {string} teamSlug
@@ -25821,33 +18394,6 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
-    /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
-     * @param {number} [hops] Number of hops.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
-     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
-     * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
-     * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
-     * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
-     * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
-     * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet(teamSlug: string, featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -26154,133 +18700,6 @@ export interface SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesG
      * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @type {boolean}
      * @memberof SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly idsOnly?: boolean;
-}
-/**
- * Request parameters for listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet operation in SystemApi.
- * @export
- * @interface SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest
- */
-export interface SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly featureId: string;
-    /**
-     * Order by this field.
-     * @type {'path_count' | 'created_at' | 'model_count'}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly orderBy?: 'path_count' | 'created_at' | 'model_count';
-    /**
-     * Number of hops.
-     * @type {number}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly hops?: number;
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Include in response available population ids for filtering.
-     * @type {boolean}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly includePathPopIds?: boolean;
-    /**
-     * Stringified list of lists of population id for path filtering.
-     * @type {string}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly pathPopFilter?: string;
-    /**
-     *
-     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong';
-    /**
-     *
-     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong';
-    /**
-     *
-     * @type {'invalid' | 'low' | 'medium' | 'high'}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly minReproducibility?: 'invalid' | 'low' | 'medium' | 'high';
-    /**
-     *
-     * @type {'invalid' | 'low' | 'medium' | 'high'}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high';
-    /**
-     * Filter results by available dataset license.
-     * @type {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>;
-    /**
-     * Only include Features that are members of datasets with this index.
-     * @type {Array<string>}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly dsIdx?: Array<string>;
-    /**
-     * Include in response available dataset index ids for filtering.
-     * @type {boolean}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly includeDatasetIndexIds?: boolean;
-    /**
-     * Include in response available dataset population ids for filtering.
-     * @type {boolean}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly includeDatasetPopIds?: boolean;
-    /**
-     * Stringified list of lists of population id for dataset filtering.
-     * @type {string}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly dsPopFilter?: string;
-    /**
-     *
-     * @type {number}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
      */
     readonly idsOnly?: boolean;
 }
@@ -26746,15 +19165,6 @@ export declare class SystemApi extends BaseAPI {
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters: SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureSystemOfFeaturesPaginationOut>>;
     /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SystemApi
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet(requestParameters: SystemApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureSystemOfFeaturesPaginationOut>>;
-    /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
      * @param {SystemApiListSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGetRequest} requestParameters Request parameters.
@@ -26806,57 +19216,6 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     addAUserToATeamV1TeamsTeamSlugUsersPost: (teamSlug: string, teamUserIn: TeamUserIn, options?: any) => Promise<RequestArgs>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut: (teamSlug: string, studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut: (teamSlug: string, datasetId: string, featureId: string, index?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {boolean} [reconcileFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut: (teamSlug: string, datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {string} teamSlug
-     * @param {StudyIn} studyIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAStudyV1TeamsTeamSlugStudiesPost: (teamSlug: string, studyIn: StudyIn, options?: any) => Promise<RequestArgs>;
-    /**
      * Create a Variable.
      * @summary Create A Variable.
      * @param {string} teamSlug
@@ -26865,74 +19224,6 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     createAVariableV1TeamsTeamSlugVariablesPost: (teamSlug: string, variableIn: VariableIn, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost: (teamSlug: string, datasetId: string, featureIn: Array<FeatureIn>, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost: (teamSlug: string, datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost: (teamSlug: string, modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {string} teamSlug
-     * @param {AuthorIn} authorIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAuthorV1TeamsTeamSlugAuthorsPost: (teamSlug: string, authorIn: AuthorIn, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {string} teamSlug
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createDatasetV1TeamsTeamSlugDatasetsPost: (teamSlug: string, datasetIn: DatasetIn, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {string} teamSlug
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createFeatureV1TeamsTeamSlugFeaturesPost: (teamSlug: string, featureIn: FeatureIn, options?: any) => Promise<RequestArgs>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost: (teamSlug: string, studyId: string, modelIn: Array<ModelIn>, options?: any) => Promise<RequestArgs>;
     /**
      * Create mulitple Variables.
      * @summary Create Multiple Variables.
@@ -26943,81 +19234,6 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost: (teamSlug: string, arrayVariableInVariableIn: Array<VariableIn> | VariableIn, options?: any) => Promise<RequestArgs>;
     /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete: (teamSlug: string, modelId: string, associationId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: (teamSlug: string, modelId: string, bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete: (teamSlug: string, authorId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete: (teamSlug: string, datasetId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete: (teamSlug: string, featureId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: (teamSlug: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteModelV1TeamsTeamSlugModelsModelIdDelete: (teamSlug: string, modelId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteStudyV1TeamsTeamSlugStudiesStudyIdDelete: (teamSlug: string, studyId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
      * @param {string} teamSlug
@@ -27027,97 +19243,6 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete: (teamSlug: string, variableId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet: (teamSlug: string, datasetId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet: (teamSlug: string, associationId: string, modelId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get Author.
-     * @summary Get Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet: (teamSlug: string, authorId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get a Dataset.
-     * @summary Get Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getDatasetV1TeamsTeamSlugDatasetsDatasetIdGet: (teamSlug: string, datasetId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get feature.
-     * @summary Get Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeatureV1TeamsTeamSlugFeaturesFeatureIdGet: (teamSlug: string, featureId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get Model.
-     * @summary Get Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getModelV1TeamsTeamSlugModelsModelIdGet: (teamSlug: string, modelId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get direction of this association.
-     * @summary Get Relationship Direction
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet: (teamSlug: string, associationId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get reproducibility of this association.
-     * @summary Get Relationship Reproducibility
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet: (teamSlug: string, associationId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet: (teamSlug: string, associationId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get Study.
-     * @summary Get Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getStudyV1TeamsTeamSlugStudiesStudyIdGet: (teamSlug: string, studyId: string, options?: any) => Promise<RequestArgs>;
-    /**
      * Get Variable.
      * @summary Get Variable
      * @param {string} teamSlug
@@ -27126,92 +19251,6 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getVariableV1TeamsTeamSlugVariablesVariableIdGet: (teamSlug: string, variableId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * List Associations.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugAssociationsGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet: (teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet: (teamSlug: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet: (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -27233,233 +19272,6 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet: (teamSlug: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugAuthorsGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * List a study\'s authors.
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet: (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet: (teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get parents of this dataset.
-     * @summary List Dataset Parents
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet: (teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get all Datasets.
-     * @summary List Datasets
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetsV1TeamsTeamSlugDatasetsGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * List Features.
-     * @summary List Features
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listFeaturesV1TeamsTeamSlugFeaturesGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet: (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get models that use the dataset either directly or through child datasets.
-     * @summary List Models Using Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet: (teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * List Models.
-     * @summary List Models
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsV1TeamsTeamSlugModelsGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * List Studies.
-     * @summary List Studies
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter studies with variable tag
-     * @param {string} [conceptTag] Filter studies with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listStudiesV1TeamsTeamSlugStudiesGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
-     * @param {number} [hops] Number of hops.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
-     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
-     * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
-     * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
-     * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
-     * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
-     * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet: (teamSlug: string, featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -27529,65 +19341,6 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listVariablesV1TeamsTeamSlugVariablesGet: (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch: (teamSlug: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any) => Promise<RequestArgs>;
-    /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch: (teamSlug: string, datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any) => Promise<RequestArgs>;
-    /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
-     * @summary Patch Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch: (teamSlug: string, featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any) => Promise<RequestArgs>;
-    /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchModelV1TeamsTeamSlugModelsModelIdPatch: (teamSlug: string, modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any) => Promise<RequestArgs>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {string} teamSlug
-     * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch: (teamSlug: string, bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any) => Promise<RequestArgs>;
-    /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch: (teamSlug: string, studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any) => Promise<RequestArgs>;
-    /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
      * @param {string} teamSlug
@@ -27605,125 +19358,6 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     postTeamV1TeamsPost: (teamIn: TeamIn, options?: any) => Promise<RequestArgs>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    publishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost: (teamSlug: string, studyId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete: (teamSlug: string, studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete: (teamSlug: string, datasetId: string, featureId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete: (teamSlug: string, datasetId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete: (teamSlug: string, studyId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete: (teamSlug: string, datasetId: string, parentId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut: (teamSlug: string, datasetId: string, datasetIn: DatasetIn, options?: any) => Promise<RequestArgs>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut: (teamSlug: string, featureId: string, featureIn: FeatureIn, options?: any) => Promise<RequestArgs>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {ModelIn} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceModelV1TeamsTeamSlugModelsModelIdPut: (teamSlug: string, modelId: string, modelIn: ModelIn, options?: any) => Promise<RequestArgs>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut: (teamSlug: string, datasetId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut: (teamSlug: string, studyId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * TeamsApi - functional programming interface
@@ -27740,57 +19374,6 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     addAUserToATeamV1TeamsTeamSlugUsersPost(teamSlug: string, teamUserIn: TeamUserIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut(teamSlug: string, studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut(teamSlug: string, datasetId: string, featureId: string, index?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {boolean} [reconcileFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut(teamSlug: string, datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {string} teamSlug
-     * @param {StudyIn} studyIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAStudyV1TeamsTeamSlugStudiesPost(teamSlug: string, studyIn: StudyIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
-    /**
      * Create a Variable.
      * @summary Create A Variable.
      * @param {string} teamSlug
@@ -27799,74 +19382,6 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     createAVariableV1TeamsTeamSlugVariablesPost(teamSlug: string, variableIn: VariableIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost(teamSlug: string, datasetId: string, featureIn: Array<FeatureIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost(teamSlug: string, datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost(teamSlug: string, modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {string} teamSlug
-     * @param {AuthorIn} authorIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAuthorV1TeamsTeamSlugAuthorsPost(teamSlug: string, authorIn: AuthorIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {string} teamSlug
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createDatasetV1TeamsTeamSlugDatasetsPost(teamSlug: string, datasetIn: DatasetIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {string} teamSlug
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createFeatureV1TeamsTeamSlugFeaturesPost(teamSlug: string, featureIn: FeatureIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost(teamSlug: string, studyId: string, modelIn: Array<ModelIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
     /**
      * Create mulitple Variables.
      * @summary Create Multiple Variables.
@@ -27877,81 +19392,6 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(teamSlug: string, arrayVariableInVariableIn: Array<VariableIn> | VariableIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VariableOut>>>;
     /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete(teamSlug: string, modelId: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete(teamSlug: string, modelId: string, bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete(teamSlug: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete(teamSlug: string, datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete(teamSlug: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete(teamSlug: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteModelV1TeamsTeamSlugModelsModelIdDelete(teamSlug: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteStudyV1TeamsTeamSlugStudiesStudyIdDelete(teamSlug: string, studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
      * @param {string} teamSlug
@@ -27961,97 +19401,6 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(teamSlug: string, variableId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet(teamSlug: string, datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>>;
-    /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet(teamSlug: string, associationId: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
-    /**
-     * Get Author.
-     * @summary Get Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet(teamSlug: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
-    /**
-     * Get a Dataset.
-     * @summary Get Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getDatasetV1TeamsTeamSlugDatasetsDatasetIdGet(teamSlug: string, datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
-    /**
-     * Get feature.
-     * @summary Get Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeatureV1TeamsTeamSlugFeaturesFeatureIdGet(teamSlug: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
-    /**
-     * Get Model.
-     * @summary Get Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getModelV1TeamsTeamSlugModelsModelIdGet(teamSlug: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
-    /**
-     * Get direction of this association.
-     * @summary Get Relationship Direction
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet(teamSlug: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipDirection>>;
-    /**
-     * Get reproducibility of this association.
-     * @summary Get Relationship Reproducibility
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet(teamSlug: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipReproducibility>>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet(teamSlug: string, associationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipStrength>>;
-    /**
-     * Get Study.
-     * @summary Get Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getStudyV1TeamsTeamSlugStudiesStudyIdGet(teamSlug: string, studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
-    /**
      * Get Variable.
      * @summary Get Variable
      * @param {string} teamSlug
@@ -28060,92 +19409,6 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug: string, variableId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>>;
-    /**
-     * List Associations.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugAssociationsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet(teamSlug: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -28167,233 +19430,6 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
-    /**
-     * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugAuthorsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
-    /**
-     * List a study\'s authors.
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
-    /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
-    /**
-     * Get parents of this dataset.
-     * @summary List Dataset Parents
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
-    /**
-     * Get all Datasets.
-     * @summary List Datasets
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetsV1TeamsTeamSlugDatasetsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
-    /**
-     * List Features.
-     * @summary List Features
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listFeaturesV1TeamsTeamSlugFeaturesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
-    /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
-    /**
-     * Get models that use the dataset either directly or through child datasets.
-     * @summary List Models Using Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
-    /**
-     * List Models.
-     * @summary List Models
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsV1TeamsTeamSlugModelsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
-    /**
-     * List Studies.
-     * @summary List Studies
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter studies with variable tag
-     * @param {string} [conceptTag] Filter studies with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listStudiesV1TeamsTeamSlugStudiesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
-    /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
-     * @param {number} [hops] Number of hops.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
-     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
-     * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
-     * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
-     * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
-     * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
-     * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet(teamSlug: string, featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -28463,65 +19499,6 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     listVariablesV1TeamsTeamSlugVariablesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch(teamSlug: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch(teamSlug: string, datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
-     * @summary Patch Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch(teamSlug: string, featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchModelV1TeamsTeamSlugModelsModelIdPatch(teamSlug: string, modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {string} teamSlug
-     * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch(teamSlug: string, bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch(teamSlug: string, studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
      * @param {string} teamSlug
@@ -28539,125 +19516,6 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     postTeamV1TeamsPost(teamIn: TeamIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TeamOut>>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    publishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost(teamSlug: string, studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete(teamSlug: string, studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete(teamSlug: string, datasetId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete(teamSlug: string, datasetId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete(teamSlug: string, studyId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete(teamSlug: string, datasetId: string, parentId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut(teamSlug: string, datasetId: string, datasetIn: DatasetIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut(teamSlug: string, featureId: string, featureIn: FeatureIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {ModelIn} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceModelV1TeamsTeamSlugModelsModelIdPut(teamSlug: string, modelId: string, modelIn: ModelIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut(teamSlug: string, datasetId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(teamSlug: string, studyId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * TeamsApi - factory interface
@@ -28674,57 +19532,6 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     addAUserToATeamV1TeamsTeamSlugUsersPost(teamSlug: string, teamUserIn: TeamUserIn, options?: any): AxiosPromise<void>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut(teamSlug: string, studyId: string, authorId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut(teamSlug: string, datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void>;
-    /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {boolean} [reconcileFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut(teamSlug: string, datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): AxiosPromise<void>;
-    /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {string} teamSlug
-     * @param {StudyIn} studyIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAStudyV1TeamsTeamSlugStudiesPost(teamSlug: string, studyIn: StudyIn, options?: any): AxiosPromise<StudyOut>;
-    /**
      * Create a Variable.
      * @summary Create A Variable.
      * @param {string} teamSlug
@@ -28733,74 +19540,6 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     createAVariableV1TeamsTeamSlugVariablesPost(teamSlug: string, variableIn: VariableIn, options?: any): AxiosPromise<VariableOut>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost(teamSlug: string, datasetId: string, featureIn: Array<FeatureIn>, options?: any): AxiosPromise<Array<FeatureOut>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost(teamSlug: string, datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, options?: any): AxiosPromise<Array<AssociationOut>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost(teamSlug: string, modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, options?: any): AxiosPromise<Array<AssociationOut>>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {string} teamSlug
-     * @param {AuthorIn} authorIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAuthorV1TeamsTeamSlugAuthorsPost(teamSlug: string, authorIn: AuthorIn, options?: any): AxiosPromise<AuthorOut>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {string} teamSlug
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createDatasetV1TeamsTeamSlugDatasetsPost(teamSlug: string, datasetIn: DatasetIn, options?: any): AxiosPromise<DatasetOut>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {string} teamSlug
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createFeatureV1TeamsTeamSlugFeaturesPost(teamSlug: string, featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost(teamSlug: string, studyId: string, modelIn: Array<ModelIn>, options?: any): AxiosPromise<Array<ModelOut>>;
     /**
      * Create mulitple Variables.
      * @summary Create Multiple Variables.
@@ -28811,81 +19550,6 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(teamSlug: string, arrayVariableInVariableIn: Array<VariableIn> | VariableIn, options?: any): AxiosPromise<Array<VariableOut>>;
     /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete(teamSlug: string, modelId: string, associationId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete(teamSlug: string, modelId: string, bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete, options?: any): AxiosPromise<void>;
-    /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete(teamSlug: string, authorId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete(teamSlug: string, datasetId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete(teamSlug: string, featureId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete(teamSlug: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteModelV1TeamsTeamSlugModelsModelIdDelete(teamSlug: string, modelId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteStudyV1TeamsTeamSlugStudiesStudyIdDelete(teamSlug: string, studyId: string, options?: any): AxiosPromise<void>;
-    /**
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
      * @param {string} teamSlug
@@ -28895,97 +19559,6 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(teamSlug: string, variableId: string, options?: any): AxiosPromise<void>;
     /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet(teamSlug: string, datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
-    /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet(teamSlug: string, associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut>;
-    /**
-     * Get Author.
-     * @summary Get Author
-     * @param {string} teamSlug
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet(teamSlug: string, authorId: string, options?: any): AxiosPromise<AuthorOut>;
-    /**
-     * Get a Dataset.
-     * @summary Get Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getDatasetV1TeamsTeamSlugDatasetsDatasetIdGet(teamSlug: string, datasetId: string, options?: any): AxiosPromise<DatasetOut>;
-    /**
-     * Get feature.
-     * @summary Get Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getFeatureV1TeamsTeamSlugFeaturesFeatureIdGet(teamSlug: string, featureId: string, options?: any): AxiosPromise<FeatureOut>;
-    /**
-     * Get Model.
-     * @summary Get Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getModelV1TeamsTeamSlugModelsModelIdGet(teamSlug: string, modelId: string, options?: any): AxiosPromise<ModelOut>;
-    /**
-     * Get direction of this association.
-     * @summary Get Relationship Direction
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet(teamSlug: string, associationId: string, options?: any): AxiosPromise<RelationshipDirection>;
-    /**
-     * Get reproducibility of this association.
-     * @summary Get Relationship Reproducibility
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet(teamSlug: string, associationId: string, options?: any): AxiosPromise<RelationshipReproducibility>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {string} teamSlug
-     * @param {string} associationId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet(teamSlug: string, associationId: string, options?: any): AxiosPromise<RelationshipStrength>;
-    /**
-     * Get Study.
-     * @summary Get Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getStudyV1TeamsTeamSlugStudiesStudyIdGet(teamSlug: string, studyId: string, options?: any): AxiosPromise<StudyOut>;
-    /**
      * Get Variable.
      * @summary Get Variable
      * @param {string} teamSlug
@@ -28994,92 +19567,6 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug: string, variableId: string, options?: any): AxiosPromise<VariableOut>;
-    /**
-     * List Associations.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugAssociationsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet(teamSlug: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [isInteraction] Is association from interaction model?
-     * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -29101,233 +19588,6 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
-    /**
-     * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugAuthorsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
-    /**
-     * List a study\'s authors.
-     * @summary List Authors
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
-    /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
-    /**
-     * Get parents of this dataset.
-     * @summary List Dataset Parents
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
-    /**
-     * Get all Datasets.
-     * @summary List Datasets
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'popularity' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter datasets with variable tag
-     * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listDatasetsV1TeamsTeamSlugDatasetsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
-    /**
-     * List Features.
-     * @summary List Features
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'model_count' | 'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listFeaturesV1TeamsTeamSlugFeaturesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
-    /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
-    /**
-     * Get models that use the dataset either directly or through child datasets.
-     * @summary List Models Using Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet(teamSlug: string, datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
-    /**
-     * List Models.
-     * @summary List Models
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'target_name' | 'created_at' | 'last_updated_at'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listModelsV1TeamsTeamSlugModelsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'target_name' | 'created_at' | 'last_updated_at', ordering?: 'asc' | 'desc', sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
-    /**
-     * List Studies.
-     * @summary List Studies
-     * @param {string} teamSlug
-     * @param {string} [query] Search query.
-     * @param {boolean} [includeHidden] Include hidden objects in results.
-     * @param {Array<string>} [id] Filter results by id.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {'created_at' | 'last_updated_at' | 'name'} [orderBy] Order by this field.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [variableTag] Filter studies with variable tag
-     * @param {string} [conceptTag] Filter studies with concept tag
-     * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listStudiesV1TeamsTeamSlugStudiesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
-    /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {'path_count' | 'created_at' | 'model_count'} [orderBy] Order by this field.
-     * @param {number} [hops] Number of hops.
-     * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
-     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
-     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [minStrength]
-     * @param {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'} [maxStrength]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [minReproducibility]
-     * @param {'invalid' | 'low' | 'medium' | 'high'} [maxReproducibility]
-     * @param {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>} [license] Filter results by available dataset license.
-     * @param {Array<string>} [dsIdx] Only include Features that are members of datasets with this index.
-     * @param {boolean} [includeDatasetIndexIds] Include in response available dataset index ids for filtering.
-     * @param {boolean} [includeDatasetPopIds] Include in response available dataset population ids for filtering.
-     * @param {string} [dsPopFilter] Stringified list of lists of population id for dataset filtering.
-     * @param {number} [page]
-     * @param {number} [pageSize]
-     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
-     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet(teamSlug: string, featureId: string, orderBy?: 'path_count' | 'created_at' | 'model_count', hops?: number, ordering?: 'asc' | 'desc', includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong', minReproducibility?: 'invalid' | 'low' | 'medium' | 'high', maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high', license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -29397,65 +19657,6 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     listVariablesV1TeamsTeamSlugVariablesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch(teamSlug: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void>;
-    /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch(teamSlug: string, datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): AxiosPromise<void>;
-    /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
-     * @summary Patch Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch(teamSlug: string, featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): AxiosPromise<void>;
-    /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchModelV1TeamsTeamSlugModelsModelIdPatch(teamSlug: string, modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): AxiosPromise<void>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {string} teamSlug
-     * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch(teamSlug: string, bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any): AxiosPromise<void>;
-    /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch(teamSlug: string, studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): AxiosPromise<void>;
-    /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
      * @param {string} teamSlug
@@ -29473,125 +19674,6 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     postTeamV1TeamsPost(teamIn: TeamIn, options?: any): AxiosPromise<TeamOut>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    publishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost(teamSlug: string, studyId: string, options?: any): AxiosPromise<StudyOut>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete(teamSlug: string, studyId: string, authorId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete(teamSlug: string, datasetId: string, featureId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete(teamSlug: string, datasetId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete(teamSlug: string, studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete(teamSlug: string, datasetId: string, parentId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} populationAttributeValueId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(teamSlug: string, datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {DatasetIn} datasetIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut(teamSlug: string, datasetId: string, datasetIn: DatasetIn, options?: any): AxiosPromise<DatasetOut>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {string} teamSlug
-     * @param {string} featureId
-     * @param {FeatureIn} featureIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut(teamSlug: string, featureId: string, featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {string} teamSlug
-     * @param {string} modelId
-     * @param {ModelIn} modelIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceModelV1TeamsTeamSlugModelsModelIdPut(teamSlug: string, modelId: string, modelIn: ModelIn, options?: any): AxiosPromise<ModelOut>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut(teamSlug: string, datasetId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} teamSlug
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(teamSlug: string, studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
 };
 /**
  * Request parameters for addAUserToATeamV1TeamsTeamSlugUsersPost operation in TeamsApi.
@@ -29613,137 +19695,6 @@ export interface TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPostRequest {
     readonly teamUserIn: TeamUserIn;
 }
 /**
- * Request parameters for addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut operation in TeamsApi.
- * @export
- * @interface TeamsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest
- */
-export interface TeamsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly authorId: string;
-}
-/**
- * Request parameters for addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut operation in TeamsApi.
- * @export
- * @interface TeamsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest
- */
-export interface TeamsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly featureId: string;
-    /**
-     * If true, then set the feature as the dataset index.
-     * @type {boolean}
-     * @memberof TeamsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly index?: boolean;
-}
-/**
- * Request parameters for addParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut operation in TeamsApi.
- * @export
- * @interface TeamsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPutRequest
- */
-export interface TeamsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut
-     */
-    readonly parentId: string;
-    /**
-     *
-     * @type {boolean}
-     * @memberof TeamsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut
-     */
-    readonly reconcileFeatures?: boolean;
-}
-/**
- * Request parameters for addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut operation in TeamsApi.
- * @export
- * @interface TeamsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest
- */
-export interface TeamsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
-     */
-    readonly populationAttributeValueId: string;
-}
-/**
- * Request parameters for createAStudyV1TeamsTeamSlugStudiesPost operation in TeamsApi.
- * @export
- * @interface TeamsApiCreateAStudyV1TeamsTeamSlugStudiesPostRequest
- */
-export interface TeamsApiCreateAStudyV1TeamsTeamSlugStudiesPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateAStudyV1TeamsTeamSlugStudiesPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {StudyIn}
-     * @memberof TeamsApiCreateAStudyV1TeamsTeamSlugStudiesPost
-     */
-    readonly studyIn: StudyIn;
-}
-/**
  * Request parameters for createAVariableV1TeamsTeamSlugVariablesPost operation in TeamsApi.
  * @export
  * @interface TeamsApiCreateAVariableV1TeamsTeamSlugVariablesPostRequest
@@ -29761,169 +19712,6 @@ export interface TeamsApiCreateAVariableV1TeamsTeamSlugVariablesPostRequest {
      * @memberof TeamsApiCreateAVariableV1TeamsTeamSlugVariablesPost
      */
     readonly variableIn: VariableIn;
-}
-/**
- * Request parameters for createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost operation in TeamsApi.
- * @export
- * @interface TeamsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest
- */
-export interface TeamsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {Array<FeatureIn>}
-     * @memberof TeamsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost
-     */
-    readonly featureIn: Array<FeatureIn>;
-}
-/**
- * Request parameters for createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost operation in TeamsApi.
- * @export
- * @interface TeamsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest
- */
-export interface TeamsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {AssociationIn | Array<AssociationIn>}
-     * @memberof TeamsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost
-     */
-    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-}
-/**
- * Request parameters for createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost operation in TeamsApi.
- * @export
- * @interface TeamsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest
- */
-export interface TeamsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {AssociationIn | Array<AssociationIn>}
-     * @memberof TeamsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-    /**
-     *
-     * @type {boolean}
-     * @memberof TeamsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost
-     */
-    readonly mergeFeatures?: boolean;
-}
-/**
- * Request parameters for createAuthorV1TeamsTeamSlugAuthorsPost operation in TeamsApi.
- * @export
- * @interface TeamsApiCreateAuthorV1TeamsTeamSlugAuthorsPostRequest
- */
-export interface TeamsApiCreateAuthorV1TeamsTeamSlugAuthorsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateAuthorV1TeamsTeamSlugAuthorsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {AuthorIn}
-     * @memberof TeamsApiCreateAuthorV1TeamsTeamSlugAuthorsPost
-     */
-    readonly authorIn: AuthorIn;
-}
-/**
- * Request parameters for createDatasetV1TeamsTeamSlugDatasetsPost operation in TeamsApi.
- * @export
- * @interface TeamsApiCreateDatasetV1TeamsTeamSlugDatasetsPostRequest
- */
-export interface TeamsApiCreateDatasetV1TeamsTeamSlugDatasetsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateDatasetV1TeamsTeamSlugDatasetsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {DatasetIn}
-     * @memberof TeamsApiCreateDatasetV1TeamsTeamSlugDatasetsPost
-     */
-    readonly datasetIn: DatasetIn;
-}
-/**
- * Request parameters for createFeatureV1TeamsTeamSlugFeaturesPost operation in TeamsApi.
- * @export
- * @interface TeamsApiCreateFeatureV1TeamsTeamSlugFeaturesPostRequest
- */
-export interface TeamsApiCreateFeatureV1TeamsTeamSlugFeaturesPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateFeatureV1TeamsTeamSlugFeaturesPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {FeatureIn}
-     * @memberof TeamsApiCreateFeatureV1TeamsTeamSlugFeaturesPost
-     */
-    readonly featureIn: FeatureIn;
-}
-/**
- * Request parameters for createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost operation in TeamsApi.
- * @export
- * @interface TeamsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest
- */
-export interface TeamsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPost
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {Array<ModelIn>}
-     * @memberof TeamsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPost
-     */
-    readonly modelIn: Array<ModelIn>;
 }
 /**
  * Request parameters for createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost operation in TeamsApi.
@@ -29945,176 +19733,6 @@ export interface TeamsApiCreateMultipleVariablesV1TeamsTeamSlugVariablesBulkPost
     readonly arrayVariableInVariableIn: Array<VariableIn> | VariableIn;
 }
 /**
- * Request parameters for deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest
- */
-export interface TeamsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly associationId: string;
-}
-/**
- * Request parameters for deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest
- */
-export interface TeamsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete}
-     * @memberof TeamsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete
-     */
-    readonly bodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete;
-}
-/**
- * Request parameters for deleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDeleteRequest
- */
-export interface TeamsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete
-     */
-    readonly authorId: string;
-}
-/**
- * Request parameters for deleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDeleteRequest
- */
-export interface TeamsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete
-     */
-    readonly datasetId: string;
-}
-/**
- * Request parameters for deleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDeleteRequest
- */
-export interface TeamsApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete
-     */
-    readonly featureId: string;
-}
-/**
- * Request parameters for deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest
- */
-export interface TeamsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete}
-     * @memberof TeamsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete
-     */
-    readonly bodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete;
-}
-/**
- * Request parameters for deleteModelV1TeamsTeamSlugModelsModelIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiDeleteModelV1TeamsTeamSlugModelsModelIdDeleteRequest
- */
-export interface TeamsApiDeleteModelV1TeamsTeamSlugModelsModelIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteModelV1TeamsTeamSlugModelsModelIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteModelV1TeamsTeamSlugModelsModelIdDelete
-     */
-    readonly modelId: string;
-}
-/**
- * Request parameters for deleteStudyV1TeamsTeamSlugStudiesStudyIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDeleteRequest
- */
-export interface TeamsApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDelete
-     */
-    readonly studyId: string;
-}
-/**
  * Request parameters for deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete operation in TeamsApi.
  * @export
  * @interface TeamsApiDeleteVariableV1TeamsTeamSlugVariablesVariableIdDeleteRequest
@@ -30134,202 +19752,6 @@ export interface TeamsApiDeleteVariableV1TeamsTeamSlugVariablesVariableIdDeleteR
     readonly variableId: string;
 }
 /**
- * Request parameters for fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet operation in TeamsApi.
- * @export
- * @interface TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest
- */
-export interface TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet
-     */
-    readonly datasetId: string;
-}
-/**
- * Request parameters for getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet operation in TeamsApi.
- * @export
- * @interface TeamsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest
- */
-export interface TeamsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet
-     */
-    readonly associationId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet
-     */
-    readonly modelId: string;
-}
-/**
- * Request parameters for getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet operation in TeamsApi.
- * @export
- * @interface TeamsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGetRequest
- */
-export interface TeamsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGet
-     */
-    readonly authorId: string;
-}
-/**
- * Request parameters for getDatasetV1TeamsTeamSlugDatasetsDatasetIdGet operation in TeamsApi.
- * @export
- * @interface TeamsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGetRequest
- */
-export interface TeamsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGet
-     */
-    readonly datasetId: string;
-}
-/**
- * Request parameters for getFeatureV1TeamsTeamSlugFeaturesFeatureIdGet operation in TeamsApi.
- * @export
- * @interface TeamsApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGetRequest
- */
-export interface TeamsApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGet
-     */
-    readonly featureId: string;
-}
-/**
- * Request parameters for getModelV1TeamsTeamSlugModelsModelIdGet operation in TeamsApi.
- * @export
- * @interface TeamsApiGetModelV1TeamsTeamSlugModelsModelIdGetRequest
- */
-export interface TeamsApiGetModelV1TeamsTeamSlugModelsModelIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetModelV1TeamsTeamSlugModelsModelIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetModelV1TeamsTeamSlugModelsModelIdGet
-     */
-    readonly modelId: string;
-}
-/**
- * Request parameters for getRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet operation in TeamsApi.
- * @export
- * @interface TeamsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGetRequest
- */
-export interface TeamsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet
-     */
-    readonly associationId: string;
-}
-/**
- * Request parameters for getRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet operation in TeamsApi.
- * @export
- * @interface TeamsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGetRequest
- */
-export interface TeamsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet
-     */
-    readonly associationId: string;
-}
-/**
- * Request parameters for getRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet operation in TeamsApi.
- * @export
- * @interface TeamsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGetRequest
- */
-export interface TeamsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet
-     */
-    readonly associationId: string;
-}
-/**
- * Request parameters for getStudyV1TeamsTeamSlugStudiesStudyIdGet operation in TeamsApi.
- * @export
- * @interface TeamsApiGetStudyV1TeamsTeamSlugStudiesStudyIdGetRequest
- */
-export interface TeamsApiGetStudyV1TeamsTeamSlugStudiesStudyIdGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetStudyV1TeamsTeamSlugStudiesStudyIdGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiGetStudyV1TeamsTeamSlugStudiesStudyIdGet
-     */
-    readonly studyId: string;
-}
-/**
  * Request parameters for getVariableV1TeamsTeamSlugVariablesVariableIdGet operation in TeamsApi.
  * @export
  * @interface TeamsApiGetVariableV1TeamsTeamSlugVariablesVariableIdGetRequest
@@ -30347,382 +19769,6 @@ export interface TeamsApiGetVariableV1TeamsTeamSlugVariablesVariableIdGetRequest
      * @memberof TeamsApiGetVariableV1TeamsTeamSlugVariablesVariableIdGet
      */
     readonly variableId: string;
-}
-/**
- * Request parameters for listAssociationsV1TeamsTeamSlugAssociationsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGetRequest
- */
-export interface TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
-    /**
-     * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly variableRelationship?: string;
-    /**
-     * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly featureRelationship?: string;
-    /**
-     * Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGet
-     */
-    readonly conceptRelationship?: string;
-}
-/**
- * Request parameters for listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest
- */
-export interface TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly datasetId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
-}
-/**
- * Request parameters for listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest
- */
-export interface TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly modelId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
-}
-/**
- * Request parameters for listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest
- */
-export interface TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly studyId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at'}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is association from interaction model?
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly isInteraction?: boolean;
-    /**
-     * Include only variable-variable associations.
-     * @type {boolean}
-     * @memberof TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet
-     */
-    readonly isVariableAssociation?: boolean;
 }
 /**
  * Request parameters for listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet operation in TeamsApi.
@@ -30814,983 +19860,6 @@ export interface TeamsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssoc
      * @memberof TeamsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
-}
-/**
- * Request parameters for listAuthorsV1TeamsTeamSlugAuthorsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGetRequest
- */
-export interface TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at' | 'name'}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGet
-     */
-    readonly sortBy?: string;
-}
-/**
- * Request parameters for listAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGetRequest
- */
-export interface TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly studyId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at' | 'name'}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet
-     */
-    readonly sortBy?: string;
-}
-/**
- * Request parameters for listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest
- */
-export interface TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly datasetId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is Feature in the Feature Graph?
-     * @type {boolean}
-     * @memberof TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet
-     */
-    readonly inFeatureGraph?: boolean;
-}
-/**
- * Request parameters for listDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGetRequest
- */
-export interface TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly datasetId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter datasets with variable tag
-     * @type {string}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly variableTag?: string;
-    /**
-     * Filter datasets with concept tag
-     * @type {string}
-     * @memberof TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet
-     */
-    readonly conceptTag?: string;
-}
-/**
- * Request parameters for listDatasetsV1TeamsTeamSlugDatasetsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGetRequest
- */
-export interface TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'popularity' | 'created_at' | 'last_updated_at' | 'name'}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly orderBy?: 'popularity' | 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter datasets with variable tag
-     * @type {string}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly variableTag?: string;
-    /**
-     * Filter datasets with concept tag
-     * @type {string}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly conceptTag?: string;
-    /**
-     * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly variableRelationship?: string;
-    /**
-     * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGet
-     */
-    readonly featureRelationship?: string;
-}
-/**
- * Request parameters for listFeaturesV1TeamsTeamSlugFeaturesGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGetRequest
- */
-export interface TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'model_count' | 'created_at' | 'last_updated_at' | 'name'}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Is Feature in the Feature Graph?
-     * @type {boolean}
-     * @memberof TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGet
-     */
-    readonly inFeatureGraph?: boolean;
-}
-/**
- * Request parameters for listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest
- */
-export interface TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly studyId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'target_name' | 'created_at' | 'last_updated_at'}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter models containing a variable via an association
-     * @type {string}
-     * @memberof TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet
-     */
-    readonly containsVariableId?: string;
-}
-/**
- * Request parameters for listModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGetRequest
- */
-export interface TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly datasetId: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'target_name' | 'created_at' | 'last_updated_at'}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter models containing a variable via an association
-     * @type {string}
-     * @memberof TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet
-     */
-    readonly containsVariableId?: string;
-}
-/**
- * Request parameters for listModelsV1TeamsTeamSlugModelsGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListModelsV1TeamsTeamSlugModelsGetRequest
- */
-export interface TeamsApiListModelsV1TeamsTeamSlugModelsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'target_name' | 'created_at' | 'last_updated_at'}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly orderBy?: 'target_name' | 'created_at' | 'last_updated_at';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter models containing a variable via an association
-     * @type {string}
-     * @memberof TeamsApiListModelsV1TeamsTeamSlugModelsGet
-     */
-    readonly containsVariableId?: string;
-}
-/**
- * Request parameters for listStudiesV1TeamsTeamSlugStudiesGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListStudiesV1TeamsTeamSlugStudiesGetRequest
- */
-export interface TeamsApiListStudiesV1TeamsTeamSlugStudiesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly teamSlug: string;
-    /**
-     * Search query.
-     * @type {string}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly query?: string;
-    /**
-     * Include hidden objects in results.
-     * @type {boolean}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly includeHidden?: boolean;
-    /**
-     * Filter results by id.
-     * @type {Array<string>}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly id?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly idsOnly?: boolean;
-    /**
-     * Order by this field.
-     * @type {'created_at' | 'last_updated_at' | 'name'}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly orderBy?: 'created_at' | 'last_updated_at' | 'name';
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @type {string}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly sortBy?: string;
-    /**
-     * Filter studies with variable tag
-     * @type {string}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly variableTag?: string;
-    /**
-     * Filter studies with concept tag
-     * @type {string}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly conceptTag?: string;
-    /**
-     * Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly variableRelationship?: string;
-    /**
-     * Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
-     * @type {string}
-     * @memberof TeamsApiListStudiesV1TeamsTeamSlugStudiesGet
-     */
-    readonly featureRelationship?: string;
-}
-/**
- * Request parameters for listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet operation in TeamsApi.
- * @export
- * @interface TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest
- */
-export interface TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly featureId: string;
-    /**
-     * Order by this field.
-     * @type {'path_count' | 'created_at' | 'model_count'}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly orderBy?: 'path_count' | 'created_at' | 'model_count';
-    /**
-     * Number of hops.
-     * @type {number}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly hops?: number;
-    /**
-     * Order ascending or descending.
-     * @type {'asc' | 'desc'}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly ordering?: 'asc' | 'desc';
-    /**
-     * Include in response available population ids for filtering.
-     * @type {boolean}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly includePathPopIds?: boolean;
-    /**
-     * Stringified list of lists of population id for path filtering.
-     * @type {string}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly pathPopFilter?: string;
-    /**
-     *
-     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly minStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong';
-    /**
-     *
-     * @type {'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong'}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly maxStrength?: 'invalid' | 'very_weak' | 'weak' | 'moderate' | 'strong' | 'very_strong';
-    /**
-     *
-     * @type {'invalid' | 'low' | 'medium' | 'high'}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly minReproducibility?: 'invalid' | 'low' | 'medium' | 'high';
-    /**
-     *
-     * @type {'invalid' | 'low' | 'medium' | 'high'}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly maxReproducibility?: 'invalid' | 'low' | 'medium' | 'high';
-    /**
-     * Filter results by available dataset license.
-     * @type {Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly license?: Array<'public_domain' | 'creative_commons_public_domain_dedication' | 'opendata_commons_public_domain_dedication_and_license' | 'creative_commons_attribution_international' | 'community_data_license_agreement_version_1_permissive' | 'open_data_commons_attribution_license' | 'creative_commons_attribution_share_alike_4_international' | 'community_data_license_agreement_version_1_sharing' | 'open_data_commons_open_database_license' | 'creative_commons_attribution_noncommercial_4_international' | 'creative_commons_attribution_noderivatives_4_international' | 'creative_commons_attribution_noncommercial_share_alike_4_international' | 'creative_commons_attribution_noncommercial_noderivatives_4_international' | 'other'>;
-    /**
-     * Only include Features that are members of datasets with this index.
-     * @type {Array<string>}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly dsIdx?: Array<string>;
-    /**
-     * Include in response available dataset index ids for filtering.
-     * @type {boolean}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly includeDatasetIndexIds?: boolean;
-    /**
-     * Include in response available dataset population ids for filtering.
-     * @type {boolean}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly includeDatasetPopIds?: boolean;
-    /**
-     * Stringified list of lists of population id for dataset filtering.
-     * @type {string}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly dsPopFilter?: string;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly page?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly pageSize?: number;
-    /**
-     * Include total count in response. Only use if you need it as a separate database call is required.
-     * @type {boolean}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly total?: boolean;
-    /**
-     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
-     * @type {boolean}
-     * @memberof TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet
-     */
-    readonly idsOnly?: boolean;
 }
 /**
  * Request parameters for listSystemOfFeaturesV1TeamsTeamSlugVariablesVariableIdSystemFeaturesGet operation in TeamsApi.
@@ -32096,150 +20165,6 @@ export interface TeamsApiListVariablesV1TeamsTeamSlugVariablesGetRequest {
     readonly inVariableGraph?: boolean;
 }
 /**
- * Request parameters for patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch operation in TeamsApi.
- * @export
- * @interface TeamsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest
- */
-export interface TeamsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {Array<BulkPatchAssociationOp>}
-     * @memberof TeamsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch
-     */
-    readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
-}
-/**
- * Request parameters for patchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch operation in TeamsApi.
- * @export
- * @interface TeamsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatchRequest
- */
-export interface TeamsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {PatchDatasetOp | Array<PatchDatasetOp>}
-     * @memberof TeamsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch
-     */
-    readonly patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>;
-}
-/**
- * Request parameters for patchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch operation in TeamsApi.
- * @export
- * @interface TeamsApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatchRequest
- */
-export interface TeamsApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch
-     */
-    readonly featureId: string;
-    /**
-     *
-     * @type {PatchFeatureOp | Array<PatchFeatureOp>}
-     * @memberof TeamsApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch
-     */
-    readonly patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>;
-}
-/**
- * Request parameters for patchModelV1TeamsTeamSlugModelsModelIdPatch operation in TeamsApi.
- * @export
- * @interface TeamsApiPatchModelV1TeamsTeamSlugModelsModelIdPatchRequest
- */
-export interface TeamsApiPatchModelV1TeamsTeamSlugModelsModelIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchModelV1TeamsTeamSlugModelsModelIdPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchModelV1TeamsTeamSlugModelsModelIdPatch
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {PatchModelOp | Array<PatchModelOp>}
-     * @memberof TeamsApiPatchModelV1TeamsTeamSlugModelsModelIdPatch
-     */
-    readonly patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>;
-}
-/**
- * Request parameters for patchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch operation in TeamsApi.
- * @export
- * @interface TeamsApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatchRequest
- */
-export interface TeamsApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {Array<BulkPatchFeatureOp>}
-     * @memberof TeamsApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch
-     */
-    readonly bulkPatchFeatureOp: Array<BulkPatchFeatureOp>;
-}
-/**
- * Request parameters for patchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch operation in TeamsApi.
- * @export
- * @interface TeamsApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatchRequest
- */
-export interface TeamsApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {PatchStudyOp | Array<PatchStudyOp>}
-     * @memberof TeamsApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch
-     */
-    readonly patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>;
-}
-/**
  * Request parameters for patchVariableV1TeamsTeamSlugVariablesVariableIdPatch operation in TeamsApi.
  * @export
  * @interface TeamsApiPatchVariableV1TeamsTeamSlugVariablesVariableIdPatchRequest
@@ -32278,300 +20203,6 @@ export interface TeamsApiPostTeamV1TeamsPostRequest {
     readonly teamIn: TeamIn;
 }
 /**
- * Request parameters for publishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost operation in TeamsApi.
- * @export
- * @interface TeamsApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPostRequest
- */
-export interface TeamsApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost
-     */
-    readonly studyId: string;
-}
-/**
- * Request parameters for removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest
- */
-export interface TeamsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly authorId: string;
-}
-/**
- * Request parameters for removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest
- */
-export interface TeamsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly featureId: string;
-}
-/**
- * Request parameters for removeObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest
- */
-export interface TeamsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete
-     */
-    readonly tagObjectId: string;
-}
-/**
- * Request parameters for removeObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDeleteRequest
- */
-export interface TeamsApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete
-     */
-    readonly tagObjectId: string;
-}
-/**
- * Request parameters for removeParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDeleteRequest
- */
-export interface TeamsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete
-     */
-    readonly parentId: string;
-}
-/**
- * Request parameters for removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest
- */
-export interface TeamsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
-     */
-    readonly populationAttributeValueId: string;
-}
-/**
- * Request parameters for replaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut operation in TeamsApi.
- * @export
- * @interface TeamsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPutRequest
- */
-export interface TeamsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {DatasetIn}
-     * @memberof TeamsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut
-     */
-    readonly datasetIn: DatasetIn;
-}
-/**
- * Request parameters for replaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut operation in TeamsApi.
- * @export
- * @interface TeamsApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPutRequest
- */
-export interface TeamsApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut
-     */
-    readonly featureId: string;
-    /**
-     *
-     * @type {FeatureIn}
-     * @memberof TeamsApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut
-     */
-    readonly featureIn: FeatureIn;
-}
-/**
- * Request parameters for replaceModelV1TeamsTeamSlugModelsModelIdPut operation in TeamsApi.
- * @export
- * @interface TeamsApiReplaceModelV1TeamsTeamSlugModelsModelIdPutRequest
- */
-export interface TeamsApiReplaceModelV1TeamsTeamSlugModelsModelIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiReplaceModelV1TeamsTeamSlugModelsModelIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiReplaceModelV1TeamsTeamSlugModelsModelIdPut
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {ModelIn}
-     * @memberof TeamsApiReplaceModelV1TeamsTeamSlugModelsModelIdPut
-     */
-    readonly modelIn: ModelIn;
-}
-/**
- * Request parameters for tagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut operation in TeamsApi.
- * @export
- * @interface TeamsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPutRequest
- */
-export interface TeamsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut
-     */
-    readonly tagObjectId: string;
-}
-/**
- * Request parameters for tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut operation in TeamsApi.
- * @export
- * @interface TeamsApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPutRequest
- */
-export interface TeamsApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut
-     */
-    readonly teamSlug: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut
-     */
-    readonly tagObjectId: string;
-}
-/**
  * TeamsApi - object-oriented interface
  * @export
  * @class TeamsApi
@@ -32588,51 +20219,6 @@ export declare class TeamsApi extends BaseAPI {
      */
     addAUserToATeamV1TeamsTeamSlugUsersPost(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamSlugUsersPostRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {TeamsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    addAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPut(requestParameters: TeamsApiAddAuthorToStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {TeamsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    addFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPut(requestParameters: TeamsApiAddFeatureToDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {TeamsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    addParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPut(requestParameters: TeamsApiAddParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Add a population attribute value to a dataset.
-     * @summary Add Population Attribute Value To Dataset
-     * @param {TeamsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    addPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters: TeamsApiAddPopulationAttributeValueToDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {TeamsApiCreateAStudyV1TeamsTeamSlugStudiesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    createAStudyV1TeamsTeamSlugStudiesPost(requestParameters: TeamsApiCreateAStudyV1TeamsTeamSlugStudiesPostRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
-    /**
      * Create a Variable.
      * @summary Create A Variable.
      * @param {TeamsApiCreateAVariableV1TeamsTeamSlugVariablesPostRequest} requestParameters Request parameters.
@@ -32641,69 +20227,6 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     createAVariableV1TeamsTeamSlugVariablesPost(requestParameters: TeamsApiCreateAVariableV1TeamsTeamSlugVariablesPostRequest, options?: any): Promise<import("axios").AxiosResponse<VariableOut>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {TeamsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    createAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPost(requestParameters: TeamsApiCreateAndAttachFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesPostRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut[]>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {TeamsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    createAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPost(requestParameters: TeamsApiCreateAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {TeamsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    createAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPost(requestParameters: TeamsApiCreateAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {TeamsApiCreateAuthorV1TeamsTeamSlugAuthorsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    createAuthorV1TeamsTeamSlugAuthorsPost(requestParameters: TeamsApiCreateAuthorV1TeamsTeamSlugAuthorsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut>>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {TeamsApiCreateDatasetV1TeamsTeamSlugDatasetsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    createDatasetV1TeamsTeamSlugDatasetsPost(requestParameters: TeamsApiCreateDatasetV1TeamsTeamSlugDatasetsPostRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetOut>>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {TeamsApiCreateFeatureV1TeamsTeamSlugFeaturesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    createFeatureV1TeamsTeamSlugFeaturesPost(requestParameters: TeamsApiCreateFeatureV1TeamsTeamSlugFeaturesPostRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {TeamsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    createModelsV1TeamsTeamSlugStudiesStudyIdModelsPost(requestParameters: TeamsApiCreateModelsV1TeamsTeamSlugStudiesStudyIdModelsPostRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut[]>>;
     /**
      * Create mulitple Variables.
      * @summary Create Multiple Variables.
@@ -32714,78 +20237,6 @@ export declare class TeamsApi extends BaseAPI {
      */
     createMultipleVariablesV1TeamsTeamSlugVariablesBulkPost(requestParameters: TeamsApiCreateMultipleVariablesV1TeamsTeamSlugVariablesBulkPostRequest, options?: any): Promise<import("axios").AxiosResponse<VariableOut[]>>;
     /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {TeamsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    deleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDelete(requestParameters: TeamsApiDeleteAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {TeamsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    deleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDelete(requestParameters: TeamsApiDeleteAssociationsV1TeamsTeamSlugModelsModelIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {TeamsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    deleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDelete(requestParameters: TeamsApiDeleteAuthorV1TeamsTeamSlugAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {TeamsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    deleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDelete(requestParameters: TeamsApiDeleteDatasetV1TeamsTeamSlugDatasetsDatasetIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {TeamsApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    deleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDelete(requestParameters: TeamsApiDeleteFeatureV1TeamsTeamSlugFeaturesFeatureIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {TeamsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    deleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDelete(requestParameters: TeamsApiDeleteInteractionAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {TeamsApiDeleteModelV1TeamsTeamSlugModelsModelIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    deleteModelV1TeamsTeamSlugModelsModelIdDelete(requestParameters: TeamsApiDeleteModelV1TeamsTeamSlugModelsModelIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {TeamsApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    deleteStudyV1TeamsTeamSlugStudiesStudyIdDelete(requestParameters: TeamsApiDeleteStudyV1TeamsTeamSlugStudiesStudyIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
      * @param {TeamsApiDeleteVariableV1TeamsTeamSlugVariablesVariableIdDeleteRequest} requestParameters Request parameters.
@@ -32794,96 +20245,6 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     deleteVariableV1TeamsTeamSlugVariablesVariableIdDelete(requestParameters: TeamsApiDeleteVariableV1TeamsTeamSlugVariablesVariableIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Fetch all population attribute values of the dataset.
-     * @summary Fetch Dataset Population Attribute Values
-     * @param {TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    fetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGet(requestParameters: TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesGetRequest, options?: any): Promise<import("axios").AxiosResponse<(CategoryOut | DateRangeOut | FreeTextOut | LocationOut | NumberRangeOut)[]>>;
-    /**
-     * Get an Association.
-     * @summary Get Association
-     * @param {TeamsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet(requestParameters: TeamsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
-    /**
-     * Get Author.
-     * @summary Get Author
-     * @param {TeamsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet(requestParameters: TeamsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut>>;
-    /**
-     * Get a Dataset.
-     * @summary Get Dataset
-     * @param {TeamsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    getDatasetV1TeamsTeamSlugDatasetsDatasetIdGet(requestParameters: TeamsApiGetDatasetV1TeamsTeamSlugDatasetsDatasetIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetOut>>;
-    /**
-     * Get feature.
-     * @summary Get Feature
-     * @param {TeamsApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    getFeatureV1TeamsTeamSlugFeaturesFeatureIdGet(requestParameters: TeamsApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
-    /**
-     * Get Model.
-     * @summary Get Model
-     * @param {TeamsApiGetModelV1TeamsTeamSlugModelsModelIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    getModelV1TeamsTeamSlugModelsModelIdGet(requestParameters: TeamsApiGetModelV1TeamsTeamSlugModelsModelIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut>>;
-    /**
-     * Get direction of this association.
-     * @summary Get Relationship Direction
-     * @param {TeamsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    getRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGet(requestParameters: TeamsApiGetRelationshipDirectionV1TeamsTeamSlugAssociationsAssociationIdDirectionGetRequest, options?: any): Promise<import("axios").AxiosResponse<RelationshipDirection>>;
-    /**
-     * Get reproducibility of this association.
-     * @summary Get Relationship Reproducibility
-     * @param {TeamsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    getRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGet(requestParameters: TeamsApiGetRelationshipReproducibilityV1TeamsTeamSlugAssociationsAssociationIdReproducibilityGetRequest, options?: any): Promise<import("axios").AxiosResponse<RelationshipReproducibility>>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {TeamsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    getRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGet(requestParameters: TeamsApiGetRelationshipStrengthV1TeamsTeamSlugAssociationsAssociationIdStrengthGetRequest, options?: any): Promise<import("axios").AxiosResponse<RelationshipStrength>>;
-    /**
-     * Get Study.
-     * @summary Get Study
-     * @param {TeamsApiGetStudyV1TeamsTeamSlugStudiesStudyIdGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    getStudyV1TeamsTeamSlugStudiesStudyIdGet(requestParameters: TeamsApiGetStudyV1TeamsTeamSlugStudiesStudyIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
     /**
      * Get Variable.
      * @summary Get Variable
@@ -32894,42 +20255,6 @@ export declare class TeamsApi extends BaseAPI {
      */
     getVariableV1TeamsTeamSlugVariablesVariableIdGet(requestParameters: TeamsApiGetVariableV1TeamsTeamSlugVariablesVariableIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<VariableOut>>;
     /**
-     * List Associations.
-     * @summary List Associations
-     * @param {TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listAssociationsV1TeamsTeamSlugAssociationsGet(requestParameters: TeamsApiListAssociationsV1TeamsTeamSlugAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
-     * Get associations derived from the Dataset.
-     * @summary List Associations
-     * @param {TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGet(requestParameters: TeamsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
-     * Get associations in model.
-     * @summary List Associations
-     * @param {TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGet(requestParameters: TeamsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
-     * Get associations in a project.
-     * @summary List Associations
-     * @param {TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGet(requestParameters: TeamsApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
      * Get associations using the Variable.
      * @summary List Associations
      * @param {TeamsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGetRequest} requestParameters Request parameters.
@@ -32938,105 +20263,6 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(requestParameters: TeamsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
-    /**
-     * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
-     * @summary List Authors
-     * @param {TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listAuthorsV1TeamsTeamSlugAuthorsGet(requestParameters: TeamsApiListAuthorsV1TeamsTeamSlugAuthorsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
-    /**
-     * List a study\'s authors.
-     * @summary List Authors
-     * @param {TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGet(requestParameters: TeamsApiListAuthorsV1TeamsTeamSlugStudiesStudyIdAuthorsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
-    /**
-     * List a datasets features.
-     * @summary List Dataset Features
-     * @param {TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGet(requestParameters: TeamsApiListDatasetFeaturesV1TeamsTeamSlugDatasetsDatasetIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
-    /**
-     * Get parents of this dataset.
-     * @summary List Dataset Parents
-     * @param {TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGet(requestParameters: TeamsApiListDatasetParentsV1TeamsTeamSlugDatasetsDatasetIdParentsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetPaginationOut>>;
-    /**
-     * Get all Datasets.
-     * @summary List Datasets
-     * @param {TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listDatasetsV1TeamsTeamSlugDatasetsGet(requestParameters: TeamsApiListDatasetsV1TeamsTeamSlugDatasetsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetPaginationOut>>;
-    /**
-     * List Features.
-     * @summary List Features
-     * @param {TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listFeaturesV1TeamsTeamSlugFeaturesGet(requestParameters: TeamsApiListFeaturesV1TeamsTeamSlugFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
-    /**
-     * Get models in a project.
-     * @summary List Models In Study
-     * @param {TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGet(requestParameters: TeamsApiListModelsInStudyV1TeamsTeamSlugStudiesStudyIdModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
-    /**
-     * Get models that use the dataset either directly or through child datasets.
-     * @summary List Models Using Dataset
-     * @param {TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGet(requestParameters: TeamsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDatasetIdModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
-    /**
-     * List Models.
-     * @summary List Models
-     * @param {TeamsApiListModelsV1TeamsTeamSlugModelsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listModelsV1TeamsTeamSlugModelsGet(requestParameters: TeamsApiListModelsV1TeamsTeamSlugModelsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
-    /**
-     * List Studies.
-     * @summary List Studies
-     * @param {TeamsApiListStudiesV1TeamsTeamSlugStudiesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listStudiesV1TeamsTeamSlugStudiesGet(requestParameters: TeamsApiListStudiesV1TeamsTeamSlugStudiesGetRequest, options?: any): Promise<import("axios").AxiosResponse<StudyPaginationOut>>;
-    /**
-     * Get the features in the requested feature\'s system.
-     * @summary List System Of Features
-     * @param {TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    listSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGet(requestParameters: TeamsApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureIdSystemFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureSystemOfFeaturesPaginationOut>>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -33065,60 +20291,6 @@ export declare class TeamsApi extends BaseAPI {
      */
     listVariablesV1TeamsTeamSlugVariablesGet(requestParameters: TeamsApiListVariablesV1TeamsTeamSlugVariablesGetRequest, options?: any): Promise<import("axios").AxiosResponse<VariablePaginationOut>>;
     /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {TeamsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    patchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatch(requestParameters: TeamsApiPatchAssociationsV1TeamsTeamSlugModelsModelIdAssociationsPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {TeamsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    patchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatch(requestParameters: TeamsApiPatchDatasetV1TeamsTeamSlugDatasetsDatasetIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
-     * @summary Patch Feature
-     * @param {TeamsApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    patchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatch(requestParameters: TeamsApiPatchFeatureV1TeamsTeamSlugFeaturesFeatureIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {TeamsApiPatchModelV1TeamsTeamSlugModelsModelIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    patchModelV1TeamsTeamSlugModelsModelIdPatch(requestParameters: TeamsApiPatchModelV1TeamsTeamSlugModelsModelIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {TeamsApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    patchMultipleFeaturesV1TeamsTeamSlugFeaturesPatch(requestParameters: TeamsApiPatchMultipleFeaturesV1TeamsTeamSlugFeaturesPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {TeamsApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    patchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatch(requestParameters: TeamsApiPatchStudyEndpointV1TeamsTeamSlugStudiesStudyIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
      * @param {TeamsApiPatchVariableV1TeamsTeamSlugVariablesVariableIdPatchRequest} requestParameters Request parameters.
@@ -33136,114 +20308,6 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     postTeamV1TeamsPost(requestParameters: TeamsApiPostTeamV1TeamsPostRequest, options?: any): Promise<import("axios").AxiosResponse<TeamOut>>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {TeamsApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    publishStudyV1TeamsTeamSlugStudiesStudyIdPublishPost(requestParameters: TeamsApiPublishStudyV1TeamsTeamSlugStudiesStudyIdPublishPostRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {TeamsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    removeAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDelete(requestParameters: TeamsApiRemoveAuthorFromStudyV1TeamsTeamSlugStudiesStudyIdAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {TeamsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    removeFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters: TeamsApiRemoveFeatureFromDatasetV1TeamsTeamSlugDatasetsDatasetIdFeaturesFeatureIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {TeamsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    removeObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDelete(requestParameters: TeamsApiRemoveObjectTagFromDatasetV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {TeamsApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    removeObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDelete(requestParameters: TeamsApiRemoveObjectTagFromStudyV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {TeamsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    removeParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDelete(requestParameters: TeamsApiRemoveParentDatasetV1TeamsTeamSlugDatasetsDatasetIdParentsParentIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove a population attribute value from a dataset.
-     * @summary Remove Population Attribute Value From Dataset
-     * @param {TeamsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    removePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters: TeamsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamSlugDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {TeamsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    replaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPut(requestParameters: TeamsApiReplaceDatasetV1TeamsTeamSlugDatasetsDatasetIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetOut>>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {TeamsApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    replaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPut(requestParameters: TeamsApiReplaceFeatureV1TeamsTeamSlugFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {TeamsApiReplaceModelV1TeamsTeamSlugModelsModelIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    replaceModelV1TeamsTeamSlugModelsModelIdPut(requestParameters: TeamsApiReplaceModelV1TeamsTeamSlugModelsModelIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut>>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {TeamsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    tagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPut(requestParameters: TeamsApiTagStudyWithObjectV1TeamsTeamSlugDatasetsDatasetIdObjectTagsTagObjectIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {TeamsApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(requestParameters: TeamsApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * TimelineApi - axios parameter creator
@@ -35701,6 +22765,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
     /**
      * List Variables.
      * @summary List Variables
+     * @param {string} [teamSlug]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -35712,11 +22777,10 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any) => Promise<RequestArgs>;
+    listVariablesV1VariablesGet: (teamSlug?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -36008,6 +23072,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
     /**
      * List Variables.
      * @summary List Variables
+     * @param {string} [teamSlug]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -36019,11 +23084,10 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listVariablesV1VariablesGet(teamSlug?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -36315,6 +23379,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
     /**
      * List Variables.
      * @summary List Variables
+     * @param {string} [teamSlug]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -36326,11 +23391,10 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {'asc' | 'desc'} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
-     * @param {string} [teamSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    listVariablesV1VariablesGet(teamSlug?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: 'model_count' | 'created_at' | 'last_updated_at' | 'name', ordering?: 'asc' | 'desc', sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -37341,6 +24405,12 @@ export interface VariablesApiListVariablesV1TeamsTeamSlugVariablesGetRequest {
  */
 export interface VariablesApiListVariablesV1VariablesGetRequest {
     /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListVariablesV1VariablesGet
+     */
+    readonly teamSlug?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof VariablesApiListVariablesV1VariablesGet
@@ -37406,12 +24476,6 @@ export interface VariablesApiListVariablesV1VariablesGetRequest {
      * @memberof VariablesApiListVariablesV1VariablesGet
      */
     readonly inVariableGraph?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiListVariablesV1VariablesGet
-     */
-    readonly teamSlug?: string;
 }
 /**
  * Request parameters for patchVariableV1TeamsTeamSlugVariablesVariableIdPatch operation in VariablesApi.
