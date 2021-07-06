@@ -6874,6 +6874,12 @@ export interface Table {
      */
     last_retrieval?: string;
     /**
+     * Time when interactions were last computed.
+     * @type {string}
+     * @memberof Table
+     */
+    last_interactions_on?: string;
+    /**
      * Integration link.
      * @type {string}
      * @memberof Table
