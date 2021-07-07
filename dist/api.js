@@ -566,6 +566,8 @@ var EdgeTypedLinkEdgeTypeEnum;
     EdgeTypedLinkEdgeTypeEnum["ConceptRelationship"] = "concept_relationship";
     EdgeTypedLinkEdgeTypeEnum["VariableRelationship"] = "variable_relationship";
     EdgeTypedLinkEdgeTypeEnum["FeatureRelationship"] = "feature_relationship";
+    EdgeTypedLinkEdgeTypeEnum["FeatureVariable"] = "feature_variable";
+    EdgeTypedLinkEdgeTypeEnum["Measures"] = "measures";
 })(EdgeTypedLinkEdgeTypeEnum = exports.EdgeTypedLinkEdgeTypeEnum || (exports.EdgeTypedLinkEdgeTypeEnum = {}));
 /**
     * @export
@@ -9921,6 +9923,51 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Fetch dataset graph.
+         * @summary Get Concept Graph
+         * @param {number} [minRelationshipStrength]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptGraphV1GraphConceptGraphGet: (minRelationshipStrength, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/graph/concept_graph`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (minRelationshipStrength !== undefined) {
+                localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch dataset graph.
          * @summary Get Dataset Graph
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9970,6 +10017,22 @@ exports.GraphApiFp = function (configuration) {
     return {
         /**
          * Fetch dataset graph.
+         * @summary Get Concept Graph
+         * @param {number} [minRelationshipStrength]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptGraphV1GraphConceptGraphGet(minRelationshipStrength, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getConceptGraphV1GraphConceptGraphGet(minRelationshipStrength, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Fetch dataset graph.
          * @summary Get Dataset Graph
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -9993,6 +10056,16 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Fetch dataset graph.
+         * @summary Get Concept Graph
+         * @param {number} [minRelationshipStrength]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptGraphV1GraphConceptGraphGet(minRelationshipStrength, options) {
+            return exports.GraphApiFp(configuration).getConceptGraphV1GraphConceptGraphGet(minRelationshipStrength, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
          * @summary Get Dataset Graph
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -10009,6 +10082,17 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class GraphApi extends base_1.BaseAPI {
+    /**
+     * Fetch dataset graph.
+     * @summary Get Concept Graph
+     * @param {GraphApiGetConceptGraphV1GraphConceptGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getConceptGraphV1GraphConceptGraphGet(requestParameters = {}, options) {
+        return exports.GraphApiFp(this.configuration).getConceptGraphV1GraphConceptGraphGet(requestParameters.minRelationshipStrength, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph

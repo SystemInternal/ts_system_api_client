@@ -2642,7 +2642,9 @@ export declare enum EdgeTypedLinkEdgeTypeEnum {
     DatasetRelationship = "dataset_relationship",
     ConceptRelationship = "concept_relationship",
     VariableRelationship = "variable_relationship",
-    FeatureRelationship = "feature_relationship"
+    FeatureRelationship = "feature_relationship",
+    FeatureVariable = "feature_variable",
+    Measures = "measures"
 }
 /**
  * An Enterprise Resource.
@@ -14209,6 +14211,14 @@ export declare class FeaturesApi extends BaseAPI {
 export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Fetch dataset graph.
+     * @summary Get Concept Graph
+     * @param {number} [minRelationshipStrength]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getConceptGraphV1GraphConceptGraphGet: (minRelationshipStrength?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Fetch dataset graph.
      * @summary Get Dataset Graph
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -14220,6 +14230,14 @@ export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) 
  * @export
  */
 export declare const GraphApiFp: (configuration?: Configuration) => {
+    /**
+     * Fetch dataset graph.
+     * @summary Get Concept Graph
+     * @param {number} [minRelationshipStrength]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getConceptGraphV1GraphConceptGraphGet(minRelationshipStrength?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -14235,6 +14253,14 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
 export declare const GraphApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Fetch dataset graph.
+     * @summary Get Concept Graph
+     * @param {number} [minRelationshipStrength]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getConceptGraphV1GraphConceptGraphGet(minRelationshipStrength?: number, options?: any): AxiosPromise<GraphData>;
+    /**
+     * Fetch dataset graph.
      * @summary Get Dataset Graph
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -14242,12 +14268,34 @@ export declare const GraphApiFactory: (configuration?: Configuration, basePath?:
     getDatasetGraphV1GraphDatasetGraphGet(options?: any): AxiosPromise<GraphData>;
 };
 /**
+ * Request parameters for getConceptGraphV1GraphConceptGraphGet operation in GraphApi.
+ * @export
+ * @interface GraphApiGetConceptGraphV1GraphConceptGraphGetRequest
+ */
+export interface GraphApiGetConceptGraphV1GraphConceptGraphGetRequest {
+    /**
+     *
+     * @type {number}
+     * @memberof GraphApiGetConceptGraphV1GraphConceptGraphGet
+     */
+    readonly minRelationshipStrength?: number;
+}
+/**
  * GraphApi - object-oriented interface
  * @export
  * @class GraphApi
  * @extends {BaseAPI}
  */
 export declare class GraphApi extends BaseAPI {
+    /**
+     * Fetch dataset graph.
+     * @summary Get Concept Graph
+     * @param {GraphApiGetConceptGraphV1GraphConceptGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getConceptGraphV1GraphConceptGraphGet(requestParameters?: GraphApiGetConceptGraphV1GraphConceptGraphGetRequest, options?: any): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
