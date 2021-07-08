@@ -7246,6 +7246,18 @@ export interface UserPrivateProfileOut {
      */
     avatar?: string;
     /**
+     * User\'s first name.
+     * @type {string}
+     * @memberof UserPrivateProfileOut
+     */
+    first_name?: string;
+    /**
+     * User\'s last name.
+     * @type {string}
+     * @memberof UserPrivateProfileOut
+     */
+    last_name?: string;
+    /**
      * User email address.
      * @type {string}
      * @memberof UserPrivateProfileOut
@@ -7282,6 +7294,18 @@ export interface UserProfileIn {
      * @memberof UserProfileIn
      */
     avatar?: string;
+    /**
+     * User\'s first name.
+     * @type {string}
+     * @memberof UserProfileIn
+     */
+    first_name?: string;
+    /**
+     * User\'s last name.
+     * @type {string}
+     * @memberof UserProfileIn
+     */
+    last_name?: string;
     /**
      * User email address.
      * @type {string}
@@ -7331,6 +7355,18 @@ export interface UserPublicProfileOut {
      * @memberof UserPublicProfileOut
      */
     avatar?: string;
+    /**
+     * User\'s first name.
+     * @type {string}
+     * @memberof UserPublicProfileOut
+     */
+    first_name?: string;
+    /**
+     * User\'s last name.
+     * @type {string}
+     * @memberof UserPublicProfileOut
+     */
+    last_name?: string;
 }
 /**
  *
