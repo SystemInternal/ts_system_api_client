@@ -56637,6 +56637,53 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserSTeamsV1UserTeamsGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/user/teams`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
          * @param {*} [options] Override http request option.
@@ -58219,6 +58266,19 @@ export const UsersApiFp = function(configuration?: Configuration) {
         },
         /**
          * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAuthenticatedUserSTeamsV1UserTeamsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TeamOut>>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).getAuthenticatedUserSTeamsV1UserTeamsGet(options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
          * @param {*} [options] Override http request option.
@@ -58602,6 +58662,15 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          */
         createAUserV1UserPost(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
             return UsersApiFp(configuration).createAUserV1UserPost(userProfileIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserSTeamsV1UserTeamsGet(options?: any): AxiosPromise<Array<TeamOut>> {
+            return UsersApiFp(configuration).getAuthenticatedUserSTeamsV1UserTeamsGet(options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch the authenticated user\'s profile.
@@ -60165,6 +60234,17 @@ export class UsersApi extends BaseAPI {
      */
     public createAUserV1UserPost(requestParameters: UsersApiCreateAUserV1UserPostRequest, options?: any) {
         return UsersApiFp(this.configuration).createAUserV1UserPost(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch the authenticated user\'s profile.
+     * @summary Get Authenticated User\'S Teams
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getAuthenticatedUserSTeamsV1UserTeamsGet(options?: any) {
+        return UsersApiFp(this.configuration).getAuthenticatedUserSTeamsV1UserTeamsGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
