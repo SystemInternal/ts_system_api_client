@@ -3263,9 +3263,9 @@ export interface IntegrationCreate {
  * @enum {string}
  */
 export declare enum IntegrationState {
-    INITIAL = "INITIAL",
-    ACTIVE = "ACTIVE",
-    INACTIVE = "INACTIVE"
+    Initial = "INITIAL",
+    Active = "ACTIVE",
+    Inactive = "INACTIVE"
 }
 /**
  * Integration retrieval types.
@@ -3273,9 +3273,9 @@ export declare enum IntegrationState {
  * @enum {string}
  */
 export declare enum IntegrationType {
-    REDSHIFT = "REDSHIFT",
-    SNOWFLAKE = "SNOWFLAKE",
-    BIGQUERY = "BIGQUERY"
+    Redshift = "REDSHIFT",
+    Snowflake = "SNOWFLAKE",
+    Bigquery = "BIGQUERY"
 }
 /**
  * Input Integration model for updates.
@@ -3589,8 +3589,8 @@ export interface MessageOut {
  * @enum {string}
  */
 export declare enum MessageType {
-    ERROR = "ERROR",
-    DATASETCREATED = "DATASET_CREATED"
+    Error = "ERROR",
+    DatasetCreated = "DATASET_CREATED"
 }
 /**
  * Values available for filtering models.
