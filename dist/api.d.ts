@@ -32857,6 +32857,13 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
     createAUserV1UserPost: (userProfileIn: UserProfileIn, options?: any) => Promise<RequestArgs>;
     /**
      * Fetch the authenticated user\'s profile.
+     * @summary Get Authenticated User\'S Teams
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAuthenticatedUserSTeamsV1UserTeamsGet: (options?: any) => Promise<RequestArgs>;
+    /**
+     * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
      * @param {*} [options] Override http request option.
@@ -33142,6 +33149,13 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
     createAUserV1UserPost(userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Fetch the authenticated user\'s profile.
+     * @summary Get Authenticated User\'S Teams
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAuthenticatedUserSTeamsV1UserTeamsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TeamOut>>>;
+    /**
+     * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
      * @param {*} [options] Override http request option.
@@ -33425,6 +33439,13 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     createAUserV1UserPost(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    /**
+     * Fetch the authenticated user\'s profile.
+     * @summary Get Authenticated User\'S Teams
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getAuthenticatedUserSTeamsV1UserTeamsGet(options?: any): AxiosPromise<Array<TeamOut>>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
@@ -34792,6 +34813,14 @@ export declare class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     createAUserV1UserPost(requestParameters: UsersApiCreateAUserV1UserPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+    /**
+     * Fetch the authenticated user\'s profile.
+     * @summary Get Authenticated User\'S Teams
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    getAuthenticatedUserSTeamsV1UserTeamsGet(options?: any): Promise<import("axios").AxiosResponse<TeamOut[]>>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User

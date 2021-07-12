@@ -34276,6 +34276,47 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserSTeamsV1UserTeamsGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/user/teams`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
          * @param {*} [options] Override http request option.
@@ -35612,6 +35653,21 @@ exports.UsersApiFp = function (configuration) {
         },
         /**
          * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserSTeamsV1UserTeamsGet(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).getAuthenticatedUserSTeamsV1UserTeamsGet(options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
          * @param {*} [options] Override http request option.
@@ -36029,6 +36085,15 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
         },
         /**
          * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserSTeamsV1UserTeamsGet(options) {
+            return exports.UsersApiFp(configuration).getAuthenticatedUserSTeamsV1UserTeamsGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
          * @param {*} [options] Override http request option.
@@ -36349,6 +36414,16 @@ class UsersApi extends base_1.BaseAPI {
      */
     createAUserV1UserPost(requestParameters, options) {
         return exports.UsersApiFp(this.configuration).createAUserV1UserPost(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch the authenticated user\'s profile.
+     * @summary Get Authenticated User\'S Teams
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    getAuthenticatedUserSTeamsV1UserTeamsGet(options) {
+        return exports.UsersApiFp(this.configuration).getAuthenticatedUserSTeamsV1UserTeamsGet(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch the authenticated user\'s profile.
