@@ -8172,6 +8172,7 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
         /**
          * List association in study by authenticated user.
          * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} teamSlug 
          * @param {string} studyId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -8188,7 +8189,112 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: async (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet: async (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet', 'teamSlug', teamSlug)
+            // verify required parameter 'studyId' is not null or undefined
+            assertParamExists('listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet', 'studyId', studyId)
+            const localVarPath = `/v1/teams/{team_slug}/user/studies/{study_id}/associations`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {AssociationSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: async (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'studyId' is not null or undefined
             assertParamExists('listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet', 'studyId', studyId)
             const localVarPath = `/v1/user/studies/{study_id}/associations`
@@ -8257,6 +8363,10 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
 
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -9661,6 +9771,7 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
         /**
          * List association in study by authenticated user.
          * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} teamSlug 
          * @param {string} studyId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -9677,8 +9788,32 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+        async listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug, studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {AssociationSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -10164,6 +10299,7 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
         /**
          * List association in study by authenticated user.
          * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} teamSlug 
          * @param {string} studyId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -10180,8 +10316,31 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut> {
-            return localVarFp.listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut> {
+            return localVarFp.listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug, studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {AssociationSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamSlug?: string, options?: any): AxiosPromise<AssociationPaginationOut> {
+            return localVarFp.listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * List Associations.
@@ -10867,6 +11026,111 @@ export interface AssociationsApiGetRelationshipStrengthV1TeamsTeamSlugAssociatio
 }
 
 /**
+ * Request parameters for listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest
+ */
+export interface AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly studyId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {AssociationSortEnum}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly orderBy?: AssociationSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is association from interaction model?
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly isInteraction?: boolean
+
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly isVariableAssociation?: boolean
+}
+
+/**
  * Request parameters for listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet operation in AssociationsApi.
  * @export
  * @interface AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGetRequest
@@ -10962,6 +11226,13 @@ export interface AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1Us
      * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -12289,13 +12560,25 @@ export class AssociationsApi extends BaseAPI {
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
+     * @param {AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(requestParameters: AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest, options?: any) {
+        return AssociationsApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(requestParameters.teamSlug, requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List association in study by authenticated user.
+     * @summary List Associations In The Authenticated User\'S Study.
      * @param {AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
     public listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters: AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGetRequest, options?: any) {
-        return AssociationsApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return AssociationsApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -14088,6 +14371,102 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/concepts`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s concepts.
+         * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -14378,6 +14757,106 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List a user\'s concepts.
          * @summary List User Concepts
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/concepts`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s concepts.
+         * @summary List User Concepts
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -14517,6 +14996,28 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
         /**
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s concepts.
+         * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -14578,6 +15079,29 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          */
         async listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s concepts.
+         * @summary List User Concepts
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -14645,6 +15169,27 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
         /**
          * List authenticated user\'s concepts.
          * @summary List Authenticated User Concepts
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return localVarFp.listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s concepts.
+         * @summary List Authenticated User Concepts
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -14704,6 +15249,28 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          */
         listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
             return localVarFp.listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s concepts.
+         * @summary List User Concepts
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return localVarFp.listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s concepts.
@@ -14769,6 +15336,97 @@ export interface ConceptsApiGetConceptV1ConceptsConceptIdGetRequest {
      * @memberof ConceptsApiGetConceptV1ConceptsConceptIdGet
      */
     readonly conceptId: string
+}
+
+/**
+ * Request parameters for listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest
+ */
+export interface ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ConceptSortEnum}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly orderBy?: ConceptSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly inConceptGraph?: boolean
 }
 
 /**
@@ -15045,6 +15703,104 @@ export interface ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConcept
 }
 
 /**
+ * Request parameters for listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest
+ */
+export interface ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ConceptSortEnum}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly orderBy?: ConceptSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly inConceptGraph?: boolean
+}
+
+/**
  * Request parameters for listUserConceptsV1UsersUserIdConceptsGet operation in ConceptsApi.
  * @export
  * @interface ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest
@@ -15181,6 +15937,18 @@ export class ConceptsApi extends BaseAPI {
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
+     * @param {ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    public listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(requestParameters: ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest, options?: any) {
+        return ConceptsApiFp(this.configuration).listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s concepts.
+     * @summary List Authenticated User Concepts
      * @param {ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -15212,6 +15980,18 @@ export class ConceptsApi extends BaseAPI {
      */
     public listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters: ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGetRequest, options?: any) {
         return ConceptsApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters.conceptId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s concepts.
+     * @summary List User Concepts
+     * @param {ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    public listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(requestParameters: ConceptsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest, options?: any) {
+        return ConceptsApiFp(this.configuration).listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -16402,6 +17182,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -16417,7 +17198,108 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/datasets`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s datasets.
+         * @summary List Authenticated User Datasets
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserDatasetsV1UserDatasetsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/datasets`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -16483,6 +17365,10 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (conceptTag !== undefined) {
                 localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -17320,6 +18206,7 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List a user\'s datasets.
          * @summary List User Datasets
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -17336,7 +18223,112 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+        listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/datasets`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s datasets.
+         * @summary List User Datasets
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserDatasetsV1UsersUserIdDatasetsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('listUserDatasetsV1UsersUserIdDatasetsGet', 'userId', userId)
             const localVarPath = `/v1/users/{user_id}/datasets`
@@ -17405,6 +18397,10 @@ export const DatasetsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (conceptTag !== undefined) {
                 localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -18393,6 +19389,7 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
         /**
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -18408,8 +19405,31 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+        async listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s datasets.
+         * @summary List Authenticated User Datasets
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -18602,6 +19622,7 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
         /**
          * List a user\'s datasets.
          * @summary List User Datasets
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -18618,8 +19639,32 @@ export const DatasetsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+        async listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s datasets.
+         * @summary List User Datasets
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -19084,6 +20129,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
         /**
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -19099,8 +20145,30 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
-            return localVarFp.listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return localVarFp.listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s datasets.
+         * @summary List Authenticated User Datasets
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return localVarFp.listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
@@ -19284,6 +20352,7 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
         /**
          * List a user\'s datasets.
          * @summary List User Datasets
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -19300,8 +20369,31 @@ export const DatasetsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
-            return localVarFp.listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return localVarFp.listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s datasets.
+         * @summary List User Datasets
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return localVarFp.listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Dataset resource with partial update.
@@ -20154,6 +21246,104 @@ export interface DatasetsApiListAssociationsV1TeamsTeamSlugDatasetsDatasetIdAsso
 }
 
 /**
+ * Request parameters for listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest
+ */
+export interface DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {DatasetSortEnum}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly orderBy?: DatasetSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly conceptTag?: string
+}
+
+/**
  * Request parameters for listAuthenticatedUserDatasetsV1UserDatasetsGet operation in DatasetsApi.
  * @export
  * @interface DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest
@@ -20242,6 +21432,13 @@ export interface DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetReques
      * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
     readonly conceptTag?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -21050,6 +22247,111 @@ export interface DatasetsApiListModelsUsingDatasetV1TeamsTeamSlugDatasetsDataset
 }
 
 /**
+ * Request parameters for listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet operation in DatasetsApi.
+ * @export
+ * @interface DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest
+ */
+export interface DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {DatasetSortEnum}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly orderBy?: DatasetSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly conceptTag?: string
+}
+
+/**
  * Request parameters for listUserDatasetsV1UsersUserIdDatasetsGet operation in DatasetsApi.
  * @export
  * @interface DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest
@@ -21145,6 +22447,13 @@ export interface DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
     readonly conceptTag?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -21764,13 +23073,25 @@ export class DatasetsApi extends BaseAPI {
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
+     * @param {DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    public listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(requestParameters: DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest, options?: any) {
+        return DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s datasets.
+     * @summary List Authenticated User Datasets
      * @param {DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DatasetsApi
      */
     public listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters: DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest = {}, options?: any) {
-        return DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21872,13 +23193,25 @@ export class DatasetsApi extends BaseAPI {
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
+     * @param {DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DatasetsApi
+     */
+    public listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(requestParameters: DatasetsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest, options?: any) {
+        return DatasetsApiFp(this.configuration).listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s datasets.
+     * @summary List User Datasets
      * @param {DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DatasetsApi
      */
     public listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters: DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest, options?: any) {
-        return DatasetsApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return DatasetsApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23201,6 +24534,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List authenticated user\'s features.
          * @summary List Authenticated User Features
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -23215,7 +24549,103 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/features`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s features.
+         * @summary List Authenticated User Features
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserFeaturesV1UserFeaturesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/features`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -23277,6 +24707,10 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
 
             if (inFeatureGraph !== undefined) {
                 localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -23948,6 +25382,7 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List a user\'s features.
          * @summary List User Features
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -23963,7 +25398,107 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/features`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s features.
+         * @summary List User Features
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserFeaturesV1UsersUserIdFeaturesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('listUserFeaturesV1UsersUserIdFeaturesGet', 'userId', userId)
             const localVarPath = `/v1/users/{user_id}/features`
@@ -24028,6 +25563,10 @@ export const FeaturesApiAxiosParamCreator = function (configuration?: Configurat
 
             if (inFeatureGraph !== undefined) {
                 localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -24557,6 +26096,7 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
         /**
          * List authenticated user\'s features.
          * @summary List Authenticated User Features
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -24571,8 +26111,30 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+        async listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s features.
+         * @summary List Authenticated User Features
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -24726,6 +26288,7 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
         /**
          * List a user\'s features.
          * @summary List User Features
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -24741,8 +26304,31 @@ export const FeaturesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+        async listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s features.
+         * @summary List User Features
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -24969,6 +26555,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
         /**
          * List authenticated user\'s features.
          * @summary List Authenticated User Features
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -24983,8 +26570,29 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut> {
-            return localVarFp.listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut> {
+            return localVarFp.listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s features.
+         * @summary List Authenticated User Features
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<FeaturePaginationOut> {
+            return localVarFp.listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
@@ -25131,6 +26739,7 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
         /**
          * List a user\'s features.
          * @summary List User Features
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -25146,8 +26755,30 @@ export const FeaturesApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut> {
-            return localVarFp.listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut> {
+            return localVarFp.listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s features.
+         * @summary List User Features
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<FeaturePaginationOut> {
+            return localVarFp.listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
@@ -25474,6 +27105,97 @@ export interface FeaturesApiGetFeatureV1TeamsTeamSlugFeaturesFeatureIdGetRequest
 }
 
 /**
+ * Request parameters for listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest
+ */
+export interface FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean
+}
+
+/**
  * Request parameters for listAuthenticatedUserFeaturesV1UserFeaturesGet operation in FeaturesApi.
  * @export
  * @interface FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest
@@ -25555,6 +27277,13 @@ export interface FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGetReques
      * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
      */
     readonly inFeatureGraph?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -26216,6 +27945,104 @@ export interface FeaturesApiListSystemOfFeaturesV1TeamsTeamSlugFeaturesFeatureId
 }
 
 /**
+ * Request parameters for listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest
+ */
+export interface FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean
+}
+
+/**
  * Request parameters for listUserFeaturesV1UsersUserIdFeaturesGet operation in FeaturesApi.
  * @export
  * @interface FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest
@@ -26304,6 +28131,13 @@ export interface FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
      * @memberof FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -26618,13 +28452,25 @@ export class FeaturesApi extends BaseAPI {
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
+     * @param {FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    public listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(requestParameters: FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest, options?: any) {
+        return FeaturesApiFp(this.configuration).listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s features.
+     * @summary List Authenticated User Features
      * @param {FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FeaturesApi
      */
     public listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters: FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest = {}, options?: any) {
-        return FeaturesApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26702,13 +28548,25 @@ export class FeaturesApi extends BaseAPI {
     /**
      * List a user\'s features.
      * @summary List User Features
+     * @param {FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    public listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(requestParameters: FeaturesApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest, options?: any) {
+        return FeaturesApiFp(this.configuration).listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s features.
+     * @summary List User Features
      * @param {FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FeaturesApi
      */
     public listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters: FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest, options?: any) {
-        return FeaturesApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return FeaturesApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28235,6 +30093,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * List authenticated user\'s models.
          * @summary List Authenticated User Models
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -28249,7 +30108,103 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/models`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s models.
+         * @summary List Authenticated User Models
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserModelsV1UserModelsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/models`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -28311,6 +30266,10 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
 
             if (containsVariableId !== undefined) {
                 localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -28716,6 +30675,7 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * List a user\'s models.
          * @summary List User Models
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -28731,7 +30691,107 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+        listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/models`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s models.
+         * @summary List User Models
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserModelsV1UsersUserIdModelsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('listUserModelsV1UsersUserIdModelsGet', 'userId', userId)
             const localVarPath = `/v1/users/{user_id}/models`
@@ -28796,6 +30856,10 @@ export const ModelsApiAxiosParamCreator = function (configuration?: Configuratio
 
             if (containsVariableId !== undefined) {
                 localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -29343,6 +31407,7 @@ export const ModelsApiFp = function(configuration?: Configuration) {
         /**
          * List authenticated user\'s models.
          * @summary List Authenticated User Models
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -29357,8 +31422,30 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
+        async listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s models.
+         * @summary List Authenticated User Models
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -29453,6 +31540,7 @@ export const ModelsApiFp = function(configuration?: Configuration) {
         /**
          * List a user\'s models.
          * @summary List User Models
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -29468,8 +31556,31 @@ export const ModelsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
+        async listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s models.
+         * @summary List User Models
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -29767,6 +31878,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
         /**
          * List authenticated user\'s models.
          * @summary List Authenticated User Models
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -29781,8 +31893,29 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
-            return localVarFp.listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return localVarFp.listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s models.
+         * @summary List Authenticated User Models
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return localVarFp.listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models in a project.
@@ -29872,6 +32005,7 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
         /**
          * List a user\'s models.
          * @summary List User Models
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -29887,8 +32021,30 @@ export const ModelsApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
-            return localVarFp.listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return localVarFp.listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s models.
+         * @summary List User Models
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return localVarFp.listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * Bulk association patching.
@@ -30510,6 +32666,97 @@ export interface ModelsApiListAssociationsV1TeamsTeamSlugModelsModelIdAssociatio
 }
 
 /**
+ * Request parameters for listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet operation in ModelsApi.
+ * @export
+ * @interface ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest
+ */
+export interface ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ModelSortEnum}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly orderBy?: ModelSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly containsVariableId?: string
+}
+
+/**
  * Request parameters for listAuthenticatedUserModelsV1UserModelsGet operation in ModelsApi.
  * @export
  * @interface ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest
@@ -30591,6 +32838,13 @@ export interface ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest {
      * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
      */
     readonly containsVariableId?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -30965,6 +33219,104 @@ export interface ModelsApiListModelsV1TeamsTeamSlugModelsGetRequest {
 }
 
 /**
+ * Request parameters for listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet operation in ModelsApi.
+ * @export
+ * @interface ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest
+ */
+export interface ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ModelSortEnum}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly orderBy?: ModelSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly containsVariableId?: string
+}
+
+/**
  * Request parameters for listUserModelsV1UsersUserIdModelsGet operation in ModelsApi.
  * @export
  * @interface ModelsApiListUserModelsV1UsersUserIdModelsGetRequest
@@ -31053,6 +33405,13 @@ export interface ModelsApiListUserModelsV1UsersUserIdModelsGetRequest {
      * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
      */
     readonly containsVariableId?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -31411,13 +33770,25 @@ export class ModelsApi extends BaseAPI {
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
+     * @param {ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModelsApi
+     */
+    public listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(requestParameters: ModelsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest, options?: any) {
+        return ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s models.
+     * @summary List Authenticated User Models
      * @param {ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ModelsApi
      */
     public listAuthenticatedUserModelsV1UserModelsGet(requestParameters: ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest = {}, options?: any) {
-        return ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31471,13 +33842,25 @@ export class ModelsApi extends BaseAPI {
     /**
      * List a user\'s models.
      * @summary List User Models
+     * @param {ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModelsApi
+     */
+    public listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(requestParameters: ModelsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest, options?: any) {
+        return ModelsApiFp(this.configuration).listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s models.
+     * @summary List User Models
      * @param {ModelsApiListUserModelsV1UsersUserIdModelsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ModelsApi
      */
     public listUserModelsV1UsersUserIdModelsGet(requestParameters: ModelsApiListUserModelsV1UsersUserIdModelsGetRequest, options?: any) {
-        return ModelsApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return ModelsApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34131,6 +36514,7 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -34146,7 +36530,108 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/studies`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s studies.
+         * @summary List Authenticated User Studies
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserStudiesV1UserStudiesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/studies`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -34212,6 +36697,10 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
 
             if (conceptTag !== undefined) {
                 localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -34833,6 +37322,7 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * List a user\'s studies.
          * @summary List User Studies
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -34849,7 +37339,112 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+        listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/studies`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s studies.
+         * @summary List User Studies
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserStudiesV1UsersUserIdStudiesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('listUserStudiesV1UsersUserIdStudiesGet', 'userId', userId)
             const localVarPath = `/v1/users/{user_id}/studies`
@@ -34918,6 +37513,10 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
 
             if (conceptTag !== undefined) {
                 localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -35578,6 +38177,7 @@ export const StudiesApiFp = function(configuration?: Configuration) {
         /**
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -35593,8 +38193,31 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+        async listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s studies.
+         * @summary List Authenticated User Studies
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -35738,6 +38361,7 @@ export const StudiesApiFp = function(configuration?: Configuration) {
         /**
          * List a user\'s studies.
          * @summary List User Studies
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -35754,8 +38378,32 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+        async listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s studies.
+         * @summary List User Studies
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -36050,6 +38698,7 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
         /**
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -36065,8 +38714,30 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut> {
-            return localVarFp.listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut> {
+            return localVarFp.listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s studies.
+         * @summary List Authenticated User Studies
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): AxiosPromise<StudyPaginationOut> {
+            return localVarFp.listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * List a study\'s authors.
@@ -36203,6 +38874,7 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
         /**
          * List a user\'s studies.
          * @summary List User Studies
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -36219,8 +38891,31 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut> {
-            return localVarFp.listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut> {
+            return localVarFp.listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s studies.
+         * @summary List User Studies
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): AxiosPromise<StudyPaginationOut> {
+            return localVarFp.listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Study resource with partial update.
@@ -36759,6 +39454,104 @@ export interface StudiesApiListAssociationsV1TeamsTeamSlugStudiesStudyIdAssociat
 }
 
 /**
+ * Request parameters for listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet operation in StudiesApi.
+ * @export
+ * @interface StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest
+ */
+export interface StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {StudySortEnum}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly orderBy?: StudySortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly conceptTag?: string
+}
+
+/**
  * Request parameters for listAuthenticatedUserStudiesV1UserStudiesGet operation in StudiesApi.
  * @export
  * @interface StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest
@@ -36847,6 +39640,13 @@ export interface StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
      */
     readonly conceptTag?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -37438,6 +40238,111 @@ export interface StudiesApiListStudiesV1TeamsTeamSlugStudiesGetRequest {
 }
 
 /**
+ * Request parameters for listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet operation in StudiesApi.
+ * @export
+ * @interface StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest
+ */
+export interface StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {StudySortEnum}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly orderBy?: StudySortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly conceptTag?: string
+}
+
+/**
  * Request parameters for listUserStudiesV1UsersUserIdStudiesGet operation in StudiesApi.
  * @export
  * @interface StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest
@@ -37533,6 +40438,13 @@ export interface StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
      */
     readonly conceptTag?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -37920,13 +40832,25 @@ export class StudiesApi extends BaseAPI {
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
+     * @param {StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    public listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(requestParameters: StudiesApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest, options?: any) {
+        return StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s studies.
+     * @summary List Authenticated User Studies
      * @param {StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StudiesApi
      */
     public listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters: StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest = {}, options?: any) {
-        return StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38004,13 +40928,25 @@ export class StudiesApi extends BaseAPI {
     /**
      * List a user\'s studies.
      * @summary List User Studies
+     * @param {StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    public listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(requestParameters: StudiesApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest, options?: any) {
+        return StudiesApiFp(this.configuration).listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s studies.
+     * @summary List User Studies
      * @param {StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StudiesApi
      */
     public listUserStudiesV1UsersUserIdStudiesGet(requestParameters: StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest, options?: any) {
-        return StudiesApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40689,6 +43625,53 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Create a new user.
+         * @summary Create A User.
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserV1TeamsTeamSlugUserPost: async (teamSlug: string, userProfileIn: UserProfileIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('createAUserV1TeamsTeamSlugUserPost', 'teamSlug', teamSlug)
+            // verify required parameter 'userProfileIn' is not null or undefined
+            assertParamExists('createAUserV1TeamsTeamSlugUserPost', 'userProfileIn', userProfileIn)
+            const localVarPath = `/v1/teams/{team_slug}/user`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(userProfileIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Create a Variable.
          * @summary Create A Variable.
          * @param {string} teamSlug 
@@ -41648,6 +44631,93 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
+         * @param {string} teamSlug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet: async (teamSlug: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/teams`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User
+         * @param {string} teamSlug 
+         * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserV1TeamsTeamSlugUserGet: async (teamSlug: string, includeAvatar?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('getAuthenticatedUserV1TeamsTeamSlugUserGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (includeAvatar !== undefined) {
+                localVarQueryParameter['include_avatar'] = includeAvatar;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get Author.
          * @summary Get Author
          * @param {string} teamSlug 
@@ -42008,6 +45078,56 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Fetch a single user\'s public profile.
+         * @summary Get User
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserV1TeamsTeamSlugUsersUserIdGet: async (teamSlug: string, userId: string, includeAvatar?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('getUserV1TeamsTeamSlugUsersUserIdGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('getUserV1TeamsTeamSlugUsersUserIdGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (includeAvatar !== undefined) {
+                localVarQueryParameter['include_avatar'] = includeAvatar;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get Variable.
          * @summary Get Variable
          * @param {string} teamSlug 
@@ -42040,6 +45160,111 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} teamSlug 
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {AssociationSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet: async (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet', 'teamSlug', teamSlug)
+            // verify required parameter 'studyId' is not null or undefined
+            assertParamExists('listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet', 'studyId', studyId)
+            const localVarPath = `/v1/teams/{team_slug}/user/studies/{study_id}/associations`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
 
 
     
@@ -42575,6 +45800,592 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s concepts.
+         * @summary List Authenticated User Concepts
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/concepts`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s datasets.
+         * @summary List Authenticated User Datasets
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/datasets`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s features.
+         * @summary List Authenticated User Features
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/features`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s models.
+         * @summary List Authenticated User Models
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/models`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s studies.
+         * @summary List Authenticated User Studies
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/studies`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s variables.
+         * @summary List Authenticated User Variables
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inVariableGraph !== undefined) {
+                localVarQueryParameter['in_variable_graph'] = inVariableGraph;
             }
 
 
@@ -43974,6 +47785,616 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List a user\'s concepts.
+         * @summary List User Concepts
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/concepts`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s datasets.
+         * @summary List User Datasets
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/datasets`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s features.
+         * @summary List User Features
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/features`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s models.
+         * @summary List User Models
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/models`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s studies.
+         * @summary List User Studies
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/studies`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s variables.
+         * @summary List User Variables
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inVariableGraph !== undefined) {
+                localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List Variables.
          * @summary List Variables
          * @param {string} teamSlug 
@@ -45055,6 +49476,53 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Update the authenticated user\'s profile.
+         * @summary Update Authenticated User Profile
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut: async (teamSlug: string, userProfileIn: UserProfileIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut', 'teamSlug', teamSlug)
+            // verify required parameter 'userProfileIn' is not null or undefined
+            assertParamExists('updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut', 'userProfileIn', userProfileIn)
+            const localVarPath = `/v1/teams/{team_slug}/user`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(userProfileIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -45141,6 +49609,18 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          */
         async createAStudyV1TeamsTeamSlugStudiesPost(teamSlug: string, studyIn: StudyIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAStudyV1TeamsTeamSlugStudiesPost(teamSlug, studyIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User.
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createAUserV1TeamsTeamSlugUserPost(teamSlug: string, userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAUserV1TeamsTeamSlugUserPost(teamSlug, userProfileIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -45393,6 +49873,29 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
+         * @param {string} teamSlug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(teamSlug: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TeamOut>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User
+         * @param {string} teamSlug 
+         * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAuthenticatedUserV1TeamsTeamSlugUserGet(teamSlug: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthenticatedUserV1TeamsTeamSlugUserGet(teamSlug, includeAvatar, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get Author.
          * @summary Get Author
          * @param {string} teamSlug 
@@ -45489,6 +49992,19 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetch a single user\'s public profile.
+         * @summary Get User
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUserV1TeamsTeamSlugUsersUserIdGet(teamSlug: string, userId: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserV1TeamsTeamSlugUsersUserIdGet(teamSlug, userId, includeAvatar, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get Variable.
          * @summary Get Variable
          * @param {string} teamSlug 
@@ -45498,6 +50014,30 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          */
         async getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug: string, variableId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug, variableId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} teamSlug 
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {AssociationSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug, studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -45620,6 +50160,140 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          */
         async listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s concepts.
+         * @summary List Authenticated User Concepts
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s datasets.
+         * @summary List Authenticated User Datasets
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s features.
+         * @summary List Authenticated User Features
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s models.
+         * @summary List Authenticated User Models
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s studies.
+         * @summary List Authenticated User Studies
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s variables.
+         * @summary List Authenticated User Variables
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -45938,6 +50612,146 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * List a user\'s concepts.
+         * @summary List User Concepts
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s datasets.
+         * @summary List User Datasets
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s features.
+         * @summary List User Features
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s models.
+         * @summary List User Models
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s studies.
+         * @summary List User Studies
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s variables.
+         * @summary List User Variables
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * List Variables.
          * @summary List Variables
          * @param {string} teamSlug 
@@ -46215,6 +51029,18 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(teamSlug, studyId, tagObjectId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Update the authenticated user\'s profile.
+         * @summary Update Authenticated User Profile
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(teamSlug: string, userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(teamSlug, userProfileIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -46296,6 +51122,17 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         createAStudyV1TeamsTeamSlugStudiesPost(teamSlug: string, studyIn: StudyIn, options?: any): AxiosPromise<StudyOut> {
             return localVarFp.createAStudyV1TeamsTeamSlugStudiesPost(teamSlug, studyIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User.
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserV1TeamsTeamSlugUserPost(teamSlug: string, userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.createAUserV1TeamsTeamSlugUserPost(teamSlug, userProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a Variable.
@@ -46527,6 +51364,27 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getAssociationV1TeamsTeamSlugModelsModelIdAssociationsAssociationIdGet(teamSlug, associationId, modelId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
+         * @param {string} teamSlug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(teamSlug: string, options?: any): AxiosPromise<Array<TeamOut>> {
+            return localVarFp.getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User
+         * @param {string} teamSlug 
+         * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserV1TeamsTeamSlugUserGet(teamSlug: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.getAuthenticatedUserV1TeamsTeamSlugUserGet(teamSlug, includeAvatar, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get Author.
          * @summary Get Author
          * @param {string} teamSlug 
@@ -46615,6 +51473,18 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getStudyV1TeamsTeamSlugStudiesStudyIdGet(teamSlug, studyId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Fetch a single user\'s public profile.
+         * @summary Get User
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserV1TeamsTeamSlugUsersUserIdGet(teamSlug: string, userId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPublicProfileOut> {
+            return localVarFp.getUserV1TeamsTeamSlugUsersUserIdGet(teamSlug, userId, includeAvatar, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get Variable.
          * @summary Get Variable
          * @param {string} teamSlug 
@@ -46624,6 +51494,29 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug: string, variableId: string, options?: any): AxiosPromise<VariableOut> {
             return localVarFp.getVariableV1TeamsTeamSlugVariablesVariableIdGet(teamSlug, variableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} teamSlug 
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {AssociationSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut> {
+            return localVarFp.listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug, studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * List Associations.
@@ -46741,6 +51634,134 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut> {
             return localVarFp.listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(teamSlug, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s concepts.
+         * @summary List Authenticated User Concepts
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return localVarFp.listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s datasets.
+         * @summary List Authenticated User Datasets
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return localVarFp.listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s features.
+         * @summary List Authenticated User Features
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut> {
+            return localVarFp.listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s models.
+         * @summary List Authenticated User Models
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return localVarFp.listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s studies.
+         * @summary List Authenticated User Studies
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut> {
+            return localVarFp.listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s variables.
+         * @summary List Authenticated User Variables
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
+            return localVarFp.listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
@@ -47045,6 +52066,140 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(teamSlug, variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
+         * List a user\'s concepts.
+         * @summary List User Concepts
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return localVarFp.listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s datasets.
+         * @summary List User Datasets
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return localVarFp.listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s features.
+         * @summary List User Features
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut> {
+            return localVarFp.listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s models.
+         * @summary List User Models
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return localVarFp.listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s studies.
+         * @summary List User Studies
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut> {
+            return localVarFp.listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s variables.
+         * @summary List User Variables
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
+            return localVarFp.listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List Variables.
          * @summary List Variables
          * @param {string} teamSlug 
@@ -47301,6 +52456,17 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
         tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(teamSlug: string, studyId: string, tagObjectId: string, options?: any): AxiosPromise<void> {
             return localVarFp.tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(teamSlug, studyId, tagObjectId, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Update the authenticated user\'s profile.
+         * @summary Update Authenticated User Profile
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(teamSlug: string, userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(teamSlug, userProfileIn, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -47470,6 +52636,27 @@ export interface TeamsApiCreateAStudyV1TeamsTeamSlugStudiesPostRequest {
      * @memberof TeamsApiCreateAStudyV1TeamsTeamSlugStudiesPost
      */
     readonly studyIn: StudyIn
+}
+
+/**
+ * Request parameters for createAUserV1TeamsTeamSlugUserPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiCreateAUserV1TeamsTeamSlugUserPostRequest
+ */
+export interface TeamsApiCreateAUserV1TeamsTeamSlugUserPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiCreateAUserV1TeamsTeamSlugUserPost
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {UserProfileIn}
+     * @memberof TeamsApiCreateAUserV1TeamsTeamSlugUserPost
+     */
+    readonly userProfileIn: UserProfileIn
 }
 
 /**
@@ -47956,6 +53143,41 @@ export interface TeamsApiGetAssociationV1TeamsTeamSlugModelsModelIdAssociationsA
 }
 
 /**
+ * Request parameters for getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGetRequest
+ */
+export interface TeamsApiGetAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet
+     */
+    readonly teamSlug: string
+}
+
+/**
+ * Request parameters for getAuthenticatedUserV1TeamsTeamSlugUserGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetAuthenticatedUserV1TeamsTeamSlugUserGetRequest
+ */
+export interface TeamsApiGetAuthenticatedUserV1TeamsTeamSlugUserGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetAuthenticatedUserV1TeamsTeamSlugUserGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Include the user\&#39;s avatar.
+     * @type {boolean}
+     * @memberof TeamsApiGetAuthenticatedUserV1TeamsTeamSlugUserGet
+     */
+    readonly includeAvatar?: boolean
+}
+
+/**
  * Request parameters for getAuthorV1TeamsTeamSlugAuthorsAuthorIdGet operation in TeamsApi.
  * @export
  * @interface TeamsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGetRequest
@@ -48124,6 +53346,34 @@ export interface TeamsApiGetStudyV1TeamsTeamSlugStudiesStudyIdGetRequest {
 }
 
 /**
+ * Request parameters for getUserV1TeamsTeamSlugUsersUserIdGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetUserV1TeamsTeamSlugUsersUserIdGetRequest
+ */
+export interface TeamsApiGetUserV1TeamsTeamSlugUsersUserIdGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetUserV1TeamsTeamSlugUsersUserIdGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetUserV1TeamsTeamSlugUsersUserIdGet
+     */
+    readonly userId: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TeamsApiGetUserV1TeamsTeamSlugUsersUserIdGet
+     */
+    readonly includeAvatar?: boolean
+}
+
+/**
  * Request parameters for getVariableV1TeamsTeamSlugVariablesVariableIdGet operation in TeamsApi.
  * @export
  * @interface TeamsApiGetVariableV1TeamsTeamSlugVariablesVariableIdGetRequest
@@ -48142,6 +53392,111 @@ export interface TeamsApiGetVariableV1TeamsTeamSlugVariablesVariableIdGetRequest
      * @memberof TeamsApiGetVariableV1TeamsTeamSlugVariablesVariableIdGet
      */
     readonly variableId: string
+}
+
+/**
+ * Request parameters for listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest
+ */
+export interface TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly studyId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {AssociationSortEnum}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly orderBy?: AssociationSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is association from interaction model?
+     * @type {boolean}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly isInteraction?: boolean
+
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly isVariableAssociation?: boolean
 }
 
 /**
@@ -48681,6 +54036,566 @@ export interface TeamsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssoc
      * @memberof TeamsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean
+}
+
+/**
+ * Request parameters for listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest
+ */
+export interface TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ConceptSortEnum}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly orderBy?: ConceptSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly inConceptGraph?: boolean
+}
+
+/**
+ * Request parameters for listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest
+ */
+export interface TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {DatasetSortEnum}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly orderBy?: DatasetSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly conceptTag?: string
+}
+
+/**
+ * Request parameters for listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest
+ */
+export interface TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean
+}
+
+/**
+ * Request parameters for listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest
+ */
+export interface TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ModelSortEnum}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly orderBy?: ModelSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly containsVariableId?: string
+}
+
+/**
+ * Request parameters for listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest
+ */
+export interface TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {StudySortEnum}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly orderBy?: StudySortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly conceptTag?: string
+}
+
+/**
+ * Request parameters for listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest
+ */
+export interface TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {VariableSortEnum}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly orderBy?: VariableSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Variable in the Variable Graph?
+     * @type {boolean}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly inVariableGraph?: boolean
 }
 
 /**
@@ -50070,6 +55985,608 @@ export interface TeamsApiListSystemOfVariablesV1TeamsTeamSlugVariablesVariableId
 }
 
 /**
+ * Request parameters for listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest
+ */
+export interface TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ConceptSortEnum}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly orderBy?: ConceptSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly inConceptGraph?: boolean
+}
+
+/**
+ * Request parameters for listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest
+ */
+export interface TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {DatasetSortEnum}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly orderBy?: DatasetSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly conceptTag?: string
+}
+
+/**
+ * Request parameters for listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest
+ */
+export interface TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean
+}
+
+/**
+ * Request parameters for listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest
+ */
+export interface TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ModelSortEnum}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly orderBy?: ModelSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly containsVariableId?: string
+}
+
+/**
+ * Request parameters for listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest
+ */
+export interface TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {StudySortEnum}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly orderBy?: StudySortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly conceptTag?: string
+}
+
+/**
+ * Request parameters for listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest
+ */
+export interface TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {VariableSortEnum}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly orderBy?: VariableSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Variable in the Variable Graph?
+     * @type {boolean}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly inVariableGraph?: boolean
+}
+
+/**
  * Request parameters for listVariablesV1TeamsTeamSlugVariablesGet operation in TeamsApi.
  * @export
  * @interface TeamsApiListVariablesV1TeamsTeamSlugVariablesGetRequest
@@ -50693,6 +57210,27 @@ export interface TeamsApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTa
 }
 
 /**
+ * Request parameters for updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut operation in TeamsApi.
+ * @export
+ * @interface TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPutRequest
+ */
+export interface TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPutRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPut
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {UserProfileIn}
+     * @memberof TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPut
+     */
+    readonly userProfileIn: UserProfileIn
+}
+
+/**
  * TeamsApi - object-oriented interface
  * @export
  * @class TeamsApi
@@ -50769,6 +57307,18 @@ export class TeamsApi extends BaseAPI {
      */
     public createAStudyV1TeamsTeamSlugStudiesPost(requestParameters: TeamsApiCreateAStudyV1TeamsTeamSlugStudiesPostRequest, options?: any) {
         return TeamsApiFp(this.configuration).createAStudyV1TeamsTeamSlugStudiesPost(requestParameters.teamSlug, requestParameters.studyIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new user.
+     * @summary Create A User.
+     * @param {TeamsApiCreateAUserV1TeamsTeamSlugUserPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public createAUserV1TeamsTeamSlugUserPost(requestParameters: TeamsApiCreateAUserV1TeamsTeamSlugUserPostRequest, options?: any) {
+        return TeamsApiFp(this.configuration).createAUserV1TeamsTeamSlugUserPost(requestParameters.teamSlug, requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -51012,6 +57562,30 @@ export class TeamsApi extends BaseAPI {
     }
 
     /**
+     * Fetch the authenticated user\'s profile.
+     * @summary Get Authenticated User\'S Teams
+     * @param {TeamsApiGetAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(requestParameters: TeamsApiGetAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch the authenticated user\'s profile.
+     * @summary Get Authenticated User
+     * @param {TeamsApiGetAuthenticatedUserV1TeamsTeamSlugUserGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public getAuthenticatedUserV1TeamsTeamSlugUserGet(requestParameters: TeamsApiGetAuthenticatedUserV1TeamsTeamSlugUserGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).getAuthenticatedUserV1TeamsTeamSlugUserGet(requestParameters.teamSlug, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get Author.
      * @summary Get Author
      * @param {TeamsApiGetAuthorV1TeamsTeamSlugAuthorsAuthorIdGetRequest} requestParameters Request parameters.
@@ -51108,6 +57682,18 @@ export class TeamsApi extends BaseAPI {
     }
 
     /**
+     * Fetch a single user\'s public profile.
+     * @summary Get User
+     * @param {TeamsApiGetUserV1TeamsTeamSlugUsersUserIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public getUserV1TeamsTeamSlugUsersUserIdGet(requestParameters: TeamsApiGetUserV1TeamsTeamSlugUsersUserIdGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).getUserV1TeamsTeamSlugUsersUserIdGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get Variable.
      * @summary Get Variable
      * @param {TeamsApiGetVariableV1TeamsTeamSlugVariablesVariableIdGetRequest} requestParameters Request parameters.
@@ -51117,6 +57703,18 @@ export class TeamsApi extends BaseAPI {
      */
     public getVariableV1TeamsTeamSlugVariablesVariableIdGet(requestParameters: TeamsApiGetVariableV1TeamsTeamSlugVariablesVariableIdGetRequest, options?: any) {
         return TeamsApiFp(this.configuration).getVariableV1TeamsTeamSlugVariablesVariableIdGet(requestParameters.teamSlug, requestParameters.variableId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List association in study by authenticated user.
+     * @summary List Associations In The Authenticated User\'S Study.
+     * @param {TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(requestParameters: TeamsApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(requestParameters.teamSlug, requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -51177,6 +57775,78 @@ export class TeamsApi extends BaseAPI {
      */
     public listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(requestParameters: TeamsApiListAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGetRequest, options?: any) {
         return TeamsApiFp(this.configuration).listAssociationsV1TeamsTeamSlugVariablesVariableIdAssociationsGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s concepts.
+     * @summary List Authenticated User Concepts
+     * @param {TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(requestParameters: TeamsApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s datasets.
+     * @summary List Authenticated User Datasets
+     * @param {TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(requestParameters: TeamsApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s features.
+     * @summary List Authenticated User Features
+     * @param {TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(requestParameters: TeamsApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s models.
+     * @summary List Authenticated User Models
+     * @param {TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(requestParameters: TeamsApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s studies.
+     * @summary List Authenticated User Studies
+     * @param {TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(requestParameters: TeamsApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s variables.
+     * @summary List Authenticated User Variables
+     * @param {TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(requestParameters: TeamsApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -51333,6 +58003,78 @@ export class TeamsApi extends BaseAPI {
      */
     public listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(requestParameters: TeamsApiListSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGetRequest, options?: any) {
         return TeamsApiFp(this.configuration).listSystemOfVariablesV1TeamsTeamSlugVariablesVariableIdSystemVariablesGet(requestParameters.teamSlug, requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s concepts.
+     * @summary List User Concepts
+     * @param {TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(requestParameters: TeamsApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s datasets.
+     * @summary List User Datasets
+     * @param {TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(requestParameters: TeamsApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s features.
+     * @summary List User Features
+     * @param {TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(requestParameters: TeamsApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s models.
+     * @summary List User Models
+     * @param {TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(requestParameters: TeamsApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s studies.
+     * @summary List User Studies
+     * @param {TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(requestParameters: TeamsApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s variables.
+     * @summary List User Variables
+     * @param {TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(requestParameters: TeamsApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -51586,6 +58328,18 @@ export class TeamsApi extends BaseAPI {
     public tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(requestParameters: TeamsApiTagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPutRequest, options?: any) {
         return TeamsApiFp(this.configuration).tagStudyWithObjectV1TeamsTeamSlugStudiesStudyIdObjectTagsTagObjectIdPut(requestParameters.teamSlug, requestParameters.studyId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
     }
+
+    /**
+     * Update the authenticated user\'s profile.
+     * @summary Update Authenticated User Profile
+     * @param {TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(requestParameters: TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPutRequest, options?: any) {
+        return TeamsApiFp(this.configuration).updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(requestParameters.teamSlug, requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
+    }
 }
 
 
@@ -51753,6 +58507,53 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Create a new user.
          * @summary Create A User.
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserV1TeamsTeamSlugUserPost: async (teamSlug: string, userProfileIn: UserProfileIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('createAUserV1TeamsTeamSlugUserPost', 'teamSlug', teamSlug)
+            // verify required parameter 'userProfileIn' is not null or undefined
+            assertParamExists('createAUserV1TeamsTeamSlugUserPost', 'userProfileIn', userProfileIn)
+            const localVarPath = `/v1/teams/{team_slug}/user`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(userProfileIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User.
          * @param {UserProfileIn} userProfileIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -51787,6 +58588,47 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(userProfileIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
+         * @param {string} teamSlug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet: async (teamSlug: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/teams`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -51833,12 +58675,108 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
+         * @param {string} teamSlug 
+         * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserV1TeamsTeamSlugUserGet: async (teamSlug: string, includeAvatar?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('getAuthenticatedUserV1TeamsTeamSlugUserGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (includeAvatar !== undefined) {
+                localVarQueryParameter['include_avatar'] = includeAvatar;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         getAuthenticatedUserV1UserGet: async (includeAvatar?: boolean, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (includeAvatar !== undefined) {
+                localVarQueryParameter['include_avatar'] = includeAvatar;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch a single user\'s public profile.
+         * @summary Get User
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserV1TeamsTeamSlugUsersUserIdGet: async (teamSlug: string, userId: string, includeAvatar?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('getUserV1TeamsTeamSlugUsersUserIdGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('getUserV1TeamsTeamSlugUsersUserIdGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -51921,6 +58859,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * List association in study by authenticated user.
          * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} teamSlug 
          * @param {string} studyId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -51937,7 +58876,112 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: async (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet: async (teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet', 'teamSlug', teamSlug)
+            // verify required parameter 'studyId' is not null or undefined
+            assertParamExists('listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet', 'studyId', studyId)
+            const localVarPath = `/v1/teams/{team_slug}/user/studies/{study_id}/associations`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (isInteraction !== undefined) {
+                localVarQueryParameter['is_interaction'] = isInteraction;
+            }
+
+            if (isVariableAssociation !== undefined) {
+                localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {AssociationSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: async (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'studyId' is not null or undefined
             assertParamExists('listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet', 'studyId', studyId)
             const localVarPath = `/v1/user/studies/{study_id}/associations`
@@ -52006,6 +59050,106 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s concepts.
+         * @summary List Authenticated User Concepts
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/concepts`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
             }
 
 
@@ -52114,6 +59258,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -52129,8 +59274,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/user/datasets`;
+        listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/datasets`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -52209,8 +59357,111 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List authenticated user\'s datasets.
+         * @summary List Authenticated User Datasets
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserDatasetsV1UserDatasetsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/user/datasets`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List authenticated user\'s features.
          * @summary List Authenticated User Features
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -52225,8 +59476,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/user/features`;
+        listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/features`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -52301,8 +59555,106 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List authenticated user\'s features.
+         * @summary List Authenticated User Features
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserFeaturesV1UserFeaturesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/user/features`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List authenticated user\'s models.
          * @summary List Authenticated User Models
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -52317,8 +59669,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/user/models`;
+        listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/models`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -52393,8 +59748,106 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List authenticated user\'s models.
+         * @summary List Authenticated User Models
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserModelsV1UserModelsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/user/models`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List authenticated user\'s studies.
          * @summary List Authenticated User Studies
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -52410,8 +59863,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/user/studies`;
+        listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/studies`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -52490,8 +59946,111 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List authenticated user\'s studies.
+         * @summary List Authenticated User Studies
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserStudiesV1UserStudiesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/user/studies`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List authenticated user\'s variables.
          * @summary List Authenticated User Variables
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -52506,7 +60065,103 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inVariableGraph !== undefined) {
+                localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s variables.
+         * @summary List Authenticated User Variables
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserVariablesV1UserVariablesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/variables`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -52568,6 +60223,110 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s concepts.
+         * @summary List User Concepts
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/concepts`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
             }
 
 
@@ -52680,6 +60439,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * List a user\'s datasets.
          * @summary List User Datasets
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -52696,10 +60456,13 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+        listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet', 'teamSlug', teamSlug)
             // verify required parameter 'userId' is not null or undefined
-            assertParamExists('listUserDatasetsV1UsersUserIdDatasetsGet', 'userId', userId)
-            const localVarPath = `/v1/users/{user_id}/datasets`
+            assertParamExists('listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/datasets`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -52779,8 +60542,115 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List a user\'s datasets.
+         * @summary List User Datasets
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserDatasetsV1UsersUserIdDatasetsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserDatasetsV1UsersUserIdDatasetsGet', 'userId', userId)
+            const localVarPath = `/v1/users/{user_id}/datasets`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List a user\'s features.
          * @summary List User Features
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -52796,10 +60666,13 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet', 'teamSlug', teamSlug)
             // verify required parameter 'userId' is not null or undefined
-            assertParamExists('listUserFeaturesV1UsersUserIdFeaturesGet', 'userId', userId)
-            const localVarPath = `/v1/users/{user_id}/features`
+            assertParamExists('listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/features`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -52875,8 +60748,110 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List a user\'s features.
+         * @summary List User Features
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserFeaturesV1UsersUserIdFeaturesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserFeaturesV1UsersUserIdFeaturesGet', 'userId', userId)
+            const localVarPath = `/v1/users/{user_id}/features`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List a user\'s models.
          * @summary List User Models
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -52892,10 +60867,13 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+        listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet', 'teamSlug', teamSlug)
             // verify required parameter 'userId' is not null or undefined
-            assertParamExists('listUserModelsV1UsersUserIdModelsGet', 'userId', userId)
-            const localVarPath = `/v1/users/{user_id}/models`
+            assertParamExists('listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/models`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -52971,8 +60949,110 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List a user\'s models.
+         * @summary List User Models
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserModelsV1UsersUserIdModelsGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserModelsV1UsersUserIdModelsGet', 'userId', userId)
+            const localVarPath = `/v1/users/{user_id}/models`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (containsVariableId !== undefined) {
+                localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List a user\'s studies.
          * @summary List User Studies
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -52989,10 +61069,13 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+        listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet', 'teamSlug', teamSlug)
             // verify required parameter 'userId' is not null or undefined
-            assertParamExists('listUserStudiesV1UsersUserIdStudiesGet', 'userId', userId)
-            const localVarPath = `/v1/users/{user_id}/studies`
+            assertParamExists('listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/studies`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -53072,8 +61155,115 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List a user\'s studies.
+         * @summary List User Studies
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserStudiesV1UsersUserIdStudiesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserStudiesV1UsersUserIdStudiesGet', 'userId', userId)
+            const localVarPath = `/v1/users/{user_id}/studies`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (variableTag !== undefined) {
+                localVarQueryParameter['variable_tag'] = variableTag;
+            }
+
+            if (conceptTag !== undefined) {
+                localVarQueryParameter['concept_tag'] = conceptTag;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List a user\'s variables.
          * @summary List User Variables
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -53089,10 +61279,13 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet', 'teamSlug', teamSlug)
             // verify required parameter 'userId' is not null or undefined
-            assertParamExists('listUserVariablesV1UsersUserIdVariablesGet', 'userId', userId)
-            const localVarPath = `/v1/users/{user_id}/variables`
+            assertParamExists('listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -53168,6 +61361,154 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List a user\'s variables.
+         * @summary List User Variables
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserVariablesV1UsersUserIdVariablesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserVariablesV1UsersUserIdVariablesGet', 'userId', userId)
+            const localVarPath = `/v1/users/{user_id}/variables`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inVariableGraph !== undefined) {
+                localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update the authenticated user\'s profile.
+         * @summary Update Authenticated User Profile
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut: async (teamSlug: string, userProfileIn: UserProfileIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut', 'teamSlug', teamSlug)
+            // verify required parameter 'userProfileIn' is not null or undefined
+            assertParamExists('updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut', 'userProfileIn', userProfileIn)
+            const localVarPath = `/v1/teams/{team_slug}/user`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(userProfileIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Update the authenticated user\'s profile.
          * @summary Update Authenticated User Profile
          * @param {UserProfileIn} userProfileIn 
@@ -53223,6 +61564,18 @@ export const UsersApiFp = function(configuration?: Configuration) {
         /**
          * Create a new user.
          * @summary Create A User.
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createAUserV1TeamsTeamSlugUserPost(teamSlug: string, userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAUserV1TeamsTeamSlugUserPost(teamSlug, userProfileIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User.
          * @param {UserProfileIn} userProfileIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -53234,11 +61587,34 @@ export const UsersApiFp = function(configuration?: Configuration) {
         /**
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User\'S Teams
+         * @param {string} teamSlug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(teamSlug: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TeamOut>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         async getAuthenticatedUserSTeamsV1UserTeamsGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TeamOut>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthenticatedUserSTeamsV1UserTeamsGet(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User
+         * @param {string} teamSlug 
+         * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAuthenticatedUserV1TeamsTeamSlugUserGet(teamSlug: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthenticatedUserV1TeamsTeamSlugUserGet(teamSlug, includeAvatar, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53255,6 +61631,19 @@ export const UsersApiFp = function(configuration?: Configuration) {
         /**
          * Fetch a single user\'s public profile.
          * @summary Get User
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUserV1TeamsTeamSlugUsersUserIdGet(teamSlug: string, userId: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUserV1TeamsTeamSlugUsersUserIdGet(teamSlug, userId, includeAvatar, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch a single user\'s public profile.
+         * @summary Get User
          * @param {string} userId 
          * @param {boolean} [includeAvatar] 
          * @param {*} [options] Override http request option.
@@ -53262,6 +61651,30 @@ export const UsersApiFp = function(configuration?: Configuration) {
          */
         async getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserV1UsersUserIdGet(userId, includeAvatar, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} teamSlug 
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {AssociationSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug, studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53280,11 +61693,34 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
+        async listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s concepts.
+         * @summary List Authenticated User Concepts
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53311,6 +61747,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
         /**
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -53326,8 +61763,53 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+        async listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s datasets.
+         * @summary List Authenticated User Datasets
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s features.
+         * @summary List Authenticated User Features
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53344,11 +61826,34 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+        async listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s models.
+         * @summary List Authenticated User Models
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53365,11 +61870,35 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
+        async listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s studies.
+         * @summary List Authenticated User Studies
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53387,11 +61916,34 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [variableTag] Filter studies with variable tag
          * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+        async listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s variables.
+         * @summary List Authenticated User Variables
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53408,11 +61960,35 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+        async listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s concepts.
+         * @summary List User Concepts
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53440,6 +62016,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
         /**
          * List a user\'s datasets.
          * @summary List User Datasets
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -53456,8 +62033,55 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+        async listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s datasets.
+         * @summary List User Datasets
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s features.
+         * @summary List User Features
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53475,11 +62099,35 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+        async listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s models.
+         * @summary List User Models
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53497,11 +62145,36 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
+        async listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s studies.
+         * @summary List User Studies
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53520,11 +62193,35 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [variableTag] Filter studies with variable tag
          * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
+        async listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s variables.
+         * @summary List User Variables
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53542,11 +62239,24 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+        async listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamSlug, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update the authenticated user\'s profile.
+         * @summary Update Authenticated User Profile
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(teamSlug: string, userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(teamSlug, userProfileIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -53573,6 +62283,17 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         /**
          * Create a new user.
          * @summary Create A User.
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserV1TeamsTeamSlugUserPost(teamSlug: string, userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.createAUserV1TeamsTeamSlugUserPost(teamSlug, userProfileIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User.
          * @param {UserProfileIn} userProfileIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -53583,11 +62304,32 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         /**
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User\'S Teams
+         * @param {string} teamSlug 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(teamSlug: string, options?: any): AxiosPromise<Array<TeamOut>> {
+            return localVarFp.getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User\'S Teams
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         getAuthenticatedUserSTeamsV1UserTeamsGet(options?: any): AxiosPromise<Array<TeamOut>> {
             return localVarFp.getAuthenticatedUserSTeamsV1UserTeamsGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch the authenticated user\'s profile.
+         * @summary Get Authenticated User
+         * @param {string} teamSlug 
+         * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthenticatedUserV1TeamsTeamSlugUserGet(teamSlug: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.getAuthenticatedUserV1TeamsTeamSlugUserGet(teamSlug, includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch the authenticated user\'s profile.
@@ -53602,6 +62344,18 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         /**
          * Fetch a single user\'s public profile.
          * @summary Get User
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUserV1TeamsTeamSlugUsersUserIdGet(teamSlug: string, userId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPublicProfileOut> {
+            return localVarFp.getUserV1TeamsTeamSlugUsersUserIdGet(teamSlug, userId, includeAvatar, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch a single user\'s public profile.
+         * @summary Get User
          * @param {string} userId 
          * @param {boolean} [includeAvatar] 
          * @param {*} [options] Override http request option.
@@ -53609,6 +62363,29 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          */
         getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPublicProfileOut> {
             return localVarFp.getUserV1UsersUserIdGet(userId, includeAvatar, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List association in study by authenticated user.
+         * @summary List Associations In The Authenticated User\'S Study.
+         * @param {string} teamSlug 
+         * @param {string} studyId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {AssociationSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [isInteraction] Is association from interaction model?
+         * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut> {
+            return localVarFp.listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(teamSlug, studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * List association in study by authenticated user.
@@ -53626,11 +62403,33 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut> {
-            return localVarFp.listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
+        listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamSlug?: string, options?: any): AxiosPromise<AssociationPaginationOut> {
+            return localVarFp.listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s concepts.
+         * @summary List Authenticated User Concepts
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return localVarFp.listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s concepts.
@@ -53655,6 +62454,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         /**
          * List authenticated user\'s datasets.
          * @summary List Authenticated User Datasets
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -53670,8 +62470,51 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
-            return localVarFp.listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return localVarFp.listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s datasets.
+         * @summary List Authenticated User Datasets
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return localVarFp.listAuthenticatedUserDatasetsV1UserDatasetsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s features.
+         * @summary List Authenticated User Features
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut> {
+            return localVarFp.listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s features.
@@ -53687,11 +62530,33 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut> {
-            return localVarFp.listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<FeaturePaginationOut> {
+            return localVarFp.listAuthenticatedUserFeaturesV1UserFeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s models.
+         * @summary List Authenticated User Models
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return localVarFp.listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s models.
@@ -53707,11 +62572,34 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
-            return localVarFp.listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return localVarFp.listAuthenticatedUserModelsV1UserModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s studies.
+         * @summary List Authenticated User Studies
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut> {
+            return localVarFp.listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s studies.
@@ -53728,11 +62616,33 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [variableTag] Filter studies with variable tag
          * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut> {
-            return localVarFp.listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): AxiosPromise<StudyPaginationOut> {
+            return localVarFp.listAuthenticatedUserStudiesV1UserStudiesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s variables.
+         * @summary List Authenticated User Variables
+         * @param {string} teamSlug 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
+            return localVarFp.listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s variables.
@@ -53748,11 +62658,34 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
-            return localVarFp.listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<VariablePaginationOut> {
+            return localVarFp.listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s concepts.
+         * @summary List User Concepts
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return localVarFp.listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s concepts.
@@ -53778,6 +62711,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         /**
          * List a user\'s datasets.
          * @summary List User Datasets
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -53794,8 +62728,53 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
-            return localVarFp.listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return localVarFp.listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s datasets.
+         * @summary List User Datasets
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DatasetSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter datasets with variable tag
+         * @param {string} [conceptTag] Filter datasets with concept tag
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): AxiosPromise<DatasetPaginationOut> {
+            return localVarFp.listUserDatasetsV1UsersUserIdDatasetsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s features.
+         * @summary List User Features
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut> {
+            return localVarFp.listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s features.
@@ -53812,11 +62791,34 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut> {
-            return localVarFp.listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<FeaturePaginationOut> {
+            return localVarFp.listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s models.
+         * @summary List User Models
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ModelSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return localVarFp.listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s models.
@@ -53833,11 +62835,35 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
-            return localVarFp.listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamSlug?: string, options?: any): AxiosPromise<ModelPaginationOut> {
+            return localVarFp.listUserModelsV1UsersUserIdModelsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s studies.
+         * @summary List User Studies
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {StudySortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {string} [variableTag] Filter studies with variable tag
+         * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut> {
+            return localVarFp.listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s studies.
@@ -53855,11 +62881,34 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [variableTag] Filter studies with variable tag
          * @param {string} [conceptTag] Filter studies with concept tag
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut> {
-            return localVarFp.listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
+        listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamSlug?: string, options?: any): AxiosPromise<StudyPaginationOut> {
+            return localVarFp.listUserStudiesV1UsersUserIdStudiesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s variables.
+         * @summary List User Variables
+         * @param {string} teamSlug 
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
+            return localVarFp.listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s variables.
@@ -53876,11 +62925,23 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
-            return localVarFp.listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<VariablePaginationOut> {
+            return localVarFp.listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamSlug, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update the authenticated user\'s profile.
+         * @summary Update Authenticated User Profile
+         * @param {string} teamSlug 
+         * @param {UserProfileIn} userProfileIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(teamSlug: string, userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(teamSlug, userProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Update the authenticated user\'s profile.
@@ -53894,6 +62955,27 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         },
     };
 };
+
+/**
+ * Request parameters for createAUserV1TeamsTeamSlugUserPost operation in UsersApi.
+ * @export
+ * @interface UsersApiCreateAUserV1TeamsTeamSlugUserPostRequest
+ */
+export interface UsersApiCreateAUserV1TeamsTeamSlugUserPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiCreateAUserV1TeamsTeamSlugUserPost
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {UserProfileIn}
+     * @memberof UsersApiCreateAUserV1TeamsTeamSlugUserPost
+     */
+    readonly userProfileIn: UserProfileIn
+}
 
 /**
  * Request parameters for createAUserV1UserPost operation in UsersApi.
@@ -53910,6 +62992,41 @@ export interface UsersApiCreateAUserV1UserPostRequest {
 }
 
 /**
+ * Request parameters for getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet operation in UsersApi.
+ * @export
+ * @interface UsersApiGetAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGetRequest
+ */
+export interface UsersApiGetAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiGetAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet
+     */
+    readonly teamSlug: string
+}
+
+/**
+ * Request parameters for getAuthenticatedUserV1TeamsTeamSlugUserGet operation in UsersApi.
+ * @export
+ * @interface UsersApiGetAuthenticatedUserV1TeamsTeamSlugUserGetRequest
+ */
+export interface UsersApiGetAuthenticatedUserV1TeamsTeamSlugUserGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiGetAuthenticatedUserV1TeamsTeamSlugUserGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Include the user\&#39;s avatar.
+     * @type {boolean}
+     * @memberof UsersApiGetAuthenticatedUserV1TeamsTeamSlugUserGet
+     */
+    readonly includeAvatar?: boolean
+}
+
+/**
  * Request parameters for getAuthenticatedUserV1UserGet operation in UsersApi.
  * @export
  * @interface UsersApiGetAuthenticatedUserV1UserGetRequest
@@ -53919,6 +63036,34 @@ export interface UsersApiGetAuthenticatedUserV1UserGetRequest {
      * Include the user\&#39;s avatar.
      * @type {boolean}
      * @memberof UsersApiGetAuthenticatedUserV1UserGet
+     */
+    readonly includeAvatar?: boolean
+}
+
+/**
+ * Request parameters for getUserV1TeamsTeamSlugUsersUserIdGet operation in UsersApi.
+ * @export
+ * @interface UsersApiGetUserV1TeamsTeamSlugUsersUserIdGetRequest
+ */
+export interface UsersApiGetUserV1TeamsTeamSlugUsersUserIdGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiGetUserV1TeamsTeamSlugUsersUserIdGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiGetUserV1TeamsTeamSlugUsersUserIdGet
+     */
+    readonly userId: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsersApiGetUserV1TeamsTeamSlugUsersUserIdGet
      */
     readonly includeAvatar?: boolean
 }
@@ -53942,6 +63087,111 @@ export interface UsersApiGetUserV1UsersUserIdGetRequest {
      * @memberof UsersApiGetUserV1UsersUserIdGet
      */
     readonly includeAvatar?: boolean
+}
+
+/**
+ * Request parameters for listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest
+ */
+export interface UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly studyId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {AssociationSortEnum}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly orderBy?: AssociationSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is association from interaction model?
+     * @type {boolean}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly isInteraction?: boolean
+
+    /**
+     * Include only variable-variable associations.
+     * @type {boolean}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet
+     */
+    readonly isVariableAssociation?: boolean
 }
 
 /**
@@ -54040,6 +63290,104 @@ export interface UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudi
      * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest
+ */
+export interface UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ConceptSortEnum}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly orderBy?: ConceptSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet
+     */
+    readonly inConceptGraph?: boolean
 }
 
 /**
@@ -54124,6 +63472,104 @@ export interface UsersApiListAuthenticatedUserConceptsV1UserConceptsGetRequest {
      * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
      */
     readonly inConceptGraph?: boolean
+}
+
+/**
+ * Request parameters for listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest
+ */
+export interface UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {DatasetSortEnum}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly orderBy?: DatasetSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet
+     */
+    readonly conceptTag?: string
 }
 
 /**
@@ -54215,6 +63661,104 @@ export interface UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest {
      * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
     readonly conceptTag?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest
+ */
+export interface UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean
 }
 
 /**
@@ -54299,6 +63843,104 @@ export interface UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest {
      * @memberof UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGet
      */
     readonly inFeatureGraph?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest
+ */
+export interface UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ModelSortEnum}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly orderBy?: ModelSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet
+     */
+    readonly containsVariableId?: string
 }
 
 /**
@@ -54383,6 +64025,111 @@ export interface UsersApiListAuthenticatedUserModelsV1UserModelsGetRequest {
      * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
      */
     readonly containsVariableId?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest
+ */
+export interface UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {StudySortEnum}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly orderBy?: StudySortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet
+     */
+    readonly conceptTag?: string
 }
 
 /**
@@ -54474,6 +64221,104 @@ export interface UsersApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
      */
     readonly conceptTag?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest
+ */
+export interface UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {VariableSortEnum}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly orderBy?: VariableSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Variable in the Variable Graph?
+     * @type {boolean}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly inVariableGraph?: boolean
 }
 
 /**
@@ -54558,6 +64403,111 @@ export interface UsersApiListAuthenticatedUserVariablesV1UserVariablesGetRequest
      * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
      */
     readonly inVariableGraph?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest
+ */
+export interface UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ConceptSortEnum}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly orderBy?: ConceptSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet
+     */
+    readonly inConceptGraph?: boolean
 }
 
 /**
@@ -54649,6 +64599,111 @@ export interface UsersApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
      */
     readonly inConceptGraph?: boolean
+}
+
+/**
+ * Request parameters for listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest
+ */
+export interface UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {DatasetSortEnum}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly orderBy?: DatasetSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter datasets with variable tag
+     * @type {string}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter datasets with concept tag
+     * @type {string}
+     * @memberof UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet
+     */
+    readonly conceptTag?: string
 }
 
 /**
@@ -54747,6 +64802,111 @@ export interface UsersApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
     readonly conceptTag?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest
+ */
+export interface UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean
 }
 
 /**
@@ -54838,6 +64998,111 @@ export interface UsersApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
      * @memberof UsersApiListUserFeaturesV1UsersUserIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserFeaturesV1UsersUserIdFeaturesGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest
+ */
+export interface UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ModelSortEnum}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly orderBy?: ModelSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter models containing a variable via an association
+     * @type {string}
+     * @memberof UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGet
+     */
+    readonly containsVariableId?: string
 }
 
 /**
@@ -54929,6 +65194,118 @@ export interface UsersApiListUserModelsV1UsersUserIdModelsGetRequest {
      * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
      */
     readonly containsVariableId?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest
+ */
+export interface UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {StudySortEnum}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly orderBy?: StudySortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter studies with variable tag
+     * @type {string}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly variableTag?: string
+
+    /**
+     * Filter studies with concept tag
+     * @type {string}
+     * @memberof UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet
+     */
+    readonly conceptTag?: string
 }
 
 /**
@@ -55027,6 +65404,111 @@ export interface UsersApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
      */
     readonly conceptTag?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet operation in UsersApi.
+ * @export
+ * @interface UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest
+ */
+export interface UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {VariableSortEnum}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly orderBy?: VariableSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Variable in the Variable Graph?
+     * @type {boolean}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly inVariableGraph?: boolean
 }
 
 /**
@@ -55118,6 +65600,34 @@ export interface UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
      */
     readonly inVariableGraph?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
+     */
+    readonly teamSlug?: string
+}
+
+/**
+ * Request parameters for updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut operation in UsersApi.
+ * @export
+ * @interface UsersApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPutRequest
+ */
+export interface UsersApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPutRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPut
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {UserProfileIn}
+     * @memberof UsersApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPut
+     */
+    readonly userProfileIn: UserProfileIn
 }
 
 /**
@@ -55144,6 +65654,18 @@ export class UsersApi extends BaseAPI {
     /**
      * Create a new user.
      * @summary Create A User.
+     * @param {UsersApiCreateAUserV1TeamsTeamSlugUserPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public createAUserV1TeamsTeamSlugUserPost(requestParameters: UsersApiCreateAUserV1TeamsTeamSlugUserPostRequest, options?: any) {
+        return UsersApiFp(this.configuration).createAUserV1TeamsTeamSlugUserPost(requestParameters.teamSlug, requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new user.
+     * @summary Create A User.
      * @param {UsersApiCreateAUserV1UserPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -55156,12 +65678,36 @@ export class UsersApi extends BaseAPI {
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User\'S Teams
+     * @param {UsersApiGetAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(requestParameters: UsersApiGetAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).getAuthenticatedUserSTeamsV1TeamsTeamSlugUserTeamsGet(requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch the authenticated user\'s profile.
+     * @summary Get Authenticated User\'S Teams
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
     public getAuthenticatedUserSTeamsV1UserTeamsGet(options?: any) {
         return UsersApiFp(this.configuration).getAuthenticatedUserSTeamsV1UserTeamsGet(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch the authenticated user\'s profile.
+     * @summary Get Authenticated User
+     * @param {UsersApiGetAuthenticatedUserV1TeamsTeamSlugUserGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getAuthenticatedUserV1TeamsTeamSlugUserGet(requestParameters: UsersApiGetAuthenticatedUserV1TeamsTeamSlugUserGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).getAuthenticatedUserV1TeamsTeamSlugUserGet(requestParameters.teamSlug, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55179,6 +65725,18 @@ export class UsersApi extends BaseAPI {
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
+     * @param {UsersApiGetUserV1TeamsTeamSlugUsersUserIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUserV1TeamsTeamSlugUsersUserIdGet(requestParameters: UsersApiGetUserV1TeamsTeamSlugUsersUserIdGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).getUserV1TeamsTeamSlugUsersUserIdGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch a single user\'s public profile.
+     * @summary Get User
      * @param {UsersApiGetUserV1UsersUserIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -55191,13 +65749,37 @@ export class UsersApi extends BaseAPI {
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
+     * @param {UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(requestParameters: UsersApiListAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamSlugUserStudiesStudyIdAssociationsGet(requestParameters.teamSlug, requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List association in study by authenticated user.
+     * @summary List Associations In The Authenticated User\'S Study.
      * @param {UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
     public listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters: UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGetRequest, options?: any) {
-        return UsersApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s concepts.
+     * @summary List Authenticated User Concepts
+     * @param {UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(requestParameters: UsersApiListAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listAuthenticatedUserConceptsV1TeamsTeamSlugUserConceptsGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55215,13 +65797,37 @@ export class UsersApi extends BaseAPI {
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
+     * @param {UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(requestParameters: UsersApiListAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1TeamsTeamSlugUserDatasetsGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s datasets.
+     * @summary List Authenticated User Datasets
      * @param {UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
     public listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters: UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest = {}, options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserDatasetsV1UserDatasetsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s features.
+     * @summary List Authenticated User Features
+     * @param {UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(requestParameters: UsersApiListAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listAuthenticatedUserFeaturesV1TeamsTeamSlugUserFeaturesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55233,7 +65839,19 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters: UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest = {}, options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s models.
+     * @summary List Authenticated User Models
+     * @param {UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(requestParameters: UsersApiListAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listAuthenticatedUserModelsV1TeamsTeamSlugUserModelsGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55245,7 +65863,19 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserModelsV1UserModelsGet(requestParameters: UsersApiListAuthenticatedUserModelsV1UserModelsGetRequest = {}, options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserModelsV1UserModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s studies.
+     * @summary List Authenticated User Studies
+     * @param {UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(requestParameters: UsersApiListAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1TeamsTeamSlugUserStudiesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55257,7 +65887,19 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters: UsersApiListAuthenticatedUserStudiesV1UserStudiesGetRequest = {}, options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserStudiesV1UserStudiesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s variables.
+     * @summary List Authenticated User Variables
+     * @param {UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(requestParameters: UsersApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55269,7 +65911,19 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters: UsersApiListAuthenticatedUserVariablesV1UserVariablesGetRequest = {}, options?: any) {
-        return UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s concepts.
+     * @summary List User Concepts
+     * @param {UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(requestParameters: UsersApiListUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listUserConceptsV1TeamsTeamSlugUsersUserIdConceptsGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55287,13 +65941,37 @@ export class UsersApi extends BaseAPI {
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
+     * @param {UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(requestParameters: UsersApiListUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listUserDatasetsV1TeamsTeamSlugUsersUserIdDatasetsGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s datasets.
+     * @summary List User Datasets
      * @param {UsersApiListUserDatasetsV1UsersUserIdDatasetsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
     public listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters: UsersApiListUserDatasetsV1UsersUserIdDatasetsGetRequest, options?: any) {
-        return UsersApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s features.
+     * @summary List User Features
+     * @param {UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(requestParameters: UsersApiListUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listUserFeaturesV1TeamsTeamSlugUsersUserIdFeaturesGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55305,7 +65983,19 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters: UsersApiListUserFeaturesV1UsersUserIdFeaturesGetRequest, options?: any) {
-        return UsersApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s models.
+     * @summary List User Models
+     * @param {UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(requestParameters: UsersApiListUserModelsV1TeamsTeamSlugUsersUserIdModelsGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listUserModelsV1TeamsTeamSlugUsersUserIdModelsGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55317,7 +66007,19 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserModelsV1UsersUserIdModelsGet(requestParameters: UsersApiListUserModelsV1UsersUserIdModelsGetRequest, options?: any) {
-        return UsersApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserModelsV1UsersUserIdModelsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s studies.
+     * @summary List User Studies
+     * @param {UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(requestParameters: UsersApiListUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listUserStudiesV1TeamsTeamSlugUsersUserIdStudiesGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55329,7 +66031,19 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserStudiesV1UsersUserIdStudiesGet(requestParameters: UsersApiListUserStudiesV1UsersUserIdStudiesGetRequest, options?: any) {
-        return UsersApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserStudiesV1UsersUserIdStudiesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s variables.
+     * @summary List User Variables
+     * @param {UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(requestParameters: UsersApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55341,7 +66055,19 @@ export class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     public listUserVariablesV1UsersUserIdVariablesGet(requestParameters: UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest, options?: any) {
-        return UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update the authenticated user\'s profile.
+     * @summary Update Authenticated User Profile
+     * @param {UsersApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(requestParameters: UsersApiUpdateAuthenticatedUserProfileV1TeamsTeamSlugUserPutRequest, options?: any) {
+        return UsersApiFp(this.configuration).updateAuthenticatedUserProfileV1TeamsTeamSlugUserPut(requestParameters.teamSlug, requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55935,6 +66661,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
         /**
          * List authenticated user\'s variables.
          * @summary List Authenticated User Variables
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -55949,7 +66676,103 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet: async (teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet', 'teamSlug', teamSlug)
+            const localVarPath = `/v1/teams/{team_slug}/user/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inVariableGraph !== undefined) {
+                localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List authenticated user\'s variables.
+         * @summary List Authenticated User Variables
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserVariablesV1UserVariablesGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user/variables`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -56011,6 +66834,10 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
 
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -56509,6 +67336,7 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
         /**
          * List a user\'s variables.
          * @summary List User Variables
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -56524,7 +67352,107 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet: async (teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamSlug' is not null or undefined
+            assertParamExists('listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet', 'teamSlug', teamSlug)
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet', 'userId', userId)
+            const localVarPath = `/v1/teams/{team_slug}/users/{user_id}/variables`
+                .replace(`{${"team_slug"}}`, encodeURIComponent(String(teamSlug)))
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inVariableGraph !== undefined) {
+                localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List a user\'s variables.
+         * @summary List User Variables
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserVariablesV1UsersUserIdVariablesGet: async (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('listUserVariablesV1UsersUserIdVariablesGet', 'userId', userId)
             const localVarPath = `/v1/users/{user_id}/variables`
@@ -56589,6 +67517,10 @@ export const VariablesApiAxiosParamCreator = function (configuration?: Configura
 
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+
+            if (teamSlug !== undefined) {
+                localVarQueryParameter['team_slug'] = teamSlug;
             }
 
 
@@ -57047,6 +67979,7 @@ export const VariablesApiFp = function(configuration?: Configuration) {
         /**
          * List authenticated user\'s variables.
          * @summary List Authenticated User Variables
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -57061,8 +67994,30 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+        async listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List authenticated user\'s variables.
+         * @summary List Authenticated User Variables
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -57176,6 +68131,7 @@ export const VariablesApiFp = function(configuration?: Configuration) {
         /**
          * List a user\'s variables.
          * @summary List User Variables
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -57191,8 +68147,31 @@ export const VariablesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+        async listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List a user\'s variables.
+         * @summary List User Variables
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamSlug, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -57408,6 +68387,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
         /**
          * List authenticated user\'s variables.
          * @summary List Authenticated User Variables
+         * @param {string} teamSlug 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -57422,8 +68402,29 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
-            return localVarFp.listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
+            return localVarFp.listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(teamSlug, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List authenticated user\'s variables.
+         * @summary List Authenticated User Variables
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<VariablePaginationOut> {
+            return localVarFp.listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested variable\'s system.
@@ -57532,6 +68533,7 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
         /**
          * List a user\'s variables.
          * @summary List User Variables
+         * @param {string} teamSlug 
          * @param {string} userId 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
@@ -57547,8 +68549,30 @@ export const VariablesApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
-            return localVarFp.listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut> {
+            return localVarFp.listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(teamSlug, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a user\'s variables.
+         * @summary List User Variables
+         * @param {string} userId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {VariableSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {string} [teamSlug] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamSlug?: string, options?: any): AxiosPromise<VariablePaginationOut> {
+            return localVarFp.listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamSlug, options).then((request) => request(axios, basePath));
         },
         /**
          * List Variables.
@@ -57976,6 +69000,97 @@ export interface VariablesApiListAssociationsV1VariablesVariableIdAssociationsGe
 }
 
 /**
+ * Request parameters for listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet operation in VariablesApi.
+ * @export
+ * @interface VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest
+ */
+export interface VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {VariableSortEnum}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly orderBy?: VariableSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Variable in the Variable Graph?
+     * @type {boolean}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet
+     */
+    readonly inVariableGraph?: boolean
+}
+
+/**
  * Request parameters for listAuthenticatedUserVariablesV1UserVariablesGet operation in VariablesApi.
  * @export
  * @interface VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetRequest
@@ -58057,6 +69172,13 @@ export interface VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetReq
      * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
      */
     readonly inVariableGraph?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -58564,6 +69686,104 @@ export interface VariablesApiListSystemOfVariablesV1VariablesVariableIdSystemVar
 }
 
 /**
+ * Request parameters for listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet operation in VariablesApi.
+ * @export
+ * @interface VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest
+ */
+export interface VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly teamSlug: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly userId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {VariableSortEnum}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly orderBy?: VariableSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Variable in the Variable Graph?
+     * @type {boolean}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet
+     */
+    readonly inVariableGraph?: boolean
+}
+
+/**
  * Request parameters for listUserVariablesV1UsersUserIdVariablesGet operation in VariablesApi.
  * @export
  * @interface VariablesApiListUserVariablesV1UsersUserIdVariablesGetRequest
@@ -58652,6 +69872,13 @@ export interface VariablesApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
      */
     readonly inVariableGraph?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
+     */
+    readonly teamSlug?: string
 }
 
 /**
@@ -59015,13 +70242,25 @@ export class VariablesApi extends BaseAPI {
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
+     * @param {VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    public listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(requestParameters: VariablesApiListAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGetRequest, options?: any) {
+        return VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1TeamsTeamSlugUserVariablesGet(requestParameters.teamSlug, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List authenticated user\'s variables.
+     * @summary List Authenticated User Variables
      * @param {VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VariablesApi
      */
     public listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters: VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetRequest = {}, options?: any) {
-        return VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -59075,13 +70314,25 @@ export class VariablesApi extends BaseAPI {
     /**
      * List a user\'s variables.
      * @summary List User Variables
+     * @param {VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    public listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(requestParameters: VariablesApiListUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGetRequest, options?: any) {
+        return VariablesApiFp(this.configuration).listUserVariablesV1TeamsTeamSlugUsersUserIdVariablesGet(requestParameters.teamSlug, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List a user\'s variables.
+     * @summary List User Variables
      * @param {VariablesApiListUserVariablesV1UsersUserIdVariablesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof VariablesApi
      */
     public listUserVariablesV1UsersUserIdVariablesGet(requestParameters: VariablesApiListUserVariablesV1UsersUserIdVariablesGetRequest, options?: any) {
-        return VariablesApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return VariablesApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.teamSlug, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
