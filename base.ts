@@ -1,5 +1,5 @@
-/* tslint:disable */
-/* eslint-disable */
+// tslint:disable
+/// <reference path="./custom.d.ts" />
 /**
  * System REST API
  * This is a REST API through which clients can interact with System - an **open**, **collaborative**, and **ever-growing knowledge base** of all the world\'s systems. 
