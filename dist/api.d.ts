@@ -29203,6 +29203,24 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     publishStudyV1TeamsTeamIdStudiesStudyIdPublishPost: (teamId: string, studyId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Remove a user from a team by user_id.
+     * @summary Remove A User From A Team.
+     * @param {string} userId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete: (userId: string, teamId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Remove an email invite from a team by email.
+     * @summary Remove An Email Invite From A Team.
+     * @param {string} email
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete: (email: string, teamId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Remove an author from a study.
      * @summary Remove Author From Study
      * @param {string} teamId
@@ -30468,6 +30486,24 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     publishStudyV1TeamsTeamIdStudiesStudyIdPublishPost(teamId: string, studyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
+     * Remove a user from a team by user_id.
+     * @summary Remove A User From A Team.
+     * @param {string} userId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete(userId: string, teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Remove an email invite from a team by email.
+     * @summary Remove An Email Invite From A Team.
+     * @param {string} email
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete(email: string, teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Remove an author from a study.
      * @summary Remove Author From Study
      * @param {string} teamId
@@ -31732,6 +31768,24 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     publishStudyV1TeamsTeamIdStudiesStudyIdPublishPost(teamId: string, studyId: string, options?: any): AxiosPromise<StudyOut>;
+    /**
+     * Remove a user from a team by user_id.
+     * @summary Remove A User From A Team.
+     * @param {string} userId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete(userId: string, teamId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Remove an email invite from a team by email.
+     * @summary Remove An Email Invite From A Team.
+     * @param {string} email
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete(email: string, teamId: string, options?: any): AxiosPromise<void>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -35788,6 +35842,44 @@ export interface TeamsApiPublishStudyV1TeamsTeamIdStudiesStudyIdPublishPostReque
     readonly studyId: string;
 }
 /**
+ * Request parameters for removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete operation in TeamsApi.
+ * @export
+ * @interface TeamsApiRemoveAUserFromATeamV1TeamsTeamIdUsersUserIdDeleteRequest
+ */
+export interface TeamsApiRemoveAUserFromATeamV1TeamsTeamIdUsersUserIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiRemoveAUserFromATeamV1TeamsTeamIdUsersUserIdDelete
+     */
+    readonly userId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiRemoveAUserFromATeamV1TeamsTeamIdUsersUserIdDelete
+     */
+    readonly teamId: string;
+}
+/**
+ * Request parameters for removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete operation in TeamsApi.
+ * @export
+ * @interface TeamsApiRemoveAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDeleteRequest
+ */
+export interface TeamsApiRemoveAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiRemoveAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete
+     */
+    readonly email: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiRemoveAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete
+     */
+    readonly teamId: string;
+}
+/**
  * Request parameters for removeAuthorFromStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdDelete operation in TeamsApi.
  * @export
  * @interface TeamsApiRemoveAuthorFromStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdDeleteRequest
@@ -36835,6 +36927,24 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     publishStudyV1TeamsTeamIdStudiesStudyIdPublishPost(requestParameters: TeamsApiPublishStudyV1TeamsTeamIdStudiesStudyIdPublishPostRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
+    /**
+     * Remove a user from a team by user_id.
+     * @summary Remove A User From A Team.
+     * @param {TeamsApiRemoveAUserFromATeamV1TeamsTeamIdUsersUserIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete(requestParameters: TeamsApiRemoveAUserFromATeamV1TeamsTeamIdUsersUserIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Remove an email invite from a team by email.
+     * @summary Remove An Email Invite From A Team.
+     * @param {TeamsApiRemoveAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete(requestParameters: TeamsApiRemoveAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study

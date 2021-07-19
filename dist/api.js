@@ -33382,6 +33382,112 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Remove a user from a team by user_id.
+         * @summary Remove A User From A Team.
+         * @param {string} userId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete: (userId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete.');
+            }
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Remove an email invite from a team by email.
+         * @summary Remove An Email Invite From A Team.
+         * @param {string} email
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete: (email, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'email' is not null or undefined
+            if (email === null || email === undefined) {
+                throw new base_1.RequiredError('email', 'Required parameter email was null or undefined when calling removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete.');
+            }
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/invites/{email}`
+                .replace(`{${"email"}}`, encodeURIComponent(String(email)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Remove an author from a study.
          * @summary Remove Author From Study
          * @param {string} teamId
@@ -35904,6 +36010,40 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Remove a user from a team by user_id.
+         * @summary Remove A User From A Team.
+         * @param {string} userId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete(userId, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete(userId, teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Remove an email invite from a team by email.
+         * @summary Remove An Email Invite From A Team.
+         * @param {string} email
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete(email, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete(email, teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Remove an author from a study.
          * @summary Remove Author From Study
          * @param {string} teamId
@@ -37433,6 +37573,28 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).publishStudyV1TeamsTeamIdStudiesStudyIdPublishPost(teamId, studyId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Remove a user from a team by user_id.
+         * @summary Remove A User From A Team.
+         * @param {string} userId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete(userId, teamId, options) {
+            return exports.TeamsApiFp(configuration).removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete(userId, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Remove an email invite from a team by email.
+         * @summary Remove An Email Invite From A Team.
+         * @param {string} email
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete(email, teamId, options) {
+            return exports.TeamsApiFp(configuration).removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete(email, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Remove an author from a study.
          * @summary Remove Author From Study
          * @param {string} teamId
@@ -38496,6 +38658,28 @@ class TeamsApi extends base_1.BaseAPI {
      */
     publishStudyV1TeamsTeamIdStudiesStudyIdPublishPost(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).publishStudyV1TeamsTeamIdStudiesStudyIdPublishPost(requestParameters.teamId, requestParameters.studyId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Remove a user from a team by user_id.
+     * @summary Remove A User From A Team.
+     * @param {TeamsApiRemoveAUserFromATeamV1TeamsTeamIdUsersUserIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).removeAUserFromATeamV1TeamsTeamIdUsersUserIdDelete(requestParameters.userId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Remove an email invite from a team by email.
+     * @summary Remove An Email Invite From A Team.
+     * @param {TeamsApiRemoveAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).removeAnEmailInviteFromATeamV1TeamsTeamIdInvitesEmailDelete(requestParameters.email, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove an author from a study.
