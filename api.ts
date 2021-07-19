@@ -6143,25 +6143,6 @@ export interface TeamOut {
     _links?: TeamLinks;
 }
 /**
- * User input for adding to a team.
- * @export
- * @interface TeamUserIn
- */
-export interface TeamUserIn {
-    /**
-     * User email address.
-     * @type {string}
-     * @memberof TeamUserIn
-     */
-    email: string;
-    /**
-     * User role
-     * @type {UserRolesEnum}
-     * @memberof TeamUserIn
-     */
-    role: UserRolesEnum;
-}
-/**
  * Represent a test dataset.
  * @export
  * @interface TestDataset
@@ -6370,6 +6351,19 @@ export interface TimelinePaginationOut {
     _sorts?: Array<string>;
 }
 /**
+ * User input for adding to a team.
+ * @export
+ * @interface UserInvite
+ */
+export interface UserInvite {
+    /**
+     * User email address.
+     * @type {string}
+     * @memberof UserInvite
+     */
+    email: string;
+}
+/**
  * Private user profile out.
  * @export
  * @interface UserPrivateProfileOut
@@ -6534,17 +6528,6 @@ export interface UserPublicProfileOut {
      */
     last_name?: string;
 }
-/**
- * Enum for user roles.
- * @export
- * @enum {string}
- */
-export enum UserRolesEnum {
-    Reader = 'reader',
-    Writer = 'writer',
-    Admin = 'admin'
-}
-
 /**
  * Enum for valid calibrated relationship type.
  * @export
@@ -46998,30 +46981,31 @@ export class SystemApi extends BaseAPI {
 export const TeamsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Add a user to a team by email.
+         * Add a user to a team by user_id.
          * @summary Add A User To A Team.
+         * @param {string} userId 
          * @param {string} teamId 
-         * @param {TeamUserIn} teamUserIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAUserToATeamV1TeamsTeamIdUsersPost: async (teamId: string, teamUserIn: TeamUserIn, options: any = {}): Promise<RequestArgs> => {
+        addAUserToATeamV1TeamsTeamIdUsersUserIdPut: async (userId: string, teamId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new RequiredError('userId','Required parameter userId was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersUserIdPut.');
+            }
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
-                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersPost.');
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersUserIdPut.');
             }
-            // verify required parameter 'teamUserIn' is not null or undefined
-            if (teamUserIn === null || teamUserIn === undefined) {
-                throw new RequiredError('teamUserIn','Required parameter teamUserIn was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersPost.');
-            }
-            const localVarPath = `/v1/teams/{team_id}/users`
+            const localVarPath = `/v1/teams/{team_id}/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)))
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -47044,15 +47028,11 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            const needsSerialization = (typeof teamUserIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(teamUserIn !== undefined ? teamUserIn : {}) : (teamUserIn || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -49419,6 +49399,68 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Add a user to a team by email.
+         * @summary Invite An Email To The Team.
+         * @param {string} teamId 
+         * @param {UserInvite} userInvite 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost: async (teamId: string, userInvite: UserInvite, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost.');
+            }
+            // verify required parameter 'userInvite' is not null or undefined
+            if (userInvite === null || userInvite === undefined) {
+                throw new RequiredError('userInvite','Required parameter userInvite was null or undefined when calling inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/invites`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof userInvite !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(userInvite !== undefined ? userInvite : {}) : (userInvite || "");
 
             return {
                 url: globalImportUrl.format(localVarUrlObj),
@@ -54546,15 +54588,15 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 export const TeamsApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * Add a user to a team by email.
+         * Add a user to a team by user_id.
          * @summary Add A User To A Team.
+         * @param {string} userId 
          * @param {string} teamId 
-         * @param {TeamUserIn} teamUserIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options);
+        async addAUserToATeamV1TeamsTeamIdUsersUserIdPut(userId: string, teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).addAUserToATeamV1TeamsTeamIdUsersUserIdPut(userId, teamId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -55140,6 +55182,21 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          */
         async getVariableV1TeamsTeamIdVariablesVariableIdGet(teamId: string, variableId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>> {
             const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).getVariableV1TeamsTeamIdVariablesVariableIdGet(teamId, variableId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Add a user to a team by email.
+         * @summary Invite An Email To The Team.
+         * @param {string} teamId 
+         * @param {UserInvite} userInvite 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(teamId: string, userInvite: UserInvite, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(teamId, userInvite, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -56339,15 +56396,15 @@ export const TeamsApiFp = function(configuration?: Configuration) {
 export const TeamsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * Add a user to a team by email.
+         * Add a user to a team by user_id.
          * @summary Add A User To A Team.
+         * @param {string} userId 
          * @param {string} teamId 
-         * @param {TeamUserIn} teamUserIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): AxiosPromise<void> {
-            return TeamsApiFp(configuration).addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options).then((request) => request(axios, basePath));
+        addAUserToATeamV1TeamsTeamIdUsersUserIdPut(userId: string, teamId: string, options?: any): AxiosPromise<void> {
+            return TeamsApiFp(configuration).addAUserToATeamV1TeamsTeamIdUsersUserIdPut(userId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add an author to a study.
@@ -56781,6 +56838,17 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         getVariableV1TeamsTeamIdVariablesVariableIdGet(teamId: string, variableId: string, options?: any): AxiosPromise<VariableOut> {
             return TeamsApiFp(configuration).getVariableV1TeamsTeamIdVariablesVariableIdGet(teamId, variableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a user to a team by email.
+         * @summary Invite An Email To The Team.
+         * @param {string} teamId 
+         * @param {UserInvite} userInvite 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(teamId: string, userInvite: UserInvite, options?: any): AxiosPromise<void> {
+            return TeamsApiFp(configuration).inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(teamId, userInvite, options).then((request) => request(axios, basePath));
         },
         /**
          * List association in study by authenticated user.
@@ -57758,24 +57826,24 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
 };
 
 /**
- * Request parameters for addAUserToATeamV1TeamsTeamIdUsersPost operation in TeamsApi.
+ * Request parameters for addAUserToATeamV1TeamsTeamIdUsersUserIdPut operation in TeamsApi.
  * @export
- * @interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest
+ * @interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest
  */
-export interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest {
+export interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest {
     /**
      * 
      * @type {string}
-     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPut
      */
-    readonly teamId: string
+    readonly userId: string
 
     /**
      * 
-     * @type {TeamUserIn}
-     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     * @type {string}
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPut
      */
-    readonly teamUserIn: TeamUserIn
+    readonly teamId: string
 }
 
 /**
@@ -58679,6 +58747,27 @@ export interface TeamsApiGetVariableV1TeamsTeamIdVariablesVariableIdGetRequest {
      * @memberof TeamsApiGetVariableV1TeamsTeamIdVariablesVariableIdGet
      */
     readonly variableId: string
+}
+
+/**
+ * Request parameters for inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPostRequest
+ */
+export interface TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {UserInvite}
+     * @memberof TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost
+     */
+    readonly userInvite: UserInvite
 }
 
 /**
@@ -62525,15 +62614,15 @@ export interface TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamIdUserPutReque
  */
 export class TeamsApi extends BaseAPI {
     /**
-     * Add a user to a team by email.
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
-     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
+     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest, options?: any) {
-        return TeamsApiFp(this.configuration).addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters.teamId, requestParameters.teamUserIn, options).then((request) => request(this.axios, this.basePath));
+    public addAUserToATeamV1TeamsTeamIdUsersUserIdPut(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest, options?: any) {
+        return TeamsApiFp(this.configuration).addAUserToATeamV1TeamsTeamIdUsersUserIdPut(requestParameters.userId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -62990,6 +63079,18 @@ export class TeamsApi extends BaseAPI {
      */
     public getVariableV1TeamsTeamIdVariablesVariableIdGet(requestParameters: TeamsApiGetVariableV1TeamsTeamIdVariablesVariableIdGetRequest, options?: any) {
         return TeamsApiFp(this.configuration).getVariableV1TeamsTeamIdVariablesVariableIdGet(requestParameters.teamId, requestParameters.variableId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Add a user to a team by email.
+     * @summary Invite An Email To The Team.
+     * @param {TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(requestParameters: TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPostRequest, options?: any) {
+        return TeamsApiFp(this.configuration).inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(requestParameters.teamId, requestParameters.userInvite, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
