@@ -6057,10 +6057,10 @@ export interface TeamIn {
     slug: string;
     /**
      * Team\'s logo
-     * @type {Array<string>}
+     * @type {string}
      * @memberof TeamIn
      */
-    logo?: Array<string>;
+    logo?: string;
 }
 /**
  * Team resource links.
@@ -6131,10 +6131,10 @@ export interface TeamOut {
     slug: string;
     /**
      * Team\'s logo
-     * @type {Array<string>}
+     * @type {string}
      * @memberof TeamOut
      */
-    logo?: Array<string>;
+    logo?: string;
     /**
      * Collection of links to related resources.
      * @type {TeamLinks}
@@ -49347,6 +49347,73 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Fetch a single user\'s public profile.
+         * @summary Get Users
+         * @param {string} teamId 
+         * @param {string} email 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsersV1TeamsTeamIdUsersGet: async (teamId: string, email: string, includeAvatar?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling getUsersV1TeamsTeamIdUsersGet.');
+            }
+            // verify required parameter 'email' is not null or undefined
+            if (email === null || email === undefined) {
+                throw new RequiredError('email','Required parameter email was null or undefined when calling getUsersV1TeamsTeamIdUsersGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/users`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (email !== undefined) {
+                localVarQueryParameter['email'] = email;
+            }
+
+            if (includeAvatar !== undefined) {
+                localVarQueryParameter['include_avatar'] = includeAvatar;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get Variable.
          * @summary Get Variable
          * @param {string} teamId 
@@ -55173,6 +55240,22 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Fetch a single user\'s public profile.
+         * @summary Get Users
+         * @param {string} teamId 
+         * @param {string} email 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUsersV1TeamsTeamIdUsersGet(teamId: string, email: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).getUsersV1TeamsTeamIdUsersGet(teamId, email, includeAvatar, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get Variable.
          * @summary Get Variable
          * @param {string} teamId 
@@ -56827,6 +56910,18 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         getUserV1TeamsTeamIdUsersUserIdGet(teamId: string, userId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPublicProfileOut> {
             return TeamsApiFp(configuration).getUserV1TeamsTeamIdUsersUserIdGet(teamId, userId, includeAvatar, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch a single user\'s public profile.
+         * @summary Get Users
+         * @param {string} teamId 
+         * @param {string} email 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsersV1TeamsTeamIdUsersGet(teamId: string, email: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>> {
+            return TeamsApiFp(configuration).getUsersV1TeamsTeamIdUsersGet(teamId, email, includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Variable.
@@ -58724,6 +58819,34 @@ export interface TeamsApiGetUserV1TeamsTeamIdUsersUserIdGetRequest {
      * 
      * @type {boolean}
      * @memberof TeamsApiGetUserV1TeamsTeamIdUsersUserIdGet
+     */
+    readonly includeAvatar?: boolean
+}
+
+/**
+ * Request parameters for getUsersV1TeamsTeamIdUsersGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetUsersV1TeamsTeamIdUsersGetRequest
+ */
+export interface TeamsApiGetUsersV1TeamsTeamIdUsersGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetUsersV1TeamsTeamIdUsersGet
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetUsersV1TeamsTeamIdUsersGet
+     */
+    readonly email: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TeamsApiGetUsersV1TeamsTeamIdUsersGet
      */
     readonly includeAvatar?: boolean
 }
@@ -63070,6 +63193,18 @@ export class TeamsApi extends BaseAPI {
     }
 
     /**
+     * Fetch a single user\'s public profile.
+     * @summary Get Users
+     * @param {TeamsApiGetUsersV1TeamsTeamIdUsersGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public getUsersV1TeamsTeamIdUsersGet(requestParameters: TeamsApiGetUsersV1TeamsTeamIdUsersGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).getUsersV1TeamsTeamIdUsersGet(requestParameters.teamId, requestParameters.email, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get Variable.
      * @summary Get Variable
      * @param {TeamsApiGetVariableV1TeamsTeamIdVariablesVariableIdGetRequest} requestParameters Request parameters.
@@ -64334,6 +64469,134 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (includeAvatar !== undefined) {
+                localVarQueryParameter['include_avatar'] = includeAvatar;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch a single user\'s public profile.
+         * @summary Get Users
+         * @param {string} teamId 
+         * @param {string} email 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsersV1TeamsTeamIdUsersGet: async (teamId: string, email: string, includeAvatar?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling getUsersV1TeamsTeamIdUsersGet.');
+            }
+            // verify required parameter 'email' is not null or undefined
+            if (email === null || email === undefined) {
+                throw new RequiredError('email','Required parameter email was null or undefined when calling getUsersV1TeamsTeamIdUsersGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/users`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (email !== undefined) {
+                localVarQueryParameter['email'] = email;
+            }
+
+            if (includeAvatar !== undefined) {
+                localVarQueryParameter['include_avatar'] = includeAvatar;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch a single user\'s public profile.
+         * @summary Get Users
+         * @param {string} email 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsersV1UsersGet: async (email: string, includeAvatar?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'email' is not null or undefined
+            if (email === null || email === undefined) {
+                throw new RequiredError('email','Required parameter email was null or undefined when calling getUsersV1UsersGet.');
+            }
+            const localVarPath = `/v1/users`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (email !== undefined) {
+                localVarQueryParameter['email'] = email;
             }
 
             if (includeAvatar !== undefined) {
@@ -67516,6 +67779,37 @@ export const UsersApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Fetch a single user\'s public profile.
+         * @summary Get Users
+         * @param {string} teamId 
+         * @param {string} email 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUsersV1TeamsTeamIdUsersGet(teamId: string, email: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).getUsersV1TeamsTeamIdUsersGet(teamId, email, includeAvatar, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Fetch a single user\'s public profile.
+         * @summary Get Users
+         * @param {string} email 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUsersV1UsersGet(email: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>> {
+            const localVarAxiosArgs = await UsersApiAxiosParamCreator(configuration).getUsersV1UsersGet(email, includeAvatar, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * List association in study by authenticated user.
          * @summary List Associations In The Authenticated User\'S Study.
          * @param {string} teamId 
@@ -68310,6 +68604,29 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
             return UsersApiFp(configuration).getUserV1UsersUserIdGet(userId, includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
+         * Fetch a single user\'s public profile.
+         * @summary Get Users
+         * @param {string} teamId 
+         * @param {string} email 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsersV1TeamsTeamIdUsersGet(teamId: string, email: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>> {
+            return UsersApiFp(configuration).getUsersV1TeamsTeamIdUsersGet(teamId, email, includeAvatar, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch a single user\'s public profile.
+         * @summary Get Users
+         * @param {string} email 
+         * @param {boolean} [includeAvatar] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsersV1UsersGet(email: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>> {
+            return UsersApiFp(configuration).getUsersV1UsersGet(email, includeAvatar, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List association in study by authenticated user.
          * @summary List Associations In The Authenticated User\'S Study.
          * @param {string} teamId 
@@ -69030,6 +69347,55 @@ export interface UsersApiGetUserV1UsersUserIdGetRequest {
      * 
      * @type {boolean}
      * @memberof UsersApiGetUserV1UsersUserIdGet
+     */
+    readonly includeAvatar?: boolean
+}
+
+/**
+ * Request parameters for getUsersV1TeamsTeamIdUsersGet operation in UsersApi.
+ * @export
+ * @interface UsersApiGetUsersV1TeamsTeamIdUsersGetRequest
+ */
+export interface UsersApiGetUsersV1TeamsTeamIdUsersGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiGetUsersV1TeamsTeamIdUsersGet
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiGetUsersV1TeamsTeamIdUsersGet
+     */
+    readonly email: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsersApiGetUsersV1TeamsTeamIdUsersGet
+     */
+    readonly includeAvatar?: boolean
+}
+
+/**
+ * Request parameters for getUsersV1UsersGet operation in UsersApi.
+ * @export
+ * @interface UsersApiGetUsersV1UsersGetRequest
+ */
+export interface UsersApiGetUsersV1UsersGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UsersApiGetUsersV1UsersGet
+     */
+    readonly email: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsersApiGetUsersV1UsersGet
      */
     readonly includeAvatar?: boolean
 }
@@ -71689,6 +72055,30 @@ export class UsersApi extends BaseAPI {
      */
     public getUserV1UsersUserIdGet(requestParameters: UsersApiGetUserV1UsersUserIdGetRequest, options?: any) {
         return UsersApiFp(this.configuration).getUserV1UsersUserIdGet(requestParameters.userId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch a single user\'s public profile.
+     * @summary Get Users
+     * @param {UsersApiGetUsersV1TeamsTeamIdUsersGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUsersV1TeamsTeamIdUsersGet(requestParameters: UsersApiGetUsersV1TeamsTeamIdUsersGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).getUsersV1TeamsTeamIdUsersGet(requestParameters.teamId, requestParameters.email, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch a single user\'s public profile.
+     * @summary Get Users
+     * @param {UsersApiGetUsersV1UsersGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public getUsersV1UsersGet(requestParameters: UsersApiGetUsersV1UsersGetRequest, options?: any) {
+        return UsersApiFp(this.configuration).getUsersV1UsersGet(requestParameters.email, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
