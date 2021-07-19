@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableToVariableSystemOfSortEnum = exports.VariableToFeatureSystemOfSortEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.UserRolesEnum = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureToFeatureSystemOfSortEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.ConceptToConceptSystemOfSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AddFlowContext = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableToVariableSystemOfSortEnum = exports.VariableToFeatureSystemOfSortEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureToFeatureSystemOfSortEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.ConceptToConceptSystemOfSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AddFlowContext = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -529,17 +529,6 @@ var SystemObjectResources;
     SystemObjectResources["Association"] = "association";
     SystemObjectResources["Team"] = "team";
 })(SystemObjectResources = exports.SystemObjectResources || (exports.SystemObjectResources = {}));
-/**
- * Enum for user roles.
- * @export
- * @enum {string}
- */
-var UserRolesEnum;
-(function (UserRolesEnum) {
-    UserRolesEnum["Reader"] = "reader";
-    UserRolesEnum["Writer"] = "writer";
-    UserRolesEnum["Admin"] = "admin";
-})(UserRolesEnum = exports.UserRolesEnum || (exports.UserRolesEnum = {}));
 /**
  * Enum for valid calibrated relationship type.
  * @export
@@ -27378,30 +27367,31 @@ exports.SystemApi = SystemApi;
 exports.TeamsApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Add a user to a team by email.
+         * Add a user to a team by user_id.
          * @summary Add A User To A Team.
+         * @param {string} userId
          * @param {string} teamId
-         * @param {TeamUserIn} teamUserIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAUserToATeamV1TeamsTeamIdUsersPost: (teamId, teamUserIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addAUserToATeamV1TeamsTeamIdUsersUserIdPut: (userId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersUserIdPut.');
+            }
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
-                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersPost.');
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersUserIdPut.');
             }
-            // verify required parameter 'teamUserIn' is not null or undefined
-            if (teamUserIn === null || teamUserIn === undefined) {
-                throw new base_1.RequiredError('teamUserIn', 'Required parameter teamUserIn was null or undefined when calling addAUserToATeamV1TeamsTeamIdUsersPost.');
-            }
-            const localVarPath = `/v1/teams/{team_id}/users`
+            const localVarPath = `/v1/teams/{team_id}/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)))
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
@@ -27419,14 +27409,11 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
-            localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof teamUserIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(teamUserIn !== undefined ? teamUserIn : {}) : (teamUserIn || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -29547,6 +29534,61 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add a user to a team by email.
+         * @summary Invite An Email To The Team.
+         * @param {string} teamId
+         * @param {UserInvite} userInvite
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost: (teamId, userInvite, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost.');
+            }
+            // verify required parameter 'userInvite' is not null or undefined
+            if (userInvite === null || userInvite === undefined) {
+                throw new base_1.RequiredError('userInvite', 'Required parameter userInvite was null or undefined when calling inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/invites`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof userInvite !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(userInvite !== undefined ? userInvite : {}) : (userInvite || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -33956,16 +33998,16 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
 exports.TeamsApiFp = function (configuration) {
     return {
         /**
-         * Add a user to a team by email.
+         * Add a user to a team by user_id.
          * @summary Add A User To A Team.
+         * @param {string} userId
          * @param {string} teamId
-         * @param {TeamUserIn} teamUserIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options) {
+        addAUserToATeamV1TeamsTeamIdUsersUserIdPut(userId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options);
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).addAUserToATeamV1TeamsTeamIdUsersUserIdPut(userId, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -34627,6 +34669,23 @@ exports.TeamsApiFp = function (configuration) {
         getVariableV1TeamsTeamIdVariablesVariableIdGet(teamId, variableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getVariableV1TeamsTeamIdVariablesVariableIdGet(teamId, variableId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Add a user to a team by email.
+         * @summary Invite An Email To The Team.
+         * @param {string} teamId
+         * @param {UserInvite} userInvite
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(teamId, userInvite, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(teamId, userInvite, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -35932,15 +35991,15 @@ exports.TeamsApiFp = function (configuration) {
 exports.TeamsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         * Add a user to a team by email.
+         * Add a user to a team by user_id.
          * @summary Add A User To A Team.
+         * @param {string} userId
          * @param {string} teamId
-         * @param {TeamUserIn} teamUserIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options) {
-            return exports.TeamsApiFp(configuration).addAUserToATeamV1TeamsTeamIdUsersPost(teamId, teamUserIn, options).then((request) => request(axios, basePath));
+        addAUserToATeamV1TeamsTeamIdUsersUserIdPut(userId, teamId, options) {
+            return exports.TeamsApiFp(configuration).addAUserToATeamV1TeamsTeamIdUsersUserIdPut(userId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add an author to a study.
@@ -36374,6 +36433,17 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          */
         getVariableV1TeamsTeamIdVariablesVariableIdGet(teamId, variableId, options) {
             return exports.TeamsApiFp(configuration).getVariableV1TeamsTeamIdVariablesVariableIdGet(teamId, variableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a user to a team by email.
+         * @summary Invite An Email To The Team.
+         * @param {string} teamId
+         * @param {UserInvite} userInvite
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(teamId, userInvite, options) {
+            return exports.TeamsApiFp(configuration).inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(teamId, userInvite, options).then((request) => request(axios, basePath));
         },
         /**
          * List association in study by authenticated user.
@@ -37357,15 +37427,15 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
  */
 class TeamsApi extends base_1.BaseAPI {
     /**
-     * Add a user to a team by email.
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
-     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
+     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters.teamId, requestParameters.teamUserIn, options).then((request) => request(this.axios, this.basePath));
+    addAUserToATeamV1TeamsTeamIdUsersUserIdPut(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).addAUserToATeamV1TeamsTeamIdUsersUserIdPut(requestParameters.userId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add an author to a study.
@@ -37784,6 +37854,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     getVariableV1TeamsTeamIdVariablesVariableIdGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).getVariableV1TeamsTeamIdVariablesVariableIdGet(requestParameters.teamId, requestParameters.variableId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add a user to a team by email.
+     * @summary Invite An Email To The Team.
+     * @param {TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(requestParameters.teamId, requestParameters.userInvite, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List association in study by authenticated user.

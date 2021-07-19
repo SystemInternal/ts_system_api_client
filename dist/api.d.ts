@@ -6157,25 +6157,6 @@ export interface TeamOut {
     _links?: TeamLinks;
 }
 /**
- * User input for adding to a team.
- * @export
- * @interface TeamUserIn
- */
-export interface TeamUserIn {
-    /**
-     * User email address.
-     * @type {string}
-     * @memberof TeamUserIn
-     */
-    email: string;
-    /**
-     * User role
-     * @type {UserRolesEnum}
-     * @memberof TeamUserIn
-     */
-    role: UserRolesEnum;
-}
-/**
  * Represent a test dataset.
  * @export
  * @interface TestDataset
@@ -6386,6 +6367,19 @@ export interface TimelinePaginationOut {
     _sorts?: Array<string>;
 }
 /**
+ * User input for adding to a team.
+ * @export
+ * @interface UserInvite
+ */
+export interface UserInvite {
+    /**
+     * User email address.
+     * @type {string}
+     * @memberof UserInvite
+     */
+    email: string;
+}
+/**
  * Private user profile out.
  * @export
  * @interface UserPrivateProfileOut
@@ -6549,16 +6543,6 @@ export interface UserPublicProfileOut {
      * @memberof UserPublicProfileOut
      */
     last_name?: string;
-}
-/**
- * Enum for user roles.
- * @export
- * @enum {string}
- */
-export declare enum UserRolesEnum {
-    Reader = "reader",
-    Writer = "writer",
-    Admin = "admin"
 }
 /**
  * Enum for valid calibrated relationship type.
@@ -28079,14 +28063,14 @@ export declare class SystemApi extends BaseAPI {
  */
 export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Add a user to a team by email.
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
+     * @param {string} userId
      * @param {string} teamId
-     * @param {TeamUserIn} teamUserIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAUserToATeamV1TeamsTeamIdUsersPost: (teamId: string, teamUserIn: TeamUserIn, options?: any) => Promise<RequestArgs>;
+    addAUserToATeamV1TeamsTeamIdUsersUserIdPut: (userId: string, teamId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Add an author to a study.
      * @summary Add Author To Study
@@ -28444,6 +28428,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getVariableV1TeamsTeamIdVariablesVariableIdGet: (teamId: string, variableId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add a user to a team by email.
+     * @summary Invite An Email To The Team.
+     * @param {string} teamId
+     * @param {UserInvite} userInvite
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost: (teamId: string, userInvite: UserInvite, options?: any) => Promise<RequestArgs>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -29317,14 +29310,14 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
  */
 export declare const TeamsApiFp: (configuration?: Configuration) => {
     /**
-     * Add a user to a team by email.
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
+     * @param {string} userId
      * @param {string} teamId
-     * @param {TeamUserIn} teamUserIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addAUserToATeamV1TeamsTeamIdUsersUserIdPut(userId: string, teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add an author to a study.
      * @summary Add Author To Study
@@ -29682,6 +29675,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getVariableV1TeamsTeamIdVariablesVariableIdGet(teamId: string, variableId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>>;
+    /**
+     * Add a user to a team by email.
+     * @summary Invite An Email To The Team.
+     * @param {string} teamId
+     * @param {UserInvite} userInvite
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(teamId: string, userInvite: UserInvite, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -30555,14 +30557,14 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
  */
 export declare const TeamsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Add a user to a team by email.
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
+     * @param {string} userId
      * @param {string} teamId
-     * @param {TeamUserIn} teamUserIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAUserToATeamV1TeamsTeamIdUsersPost(teamId: string, teamUserIn: TeamUserIn, options?: any): AxiosPromise<void>;
+    addAUserToATeamV1TeamsTeamIdUsersUserIdPut(userId: string, teamId: string, options?: any): AxiosPromise<void>;
     /**
      * Add an author to a study.
      * @summary Add Author To Study
@@ -30920,6 +30922,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getVariableV1TeamsTeamIdVariablesVariableIdGet(teamId: string, variableId: string, options?: any): AxiosPromise<VariableOut>;
+    /**
+     * Add a user to a team by email.
+     * @summary Invite An Email To The Team.
+     * @param {string} teamId
+     * @param {UserInvite} userInvite
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(teamId: string, userInvite: UserInvite, options?: any): AxiosPromise<void>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -31788,23 +31799,23 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
     updateAuthenticatedUserProfileV1TeamsTeamIdUserPut(teamId: string, userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
 };
 /**
- * Request parameters for addAUserToATeamV1TeamsTeamIdUsersPost operation in TeamsApi.
+ * Request parameters for addAUserToATeamV1TeamsTeamIdUsersUserIdPut operation in TeamsApi.
  * @export
- * @interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest
+ * @interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest
  */
-export interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest {
+export interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest {
     /**
      *
      * @type {string}
-     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPut
      */
-    readonly teamId: string;
+    readonly userId: string;
     /**
      *
-     * @type {TeamUserIn}
-     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPost
+     * @type {string}
+     * @memberof TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPut
      */
-    readonly teamUserIn: TeamUserIn;
+    readonly teamId: string;
 }
 /**
  * Request parameters for addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut operation in TeamsApi.
@@ -32617,6 +32628,25 @@ export interface TeamsApiGetVariableV1TeamsTeamIdVariablesVariableIdGetRequest {
      * @memberof TeamsApiGetVariableV1TeamsTeamIdVariablesVariableIdGet
      */
     readonly variableId: string;
+}
+/**
+ * Request parameters for inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPostRequest
+ */
+export interface TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {UserInvite}
+     * @memberof TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost
+     */
+    readonly userInvite: UserInvite;
 }
 /**
  * Request parameters for listAssociationsInTheAuthenticatedUserSStudyV1TeamsTeamIdUserStudiesStudyIdAssociationsGet operation in TeamsApi.
@@ -35967,14 +35997,14 @@ export interface TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamIdUserPutReque
  */
 export declare class TeamsApi extends BaseAPI {
     /**
-     * Add a user to a team by email.
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
-     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
+     * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    addAUserToATeamV1TeamsTeamIdUsersPost(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamIdUsersPostRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    addAUserToATeamV1TeamsTeamIdUsersUserIdPut(requestParameters: TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Add an author to a study.
      * @summary Add Author To Study
@@ -36317,6 +36347,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     getVariableV1TeamsTeamIdVariablesVariableIdGet(requestParameters: TeamsApiGetVariableV1TeamsTeamIdVariablesVariableIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<VariableOut>>;
+    /**
+     * Add a user to a team by email.
+     * @summary Invite An Email To The Team.
+     * @param {TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    inviteAnEmailToTheTeamV1TeamsTeamIdInvitesPost(requestParameters: TeamsApiInviteAnEmailToTheTeamV1TeamsTeamIdInvitesPostRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
