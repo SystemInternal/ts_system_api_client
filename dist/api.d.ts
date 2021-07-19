@@ -28374,6 +28374,14 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getModelV1TeamsTeamIdModelsModelIdGet: (teamId: string, modelId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get pending invites of a team.
+     * @summary Get Pending Invites Of A Team.
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPendingInvitesOfATeamV1TeamsTeamIdInvitesGet: (teamId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {string} teamId
@@ -28420,15 +28428,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getUserV1TeamsTeamIdUsersUserIdGet: (teamId: string, userId: string, includeAvatar?: boolean, options?: any) => Promise<RequestArgs>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
      * @param {string} teamId
-     * @param {string} email
-     * @param {boolean} [includeAvatar]
+     * @param {string} [email] Email address
+     * @param {boolean} [includeAvatar] Include avatar
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1TeamsTeamIdUsersGet: (teamId: string, email: string, includeAvatar?: boolean, options?: any) => Promise<RequestArgs>;
+    getUsersV1TeamsTeamIdUsersGet: (teamId: string, email?: string, includeAvatar?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get Variable.
      * @summary Get Variable
@@ -29631,6 +29639,14 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     getModelV1TeamsTeamIdModelsModelIdGet(teamId: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
     /**
+     * Get pending invites of a team.
+     * @summary Get Pending Invites Of A Team.
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPendingInvitesOfATeamV1TeamsTeamIdInvitesGet(teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserInvite>>>;
+    /**
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {string} teamId
@@ -29677,15 +29693,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     getUserV1TeamsTeamIdUsersUserIdGet(teamId: string, userId: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
      * @param {string} teamId
-     * @param {string} email
-     * @param {boolean} [includeAvatar]
+     * @param {string} [email] Email address
+     * @param {boolean} [includeAvatar] Include avatar
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1TeamsTeamIdUsersGet(teamId: string, email: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>>;
+    getUsersV1TeamsTeamIdUsersGet(teamId: string, email?: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>>;
     /**
      * Get Variable.
      * @summary Get Variable
@@ -30888,6 +30904,14 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     getModelV1TeamsTeamIdModelsModelIdGet(teamId: string, modelId: string, options?: any): AxiosPromise<ModelOut>;
     /**
+     * Get pending invites of a team.
+     * @summary Get Pending Invites Of A Team.
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getPendingInvitesOfATeamV1TeamsTeamIdInvitesGet(teamId: string, options?: any): AxiosPromise<Array<UserInvite>>;
+    /**
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {string} teamId
@@ -30934,15 +30958,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     getUserV1TeamsTeamIdUsersUserIdGet(teamId: string, userId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPublicProfileOut>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
      * @param {string} teamId
-     * @param {string} email
-     * @param {boolean} [includeAvatar]
+     * @param {string} [email] Email address
+     * @param {boolean} [includeAvatar] Include avatar
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1TeamsTeamIdUsersGet(teamId: string, email: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>>;
+    getUsersV1TeamsTeamIdUsersGet(teamId: string, email?: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>>;
     /**
      * Get Variable.
      * @summary Get Variable
@@ -32540,6 +32564,19 @@ export interface TeamsApiGetModelV1TeamsTeamIdModelsModelIdGetRequest {
     readonly modelId: string;
 }
 /**
+ * Request parameters for getPendingInvitesOfATeamV1TeamsTeamIdInvitesGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetPendingInvitesOfATeamV1TeamsTeamIdInvitesGetRequest
+ */
+export interface TeamsApiGetPendingInvitesOfATeamV1TeamsTeamIdInvitesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetPendingInvitesOfATeamV1TeamsTeamIdInvitesGet
+     */
+    readonly teamId: string;
+}
+/**
  * Request parameters for getRelationshipDirectionV1TeamsTeamIdAssociationsAssociationIdDirectionGet operation in TeamsApi.
  * @export
  * @interface TeamsApiGetRelationshipDirectionV1TeamsTeamIdAssociationsAssociationIdDirectionGetRequest
@@ -32653,13 +32690,13 @@ export interface TeamsApiGetUsersV1TeamsTeamIdUsersGetRequest {
      */
     readonly teamId: string;
     /**
-     *
+     * Email address
      * @type {string}
      * @memberof TeamsApiGetUsersV1TeamsTeamIdUsersGet
      */
-    readonly email: string;
+    readonly email?: string;
     /**
-     *
+     * Include avatar
      * @type {boolean}
      * @memberof TeamsApiGetUsersV1TeamsTeamIdUsersGet
      */
@@ -36349,6 +36386,15 @@ export declare class TeamsApi extends BaseAPI {
      */
     getModelV1TeamsTeamIdModelsModelIdGet(requestParameters: TeamsApiGetModelV1TeamsTeamIdModelsModelIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut>>;
     /**
+     * Get pending invites of a team.
+     * @summary Get Pending Invites Of A Team.
+     * @param {TeamsApiGetPendingInvitesOfATeamV1TeamsTeamIdInvitesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getPendingInvitesOfATeamV1TeamsTeamIdInvitesGet(requestParameters: TeamsApiGetPendingInvitesOfATeamV1TeamsTeamIdInvitesGetRequest, options?: any): Promise<import("axios").AxiosResponse<UserInvite[]>>;
+    /**
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {TeamsApiGetRelationshipDirectionV1TeamsTeamIdAssociationsAssociationIdDirectionGetRequest} requestParameters Request parameters.
@@ -36394,7 +36440,7 @@ export declare class TeamsApi extends BaseAPI {
      */
     getUserV1TeamsTeamIdUsersUserIdGet(requestParameters: TeamsApiGetUserV1TeamsTeamIdUsersUserIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<UserPublicProfileOut>>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
      * @param {TeamsApiGetUsersV1TeamsTeamIdUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -37062,24 +37108,25 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getUserV1UsersUserIdGet: (userId: string, includeAvatar?: boolean, options?: any) => Promise<RequestArgs>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
      * @param {string} teamId
-     * @param {string} email
-     * @param {boolean} [includeAvatar]
+     * @param {string} [email] Email address
+     * @param {boolean} [includeAvatar] Include avatar
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1TeamsTeamIdUsersGet: (teamId: string, email: string, includeAvatar?: boolean, options?: any) => Promise<RequestArgs>;
+    getUsersV1TeamsTeamIdUsersGet: (teamId: string, email?: string, includeAvatar?: boolean, options?: any) => Promise<RequestArgs>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
-     * @param {string} email
-     * @param {boolean} [includeAvatar]
+     * @param {string} [teamId]
+     * @param {string} [email] Email address
+     * @param {boolean} [includeAvatar] Include avatar
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1UsersGet: (email: string, includeAvatar?: boolean, options?: any) => Promise<RequestArgs>;
+    getUsersV1UsersGet: (teamId?: string, email?: string, includeAvatar?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -37688,24 +37735,25 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      */
     getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
      * @param {string} teamId
-     * @param {string} email
-     * @param {boolean} [includeAvatar]
+     * @param {string} [email] Email address
+     * @param {boolean} [includeAvatar] Include avatar
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1TeamsTeamIdUsersGet(teamId: string, email: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>>;
+    getUsersV1TeamsTeamIdUsersGet(teamId: string, email?: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
-     * @param {string} email
-     * @param {boolean} [includeAvatar]
+     * @param {string} [teamId]
+     * @param {string} [email] Email address
+     * @param {boolean} [includeAvatar] Include avatar
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1UsersGet(email: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>>;
+    getUsersV1UsersGet(teamId?: string, email?: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -38314,24 +38362,25 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      */
     getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPublicProfileOut>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
      * @param {string} teamId
-     * @param {string} email
-     * @param {boolean} [includeAvatar]
+     * @param {string} [email] Email address
+     * @param {boolean} [includeAvatar] Include avatar
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1TeamsTeamIdUsersGet(teamId: string, email: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>>;
+    getUsersV1TeamsTeamIdUsersGet(teamId: string, email?: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
-     * @param {string} email
-     * @param {boolean} [includeAvatar]
+     * @param {string} [teamId]
+     * @param {string} [email] Email address
+     * @param {boolean} [includeAvatar] Include avatar
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1UsersGet(email: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>>;
+    getUsersV1UsersGet(teamId?: string, email?: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -39000,13 +39049,13 @@ export interface UsersApiGetUsersV1TeamsTeamIdUsersGetRequest {
      */
     readonly teamId: string;
     /**
-     *
+     * Email address
      * @type {string}
      * @memberof UsersApiGetUsersV1TeamsTeamIdUsersGet
      */
-    readonly email: string;
+    readonly email?: string;
     /**
-     *
+     * Include avatar
      * @type {boolean}
      * @memberof UsersApiGetUsersV1TeamsTeamIdUsersGet
      */
@@ -39023,9 +39072,15 @@ export interface UsersApiGetUsersV1UsersGetRequest {
      * @type {string}
      * @memberof UsersApiGetUsersV1UsersGet
      */
-    readonly email: string;
+    readonly teamId?: string;
     /**
-     *
+     * Email address
+     * @type {string}
+     * @memberof UsersApiGetUsersV1UsersGet
+     */
+    readonly email?: string;
+    /**
+     * Include avatar
      * @type {boolean}
      * @memberof UsersApiGetUsersV1UsersGet
      */
@@ -41328,7 +41383,7 @@ export declare class UsersApi extends BaseAPI {
      */
     getUserV1UsersUserIdGet(requestParameters: UsersApiGetUserV1UsersUserIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<UserPublicProfileOut>>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
      * @param {UsersApiGetUsersV1TeamsTeamIdUsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -41337,14 +41392,14 @@ export declare class UsersApi extends BaseAPI {
      */
     getUsersV1TeamsTeamIdUsersGet(requestParameters: UsersApiGetUsersV1TeamsTeamIdUsersGetRequest, options?: any): Promise<import("axios").AxiosResponse<UserPublicProfileOut[]>>;
     /**
-     * Fetch a single user\'s public profile.
+     * List public profiles.
      * @summary Get Users
      * @param {UsersApiGetUsersV1UsersGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    getUsersV1UsersGet(requestParameters: UsersApiGetUsersV1UsersGetRequest, options?: any): Promise<import("axios").AxiosResponse<UserPublicProfileOut[]>>;
+    getUsersV1UsersGet(requestParameters?: UsersApiGetUsersV1UsersGetRequest, options?: any): Promise<import("axios").AxiosResponse<UserPublicProfileOut[]>>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
