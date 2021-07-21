@@ -6398,12 +6398,6 @@ export interface UserPrivateProfileOut {
      */
     created_at: string;
     /**
-     * The Author ID corresponding to this user.
-     * @type {string}
-     * @memberof UserPrivateProfileOut
-     */
-    author_id: string;
-    /**
      * User name that is visible to others on System.
      * @type {string}
      * @memberof UserPrivateProfileOut
@@ -6507,12 +6501,6 @@ export interface UserPublicProfileOut {
      * @memberof UserPublicProfileOut
      */
     created_at: string;
-    /**
-     * The Author ID corresponding to this user.
-     * @type {string}
-     * @memberof UserPublicProfileOut
-     */
-    author_id: string;
     /**
      * User name that is visible to others on System.
      * @type {string}
