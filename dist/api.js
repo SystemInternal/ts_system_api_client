@@ -16672,12 +16672,71 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
         /**
          * Fetch dataset graph.
          * @summary Get Concept Graph
-         * @param {number} [minRelationshipStrength]
+         * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1GraphConceptGraphGet: (minRelationshipStrength, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getConceptGraphV1GraphConceptGraphGet: (teamId, minRelationshipStrength, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getConceptGraphV1GraphConceptGraphGet.');
+            }
             const localVarPath = `/v1/graph/concept_graph`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (minRelationshipStrength !== undefined) {
+                localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Concept Graph
+         * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId, minRelationshipStrength, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getConceptGraphV1TeamsTeamIdGraphConceptGraphGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/graph/concept_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -16755,6 +16814,53 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet: (teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/graph/dataset_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -16766,13 +16872,31 @@ exports.GraphApiFp = function (configuration) {
         /**
          * Fetch dataset graph.
          * @summary Get Concept Graph
-         * @param {number} [minRelationshipStrength]
+         * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1GraphConceptGraphGet(minRelationshipStrength, options) {
+        getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getConceptGraphV1GraphConceptGraphGet(minRelationshipStrength, options);
+                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Concept Graph
+         * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16794,6 +16918,22 @@ exports.GraphApiFp = function (configuration) {
                 };
             });
         },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
     };
 };
 /**
@@ -16805,12 +16945,24 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
         /**
          * Fetch dataset graph.
          * @summary Get Concept Graph
-         * @param {number} [minRelationshipStrength]
+         * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1GraphConceptGraphGet(minRelationshipStrength, options) {
-            return exports.GraphApiFp(configuration).getConceptGraphV1GraphConceptGraphGet(minRelationshipStrength, options).then((request) => request(axios, basePath));
+        getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, options) {
+            return exports.GraphApiFp(configuration).getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Concept Graph
+         * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options) {
+            return exports.GraphApiFp(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -16820,6 +16972,16 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
          */
         getDatasetGraphV1GraphDatasetGraphGet(options) {
             return exports.GraphApiFp(configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(teamId, options) {
+            return exports.GraphApiFp(configuration).getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(teamId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -16838,8 +17000,19 @@ class GraphApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      * @memberof GraphApi
      */
-    getConceptGraphV1GraphConceptGraphGet(requestParameters = {}, options) {
-        return exports.GraphApiFp(this.configuration).getConceptGraphV1GraphConceptGraphGet(requestParameters.minRelationshipStrength, options).then((request) => request(this.axios, this.basePath));
+    getConceptGraphV1GraphConceptGraphGet(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getConceptGraphV1GraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Concept Graph
+     * @param {GraphApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch dataset graph.
@@ -16850,6 +17023,17 @@ class GraphApi extends base_1.BaseAPI {
      */
     getDatasetGraphV1GraphDatasetGraphGet(options) {
         return exports.GraphApiFp(this.configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Dataset Graph
+     * @param {GraphApiGetDatasetGraphV1TeamsTeamIdGraphDatasetGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.GraphApi = GraphApi;
@@ -29059,6 +29243,104 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Fetch dataset graph.
+         * @summary Get Concept Graph
+         * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId, minRelationshipStrength, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getConceptGraphV1TeamsTeamIdGraphConceptGraphGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/graph/concept_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (minRelationshipStrength !== undefined) {
+                localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet: (teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/graph/dataset_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get a Dataset.
          * @summary Get Dataset
          * @param {string} teamId
@@ -34730,6 +35012,39 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Fetch dataset graph.
+         * @summary Get Concept Graph
+         * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get a Dataset.
          * @summary Get Dataset
          * @param {string} teamId
@@ -36611,6 +36926,27 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).getAuthorV1TeamsTeamIdAuthorsAuthorIdGet(teamId, authorId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Fetch dataset graph.
+         * @summary Get Concept Graph
+         * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options) {
+            return exports.TeamsApiFp(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Dataset Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(teamId, options) {
+            return exports.TeamsApiFp(configuration).getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get a Dataset.
          * @summary Get Dataset
          * @param {string} teamId
@@ -38075,6 +38411,28 @@ class TeamsApi extends base_1.BaseAPI {
      */
     getAuthorV1TeamsTeamIdAuthorsAuthorIdGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).getAuthorV1TeamsTeamIdAuthorsAuthorIdGet(requestParameters.teamId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Concept Graph
+     * @param {TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Dataset Graph
+     * @param {TeamsApiGetDatasetGraphV1TeamsTeamIdGraphDatasetGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get a Dataset.
