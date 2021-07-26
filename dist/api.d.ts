@@ -3112,7 +3112,7 @@ export interface Histogram {
     bin_edges?: Array<number>;
 }
 /**
- * An Enterprise Integration Resource.
+ * An Integration Resource.
  * @export
  * @interface Integration
  */
@@ -3170,7 +3170,13 @@ export interface Integration {
      * @type {string}
      * @memberof Integration
      */
-    enterprise: string;
+    enterprise?: string;
+    /**
+     * Team link.
+     * @type {string}
+     * @memberof Integration
+     */
+    team?: string;
     /**
      * API Endpoint.
      * @type {string}
@@ -3251,11 +3257,11 @@ export interface IntegrationCreate {
      */
     credentials: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn;
     /**
-     * Enterprise link.
+     * Team or Enterprise link
      * @type {string}
      * @memberof IntegrationCreate
      */
-    enterprise: string;
+    owner?: string;
 }
 /**
  * Integration service state.
@@ -6126,7 +6132,7 @@ export interface TeamOut {
      */
     last_updated_at?: string;
     /**
-     *
+     * The actions the requesting user is allowed to perform on this resource.
      * @type {Array<ResourceAction>}
      * @memberof TeamOut
      */
@@ -6149,6 +6155,18 @@ export interface TeamOut {
      * @memberof TeamOut
      */
     logo?: string;
+    /**
+     * The list of integrations to retrieve
+     * @type {Array<Integration>}
+     * @memberof TeamOut
+     */
+    integrations?: Array<Integration>;
+    /**
+     * The team messages
+     * @type {Array<MessageOut>}
+     * @memberof TeamOut
+     */
+    messages?: Array<MessageOut>;
     /**
      * Collection of links to related resources.
      * @type {TeamLinks}
@@ -16535,18 +16553,20 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * Create a new integration.
      * @summary Create Integration
      * @param {IntegrationCreate} integrationCreate
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1EnterpriseIntegrationsPost: (integrationCreate: IntegrationCreate, options?: any) => Promise<RequestArgs>;
+    createIntegrationV1EnterpriseIntegrationsPost: (integrationCreate: IntegrationCreate, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new message.
      * @summary Create Message
      * @param {MessageIn} messageIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMessageV1EnterpriseMessagesPost: (messageIn: MessageIn, options?: any) => Promise<RequestArgs>;
+    createMessageV1EnterpriseMessagesPost: (messageIn: MessageIn, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get the Enterprise.
      * @summary Get Enterprise
@@ -16558,36 +16578,48 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * Get an Integration.
      * @summary Get Integration
      * @param {string} integrationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet: (integrationId: string, options?: any) => Promise<RequestArgs>;
+    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet: (integrationId: string, teamId?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get team integrations.
+     * @summary Get Integrations
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIntegrationsV1EnterpriseIntegrationsGet: (teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get a Message.
      * @summary Get Message
      * @param {string} messageId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMessageV1EnterpriseMessagesMessageIdGet: (messageId: string, options?: any) => Promise<RequestArgs>;
+    getMessageV1EnterpriseMessagesMessageIdGet: (messageId: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Update an Integration.
+     * Update Integration.
      * @summary Update Integration
      * @param {string} integrationId
      * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: (integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any) => Promise<RequestArgs>;
+    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: (integrationId: string, integrationUpdateIn: IntegrationUpdateIn, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Message.
      * @summary Update Message
      * @param {string} messageId
      * @param {MessageIn} messageIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateMessageV1EnterpriseMessagesMessageIdPatch: (messageId: string, messageIn: MessageIn, options?: any) => Promise<RequestArgs>;
+    updateMessageV1EnterpriseMessagesMessageIdPatch: (messageId: string, messageIn: MessageIn, teamId?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * EnterpriseApi - functional programming interface
@@ -16598,18 +16630,20 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * Create a new integration.
      * @summary Create Integration
      * @param {IntegrationCreate} integrationCreate
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
     /**
      * Create a new message.
      * @summary Create Message
      * @param {MessageIn} messageIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
+    createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
     /**
      * Get the Enterprise.
      * @summary Get Enterprise
@@ -16621,36 +16655,48 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * Get an Integration.
      * @summary Get Integration
      * @param {string} integrationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    /**
+     * Get team integrations.
+     * @summary Get Integrations
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIntegrationsV1EnterpriseIntegrationsGet(teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Integration>>>;
     /**
      * Get a Message.
      * @summary Get Message
      * @param {string} messageId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
+    getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
     /**
-     * Update an Integration.
+     * Update Integration.
      * @summary Update Integration
      * @param {string} integrationId
      * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
     /**
      * Update a Message.
      * @summary Update Message
      * @param {string} messageId
      * @param {MessageIn} messageIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
+    updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
 };
 /**
  * EnterpriseApi - factory interface
@@ -16661,18 +16707,20 @@ export declare const EnterpriseApiFactory: (configuration?: Configuration, baseP
      * Create a new integration.
      * @summary Create Integration
      * @param {IntegrationCreate} integrationCreate
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, options?: any): AxiosPromise<Integration>;
+    createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, teamId?: string, options?: any): AxiosPromise<Integration>;
     /**
      * Create a new message.
      * @summary Create Message
      * @param {MessageIn} messageIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, options?: any): AxiosPromise<MessageOut>;
+    createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, teamId?: string, options?: any): AxiosPromise<MessageOut>;
     /**
      * Get the Enterprise.
      * @summary Get Enterprise
@@ -16684,36 +16732,48 @@ export declare const EnterpriseApiFactory: (configuration?: Configuration, baseP
      * Get an Integration.
      * @summary Get Integration
      * @param {string} integrationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, options?: any): AxiosPromise<Integration>;
+    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, teamId?: string, options?: any): AxiosPromise<Integration>;
+    /**
+     * Get team integrations.
+     * @summary Get Integrations
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIntegrationsV1EnterpriseIntegrationsGet(teamId?: string, options?: any): AxiosPromise<Array<Integration>>;
     /**
      * Get a Message.
      * @summary Get Message
      * @param {string} messageId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, options?: any): AxiosPromise<MessageOut>;
+    getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, teamId?: string, options?: any): AxiosPromise<MessageOut>;
     /**
-     * Update an Integration.
+     * Update Integration.
      * @summary Update Integration
      * @param {string} integrationId
      * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): AxiosPromise<Integration>;
+    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, teamId?: string, options?: any): AxiosPromise<Integration>;
     /**
      * Update a Message.
      * @summary Update Message
      * @param {string} messageId
      * @param {MessageIn} messageIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, options?: any): AxiosPromise<MessageOut>;
+    updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, teamId?: string, options?: any): AxiosPromise<MessageOut>;
 };
 /**
  * Request parameters for createIntegrationV1EnterpriseIntegrationsPost operation in EnterpriseApi.
@@ -16727,6 +16787,12 @@ export interface EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostReque
      * @memberof EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPost
      */
     readonly integrationCreate: IntegrationCreate;
+    /**
+     *
+     * @type {string}
+     * @memberof EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPost
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for createMessageV1EnterpriseMessagesPost operation in EnterpriseApi.
@@ -16740,6 +16806,12 @@ export interface EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest {
      * @memberof EnterpriseApiCreateMessageV1EnterpriseMessagesPost
      */
     readonly messageIn: MessageIn;
+    /**
+     *
+     * @type {string}
+     * @memberof EnterpriseApiCreateMessageV1EnterpriseMessagesPost
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getIntegrationV1EnterpriseIntegrationsIntegrationIdGet operation in EnterpriseApi.
@@ -16753,6 +16825,25 @@ export interface EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationI
      * @memberof EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGet
      */
     readonly integrationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGet
+     */
+    readonly teamId?: string;
+}
+/**
+ * Request parameters for getIntegrationsV1EnterpriseIntegrationsGet operation in EnterpriseApi.
+ * @export
+ * @interface EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest
+ */
+export interface EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getMessageV1EnterpriseMessagesMessageIdGet operation in EnterpriseApi.
@@ -16766,6 +16857,12 @@ export interface EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest 
      * @memberof EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGet
      */
     readonly messageId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch operation in EnterpriseApi.
@@ -16785,6 +16882,12 @@ export interface EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrati
      * @memberof EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch
      */
     readonly integrationUpdateIn: IntegrationUpdateIn;
+    /**
+     *
+     * @type {string}
+     * @memberof EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for updateMessageV1EnterpriseMessagesMessageIdPatch operation in EnterpriseApi.
@@ -16804,6 +16907,12 @@ export interface EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchReq
      * @memberof EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatch
      */
     readonly messageIn: MessageIn;
+    /**
+     *
+     * @type {string}
+     * @memberof EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatch
+     */
+    readonly teamId?: string;
 }
 /**
  * EnterpriseApi - object-oriented interface
@@ -16848,6 +16957,15 @@ export declare class EnterpriseApi extends BaseAPI {
      */
     getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters: EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<Integration>>;
     /**
+     * Get team integrations.
+     * @summary Get Integrations
+     * @param {EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    getIntegrationsV1EnterpriseIntegrationsGet(requestParameters?: EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<Integration[]>>;
+    /**
      * Get a Message.
      * @summary Get Message
      * @param {EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest} requestParameters Request parameters.
@@ -16857,7 +16975,7 @@ export declare class EnterpriseApi extends BaseAPI {
      */
     getMessageV1EnterpriseMessagesMessageIdGet(requestParameters: EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<MessageOut>>;
     /**
-     * Update an Integration.
+     * Update Integration.
      * @summary Update Integration
      * @param {EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -28297,6 +28415,24 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createFeatureV1TeamsTeamIdFeaturesPost: (teamId: string, featureIn: FeatureIn, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a new integration.
+     * @summary Create Integration
+     * @param {string} teamId
+     * @param {IntegrationCreate} integrationCreate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createIntegrationV1TeamsTeamIdIntegrationsPost: (teamId: string, integrationCreate: IntegrationCreate, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new message.
+     * @summary Create Message
+     * @param {string} teamId
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMessageV1TeamsTeamIdMessagesPost: (teamId: string, messageIn: MessageIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} teamId
@@ -28479,6 +28615,32 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getFeatureV1TeamsTeamIdFeaturesFeatureIdGet: (teamId: string, featureId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get an Integration.
+     * @summary Get Integration
+     * @param {string} teamId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGet: (teamId: string, integrationId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get team integrations.
+     * @summary Get Integrations
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIntegrationsV1TeamsTeamIdIntegrationsGet: (teamId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get a Message.
+     * @summary Get Message
+     * @param {string} teamId
+     * @param {string} messageId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMessageV1TeamsTeamIdMessagesMessageIdGet: (teamId: string, messageId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get Model.
      * @summary Get Model
@@ -29454,6 +29616,26 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     updateAuthenticatedUserProfileV1TeamsTeamIdUserPut: (teamId: string, userProfileIn: UserProfileIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update Integration.
+     * @summary Update Integration
+     * @param {string} teamId
+     * @param {string} integrationId
+     * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch: (teamId: string, integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Update a Message.
+     * @summary Update Message
+     * @param {string} teamId
+     * @param {string} messageId
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateMessageV1TeamsTeamIdMessagesMessageIdPatch: (teamId: string, messageId: string, messageIn: MessageIn, options?: any) => Promise<RequestArgs>;
 };
 /**
  * TeamsApi - functional programming interface
@@ -29596,6 +29778,24 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     createFeatureV1TeamsTeamIdFeaturesPost(teamId: string, featureIn: FeatureIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
+    /**
+     * Create a new integration.
+     * @summary Create Integration
+     * @param {string} teamId
+     * @param {IntegrationCreate} integrationCreate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createIntegrationV1TeamsTeamIdIntegrationsPost(teamId: string, integrationCreate: IntegrationCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    /**
+     * Create a new message.
+     * @summary Create Message
+     * @param {string} teamId
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMessageV1TeamsTeamIdMessagesPost(teamId: string, messageIn: MessageIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -29779,6 +29979,32 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getFeatureV1TeamsTeamIdFeaturesFeatureIdGet(teamId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
+    /**
+     * Get an Integration.
+     * @summary Get Integration
+     * @param {string} teamId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGet(teamId: string, integrationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    /**
+     * Get team integrations.
+     * @summary Get Integrations
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIntegrationsV1TeamsTeamIdIntegrationsGet(teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Integration>>>;
+    /**
+     * Get a Message.
+     * @summary Get Message
+     * @param {string} teamId
+     * @param {string} messageId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMessageV1TeamsTeamIdMessagesMessageIdGet(teamId: string, messageId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
     /**
      * Get Model.
      * @summary Get Model
@@ -30754,6 +30980,26 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     updateAuthenticatedUserProfileV1TeamsTeamIdUserPut(teamId: string, userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    /**
+     * Update Integration.
+     * @summary Update Integration
+     * @param {string} teamId
+     * @param {string} integrationId
+     * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId: string, integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    /**
+     * Update a Message.
+     * @summary Update Message
+     * @param {string} teamId
+     * @param {string} messageId
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateMessageV1TeamsTeamIdMessagesMessageIdPatch(teamId: string, messageId: string, messageIn: MessageIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
 };
 /**
  * TeamsApi - factory interface
@@ -30896,6 +31142,24 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     createFeatureV1TeamsTeamIdFeaturesPost(teamId: string, featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut>;
+    /**
+     * Create a new integration.
+     * @summary Create Integration
+     * @param {string} teamId
+     * @param {IntegrationCreate} integrationCreate
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createIntegrationV1TeamsTeamIdIntegrationsPost(teamId: string, integrationCreate: IntegrationCreate, options?: any): AxiosPromise<Integration>;
+    /**
+     * Create a new message.
+     * @summary Create Message
+     * @param {string} teamId
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMessageV1TeamsTeamIdMessagesPost(teamId: string, messageIn: MessageIn, options?: any): AxiosPromise<MessageOut>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -31079,6 +31343,32 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getFeatureV1TeamsTeamIdFeaturesFeatureIdGet(teamId: string, featureId: string, options?: any): AxiosPromise<FeatureOut>;
+    /**
+     * Get an Integration.
+     * @summary Get Integration
+     * @param {string} teamId
+     * @param {string} integrationId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGet(teamId: string, integrationId: string, options?: any): AxiosPromise<Integration>;
+    /**
+     * Get team integrations.
+     * @summary Get Integrations
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIntegrationsV1TeamsTeamIdIntegrationsGet(teamId: string, options?: any): AxiosPromise<Array<Integration>>;
+    /**
+     * Get a Message.
+     * @summary Get Message
+     * @param {string} teamId
+     * @param {string} messageId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMessageV1TeamsTeamIdMessagesMessageIdGet(teamId: string, messageId: string, options?: any): AxiosPromise<MessageOut>;
     /**
      * Get Model.
      * @summary Get Model
@@ -32054,6 +32344,26 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     updateAuthenticatedUserProfileV1TeamsTeamIdUserPut(teamId: string, userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    /**
+     * Update Integration.
+     * @summary Update Integration
+     * @param {string} teamId
+     * @param {string} integrationId
+     * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId: string, integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): AxiosPromise<Integration>;
+    /**
+     * Update a Message.
+     * @summary Update Message
+     * @param {string} teamId
+     * @param {string} messageId
+     * @param {MessageIn} messageIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateMessageV1TeamsTeamIdMessagesMessageIdPatch(teamId: string, messageId: string, messageIn: MessageIn, options?: any): AxiosPromise<MessageOut>;
 };
 /**
  * Request parameters for addAUserToATeamV1TeamsTeamIdUsersUserIdPut operation in TeamsApi.
@@ -32380,6 +32690,44 @@ export interface TeamsApiCreateFeatureV1TeamsTeamIdFeaturesPostRequest {
      * @memberof TeamsApiCreateFeatureV1TeamsTeamIdFeaturesPost
      */
     readonly featureIn: FeatureIn;
+}
+/**
+ * Request parameters for createIntegrationV1TeamsTeamIdIntegrationsPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiCreateIntegrationV1TeamsTeamIdIntegrationsPostRequest
+ */
+export interface TeamsApiCreateIntegrationV1TeamsTeamIdIntegrationsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiCreateIntegrationV1TeamsTeamIdIntegrationsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {IntegrationCreate}
+     * @memberof TeamsApiCreateIntegrationV1TeamsTeamIdIntegrationsPost
+     */
+    readonly integrationCreate: IntegrationCreate;
+}
+/**
+ * Request parameters for createMessageV1TeamsTeamIdMessagesPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiCreateMessageV1TeamsTeamIdMessagesPostRequest
+ */
+export interface TeamsApiCreateMessageV1TeamsTeamIdMessagesPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiCreateMessageV1TeamsTeamIdMessagesPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {MessageIn}
+     * @memberof TeamsApiCreateMessageV1TeamsTeamIdMessagesPost
+     */
+    readonly messageIn: MessageIn;
 }
 /**
  * Request parameters for createModelsV1TeamsTeamIdStudiesStudyIdModelsPost operation in TeamsApi.
@@ -32778,6 +33126,57 @@ export interface TeamsApiGetFeatureV1TeamsTeamIdFeaturesFeatureIdGetRequest {
      * @memberof TeamsApiGetFeatureV1TeamsTeamIdFeaturesFeatureIdGet
      */
     readonly featureId: string;
+}
+/**
+ * Request parameters for getIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGetRequest
+ */
+export interface TeamsApiGetIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGet
+     */
+    readonly integrationId: string;
+}
+/**
+ * Request parameters for getIntegrationsV1TeamsTeamIdIntegrationsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetIntegrationsV1TeamsTeamIdIntegrationsGetRequest
+ */
+export interface TeamsApiGetIntegrationsV1TeamsTeamIdIntegrationsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetIntegrationsV1TeamsTeamIdIntegrationsGet
+     */
+    readonly teamId: string;
+}
+/**
+ * Request parameters for getMessageV1TeamsTeamIdMessagesMessageIdGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetMessageV1TeamsTeamIdMessagesMessageIdGetRequest
+ */
+export interface TeamsApiGetMessageV1TeamsTeamIdMessagesMessageIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetMessageV1TeamsTeamIdMessagesMessageIdGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetMessageV1TeamsTeamIdMessagesMessageIdGet
+     */
+    readonly messageId: string;
 }
 /**
  * Request parameters for getModelV1TeamsTeamIdModelsModelIdGet operation in TeamsApi.
@@ -36355,6 +36754,56 @@ export interface TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamIdUserPutReque
     readonly userProfileIn: UserProfileIn;
 }
 /**
+ * Request parameters for updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch operation in TeamsApi.
+ * @export
+ * @interface TeamsApiUpdateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatchRequest
+ */
+export interface TeamsApiUpdateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatchRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiUpdateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiUpdateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch
+     */
+    readonly integrationId: string;
+    /**
+     *
+     * @type {IntegrationUpdateIn}
+     * @memberof TeamsApiUpdateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch
+     */
+    readonly integrationUpdateIn: IntegrationUpdateIn;
+}
+/**
+ * Request parameters for updateMessageV1TeamsTeamIdMessagesMessageIdPatch operation in TeamsApi.
+ * @export
+ * @interface TeamsApiUpdateMessageV1TeamsTeamIdMessagesMessageIdPatchRequest
+ */
+export interface TeamsApiUpdateMessageV1TeamsTeamIdMessagesMessageIdPatchRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiUpdateMessageV1TeamsTeamIdMessagesMessageIdPatch
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiUpdateMessageV1TeamsTeamIdMessagesMessageIdPatch
+     */
+    readonly messageId: string;
+    /**
+     *
+     * @type {MessageIn}
+     * @memberof TeamsApiUpdateMessageV1TeamsTeamIdMessagesMessageIdPatch
+     */
+    readonly messageIn: MessageIn;
+}
+/**
  * TeamsApi - object-oriented interface
  * @export
  * @class TeamsApi
@@ -36487,6 +36936,24 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     createFeatureV1TeamsTeamIdFeaturesPost(requestParameters: TeamsApiCreateFeatureV1TeamsTeamIdFeaturesPostRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
+    /**
+     * Create a new integration.
+     * @summary Create Integration
+     * @param {TeamsApiCreateIntegrationV1TeamsTeamIdIntegrationsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createIntegrationV1TeamsTeamIdIntegrationsPost(requestParameters: TeamsApiCreateIntegrationV1TeamsTeamIdIntegrationsPostRequest, options?: any): Promise<import("axios").AxiosResponse<Integration>>;
+    /**
+     * Create a new message.
+     * @summary Create Message
+     * @param {TeamsApiCreateMessageV1TeamsTeamIdMessagesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createMessageV1TeamsTeamIdMessagesPost(requestParameters: TeamsApiCreateMessageV1TeamsTeamIdMessagesPostRequest, options?: any): Promise<import("axios").AxiosResponse<MessageOut>>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -36667,6 +37134,33 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     getFeatureV1TeamsTeamIdFeaturesFeatureIdGet(requestParameters: TeamsApiGetFeatureV1TeamsTeamIdFeaturesFeatureIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeatureOut>>;
+    /**
+     * Get an Integration.
+     * @summary Get Integration
+     * @param {TeamsApiGetIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGet(requestParameters: TeamsApiGetIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<Integration>>;
+    /**
+     * Get team integrations.
+     * @summary Get Integrations
+     * @param {TeamsApiGetIntegrationsV1TeamsTeamIdIntegrationsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getIntegrationsV1TeamsTeamIdIntegrationsGet(requestParameters: TeamsApiGetIntegrationsV1TeamsTeamIdIntegrationsGetRequest, options?: any): Promise<import("axios").AxiosResponse<Integration[]>>;
+    /**
+     * Get a Message.
+     * @summary Get Message
+     * @param {TeamsApiGetMessageV1TeamsTeamIdMessagesMessageIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getMessageV1TeamsTeamIdMessagesMessageIdGet(requestParameters: TeamsApiGetMessageV1TeamsTeamIdMessagesMessageIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<MessageOut>>;
     /**
      * Get Model.
      * @summary Get Model
@@ -37252,6 +37746,24 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     updateAuthenticatedUserProfileV1TeamsTeamIdUserPut(requestParameters: TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamIdUserPutRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+    /**
+     * Update Integration.
+     * @summary Update Integration
+     * @param {TeamsApiUpdateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(requestParameters: TeamsApiUpdateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<Integration>>;
+    /**
+     * Update a Message.
+     * @summary Update Message
+     * @param {TeamsApiUpdateMessageV1TeamsTeamIdMessagesMessageIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    updateMessageV1TeamsTeamIdMessagesMessageIdPatch(requestParameters: TeamsApiUpdateMessageV1TeamsTeamIdMessagesMessageIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<MessageOut>>;
 }
 /**
  * TimelineApi - axios parameter creator
