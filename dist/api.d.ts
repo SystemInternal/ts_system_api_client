@@ -6416,6 +6416,12 @@ export interface UserPrivateProfileOut {
      */
     created_at: string;
     /**
+     * The Author ID corresponding to this user.
+     * @type {string}
+     * @memberof UserPrivateProfileOut
+     */
+    author_id: string;
+    /**
      * User name that is visible to others on System.
      * @type {string}
      * @memberof UserPrivateProfileOut
@@ -6519,6 +6525,12 @@ export interface UserPublicProfileOut {
      * @memberof UserPublicProfileOut
      */
     created_at: string;
+    /**
+     * The Author ID corresponding to this user.
+     * @type {string}
+     * @memberof UserPublicProfileOut
+     */
+    author_id: string;
     /**
      * User name that is visible to others on System.
      * @type {string}
@@ -11265,6 +11277,15 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      */
     createConceptV1ConceptsPost: (conceptIn: ConceptIn, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a Concept.
+     * @summary Create Concept
+     * @param {string} teamId
+     * @param {ConceptIn} conceptIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createConceptV1TeamsTeamIdConceptsPost: (teamId: string, conceptIn: ConceptIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
      * @summary Delete Concept
      * @param {string} conceptId
@@ -11273,6 +11294,15 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      */
     deleteConceptV1ConceptsConceptIdDelete: (conceptId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+     * @summary Delete Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteConceptV1TeamsTeamIdConceptsConceptIdDelete: (teamId: string, conceptId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get Concept.
      * @summary Get Concept
      * @param {string} conceptId
@@ -11280,6 +11310,15 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     getConceptV1ConceptsConceptIdGet: (conceptId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get Concept.
+     * @summary Get Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getConceptV1TeamsTeamIdConceptsConceptIdGet: (teamId: string, conceptId: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
@@ -11320,6 +11359,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
     /**
      * List Concepts.
      * @summary List Concepts
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -11334,7 +11374,26 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listConceptsV1ConceptsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     * List Concepts.
+     * @summary List Concepts
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {ConceptSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listConceptsV1TeamsTeamIdConceptsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -11356,6 +11415,28 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: (conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+     * @param {number} [hops] Number of hops.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+     * @param {ValidRelationshipStrengthEnum} [minStrength]
+     * @param {ValidRelationshipStrengthEnum} [maxStrength]
+     * @param {ValidReproducibilityEnum} [minReproducibility]
+     * @param {ValidReproducibilityEnum} [maxReproducibility]
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet: (teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -11410,6 +11491,15 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      */
     createConceptV1ConceptsPost(conceptIn: ConceptIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
     /**
+     * Create a Concept.
+     * @summary Create Concept
+     * @param {string} teamId
+     * @param {ConceptIn} conceptIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
+    /**
      * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
      * @summary Delete Concept
      * @param {string} conceptId
@@ -11418,6 +11508,15 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      */
     deleteConceptV1ConceptsConceptIdDelete(conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+     * @summary Delete Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Get Concept.
      * @summary Get Concept
      * @param {string} conceptId
@@ -11425,6 +11524,15 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getConceptV1ConceptsConceptIdGet(conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
+    /**
+     * Get Concept.
+     * @summary Get Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
@@ -11465,6 +11573,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
     /**
      * List Concepts.
      * @summary List Concepts
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -11479,7 +11588,26 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listConceptsV1ConceptsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    /**
+     * List Concepts.
+     * @summary List Concepts
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {ConceptSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -11501,6 +11629,28 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>>;
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+     * @param {number} [hops] Number of hops.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+     * @param {ValidRelationshipStrengthEnum} [minStrength]
+     * @param {ValidRelationshipStrengthEnum} [maxStrength]
+     * @param {ValidReproducibilityEnum} [minReproducibility]
+     * @param {ValidReproducibilityEnum} [maxReproducibility]
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -11555,6 +11705,15 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      */
     createConceptV1ConceptsPost(conceptIn: ConceptIn, options?: any): AxiosPromise<ConceptOut>;
     /**
+     * Create a Concept.
+     * @summary Create Concept
+     * @param {string} teamId
+     * @param {ConceptIn} conceptIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): AxiosPromise<ConceptOut>;
+    /**
      * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
      * @summary Delete Concept
      * @param {string} conceptId
@@ -11563,6 +11722,15 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      */
     deleteConceptV1ConceptsConceptIdDelete(conceptId: string, options?: any): AxiosPromise<void>;
     /**
+     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+     * @summary Delete Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): AxiosPromise<void>;
+    /**
      * Get Concept.
      * @summary Get Concept
      * @param {string} conceptId
@@ -11570,6 +11738,15 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     getConceptV1ConceptsConceptIdGet(conceptId: string, options?: any): AxiosPromise<ConceptOut>;
+    /**
+     * Get Concept.
+     * @summary Get Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId: string, conceptId: string, options?: any): AxiosPromise<ConceptOut>;
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
@@ -11610,6 +11787,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
     /**
      * List Concepts.
      * @summary List Concepts
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -11624,7 +11802,26 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listConceptsV1ConceptsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    /**
+     * List Concepts.
+     * @summary List Concepts
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {ConceptSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -11646,6 +11843,28 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut>;
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+     * @param {number} [hops] Number of hops.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+     * @param {ValidRelationshipStrengthEnum} [minStrength]
+     * @param {ValidRelationshipStrengthEnum} [maxStrength]
+     * @param {ValidReproducibilityEnum} [minReproducibility]
+     * @param {ValidReproducibilityEnum} [maxReproducibility]
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -11700,6 +11919,25 @@ export interface ConceptsApiCreateConceptV1ConceptsPostRequest {
     readonly conceptIn: ConceptIn;
 }
 /**
+ * Request parameters for createConceptV1TeamsTeamIdConceptsPost operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiCreateConceptV1TeamsTeamIdConceptsPostRequest
+ */
+export interface ConceptsApiCreateConceptV1TeamsTeamIdConceptsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiCreateConceptV1TeamsTeamIdConceptsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {ConceptIn}
+     * @memberof ConceptsApiCreateConceptV1TeamsTeamIdConceptsPost
+     */
+    readonly conceptIn: ConceptIn;
+}
+/**
  * Request parameters for deleteConceptV1ConceptsConceptIdDelete operation in ConceptsApi.
  * @export
  * @interface ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest
@@ -11713,6 +11951,25 @@ export interface ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest {
     readonly conceptId: string;
 }
 /**
+ * Request parameters for deleteConceptV1TeamsTeamIdConceptsConceptIdDelete operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest
+ */
+export interface ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDelete
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDelete
+     */
+    readonly conceptId: string;
+}
+/**
  * Request parameters for getConceptV1ConceptsConceptIdGet operation in ConceptsApi.
  * @export
  * @interface ConceptsApiGetConceptV1ConceptsConceptIdGetRequest
@@ -11722,6 +11979,25 @@ export interface ConceptsApiGetConceptV1ConceptsConceptIdGetRequest {
      *
      * @type {string}
      * @memberof ConceptsApiGetConceptV1ConceptsConceptIdGet
+     */
+    readonly conceptId: string;
+}
+/**
+ * Request parameters for getConceptV1TeamsTeamIdConceptsConceptIdGet operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest
+ */
+export interface ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGet
      */
     readonly conceptId: string;
 }
@@ -11884,6 +12160,12 @@ export interface ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGetReques
  */
 export interface ConceptsApiListConceptsV1ConceptsGetRequest {
     /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiListConceptsV1ConceptsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof ConceptsApiListConceptsV1ConceptsGet
@@ -11947,6 +12229,85 @@ export interface ConceptsApiListConceptsV1ConceptsGetRequest {
      * Is Concept in the Concept Graph?
      * @type {boolean}
      * @memberof ConceptsApiListConceptsV1ConceptsGet
+     */
+    readonly inConceptGraph?: boolean;
+}
+/**
+ * Request parameters for listConceptsV1TeamsTeamIdConceptsGet operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiListConceptsV1TeamsTeamIdConceptsGetRequest
+ */
+export interface ConceptsApiListConceptsV1TeamsTeamIdConceptsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly teamId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {ConceptSortEnum}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly orderBy?: ConceptSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
      */
     readonly inConceptGraph?: boolean;
 }
@@ -12038,6 +12399,103 @@ export interface ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConcept
      * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @type {boolean}
      * @memberof ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
+     */
+    readonly idsOnly?: boolean;
+}
+/**
+ * Request parameters for listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest
+ */
+export interface ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly conceptId: string;
+    /**
+     * Order by this field.
+     * @type {ConceptToConceptSystemOfSortEnum}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly orderBy?: ConceptToConceptSystemOfSortEnum;
+    /**
+     * Number of hops.
+     * @type {number}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly hops?: number;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Include in response available population ids for filtering.
+     * @type {boolean}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly includePathPopIds?: boolean;
+    /**
+     * Stringified list of lists of population id for path filtering.
+     * @type {string}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pathPopFilter?: string;
+    /**
+     *
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minStrength?: ValidRelationshipStrengthEnum;
+    /**
+     *
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxStrength?: ValidRelationshipStrengthEnum;
+    /**
+     *
+     * @type {ValidReproducibilityEnum}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minReproducibility?: ValidReproducibilityEnum;
+    /**
+     *
+     * @type {ValidReproducibilityEnum}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxReproducibility?: ValidReproducibilityEnum;
+    /**
+     *
+     * @type {number}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
      */
     readonly idsOnly?: boolean;
 }
@@ -12222,6 +12680,15 @@ export declare class ConceptsApi extends BaseAPI {
      */
     createConceptV1ConceptsPost(requestParameters: ConceptsApiCreateConceptV1ConceptsPostRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptOut>>;
     /**
+     * Create a Concept.
+     * @summary Create Concept
+     * @param {ConceptsApiCreateConceptV1TeamsTeamIdConceptsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    createConceptV1TeamsTeamIdConceptsPost(requestParameters: ConceptsApiCreateConceptV1TeamsTeamIdConceptsPostRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptOut>>;
+    /**
      * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
      * @summary Delete Concept
      * @param {ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest} requestParameters Request parameters.
@@ -12231,6 +12698,15 @@ export declare class ConceptsApi extends BaseAPI {
      */
     deleteConceptV1ConceptsConceptIdDelete(requestParameters: ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
+     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+     * @summary Delete Concept
+     * @param {ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters: ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
      * Get Concept.
      * @summary Get Concept
      * @param {ConceptsApiGetConceptV1ConceptsConceptIdGetRequest} requestParameters Request parameters.
@@ -12239,6 +12715,15 @@ export declare class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     getConceptV1ConceptsConceptIdGet(requestParameters: ConceptsApiGetConceptV1ConceptsConceptIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptOut>>;
+    /**
+     * Get Concept.
+     * @summary Get Concept
+     * @param {ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    getConceptV1TeamsTeamIdConceptsConceptIdGet(requestParameters: ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptOut>>;
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
@@ -12267,6 +12752,15 @@ export declare class ConceptsApi extends BaseAPI {
      */
     listConceptsV1ConceptsGet(requestParameters?: ConceptsApiListConceptsV1ConceptsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptPaginationOut>>;
     /**
+     * List Concepts.
+     * @summary List Concepts
+     * @param {ConceptsApiListConceptsV1TeamsTeamIdConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    listConceptsV1TeamsTeamIdConceptsGet(requestParameters: ConceptsApiListConceptsV1TeamsTeamIdConceptsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptPaginationOut>>;
+    /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
      * @param {ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGetRequest} requestParameters Request parameters.
@@ -12275,6 +12769,15 @@ export declare class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters: ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGetRequest, options?: any): Promise<import("axios").AxiosResponse<SystemOfConceptsPaginationOut>>;
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(requestParameters: ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest, options?: any): Promise<import("axios").AxiosResponse<SystemOfConceptsPaginationOut>>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -26926,6 +27429,28 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      */
     listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet: (conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+     * @param {number} [hops] Number of hops.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+     * @param {ValidRelationshipStrengthEnum} [minStrength]
+     * @param {ValidRelationshipStrengthEnum} [maxStrength]
+     * @param {ValidReproducibilityEnum} [minReproducibility]
+     * @param {ValidReproducibilityEnum} [maxReproducibility]
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet: (teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {string} featureId
@@ -27102,6 +27627,28 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      */
     listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>>;
     /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+     * @param {number} [hops] Number of hops.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+     * @param {ValidRelationshipStrengthEnum} [minStrength]
+     * @param {ValidRelationshipStrengthEnum} [maxStrength]
+     * @param {ValidReproducibilityEnum} [minReproducibility]
+     * @param {ValidReproducibilityEnum} [maxReproducibility]
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>>;
+    /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {string} featureId
@@ -27277,6 +27824,28 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut>;
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+     * @param {number} [hops] Number of hops.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+     * @param {ValidRelationshipStrengthEnum} [minStrength]
+     * @param {ValidRelationshipStrengthEnum} [maxStrength]
+     * @param {ValidReproducibilityEnum} [minReproducibility]
+     * @param {ValidReproducibilityEnum} [maxReproducibility]
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -27515,6 +28084,103 @@ export interface SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsG
      * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @type {boolean}
      * @memberof SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
+     */
+    readonly idsOnly?: boolean;
+}
+/**
+ * Request parameters for listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet operation in SystemApi.
+ * @export
+ * @interface SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest
+ */
+export interface SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly conceptId: string;
+    /**
+     * Order by this field.
+     * @type {ConceptToConceptSystemOfSortEnum}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly orderBy?: ConceptToConceptSystemOfSortEnum;
+    /**
+     * Number of hops.
+     * @type {number}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly hops?: number;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Include in response available population ids for filtering.
+     * @type {boolean}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly includePathPopIds?: boolean;
+    /**
+     * Stringified list of lists of population id for path filtering.
+     * @type {string}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pathPopFilter?: string;
+    /**
+     *
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minStrength?: ValidRelationshipStrengthEnum;
+    /**
+     *
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxStrength?: ValidRelationshipStrengthEnum;
+    /**
+     *
+     * @type {ValidReproducibilityEnum}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minReproducibility?: ValidReproducibilityEnum;
+    /**
+     *
+     * @type {ValidReproducibilityEnum}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxReproducibility?: ValidReproducibilityEnum;
+    /**
+     *
+     * @type {number}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
      */
     readonly idsOnly?: boolean;
 }
@@ -28219,6 +28885,15 @@ export declare class SystemApi extends BaseAPI {
      */
     listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters: SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGetRequest, options?: any): Promise<import("axios").AxiosResponse<SystemOfConceptsPaginationOut>>;
     /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemApi
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(requestParameters: SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest, options?: any): Promise<import("axios").AxiosResponse<SystemOfConceptsPaginationOut>>;
+    /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGetRequest} requestParameters Request parameters.
@@ -28397,6 +29072,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createAuthorV1TeamsTeamIdAuthorsPost: (teamId: string, authorIn: AuthorIn, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a Concept.
+     * @summary Create Concept
+     * @param {string} teamId
+     * @param {ConceptIn} conceptIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createConceptV1TeamsTeamIdConceptsPost: (teamId: string, conceptIn: ConceptIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {string} teamId
@@ -28480,6 +29164,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     deleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete: (teamId: string, authorId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+     * @summary Delete Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteConceptV1TeamsTeamIdConceptsConceptIdDelete: (teamId: string, conceptId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -28589,6 +29282,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId: string, minRelationshipStrength?: number, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get Concept.
+     * @summary Get Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getConceptV1TeamsTeamIdConceptsConceptIdGet: (teamId: string, conceptId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -29014,6 +29716,25 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listAuthorsV1TeamsTeamIdStudiesStudyIdAuthorsGet: (teamId: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
+     * List Concepts.
+     * @summary List Concepts
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {ConceptSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listConceptsV1TeamsTeamIdConceptsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} teamId
@@ -29176,6 +29897,28 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     listStudiesV1TeamsTeamIdStudiesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+     * @param {number} [hops] Number of hops.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+     * @param {ValidRelationshipStrengthEnum} [minStrength]
+     * @param {ValidRelationshipStrengthEnum} [maxStrength]
+     * @param {ValidReproducibilityEnum} [minReproducibility]
+     * @param {ValidReproducibilityEnum} [maxReproducibility]
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet: (teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -29761,6 +30504,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     createAuthorV1TeamsTeamIdAuthorsPost(teamId: string, authorIn: AuthorIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
     /**
+     * Create a Concept.
+     * @summary Create Concept
+     * @param {string} teamId
+     * @param {ConceptIn} conceptIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {string} teamId
@@ -29844,6 +30596,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete(teamId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+     * @summary Delete Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -29953,6 +30714,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    /**
+     * Get Concept.
+     * @summary Get Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -30378,6 +31148,25 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     listAuthorsV1TeamsTeamIdStudiesStudyIdAuthorsGet(teamId: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
     /**
+     * List Concepts.
+     * @summary List Concepts
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {ConceptSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} teamId
@@ -30540,6 +31329,28 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listStudiesV1TeamsTeamIdStudiesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+     * @param {number} [hops] Number of hops.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+     * @param {ValidRelationshipStrengthEnum} [minStrength]
+     * @param {ValidRelationshipStrengthEnum} [maxStrength]
+     * @param {ValidReproducibilityEnum} [minReproducibility]
+     * @param {ValidReproducibilityEnum} [maxReproducibility]
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -31125,6 +31936,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     createAuthorV1TeamsTeamIdAuthorsPost(teamId: string, authorIn: AuthorIn, options?: any): AxiosPromise<AuthorOut>;
     /**
+     * Create a Concept.
+     * @summary Create Concept
+     * @param {string} teamId
+     * @param {ConceptIn} conceptIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): AxiosPromise<ConceptOut>;
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {string} teamId
@@ -31208,6 +32028,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     deleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete(teamId: string, authorId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+     * @summary Delete Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): AxiosPromise<void>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -31317,6 +32146,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, options?: any): AxiosPromise<GraphData>;
+    /**
+     * Get Concept.
+     * @summary Get Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId: string, conceptId: string, options?: any): AxiosPromise<ConceptOut>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -31742,6 +32580,25 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     listAuthorsV1TeamsTeamIdStudiesStudyIdAuthorsGet(teamId: string, studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
     /**
+     * List Concepts.
+     * @summary List Concepts
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {ConceptSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} teamId
@@ -31904,6 +32761,28 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listStudiesV1TeamsTeamIdStudiesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+     * @param {number} [hops] Number of hops.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+     * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+     * @param {ValidRelationshipStrengthEnum} [minStrength]
+     * @param {ValidRelationshipStrengthEnum} [maxStrength]
+     * @param {ValidReproducibilityEnum} [minReproducibility]
+     * @param {ValidReproducibilityEnum} [maxReproducibility]
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -32654,6 +33533,25 @@ export interface TeamsApiCreateAuthorV1TeamsTeamIdAuthorsPostRequest {
     readonly authorIn: AuthorIn;
 }
 /**
+ * Request parameters for createConceptV1TeamsTeamIdConceptsPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest
+ */
+export interface TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiCreateConceptV1TeamsTeamIdConceptsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {ConceptIn}
+     * @memberof TeamsApiCreateConceptV1TeamsTeamIdConceptsPost
+     */
+    readonly conceptIn: ConceptIn;
+}
+/**
  * Request parameters for createDatasetV1TeamsTeamIdDatasetsPost operation in TeamsApi.
  * @export
  * @interface TeamsApiCreateDatasetV1TeamsTeamIdDatasetsPostRequest
@@ -32841,6 +33739,25 @@ export interface TeamsApiDeleteAuthorV1TeamsTeamIdAuthorsAuthorIdDeleteRequest {
      * @memberof TeamsApiDeleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete
      */
     readonly authorId: string;
+}
+/**
+ * Request parameters for deleteConceptV1TeamsTeamIdConceptsConceptIdDelete operation in TeamsApi.
+ * @export
+ * @interface TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest
+ */
+export interface TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDelete
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDelete
+     */
+    readonly conceptId: string;
 }
 /**
  * Request parameters for deleteDatasetV1TeamsTeamIdDatasetsDatasetIdDelete operation in TeamsApi.
@@ -33075,6 +33992,25 @@ export interface TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest
      * @memberof TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGet
      */
     readonly minRelationshipStrength?: number;
+}
+/**
+ * Request parameters for getConceptV1TeamsTeamIdConceptsConceptIdGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest
+ */
+export interface TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGet
+     */
+    readonly conceptId: string;
 }
 /**
  * Request parameters for getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet operation in TeamsApi.
@@ -34571,6 +35507,85 @@ export interface TeamsApiListAuthorsV1TeamsTeamIdStudiesStudyIdAuthorsGetRequest
     readonly sortBy?: string;
 }
 /**
+ * Request parameters for listConceptsV1TeamsTeamIdConceptsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest
+ */
+export interface TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly teamId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {ConceptSortEnum}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly orderBy?: ConceptSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly inConceptGraph?: boolean;
+}
+/**
  * Request parameters for listDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGet operation in TeamsApi.
  * @export
  * @interface TeamsApiListDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGetRequest
@@ -35267,6 +36282,103 @@ export interface TeamsApiListStudiesV1TeamsTeamIdStudiesGetRequest {
      * @memberof TeamsApiListStudiesV1TeamsTeamIdStudiesGet
      */
     readonly featureRelationship?: string;
+}
+/**
+ * Request parameters for listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest
+ */
+export interface TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly conceptId: string;
+    /**
+     * Order by this field.
+     * @type {ConceptToConceptSystemOfSortEnum}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly orderBy?: ConceptToConceptSystemOfSortEnum;
+    /**
+     * Number of hops.
+     * @type {number}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly hops?: number;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Include in response available population ids for filtering.
+     * @type {boolean}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly includePathPopIds?: boolean;
+    /**
+     * Stringified list of lists of population id for path filtering.
+     * @type {string}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pathPopFilter?: string;
+    /**
+     *
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minStrength?: ValidRelationshipStrengthEnum;
+    /**
+     *
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxStrength?: ValidRelationshipStrengthEnum;
+    /**
+     *
+     * @type {ValidReproducibilityEnum}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minReproducibility?: ValidReproducibilityEnum;
+    /**
+     *
+     * @type {ValidReproducibilityEnum}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxReproducibility?: ValidReproducibilityEnum;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly idsOnly?: boolean;
 }
 /**
  * Request parameters for listSystemOfFeaturesV1TeamsTeamIdFeaturesFeatureIdSystemFeaturesGet operation in TeamsApi.
@@ -36919,6 +38031,15 @@ export declare class TeamsApi extends BaseAPI {
      */
     createAuthorV1TeamsTeamIdAuthorsPost(requestParameters: TeamsApiCreateAuthorV1TeamsTeamIdAuthorsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut>>;
     /**
+     * Create a Concept.
+     * @summary Create Concept
+     * @param {TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createConceptV1TeamsTeamIdConceptsPost(requestParameters: TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptOut>>;
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {TeamsApiCreateDatasetV1TeamsTeamIdDatasetsPostRequest} requestParameters Request parameters.
@@ -36999,6 +38120,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     deleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete(requestParameters: TeamsApiDeleteAuthorV1TeamsTeamIdAuthorsAuthorIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+     * @summary Delete Concept
+     * @param {TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters: TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -37107,6 +38237,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters: TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest, options?: any): Promise<import("axios").AxiosResponse<GraphData>>;
+    /**
+     * Get Concept.
+     * @summary Get Concept
+     * @param {TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getConceptV1TeamsTeamIdConceptsConceptIdGet(requestParameters: TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptOut>>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -37378,6 +38517,15 @@ export declare class TeamsApi extends BaseAPI {
      */
     listAuthorsV1TeamsTeamIdStudiesStudyIdAuthorsGet(requestParameters: TeamsApiListAuthorsV1TeamsTeamIdStudiesStudyIdAuthorsGetRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
     /**
+     * List Concepts.
+     * @summary List Concepts
+     * @param {TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listConceptsV1TeamsTeamIdConceptsGet(requestParameters: TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptPaginationOut>>;
+    /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {TeamsApiListDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGetRequest} requestParameters Request parameters.
@@ -37449,6 +38597,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     listStudiesV1TeamsTeamIdStudiesGet(requestParameters: TeamsApiListStudiesV1TeamsTeamIdStudiesGetRequest, options?: any): Promise<import("axios").AxiosResponse<StudyPaginationOut>>;
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(requestParameters: TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest, options?: any): Promise<import("axios").AxiosResponse<SystemOfConceptsPaginationOut>>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
