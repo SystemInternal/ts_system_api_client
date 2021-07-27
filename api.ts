@@ -6400,6 +6400,12 @@ export interface UserPrivateProfileOut {
      */
     created_at: string;
     /**
+     * The Author ID corresponding to this user.
+     * @type {string}
+     * @memberof UserPrivateProfileOut
+     */
+    author_id: string;
+    /**
      * User name that is visible to others on System.
      * @type {string}
      * @memberof UserPrivateProfileOut
@@ -6503,6 +6509,12 @@ export interface UserPublicProfileOut {
      * @memberof UserPublicProfileOut
      */
     created_at: string;
+    /**
+     * The Author ID corresponding to this user.
+     * @type {string}
+     * @memberof UserPublicProfileOut
+     */
+    author_id: string;
     /**
      * User name that is visible to others on System.
      * @type {string}
@@ -14977,6 +14989,68 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Create a Concept.
+         * @summary Create Concept
+         * @param {string} teamId 
+         * @param {ConceptIn} conceptIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createConceptV1TeamsTeamIdConceptsPost: async (teamId: string, conceptIn: ConceptIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling createConceptV1TeamsTeamIdConceptsPost.');
+            }
+            // verify required parameter 'conceptIn' is not null or undefined
+            if (conceptIn === null || conceptIn === undefined) {
+                throw new RequiredError('conceptIn','Required parameter conceptIn was null or undefined when calling createConceptV1TeamsTeamIdConceptsPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof conceptIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(conceptIn !== undefined ? conceptIn : {}) : (conceptIn || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
          * @summary Delete Concept
          * @param {string} conceptId 
@@ -15030,6 +15104,65 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
+         * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+         * @summary Delete Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteConceptV1TeamsTeamIdConceptsConceptIdDelete: async (teamId: string, conceptId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling deleteConceptV1TeamsTeamIdConceptsConceptIdDelete.');
+            }
+            // verify required parameter 'conceptId' is not null or undefined
+            if (conceptId === null || conceptId === undefined) {
+                throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling deleteConceptV1TeamsTeamIdConceptsConceptIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get Concept.
          * @summary Get Concept
          * @param {string} conceptId 
@@ -15042,6 +15175,65 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
                 throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling getConceptV1ConceptsConceptIdGet.');
             }
             const localVarPath = `/v1/concepts/{concept_id}`
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get Concept.
+         * @summary Get Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptV1TeamsTeamIdConceptsConceptIdGet: async (teamId: string, conceptId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling getConceptV1TeamsTeamIdConceptsConceptIdGet.');
+            }
+            // verify required parameter 'conceptId' is not null or undefined
+            if (conceptId === null || conceptId === undefined) {
+                throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling getConceptV1TeamsTeamIdConceptsConceptIdGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
                 .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -15295,6 +15487,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * List Concepts.
          * @summary List Concepts
+         * @param {string} [teamId] 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -15309,8 +15502,120 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet: async (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listConceptsV1ConceptsGet: async (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/concepts`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List Concepts.
+         * @summary List Concepts
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listConceptsV1TeamsTeamIdConceptsGet: async (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling listConceptsV1TeamsTeamIdConceptsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -15420,6 +15725,130 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
                 throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet.');
             }
             const localVarPath = `/v1/concepts/{concept_id}/system/concepts`
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (hops !== undefined) {
+                localVarQueryParameter['hops'] = hops;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (includePathPopIds !== undefined) {
+                localVarQueryParameter['include_path_pop_ids'] = includePathPopIds;
+            }
+
+            if (pathPopFilter !== undefined) {
+                localVarQueryParameter['path_pop_filter'] = pathPopFilter;
+            }
+
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+
+            if (maxStrength !== undefined) {
+                localVarQueryParameter['max_strength'] = maxStrength;
+            }
+
+            if (minReproducibility !== undefined) {
+                localVarQueryParameter['min_reproducibility'] = minReproducibility;
+            }
+
+            if (maxReproducibility !== undefined) {
+                localVarQueryParameter['max_reproducibility'] = maxReproducibility;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get the concepts in the requested concept\'s system.
+         * @summary List System Of Concepts
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {ValidRelationshipStrengthEnum} [minStrength] 
+         * @param {ValidRelationshipStrengthEnum} [maxStrength] 
+         * @param {ValidReproducibilityEnum} [minReproducibility] 
+         * @param {ValidReproducibilityEnum} [maxReproducibility] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet: async (teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet.');
+            }
+            // verify required parameter 'conceptId' is not null or undefined
+            if (conceptId === null || conceptId === undefined) {
+                throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}/system/concepts`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
                 .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -15758,6 +16187,21 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Create a Concept.
+         * @summary Create Concept
+         * @param {string} teamId 
+         * @param {ConceptIn} conceptIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>> {
+            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
          * @summary Delete Concept
          * @param {string} conceptId 
@@ -15772,6 +16216,21 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+         * @summary Delete Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId, conceptId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get Concept.
          * @summary Get Concept
          * @param {string} conceptId 
@@ -15780,6 +16239,21 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          */
         async getConceptV1ConceptsConceptIdGet(conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>> {
             const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).getConceptV1ConceptsConceptIdGet(conceptId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get Concept.
+         * @summary Get Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>> {
+            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId, conceptId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15837,6 +16311,7 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
         /**
          * List Concepts.
          * @summary List Concepts
+         * @param {string} [teamId] 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -15851,8 +16326,33 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
-            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
+        async listConceptsV1ConceptsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listConceptsV1ConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * List Concepts.
+         * @summary List Concepts
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15880,6 +16380,34 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          */
         async listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
             const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get the concepts in the requested concept\'s system.
+         * @summary List System Of Concepts
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {ValidRelationshipStrengthEnum} [minStrength] 
+         * @param {ValidRelationshipStrengthEnum} [maxStrength] 
+         * @param {ValidReproducibilityEnum} [minReproducibility] 
+         * @param {ValidReproducibilityEnum} [maxReproducibility] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
+            const localVarAxiosArgs = await ConceptsApiAxiosParamCreator(configuration).listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId, conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -15956,6 +16484,17 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
             return ConceptsApiFp(configuration).createConceptV1ConceptsPost(conceptIn, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a Concept.
+         * @summary Create Concept
+         * @param {string} teamId 
+         * @param {ConceptIn} conceptIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): AxiosPromise<ConceptOut> {
+            return ConceptsApiFp(configuration).createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
          * @summary Delete Concept
          * @param {string} conceptId 
@@ -15966,6 +16505,17 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
             return ConceptsApiFp(configuration).deleteConceptV1ConceptsConceptIdDelete(conceptId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+         * @summary Delete Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): AxiosPromise<void> {
+            return ConceptsApiFp(configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId, conceptId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get Concept.
          * @summary Get Concept
          * @param {string} conceptId 
@@ -15974,6 +16524,17 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          */
         getConceptV1ConceptsConceptIdGet(conceptId: string, options?: any): AxiosPromise<ConceptOut> {
             return ConceptsApiFp(configuration).getConceptV1ConceptsConceptIdGet(conceptId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get Concept.
+         * @summary Get Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId: string, conceptId: string, options?: any): AxiosPromise<ConceptOut> {
+            return ConceptsApiFp(configuration).getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId, conceptId, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s concepts.
@@ -16019,6 +16580,7 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
         /**
          * List Concepts.
          * @summary List Concepts
+         * @param {string} [teamId] 
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -16033,8 +16595,29 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
-            return ConceptsApiFp(configuration).listConceptsV1ConceptsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        listConceptsV1ConceptsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return ConceptsApiFp(configuration).listConceptsV1ConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Concepts.
+         * @summary List Concepts
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return ConceptsApiFp(configuration).listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the concepts in the requested concept\'s system.
@@ -16058,6 +16641,30 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          */
         listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
             return ConceptsApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the concepts in the requested concept\'s system.
+         * @summary List System Of Concepts
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {ValidRelationshipStrengthEnum} [minStrength] 
+         * @param {ValidRelationshipStrengthEnum} [maxStrength] 
+         * @param {ValidReproducibilityEnum} [minReproducibility] 
+         * @param {ValidReproducibilityEnum} [maxReproducibility] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
+            return ConceptsApiFp(configuration).listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId, conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s concepts.
@@ -16120,6 +16727,27 @@ export interface ConceptsApiCreateConceptV1ConceptsPostRequest {
 }
 
 /**
+ * Request parameters for createConceptV1TeamsTeamIdConceptsPost operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiCreateConceptV1TeamsTeamIdConceptsPostRequest
+ */
+export interface ConceptsApiCreateConceptV1TeamsTeamIdConceptsPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiCreateConceptV1TeamsTeamIdConceptsPost
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {ConceptIn}
+     * @memberof ConceptsApiCreateConceptV1TeamsTeamIdConceptsPost
+     */
+    readonly conceptIn: ConceptIn
+}
+
+/**
  * Request parameters for deleteConceptV1ConceptsConceptIdDelete operation in ConceptsApi.
  * @export
  * @interface ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest
@@ -16134,6 +16762,27 @@ export interface ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest {
 }
 
 /**
+ * Request parameters for deleteConceptV1TeamsTeamIdConceptsConceptIdDelete operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest
+ */
+export interface ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDelete
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDelete
+     */
+    readonly conceptId: string
+}
+
+/**
  * Request parameters for getConceptV1ConceptsConceptIdGet operation in ConceptsApi.
  * @export
  * @interface ConceptsApiGetConceptV1ConceptsConceptIdGetRequest
@@ -16143,6 +16792,27 @@ export interface ConceptsApiGetConceptV1ConceptsConceptIdGetRequest {
      * 
      * @type {string}
      * @memberof ConceptsApiGetConceptV1ConceptsConceptIdGet
+     */
+    readonly conceptId: string
+}
+
+/**
+ * Request parameters for getConceptV1TeamsTeamIdConceptsConceptIdGet operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest
+ */
+export interface ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGet
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGet
      */
     readonly conceptId: string
 }
@@ -16329,6 +16999,13 @@ export interface ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGetReques
  */
 export interface ConceptsApiListConceptsV1ConceptsGetRequest {
     /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiListConceptsV1ConceptsGet
+     */
+    readonly teamId?: string
+
+    /**
      * Search query.
      * @type {string}
      * @memberof ConceptsApiListConceptsV1ConceptsGet
@@ -16402,6 +17079,97 @@ export interface ConceptsApiListConceptsV1ConceptsGetRequest {
      * Is Concept in the Concept Graph?
      * @type {boolean}
      * @memberof ConceptsApiListConceptsV1ConceptsGet
+     */
+    readonly inConceptGraph?: boolean
+}
+
+/**
+ * Request parameters for listConceptsV1TeamsTeamIdConceptsGet operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiListConceptsV1TeamsTeamIdConceptsGetRequest
+ */
+export interface ConceptsApiListConceptsV1TeamsTeamIdConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly teamId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ConceptSortEnum}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly orderBy?: ConceptSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
      */
     readonly inConceptGraph?: boolean
 }
@@ -16507,6 +17275,118 @@ export interface ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConcept
      * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @type {boolean}
      * @memberof ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
+     */
+    readonly idsOnly?: boolean
+}
+
+/**
+ * Request parameters for listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest
+ */
+export interface ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly conceptId: string
+
+    /**
+     * Order by this field.
+     * @type {ConceptToConceptSystemOfSortEnum}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly orderBy?: ConceptToConceptSystemOfSortEnum
+
+    /**
+     * Number of hops.
+     * @type {number}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly hops?: number
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Include in response available population ids for filtering.
+     * @type {boolean}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly includePathPopIds?: boolean
+
+    /**
+     * Stringified list of lists of population id for path filtering.
+     * @type {string}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pathPopFilter?: string
+
+    /**
+     * 
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minStrength?: ValidRelationshipStrengthEnum
+
+    /**
+     * 
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxStrength?: ValidRelationshipStrengthEnum
+
+    /**
+     * 
+     * @type {ValidReproducibilityEnum}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minReproducibility?: ValidReproducibilityEnum
+
+    /**
+     * 
+     * @type {ValidReproducibilityEnum}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxReproducibility?: ValidReproducibilityEnum
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
      */
     readonly idsOnly?: boolean
 }
@@ -16720,6 +17600,18 @@ export class ConceptsApi extends BaseAPI {
     }
 
     /**
+     * Create a Concept.
+     * @summary Create Concept
+     * @param {ConceptsApiCreateConceptV1TeamsTeamIdConceptsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    public createConceptV1TeamsTeamIdConceptsPost(requestParameters: ConceptsApiCreateConceptV1TeamsTeamIdConceptsPostRequest, options?: any) {
+        return ConceptsApiFp(this.configuration).createConceptV1TeamsTeamIdConceptsPost(requestParameters.teamId, requestParameters.conceptIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
      * @summary Delete Concept
      * @param {ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest} requestParameters Request parameters.
@@ -16732,6 +17624,18 @@ export class ConceptsApi extends BaseAPI {
     }
 
     /**
+     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+     * @summary Delete Concept
+     * @param {ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    public deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters: ConceptsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest, options?: any) {
+        return ConceptsApiFp(this.configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters.teamId, requestParameters.conceptId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get Concept.
      * @summary Get Concept
      * @param {ConceptsApiGetConceptV1ConceptsConceptIdGetRequest} requestParameters Request parameters.
@@ -16741,6 +17645,18 @@ export class ConceptsApi extends BaseAPI {
      */
     public getConceptV1ConceptsConceptIdGet(requestParameters: ConceptsApiGetConceptV1ConceptsConceptIdGetRequest, options?: any) {
         return ConceptsApiFp(this.configuration).getConceptV1ConceptsConceptIdGet(requestParameters.conceptId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get Concept.
+     * @summary Get Concept
+     * @param {ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    public getConceptV1TeamsTeamIdConceptsConceptIdGet(requestParameters: ConceptsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest, options?: any) {
+        return ConceptsApiFp(this.configuration).getConceptV1TeamsTeamIdConceptsConceptIdGet(requestParameters.teamId, requestParameters.conceptId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -16776,7 +17692,19 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public listConceptsV1ConceptsGet(requestParameters: ConceptsApiListConceptsV1ConceptsGetRequest = {}, options?: any) {
-        return ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List Concepts.
+     * @summary List Concepts
+     * @param {ConceptsApiListConceptsV1TeamsTeamIdConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    public listConceptsV1TeamsTeamIdConceptsGet(requestParameters: ConceptsApiListConceptsV1TeamsTeamIdConceptsGetRequest, options?: any) {
+        return ConceptsApiFp(this.configuration).listConceptsV1TeamsTeamIdConceptsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -16789,6 +17717,18 @@ export class ConceptsApi extends BaseAPI {
      */
     public listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters: ConceptsApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGetRequest, options?: any) {
         return ConceptsApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters.conceptId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    public listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(requestParameters: ConceptsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest, options?: any) {
+        return ConceptsApiFp(this.configuration).listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(requestParameters.teamId, requestParameters.conceptId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45173,6 +46113,130 @@ export const SystemApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
+         * Get the concepts in the requested concept\'s system.
+         * @summary List System Of Concepts
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {ValidRelationshipStrengthEnum} [minStrength] 
+         * @param {ValidRelationshipStrengthEnum} [maxStrength] 
+         * @param {ValidReproducibilityEnum} [minReproducibility] 
+         * @param {ValidReproducibilityEnum} [maxReproducibility] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet: async (teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet.');
+            }
+            // verify required parameter 'conceptId' is not null or undefined
+            if (conceptId === null || conceptId === undefined) {
+                throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}/system/concepts`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (hops !== undefined) {
+                localVarQueryParameter['hops'] = hops;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (includePathPopIds !== undefined) {
+                localVarQueryParameter['include_path_pop_ids'] = includePathPopIds;
+            }
+
+            if (pathPopFilter !== undefined) {
+                localVarQueryParameter['path_pop_filter'] = pathPopFilter;
+            }
+
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+
+            if (maxStrength !== undefined) {
+                localVarQueryParameter['max_strength'] = maxStrength;
+            }
+
+            if (minReproducibility !== undefined) {
+                localVarQueryParameter['min_reproducibility'] = minReproducibility;
+            }
+
+            if (maxReproducibility !== undefined) {
+                localVarQueryParameter['max_reproducibility'] = maxReproducibility;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get the features in the requested feature\'s system.
          * @summary List System Of Features
          * @param {string} featureId 
@@ -46035,6 +47099,34 @@ export const SystemApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Get the concepts in the requested concept\'s system.
+         * @summary List System Of Concepts
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {ValidRelationshipStrengthEnum} [minStrength] 
+         * @param {ValidRelationshipStrengthEnum} [maxStrength] 
+         * @param {ValidReproducibilityEnum} [minReproducibility] 
+         * @param {ValidReproducibilityEnum} [maxReproducibility] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
+            const localVarAxiosArgs = await SystemApiAxiosParamCreator(configuration).listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId, conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Get the features in the requested feature\'s system.
          * @summary List System Of Features
          * @param {string} featureId 
@@ -46250,6 +47342,30 @@ export const SystemApiFactory = function (configuration?: Configuration, basePat
          */
         listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
             return SystemApiFp(configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the concepts in the requested concept\'s system.
+         * @summary List System Of Concepts
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {ValidRelationshipStrengthEnum} [minStrength] 
+         * @param {ValidRelationshipStrengthEnum} [maxStrength] 
+         * @param {ValidReproducibilityEnum} [minReproducibility] 
+         * @param {ValidReproducibilityEnum} [maxReproducibility] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
+            return SystemApiFp(configuration).listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId, conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested feature\'s system.
@@ -46516,6 +47632,118 @@ export interface SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsG
      * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
      * @type {boolean}
      * @memberof SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet
+     */
+    readonly idsOnly?: boolean
+}
+
+/**
+ * Request parameters for listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet operation in SystemApi.
+ * @export
+ * @interface SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest
+ */
+export interface SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly conceptId: string
+
+    /**
+     * Order by this field.
+     * @type {ConceptToConceptSystemOfSortEnum}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly orderBy?: ConceptToConceptSystemOfSortEnum
+
+    /**
+     * Number of hops.
+     * @type {number}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly hops?: number
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Include in response available population ids for filtering.
+     * @type {boolean}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly includePathPopIds?: boolean
+
+    /**
+     * Stringified list of lists of population id for path filtering.
+     * @type {string}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pathPopFilter?: string
+
+    /**
+     * 
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minStrength?: ValidRelationshipStrengthEnum
+
+    /**
+     * 
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxStrength?: ValidRelationshipStrengthEnum
+
+    /**
+     * 
+     * @type {ValidReproducibilityEnum}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minReproducibility?: ValidReproducibilityEnum
+
+    /**
+     * 
+     * @type {ValidReproducibilityEnum}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxReproducibility?: ValidReproducibilityEnum
+
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
      */
     readonly idsOnly?: boolean
 }
@@ -47328,6 +48556,18 @@ export class SystemApi extends BaseAPI {
      */
     public listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters: SystemApiListSystemOfConceptsV1ConceptsConceptIdSystemConceptsGetRequest, options?: any) {
         return SystemApiFp(this.configuration).listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet(requestParameters.conceptId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemApi
+     */
+    public listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(requestParameters: SystemApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest, options?: any) {
+        return SystemApiFp(this.configuration).listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(requestParameters.teamId, requestParameters.conceptId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48197,6 +49437,68 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Create a Concept.
+         * @summary Create Concept
+         * @param {string} teamId 
+         * @param {ConceptIn} conceptIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createConceptV1TeamsTeamIdConceptsPost: async (teamId: string, conceptIn: ConceptIn, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling createConceptV1TeamsTeamIdConceptsPost.');
+            }
+            // verify required parameter 'conceptIn' is not null or undefined
+            if (conceptIn === null || conceptIn === undefined) {
+                throw new RequiredError('conceptIn','Required parameter conceptIn was null or undefined when calling createConceptV1TeamsTeamIdConceptsPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof conceptIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(conceptIn !== undefined ? conceptIn : {}) : (conceptIn || "");
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Create a new Dataset.
          * @summary Create Dataset
          * @param {string} teamId 
@@ -48727,6 +50029,65 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             const localVarPath = `/v1/teams/{team_id}/authors/{author_id}`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
                 .replace(`{${"author_id"}}`, encodeURIComponent(String(authorId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+         * @summary Delete Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteConceptV1TeamsTeamIdConceptsConceptIdDelete: async (teamId: string, conceptId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling deleteConceptV1TeamsTeamIdConceptsConceptIdDelete.');
+            }
+            // verify required parameter 'conceptId' is not null or undefined
+            if (conceptId === null || conceptId === undefined) {
+                throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling deleteConceptV1TeamsTeamIdConceptsConceptIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -49466,6 +50827,65 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get Concept.
+         * @summary Get Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptV1TeamsTeamIdConceptsConceptIdGet: async (teamId: string, conceptId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling getConceptV1TeamsTeamIdConceptsConceptIdGet.');
+            }
+            // verify required parameter 'conceptId' is not null or undefined
+            if (conceptId === null || conceptId === undefined) {
+                throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling getConceptV1TeamsTeamIdConceptsConceptIdGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
 
 
@@ -52013,6 +53433,114 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List Concepts.
+         * @summary List Concepts
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listConceptsV1TeamsTeamIdConceptsGet: async (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling listConceptsV1TeamsTeamIdConceptsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (inConceptGraph !== undefined) {
+                localVarQueryParameter['in_concept_graph'] = inConceptGraph;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} teamId 
@@ -52920,6 +54448,130 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (featureRelationship !== undefined) {
                 localVarQueryParameter['feature_relationship'] = featureRelationship;
+            }
+
+
+    
+            localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get the concepts in the requested concept\'s system.
+         * @summary List System Of Concepts
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {ValidRelationshipStrengthEnum} [minStrength] 
+         * @param {ValidRelationshipStrengthEnum} [maxStrength] 
+         * @param {ValidReproducibilityEnum} [minReproducibility] 
+         * @param {ValidReproducibilityEnum} [maxReproducibility] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet: async (teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new RequiredError('teamId','Required parameter teamId was null or undefined when calling listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet.');
+            }
+            // verify required parameter 'conceptId' is not null or undefined
+            if (conceptId === null || conceptId === undefined) {
+                throw new RequiredError('conceptId','Required parameter conceptId was null or undefined when calling listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}/system/concepts`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("x-api-key")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+
+            if (hops !== undefined) {
+                localVarQueryParameter['hops'] = hops;
+            }
+
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+
+            if (includePathPopIds !== undefined) {
+                localVarQueryParameter['include_path_pop_ids'] = includePathPopIds;
+            }
+
+            if (pathPopFilter !== undefined) {
+                localVarQueryParameter['path_pop_filter'] = pathPopFilter;
+            }
+
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+
+            if (maxStrength !== undefined) {
+                localVarQueryParameter['max_strength'] = maxStrength;
+            }
+
+            if (minReproducibility !== undefined) {
+                localVarQueryParameter['min_reproducibility'] = minReproducibility;
+            }
+
+            if (maxReproducibility !== undefined) {
+                localVarQueryParameter['max_reproducibility'] = maxReproducibility;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
             }
 
 
@@ -55984,6 +57636,21 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Create a Concept.
+         * @summary Create Concept
+         * @param {string} teamId 
+         * @param {ConceptIn} conceptIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Create a new Dataset.
          * @summary Create Dataset
          * @param {string} teamId 
@@ -56116,6 +57783,21 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          */
         async deleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete(teamId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).deleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete(teamId, authorId, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+         * @summary Delete Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId, conceptId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -56297,6 +57979,21 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          */
         async getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
             const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get Concept.
+         * @summary Get Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId, conceptId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -56907,6 +58604,31 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * List Concepts.
+         * @summary List Concepts
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} teamId 
@@ -57112,6 +58834,34 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          */
         async listStudiesV1TeamsTeamIdStudiesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>> {
             const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).listStudiesV1TeamsTeamIdStudiesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * Get the concepts in the requested concept\'s system.
+         * @summary List System Of Concepts
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {ValidRelationshipStrengthEnum} [minStrength] 
+         * @param {ValidRelationshipStrengthEnum} [maxStrength] 
+         * @param {ValidReproducibilityEnum} [minReproducibility] 
+         * @param {ValidReproducibilityEnum} [maxReproducibility] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemOfConceptsPaginationOut>> {
+            const localVarAxiosArgs = await TeamsApiAxiosParamCreator(configuration).listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId, conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -57939,6 +59689,17 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
             return TeamsApiFp(configuration).createAuthorV1TeamsTeamIdAuthorsPost(teamId, authorIn, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a Concept.
+         * @summary Create Concept
+         * @param {string} teamId 
+         * @param {ConceptIn} conceptIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): AxiosPromise<ConceptOut> {
+            return TeamsApiFp(configuration).createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a new Dataset.
          * @summary Create Dataset
          * @param {string} teamId 
@@ -58039,6 +59800,17 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         deleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete(teamId: string, authorId: string, options?: any): AxiosPromise<void> {
             return TeamsApiFp(configuration).deleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete(teamId, authorId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+         * @summary Delete Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): AxiosPromise<void> {
+            return TeamsApiFp(configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId, conceptId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
@@ -58172,6 +59944,17 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, options?: any): AxiosPromise<GraphData> {
             return TeamsApiFp(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get Concept.
+         * @summary Get Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId: string, conceptId: string, options?: any): AxiosPromise<ConceptOut> {
+            return TeamsApiFp(configuration).getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId, conceptId, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -58658,6 +60441,27 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
             return TeamsApiFp(configuration).listAuthorsV1TeamsTeamIdStudiesStudyIdAuthorsGet(teamId, studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
+         * List Concepts.
+         * @summary List Concepts
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return TeamsApiFp(configuration).listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} teamId 
@@ -58835,6 +60639,30 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         listStudiesV1TeamsTeamIdStudiesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut> {
             return TeamsApiFp(configuration).listStudiesV1TeamsTeamIdStudiesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, variableRelationship, featureRelationship, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the concepts in the requested concept\'s system.
+         * @summary List System Of Concepts
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {ConceptToConceptSystemOfSortEnum} [orderBy] Order by this field.
+         * @param {number} [hops] Number of hops.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {boolean} [includePathPopIds] Include in response available population ids for filtering.
+         * @param {string} [pathPopFilter] Stringified list of lists of population id for path filtering.
+         * @param {ValidRelationshipStrengthEnum} [minStrength] 
+         * @param {ValidRelationshipStrengthEnum} [maxStrength] 
+         * @param {ValidReproducibilityEnum} [minReproducibility] 
+         * @param {ValidReproducibilityEnum} [maxReproducibility] 
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId: string, conceptId: string, orderBy?: ConceptToConceptSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<SystemOfConceptsPaginationOut> {
+            return TeamsApiFp(configuration).listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(teamId, conceptId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested feature\'s system.
@@ -59692,6 +61520,27 @@ export interface TeamsApiCreateAuthorV1TeamsTeamIdAuthorsPostRequest {
 }
 
 /**
+ * Request parameters for createConceptV1TeamsTeamIdConceptsPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest
+ */
+export interface TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiCreateConceptV1TeamsTeamIdConceptsPost
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {ConceptIn}
+     * @memberof TeamsApiCreateConceptV1TeamsTeamIdConceptsPost
+     */
+    readonly conceptIn: ConceptIn
+}
+
+/**
  * Request parameters for createDatasetV1TeamsTeamIdDatasetsPost operation in TeamsApi.
  * @export
  * @interface TeamsApiCreateDatasetV1TeamsTeamIdDatasetsPostRequest
@@ -59899,6 +61748,27 @@ export interface TeamsApiDeleteAuthorV1TeamsTeamIdAuthorsAuthorIdDeleteRequest {
      * @memberof TeamsApiDeleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete
      */
     readonly authorId: string
+}
+
+/**
+ * Request parameters for deleteConceptV1TeamsTeamIdConceptsConceptIdDelete operation in TeamsApi.
+ * @export
+ * @interface TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest
+ */
+export interface TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDelete
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDelete
+     */
+    readonly conceptId: string
 }
 
 /**
@@ -60158,6 +62028,27 @@ export interface TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest
      * @memberof TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGet
      */
     readonly minRelationshipStrength?: number
+}
+
+/**
+ * Request parameters for getConceptV1TeamsTeamIdConceptsConceptIdGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest
+ */
+export interface TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGet
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGet
+     */
+    readonly conceptId: string
 }
 
 /**
@@ -61869,6 +63760,97 @@ export interface TeamsApiListAuthorsV1TeamsTeamIdStudiesStudyIdAuthorsGetRequest
 }
 
 /**
+ * Request parameters for listConceptsV1TeamsTeamIdConceptsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest
+ */
+export interface TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly teamId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly id?: Array<string>
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Order by this field.
+     * @type {ConceptSortEnum}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly orderBy?: ConceptSortEnum
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Is Concept in the Concept Graph?
+     * @type {boolean}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly inConceptGraph?: boolean
+}
+
+/**
  * Request parameters for listDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGet operation in TeamsApi.
  * @export
  * @interface TeamsApiListDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGetRequest
@@ -62671,6 +64653,118 @@ export interface TeamsApiListStudiesV1TeamsTeamIdStudiesGetRequest {
      * @memberof TeamsApiListStudiesV1TeamsTeamIdStudiesGet
      */
     readonly featureRelationship?: string
+}
+
+/**
+ * Request parameters for listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest
+ */
+export interface TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly conceptId: string
+
+    /**
+     * Order by this field.
+     * @type {ConceptToConceptSystemOfSortEnum}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly orderBy?: ConceptToConceptSystemOfSortEnum
+
+    /**
+     * Number of hops.
+     * @type {number}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly hops?: number
+
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly ordering?: Ordering
+
+    /**
+     * Include in response available population ids for filtering.
+     * @type {boolean}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly includePathPopIds?: boolean
+
+    /**
+     * Stringified list of lists of population id for path filtering.
+     * @type {string}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pathPopFilter?: string
+
+    /**
+     * 
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minStrength?: ValidRelationshipStrengthEnum
+
+    /**
+     * 
+     * @type {ValidRelationshipStrengthEnum}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxStrength?: ValidRelationshipStrengthEnum
+
+    /**
+     * 
+     * @type {ValidReproducibilityEnum}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly minReproducibility?: ValidReproducibilityEnum
+
+    /**
+     * 
+     * @type {ValidReproducibilityEnum}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly maxReproducibility?: ValidReproducibilityEnum
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet
+     */
+    readonly idsOnly?: boolean
 }
 
 /**
@@ -64575,6 +66669,18 @@ export class TeamsApi extends BaseAPI {
     }
 
     /**
+     * Create a Concept.
+     * @summary Create Concept
+     * @param {TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public createConceptV1TeamsTeamIdConceptsPost(requestParameters: TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest, options?: any) {
+        return TeamsApiFp(this.configuration).createConceptV1TeamsTeamIdConceptsPost(requestParameters.teamId, requestParameters.conceptIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {TeamsApiCreateDatasetV1TeamsTeamIdDatasetsPostRequest} requestParameters Request parameters.
@@ -64680,6 +66786,18 @@ export class TeamsApi extends BaseAPI {
      */
     public deleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete(requestParameters: TeamsApiDeleteAuthorV1TeamsTeamIdAuthorsAuthorIdDeleteRequest, options?: any) {
         return TeamsApiFp(this.configuration).deleteAuthorV1TeamsTeamIdAuthorsAuthorIdDelete(requestParameters.teamId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
+     * @summary Delete Concept
+     * @param {TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters: TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest, options?: any) {
+        return TeamsApiFp(this.configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters.teamId, requestParameters.conceptId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -64824,6 +66942,18 @@ export class TeamsApi extends BaseAPI {
      */
     public getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters: TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest, options?: any) {
         return TeamsApiFp(this.configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get Concept.
+     * @summary Get Concept
+     * @param {TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public getConceptV1TeamsTeamIdConceptsConceptIdGet(requestParameters: TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).getConceptV1TeamsTeamIdConceptsConceptIdGet(requestParameters.teamId, requestParameters.conceptId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -65187,6 +67317,18 @@ export class TeamsApi extends BaseAPI {
     }
 
     /**
+     * List Concepts.
+     * @summary List Concepts
+     * @param {TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listConceptsV1TeamsTeamIdConceptsGet(requestParameters: TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listConceptsV1TeamsTeamIdConceptsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {TeamsApiListDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGetRequest} requestParameters Request parameters.
@@ -65280,6 +67422,18 @@ export class TeamsApi extends BaseAPI {
      */
     public listStudiesV1TeamsTeamIdStudiesGet(requestParameters: TeamsApiListStudiesV1TeamsTeamIdStudiesGetRequest, options?: any) {
         return TeamsApiFp(this.configuration).listStudiesV1TeamsTeamIdStudiesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.variableRelationship, requestParameters.featureRelationship, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the concepts in the requested concept\'s system.
+     * @summary List System Of Concepts
+     * @param {TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(requestParameters: TeamsApiListSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGetRequest, options?: any) {
+        return TeamsApiFp(this.configuration).listSystemOfConceptsV1TeamsTeamIdConceptsConceptIdSystemConceptsGet(requestParameters.teamId, requestParameters.conceptId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
