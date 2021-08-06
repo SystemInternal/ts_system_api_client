@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableToVariableSystemOfSortEnum = exports.VariableToFeatureSystemOfSortEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureToFeatureSystemOfSortEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.ConceptToConceptSystemOfSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AddFlowContext = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableToVariableSystemOfSortEnum = exports.VariableToFeatureSystemOfSortEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureToFeatureSystemOfSortEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptToConceptSystemOfSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AddFlowContext = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -99,6 +99,17 @@ var ConceptToConceptSystemOfSortEnum;
  * @export
  * @enum {string}
  */
+var DashboardSortEnum;
+(function (DashboardSortEnum) {
+    DashboardSortEnum["CreatedAt"] = "created_at";
+    DashboardSortEnum["LastUpdatedAt"] = "last_updated_at";
+    DashboardSortEnum["Name"] = "name";
+})(DashboardSortEnum = exports.DashboardSortEnum || (exports.DashboardSortEnum = {}));
+/**
+ * An enumeration.
+ * @export
+ * @enum {string}
+ */
 var DatasetLicenseEnum;
 (function (DatasetLicenseEnum) {
     DatasetLicenseEnum["PublicDomain"] = "public_domain";
@@ -153,6 +164,17 @@ var ExternalAssetTypeEnum;
     ExternalAssetTypeEnum["Document"] = "document";
     ExternalAssetTypeEnum["Notebook"] = "notebook";
 })(ExternalAssetTypeEnum = exports.ExternalAssetTypeEnum || (exports.ExternalAssetTypeEnum = {}));
+/**
+ * Enum for external tools.
+ * @export
+ * @enum {string}
+ */
+var ExternalToolEnum;
+(function (ExternalToolEnum) {
+    ExternalToolEnum["LOOKER"] = "LOOKER";
+    ExternalToolEnum["MODE"] = "MODE";
+    ExternalToolEnum["TABLEAU"] = "TABLEAU";
+})(ExternalToolEnum = exports.ExternalToolEnum || (exports.ExternalToolEnum = {}));
 /**
  * An enumeration.
  * @export
@@ -528,6 +550,7 @@ var SystemObjectResources;
     SystemObjectResources["PopulationAttributeValue"] = "population_attribute_value";
     SystemObjectResources["Association"] = "association";
     SystemObjectResources["Team"] = "team";
+    SystemObjectResources["Dashboard"] = "dashboard";
 })(SystemObjectResources = exports.SystemObjectResources || (exports.SystemObjectResources = {}));
 /**
  * Enum for valid calibrated relationship type.
@@ -7792,6 +7815,1369 @@ class ConceptsApi extends base_1.BaseAPI {
 }
 exports.ConceptsApi = ConceptsApi;
 /**
+ * DashboardsApi - axios parameter creator
+ * @export
+ */
+exports.DashboardsApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId, featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            // verify required parameter 'featureId' is not null or undefined
+            if (featureId === null || featureId === undefined) {
+                throw new base_1.RequiredError('featureId', 'Required parameter featureId was null or undefined when calling addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            const localVarPath = `/v1/dashboards/{dashboard_id}/features/{feature_id}`
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)))
+                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut: (teamId, dashboardId, featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            // verify required parameter 'featureId' is not null or undefined
+            if (featureId === null || featureId === undefined) {
+                throw new base_1.RequiredError('featureId', 'Required parameter featureId was null or undefined when calling addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards/{dashboard_id}/features/{feature_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)))
+                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create an Dashboard.
+         * @summary Create Dashboard Post
+         * @param {DashboardIn} dashboardIn
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDashboardPostV1DashboardsPost: (dashboardIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'dashboardIn' is not null or undefined
+            if (dashboardIn === null || dashboardIn === undefined) {
+                throw new base_1.RequiredError('dashboardIn', 'Required parameter dashboardIn was null or undefined when calling createDashboardPostV1DashboardsPost.');
+            }
+            const localVarPath = `/v1/dashboards`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof dashboardIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(dashboardIn !== undefined ? dashboardIn : {}) : (dashboardIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create an Dashboard.
+         * @summary Create Dashboard Post
+         * @param {string} teamId
+         * @param {DashboardIn} dashboardIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDashboardPostV1TeamsTeamIdDashboardsPost: (teamId, dashboardIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createDashboardPostV1TeamsTeamIdDashboardsPost.');
+            }
+            // verify required parameter 'dashboardIn' is not null or undefined
+            if (dashboardIn === null || dashboardIn === undefined) {
+                throw new base_1.RequiredError('dashboardIn', 'Required parameter dashboardIn was null or undefined when calling createDashboardPostV1TeamsTeamIdDashboardsPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof dashboardIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(dashboardIn !== undefined ? dashboardIn : {}) : (dashboardIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Dashboard
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDashboardV1DashboardsDashboardIdDelete: (dashboardId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling deleteDashboardV1DashboardsDashboardIdDelete.');
+            }
+            const localVarPath = `/v1/dashboards/{dashboard_id}`
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete: (teamId, dashboardId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete.');
+            }
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards/{dashboard_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get Dashboard.
+         * @summary Get Dashboard
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardV1DashboardsDashboardIdGet: (dashboardId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling getDashboardV1DashboardsDashboardIdGet.');
+            }
+            const localVarPath = `/v1/dashboards/{dashboard_id}`
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get Dashboard.
+         * @summary Get Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardV1TeamsTeamIdDashboardsDashboardIdGet: (teamId, dashboardId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getDashboardV1TeamsTeamIdDashboardsDashboardIdGet.');
+            }
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling getDashboardV1TeamsTeamIdDashboardsDashboardIdGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards/{dashboard_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} dashboardId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet: (dashboardId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet.');
+            }
+            const localVarPath = `/v1/dashboards/{dashboard_id}/features`
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet: (teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet.');
+            }
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards/{dashboard_id}/features`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List Dashboards.  Paginated list of all Dashboards.
+         * @summary List Dashboards
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1DashboardsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/dashboards`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List Dashboards.  Paginated list of all Dashboards.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdDashboardsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listDashboardsV1TeamsTeamIdDashboardsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * DashboardsApi - functional programming interface
+ * @export
+ */
+exports.DashboardsApiFp = function (configuration) {
+    return {
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create an Dashboard.
+         * @summary Create Dashboard Post
+         * @param {DashboardIn} dashboardIn
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDashboardPostV1DashboardsPost(dashboardIn, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).createDashboardPostV1DashboardsPost(dashboardIn, teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create an Dashboard.
+         * @summary Create Dashboard Post
+         * @param {string} teamId
+         * @param {DashboardIn} dashboardIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDashboardPostV1TeamsTeamIdDashboardsPost(teamId, dashboardIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).createDashboardPostV1TeamsTeamIdDashboardsPost(teamId, dashboardIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Dashboard
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDashboardV1DashboardsDashboardIdDelete(dashboardId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).deleteDashboardV1DashboardsDashboardIdDelete(dashboardId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId, dashboardId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId, dashboardId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get Dashboard.
+         * @summary Get Dashboard
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardV1DashboardsDashboardIdGet(dashboardId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).getDashboardV1DashboardsDashboardIdGet(dashboardId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get Dashboard.
+         * @summary Get Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId, dashboardId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId, dashboardId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} dashboardId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List Dashboards.  Paginated list of all Dashboards.
+         * @summary List Dashboards
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1DashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).listDashboardsV1DashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List Dashboards.  Paginated list of all Dashboards.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * DashboardsApi - factory interface
+ * @export
+ */
+exports.DashboardsApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options) {
+            return exports.DashboardsApiFp(configuration).addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options) {
+            return exports.DashboardsApiFp(configuration).addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create an Dashboard.
+         * @summary Create Dashboard Post
+         * @param {DashboardIn} dashboardIn
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDashboardPostV1DashboardsPost(dashboardIn, teamId, options) {
+            return exports.DashboardsApiFp(configuration).createDashboardPostV1DashboardsPost(dashboardIn, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create an Dashboard.
+         * @summary Create Dashboard Post
+         * @param {string} teamId
+         * @param {DashboardIn} dashboardIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDashboardPostV1TeamsTeamIdDashboardsPost(teamId, dashboardIn, options) {
+            return exports.DashboardsApiFp(configuration).createDashboardPostV1TeamsTeamIdDashboardsPost(teamId, dashboardIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Dashboard
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDashboardV1DashboardsDashboardIdDelete(dashboardId, options) {
+            return exports.DashboardsApiFp(configuration).deleteDashboardV1DashboardsDashboardIdDelete(dashboardId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId, dashboardId, options) {
+            return exports.DashboardsApiFp(configuration).deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId, dashboardId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get Dashboard.
+         * @summary Get Dashboard
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardV1DashboardsDashboardIdGet(dashboardId, options) {
+            return exports.DashboardsApiFp(configuration).getDashboardV1DashboardsDashboardIdGet(dashboardId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get Dashboard.
+         * @summary Get Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId, dashboardId, options) {
+            return exports.DashboardsApiFp(configuration).getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId, dashboardId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} dashboardId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.DashboardsApiFp(configuration).listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.DashboardsApiFp(configuration).listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Dashboards.  Paginated list of all Dashboards.
+         * @summary List Dashboards
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1DashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.DashboardsApiFp(configuration).listDashboardsV1DashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Dashboards.  Paginated list of all Dashboards.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.DashboardsApiFp(configuration).listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * DashboardsApi - object-oriented interface
+ * @export
+ * @class DashboardsApi
+ * @extends {BaseAPI}
+ */
+class DashboardsApi extends base_1.BaseAPI {
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {DashboardsApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters.dashboardId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {DashboardsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(requestParameters.teamId, requestParameters.dashboardId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {DashboardsApiCreateDashboardPostV1DashboardsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    createDashboardPostV1DashboardsPost(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).createDashboardPostV1DashboardsPost(requestParameters.dashboardIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {DashboardsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    createDashboardPostV1TeamsTeamIdDashboardsPost(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).createDashboardPostV1TeamsTeamIdDashboardsPost(requestParameters.teamId, requestParameters.dashboardIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {DashboardsApiDeleteDashboardV1DashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    deleteDashboardV1DashboardsDashboardIdDelete(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).deleteDashboardV1DashboardsDashboardIdDelete(requestParameters.dashboardId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {DashboardsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(requestParameters.teamId, requestParameters.dashboardId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {DashboardsApiGetDashboardV1DashboardsDashboardIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    getDashboardV1DashboardsDashboardIdGet(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).getDashboardV1DashboardsDashboardIdGet(requestParameters.dashboardId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {DashboardsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(requestParameters.teamId, requestParameters.dashboardId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(requestParameters.dashboardId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(requestParameters.teamId, requestParameters.dashboardId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {DashboardsApiListDashboardsV1DashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardsV1DashboardsGet(requestParameters = {}, options) {
+        return exports.DashboardsApiFp(this.configuration).listDashboardsV1DashboardsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.DashboardsApi = DashboardsApi;
+/**
  * DatasetsApi - axios parameter creator
  * @export
  */
@@ -14102,6 +15488,118 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId, featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            // verify required parameter 'featureId' is not null or undefined
+            if (featureId === null || featureId === undefined) {
+                throw new base_1.RequiredError('featureId', 'Required parameter featureId was null or undefined when calling addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            const localVarPath = `/v1/dashboards/{dashboard_id}/features/{feature_id}`
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)))
+                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut: (teamId, dashboardId, featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            // verify required parameter 'featureId' is not null or undefined
+            if (featureId === null || featureId === undefined) {
+                throw new base_1.RequiredError('featureId', 'Required parameter featureId was null or undefined when calling addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards/{dashboard_id}/features/{feature_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)))
+                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
          * @summary Add Feature To Dataset
          * @param {string} datasetId
          * @param {string} featureId
@@ -14784,6 +16282,198 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} dashboardId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet: (dashboardId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet.');
+            }
+            const localVarPath = `/v1/dashboards/{dashboard_id}/features`
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet: (teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet.');
+            }
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards/{dashboard_id}/features`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -16094,6 +17784,41 @@ exports.FeaturesApiFp = function (configuration) {
     return {
         /**
          * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
          * @summary Add Feature To Dataset
          * @param {string} datasetId
          * @param {string} featureId
@@ -16313,6 +18038,62 @@ exports.FeaturesApiFp = function (configuration) {
         listAuthenticatedUserFeaturesV1UserFeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} dashboardId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -16702,6 +18483,29 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options) {
+            return exports.FeaturesApiFp(configuration).addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options) {
+            return exports.FeaturesApiFp(configuration).addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
          * @summary Add Feature To Dataset
          * @param {string} datasetId
          * @param {string} featureId
@@ -16854,6 +18658,50 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          */
         listAuthenticatedUserFeaturesV1UserFeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return exports.FeaturesApiFp(configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} dashboardId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.FeaturesApiFp(configuration).listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.FeaturesApiFp(configuration).listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
@@ -17143,6 +18991,28 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
 class FeaturesApi extends base_1.BaseAPI {
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters, options) {
+        return exports.FeaturesApiFp(this.configuration).addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters.dashboardId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {FeaturesApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(requestParameters, options) {
+        return exports.FeaturesApiFp(this.configuration).addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(requestParameters.teamId, requestParameters.dashboardId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
      * @param {FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -17272,6 +19142,28 @@ class FeaturesApi extends base_1.BaseAPI {
      */
     listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters = {}, options) {
         return exports.FeaturesApiFp(this.configuration).listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(requestParameters, options) {
+        return exports.FeaturesApiFp(this.configuration).listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(requestParameters.dashboardId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(requestParameters, options) {
+        return exports.FeaturesApiFp(this.configuration).listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(requestParameters.teamId, requestParameters.dashboardId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a datasets features.
@@ -28670,6 +30562,65 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut: (teamId, dashboardId, featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            // verify required parameter 'featureId' is not null or undefined
+            if (featureId === null || featureId === undefined) {
+                throw new base_1.RequiredError('featureId', 'Required parameter featureId was null or undefined when calling addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards/{dashboard_id}/features/{feature_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)))
+                .replace(`{${"feature_id"}}`, encodeURIComponent(String(featureId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
          * @summary Add Feature To Dataset
          * @param {string} teamId
          * @param {string} datasetId
@@ -29316,6 +31267,61 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create an Dashboard.
+         * @summary Create Dashboard Post
+         * @param {string} teamId
+         * @param {DashboardIn} dashboardIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDashboardPostV1TeamsTeamIdDashboardsPost: (teamId, dashboardIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createDashboardPostV1TeamsTeamIdDashboardsPost.');
+            }
+            // verify required parameter 'dashboardIn' is not null or undefined
+            if (dashboardIn === null || dashboardIn === undefined) {
+                throw new base_1.RequiredError('dashboardIn', 'Required parameter dashboardIn was null or undefined when calling createDashboardPostV1TeamsTeamIdDashboardsPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof dashboardIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(dashboardIn !== undefined ? dashboardIn : {}) : (dashboardIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create a new Dataset.
          * @summary Create Dataset
          * @param {string} teamId
@@ -29844,6 +31850,59 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
                 .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete: (teamId, dashboardId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete.');
+            }
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards/{dashboard_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -30537,6 +32596,59 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
                 .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get Dashboard.
+         * @summary Get Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardV1TeamsTeamIdDashboardsDashboardIdGet: (teamId, dashboardId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getDashboardV1TeamsTeamIdDashboardsDashboardIdGet.');
+            }
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling getDashboardV1TeamsTeamIdDashboardsDashboardIdGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards/{dashboard_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
             if (configuration) {
@@ -32834,6 +34946,190 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             }
             if (inConceptGraph !== undefined) {
                 localVarQueryParameter['in_concept_graph'] = inConceptGraph;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet: (teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet.');
+            }
+            // verify required parameter 'dashboardId' is not null or undefined
+            if (dashboardId === null || dashboardId === undefined) {
+                throw new base_1.RequiredError('dashboardId', 'Required parameter dashboardId was null or undefined when calling listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards/{dashboard_id}/features`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"dashboard_id"}}`, encodeURIComponent(String(dashboardId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (inFeatureGraph !== undefined) {
+                localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List Dashboards.  Paginated list of all Dashboards.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdDashboardsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listDashboardsV1TeamsTeamIdDashboardsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/dashboards`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -36272,6 +38568,24 @@ exports.TeamsApiFp = function (configuration) {
         },
         /**
          * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
          * @summary Add Feature To Dataset
          * @param {string} teamId
          * @param {string} datasetId
@@ -36467,6 +38781,23 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Create an Dashboard.
+         * @summary Create Dashboard Post
+         * @param {string} teamId
+         * @param {DashboardIn} dashboardIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDashboardPostV1TeamsTeamIdDashboardsPost(teamId, dashboardIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).createDashboardPostV1TeamsTeamIdDashboardsPost(teamId, dashboardIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Create a new Dataset.
          * @summary Create Dataset
          * @param {string} teamId
@@ -36633,6 +38964,23 @@ exports.TeamsApiFp = function (configuration) {
         deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId, conceptId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId, conceptId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId, dashboardId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId, dashboardId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -36855,6 +39203,23 @@ exports.TeamsApiFp = function (configuration) {
         getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId, conceptId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId, conceptId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get Dashboard.
+         * @summary Get Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId, dashboardId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId, dashboardId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -37546,6 +39911,60 @@ exports.TeamsApiFp = function (configuration) {
         listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List Dashboards.  Paginated list of all Dashboards.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -38582,6 +41001,18 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
         },
         /**
          * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+         * @summary Add Feature To Dashboard Endpoint
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} featureId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options) {
+            return exports.TeamsApiFp(configuration).addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId, dashboardId, featureId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
          * @summary Add Feature To Dataset
          * @param {string} teamId
          * @param {string} datasetId
@@ -38711,6 +41142,17 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create an Dashboard.
+         * @summary Create Dashboard Post
+         * @param {string} teamId
+         * @param {DashboardIn} dashboardIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDashboardPostV1TeamsTeamIdDashboardsPost(teamId, dashboardIn, options) {
+            return exports.TeamsApiFp(configuration).createDashboardPostV1TeamsTeamIdDashboardsPost(teamId, dashboardIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a new Dataset.
          * @summary Create Dataset
          * @param {string} teamId
@@ -38822,6 +41264,17 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          */
         deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId, conceptId, options) {
             return exports.TeamsApiFp(configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId, conceptId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId, dashboardId, options) {
+            return exports.TeamsApiFp(configuration).deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId, dashboardId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
@@ -38966,6 +41419,17 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          */
         getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId, conceptId, options) {
             return exports.TeamsApiFp(configuration).getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId, conceptId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get Dashboard.
+         * @summary Get Dashboard
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId, dashboardId, options) {
+            return exports.TeamsApiFp(configuration).getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId, dashboardId, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -39471,6 +41935,48 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          */
         listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
             return exports.TeamsApiFp(configuration).listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List a datasets features.
+         * @summary List Dashboard Features
+         * @param {string} teamId
+         * @param {string} dashboardId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {FeatureSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return exports.TeamsApiFp(configuration).listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId, dashboardId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Dashboards.  Paginated list of all Dashboards.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.TeamsApiFp(configuration).listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
@@ -40238,6 +42744,17 @@ class TeamsApi extends base_1.BaseAPI {
     }
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {TeamsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(requestParameters.teamId, requestParameters.dashboardId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
      * @param {TeamsApiAddFeatureToDatasetV1TeamsTeamIdDatasetsDatasetIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -40358,6 +42875,17 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).createConceptV1TeamsTeamIdConceptsPost(requestParameters.teamId, requestParameters.conceptIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {TeamsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createDashboardPostV1TeamsTeamIdDashboardsPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).createDashboardPostV1TeamsTeamIdDashboardsPost(requestParameters.teamId, requestParameters.dashboardIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {TeamsApiCreateDatasetV1TeamsTeamIdDatasetsPostRequest} requestParameters Request parameters.
@@ -40466,6 +42994,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters.teamId, requestParameters.conceptId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {TeamsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(requestParameters.teamId, requestParameters.dashboardId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
@@ -40609,6 +43148,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     getConceptV1TeamsTeamIdConceptsConceptIdGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).getConceptV1TeamsTeamIdConceptsConceptIdGet(requestParameters.teamId, requestParameters.conceptId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {TeamsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(requestParameters.teamId, requestParameters.dashboardId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch dataset graph.
@@ -40950,6 +43500,28 @@ class TeamsApi extends base_1.BaseAPI {
      */
     listConceptsV1TeamsTeamIdConceptsGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).listConceptsV1TeamsTeamIdConceptsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(requestParameters.teamId, requestParameters.dashboardId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {TeamsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a datasets features.

@@ -1434,6 +1434,292 @@ export interface ConfidenceIntervalOut {
     ci_upper?: number;
 }
 /**
+ * A Dashboard input data.
+ * @export
+ * @interface DashboardIn
+ */
+export interface DashboardIn {
+    /**
+     * Tags to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof DashboardIn
+     */
+    tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof DashboardIn
+     */
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DashboardIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DashboardIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
+     * Dashboard\'s name.
+     * @type {string}
+     * @memberof DashboardIn
+     */
+    name: string;
+    /**
+     * Dashboard\'s description.
+     * @type {string}
+     * @memberof DashboardIn
+     */
+    description?: string;
+    /**
+     * Dashboard\'s source url.
+     * @type {string}
+     * @memberof DashboardIn
+     */
+    url?: string;
+    /**
+     * Dashboard\'s external tool.
+     * @type {ExternalToolEnum}
+     * @memberof DashboardIn
+     */
+    external_tool?: ExternalToolEnum;
+    /**
+     * Dashboard\'s external id.
+     * @type {string}
+     * @memberof DashboardIn
+     */
+    external_id?: string;
+    /**
+     * Dashboard\'s number of elements.
+     * @type {number}
+     * @memberof DashboardIn
+     */
+    element_count?: number;
+    /**
+     * Dashboard\'s number of views.
+     * @type {number}
+     * @memberof DashboardIn
+     */
+    view_count?: number;
+    /**
+     * Dashboard\'s number of elements.
+     * @type {number}
+     * @memberof DashboardIn
+     */
+    favorite_count?: number;
+    /**
+     * The time this dashboard was created.
+     * @type {string}
+     * @memberof DashboardIn
+     */
+    created_on?: string;
+    /**
+     * Dashboard\'s filters used.
+     * @type {Array<string>}
+     * @memberof DashboardIn
+     */
+    filters_used?: Array<string>;
+}
+/**
+ * Dashboard resource links.
+ * @export
+ * @interface DashboardLinks
+ */
+export interface DashboardLinks {
+    /**
+     * Link to this resource.
+     * @type {string}
+     * @memberof DashboardLinks
+     */
+    self: string;
+}
+/**
+ * Dashboard output model.
+ * @export
+ * @interface DashboardOut
+ */
+export interface DashboardOut {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    id: string;
+    /**
+     * User who created this resource.
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    created_by?: string;
+    /**
+     * Time when resource was created.
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    created_at?: string;
+    /**
+     * User who made the last edit.
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    last_updated_by?: string;
+    /**
+     * Time of last edit.
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    last_updated_at?: string;
+    /**
+     *
+     * @type {Array<ResourceAction>}
+     * @memberof DashboardOut
+     */
+    _permissions?: Array<ResourceAction>;
+    /**
+     * Tags to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof DashboardOut
+     */
+    tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof DashboardOut
+     */
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DashboardOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof DashboardOut
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
+     * Dashboard\'s name.
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    name: string;
+    /**
+     * Dashboard\'s description.
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    description?: string;
+    /**
+     * Dashboard\'s source url.
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    url?: string;
+    /**
+     * Dashboard\'s external tool.
+     * @type {ExternalToolEnum}
+     * @memberof DashboardOut
+     */
+    external_tool?: ExternalToolEnum;
+    /**
+     * Dashboard\'s external id.
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    external_id?: string;
+    /**
+     * Dashboard\'s number of elements.
+     * @type {number}
+     * @memberof DashboardOut
+     */
+    element_count?: number;
+    /**
+     * Dashboard\'s number of views.
+     * @type {number}
+     * @memberof DashboardOut
+     */
+    view_count?: number;
+    /**
+     * Dashboard\'s number of elements.
+     * @type {number}
+     * @memberof DashboardOut
+     */
+    favorite_count?: number;
+    /**
+     * The time this dashboard was created.
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    created_on?: string;
+    /**
+     * Dashboard\'s filters used.
+     * @type {Array<string>}
+     * @memberof DashboardOut
+     */
+    filters_used?: Array<string>;
+    /**
+     * Collection of links to related resources.
+     * @type {DashboardLinks}
+     * @memberof DashboardOut
+     */
+    _links?: DashboardLinks;
+}
+/**
+ * Dashboard pagination out.
+ * @export
+ * @interface DashboardPaginationOut
+ */
+export interface DashboardPaginationOut {
+    /**
+     * Collection of links to related resources.
+     * @type {FirstLastPaginationLinks}
+     * @memberof DashboardPaginationOut
+     */
+    _links?: FirstLastPaginationLinks;
+    /**
+     * List of results.
+     * @type {Array<DashboardOut>}
+     * @memberof DashboardPaginationOut
+     */
+    items?: Array<DashboardOut>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof DashboardPaginationOut
+     */
+    ids?: Array<string>;
+    /**
+     * Total number of results available.
+     * @type {number}
+     * @memberof DashboardPaginationOut
+     */
+    total?: number;
+    /**
+     * Valid \'order_by\' values that can be applied to current pagination set.
+     * @type {Array<string>}
+     * @memberof DashboardPaginationOut
+     */
+    _sorts?: Array<string>;
+}
+/**
+ * An enumeration.
+ * @export
+ * @enum {string}
+ */
+export declare enum DashboardSortEnum {
+    CreatedAt = "created_at",
+    LastUpdatedAt = "last_updated_at",
+    Name = "name"
+}
+/**
  * A System Database Usage Object.
  * @export
  * @interface DatabaseUsage
@@ -2332,6 +2618,16 @@ export declare enum ExternalAssetTypeEnum {
     Invalid = "invalid",
     Document = "document",
     Notebook = "notebook"
+}
+/**
+ * Enum for external tools.
+ * @export
+ * @enum {string}
+ */
+export declare enum ExternalToolEnum {
+    LOOKER = "LOOKER",
+    MODE = "MODE",
+    TABLEAU = "TABLEAU"
 }
 /**
  * An enumeration.
@@ -5943,7 +6239,8 @@ export declare enum SystemObjectResources {
     PopulationAttribute = "population_attribute",
     PopulationAttributeValue = "population_attribute_value",
     Association = "association",
-    Team = "team"
+    Team = "team",
+    Dashboard = "dashboard"
 }
 /**
  * System of concepts pagination out.
@@ -12852,6 +13149,1043 @@ export declare class ConceptsApi extends BaseAPI {
     listUserConceptsV1UsersUserIdConceptsGet(requestParameters: ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptPaginationOut>>;
 }
 /**
+ * DashboardsApi - axios parameter creator
+ * @export
+ */
+export declare const DashboardsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId: string, featureId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut: (teamId: string, dashboardId: string, featureId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {DashboardIn} dashboardIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createDashboardPostV1DashboardsPost: (dashboardIn: DashboardIn, teamId?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {string} teamId
+     * @param {DashboardIn} dashboardIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createDashboardPostV1TeamsTeamIdDashboardsPost: (teamId: string, dashboardIn: DashboardIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteDashboardV1DashboardsDashboardIdDelete: (dashboardId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete: (teamId: string, dashboardId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDashboardV1DashboardsDashboardIdGet: (dashboardId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDashboardV1TeamsTeamIdDashboardsDashboardIdGet: (teamId: string, dashboardId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} dashboardId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet: (dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet: (teamId: string, dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1DashboardsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdDashboardsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * DashboardsApi - functional programming interface
+ * @export
+ */
+export declare const DashboardsApiFp: (configuration?: Configuration) => {
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId: string, dashboardId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {DashboardIn} dashboardIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createDashboardPostV1DashboardsPost(dashboardIn: DashboardIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardOut>>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {string} teamId
+     * @param {DashboardIn} dashboardIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createDashboardPostV1TeamsTeamIdDashboardsPost(teamId: string, dashboardIn: DashboardIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardOut>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteDashboardV1DashboardsDashboardIdDelete(dashboardId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId: string, dashboardId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDashboardV1DashboardsDashboardIdGet(dashboardId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardOut>>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId: string, dashboardId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardOut>>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} dashboardId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId: string, dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1DashboardsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdDashboardsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+};
+/**
+ * DashboardsApi - factory interface
+ * @export
+ */
+export declare const DashboardsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId: string, dashboardId: string, featureId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {DashboardIn} dashboardIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createDashboardPostV1DashboardsPost(dashboardIn: DashboardIn, teamId?: string, options?: any): AxiosPromise<DashboardOut>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {string} teamId
+     * @param {DashboardIn} dashboardIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createDashboardPostV1TeamsTeamIdDashboardsPost(teamId: string, dashboardIn: DashboardIn, options?: any): AxiosPromise<DashboardOut>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteDashboardV1DashboardsDashboardIdDelete(dashboardId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId: string, dashboardId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDashboardV1DashboardsDashboardIdGet(dashboardId: string, options?: any): AxiosPromise<DashboardOut>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId: string, dashboardId: string, options?: any): AxiosPromise<DashboardOut>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} dashboardId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId: string, dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1DashboardsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdDashboardsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
+};
+/**
+ * Request parameters for addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest
+ */
+export interface DashboardsApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly dashboardId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly featureId: string;
+}
+/**
+ * Request parameters for addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest
+ */
+export interface DashboardsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly dashboardId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly featureId: string;
+}
+/**
+ * Request parameters for createDashboardPostV1DashboardsPost operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiCreateDashboardPostV1DashboardsPostRequest
+ */
+export interface DashboardsApiCreateDashboardPostV1DashboardsPostRequest {
+    /**
+     *
+     * @type {DashboardIn}
+     * @memberof DashboardsApiCreateDashboardPostV1DashboardsPost
+     */
+    readonly dashboardIn: DashboardIn;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiCreateDashboardPostV1DashboardsPost
+     */
+    readonly teamId?: string;
+}
+/**
+ * Request parameters for createDashboardPostV1TeamsTeamIdDashboardsPost operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest
+ */
+export interface DashboardsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiCreateDashboardPostV1TeamsTeamIdDashboardsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {DashboardIn}
+     * @memberof DashboardsApiCreateDashboardPostV1TeamsTeamIdDashboardsPost
+     */
+    readonly dashboardIn: DashboardIn;
+}
+/**
+ * Request parameters for deleteDashboardV1DashboardsDashboardIdDelete operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiDeleteDashboardV1DashboardsDashboardIdDeleteRequest
+ */
+export interface DashboardsApiDeleteDashboardV1DashboardsDashboardIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiDeleteDashboardV1DashboardsDashboardIdDelete
+     */
+    readonly dashboardId: string;
+}
+/**
+ * Request parameters for deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest
+ */
+export interface DashboardsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete
+     */
+    readonly dashboardId: string;
+}
+/**
+ * Request parameters for getDashboardV1DashboardsDashboardIdGet operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiGetDashboardV1DashboardsDashboardIdGetRequest
+ */
+export interface DashboardsApiGetDashboardV1DashboardsDashboardIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiGetDashboardV1DashboardsDashboardIdGet
+     */
+    readonly dashboardId: string;
+}
+/**
+ * Request parameters for getDashboardV1TeamsTeamIdDashboardsDashboardIdGet operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGetRequest
+ */
+export interface DashboardsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGet
+     */
+    readonly dashboardId: string;
+}
+/**
+ * Request parameters for listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGetRequest
+ */
+export interface DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly dashboardId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly teamId?: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean;
+}
+/**
+ * Request parameters for listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest
+ */
+export interface DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly dashboardId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean;
+}
+/**
+ * Request parameters for listDashboardsV1DashboardsGet operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiListDashboardsV1DashboardsGetRequest
+ */
+export interface DashboardsApiListDashboardsV1DashboardsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly teamId?: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {DashboardSortEnum}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly orderBy?: DashboardSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1DashboardsGet
+     */
+    readonly sortBy?: string;
+}
+/**
+ * Request parameters for listDashboardsV1TeamsTeamIdDashboardsGet operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest
+ */
+export interface DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly teamId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {DashboardSortEnum}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly orderBy?: DashboardSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly sortBy?: string;
+}
+/**
+ * DashboardsApi - object-oriented interface
+ * @export
+ * @class DashboardsApi
+ * @extends {BaseAPI}
+ */
+export declare class DashboardsApi extends BaseAPI {
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {DashboardsApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters: DashboardsApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {DashboardsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(requestParameters: DashboardsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {DashboardsApiCreateDashboardPostV1DashboardsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    createDashboardPostV1DashboardsPost(requestParameters: DashboardsApiCreateDashboardPostV1DashboardsPostRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardOut>>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {DashboardsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    createDashboardPostV1TeamsTeamIdDashboardsPost(requestParameters: DashboardsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardOut>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {DashboardsApiDeleteDashboardV1DashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    deleteDashboardV1DashboardsDashboardIdDelete(requestParameters: DashboardsApiDeleteDashboardV1DashboardsDashboardIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {DashboardsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(requestParameters: DashboardsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {DashboardsApiGetDashboardV1DashboardsDashboardIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    getDashboardV1DashboardsDashboardIdGet(requestParameters: DashboardsApiGetDashboardV1DashboardsDashboardIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardOut>>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {DashboardsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(requestParameters: DashboardsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardOut>>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(requestParameters: DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(requestParameters: DashboardsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {DashboardsApiListDashboardsV1DashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardsV1DashboardsGet(requestParameters?: DashboardsApiListDashboardsV1DashboardsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardPaginationOut>>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters: DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardPaginationOut>>;
+}
+/**
  * DatasetsApi - axios parameter creator
  * @export
  */
@@ -17593,6 +18927,25 @@ export declare class EnterpriseApi extends BaseAPI {
 export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId: string, featureId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut: (teamId: string, dashboardId: string, featureId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
      * @param {string} datasetId
      * @param {string} featureId
@@ -17722,6 +19075,46 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     listAuthenticatedUserFeaturesV1UserFeaturesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} dashboardId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet: (dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet: (teamId: string, dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -17975,6 +19368,25 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
 export declare const FeaturesApiFp: (configuration?: Configuration) => {
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId: string, dashboardId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
      * @param {string} datasetId
      * @param {string} featureId
@@ -18104,6 +19516,46 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listAuthenticatedUserFeaturesV1UserFeaturesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} dashboardId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId: string, dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -18357,6 +19809,25 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
 export declare const FeaturesApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId: string, dashboardId: string, featureId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
      * @param {string} datasetId
      * @param {string} featureId
@@ -18486,6 +19957,46 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     listAuthenticatedUserFeaturesV1UserFeaturesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} dashboardId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId: string, dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -18732,6 +20243,50 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      */
     replaceFeatureV1TeamsTeamIdFeaturesFeatureIdPut(teamId: string, featureId: string, featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut>;
 };
+/**
+ * Request parameters for addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest
+ */
+export interface FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly dashboardId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly featureId: string;
+}
+/**
+ * Request parameters for addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest
+ */
+export interface FeaturesApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly dashboardId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly featureId: string;
+}
 /**
  * Request parameters for addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut operation in FeaturesApi.
  * @export
@@ -19095,6 +20650,176 @@ export interface FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGetReques
      * Is Feature in the Feature Graph?
      * @type {boolean}
      * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean;
+}
+/**
+ * Request parameters for listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGetRequest
+ */
+export interface FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly dashboardId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly teamId?: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean;
+}
+/**
+ * Request parameters for listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest
+ */
+export interface FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly dashboardId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
 }
@@ -20017,6 +21742,24 @@ export interface FeaturesApiReplaceFeatureV1TeamsTeamIdFeaturesFeatureIdPutReque
 export declare class FeaturesApi extends BaseAPI {
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters: FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {FeaturesApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(requestParameters: FeaturesApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
      * @param {FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -20123,6 +21866,24 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     listAuthenticatedUserFeaturesV1UserFeaturesGet(requestParameters?: FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(requestParameters: FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(requestParameters: FeaturesApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -29145,6 +30906,16 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut: (teamId: string, studyId: string, authorId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut: (teamId: string, dashboardId: string, featureId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
      * @param {string} teamId
      * @param {string} datasetId
@@ -29252,6 +31023,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createConceptV1TeamsTeamIdConceptsPost: (teamId: string, conceptIn: ConceptIn, options?: any) => Promise<RequestArgs>;
     /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {string} teamId
+     * @param {DashboardIn} dashboardIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createDashboardPostV1TeamsTeamIdDashboardsPost: (teamId: string, dashboardIn: DashboardIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {string} teamId
@@ -29344,6 +31124,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     deleteConceptV1TeamsTeamIdConceptsConceptIdDelete: (teamId: string, conceptId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete: (teamId: string, dashboardId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -29462,6 +31251,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getConceptV1TeamsTeamIdConceptsConceptIdGet: (teamId: string, conceptId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDashboardV1TeamsTeamIdDashboardsDashboardIdGet: (teamId: string, dashboardId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -29905,6 +31703,44 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     listConceptsV1TeamsTeamIdConceptsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet: (teamId: string, dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdDashboardsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -30577,6 +32413,16 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(teamId: string, studyId: string, authorId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId: string, dashboardId: string, featureId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
      * @param {string} teamId
      * @param {string} datasetId
@@ -30684,6 +32530,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
     /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {string} teamId
+     * @param {DashboardIn} dashboardIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createDashboardPostV1TeamsTeamIdDashboardsPost(teamId: string, dashboardIn: DashboardIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardOut>>;
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {string} teamId
@@ -30776,6 +32631,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId: string, dashboardId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -30894,6 +32758,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId: string, dashboardId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardOut>>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -31337,6 +33210,44 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId: string, dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdDashboardsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -32009,6 +33920,16 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(teamId: string, studyId: string, authorId: string, options?: any): AxiosPromise<void>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} featureId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(teamId: string, dashboardId: string, featureId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
      * @param {string} teamId
      * @param {string} datasetId
@@ -32116,6 +34037,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): AxiosPromise<ConceptOut>;
     /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {string} teamId
+     * @param {DashboardIn} dashboardIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createDashboardPostV1TeamsTeamIdDashboardsPost(teamId: string, dashboardIn: DashboardIn, options?: any): AxiosPromise<DashboardOut>;
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {string} teamId
@@ -32208,6 +34138,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(teamId: string, dashboardId: string, options?: any): AxiosPromise<void>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -32326,6 +34265,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getConceptV1TeamsTeamIdConceptsConceptIdGet(teamId: string, conceptId: string, options?: any): AxiosPromise<ConceptOut>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(teamId: string, dashboardId: string, options?: any): AxiosPromise<DashboardOut>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -32769,6 +34717,44 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {string} teamId
+     * @param {string} dashboardId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(teamId: string, dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdDashboardsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -33460,6 +35446,31 @@ export interface TeamsApiAddAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAutho
     readonly authorId: string;
 }
 /**
+ * Request parameters for addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut operation in TeamsApi.
+ * @export
+ * @interface TeamsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest
+ */
+export interface TeamsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly dashboardId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly featureId: string;
+}
+/**
  * Request parameters for addFeatureToDatasetV1TeamsTeamIdDatasetsDatasetIdFeaturesFeatureIdPut operation in TeamsApi.
  * @export
  * @interface TeamsApiAddFeatureToDatasetV1TeamsTeamIdDatasetsDatasetIdFeaturesFeatureIdPutRequest
@@ -33723,6 +35734,25 @@ export interface TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest {
     readonly conceptIn: ConceptIn;
 }
 /**
+ * Request parameters for createDashboardPostV1TeamsTeamIdDashboardsPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest
+ */
+export interface TeamsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiCreateDashboardPostV1TeamsTeamIdDashboardsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {DashboardIn}
+     * @memberof TeamsApiCreateDashboardPostV1TeamsTeamIdDashboardsPost
+     */
+    readonly dashboardIn: DashboardIn;
+}
+/**
  * Request parameters for createDatasetV1TeamsTeamIdDatasetsPost operation in TeamsApi.
  * @export
  * @interface TeamsApiCreateDatasetV1TeamsTeamIdDatasetsPostRequest
@@ -33929,6 +35959,25 @@ export interface TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteReques
      * @memberof TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDelete
      */
     readonly conceptId: string;
+}
+/**
+ * Request parameters for deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete operation in TeamsApi.
+ * @export
+ * @interface TeamsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest
+ */
+export interface TeamsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete
+     */
+    readonly dashboardId: string;
 }
 /**
  * Request parameters for deleteDatasetV1TeamsTeamIdDatasetsDatasetIdDelete operation in TeamsApi.
@@ -34182,6 +36231,25 @@ export interface TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest {
      * @memberof TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGet
      */
     readonly conceptId: string;
+}
+/**
+ * Request parameters for getDashboardV1TeamsTeamIdDashboardsDashboardIdGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGetRequest
+ */
+export interface TeamsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGet
+     */
+    readonly dashboardId: string;
 }
 /**
  * Request parameters for getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet operation in TeamsApi.
@@ -35755,6 +37823,164 @@ export interface TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest {
      * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
      */
     readonly inConceptGraph?: boolean;
+}
+/**
+ * Request parameters for listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest
+ */
+export interface TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly dashboardId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean;
+}
+/**
+ * Request parameters for listDashboardsV1TeamsTeamIdDashboardsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest
+ */
+export interface TeamsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly teamId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {DashboardSortEnum}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly orderBy?: DashboardSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdDashboardsGet
+     */
+    readonly sortBy?: string;
 }
 /**
  * Request parameters for listDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGet operation in TeamsApi.
@@ -38113,6 +40339,15 @@ export declare class TeamsApi extends BaseAPI {
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(requestParameters: TeamsApiAddAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
+     * @summary Add Feature To Dashboard Endpoint
+     * @param {TeamsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut(requestParameters: TeamsApiAddFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
      * @param {TeamsApiAddFeatureToDatasetV1TeamsTeamIdDatasetsDatasetIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -38211,6 +40446,15 @@ export declare class TeamsApi extends BaseAPI {
      */
     createConceptV1TeamsTeamIdConceptsPost(requestParameters: TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptOut>>;
     /**
+     * Create an Dashboard.
+     * @summary Create Dashboard Post
+     * @param {TeamsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createDashboardPostV1TeamsTeamIdDashboardsPost(requestParameters: TeamsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardOut>>;
+    /**
      * Create a new Dataset.
      * @summary Create Dataset
      * @param {TeamsApiCreateDatasetV1TeamsTeamIdDatasetsPostRequest} requestParameters Request parameters.
@@ -38300,6 +40544,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters: TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Dashboard
+     * @param {TeamsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    deleteDashboardV1TeamsTeamIdDashboardsDashboardIdDelete(requestParameters: TeamsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -38417,6 +40670,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     getConceptV1TeamsTeamIdConceptsConceptIdGet(requestParameters: TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptOut>>;
+    /**
+     * Get Dashboard.
+     * @summary Get Dashboard
+     * @param {TeamsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getDashboardV1TeamsTeamIdDashboardsDashboardIdGet(requestParameters: TeamsApiGetDashboardV1TeamsTeamIdDashboardsDashboardIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardOut>>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -38696,6 +40958,24 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     listConceptsV1TeamsTeamIdConceptsGet(requestParameters: TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest, options?: any): Promise<import("axios").AxiosResponse<ConceptPaginationOut>>;
+    /**
+     * List a datasets features.
+     * @summary List Dashboard Features
+     * @param {TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet(requestParameters: TeamsApiListDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
+    /**
+     * List Dashboards.  Paginated list of all Dashboards.
+     * @summary List Dashboards
+     * @param {TeamsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters: TeamsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardPaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
