@@ -41513,10 +41513,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet: (includeAvatar?: boolean, options?: any) => Promise<RequestArgs>;
+    getAuthenticatedUserV1UserGet: (includeAvatar?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -42142,10 +42143,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -42771,10 +42773,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, teamId?: string, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -43426,6 +43429,12 @@ export interface UsersApiGetAuthenticatedUserV1UserGetRequest {
      * @memberof UsersApiGetAuthenticatedUserV1UserGet
      */
     readonly includeAvatar?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiGetAuthenticatedUserV1UserGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getUserV1TeamsTeamIdUsersUserIdGet operation in UsersApi.
