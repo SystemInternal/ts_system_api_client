@@ -44389,11 +44389,10 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet: (includeAvatar, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAuthenticatedUserV1UserGet: (includeAvatar, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -44420,9 +44419,6 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -47311,13 +47307,12 @@ exports.UsersApiFp = function (configuration) {
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet(includeAvatar, teamId, options) {
+        getAuthenticatedUserV1UserGet(includeAvatar, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).getAuthenticatedUserV1UserGet(includeAvatar, teamId, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).getAuthenticatedUserV1UserGet(includeAvatar, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -48217,12 +48212,11 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet(includeAvatar, teamId, options) {
-            return exports.UsersApiFp(configuration).getAuthenticatedUserV1UserGet(includeAvatar, teamId, options).then((request) => request(axios, basePath));
+        getAuthenticatedUserV1UserGet(includeAvatar, options) {
+            return exports.UsersApiFp(configuration).getAuthenticatedUserV1UserGet(includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch a single user\'s public profile.
@@ -48934,7 +48928,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     getAuthenticatedUserV1UserGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch a single user\'s public profile.
