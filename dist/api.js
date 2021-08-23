@@ -30861,20 +30861,83 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Create a new user.
-         * @summary Create A User.
+         * @summary Create A User By Cognito Id.
+         * @param {string} teamId
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserByCognitoIdV1TeamsTeamIdUsersPost: (teamId, userId, updateProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createAUserByCognitoIdV1TeamsTeamIdUsersPost.');
+            }
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling createAUserByCognitoIdV1TeamsTeamIdUsersPost.');
+            }
+            // verify required parameter 'updateProfileIn' is not null or undefined
+            if (updateProfileIn === null || updateProfileIn === undefined) {
+                throw new base_1.RequiredError('updateProfileIn', 'Required parameter updateProfileIn was null or undefined when calling createAUserByCognitoIdV1TeamsTeamIdUsersPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/users`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (userId !== undefined) {
+                localVarQueryParameter['user_id'] = userId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof updateProfileIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(updateProfileIn !== undefined ? updateProfileIn : {}) : (updateProfileIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a new user.
+         * @summary Create A User From Credentials.
          * @param {string} teamId
          * @param {UserProfileIn} userProfileIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserV1TeamsTeamIdUserPost: (teamId, userProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAUserFromCredentialsV1TeamsTeamIdUserPost: (teamId, userProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
-                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createAUserV1TeamsTeamIdUserPost.');
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createAUserFromCredentialsV1TeamsTeamIdUserPost.');
             }
             // verify required parameter 'userProfileIn' is not null or undefined
             if (userProfileIn === null || userProfileIn === undefined) {
-                throw new base_1.RequiredError('userProfileIn', 'Required parameter userProfileIn was null or undefined when calling createAUserV1TeamsTeamIdUserPost.');
+                throw new base_1.RequiredError('userProfileIn', 'Required parameter userProfileIn was null or undefined when calling createAUserFromCredentialsV1TeamsTeamIdUserPost.');
             }
             const localVarPath = `/v1/teams/{team_id}/user`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
@@ -38347,6 +38410,67 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create a new user.
+         * @summary Update A User By Id.
+         * @param {string} userId
+         * @param {string} teamId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAUserByIdV1TeamsTeamIdUsersUserIdPatch: (userId, teamId, updateProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling updateAUserByIdV1TeamsTeamIdUsersUserIdPatch.');
+            }
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling updateAUserByIdV1TeamsTeamIdUsersUserIdPatch.');
+            }
+            // verify required parameter 'updateProfileIn' is not null or undefined
+            if (updateProfileIn === null || updateProfileIn === undefined) {
+                throw new base_1.RequiredError('updateProfileIn', 'Required parameter updateProfileIn was null or undefined when calling updateAUserByIdV1TeamsTeamIdUsersUserIdPatch.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PATCH' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof updateProfileIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(updateProfileIn !== undefined ? updateProfileIn : {}) : (updateProfileIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Update the authenticated user\'s profile.
          * @summary Update Authenticated User Profile
          * @param {string} teamId
@@ -38659,15 +38783,33 @@ exports.TeamsApiFp = function (configuration) {
         },
         /**
          * Create a new user.
-         * @summary Create A User.
+         * @summary Create A User By Cognito Id.
+         * @param {string} teamId
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId, userId, updateProfileIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId, userId, updateProfileIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User From Credentials.
          * @param {string} teamId
          * @param {UserProfileIn} userProfileIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserV1TeamsTeamIdUserPost(teamId, userProfileIn, options) {
+        createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId, userProfileIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).createAUserV1TeamsTeamIdUserPost(teamId, userProfileIn, options);
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId, userProfileIn, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -40916,6 +41058,24 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Create a new user.
+         * @summary Update A User By Id.
+         * @param {string} userId
+         * @param {string} teamId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId, teamId, updateProfileIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId, teamId, updateProfileIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Update the authenticated user\'s profile.
          * @summary Update Authenticated User Profile
          * @param {string} teamId
@@ -41062,14 +41222,26 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
         },
         /**
          * Create a new user.
-         * @summary Create A User.
+         * @summary Create A User By Cognito Id.
+         * @param {string} teamId
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId, userId, updateProfileIn, options) {
+            return exports.TeamsApiFp(configuration).createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId, userId, updateProfileIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User From Credentials.
          * @param {string} teamId
          * @param {UserProfileIn} userProfileIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserV1TeamsTeamIdUserPost(teamId, userProfileIn, options) {
-            return exports.TeamsApiFp(configuration).createAUserV1TeamsTeamIdUserPost(teamId, userProfileIn, options).then((request) => request(axios, basePath));
+        createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId, userProfileIn, options) {
+            return exports.TeamsApiFp(configuration).createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId, userProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a Variable.
@@ -42677,6 +42849,18 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut(teamId, studyId, tagObjectId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a new user.
+         * @summary Update A User By Id.
+         * @param {string} userId
+         * @param {string} teamId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId, teamId, updateProfileIn, options) {
+            return exports.TeamsApiFp(configuration).updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId, teamId, updateProfileIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update the authenticated user\'s profile.
          * @summary Update Authenticated User Profile
          * @param {string} teamId
@@ -42799,14 +42983,25 @@ class TeamsApi extends base_1.BaseAPI {
     }
     /**
      * Create a new user.
-     * @summary Create A User.
-     * @param {TeamsApiCreateAUserV1TeamsTeamIdUserPostRequest} requestParameters Request parameters.
+     * @summary Create A User By Cognito Id.
+     * @param {TeamsApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    createAUserV1TeamsTeamIdUserPost(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).createAUserV1TeamsTeamIdUserPost(requestParameters.teamId, requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
+    createAUserByCognitoIdV1TeamsTeamIdUsersPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).createAUserByCognitoIdV1TeamsTeamIdUsersPost(requestParameters.teamId, requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
+     * @param {TeamsApiCreateAUserFromCredentialsV1TeamsTeamIdUserPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createAUserFromCredentialsV1TeamsTeamIdUserPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).createAUserFromCredentialsV1TeamsTeamIdUserPost(requestParameters.teamId, requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a Variable.
@@ -43975,6 +44170,17 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut(requestParameters.teamId, requestParameters.studyId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {TeamsApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(requestParameters.userId, requestParameters.teamId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
      * @param {TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamIdUserPutRequest} requestParameters Request parameters.
@@ -44144,20 +44350,140 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Create a new user.
-         * @summary Create A User.
+         * @summary Create A User By Cognito Id.
+         * @param {string} teamId
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserByCognitoIdV1TeamsTeamIdUsersPost: (teamId, userId, updateProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createAUserByCognitoIdV1TeamsTeamIdUsersPost.');
+            }
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling createAUserByCognitoIdV1TeamsTeamIdUsersPost.');
+            }
+            // verify required parameter 'updateProfileIn' is not null or undefined
+            if (updateProfileIn === null || updateProfileIn === undefined) {
+                throw new base_1.RequiredError('updateProfileIn', 'Required parameter updateProfileIn was null or undefined when calling createAUserByCognitoIdV1TeamsTeamIdUsersPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/users`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (userId !== undefined) {
+                localVarQueryParameter['user_id'] = userId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof updateProfileIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(updateProfileIn !== undefined ? updateProfileIn : {}) : (updateProfileIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a new user.
+         * @summary Create A User By Cognito Id.
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserByCognitoIdV1UsersPost: (userId, updateProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling createAUserByCognitoIdV1UsersPost.');
+            }
+            // verify required parameter 'updateProfileIn' is not null or undefined
+            if (updateProfileIn === null || updateProfileIn === undefined) {
+                throw new base_1.RequiredError('updateProfileIn', 'Required parameter updateProfileIn was null or undefined when calling createAUserByCognitoIdV1UsersPost.');
+            }
+            const localVarPath = `/v1/users`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (userId !== undefined) {
+                localVarQueryParameter['user_id'] = userId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof updateProfileIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(updateProfileIn !== undefined ? updateProfileIn : {}) : (updateProfileIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a new user.
+         * @summary Create A User From Credentials.
          * @param {string} teamId
          * @param {UserProfileIn} userProfileIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserV1TeamsTeamIdUserPost: (teamId, userProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAUserFromCredentialsV1TeamsTeamIdUserPost: (teamId, userProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
-                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createAUserV1TeamsTeamIdUserPost.');
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createAUserFromCredentialsV1TeamsTeamIdUserPost.');
             }
             // verify required parameter 'userProfileIn' is not null or undefined
             if (userProfileIn === null || userProfileIn === undefined) {
-                throw new base_1.RequiredError('userProfileIn', 'Required parameter userProfileIn was null or undefined when calling createAUserV1TeamsTeamIdUserPost.');
+                throw new base_1.RequiredError('userProfileIn', 'Required parameter userProfileIn was null or undefined when calling createAUserFromCredentialsV1TeamsTeamIdUserPost.');
             }
             const localVarPath = `/v1/teams/{team_id}/user`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
@@ -44199,15 +44525,15 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Create a new user.
-         * @summary Create A User.
+         * @summary Create A User From Credentials.
          * @param {UserProfileIn} userProfileIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserV1UserPost: (userProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAUserFromCredentialsV1UserPost: (userProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userProfileIn' is not null or undefined
             if (userProfileIn === null || userProfileIn === undefined) {
-                throw new base_1.RequiredError('userProfileIn', 'Required parameter userProfileIn was null or undefined when calling createAUserV1UserPost.');
+                throw new base_1.RequiredError('userProfileIn', 'Required parameter userProfileIn was null or undefined when calling createAUserFromCredentialsV1UserPost.');
             }
             const localVarPath = `/v1/user`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -47111,6 +47437,122 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create a new user.
+         * @summary Update A User By Id.
+         * @param {string} userId
+         * @param {string} teamId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAUserByIdV1TeamsTeamIdUsersUserIdPatch: (userId, teamId, updateProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling updateAUserByIdV1TeamsTeamIdUsersUserIdPatch.');
+            }
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling updateAUserByIdV1TeamsTeamIdUsersUserIdPatch.');
+            }
+            // verify required parameter 'updateProfileIn' is not null or undefined
+            if (updateProfileIn === null || updateProfileIn === undefined) {
+                throw new base_1.RequiredError('updateProfileIn', 'Required parameter updateProfileIn was null or undefined when calling updateAUserByIdV1TeamsTeamIdUsersUserIdPatch.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PATCH' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof updateProfileIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(updateProfileIn !== undefined ? updateProfileIn : {}) : (updateProfileIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create a new user.
+         * @summary Update A User By Id.
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAUserByIdV1UsersUserIdPatch: (userId, updateProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling updateAUserByIdV1UsersUserIdPatch.');
+            }
+            // verify required parameter 'updateProfileIn' is not null or undefined
+            if (updateProfileIn === null || updateProfileIn === undefined) {
+                throw new base_1.RequiredError('updateProfileIn', 'Required parameter updateProfileIn was null or undefined when calling updateAUserByIdV1UsersUserIdPatch.');
+            }
+            const localVarPath = `/v1/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PATCH' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof updateProfileIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(updateProfileIn !== undefined ? updateProfileIn : {}) : (updateProfileIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Update the authenticated user\'s profile.
          * @summary Update Authenticated User Profile
          * @param {string} teamId
@@ -47224,15 +47666,16 @@ exports.UsersApiFp = function (configuration) {
     return {
         /**
          * Create a new user.
-         * @summary Create A User.
+         * @summary Create A User By Cognito Id.
          * @param {string} teamId
-         * @param {UserProfileIn} userProfileIn
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserV1TeamsTeamIdUserPost(teamId, userProfileIn, options) {
+        createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId, userId, updateProfileIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).createAUserV1TeamsTeamIdUserPost(teamId, userProfileIn, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId, userId, updateProfileIn, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -47241,14 +47684,48 @@ exports.UsersApiFp = function (configuration) {
         },
         /**
          * Create a new user.
-         * @summary Create A User.
+         * @summary Create A User By Cognito Id.
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserByCognitoIdV1UsersPost(userId, updateProfileIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).createAUserByCognitoIdV1UsersPost(userId, updateProfileIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User From Credentials.
+         * @param {string} teamId
          * @param {UserProfileIn} userProfileIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserV1UserPost(userProfileIn, options) {
+        createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId, userProfileIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).createAUserV1UserPost(userProfileIn, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId, userProfileIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User From Credentials.
+         * @param {UserProfileIn} userProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserFromCredentialsV1UserPost(userProfileIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).createAUserFromCredentialsV1UserPost(userProfileIn, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -48117,6 +48594,41 @@ exports.UsersApiFp = function (configuration) {
             });
         },
         /**
+         * Create a new user.
+         * @summary Update A User By Id.
+         * @param {string} userId
+         * @param {string} teamId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId, teamId, updateProfileIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId, teamId, updateProfileIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create a new user.
+         * @summary Update A User By Id.
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAUserByIdV1UsersUserIdPatch(userId, updateProfileIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).updateAUserByIdV1UsersUserIdPatch(userId, updateProfileIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Update the authenticated user\'s profile.
          * @summary Update Authenticated User Profile
          * @param {string} teamId
@@ -48159,24 +48671,47 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Create a new user.
-         * @summary Create A User.
+         * @summary Create A User By Cognito Id.
+         * @param {string} teamId
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId, userId, updateProfileIn, options) {
+            return exports.UsersApiFp(configuration).createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId, userId, updateProfileIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User By Cognito Id.
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAUserByCognitoIdV1UsersPost(userId, updateProfileIn, options) {
+            return exports.UsersApiFp(configuration).createAUserByCognitoIdV1UsersPost(userId, updateProfileIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new user.
+         * @summary Create A User From Credentials.
          * @param {string} teamId
          * @param {UserProfileIn} userProfileIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserV1TeamsTeamIdUserPost(teamId, userProfileIn, options) {
-            return exports.UsersApiFp(configuration).createAUserV1TeamsTeamIdUserPost(teamId, userProfileIn, options).then((request) => request(axios, basePath));
+        createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId, userProfileIn, options) {
+            return exports.UsersApiFp(configuration).createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId, userProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new user.
-         * @summary Create A User.
+         * @summary Create A User From Credentials.
          * @param {UserProfileIn} userProfileIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserV1UserPost(userProfileIn, options) {
-            return exports.UsersApiFp(configuration).createAUserV1UserPost(userProfileIn, options).then((request) => request(axios, basePath));
+        createAUserFromCredentialsV1UserPost(userProfileIn, options) {
+            return exports.UsersApiFp(configuration).createAUserFromCredentialsV1UserPost(userProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch the authenticated user\'s profile.
@@ -48836,6 +49371,29 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
             return exports.UsersApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create a new user.
+         * @summary Update A User By Id.
+         * @param {string} userId
+         * @param {string} teamId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId, teamId, updateProfileIn, options) {
+            return exports.UsersApiFp(configuration).updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId, teamId, updateProfileIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new user.
+         * @summary Update A User By Id.
+         * @param {string} userId
+         * @param {UpdateProfileIn} updateProfileIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAUserByIdV1UsersUserIdPatch(userId, updateProfileIn, options) {
+            return exports.UsersApiFp(configuration).updateAUserByIdV1UsersUserIdPatch(userId, updateProfileIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update the authenticated user\'s profile.
          * @summary Update Authenticated User Profile
          * @param {string} teamId
@@ -48867,25 +49425,47 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
 class UsersApi extends base_1.BaseAPI {
     /**
      * Create a new user.
-     * @summary Create A User.
-     * @param {UsersApiCreateAUserV1TeamsTeamIdUserPostRequest} requestParameters Request parameters.
+     * @summary Create A User By Cognito Id.
+     * @param {UsersApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    createAUserV1TeamsTeamIdUserPost(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).createAUserV1TeamsTeamIdUserPost(requestParameters.teamId, requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
+    createAUserByCognitoIdV1TeamsTeamIdUsersPost(requestParameters, options) {
+        return exports.UsersApiFp(this.configuration).createAUserByCognitoIdV1TeamsTeamIdUsersPost(requestParameters.teamId, requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new user.
-     * @summary Create A User.
-     * @param {UsersApiCreateAUserV1UserPostRequest} requestParameters Request parameters.
+     * @summary Create A User By Cognito Id.
+     * @param {UsersApiCreateAUserByCognitoIdV1UsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    createAUserV1UserPost(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).createAUserV1UserPost(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
+    createAUserByCognitoIdV1UsersPost(requestParameters, options) {
+        return exports.UsersApiFp(this.configuration).createAUserByCognitoIdV1UsersPost(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
+     * @param {UsersApiCreateAUserFromCredentialsV1TeamsTeamIdUserPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    createAUserFromCredentialsV1TeamsTeamIdUserPost(requestParameters, options) {
+        return exports.UsersApiFp(this.configuration).createAUserFromCredentialsV1TeamsTeamIdUserPost(requestParameters.teamId, requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
+     * @param {UsersApiCreateAUserFromCredentialsV1UserPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    createAUserFromCredentialsV1UserPost(requestParameters, options) {
+        return exports.UsersApiFp(this.configuration).createAUserFromCredentialsV1UserPost(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch the authenticated user\'s profile.
@@ -49259,6 +49839,28 @@ class UsersApi extends base_1.BaseAPI {
      */
     listUserVariablesV1UsersUserIdVariablesGet(requestParameters, options) {
         return exports.UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {UsersApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(requestParameters, options) {
+        return exports.UsersApiFp(this.configuration).updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(requestParameters.userId, requestParameters.teamId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    updateAUserByIdV1UsersUserIdPatch(requestParameters, options) {
+        return exports.UsersApiFp(this.configuration).updateAUserByIdV1UsersUserIdPatch(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update the authenticated user\'s profile.

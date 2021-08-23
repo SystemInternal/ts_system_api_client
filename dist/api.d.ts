@@ -1671,6 +1671,12 @@ export interface DashboardOut {
      * @memberof DashboardOut
      */
     _links?: DashboardLinks;
+    /**
+     * Team.
+     * @type {TeamOut}
+     * @memberof DashboardOut
+     */
+    team?: TeamOut;
 }
 /**
  * Dashboard pagination out.
@@ -6682,6 +6688,55 @@ export interface TimelinePaginationOut {
     _sorts?: Array<string>;
 }
 /**
+ * User profile data input.
+ * @export
+ * @interface UpdateProfileIn
+ */
+export interface UpdateProfileIn {
+    /**
+     * User name that is visible to others on System.
+     * @type {string}
+     * @memberof UpdateProfileIn
+     */
+    display_name?: string;
+    /**
+     * The user\'s unique [ORCID](https://orcid.org/).
+     * @type {string}
+     * @memberof UpdateProfileIn
+     */
+    orcid?: string;
+    /**
+     * User\'s avatar.
+     * @type {string}
+     * @memberof UpdateProfileIn
+     */
+    avatar?: string;
+    /**
+     * User\'s first name.
+     * @type {string}
+     * @memberof UpdateProfileIn
+     */
+    first_name?: string;
+    /**
+     * User\'s last name.
+     * @type {string}
+     * @memberof UpdateProfileIn
+     */
+    last_name?: string;
+    /**
+     * User email address.
+     * @type {string}
+     * @memberof UpdateProfileIn
+     */
+    email?: string;
+    /**
+     * User roles.
+     * @type {Array<string>}
+     * @memberof UpdateProfileIn
+     */
+    roles?: Array<string>;
+}
+/**
  * User input for adding to a team.
  * @export
  * @interface UserInvite
@@ -6803,6 +6858,12 @@ export interface UserProfileIn {
      * @memberof UserProfileIn
      */
     email: string;
+    /**
+     * User roles.
+     * @type {Array<string>}
+     * @memberof UserProfileIn
+     */
+    roles?: Array<string>;
 }
 /**
  * Public user profile out.
@@ -30957,13 +31018,23 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
     createAStudyV1TeamsTeamIdStudiesPost: (teamId: string, studyIn: StudyIn, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new user.
-     * @summary Create A User.
+     * @summary Create A User By Cognito Id.
+     * @param {string} teamId
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAUserByCognitoIdV1TeamsTeamIdUsersPost: (teamId: string, userId: string, updateProfileIn: UpdateProfileIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
      * @param {string} teamId
      * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserV1TeamsTeamIdUserPost: (teamId: string, userProfileIn: UserProfileIn, options?: any) => Promise<RequestArgs>;
+    createAUserFromCredentialsV1TeamsTeamIdUserPost: (teamId: string, userProfileIn: UserProfileIn, options?: any) => Promise<RequestArgs>;
     /**
      * Create a Variable.
      * @summary Create A Variable.
@@ -32358,6 +32429,16 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut: (teamId: string, studyId: string, tagObjectId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {string} userId
+     * @param {string} teamId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAUserByIdV1TeamsTeamIdUsersUserIdPatch: (userId: string, teamId: string, updateProfileIn: UpdateProfileIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
      * @param {string} teamId
@@ -32464,13 +32545,23 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
     createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyIn: StudyIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
      * Create a new user.
-     * @summary Create A User.
+     * @summary Create A User By Cognito Id.
+     * @param {string} teamId
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId: string, userId: string, updateProfileIn: UpdateProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
      * @param {string} teamId
      * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserV1TeamsTeamIdUserPost(teamId: string, userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId: string, userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Create a Variable.
      * @summary Create A Variable.
@@ -33865,6 +33956,16 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut(teamId: string, studyId: string, tagObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {string} userId
+     * @param {string} teamId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId: string, teamId: string, updateProfileIn: UpdateProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
      * @param {string} teamId
@@ -33971,13 +34072,23 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
     createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyIn: StudyIn, options?: any): AxiosPromise<StudyOut>;
     /**
      * Create a new user.
-     * @summary Create A User.
+     * @summary Create A User By Cognito Id.
+     * @param {string} teamId
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId: string, userId: string, updateProfileIn: UpdateProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
      * @param {string} teamId
      * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserV1TeamsTeamIdUserPost(teamId: string, userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId: string, userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Create a Variable.
      * @summary Create A Variable.
@@ -35372,6 +35483,16 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut(teamId: string, studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
     /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {string} userId
+     * @param {string} teamId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId: string, teamId: string, updateProfileIn: UpdateProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
      * @param {string} teamId
@@ -35577,21 +35698,46 @@ export interface TeamsApiCreateAStudyV1TeamsTeamIdStudiesPostRequest {
     readonly studyIn: StudyIn;
 }
 /**
- * Request parameters for createAUserV1TeamsTeamIdUserPost operation in TeamsApi.
+ * Request parameters for createAUserByCognitoIdV1TeamsTeamIdUsersPost operation in TeamsApi.
  * @export
- * @interface TeamsApiCreateAUserV1TeamsTeamIdUserPostRequest
+ * @interface TeamsApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPostRequest
  */
-export interface TeamsApiCreateAUserV1TeamsTeamIdUserPostRequest {
+export interface TeamsApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPostRequest {
     /**
      *
      * @type {string}
-     * @memberof TeamsApiCreateAUserV1TeamsTeamIdUserPost
+     * @memberof TeamsApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPost
+     */
+    readonly userId: string;
+    /**
+     *
+     * @type {UpdateProfileIn}
+     * @memberof TeamsApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPost
+     */
+    readonly updateProfileIn: UpdateProfileIn;
+}
+/**
+ * Request parameters for createAUserFromCredentialsV1TeamsTeamIdUserPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiCreateAUserFromCredentialsV1TeamsTeamIdUserPostRequest
+ */
+export interface TeamsApiCreateAUserFromCredentialsV1TeamsTeamIdUserPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiCreateAUserFromCredentialsV1TeamsTeamIdUserPost
      */
     readonly teamId: string;
     /**
      *
      * @type {UserProfileIn}
-     * @memberof TeamsApiCreateAUserV1TeamsTeamIdUserPost
+     * @memberof TeamsApiCreateAUserFromCredentialsV1TeamsTeamIdUserPost
      */
     readonly userProfileIn: UserProfileIn;
 }
@@ -40244,6 +40390,31 @@ export interface TeamsApiTagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTags
     readonly tagObjectId: string;
 }
 /**
+ * Request parameters for updateAUserByIdV1TeamsTeamIdUsersUserIdPatch operation in TeamsApi.
+ * @export
+ * @interface TeamsApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatchRequest
+ */
+export interface TeamsApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatchRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatch
+     */
+    readonly userId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatch
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {UpdateProfileIn}
+     * @memberof TeamsApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatch
+     */
+    readonly updateProfileIn: UpdateProfileIn;
+}
+/**
  * Request parameters for updateAuthenticatedUserProfileV1TeamsTeamIdUserPut operation in TeamsApi.
  * @export
  * @interface TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamIdUserPutRequest
@@ -40384,13 +40555,22 @@ export declare class TeamsApi extends BaseAPI {
     createAStudyV1TeamsTeamIdStudiesPost(requestParameters: TeamsApiCreateAStudyV1TeamsTeamIdStudiesPostRequest, options?: any): Promise<import("axios").AxiosResponse<StudyOut>>;
     /**
      * Create a new user.
-     * @summary Create A User.
-     * @param {TeamsApiCreateAUserV1TeamsTeamIdUserPostRequest} requestParameters Request parameters.
+     * @summary Create A User By Cognito Id.
+     * @param {TeamsApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    createAUserV1TeamsTeamIdUserPost(requestParameters: TeamsApiCreateAUserV1TeamsTeamIdUserPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+    createAUserByCognitoIdV1TeamsTeamIdUsersPost(requestParameters: TeamsApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
+     * @param {TeamsApiCreateAUserFromCredentialsV1TeamsTeamIdUserPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createAUserFromCredentialsV1TeamsTeamIdUserPost(requestParameters: TeamsApiCreateAUserFromCredentialsV1TeamsTeamIdUserPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
     /**
      * Create a Variable.
      * @summary Create A Variable.
@@ -41346,6 +41526,15 @@ export declare class TeamsApi extends BaseAPI {
      */
     tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut(requestParameters: TeamsApiTagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {TeamsApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(requestParameters: TeamsApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+    /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
      * @param {TeamsApiUpdateAuthenticatedUserProfileV1TeamsTeamIdUserPutRequest} requestParameters Request parameters.
@@ -41470,21 +41659,40 @@ export declare class TimelineApi extends BaseAPI {
 export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Create a new user.
-     * @summary Create A User.
+     * @summary Create A User By Cognito Id.
+     * @param {string} teamId
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAUserByCognitoIdV1TeamsTeamIdUsersPost: (teamId: string, userId: string, updateProfileIn: UpdateProfileIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new user.
+     * @summary Create A User By Cognito Id.
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAUserByCognitoIdV1UsersPost: (userId: string, updateProfileIn: UpdateProfileIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
      * @param {string} teamId
      * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserV1TeamsTeamIdUserPost: (teamId: string, userProfileIn: UserProfileIn, options?: any) => Promise<RequestArgs>;
+    createAUserFromCredentialsV1TeamsTeamIdUserPost: (teamId: string, userProfileIn: UserProfileIn, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new user.
-     * @summary Create A User.
+     * @summary Create A User From Credentials.
      * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserV1UserPost: (userProfileIn: UserProfileIn, options?: any) => Promise<RequestArgs>;
+    createAUserFromCredentialsV1UserPost: (userProfileIn: UserProfileIn, options?: any) => Promise<RequestArgs>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User\'S Teams
@@ -42075,6 +42283,25 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listUserVariablesV1UsersUserIdVariablesGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {string} userId
+     * @param {string} teamId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAUserByIdV1TeamsTeamIdUsersUserIdPatch: (userId: string, teamId: string, updateProfileIn: UpdateProfileIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAUserByIdV1UsersUserIdPatch: (userId: string, updateProfileIn: UpdateProfileIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
      * @param {string} teamId
@@ -42099,21 +42326,40 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
 export declare const UsersApiFp: (configuration?: Configuration) => {
     /**
      * Create a new user.
-     * @summary Create A User.
+     * @summary Create A User By Cognito Id.
+     * @param {string} teamId
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId: string, userId: string, updateProfileIn: UpdateProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    /**
+     * Create a new user.
+     * @summary Create A User By Cognito Id.
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAUserByCognitoIdV1UsersPost(userId: string, updateProfileIn: UpdateProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
      * @param {string} teamId
      * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserV1TeamsTeamIdUserPost(teamId: string, userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId: string, userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Create a new user.
-     * @summary Create A User.
+     * @summary Create A User From Credentials.
      * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserV1UserPost(userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    createAUserFromCredentialsV1UserPost(userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User\'S Teams
@@ -42704,6 +42950,25 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      */
     listUserVariablesV1UsersUserIdVariablesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {string} userId
+     * @param {string} teamId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId: string, teamId: string, updateProfileIn: UpdateProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAUserByIdV1UsersUserIdPatch(userId: string, updateProfileIn: UpdateProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
      * @param {string} teamId
@@ -42728,21 +42993,40 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
 export declare const UsersApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Create a new user.
-     * @summary Create A User.
+     * @summary Create A User By Cognito Id.
+     * @param {string} teamId
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAUserByCognitoIdV1TeamsTeamIdUsersPost(teamId: string, userId: string, updateProfileIn: UpdateProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    /**
+     * Create a new user.
+     * @summary Create A User By Cognito Id.
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createAUserByCognitoIdV1UsersPost(userId: string, updateProfileIn: UpdateProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
      * @param {string} teamId
      * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserV1TeamsTeamIdUserPost(teamId: string, userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    createAUserFromCredentialsV1TeamsTeamIdUserPost(teamId: string, userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Create a new user.
-     * @summary Create A User.
+     * @summary Create A User From Credentials.
      * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserV1UserPost(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    createAUserFromCredentialsV1UserPost(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User\'S Teams
@@ -43333,6 +43617,25 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      */
     listUserVariablesV1UsersUserIdVariablesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {string} userId
+     * @param {string} teamId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(userId: string, teamId: string, updateProfileIn: UpdateProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateAUserByIdV1UsersUserIdPatch(userId: string, updateProfileIn: UpdateProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
      * @param {string} teamId
@@ -43351,34 +43654,78 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
     updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
 };
 /**
- * Request parameters for createAUserV1TeamsTeamIdUserPost operation in UsersApi.
+ * Request parameters for createAUserByCognitoIdV1TeamsTeamIdUsersPost operation in UsersApi.
  * @export
- * @interface UsersApiCreateAUserV1TeamsTeamIdUserPostRequest
+ * @interface UsersApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPostRequest
  */
-export interface UsersApiCreateAUserV1TeamsTeamIdUserPostRequest {
+export interface UsersApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPostRequest {
     /**
      *
      * @type {string}
-     * @memberof UsersApiCreateAUserV1TeamsTeamIdUserPost
+     * @memberof UsersApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPost
+     */
+    readonly userId: string;
+    /**
+     *
+     * @type {UpdateProfileIn}
+     * @memberof UsersApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPost
+     */
+    readonly updateProfileIn: UpdateProfileIn;
+}
+/**
+ * Request parameters for createAUserByCognitoIdV1UsersPost operation in UsersApi.
+ * @export
+ * @interface UsersApiCreateAUserByCognitoIdV1UsersPostRequest
+ */
+export interface UsersApiCreateAUserByCognitoIdV1UsersPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiCreateAUserByCognitoIdV1UsersPost
+     */
+    readonly userId: string;
+    /**
+     *
+     * @type {UpdateProfileIn}
+     * @memberof UsersApiCreateAUserByCognitoIdV1UsersPost
+     */
+    readonly updateProfileIn: UpdateProfileIn;
+}
+/**
+ * Request parameters for createAUserFromCredentialsV1TeamsTeamIdUserPost operation in UsersApi.
+ * @export
+ * @interface UsersApiCreateAUserFromCredentialsV1TeamsTeamIdUserPostRequest
+ */
+export interface UsersApiCreateAUserFromCredentialsV1TeamsTeamIdUserPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiCreateAUserFromCredentialsV1TeamsTeamIdUserPost
      */
     readonly teamId: string;
     /**
      *
      * @type {UserProfileIn}
-     * @memberof UsersApiCreateAUserV1TeamsTeamIdUserPost
+     * @memberof UsersApiCreateAUserFromCredentialsV1TeamsTeamIdUserPost
      */
     readonly userProfileIn: UserProfileIn;
 }
 /**
- * Request parameters for createAUserV1UserPost operation in UsersApi.
+ * Request parameters for createAUserFromCredentialsV1UserPost operation in UsersApi.
  * @export
- * @interface UsersApiCreateAUserV1UserPostRequest
+ * @interface UsersApiCreateAUserFromCredentialsV1UserPostRequest
  */
-export interface UsersApiCreateAUserV1UserPostRequest {
+export interface UsersApiCreateAUserFromCredentialsV1UserPostRequest {
     /**
      *
      * @type {UserProfileIn}
-     * @memberof UsersApiCreateAUserV1UserPost
+     * @memberof UsersApiCreateAUserFromCredentialsV1UserPost
      */
     readonly userProfileIn: UserProfileIn;
 }
@@ -45720,6 +46067,50 @@ export interface UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest {
     readonly inVariableGraph?: boolean;
 }
 /**
+ * Request parameters for updateAUserByIdV1TeamsTeamIdUsersUserIdPatch operation in UsersApi.
+ * @export
+ * @interface UsersApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatchRequest
+ */
+export interface UsersApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatchRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatch
+     */
+    readonly userId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatch
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {UpdateProfileIn}
+     * @memberof UsersApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatch
+     */
+    readonly updateProfileIn: UpdateProfileIn;
+}
+/**
+ * Request parameters for updateAUserByIdV1UsersUserIdPatch operation in UsersApi.
+ * @export
+ * @interface UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest
+ */
+export interface UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiUpdateAUserByIdV1UsersUserIdPatch
+     */
+    readonly userId: string;
+    /**
+     *
+     * @type {UpdateProfileIn}
+     * @memberof UsersApiUpdateAUserByIdV1UsersUserIdPatch
+     */
+    readonly updateProfileIn: UpdateProfileIn;
+}
+/**
  * Request parameters for updateAuthenticatedUserProfileV1TeamsTeamIdUserPut operation in UsersApi.
  * @export
  * @interface UsersApiUpdateAuthenticatedUserProfileV1TeamsTeamIdUserPutRequest
@@ -45760,22 +46151,40 @@ export interface UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest {
 export declare class UsersApi extends BaseAPI {
     /**
      * Create a new user.
-     * @summary Create A User.
-     * @param {UsersApiCreateAUserV1TeamsTeamIdUserPostRequest} requestParameters Request parameters.
+     * @summary Create A User By Cognito Id.
+     * @param {UsersApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    createAUserV1TeamsTeamIdUserPost(requestParameters: UsersApiCreateAUserV1TeamsTeamIdUserPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+    createAUserByCognitoIdV1TeamsTeamIdUsersPost(requestParameters: UsersApiCreateAUserByCognitoIdV1TeamsTeamIdUsersPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
     /**
      * Create a new user.
-     * @summary Create A User.
-     * @param {UsersApiCreateAUserV1UserPostRequest} requestParameters Request parameters.
+     * @summary Create A User By Cognito Id.
+     * @param {UsersApiCreateAUserByCognitoIdV1UsersPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    createAUserV1UserPost(requestParameters: UsersApiCreateAUserV1UserPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+    createAUserByCognitoIdV1UsersPost(requestParameters: UsersApiCreateAUserByCognitoIdV1UsersPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
+     * @param {UsersApiCreateAUserFromCredentialsV1TeamsTeamIdUserPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    createAUserFromCredentialsV1TeamsTeamIdUserPost(requestParameters: UsersApiCreateAUserFromCredentialsV1TeamsTeamIdUserPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+    /**
+     * Create a new user.
+     * @summary Create A User From Credentials.
+     * @param {UsersApiCreateAUserFromCredentialsV1UserPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    createAUserFromCredentialsV1UserPost(requestParameters: UsersApiCreateAUserFromCredentialsV1UserPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User\'S Teams
@@ -46081,6 +46490,24 @@ export declare class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     listUserVariablesV1UsersUserIdVariablesGet(requestParameters: UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest, options?: any): Promise<import("axios").AxiosResponse<VariablePaginationOut>>;
+    /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {UsersApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    updateAUserByIdV1TeamsTeamIdUsersUserIdPatch(requestParameters: UsersApiUpdateAUserByIdV1TeamsTeamIdUsersUserIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+    /**
+     * Create a new user.
+     * @summary Update A User By Id.
+     * @param {UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    updateAUserByIdV1UsersUserIdPatch(requestParameters: UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
     /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
