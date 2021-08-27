@@ -3463,10 +3463,10 @@ export interface Integration {
     service_type: IntegrationType;
     /**
      * Integration credentials.
-     * @type {RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials}
+     * @type {RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials}
      * @memberof Integration
      */
-    credentials: RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials;
+    credentials: RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials;
     /**
      * Enterprise link.
      * @type {string}
@@ -3554,10 +3554,10 @@ export interface IntegrationCreate {
     service_type: IntegrationType;
     /**
      * Integration credentials.
-     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn}
+     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn}
      * @memberof IntegrationCreate
      */
-    credentials: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn;
+    credentials: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn;
     /**
      * Team or Enterprise link
      * @type {string}
@@ -3583,7 +3583,8 @@ export declare enum IntegrationState {
 export declare enum IntegrationType {
     REDSHIFT = "REDSHIFT",
     SNOWFLAKE = "SNOWFLAKE",
-    BIGQUERY = "BIGQUERY"
+    BIGQUERY = "BIGQUERY",
+    LOOKER = "LOOKER"
 }
 /**
  * Input Integration model for updates.
@@ -3641,10 +3642,10 @@ export interface IntegrationUpdateIn {
     lambda_arn?: string;
     /**
      * Integration credentials.
-     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn}
+     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn}
      * @memberof IntegrationUpdateIn
      */
-    credentials?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn;
+    credentials?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn;
 }
 /**
  * Represent a line plot.
@@ -3816,6 +3817,56 @@ export interface LocationOut {
      * @memberof LocationOut
      */
     location_type: string;
+}
+/**
+ * Credentials for a Looker integration without password.
+ * @export
+ * @interface LookerCredentials
+ */
+export interface LookerCredentials {
+    /**
+     * Integration verify ssl
+     * @type {boolean}
+     * @memberof LookerCredentials
+     */
+    verify_ssl: boolean;
+    /**
+     * Integration base url
+     * @type {string}
+     * @memberof LookerCredentials
+     */
+    base_url: string;
+}
+/**
+ * Input credentials for a Looker integration.
+ * @export
+ * @interface LookerCredentialsIn
+ */
+export interface LookerCredentialsIn {
+    /**
+     * Integration verify ssl
+     * @type {boolean}
+     * @memberof LookerCredentialsIn
+     */
+    verify_ssl: boolean;
+    /**
+     * Integration base url
+     * @type {string}
+     * @memberof LookerCredentialsIn
+     */
+    base_url: string;
+    /**
+     * Integration client id.
+     * @type {string}
+     * @memberof LookerCredentialsIn
+     */
+    client_id: string;
+    /**
+     * Integration client secret key.
+     * @type {string}
+     * @memberof LookerCredentialsIn
+     */
+    client_secret: string;
 }
 /**
  * A Message object.

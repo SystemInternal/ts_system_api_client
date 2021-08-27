@@ -320,6 +320,7 @@ var IntegrationType;
     IntegrationType["REDSHIFT"] = "REDSHIFT";
     IntegrationType["SNOWFLAKE"] = "SNOWFLAKE";
     IntegrationType["BIGQUERY"] = "BIGQUERY";
+    IntegrationType["LOOKER"] = "LOOKER";
 })(IntegrationType = exports.IntegrationType || (exports.IntegrationType = {}));
 /**
  * Message type.
