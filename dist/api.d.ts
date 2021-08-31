@@ -3829,7 +3829,7 @@ export interface LookerCredentials {
      * @type {boolean}
      * @memberof LookerCredentials
      */
-    verify_ssl: boolean;
+    verify_ssl?: boolean;
     /**
      * Integration base url
      * @type {string}
@@ -3848,7 +3848,7 @@ export interface LookerCredentialsIn {
      * @type {boolean}
      * @memberof LookerCredentialsIn
      */
-    verify_ssl: boolean;
+    verify_ssl?: boolean;
     /**
      * Integration base url
      * @type {string}
