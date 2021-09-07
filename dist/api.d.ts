@@ -1495,6 +1495,12 @@ export interface DashboardIn {
      */
     external_id?: string;
     /**
+     * Dashboard\'s external author.
+     * @type {string}
+     * @memberof DashboardIn
+     */
+    external_author?: string;
+    /**
      * Dashboard\'s number of elements.
      * @type {number}
      * @memberof DashboardIn
@@ -1635,6 +1641,12 @@ export interface DashboardOut {
      * @memberof DashboardOut
      */
     external_id?: string;
+    /**
+     * Dashboard\'s external author.
+     * @type {string}
+     * @memberof DashboardOut
+     */
+    external_author?: string;
     /**
      * Dashboard\'s number of elements.
      * @type {number}
