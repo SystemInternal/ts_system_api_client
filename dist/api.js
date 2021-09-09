@@ -8605,6 +8605,190 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet: (teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/variables/{variable_id}/dashboards`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} variableId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1VariablesVariableIdDashboardsGet: (variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listDashboardsV1VariablesVariableIdDashboardsGet.');
+            }
+            const localVarPath = `/v1/variables/{variable_id}/dashboards`
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -8856,6 +9040,60 @@ exports.DashboardsApiFp = function (configuration) {
                 };
             });
         },
+        /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} variableId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.DashboardsApiAxiosParamCreator(configuration).listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
     };
 };
 /**
@@ -9035,6 +9273,48 @@ exports.DashboardsApiFactory = function (configuration, basePath, axios) {
         listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
             return exports.DashboardsApiFp(configuration).listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.DashboardsApiFp(configuration).listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} variableId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.DashboardsApiFp(configuration).listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -9175,6 +9455,28 @@ class DashboardsApi extends base_1.BaseAPI {
      */
     listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters, options) {
         return exports.DashboardsApiFp(this.configuration).listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(requestParameters.teamId, requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters, options) {
+        return exports.DashboardsApiFp(this.configuration).listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters.variableId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.DashboardsApi = DashboardsApi;
@@ -35206,6 +35508,99 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet: (teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/variables/{variable_id}/dashboards`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} teamId
@@ -40115,6 +40510,33 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} teamId
@@ -42152,6 +42574,27 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).listDashboardsV1TeamsTeamIdDashboardsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.TeamsApiFp(configuration).listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} teamId
@@ -43718,6 +44161,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(requestParameters.teamId, requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a datasets features.
@@ -50690,6 +51144,190 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet: (teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet.');
+            }
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/variables/{variable_id}/dashboards`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} variableId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1VariablesVariableIdDashboardsGet: (variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'variableId' is not null or undefined
+            if (variableId === null || variableId === undefined) {
+                throw new base_1.RequiredError('variableId', 'Required parameter variableId was null or undefined when calling listDashboardsV1VariablesVariableIdDashboardsGet.');
+            }
+            const localVarPath = `/v1/variables/{variable_id}/dashboards`
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
          * @param {string} teamId
@@ -51880,6 +52518,60 @@ exports.VariablesApiFp = function (configuration) {
             });
         },
         /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} variableId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
          * @param {string} teamId
@@ -52335,6 +53027,48 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
             return exports.VariablesApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.VariablesApiFp(configuration).listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId, variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get dashboards connected to the Variable.
+         * @summary List Dashboards
+         * @param {string} variableId
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {DashboardSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.VariablesApiFp(configuration).listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
          * @param {string} teamId
@@ -52687,6 +53421,28 @@ class VariablesApi extends base_1.BaseAPI {
      */
     listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters = {}, options) {
         return exports.VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(requestParameters.teamId, requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {VariablesApiListDashboardsV1VariablesVariableIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters.variableId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the features in the requested variable\'s system.

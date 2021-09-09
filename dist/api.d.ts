@@ -13424,6 +13424,44 @@ export declare const DashboardsApiAxiosParamCreator: (configuration?: Configurat
      * @throws {RequiredError}
      */
     listDashboardsV1TeamsTeamIdDashboardsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet: (teamId: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} variableId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1VariablesVariableIdDashboardsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * DashboardsApi - functional programming interface
@@ -13577,6 +13615,44 @@ export declare const DashboardsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listDashboardsV1TeamsTeamIdDashboardsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} variableId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
 };
 /**
  * DashboardsApi - factory interface
@@ -13730,6 +13806,44 @@ export declare const DashboardsApiFactory: (configuration?: Configuration, baseP
      * @throws {RequiredError}
      */
     listDashboardsV1TeamsTeamIdDashboardsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} variableId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
 };
 /**
  * Request parameters for addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut operation in DashboardsApi.
@@ -14194,6 +14308,164 @@ export interface DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest {
     readonly sortBy?: string;
 }
 /**
+ * Request parameters for listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest
+ */
+export interface DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly variableId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {DashboardSortEnum}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly orderBy?: DashboardSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly sortBy?: string;
+}
+/**
+ * Request parameters for listDashboardsV1VariablesVariableIdDashboardsGet operation in DashboardsApi.
+ * @export
+ * @interface DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGetRequest
+ */
+export interface DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly variableId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly teamId?: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {DashboardSortEnum}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly orderBy?: DashboardSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly sortBy?: string;
+}
+/**
  * DashboardsApi - object-oriented interface
  * @export
  * @class DashboardsApi
@@ -14308,6 +14580,24 @@ export declare class DashboardsApi extends BaseAPI {
      * @memberof DashboardsApi
      */
     listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters: DashboardsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardPaginationOut>>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(requestParameters: DashboardsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardPaginationOut>>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DashboardsApi
+     */
+    listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters: DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardPaginationOut>>;
 }
 /**
  * DatasetsApi - axios parameter creator
@@ -31876,6 +32166,25 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listDashboardsV1TeamsTeamIdDashboardsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet: (teamId: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} teamId
@@ -33403,6 +33712,25 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     listDashboardsV1TeamsTeamIdDashboardsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
     /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+    /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} teamId
@@ -34929,6 +35257,25 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listDashboardsV1TeamsTeamIdDashboardsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -38192,6 +38539,85 @@ export interface TeamsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest {
     readonly sortBy?: string;
 }
 /**
+ * Request parameters for listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest
+ */
+export interface TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly variableId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {DashboardSortEnum}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly orderBy?: DashboardSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly sortBy?: string;
+}
+/**
  * Request parameters for listDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGet operation in TeamsApi.
  * @export
  * @interface TeamsApiListDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGetRequest
@@ -41219,6 +41645,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     listDashboardsV1TeamsTeamIdDashboardsGet(requestParameters: TeamsApiListDashboardsV1TeamsTeamIdDashboardsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardPaginationOut>>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(requestParameters: TeamsApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardPaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -46746,6 +47181,44 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      */
     listAuthenticatedUserVariablesV1UserVariablesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
     /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet: (teamId: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} variableId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1VariablesVariableIdDashboardsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
      * @param {string} teamId
@@ -47095,6 +47568,44 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      */
     listAuthenticatedUserVariablesV1UserVariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} variableId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+    /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
      * @param {string} teamId
@@ -47443,6 +47954,44 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     listAuthenticatedUserVariablesV1UserVariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(teamId: string, variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {string} variableId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {DashboardSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -48116,6 +48665,164 @@ export interface VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetReq
      * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
      */
     readonly inVariableGraph?: boolean;
+}
+/**
+ * Request parameters for listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet operation in VariablesApi.
+ * @export
+ * @interface VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest
+ */
+export interface VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly variableId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {DashboardSortEnum}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly orderBy?: DashboardSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet
+     */
+    readonly sortBy?: string;
+}
+/**
+ * Request parameters for listDashboardsV1VariablesVariableIdDashboardsGet operation in VariablesApi.
+ * @export
+ * @interface VariablesApiListDashboardsV1VariablesVariableIdDashboardsGetRequest
+ */
+export interface VariablesApiListDashboardsV1VariablesVariableIdDashboardsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly variableId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly teamId?: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {DashboardSortEnum}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly orderBy?: DashboardSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly sortBy?: string;
 }
 /**
  * Request parameters for listSystemOfFeaturesV1TeamsTeamIdVariablesVariableIdSystemFeaturesGet operation in VariablesApi.
@@ -49040,6 +49747,24 @@ export declare class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters?: VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetRequest, options?: any): Promise<import("axios").AxiosResponse<VariablePaginationOut>>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet(requestParameters: VariablesApiListDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardPaginationOut>>;
+    /**
+     * Get dashboards connected to the Variable.
+     * @summary List Dashboards
+     * @param {VariablesApiListDashboardsV1VariablesVariableIdDashboardsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters: VariablesApiListDashboardsV1VariablesVariableIdDashboardsGetRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardPaginationOut>>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
