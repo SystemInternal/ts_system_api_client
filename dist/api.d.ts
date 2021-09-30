@@ -22,6 +22,15 @@ export declare enum AddFlowContext {
     QuickProject = "quick_project"
 }
 /**
+ * Alert colors for metric monitoring.
+ * @export
+ * @enum {string}
+ */
+export declare enum AlertColor {
+    GREEN = "GREEN",
+    RED = "RED"
+}
+/**
  * List of algorithms model.
  * @export
  * @interface AlgorithmListResult
@@ -4053,6 +4062,31 @@ export declare enum MessageType {
     DATASETCREATED = "DATASET_CREATED"
 }
 /**
+ * A System Database Usage Object.
+ * @export
+ * @interface MetricMonitoring
+ */
+export interface MetricMonitoring {
+    /**
+     * Color of the alert when the rule is in violation.
+     * @type {AlertColor}
+     * @memberof MetricMonitoring
+     */
+    alert_color: AlertColor;
+    /**
+     * Last time that the monitoring was enabled.
+     * @type {string}
+     * @memberof MetricMonitoring
+     */
+    enabled: string;
+    /**
+     * The rule of which determines state of violation.
+     * @type {RuleSet}
+     * @memberof MetricMonitoring
+     */
+    rule: RuleSet;
+}
+/**
  * Values available for filtering models.
  * @export
  * @interface ModelFilters
@@ -5836,6 +5870,31 @@ export declare enum RetrievalStatus {
     Failure = "failure"
 }
 /**
+ * A ruleset for comparisons.
+ * @export
+ * @interface RuleSet
+ */
+export interface RuleSet {
+    /**
+     * The field to compare
+     * @type {string}
+     * @memberof RuleSet
+     */
+    field: string;
+    /**
+     * The operator to compare with
+     * @type {string}
+     * @memberof RuleSet
+     */
+    operator: string;
+    /**
+     * The value to compare with
+     * @type {number}
+     * @memberof RuleSet
+     */
+    value: number;
+}
+/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -7395,6 +7454,12 @@ export interface VariableIn {
      * @memberof VariableIn
      */
     concept_id?: string;
+    /**
+     * The monitoring rules for the metric.
+     * @type {MetricMonitoring}
+     * @memberof VariableIn
+     */
+    monitoring?: MetricMonitoring;
 }
 /**
  * Variable resource links.
@@ -7520,6 +7585,12 @@ export interface VariableOut {
      * @memberof VariableOut
      */
     concept_id?: string;
+    /**
+     * The monitoring rules for the metric.
+     * @type {MetricMonitoring}
+     * @memberof VariableOut
+     */
+    monitoring?: MetricMonitoring;
     /**
      * Collection of links to related resources.
      * @type {VariableLinks}
