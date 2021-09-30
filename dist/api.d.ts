@@ -2418,6 +2418,89 @@ export interface DateRangeOut {
     date_end_string?: string;
 }
 /**
+ * Represent statistics for a datetime feature.
+ * @export
+ * @interface DatetimeFeatureStatistics
+ */
+export interface DatetimeFeatureStatistics {
+    /**
+     * Percentage of column values that are missing or zero-length.
+     * @type {number}
+     * @memberof DatetimeFeatureStatistics
+     */
+    percent_missing?: number;
+    /**
+     * Earliest time of datetime values.
+     * @type {string}
+     * @memberof DatetimeFeatureStatistics
+     */
+    earliest_time?: string;
+    /**
+     * Latest time of datetime values.
+     * @type {string}
+     * @memberof DatetimeFeatureStatistics
+     */
+    latest_time?: string;
+    /**
+     * Histogram depicting the distribution of datetime features.
+     * @type {DatetimeHistogram}
+     * @memberof DatetimeFeatureStatistics
+     */
+    histogram?: DatetimeHistogram;
+    /**
+     * Historical stats in form timestamp to value.
+     * @type {{ [key: string]: DatetimeFeatureStatisticsSimpleBase; }}
+     * @memberof DatetimeFeatureStatistics
+     */
+    history?: {
+        [key: string]: DatetimeFeatureStatisticsSimpleBase;
+    };
+}
+/**
+ * Represent statistics for datetime feature.  These fields will be included in the stats history.
+ * @export
+ * @interface DatetimeFeatureStatisticsSimpleBase
+ */
+export interface DatetimeFeatureStatisticsSimpleBase {
+    /**
+     * Percentage of column values that are missing or zero-length.
+     * @type {number}
+     * @memberof DatetimeFeatureStatisticsSimpleBase
+     */
+    percent_missing?: number;
+    /**
+     * Earliest time of datetime values.
+     * @type {string}
+     * @memberof DatetimeFeatureStatisticsSimpleBase
+     */
+    earliest_time?: string;
+    /**
+     * Latest time of datetime values.
+     * @type {string}
+     * @memberof DatetimeFeatureStatisticsSimpleBase
+     */
+    latest_time?: string;
+}
+/**
+ * A datetime histogram object.  See https://numpy.org/doc/1.18/reference/generated/numpy.histogram.html
+ * @export
+ * @interface DatetimeHistogram
+ */
+export interface DatetimeHistogram {
+    /**
+     * The density values of the histogram
+     * @type {Array<number>}
+     * @memberof DatetimeHistogram
+     */
+    hist?: Array<number>;
+    /**
+     * The bin edges (length(hist)+1). All but the last (righthand-most) bin is half-open
+     * @type {Array<string>}
+     * @memberof DatetimeHistogram
+     */
+    bin_edges_date_time?: Array<string>;
+}
+/**
  * Model Deployment model.
  * @export
  * @interface Deployment
@@ -2990,6 +3073,12 @@ export interface FeatureStatistics {
      * @memberof FeatureStatistics
      */
     string_feature_statistics?: StringFeatureStatistics;
+    /**
+     * Statistics for a datetime feature.
+     * @type {DatetimeFeatureStatistics}
+     * @memberof FeatureStatistics
+     */
+    datetime_feature_statistics?: DatetimeFeatureStatistics;
 }
 /**
  * Feature system of features out.
