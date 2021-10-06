@@ -8041,7 +8041,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8054,14 +8053,14 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Associations.
      * @summary List Associations
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8077,15 +8076,15 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1AssociationsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8098,15 +8097,15 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8119,15 +8118,15 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8140,10 +8139,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Associations.
      * @summary List Associations
@@ -8255,7 +8255,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8268,10 +8267,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -8491,7 +8491,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8504,14 +8503,14 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List Associations.
      * @summary List Associations
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8527,15 +8526,15 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8548,15 +8547,15 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8569,15 +8568,15 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8590,10 +8589,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List Associations.
      * @summary List Associations
@@ -8705,7 +8705,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8718,10 +8717,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -8941,7 +8941,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8954,14 +8953,14 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List Associations.
      * @summary List Associations
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8977,15 +8976,15 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
      * @param {string} [conceptRelationship] Format: \&#39;&lt;concept_id_1&gt;;&lt;concept_id_2&gt;\&#39;
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1AssociationsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1AssociationsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, variableRelationship?: string, featureRelationship?: string, conceptRelationship?: string, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8998,15 +8997,15 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -9019,15 +9018,15 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -9040,10 +9039,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List Associations.
      * @summary List Associations
@@ -9155,7 +9155,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -9168,10 +9167,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -9680,12 +9680,6 @@ export interface AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1Us
      */
     readonly studyId: string;
     /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
@@ -9757,6 +9751,12 @@ export interface AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1Us
      * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1AssociationsGet operation in AssociationsApi.
@@ -9764,12 +9764,6 @@ export interface AssociationsApiListAssociationsInTheAuthenticatedUserSStudyV1Us
  * @interface AssociationsApiListAssociationsV1AssociationsGetRequest
  */
 export interface AssociationsApiListAssociationsV1AssociationsGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1AssociationsGet
-     */
-    readonly teamId?: string;
     /**
      * Search query.
      * @type {string}
@@ -9860,6 +9854,12 @@ export interface AssociationsApiListAssociationsV1AssociationsGetRequest {
      * @memberof AssociationsApiListAssociationsV1AssociationsGet
      */
     readonly conceptRelationship?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1AssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1DatasetsDatasetIdAssociationsGet operation in AssociationsApi.
@@ -9874,12 +9874,6 @@ export interface AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsG
      */
     readonly datasetId: string;
     /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
@@ -9951,6 +9945,12 @@ export interface AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsG
      * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1ModelsModelIdAssociationsGet operation in AssociationsApi.
@@ -9965,12 +9965,6 @@ export interface AssociationsApiListAssociationsV1ModelsModelIdAssociationsGetRe
      */
     readonly modelId: string;
     /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
@@ -10042,6 +10036,12 @@ export interface AssociationsApiListAssociationsV1ModelsModelIdAssociationsGetRe
      * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1StudiesStudyIdAssociationsGet operation in AssociationsApi.
@@ -10056,12 +10056,6 @@ export interface AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGetR
      */
     readonly studyId: string;
     /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGet
@@ -10133,6 +10127,12 @@ export interface AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGetR
      * @memberof AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1TeamsTeamIdAssociationsGet operation in AssociationsApi.
@@ -10614,12 +10614,6 @@ export interface AssociationsApiListAssociationsV1VariablesVariableIdAssociation
      */
     readonly variableId: string;
     /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
@@ -10691,6 +10685,12 @@ export interface AssociationsApiListAssociationsV1VariablesVariableIdAssociation
      * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchAssociationsV1ModelsModelIdAssociationsPatch operation in AssociationsApi.
@@ -11958,7 +11958,6 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -11970,10 +11969,11 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserConceptsV1UserConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Concepts.
      * @summary List Concepts
@@ -12079,7 +12079,6 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * List a user\'s concepts.
      * @summary List User Concepts
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -12091,10 +12090,11 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * ConceptsApi - functional programming interface
@@ -12174,7 +12174,6 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -12186,10 +12185,11 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List Concepts.
      * @summary List Concepts
@@ -12295,7 +12295,6 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * List a user\'s concepts.
      * @summary List User Concepts
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -12307,10 +12306,11 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
 };
 /**
  * ConceptsApi - factory interface
@@ -12390,7 +12390,6 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -12402,10 +12401,11 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List Concepts.
      * @summary List Concepts
@@ -12511,7 +12511,6 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * List a user\'s concepts.
      * @summary List User Concepts
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -12523,10 +12522,11 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
 };
 /**
  * Request parameters for createConceptV1ConceptsPost operation in ConceptsApi.
@@ -12710,12 +12710,6 @@ export interface ConceptsApiListAuthenticatedUserConceptsV1TeamsTeamIdUserConcep
  */
 export interface ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGet
@@ -12781,6 +12775,12 @@ export interface ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGetReques
      * @memberof ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGet
      */
     readonly inConceptGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiListAuthenticatedUserConceptsV1UserConceptsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listConceptsV1ConceptsGet operation in ConceptsApi.
@@ -13226,12 +13226,6 @@ export interface ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof ConceptsApiListUserConceptsV1UsersUserIdConceptsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof ConceptsApiListUserConceptsV1UsersUserIdConceptsGet
@@ -13297,6 +13291,12 @@ export interface ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      * @memberof ConceptsApiListUserConceptsV1UsersUserIdConceptsGet
      */
     readonly inConceptGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiListUserConceptsV1UsersUserIdConceptsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * ConceptsApi - object-oriented interface
@@ -13512,7 +13512,6 @@ export declare const DashboardsApiAxiosParamCreator: (configuration?: Configurat
      * List a datasets features.
      * @summary List Dashboard Features
      * @param {string} dashboardId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -13524,10 +13523,11 @@ export declare const DashboardsApiAxiosParamCreator: (configuration?: Configurat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet: (dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet: (dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
@@ -13607,7 +13607,6 @@ export declare const DashboardsApiAxiosParamCreator: (configuration?: Configurat
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -13618,10 +13617,11 @@ export declare const DashboardsApiAxiosParamCreator: (configuration?: Configurat
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listDashboardsV1VariablesVariableIdDashboardsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * DashboardsApi - functional programming interface
@@ -13703,7 +13703,6 @@ export declare const DashboardsApiFp: (configuration?: Configuration) => {
      * List a datasets features.
      * @summary List Dashboard Features
      * @param {string} dashboardId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -13715,10 +13714,11 @@ export declare const DashboardsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
@@ -13798,7 +13798,6 @@ export declare const DashboardsApiFp: (configuration?: Configuration) => {
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -13809,10 +13808,11 @@ export declare const DashboardsApiFp: (configuration?: Configuration) => {
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
 };
 /**
  * DashboardsApi - factory interface
@@ -13894,7 +13894,6 @@ export declare const DashboardsApiFactory: (configuration?: Configuration, baseP
      * List a datasets features.
      * @summary List Dashboard Features
      * @param {string} dashboardId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -13906,10 +13905,11 @@ export declare const DashboardsApiFactory: (configuration?: Configuration, baseP
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
@@ -13989,7 +13989,6 @@ export declare const DashboardsApiFactory: (configuration?: Configuration, baseP
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -14000,10 +13999,11 @@ export declare const DashboardsApiFactory: (configuration?: Configuration, baseP
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
 };
 /**
  * Request parameters for addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut operation in DashboardsApi.
@@ -14164,12 +14164,6 @@ export interface DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeatur
      */
     readonly dashboardId: string;
     /**
-     *
-     * @type {string}
-     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
@@ -14235,6 +14229,12 @@ export interface DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeatur
      * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet operation in DashboardsApi.
@@ -14559,12 +14559,6 @@ export interface DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGetRe
      */
     readonly variableId: string;
     /**
-     *
-     * @type {string}
-     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
@@ -14624,6 +14618,12 @@ export interface DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGetRe
      * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
      */
     readonly sortBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * DashboardsApi - object-oriented interface
@@ -14957,7 +14957,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -14970,10 +14969,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -15018,7 +15018,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15031,15 +15030,15 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15051,10 +15050,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -15079,7 +15079,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * Get parents of this dataset.
      * @summary List Dataset Parents
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15092,10 +15091,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
@@ -15120,7 +15120,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
     /**
      * Get all Datasets.
      * @summary List Datasets
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15135,10 +15134,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} [conceptTag] Filter datasets with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listDatasetsV1DatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get all Datasets.
      * @summary List Datasets
@@ -15165,7 +15165,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15177,10 +15176,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -15226,7 +15226,6 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15239,10 +15238,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -15575,7 +15575,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15588,10 +15587,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -15636,7 +15636,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15649,15 +15648,15 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15669,10 +15668,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -15697,7 +15697,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * Get parents of this dataset.
      * @summary List Dataset Parents
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15710,10 +15709,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
@@ -15738,7 +15738,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
     /**
      * Get all Datasets.
      * @summary List Datasets
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15753,10 +15752,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {string} [conceptTag] Filter datasets with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Get all Datasets.
      * @summary List Datasets
@@ -15783,7 +15783,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15795,10 +15794,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -15844,7 +15844,6 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15857,10 +15856,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -16193,7 +16193,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16206,10 +16205,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -16254,7 +16254,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16267,15 +16266,15 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16287,10 +16286,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -16315,7 +16315,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * Get parents of this dataset.
      * @summary List Dataset Parents
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16328,10 +16327,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
@@ -16356,7 +16356,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
     /**
      * Get all Datasets.
      * @summary List Datasets
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16371,10 +16370,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {string} [conceptTag] Filter datasets with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetsV1DatasetsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listDatasetsV1DatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamId?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Get all Datasets.
      * @summary List Datasets
@@ -16401,7 +16401,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16413,10 +16412,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -16462,7 +16462,6 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16475,10 +16474,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -17060,12 +17060,6 @@ export interface DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRe
      */
     readonly datasetId: string;
     /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
@@ -17137,6 +17131,12 @@ export interface DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRe
      * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsGet operation in DatasetsApi.
@@ -17321,12 +17321,6 @@ export interface DatasetsApiListAuthenticatedUserDatasetsV1TeamsTeamIdUserDatase
  */
 export interface DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
@@ -17398,6 +17392,12 @@ export interface DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGetReques
      * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
     readonly conceptTag?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet operation in DatasetsApi.
@@ -17411,12 +17411,6 @@ export interface DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
      */
     readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
-     */
-    readonly teamId?: string;
     /**
      * Search query.
      * @type {string}
@@ -17483,6 +17477,12 @@ export interface DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGet operation in DatasetsApi.
@@ -17582,12 +17582,6 @@ export interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetReque
      */
     readonly datasetId: string;
     /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
@@ -17659,6 +17653,12 @@ export interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetReque
      * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
      */
     readonly conceptTag?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listDatasetParentsV1TeamsTeamIdDatasetsDatasetIdParentsGet operation in DatasetsApi.
@@ -17758,12 +17758,6 @@ export interface DatasetsApiListDatasetParentsV1TeamsTeamIdDatasetsDatasetIdPare
  */
 export interface DatasetsApiListDatasetsV1DatasetsGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetsV1DatasetsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof DatasetsApiListDatasetsV1DatasetsGet
@@ -17847,6 +17841,12 @@ export interface DatasetsApiListDatasetsV1DatasetsGetRequest {
      * @memberof DatasetsApiListDatasetsV1DatasetsGet
      */
     readonly featureRelationship?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListDatasetsV1DatasetsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listDatasetsV1TeamsTeamIdDatasetsGet operation in DatasetsApi.
@@ -17958,12 +17958,6 @@ export interface DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRe
      */
     readonly datasetId: string;
     /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
@@ -18029,6 +18023,12 @@ export interface DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRe
      * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
      */
     readonly containsVariableId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listModelsUsingDatasetV1TeamsTeamIdDatasetsDatasetIdModelsGet operation in DatasetsApi.
@@ -18219,12 +18219,6 @@ export interface DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
@@ -18296,6 +18290,12 @@ export interface DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
     readonly conceptTag?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchDatasetV1DatasetsDatasetIdPatch operation in DatasetsApi.
@@ -19633,7 +19633,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -19645,15 +19644,15 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
      * @param {string} dashboardId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -19665,10 +19664,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet: (dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet: (dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
@@ -19693,7 +19693,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -19705,10 +19704,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -19844,7 +19844,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * List a user\'s features.
      * @summary List User Features
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -19856,10 +19855,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
      * @summary Patch Feature
@@ -20074,7 +20074,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20086,15 +20085,15 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
      * @param {string} dashboardId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20106,10 +20105,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
@@ -20134,7 +20134,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20146,10 +20145,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -20285,7 +20285,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * List a user\'s features.
      * @summary List User Features
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20297,10 +20296,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
      * @summary Patch Feature
@@ -20515,7 +20515,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20527,15 +20526,15 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
      * @param {string} dashboardId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20547,10 +20546,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet(dashboardId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
@@ -20575,7 +20575,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20587,10 +20586,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -20726,7 +20726,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * List a user\'s features.
      * @summary List User Features
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20738,10 +20737,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
      * @summary Patch Feature
@@ -21155,12 +21155,6 @@ export interface FeaturesApiListAuthenticatedUserFeaturesV1TeamsTeamIdUserFeatur
  */
 export interface FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
@@ -21226,6 +21220,12 @@ export interface FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGetReques
      * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListAuthenticatedUserFeaturesV1UserFeaturesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listDashboardFeaturesV1DashboardsDashboardIdFeaturesGet operation in FeaturesApi.
@@ -21240,12 +21240,6 @@ export interface FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeatures
      */
     readonly dashboardId: string;
     /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
@@ -21311,6 +21305,12 @@ export interface FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeatures
      * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListDashboardFeaturesV1DashboardsDashboardIdFeaturesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listDashboardFeaturesV1TeamsTeamIdDashboardsDashboardIdFeaturesGet operation in FeaturesApi.
@@ -21410,12 +21410,6 @@ export interface FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      */
     readonly datasetId: string;
     /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
@@ -21481,6 +21475,12 @@ export interface FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGet operation in FeaturesApi.
@@ -22071,12 +22071,6 @@ export interface FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGet
@@ -22142,6 +22136,12 @@ export interface FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
      * @memberof FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchFeatureV1FeaturesFeatureIdPatch operation in FeaturesApi.
@@ -23146,7 +23146,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -23159,10 +23158,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -23206,7 +23206,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -23218,15 +23217,15 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserModelsV1UserModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -23238,10 +23237,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -23324,7 +23324,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -23336,10 +23335,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -23541,7 +23541,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -23554,10 +23553,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -23601,7 +23601,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -23613,15 +23612,15 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -23633,10 +23632,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -23719,7 +23719,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -23731,10 +23730,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -23936,7 +23936,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -23949,10 +23948,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -23996,7 +23996,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -24008,15 +24007,15 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -24028,10 +24027,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -24114,7 +24114,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -24126,10 +24125,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -24510,12 +24510,6 @@ export interface ModelsApiListAssociationsV1ModelsModelIdAssociationsGetRequest 
      */
     readonly modelId: string;
     /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
@@ -24587,6 +24581,12 @@ export interface ModelsApiListAssociationsV1ModelsModelIdAssociationsGetRequest 
      * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1TeamsTeamIdModelsModelIdAssociationsGet operation in ModelsApi.
@@ -24765,12 +24765,6 @@ export interface ModelsApiListAuthenticatedUserModelsV1TeamsTeamIdUserModelsGetR
  */
 export interface ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
@@ -24836,6 +24830,12 @@ export interface ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest {
      * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
      */
     readonly containsVariableId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListAuthenticatedUserModelsV1UserModelsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listModelsInStudyV1StudiesStudyIdModelsGet operation in ModelsApi.
@@ -24850,12 +24850,6 @@ export interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      */
     readonly studyId: string;
     /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
@@ -24921,6 +24915,12 @@ export interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
      */
     readonly containsVariableId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGet operation in ModelsApi.
@@ -25263,12 +25263,6 @@ export interface ModelsApiListUserModelsV1UsersUserIdModelsGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
@@ -25334,6 +25328,12 @@ export interface ModelsApiListUserModelsV1UsersUserIdModelsGetRequest {
      * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
      */
     readonly containsVariableId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListUserModelsV1UsersUserIdModelsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchAssociationsV1ModelsModelIdAssociationsPatch operation in ModelsApi.
@@ -26386,7 +26386,6 @@ export declare const PopulationAttributesApiAxiosParamCreator: (configuration?: 
      * List a population attribute\'s values.
      * @summary List A Population Attributes Values
      * @param {string} populationAttributeId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -26397,10 +26396,11 @@ export declare const PopulationAttributesApiAxiosParamCreator: (configuration?: 
      * @param {PopulationAttributeValueSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: (populationAttributeId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: PopulationAttributeValueSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet: (populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: PopulationAttributeValueSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List population attributes.
      * @summary List Population Attributes
@@ -26462,7 +26462,6 @@ export declare const PopulationAttributesApiFp: (configuration?: Configuration) 
      * List a population attribute\'s values.
      * @summary List A Population Attributes Values
      * @param {string} populationAttributeId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -26473,10 +26472,11 @@ export declare const PopulationAttributesApiFp: (configuration?: Configuration) 
      * @param {PopulationAttributeValueSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: PopulationAttributeValueSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>>;
+    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: PopulationAttributeValueSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeValuePaginationOut>>;
     /**
      * List population attributes.
      * @summary List Population Attributes
@@ -26538,7 +26538,6 @@ export declare const PopulationAttributesApiFactory: (configuration?: Configurat
      * List a population attribute\'s values.
      * @summary List A Population Attributes Values
      * @param {string} populationAttributeId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -26549,10 +26548,11 @@ export declare const PopulationAttributesApiFactory: (configuration?: Configurat
      * @param {PopulationAttributeValueSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: PopulationAttributeValueSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<PopulationAttributeValuePaginationOut>;
+    listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet(populationAttributeId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: PopulationAttributeValueSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any): AxiosPromise<PopulationAttributeValuePaginationOut>;
     /**
      * List population attributes.
      * @summary List Population Attributes
@@ -26643,12 +26643,6 @@ export interface PopulationAttributesApiListAPopulationAttributesValuesV1Populat
      */
     readonly populationAttributeId: string;
     /**
-     *
-     * @type {string}
-     * @memberof PopulationAttributesApiListAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof PopulationAttributesApiListAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet
@@ -26708,6 +26702,12 @@ export interface PopulationAttributesApiListAPopulationAttributesValuesV1Populat
      * @memberof PopulationAttributesApiListAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet
      */
     readonly sortBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PopulationAttributesApiListAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listPopulationAttributesV1PopulationAttributesGet operation in PopulationAttributesApi.
@@ -26944,7 +26944,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -26957,10 +26956,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -27005,7 +27005,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27018,15 +27017,15 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a study\'s authors.
      * @summary List Authors
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27037,10 +27036,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {AuthorSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1StudiesStudyIdAuthorsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listAuthorsV1StudiesStudyIdAuthorsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a study\'s authors.
      * @summary List Authors
@@ -27064,7 +27064,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27076,10 +27075,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -27103,7 +27103,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
     /**
      * List Studies.
      * @summary List Studies
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27118,10 +27117,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any) => Promise<RequestArgs>;
+    listStudiesV1StudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Studies.
      * @summary List Studies
@@ -27169,7 +27169,6 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27182,10 +27181,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study Endpoint
@@ -27380,7 +27380,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27393,10 +27392,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -27441,7 +27441,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27454,15 +27453,15 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a study\'s authors.
      * @summary List Authors
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27473,10 +27472,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {AuthorSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
+    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
     /**
      * List a study\'s authors.
      * @summary List Authors
@@ -27500,7 +27500,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27512,10 +27511,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -27539,7 +27539,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
     /**
      * List Studies.
      * @summary List Studies
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27554,10 +27553,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List Studies.
      * @summary List Studies
@@ -27605,7 +27605,6 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27618,10 +27617,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study Endpoint
@@ -27816,7 +27816,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27829,10 +27828,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -27877,7 +27877,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27890,15 +27889,15 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a study\'s authors.
      * @summary List Authors
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27909,10 +27908,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {AuthorSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
+    listAuthorsV1StudiesStudyIdAuthorsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
     /**
      * List a study\'s authors.
      * @summary List Authors
@@ -27936,7 +27936,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27948,10 +27947,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -27975,7 +27975,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
     /**
      * List Studies.
      * @summary List Studies
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -27990,10 +27989,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {string} [conceptTag] Filter studies with concept tag
      * @param {string} [variableRelationship] Format: \&#39;&lt;var_id_1&gt;;&lt;var_id_2&gt;\&#39;
      * @param {string} [featureRelationship] Format: \&#39;&lt;feat_id_1&gt;;&lt;feat_id_2&gt;\&#39;
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listStudiesV1StudiesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listStudiesV1StudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, variableRelationship?: string, featureRelationship?: string, teamId?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List Studies.
      * @summary List Studies
@@ -28041,7 +28041,6 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -28054,10 +28053,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study Endpoint
@@ -28361,12 +28361,6 @@ export interface StudiesApiListAssociationsV1StudiesStudyIdAssociationsGetReques
      */
     readonly studyId: string;
     /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
@@ -28438,6 +28432,12 @@ export interface StudiesApiListAssociationsV1StudiesStudyIdAssociationsGetReques
      * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1TeamsTeamIdStudiesStudyIdAssociationsGet operation in StudiesApi.
@@ -28622,12 +28622,6 @@ export interface StudiesApiListAuthenticatedUserStudiesV1TeamsTeamIdUserStudiesG
  */
 export interface StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
@@ -28699,6 +28693,12 @@ export interface StudiesApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
      */
     readonly conceptTag?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAuthorsV1StudiesStudyIdAuthorsGet operation in StudiesApi.
@@ -28712,12 +28712,6 @@ export interface StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest {
      * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
      */
     readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
-     */
-    readonly teamId?: string;
     /**
      * Search query.
      * @type {string}
@@ -28778,6 +28772,12 @@ export interface StudiesApiListAuthorsV1StudiesStudyIdAuthorsGetRequest {
      * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
      */
     readonly sortBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiListAuthorsV1StudiesStudyIdAuthorsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAuthorsV1TeamsTeamIdStudiesStudyIdAuthorsGet operation in StudiesApi.
@@ -28871,12 +28871,6 @@ export interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      */
     readonly studyId: string;
     /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
@@ -28942,6 +28936,12 @@ export interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
      */
     readonly containsVariableId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGet operation in StudiesApi.
@@ -29035,12 +29035,6 @@ export interface StudiesApiListModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGet
  */
 export interface StudiesApiListStudiesV1StudiesGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListStudiesV1StudiesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof StudiesApiListStudiesV1StudiesGet
@@ -29124,6 +29118,12 @@ export interface StudiesApiListStudiesV1StudiesGetRequest {
      * @memberof StudiesApiListStudiesV1StudiesGet
      */
     readonly featureRelationship?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiListStudiesV1StudiesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listStudiesV1TeamsTeamIdStudiesGet operation in StudiesApi.
@@ -29326,12 +29326,6 @@ export interface StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
@@ -29403,6 +29397,12 @@ export interface StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
      */
     readonly conceptTag?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchStudyEndpointV1StudiesStudyIdPatch operation in StudiesApi.
@@ -42447,7 +42447,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42460,10 +42459,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
@@ -42486,7 +42486,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42498,10 +42497,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserConceptsV1UserConceptsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -42525,7 +42525,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42538,10 +42537,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -42564,7 +42564,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42576,10 +42575,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -42602,7 +42602,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42614,10 +42613,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserModelsV1UserModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -42641,7 +42641,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42654,10 +42653,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserStudiesV1UserStudiesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -42680,7 +42680,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42692,10 +42691,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -42720,7 +42720,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * List a user\'s concepts.
      * @summary List User Concepts
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42732,10 +42731,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -42761,7 +42761,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42774,10 +42773,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -42802,7 +42802,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * List a user\'s features.
      * @summary List User Features
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42814,10 +42813,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -42842,7 +42842,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42854,10 +42853,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -42883,7 +42883,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42896,10 +42895,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any) => Promise<RequestArgs>;
+    listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -42924,7 +42924,6 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * List a user\'s variables.
      * @summary List User Variables
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -42936,10 +42935,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new user.
      * @summary Update A User By Id.
@@ -43114,7 +43114,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43127,10 +43126,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
@@ -43153,7 +43153,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43165,10 +43164,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -43192,7 +43192,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43205,10 +43204,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -43231,7 +43231,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43243,10 +43242,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -43269,7 +43269,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43281,10 +43280,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -43308,7 +43308,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43321,10 +43320,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -43347,7 +43347,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43359,10 +43358,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -43387,7 +43387,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * List a user\'s concepts.
      * @summary List User Concepts
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43399,10 +43398,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -43428,7 +43428,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43441,10 +43440,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -43469,7 +43469,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * List a user\'s features.
      * @summary List User Features
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43481,10 +43480,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -43509,7 +43509,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43521,10 +43520,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -43550,7 +43550,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43563,10 +43562,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -43591,7 +43591,6 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * List a user\'s variables.
      * @summary List User Variables
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43603,10 +43602,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Create a new user.
      * @summary Update A User By Id.
@@ -43781,7 +43781,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
      * @param {string} studyId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43794,10 +43793,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
@@ -43820,7 +43820,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
     /**
      * List authenticated user\'s concepts.
      * @summary List Authenticated User Concepts
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43832,10 +43831,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserConceptsV1UserConceptsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listAuthenticatedUserConceptsV1UserConceptsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
@@ -43859,7 +43859,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
     /**
      * List authenticated user\'s datasets.
      * @summary List Authenticated User Datasets
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43872,10 +43871,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserDatasetsV1UserDatasetsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listAuthenticatedUserDatasetsV1UserDatasetsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
@@ -43898,7 +43898,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
     /**
      * List authenticated user\'s features.
      * @summary List Authenticated User Features
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43910,10 +43909,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserFeaturesV1UserFeaturesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listAuthenticatedUserFeaturesV1UserFeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
@@ -43936,7 +43936,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
     /**
      * List authenticated user\'s models.
      * @summary List Authenticated User Models
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43948,10 +43947,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserModelsV1UserModelsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
@@ -43975,7 +43975,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
     /**
      * List authenticated user\'s studies.
      * @summary List Authenticated User Studies
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -43988,10 +43987,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserStudiesV1UserStudiesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listAuthenticatedUserStudiesV1UserStudiesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -44014,7 +44014,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -44026,10 +44025,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -44054,7 +44054,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * List a user\'s concepts.
      * @summary List User Concepts
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -44066,10 +44065,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserConceptsV1UsersUserIdConceptsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List a user\'s datasets.
      * @summary List User Datasets
@@ -44095,7 +44095,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * List a user\'s datasets.
      * @summary List User Datasets
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -44108,10 +44107,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * List a user\'s features.
      * @summary List User Features
@@ -44136,7 +44136,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * List a user\'s features.
      * @summary List User Features
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -44148,10 +44147,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a user\'s models.
      * @summary List User Models
@@ -44176,7 +44176,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * List a user\'s models.
      * @summary List User Models
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -44188,10 +44187,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserModelsV1UsersUserIdModelsGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List a user\'s studies.
      * @summary List User Studies
@@ -44217,7 +44217,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * List a user\'s studies.
      * @summary List User Studies
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -44230,10 +44229,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter studies with variable tag
      * @param {string} [conceptTag] Filter studies with concept tag
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserStudiesV1UsersUserIdStudiesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<StudyPaginationOut>;
+    listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<StudyPaginationOut>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -44258,7 +44258,6 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * List a user\'s variables.
      * @summary List User Variables
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -44270,10 +44269,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Create a new user.
      * @summary Update A User By Id.
@@ -44630,12 +44630,6 @@ export interface UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudi
      */
     readonly studyId: string;
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
@@ -44707,6 +44701,12 @@ export interface UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudi
      * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListAssociationsInTheAuthenticatedUserSStudyV1UserStudiesStudyIdAssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAuthenticatedUserConceptsV1TeamsTeamIdUserConceptsGet operation in UsersApi.
@@ -44794,12 +44794,6 @@ export interface UsersApiListAuthenticatedUserConceptsV1TeamsTeamIdUserConceptsG
  */
 export interface UsersApiListAuthenticatedUserConceptsV1UserConceptsGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
@@ -44865,6 +44859,12 @@ export interface UsersApiListAuthenticatedUserConceptsV1UserConceptsGetRequest {
      * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
      */
     readonly inConceptGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserConceptsV1UserConceptsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAuthenticatedUserDatasetsV1TeamsTeamIdUserDatasetsGet operation in UsersApi.
@@ -44958,12 +44958,6 @@ export interface UsersApiListAuthenticatedUserDatasetsV1TeamsTeamIdUserDatasetsG
  */
 export interface UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
@@ -45035,6 +45029,12 @@ export interface UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGetRequest {
      * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
      */
     readonly conceptTag?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserDatasetsV1UserDatasetsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAuthenticatedUserFeaturesV1TeamsTeamIdUserFeaturesGet operation in UsersApi.
@@ -45122,12 +45122,6 @@ export interface UsersApiListAuthenticatedUserFeaturesV1TeamsTeamIdUserFeaturesG
  */
 export interface UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGet
@@ -45193,6 +45187,12 @@ export interface UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGetRequest {
      * @memberof UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserFeaturesV1UserFeaturesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAuthenticatedUserModelsV1TeamsTeamIdUserModelsGet operation in UsersApi.
@@ -45280,12 +45280,6 @@ export interface UsersApiListAuthenticatedUserModelsV1TeamsTeamIdUserModelsGetRe
  */
 export interface UsersApiListAuthenticatedUserModelsV1UserModelsGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
@@ -45351,6 +45345,12 @@ export interface UsersApiListAuthenticatedUserModelsV1UserModelsGetRequest {
      * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
      */
     readonly containsVariableId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserModelsV1UserModelsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAuthenticatedUserStudiesV1TeamsTeamIdUserStudiesGet operation in UsersApi.
@@ -45444,12 +45444,6 @@ export interface UsersApiListAuthenticatedUserStudiesV1TeamsTeamIdUserStudiesGet
  */
 export interface UsersApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
@@ -45521,6 +45515,12 @@ export interface UsersApiListAuthenticatedUserStudiesV1UserStudiesGetRequest {
      * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
      */
     readonly conceptTag?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserStudiesV1UserStudiesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet operation in UsersApi.
@@ -45608,12 +45608,6 @@ export interface UsersApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVariable
  */
 export interface UsersApiListAuthenticatedUserVariablesV1UserVariablesGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
@@ -45679,6 +45673,12 @@ export interface UsersApiListAuthenticatedUserVariablesV1UserVariablesGetRequest
      * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listUserConceptsV1TeamsTeamIdUsersUserIdConceptsGet operation in UsersApi.
@@ -45778,12 +45778,6 @@ export interface UsersApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
@@ -45849,6 +45843,12 @@ export interface UsersApiListUserConceptsV1UsersUserIdConceptsGetRequest {
      * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
      */
     readonly inConceptGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListUserConceptsV1UsersUserIdConceptsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listUserDatasetsV1TeamsTeamIdUsersUserIdDatasetsGet operation in UsersApi.
@@ -45954,12 +45954,6 @@ export interface UsersApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
@@ -46031,6 +46025,12 @@ export interface UsersApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
      * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
      */
     readonly conceptTag?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListUserDatasetsV1UsersUserIdDatasetsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listUserFeaturesV1TeamsTeamIdUsersUserIdFeaturesGet operation in UsersApi.
@@ -46130,12 +46130,6 @@ export interface UsersApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListUserFeaturesV1UsersUserIdFeaturesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListUserFeaturesV1UsersUserIdFeaturesGet
@@ -46201,6 +46195,12 @@ export interface UsersApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
      * @memberof UsersApiListUserFeaturesV1UsersUserIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListUserFeaturesV1UsersUserIdFeaturesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listUserModelsV1TeamsTeamIdUsersUserIdModelsGet operation in UsersApi.
@@ -46300,12 +46300,6 @@ export interface UsersApiListUserModelsV1UsersUserIdModelsGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
@@ -46371,6 +46365,12 @@ export interface UsersApiListUserModelsV1UsersUserIdModelsGetRequest {
      * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
      */
     readonly containsVariableId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListUserModelsV1UsersUserIdModelsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listUserStudiesV1TeamsTeamIdUsersUserIdStudiesGet operation in UsersApi.
@@ -46476,12 +46476,6 @@ export interface UsersApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
@@ -46553,6 +46547,12 @@ export interface UsersApiListUserStudiesV1UsersUserIdStudiesGetRequest {
      * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
      */
     readonly conceptTag?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListUserStudiesV1UsersUserIdStudiesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet operation in UsersApi.
@@ -46652,12 +46652,6 @@ export interface UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
@@ -46723,6 +46717,12 @@ export interface UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for updateAUserByIdV1TeamsTeamIdUsersUserIdPatch operation in UsersApi.
@@ -47285,7 +47285,6 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -47298,10 +47297,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any) => Promise<RequestArgs>;
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -47324,7 +47324,6 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -47336,10 +47335,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
@@ -47363,7 +47363,6 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -47374,10 +47373,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listDashboardsV1VariablesVariableIdDashboardsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -47498,7 +47498,6 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * List a user\'s variables.
      * @summary List User Variables
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -47510,10 +47509,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Variables.
      * @summary List Variables
@@ -47672,7 +47672,6 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -47685,10 +47684,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -47711,7 +47711,6 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -47723,10 +47722,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
@@ -47750,7 +47750,6 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -47761,10 +47760,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -47885,7 +47885,6 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * List a user\'s variables.
      * @summary List User Variables
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -47897,10 +47896,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List Variables.
      * @summary List Variables
@@ -48059,7 +48059,6 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -48072,10 +48071,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -48098,7 +48098,6 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -48110,10 +48109,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
@@ -48137,7 +48137,6 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -48148,10 +48147,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -48272,7 +48272,6 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * List a user\'s variables.
      * @summary List User Variables
      * @param {string} userId
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -48284,10 +48283,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List Variables.
      * @summary List Variables
@@ -48590,12 +48590,6 @@ export interface VariablesApiListAssociationsV1VariablesVariableIdAssociationsGe
      */
     readonly variableId: string;
     /**
-     *
-     * @type {string}
-     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
@@ -48667,6 +48661,12 @@ export interface VariablesApiListAssociationsV1VariablesVariableIdAssociationsGe
      * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet operation in VariablesApi.
@@ -48754,12 +48754,6 @@ export interface VariablesApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVari
  */
 export interface VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
@@ -48825,6 +48819,12 @@ export interface VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetReq
      * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listDashboardsV1TeamsTeamIdVariablesVariableIdDashboardsGet operation in VariablesApi.
@@ -48918,12 +48918,6 @@ export interface VariablesApiListDashboardsV1VariablesVariableIdDashboardsGetReq
      */
     readonly variableId: string;
     /**
-     *
-     * @type {string}
-     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
@@ -48983,6 +48977,12 @@ export interface VariablesApiListDashboardsV1VariablesVariableIdDashboardsGetReq
      * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
      */
     readonly sortBy?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listSystemOfFeaturesV1TeamsTeamIdVariablesVariableIdSystemFeaturesGet operation in VariablesApi.
@@ -49518,12 +49518,6 @@ export interface VariablesApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      */
     readonly userId: string;
     /**
-     *
-     * @type {string}
-     * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
@@ -49589,6 +49583,12 @@ export interface VariablesApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listVariablesV1TeamsTeamIdVariablesGet operation in VariablesApi.
