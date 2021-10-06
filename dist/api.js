@@ -19769,10 +19769,15 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
         /**
          * Fetch dataset graph.
          * @summary Get Dataset Graph
+         * @param {string} teamId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDatasetGraphV1GraphDatasetGraphGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getDatasetGraphV1GraphDatasetGraphGet: (teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getDatasetGraphV1GraphDatasetGraphGet.');
+            }
             const localVarPath = `/v1/graph/dataset_graph`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -19796,6 +19801,9 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -19899,12 +19907,13 @@ exports.GraphApiFp = function (configuration) {
         /**
          * Fetch dataset graph.
          * @summary Get Dataset Graph
+         * @param {string} teamId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDatasetGraphV1GraphDatasetGraphGet(options) {
+        getDatasetGraphV1GraphDatasetGraphGet(teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getDatasetGraphV1GraphDatasetGraphGet(options);
+                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getDatasetGraphV1GraphDatasetGraphGet(teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -19960,11 +19969,12 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
         /**
          * Fetch dataset graph.
          * @summary Get Dataset Graph
+         * @param {string} teamId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDatasetGraphV1GraphDatasetGraphGet(options) {
-            return exports.GraphApiFp(configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(axios, basePath));
+        getDatasetGraphV1GraphDatasetGraphGet(teamId, options) {
+            return exports.GraphApiFp(configuration).getDatasetGraphV1GraphDatasetGraphGet(teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -20010,12 +20020,13 @@ class GraphApi extends base_1.BaseAPI {
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
+     * @param {GraphApiGetDatasetGraphV1GraphDatasetGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GraphApi
      */
-    getDatasetGraphV1GraphDatasetGraphGet(options) {
-        return exports.GraphApiFp(this.configuration).getDatasetGraphV1GraphDatasetGraphGet(options).then((request) => request(this.axios, this.basePath));
+    getDatasetGraphV1GraphDatasetGraphGet(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getDatasetGraphV1GraphDatasetGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch dataset graph.

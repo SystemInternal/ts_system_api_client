@@ -22629,10 +22629,11 @@ export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
+     * @param {string} teamId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDatasetGraphV1GraphDatasetGraphGet: (options?: any) => Promise<RequestArgs>;
+    getDatasetGraphV1GraphDatasetGraphGet: (teamId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -22668,10 +22669,11 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
+     * @param {string} teamId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDatasetGraphV1GraphDatasetGraphGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getDatasetGraphV1GraphDatasetGraphGet(teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -22707,10 +22709,11 @@ export declare const GraphApiFactory: (configuration?: Configuration, basePath?:
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
+     * @param {string} teamId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDatasetGraphV1GraphDatasetGraphGet(options?: any): AxiosPromise<GraphData>;
+    getDatasetGraphV1GraphDatasetGraphGet(teamId: string, options?: any): AxiosPromise<GraphData>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -22759,6 +22762,19 @@ export interface GraphApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest
     readonly minRelationshipStrength?: number;
 }
 /**
+ * Request parameters for getDatasetGraphV1GraphDatasetGraphGet operation in GraphApi.
+ * @export
+ * @interface GraphApiGetDatasetGraphV1GraphDatasetGraphGetRequest
+ */
+export interface GraphApiGetDatasetGraphV1GraphDatasetGraphGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetDatasetGraphV1GraphDatasetGraphGet
+     */
+    readonly teamId: string;
+}
+/**
  * Request parameters for getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet operation in GraphApi.
  * @export
  * @interface GraphApiGetDatasetGraphV1TeamsTeamIdGraphDatasetGraphGetRequest
@@ -22799,11 +22815,12 @@ export declare class GraphApi extends BaseAPI {
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
+     * @param {GraphApiGetDatasetGraphV1GraphDatasetGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GraphApi
      */
-    getDatasetGraphV1GraphDatasetGraphGet(options?: any): Promise<import("axios").AxiosResponse<GraphData>>;
+    getDatasetGraphV1GraphDatasetGraphGet(requestParameters: GraphApiGetDatasetGraphV1GraphDatasetGraphGetRequest, options?: any): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
