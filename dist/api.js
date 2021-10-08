@@ -15048,15 +15048,15 @@ exports.EnterpriseApiAxiosParamCreator = function (configuration) {
         /**
          * Create a new integration.
          * @summary Create Integration
-         * @param {IntegrationCreate} integrationCreate
+         * @param {IntegrationIn} integrationIn
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createIntegrationV1EnterpriseIntegrationsPost: (integrationCreate, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'integrationCreate' is not null or undefined
-            if (integrationCreate === null || integrationCreate === undefined) {
-                throw new base_1.RequiredError('integrationCreate', 'Required parameter integrationCreate was null or undefined when calling createIntegrationV1EnterpriseIntegrationsPost.');
+        createIntegrationV1EnterpriseIntegrationsPost: (integrationIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'integrationIn' is not null or undefined
+            if (integrationIn === null || integrationIn === undefined) {
+                throw new base_1.RequiredError('integrationIn', 'Required parameter integrationIn was null or undefined when calling createIntegrationV1EnterpriseIntegrationsPost.');
             }
             const localVarPath = `/v1/enterprise/integrations`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
@@ -15091,8 +15091,8 @@ exports.EnterpriseApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof integrationCreate !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(integrationCreate !== undefined ? integrationCreate : {}) : (integrationCreate || "");
+            const needsSerialization = (typeof integrationIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(integrationIn !== undefined ? integrationIn : {}) : (integrationIn || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -15340,22 +15340,71 @@ exports.EnterpriseApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Update Enterprise.
+         * @summary Update Enterprise
+         * @param {EnterpriseIn} enterpriseIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEnterpriseV1EnterprisePatch: (enterpriseIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'enterpriseIn' is not null or undefined
+            if (enterpriseIn === null || enterpriseIn === undefined) {
+                throw new base_1.RequiredError('enterpriseIn', 'Required parameter enterpriseIn was null or undefined when calling updateEnterpriseV1EnterprisePatch.');
+            }
+            const localVarPath = `/v1/enterprise`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PATCH' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof enterpriseIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(enterpriseIn !== undefined ? enterpriseIn : {}) : (enterpriseIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Update Integration.
          * @summary Update Integration
          * @param {string} integrationId
-         * @param {IntegrationUpdateIn} integrationUpdateIn
+         * @param {IntegrationIn} integrationIn
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: (integrationId, integrationUpdateIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: (integrationId, integrationIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'integrationId' is not null or undefined
             if (integrationId === null || integrationId === undefined) {
                 throw new base_1.RequiredError('integrationId', 'Required parameter integrationId was null or undefined when calling updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch.');
             }
-            // verify required parameter 'integrationUpdateIn' is not null or undefined
-            if (integrationUpdateIn === null || integrationUpdateIn === undefined) {
-                throw new base_1.RequiredError('integrationUpdateIn', 'Required parameter integrationUpdateIn was null or undefined when calling updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch.');
+            // verify required parameter 'integrationIn' is not null or undefined
+            if (integrationIn === null || integrationIn === undefined) {
+                throw new base_1.RequiredError('integrationIn', 'Required parameter integrationIn was null or undefined when calling updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch.');
             }
             const localVarPath = `/v1/enterprise/integrations/{integration_id}`
                 .replace(`{${"integration_id"}}`, encodeURIComponent(String(integrationId)));
@@ -15391,8 +15440,8 @@ exports.EnterpriseApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof integrationUpdateIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(integrationUpdateIn !== undefined ? integrationUpdateIn : {}) : (integrationUpdateIn || "");
+            const needsSerialization = (typeof integrationIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(integrationIn !== undefined ? integrationIn : {}) : (integrationIn || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -15468,14 +15517,14 @@ exports.EnterpriseApiFp = function (configuration) {
         /**
          * Create a new integration.
          * @summary Create Integration
-         * @param {IntegrationCreate} integrationCreate
+         * @param {IntegrationIn} integrationIn
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, teamId, options) {
+        createIntegrationV1EnterpriseIntegrationsPost(integrationIn, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.EnterpriseApiAxiosParamCreator(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, teamId, options);
+                const localVarAxiosArgs = yield exports.EnterpriseApiAxiosParamCreator(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationIn, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -15565,17 +15614,33 @@ exports.EnterpriseApiFp = function (configuration) {
             });
         },
         /**
+         * Update Enterprise.
+         * @summary Update Enterprise
+         * @param {EnterpriseIn} enterpriseIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEnterpriseV1EnterprisePatch(enterpriseIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.EnterpriseApiAxiosParamCreator(configuration).updateEnterpriseV1EnterprisePatch(enterpriseIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Update Integration.
          * @summary Update Integration
          * @param {string} integrationId
-         * @param {IntegrationUpdateIn} integrationUpdateIn
+         * @param {IntegrationIn} integrationIn
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, teamId, options) {
+        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationIn, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.EnterpriseApiAxiosParamCreator(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, teamId, options);
+                const localVarAxiosArgs = yield exports.EnterpriseApiAxiosParamCreator(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationIn, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -15611,13 +15676,13 @@ exports.EnterpriseApiFactory = function (configuration, basePath, axios) {
         /**
          * Create a new integration.
          * @summary Create Integration
-         * @param {IntegrationCreate} integrationCreate
+         * @param {IntegrationIn} integrationIn
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, teamId, options) {
-            return exports.EnterpriseApiFp(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationCreate, teamId, options).then((request) => request(axios, basePath));
+        createIntegrationV1EnterpriseIntegrationsPost(integrationIn, teamId, options) {
+            return exports.EnterpriseApiFp(configuration).createIntegrationV1EnterpriseIntegrationsPost(integrationIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new message.
@@ -15672,16 +15737,26 @@ exports.EnterpriseApiFactory = function (configuration, basePath, axios) {
             return exports.EnterpriseApiFp(configuration).getMessageV1EnterpriseMessagesMessageIdGet(messageId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Update Enterprise.
+         * @summary Update Enterprise
+         * @param {EnterpriseIn} enterpriseIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateEnterpriseV1EnterprisePatch(enterpriseIn, options) {
+            return exports.EnterpriseApiFp(configuration).updateEnterpriseV1EnterprisePatch(enterpriseIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Update Integration.
          * @summary Update Integration
          * @param {string} integrationId
-         * @param {IntegrationUpdateIn} integrationUpdateIn
+         * @param {IntegrationIn} integrationIn
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, teamId, options) {
-            return exports.EnterpriseApiFp(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationUpdateIn, teamId, options).then((request) => request(axios, basePath));
+        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationIn, teamId, options) {
+            return exports.EnterpriseApiFp(configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Message.
@@ -15713,7 +15788,7 @@ class EnterpriseApi extends base_1.BaseAPI {
      * @memberof EnterpriseApi
      */
     createIntegrationV1EnterpriseIntegrationsPost(requestParameters, options) {
-        return exports.EnterpriseApiFp(this.configuration).createIntegrationV1EnterpriseIntegrationsPost(requestParameters.integrationCreate, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.EnterpriseApiFp(this.configuration).createIntegrationV1EnterpriseIntegrationsPost(requestParameters.integrationIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new message.
@@ -15770,6 +15845,17 @@ class EnterpriseApi extends base_1.BaseAPI {
         return exports.EnterpriseApiFp(this.configuration).getMessageV1EnterpriseMessagesMessageIdGet(requestParameters.messageId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Update Enterprise.
+     * @summary Update Enterprise
+     * @param {EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    updateEnterpriseV1EnterprisePatch(requestParameters, options) {
+        return exports.EnterpriseApiFp(this.configuration).updateEnterpriseV1EnterprisePatch(requestParameters.enterpriseIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Update Integration.
      * @summary Update Integration
      * @param {EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest} requestParameters Request parameters.
@@ -15778,7 +15864,7 @@ class EnterpriseApi extends base_1.BaseAPI {
      * @memberof EnterpriseApi
      */
     updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters, options) {
-        return exports.EnterpriseApiFp(this.configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters.integrationId, requestParameters.integrationUpdateIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.EnterpriseApiFp(this.configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters.integrationId, requestParameters.integrationIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update a Message.
@@ -31822,18 +31908,18 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * Create a new integration.
          * @summary Create Integration
          * @param {string} teamId
-         * @param {IntegrationCreate} integrationCreate
+         * @param {IntegrationIn} integrationIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createIntegrationV1TeamsTeamIdIntegrationsPost: (teamId, integrationCreate, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createIntegrationV1TeamsTeamIdIntegrationsPost: (teamId, integrationIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createIntegrationV1TeamsTeamIdIntegrationsPost.');
             }
-            // verify required parameter 'integrationCreate' is not null or undefined
-            if (integrationCreate === null || integrationCreate === undefined) {
-                throw new base_1.RequiredError('integrationCreate', 'Required parameter integrationCreate was null or undefined when calling createIntegrationV1TeamsTeamIdIntegrationsPost.');
+            // verify required parameter 'integrationIn' is not null or undefined
+            if (integrationIn === null || integrationIn === undefined) {
+                throw new base_1.RequiredError('integrationIn', 'Required parameter integrationIn was null or undefined when calling createIntegrationV1TeamsTeamIdIntegrationsPost.');
             }
             const localVarPath = `/v1/teams/{team_id}/integrations`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
@@ -31866,8 +31952,8 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof integrationCreate !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(integrationCreate !== undefined ? integrationCreate : {}) : (integrationCreate || "");
+            const needsSerialization = (typeof integrationIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(integrationIn !== undefined ? integrationIn : {}) : (integrationIn || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -38947,11 +39033,11 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @summary Update Integration
          * @param {string} teamId
          * @param {string} integrationId
-         * @param {IntegrationUpdateIn} integrationUpdateIn
+         * @param {IntegrationIn} integrationIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch: (teamId, integrationId, integrationUpdateIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch: (teamId, integrationId, integrationIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch.');
@@ -38960,9 +39046,9 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             if (integrationId === null || integrationId === undefined) {
                 throw new base_1.RequiredError('integrationId', 'Required parameter integrationId was null or undefined when calling updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch.');
             }
-            // verify required parameter 'integrationUpdateIn' is not null or undefined
-            if (integrationUpdateIn === null || integrationUpdateIn === undefined) {
-                throw new base_1.RequiredError('integrationUpdateIn', 'Required parameter integrationUpdateIn was null or undefined when calling updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch.');
+            // verify required parameter 'integrationIn' is not null or undefined
+            if (integrationIn === null || integrationIn === undefined) {
+                throw new base_1.RequiredError('integrationIn', 'Required parameter integrationIn was null or undefined when calling updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch.');
             }
             const localVarPath = `/v1/teams/{team_id}/integrations/{integration_id}`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
@@ -38996,8 +39082,8 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             delete localVarUrlObj.search;
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            const needsSerialization = (typeof integrationUpdateIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.data = needsSerialization ? JSON.stringify(integrationUpdateIn !== undefined ? integrationUpdateIn : {}) : (integrationUpdateIn || "");
+            const needsSerialization = (typeof integrationIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(integrationIn !== undefined ? integrationIn : {}) : (integrationIn || "");
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -39394,13 +39480,13 @@ exports.TeamsApiFp = function (configuration) {
          * Create a new integration.
          * @summary Create Integration
          * @param {string} teamId
-         * @param {IntegrationCreate} integrationCreate
+         * @param {IntegrationIn} integrationIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createIntegrationV1TeamsTeamIdIntegrationsPost(teamId, integrationCreate, options) {
+        createIntegrationV1TeamsTeamIdIntegrationsPost(teamId, integrationIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).createIntegrationV1TeamsTeamIdIntegrationsPost(teamId, integrationCreate, options);
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).createIntegrationV1TeamsTeamIdIntegrationsPost(teamId, integrationIn, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -41541,13 +41627,13 @@ exports.TeamsApiFp = function (configuration) {
          * @summary Update Integration
          * @param {string} teamId
          * @param {string} integrationId
-         * @param {IntegrationUpdateIn} integrationUpdateIn
+         * @param {IntegrationIn} integrationIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId, integrationId, integrationUpdateIn, options) {
+        updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId, integrationId, integrationIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId, integrationId, integrationUpdateIn, options);
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId, integrationId, integrationIn, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -41794,12 +41880,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * Create a new integration.
          * @summary Create Integration
          * @param {string} teamId
-         * @param {IntegrationCreate} integrationCreate
+         * @param {IntegrationIn} integrationIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createIntegrationV1TeamsTeamIdIntegrationsPost(teamId, integrationCreate, options) {
-            return exports.TeamsApiFp(configuration).createIntegrationV1TeamsTeamIdIntegrationsPost(teamId, integrationCreate, options).then((request) => request(axios, basePath));
+        createIntegrationV1TeamsTeamIdIntegrationsPost(teamId, integrationIn, options) {
+            return exports.TeamsApiFp(configuration).createIntegrationV1TeamsTeamIdIntegrationsPost(teamId, integrationIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new message.
@@ -43341,12 +43427,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @summary Update Integration
          * @param {string} teamId
          * @param {string} integrationId
-         * @param {IntegrationUpdateIn} integrationUpdateIn
+         * @param {IntegrationIn} integrationIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId, integrationId, integrationUpdateIn, options) {
-            return exports.TeamsApiFp(configuration).updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId, integrationId, integrationUpdateIn, options).then((request) => request(axios, basePath));
+        updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId, integrationId, integrationIn, options) {
+            return exports.TeamsApiFp(configuration).updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId, integrationId, integrationIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Message.
@@ -43576,7 +43662,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     createIntegrationV1TeamsTeamIdIntegrationsPost(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).createIntegrationV1TeamsTeamIdIntegrationsPost(requestParameters.teamId, requestParameters.integrationCreate, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).createIntegrationV1TeamsTeamIdIntegrationsPost(requestParameters.teamId, requestParameters.integrationIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new message.
@@ -44676,7 +44762,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(requestParameters.teamId, requestParameters.integrationId, requestParameters.integrationUpdateIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(requestParameters.teamId, requestParameters.integrationId, requestParameters.integrationIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update a Message.

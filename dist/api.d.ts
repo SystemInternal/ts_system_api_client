@@ -2664,12 +2664,6 @@ export interface EdgeTypedLink {
  */
 export interface Enterprise {
     /**
-     *
-     * @type {number}
-     * @memberof Enterprise
-     */
-    id: number;
-    /**
      * Enterprise name.
      * @type {string}
      * @memberof Enterprise
@@ -2680,7 +2674,25 @@ export interface Enterprise {
      * @type {string}
      * @memberof Enterprise
      */
-    identity_provider: string;
+    identity_provider?: string;
+    /**
+     * Enterprise user pool id.
+     * @type {string}
+     * @memberof Enterprise
+     */
+    user_pool_id?: string;
+    /**
+     * Enterprise SAML IDP metadata
+     * @type {string}
+     * @memberof Enterprise
+     */
+    idp_metadata?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof Enterprise
+     */
+    id: number;
     /**
      * The list of integrations to retrieve
      * @type {Array<Integration>}
@@ -2699,6 +2711,37 @@ export interface Enterprise {
      * @memberof Enterprise
      */
     _permissions?: Array<ResourceAction>;
+}
+/**
+ * An Enterprise create/update Resource.
+ * @export
+ * @interface EnterpriseIn
+ */
+export interface EnterpriseIn {
+    /**
+     * Enterprise name.
+     * @type {string}
+     * @memberof EnterpriseIn
+     */
+    name: string;
+    /**
+     * Enterprise Identity Provider.
+     * @type {string}
+     * @memberof EnterpriseIn
+     */
+    identity_provider?: string;
+    /**
+     * Enterprise user pool id.
+     * @type {string}
+     * @memberof EnterpriseIn
+     */
+    user_pool_id?: string;
+    /**
+     * Enterprise SAML IDP metadata
+     * @type {string}
+     * @memberof EnterpriseIn
+     */
+    idp_metadata?: string;
 }
 /**
  * External asset model.
@@ -3542,6 +3585,36 @@ export interface Integration {
      */
     state?: IntegrationState;
     /**
+     * The integration type.
+     * @type {IntegrationType}
+     * @memberof Integration
+     */
+    service_type?: IntegrationType;
+    /**
+     * API Endpoint.
+     * @type {string}
+     * @memberof Integration
+     */
+    endpoint?: string;
+    /**
+     * Integration IP address.
+     * @type {string}
+     * @memberof Integration
+     */
+    ip_address?: string;
+    /**
+     * Integration lamdba names.
+     * @type {string}
+     * @memberof Integration
+     */
+    lambda_arn?: string;
+    /**
+     * Is this integration deployed on enterprise\'s internal stack?
+     * @type {boolean}
+     * @memberof Integration
+     */
+    on_premise?: boolean;
+    /**
      * The list of tables to retrieve
      * @type {Array<Table>}
      * @memberof Integration
@@ -3566,12 +3639,6 @@ export interface Integration {
      */
     id: number;
     /**
-     * The integration type.
-     * @type {IntegrationType}
-     * @memberof Integration
-     */
-    service_type: IntegrationType;
-    /**
      * Integration credentials.
      * @type {RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials}
      * @memberof Integration
@@ -3590,88 +3657,88 @@ export interface Integration {
      */
     team?: string;
     /**
-     * API Endpoint.
-     * @type {string}
-     * @memberof Integration
-     */
-    endpoint: string;
-    /**
-     * Integration IP address.
-     * @type {string}
-     * @memberof Integration
-     */
-    ip_address: string;
-    /**
-     * Integration lamdba names.
-     * @type {string}
-     * @memberof Integration
-     */
-    lambda_arn: string;
-    /**
      * The actions the requesting user is allowed to perform on this resource.
      * @type {Array<ResourceAction>}
      * @memberof Integration
      */
     _permissions?: Array<ResourceAction>;
-    /**
-     * Is this integration deployed on enterprise\'s internal stack?
-     * @type {boolean}
-     * @memberof Integration
-     */
-    on_premise?: boolean;
 }
 /**
- * Integration model for creation.
+ * Integration model for create/update.
  * @export
- * @interface IntegrationCreate
+ * @interface IntegrationIn
  */
-export interface IntegrationCreate {
+export interface IntegrationIn {
     /**
      * Integration name.
      * @type {string}
-     * @memberof IntegrationCreate
+     * @memberof IntegrationIn
      */
     name?: string;
     /**
      * Integration state.
      * @type {IntegrationState}
-     * @memberof IntegrationCreate
+     * @memberof IntegrationIn
      */
     state?: IntegrationState;
     /**
+     * The integration type.
+     * @type {IntegrationType}
+     * @memberof IntegrationIn
+     */
+    service_type?: IntegrationType;
+    /**
+     * API Endpoint.
+     * @type {string}
+     * @memberof IntegrationIn
+     */
+    endpoint?: string;
+    /**
+     * Integration IP address.
+     * @type {string}
+     * @memberof IntegrationIn
+     */
+    ip_address?: string;
+    /**
+     * Integration lamdba names.
+     * @type {string}
+     * @memberof IntegrationIn
+     */
+    lambda_arn?: string;
+    /**
+     * Is this integration deployed on enterprise\'s internal stack?
+     * @type {boolean}
+     * @memberof IntegrationIn
+     */
+    on_premise?: boolean;
+    /**
      * The list of tables to retrieve
      * @type {Array<Table>}
-     * @memberof IntegrationCreate
+     * @memberof IntegrationIn
      */
     tables?: Array<Table>;
     /**
      * The list of views to retrieve
      * @type {Array<Table>}
-     * @memberof IntegrationCreate
+     * @memberof IntegrationIn
      */
     views?: Array<Table>;
     /**
      * The integration messages
      * @type {Array<MessageOut>}
-     * @memberof IntegrationCreate
+     * @memberof IntegrationIn
      */
     messages?: Array<MessageOut>;
     /**
-     * The integration type.
-     * @type {IntegrationType}
-     * @memberof IntegrationCreate
-     */
-    service_type: IntegrationType;
-    /**
      * Integration credentials.
      * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn}
-     * @memberof IntegrationCreate
+     * @memberof IntegrationIn
      */
-    credentials: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn;
+    credentials?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn;
     /**
      * Team or Enterprise link
      * @type {string}
-     * @memberof IntegrationCreate
+     * @memberof IntegrationIn
      */
     owner?: string;
 }
@@ -3695,67 +3762,6 @@ export declare enum IntegrationType {
     SNOWFLAKE = "SNOWFLAKE",
     BIGQUERY = "BIGQUERY",
     LOOKER = "LOOKER"
-}
-/**
- * Input Integration model for updates.
- * @export
- * @interface IntegrationUpdateIn
- */
-export interface IntegrationUpdateIn {
-    /**
-     * Integration name.
-     * @type {string}
-     * @memberof IntegrationUpdateIn
-     */
-    name?: string;
-    /**
-     * Integration state.
-     * @type {IntegrationState}
-     * @memberof IntegrationUpdateIn
-     */
-    state?: IntegrationState;
-    /**
-     * The list of tables to retrieve
-     * @type {Array<Table>}
-     * @memberof IntegrationUpdateIn
-     */
-    tables?: Array<Table>;
-    /**
-     * The list of views to retrieve
-     * @type {Array<Table>}
-     * @memberof IntegrationUpdateIn
-     */
-    views?: Array<Table>;
-    /**
-     * The integration messages
-     * @type {Array<MessageOut>}
-     * @memberof IntegrationUpdateIn
-     */
-    messages?: Array<MessageOut>;
-    /**
-     * API Endpoint.
-     * @type {string}
-     * @memberof IntegrationUpdateIn
-     */
-    endpoint?: string;
-    /**
-     * Integration IP address.
-     * @type {string}
-     * @memberof IntegrationUpdateIn
-     */
-    ip_address?: string;
-    /**
-     * Integration lamdba names.
-     * @type {string}
-     * @memberof IntegrationUpdateIn
-     */
-    lambda_arn?: string;
-    /**
-     * Integration credentials.
-     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn}
-     * @memberof IntegrationUpdateIn
-     */
-    credentials?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn;
 }
 /**
  * Represent a line plot.
@@ -19053,12 +19059,12 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
     /**
      * Create a new integration.
      * @summary Create Integration
-     * @param {IntegrationCreate} integrationCreate
+     * @param {IntegrationIn} integrationIn
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1EnterpriseIntegrationsPost: (integrationCreate: IntegrationCreate, teamId?: string, options?: any) => Promise<RequestArgs>;
+    createIntegrationV1EnterpriseIntegrationsPost: (integrationIn: IntegrationIn, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new message.
      * @summary Create Message
@@ -19102,15 +19108,23 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      */
     getMessageV1EnterpriseMessagesMessageIdGet: (messageId: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Update Enterprise.
+     * @summary Update Enterprise
+     * @param {EnterpriseIn} enterpriseIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateEnterpriseV1EnterprisePatch: (enterpriseIn: EnterpriseIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Update Integration.
      * @summary Update Integration
      * @param {string} integrationId
-     * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {IntegrationIn} integrationIn
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: (integrationId: string, integrationUpdateIn: IntegrationUpdateIn, teamId?: string, options?: any) => Promise<RequestArgs>;
+    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: (integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Message.
      * @summary Update Message
@@ -19130,12 +19144,12 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
     /**
      * Create a new integration.
      * @summary Create Integration
-     * @param {IntegrationCreate} integrationCreate
+     * @param {IntegrationIn} integrationIn
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    createIntegrationV1EnterpriseIntegrationsPost(integrationIn: IntegrationIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
     /**
      * Create a new message.
      * @summary Create Message
@@ -19179,15 +19193,23 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      */
     getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
     /**
+     * Update Enterprise.
+     * @summary Update Enterprise
+     * @param {EnterpriseIn} enterpriseIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateEnterpriseV1EnterprisePatch(enterpriseIn: EnterpriseIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise>>;
+    /**
      * Update Integration.
      * @summary Update Integration
      * @param {string} integrationId
-     * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {IntegrationIn} integrationIn
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
     /**
      * Update a Message.
      * @summary Update Message
@@ -19207,12 +19229,12 @@ export declare const EnterpriseApiFactory: (configuration?: Configuration, baseP
     /**
      * Create a new integration.
      * @summary Create Integration
-     * @param {IntegrationCreate} integrationCreate
+     * @param {IntegrationIn} integrationIn
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1EnterpriseIntegrationsPost(integrationCreate: IntegrationCreate, teamId?: string, options?: any): AxiosPromise<Integration>;
+    createIntegrationV1EnterpriseIntegrationsPost(integrationIn: IntegrationIn, teamId?: string, options?: any): AxiosPromise<Integration>;
     /**
      * Create a new message.
      * @summary Create Message
@@ -19256,15 +19278,23 @@ export declare const EnterpriseApiFactory: (configuration?: Configuration, baseP
      */
     getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, teamId?: string, options?: any): AxiosPromise<MessageOut>;
     /**
+     * Update Enterprise.
+     * @summary Update Enterprise
+     * @param {EnterpriseIn} enterpriseIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    updateEnterpriseV1EnterprisePatch(enterpriseIn: EnterpriseIn, options?: any): AxiosPromise<Enterprise>;
+    /**
      * Update Integration.
      * @summary Update Integration
      * @param {string} integrationId
-     * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {IntegrationIn} integrationIn
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationUpdateIn: IntegrationUpdateIn, teamId?: string, options?: any): AxiosPromise<Integration>;
+    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: any): AxiosPromise<Integration>;
     /**
      * Update a Message.
      * @summary Update Message
@@ -19284,10 +19314,10 @@ export declare const EnterpriseApiFactory: (configuration?: Configuration, baseP
 export interface EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest {
     /**
      *
-     * @type {IntegrationCreate}
+     * @type {IntegrationIn}
      * @memberof EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPost
      */
-    readonly integrationCreate: IntegrationCreate;
+    readonly integrationIn: IntegrationIn;
     /**
      *
      * @type {string}
@@ -19366,6 +19396,19 @@ export interface EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest 
     readonly teamId?: string;
 }
 /**
+ * Request parameters for updateEnterpriseV1EnterprisePatch operation in EnterpriseApi.
+ * @export
+ * @interface EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest
+ */
+export interface EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest {
+    /**
+     *
+     * @type {EnterpriseIn}
+     * @memberof EnterpriseApiUpdateEnterpriseV1EnterprisePatch
+     */
+    readonly enterpriseIn: EnterpriseIn;
+}
+/**
  * Request parameters for updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch operation in EnterpriseApi.
  * @export
  * @interface EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest
@@ -19379,10 +19422,10 @@ export interface EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrati
     readonly integrationId: string;
     /**
      *
-     * @type {IntegrationUpdateIn}
+     * @type {IntegrationIn}
      * @memberof EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch
      */
-    readonly integrationUpdateIn: IntegrationUpdateIn;
+    readonly integrationIn: IntegrationIn;
     /**
      *
      * @type {string}
@@ -19475,6 +19518,15 @@ export declare class EnterpriseApi extends BaseAPI {
      * @memberof EnterpriseApi
      */
     getMessageV1EnterpriseMessagesMessageIdGet(requestParameters: EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<MessageOut>>;
+    /**
+     * Update Enterprise.
+     * @summary Update Enterprise
+     * @param {EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EnterpriseApi
+     */
+    updateEnterpriseV1EnterprisePatch(requestParameters: EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest, options?: any): Promise<import("axios").AxiosResponse<Enterprise>>;
     /**
      * Update Integration.
      * @summary Update Integration
@@ -31654,11 +31706,11 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * Create a new integration.
      * @summary Create Integration
      * @param {string} teamId
-     * @param {IntegrationCreate} integrationCreate
+     * @param {IntegrationIn} integrationIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1TeamsTeamIdIntegrationsPost: (teamId: string, integrationCreate: IntegrationCreate, options?: any) => Promise<RequestArgs>;
+    createIntegrationV1TeamsTeamIdIntegrationsPost: (teamId: string, integrationIn: IntegrationIn, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new message.
      * @summary Create Message
@@ -33001,11 +33053,11 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @summary Update Integration
      * @param {string} teamId
      * @param {string} integrationId
-     * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {IntegrationIn} integrationIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch: (teamId: string, integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any) => Promise<RequestArgs>;
+    updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch: (teamId: string, integrationId: string, integrationIn: IntegrationIn, options?: any) => Promise<RequestArgs>;
     /**
      * Update a Message.
      * @summary Update Message
@@ -33200,11 +33252,11 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * Create a new integration.
      * @summary Create Integration
      * @param {string} teamId
-     * @param {IntegrationCreate} integrationCreate
+     * @param {IntegrationIn} integrationIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1TeamsTeamIdIntegrationsPost(teamId: string, integrationCreate: IntegrationCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    createIntegrationV1TeamsTeamIdIntegrationsPost(teamId: string, integrationIn: IntegrationIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
     /**
      * Create a new message.
      * @summary Create Message
@@ -34547,11 +34599,11 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @summary Update Integration
      * @param {string} teamId
      * @param {string} integrationId
-     * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {IntegrationIn} integrationIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId: string, integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId: string, integrationId: string, integrationIn: IntegrationIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
     /**
      * Update a Message.
      * @summary Update Message
@@ -34746,11 +34798,11 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * Create a new integration.
      * @summary Create Integration
      * @param {string} teamId
-     * @param {IntegrationCreate} integrationCreate
+     * @param {IntegrationIn} integrationIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1TeamsTeamIdIntegrationsPost(teamId: string, integrationCreate: IntegrationCreate, options?: any): AxiosPromise<Integration>;
+    createIntegrationV1TeamsTeamIdIntegrationsPost(teamId: string, integrationIn: IntegrationIn, options?: any): AxiosPromise<Integration>;
     /**
      * Create a new message.
      * @summary Create Message
@@ -36093,11 +36145,11 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @summary Update Integration
      * @param {string} teamId
      * @param {string} integrationId
-     * @param {IntegrationUpdateIn} integrationUpdateIn
+     * @param {IntegrationIn} integrationIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId: string, integrationId: string, integrationUpdateIn: IntegrationUpdateIn, options?: any): AxiosPromise<Integration>;
+    updateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch(teamId: string, integrationId: string, integrationIn: IntegrationIn, options?: any): AxiosPromise<Integration>;
     /**
      * Update a Message.
      * @summary Update Message
@@ -36537,10 +36589,10 @@ export interface TeamsApiCreateIntegrationV1TeamsTeamIdIntegrationsPostRequest {
     readonly teamId: string;
     /**
      *
-     * @type {IntegrationCreate}
+     * @type {IntegrationIn}
      * @memberof TeamsApiCreateIntegrationV1TeamsTeamIdIntegrationsPost
      */
-    readonly integrationCreate: IntegrationCreate;
+    readonly integrationIn: IntegrationIn;
 }
 /**
  * Request parameters for createMessageV1TeamsTeamIdMessagesPost operation in TeamsApi.
@@ -41119,10 +41171,10 @@ export interface TeamsApiUpdateIntegrationV1TeamsTeamIdIntegrationsIntegrationId
     readonly integrationId: string;
     /**
      *
-     * @type {IntegrationUpdateIn}
+     * @type {IntegrationIn}
      * @memberof TeamsApiUpdateIntegrationV1TeamsTeamIdIntegrationsIntegrationIdPatch
      */
-    readonly integrationUpdateIn: IntegrationUpdateIn;
+    readonly integrationIn: IntegrationIn;
 }
 /**
  * Request parameters for updateMessageV1TeamsTeamIdMessagesMessageIdPatch operation in TeamsApi.
