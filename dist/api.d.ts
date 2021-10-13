@@ -3589,13 +3589,13 @@ export interface Integration {
      * @type {IntegrationType}
      * @memberof Integration
      */
-    service_type?: IntegrationType;
+    service_type: IntegrationType;
     /**
      * API Endpoint.
      * @type {string}
      * @memberof Integration
      */
-    endpoint?: string;
+    endpoint: string;
     /**
      * Integration IP address.
      * @type {string}
