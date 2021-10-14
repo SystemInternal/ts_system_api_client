@@ -2676,13 +2676,19 @@ export interface Enterprise {
      */
     identity_provider?: string;
     /**
-     * Enterprise user pool id.
+     * Enterprise SAML SSO entity id.
      * @type {string}
      * @memberof Enterprise
      */
-    user_pool_id?: string;
+    entity_id?: string;
     /**
-     * Enterprise SAML IDP metadata
+     * Enterprise SAML SSO ACS url.
+     * @type {string}
+     * @memberof Enterprise
+     */
+    acs_url?: string;
+    /**
+     * Enterprise SAML SSO IDP metadata
      * @type {string}
      * @memberof Enterprise
      */
@@ -2731,13 +2737,19 @@ export interface EnterpriseIn {
      */
     identity_provider?: string;
     /**
-     * Enterprise user pool id.
+     * Enterprise SAML SSO entity id.
      * @type {string}
      * @memberof EnterpriseIn
      */
-    user_pool_id?: string;
+    entity_id?: string;
     /**
-     * Enterprise SAML IDP metadata
+     * Enterprise SAML SSO ACS url.
+     * @type {string}
+     * @memberof EnterpriseIn
+     */
+    acs_url?: string;
+    /**
+     * Enterprise SAML SSO IDP metadata
      * @type {string}
      * @memberof EnterpriseIn
      */
