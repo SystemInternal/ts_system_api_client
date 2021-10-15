@@ -17112,7 +17112,6 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
         /**
          * List Features.
          * @summary List Features
-         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -17124,10 +17123,11 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeaturesV1FeaturesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listFeaturesV1FeaturesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/features`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -17151,9 +17151,6 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -17187,6 +17184,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             }
             if (inFeatureGraph !== undefined) {
                 localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -17726,7 +17726,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
          * @summary Patch Feature
          * @param {string} featureId
          * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
@@ -17781,7 +17781,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
          * @summary Patch Feature
          * @param {string} teamId
          * @param {string} featureId
@@ -18558,7 +18558,6 @@ exports.FeaturesApiFp = function (configuration) {
         /**
          * List Features.
          * @summary List Features
-         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -18570,12 +18569,13 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeaturesV1FeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+        listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listFeaturesV1FeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+                const localVarAxiosArgs = yield exports.FeaturesApiAxiosParamCreator(configuration).listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -18735,7 +18735,7 @@ exports.FeaturesApiFp = function (configuration) {
             });
         },
         /**
-         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
          * @summary Patch Feature
          * @param {string} featureId
          * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
@@ -18752,7 +18752,7 @@ exports.FeaturesApiFp = function (configuration) {
             });
         },
         /**
-         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
          * @summary Patch Feature
          * @param {string} teamId
          * @param {string} featureId
@@ -19149,7 +19149,6 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
         /**
          * List Features.
          * @summary List Features
-         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -19161,11 +19160,12 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFeaturesV1FeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
-            return exports.FeaturesApiFp(configuration).listFeaturesV1FeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options) {
+            return exports.FeaturesApiFp(configuration).listFeaturesV1FeaturesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * List Features.
@@ -19290,7 +19290,7 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
             return exports.FeaturesApiFp(configuration).listUserFeaturesV1UsersUserIdFeaturesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
          * @summary Patch Feature
          * @param {string} featureId
          * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
@@ -19301,7 +19301,7 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
             return exports.FeaturesApiFp(configuration).patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options).then((request) => request(axios, basePath));
         },
         /**
-         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
          * @summary Patch Feature
          * @param {string} teamId
          * @param {string} featureId
@@ -19595,7 +19595,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listFeaturesV1FeaturesGet(requestParameters = {}, options) {
-        return exports.FeaturesApiFp(this.configuration).listFeaturesV1FeaturesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listFeaturesV1FeaturesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Features.
@@ -19653,7 +19653,7 @@ class FeaturesApi extends base_1.BaseAPI {
         return exports.FeaturesApiFp(this.configuration).listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {FeaturesApiPatchFeatureV1FeaturesFeatureIdPatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -19664,7 +19664,7 @@ class FeaturesApi extends base_1.BaseAPI {
         return exports.FeaturesApiFp(this.configuration).patchFeatureV1FeaturesFeatureIdPatch(requestParameters.featureId, requestParameters.patchFeatureOpArrayPatchFeatureOp, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {FeaturesApiPatchFeatureV1TeamsTeamIdFeaturesFeatureIdPatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -37751,7 +37751,7 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
          * @summary Patch Feature
          * @param {string} teamId
          * @param {string} featureId
@@ -41234,7 +41234,7 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
-         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
          * @summary Patch Feature
          * @param {string} teamId
          * @param {string} featureId
@@ -43166,7 +43166,7 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).patchDatasetV1TeamsTeamIdDatasetsDatasetIdPatch(teamId, datasetId, patchDatasetOpArrayPatchDatasetOp, options).then((request) => request(axios, basePath));
         },
         /**
-         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+         * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
          * @summary Patch Feature
          * @param {string} teamId
          * @param {string} featureId
@@ -44512,7 +44512,7 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).patchDatasetV1TeamsTeamIdDatasetsDatasetIdPatch(requestParameters.teamId, requestParameters.datasetId, requestParameters.patchDatasetOpArrayPatchDatasetOp, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {TeamsApiPatchFeatureV1TeamsTeamIdFeaturesFeatureIdPatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

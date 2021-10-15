@@ -19796,7 +19796,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
     /**
      * List Features.
      * @summary List Features
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -19808,10 +19807,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listFeaturesV1FeaturesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Features.
      * @summary List Features
@@ -19925,7 +19925,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      */
     listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {string} featureId
      * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
@@ -19934,7 +19934,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      */
     patchFeatureV1FeaturesFeatureIdPatch: (featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any) => Promise<RequestArgs>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {string} teamId
      * @param {string} featureId
@@ -20237,7 +20237,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
     /**
      * List Features.
      * @summary List Features
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20249,10 +20248,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List Features.
      * @summary List Features
@@ -20366,7 +20366,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      */
     listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {string} featureId
      * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
@@ -20375,7 +20375,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      */
     patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {string} teamId
      * @param {string} featureId
@@ -20678,7 +20678,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
     /**
      * List Features.
      * @summary List Features
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20690,10 +20689,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFeaturesV1FeaturesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listFeaturesV1FeaturesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List Features.
      * @summary List Features
@@ -20807,7 +20807,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      */
     listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {string} featureId
      * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
@@ -20816,7 +20816,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      */
     patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): AxiosPromise<void>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {string} teamId
      * @param {string} featureId
@@ -21638,12 +21638,6 @@ export interface FeaturesApiListDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFea
  */
 export interface FeaturesApiListFeaturesV1FeaturesGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListFeaturesV1FeaturesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof FeaturesApiListFeaturesV1FeaturesGet
@@ -21709,6 +21703,12 @@ export interface FeaturesApiListFeaturesV1FeaturesGetRequest {
      * @memberof FeaturesApiListFeaturesV1FeaturesGet
      */
     readonly inFeatureGraph?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListFeaturesV1FeaturesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listFeaturesV1TeamsTeamIdFeaturesGet operation in FeaturesApi.
@@ -22595,7 +22595,7 @@ export declare class FeaturesApi extends BaseAPI {
      */
     listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters: FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {FeaturesApiPatchFeatureV1FeaturesFeatureIdPatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -22604,7 +22604,7 @@ export declare class FeaturesApi extends BaseAPI {
      */
     patchFeatureV1FeaturesFeatureIdPatch(requestParameters: FeaturesApiPatchFeatureV1FeaturesFeatureIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {FeaturesApiPatchFeatureV1TeamsTeamIdFeaturesFeatureIdPatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -32848,7 +32848,7 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     patchDatasetV1TeamsTeamIdDatasetsDatasetIdPatch: (teamId: string, datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any) => Promise<RequestArgs>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {string} teamId
      * @param {string} featureId
@@ -34394,7 +34394,7 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     patchDatasetV1TeamsTeamIdDatasetsDatasetIdPatch(teamId: string, datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {string} teamId
      * @param {string} featureId
@@ -35940,7 +35940,7 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     patchDatasetV1TeamsTeamIdDatasetsDatasetIdPatch(teamId: string, datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): AxiosPromise<void>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {string} teamId
      * @param {string} featureId
@@ -42085,7 +42085,7 @@ export declare class TeamsApi extends BaseAPI {
      */
     patchDatasetV1TeamsTeamIdDatasetsDatasetIdPatch(requestParameters: TeamsApiPatchDatasetV1TeamsTeamIdDatasetsDatasetIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current stats.
+     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
      * @param {TeamsApiPatchFeatureV1TeamsTeamIdFeaturesFeatureIdPatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
