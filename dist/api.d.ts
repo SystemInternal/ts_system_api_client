@@ -4099,10 +4099,10 @@ export interface MetricMonitoring {
     enabled: string;
     /**
      * The rule of which determines state of violation.
-     * @type {RuleSet}
+     * @type {MonitoringRuleSet}
      * @memberof MetricMonitoring
      */
-    rule: RuleSet;
+    rule: MonitoringRuleSet;
 }
 /**
  * Values available for filtering models.
@@ -4705,6 +4705,56 @@ export declare enum ModelSortEnum {
     TargetName = "target_name",
     CreatedAt = "created_at",
     LastUpdatedAt = "last_updated_at"
+}
+/**
+ * Field options for monitoring a metric.
+ * @export
+ * @enum {string}
+ */
+export declare enum MonitoringField {
+    VALUE = "VALUE",
+    CHANGE = "CHANGE",
+    PCTCHANGE = "PCT_CHANGE",
+    ABSPCTCHANGE = "ABS_PCT_CHANGE",
+    ABSCHANGE = "ABS_CHANGE"
+}
+/**
+ * Monitoring comparison operators.
+ * @export
+ * @enum {string}
+ */
+export declare enum MonitoringOperation {
+    GT = "GT",
+    GE = "GE",
+    LT = "LT",
+    LE = "LE",
+    EQ = "EQ",
+    NE = "NE"
+}
+/**
+ * A ruleset for metric modeling comparisons.
+ * @export
+ * @interface MonitoringRuleSet
+ */
+export interface MonitoringRuleSet {
+    /**
+     * The field to compare
+     * @type {MonitoringField}
+     * @memberof MonitoringRuleSet
+     */
+    field: MonitoringField;
+    /**
+     * The operator to compare with
+     * @type {MonitoringOperation}
+     * @memberof MonitoringRuleSet
+     */
+    operator: MonitoringOperation;
+    /**
+     * The value to compare with
+     * @type {number}
+     * @memberof MonitoringRuleSet
+     */
+    value: number;
 }
 /**
  * Pagination links with next and prev urls.
@@ -5886,31 +5936,6 @@ export declare enum RetrievalStatus {
     Pending = "pending",
     Success = "success",
     Failure = "failure"
-}
-/**
- * A ruleset for comparisons.
- * @export
- * @interface RuleSet
- */
-export interface RuleSet {
-    /**
-     * The field to compare
-     * @type {string}
-     * @memberof RuleSet
-     */
-    field: string;
-    /**
-     * The operator to compare with
-     * @type {string}
-     * @memberof RuleSet
-     */
-    operator: string;
-    /**
-     * The value to compare with
-     * @type {number}
-     * @memberof RuleSet
-     */
-    value: number;
 }
 /**
  * An enumeration.
