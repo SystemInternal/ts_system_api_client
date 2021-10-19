@@ -2651,6 +2651,12 @@ export interface EdgeTypedLink {
      */
     edgeType: GraphLinkType;
     /**
+     *
+     * @type {LineType}
+     * @memberof EdgeTypedLink
+     */
+    lineType?: LineType;
+    /**
      * Query Count of a dataset relationship.
      * @type {number}
      * @memberof EdgeTypedLink
@@ -3793,6 +3799,15 @@ export interface LinePlot {
      * @memberof LinePlot
      */
     index?: Array<string>;
+}
+/**
+ * Link Line Type enum.
+ * @export
+ * @enum {string}
+ */
+export declare enum LineType {
+    Dashed = "dashed",
+    Solid = "solid"
 }
 /**
  * Location population attribute value input.
@@ -5183,6 +5198,12 @@ export interface OjbectTypedNode {
      * @memberof OjbectTypedNode
      */
     objectType: GraphNodeType;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof OjbectTypedNode
+     */
+    tags?: Array<string>;
 }
 /**
  * Ordering direction enum.
