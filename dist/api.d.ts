@@ -2652,10 +2652,10 @@ export interface EdgeTypedLink {
     edgeType: GraphLinkType;
     /**
      *
-     * @type {LineType}
+     * @type {boolean}
      * @memberof EdgeTypedLink
      */
-    lineType?: LineType;
+    isSubstantiated?: boolean;
     /**
      * Query Count of a dataset relationship.
      * @type {number}
@@ -3799,15 +3799,6 @@ export interface LinePlot {
      * @memberof LinePlot
      */
     index?: Array<string>;
-}
-/**
- * Link Line Type enum.
- * @export
- * @enum {string}
- */
-export declare enum LineType {
-    Dashed = "dashed",
-    Solid = "solid"
 }
 /**
  * Location population attribute value input.
