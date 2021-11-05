@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableToVariableSystemOfSortEnum = exports.VariableToFeatureSystemOfSortEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureToFeatureSystemOfSortEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptToConceptSystemOfSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricRelationshipsApi = exports.MetricRelationshipsApiFactory = exports.MetricRelationshipsApiFp = exports.MetricRelationshipsApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableToVariableSystemOfSortEnum = exports.VariableToFeatureSystemOfSortEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureToFeatureSystemOfSortEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptToConceptSystemOfSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -20274,6 +20274,225 @@ class GraphqlApi extends base_1.BaseAPI {
 }
 exports.GraphqlApi = GraphqlApi;
 /**
+ * MetricRelationshipsApi - axios parameter creator
+ * @export
+ */
+exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Create an Dashboard.
+         * @summary Create Metric Relationship Post
+         * @param {MetricRelationshipIn} metricRelationshipIn
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMetricRelationshipPostV1MetricRelationshipsPost: (metricRelationshipIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'metricRelationshipIn' is not null or undefined
+            if (metricRelationshipIn === null || metricRelationshipIn === undefined) {
+                throw new base_1.RequiredError('metricRelationshipIn', 'Required parameter metricRelationshipIn was null or undefined when calling createMetricRelationshipPostV1MetricRelationshipsPost.');
+            }
+            const localVarPath = `/v1/metric_relationships`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof metricRelationshipIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(metricRelationshipIn !== undefined ? metricRelationshipIn : {}) : (metricRelationshipIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create an Dashboard.
+         * @summary Create Metric Relationship Post
+         * @param {string} teamId
+         * @param {MetricRelationshipIn} metricRelationshipIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost: (teamId, metricRelationshipIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost.');
+            }
+            // verify required parameter 'metricRelationshipIn' is not null or undefined
+            if (metricRelationshipIn === null || metricRelationshipIn === undefined) {
+                throw new base_1.RequiredError('metricRelationshipIn', 'Required parameter metricRelationshipIn was null or undefined when calling createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/metric_relationships`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof metricRelationshipIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(metricRelationshipIn !== undefined ? metricRelationshipIn : {}) : (metricRelationshipIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * MetricRelationshipsApi - functional programming interface
+ * @export
+ */
+exports.MetricRelationshipsApiFp = function (configuration) {
+    return {
+        /**
+         * Create an Dashboard.
+         * @summary Create Metric Relationship Post
+         * @param {MetricRelationshipIn} metricRelationshipIn
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.MetricRelationshipsApiAxiosParamCreator(configuration).createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn, teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create an Dashboard.
+         * @summary Create Metric Relationship Post
+         * @param {string} teamId
+         * @param {MetricRelationshipIn} metricRelationshipIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId, metricRelationshipIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.MetricRelationshipsApiAxiosParamCreator(configuration).createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId, metricRelationshipIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+    };
+};
+/**
+ * MetricRelationshipsApi - factory interface
+ * @export
+ */
+exports.MetricRelationshipsApiFactory = function (configuration, basePath, axios) {
+    return {
+        /**
+         * Create an Dashboard.
+         * @summary Create Metric Relationship Post
+         * @param {MetricRelationshipIn} metricRelationshipIn
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn, teamId, options) {
+            return exports.MetricRelationshipsApiFp(configuration).createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create an Dashboard.
+         * @summary Create Metric Relationship Post
+         * @param {string} teamId
+         * @param {MetricRelationshipIn} metricRelationshipIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId, metricRelationshipIn, options) {
+            return exports.MetricRelationshipsApiFp(configuration).createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId, metricRelationshipIn, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * MetricRelationshipsApi - object-oriented interface
+ * @export
+ * @class MetricRelationshipsApi
+ * @extends {BaseAPI}
+ */
+class MetricRelationshipsApi extends base_1.BaseAPI {
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    createMetricRelationshipPostV1MetricRelationshipsPost(requestParameters, options) {
+        return exports.MetricRelationshipsApiFp(this.configuration).createMetricRelationshipPostV1MetricRelationshipsPost(requestParameters.metricRelationshipIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters, options) {
+        return exports.MetricRelationshipsApiFp(this.configuration).createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters.teamId, requestParameters.metricRelationshipIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.MetricRelationshipsApi = MetricRelationshipsApi;
+/**
  * ModeldbApi - axios parameter creator
  * @export
  */
@@ -32042,6 +32261,61 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create an Dashboard.
+         * @summary Create Metric Relationship Post
+         * @param {string} teamId
+         * @param {MetricRelationshipIn} metricRelationshipIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost: (teamId, metricRelationshipIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost.');
+            }
+            // verify required parameter 'metricRelationshipIn' is not null or undefined
+            if (metricRelationshipIn === null || metricRelationshipIn === undefined) {
+                throw new base_1.RequiredError('metricRelationshipIn', 'Required parameter metricRelationshipIn was null or undefined when calling createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/metric_relationships`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof metricRelationshipIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(metricRelationshipIn !== undefined ? metricRelationshipIn : {}) : (metricRelationshipIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create models and add to study.
          * @summary Create Models
          * @param {string} teamId
@@ -39538,6 +39812,23 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Create an Dashboard.
+         * @summary Create Metric Relationship Post
+         * @param {string} teamId
+         * @param {MetricRelationshipIn} metricRelationshipIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId, metricRelationshipIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId, metricRelationshipIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Create models and add to study.
          * @summary Create Models
          * @param {string} teamId
@@ -41926,6 +42217,17 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).createMessageV1TeamsTeamIdMessagesPost(teamId, messageIn, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create an Dashboard.
+         * @summary Create Metric Relationship Post
+         * @param {string} teamId
+         * @param {MetricRelationshipIn} metricRelationshipIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId, metricRelationshipIn, options) {
+            return exports.TeamsApiFp(configuration).createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId, metricRelationshipIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create models and add to study.
          * @summary Create Models
          * @param {string} teamId
@@ -43701,6 +44003,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     createMessageV1TeamsTeamIdMessagesPost(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).createMessageV1TeamsTeamIdMessagesPost(requestParameters.teamId, requestParameters.messageIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters.teamId, requestParameters.metricRelationshipIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create models and add to study.

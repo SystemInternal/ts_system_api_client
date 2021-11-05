@@ -4111,6 +4111,62 @@ export interface MetricMonitoring {
     rule: MonitoringRuleSet;
 }
 /**
+ * A MetricRelationship input data.
+ * @export
+ * @interface MetricRelationshipIn
+ */
+export interface MetricRelationshipIn {
+    /**
+     * Tags to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof MetricRelationshipIn
+     */
+    tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof MetricRelationshipIn
+     */
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof MetricRelationshipIn
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof MetricRelationshipIn
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
+     * The id of the metrics for a metric relationship.
+     * @type {Array<string>}
+     * @memberof MetricRelationshipIn
+     */
+    metric_ids?: Array<string>;
+    /**
+     * The id of the metrics that the relationship has direction towards.
+     * @type {Array<string>}
+     * @memberof MetricRelationshipIn
+     */
+    directed_at_ids?: Array<string>;
+    /**
+     * Direction of the association.
+     * @type {ValidRelationshipDirectionEnum}
+     * @memberof MetricRelationshipIn
+     */
+    sign: ValidRelationshipDirectionEnum;
+    /**
+     * Annotation for the metric relationship edge.
+     * @type {string}
+     * @memberof MetricRelationshipIn
+     */
+    annotation?: string;
+}
+/**
  * Values available for filtering models.
  * @export
  * @interface ModelFilters
@@ -6494,6 +6550,49 @@ export declare enum StudyTypeEnum {
     UnsupervisedMl = "unsupervised_ml",
     StatisticalInference = "statistical_inference",
     RandomizedControlTrial = "randomized_control_trial"
+}
+/**
+ * Base system object model.
+ * @export
+ * @interface SystemObjectBase
+ */
+export interface SystemObjectBase {
+    /**
+     *
+     * @type {string}
+     * @memberof SystemObjectBase
+     */
+    id: string;
+    /**
+     * User who created this resource.
+     * @type {string}
+     * @memberof SystemObjectBase
+     */
+    created_by?: string;
+    /**
+     * Time when resource was created.
+     * @type {string}
+     * @memberof SystemObjectBase
+     */
+    created_at?: string;
+    /**
+     * User who made the last edit.
+     * @type {string}
+     * @memberof SystemObjectBase
+     */
+    last_updated_by?: string;
+    /**
+     * Time of last edit.
+     * @type {string}
+     * @memberof SystemObjectBase
+     */
+    last_updated_at?: string;
+    /**
+     *
+     * @type {Array<ResourceAction>}
+     * @memberof SystemObjectBase
+     */
+    _permissions?: Array<ResourceAction>;
 }
 /**
  * Enum System object resource names.
@@ -23005,6 +23104,142 @@ export declare class GraphqlApi extends BaseAPI {
     postGraphqlV1GraphqlPost(requestParameters: GraphqlApiPostGraphqlV1GraphqlPostRequest, options?: any): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
+ * MetricRelationshipsApi - axios parameter creator
+ * @export
+ */
+export declare const MetricRelationshipsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {MetricRelationshipIn} metricRelationshipIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMetricRelationshipPostV1MetricRelationshipsPost: (metricRelationshipIn: MetricRelationshipIn, teamId?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {string} teamId
+     * @param {MetricRelationshipIn} metricRelationshipIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost: (teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any) => Promise<RequestArgs>;
+};
+/**
+ * MetricRelationshipsApi - functional programming interface
+ * @export
+ */
+export declare const MetricRelationshipsApiFp: (configuration?: Configuration) => {
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {MetricRelationshipIn} metricRelationshipIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn: MetricRelationshipIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemObjectBase>>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {string} teamId
+     * @param {MetricRelationshipIn} metricRelationshipIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemObjectBase>>;
+};
+/**
+ * MetricRelationshipsApi - factory interface
+ * @export
+ */
+export declare const MetricRelationshipsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {MetricRelationshipIn} metricRelationshipIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn: MetricRelationshipIn, teamId?: string, options?: any): AxiosPromise<SystemObjectBase>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {string} teamId
+     * @param {MetricRelationshipIn} metricRelationshipIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): AxiosPromise<SystemObjectBase>;
+};
+/**
+ * Request parameters for createMetricRelationshipPostV1MetricRelationshipsPost operation in MetricRelationshipsApi.
+ * @export
+ * @interface MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPostRequest
+ */
+export interface MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPostRequest {
+    /**
+     *
+     * @type {MetricRelationshipIn}
+     * @memberof MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPost
+     */
+    readonly metricRelationshipIn: MetricRelationshipIn;
+    /**
+     *
+     * @type {string}
+     * @memberof MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPost
+     */
+    readonly teamId?: string;
+}
+/**
+ * Request parameters for createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost operation in MetricRelationshipsApi.
+ * @export
+ * @interface MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest
+ */
+export interface MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {MetricRelationshipIn}
+     * @memberof MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost
+     */
+    readonly metricRelationshipIn: MetricRelationshipIn;
+}
+/**
+ * MetricRelationshipsApi - object-oriented interface
+ * @export
+ * @class MetricRelationshipsApi
+ * @extends {BaseAPI}
+ */
+export declare class MetricRelationshipsApi extends BaseAPI {
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    createMetricRelationshipPostV1MetricRelationshipsPost(requestParameters: MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPostRequest, options?: any): Promise<import("axios").AxiosResponse<SystemObjectBase>>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters: MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest, options?: any): Promise<import("axios").AxiosResponse<SystemObjectBase>>;
+}
+/**
  * ModeldbApi - axios parameter creator
  * @export
  */
@@ -31770,6 +32005,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createMessageV1TeamsTeamIdMessagesPost: (teamId: string, messageIn: MessageIn, options?: any) => Promise<RequestArgs>;
     /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {string} teamId
+     * @param {MetricRelationshipIn} metricRelationshipIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost: (teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} teamId
@@ -33316,6 +33560,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     createMessageV1TeamsTeamIdMessagesPost(teamId: string, messageIn: MessageIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
     /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {string} teamId
+     * @param {MetricRelationshipIn} metricRelationshipIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemObjectBase>>;
+    /**
      * Create models and add to study.
      * @summary Create Models
      * @param {string} teamId
@@ -34861,6 +35114,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     createMessageV1TeamsTeamIdMessagesPost(teamId: string, messageIn: MessageIn, options?: any): AxiosPromise<MessageOut>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {string} teamId
+     * @param {MetricRelationshipIn} metricRelationshipIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): AxiosPromise<SystemObjectBase>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -36661,6 +36923,25 @@ export interface TeamsApiCreateMessageV1TeamsTeamIdMessagesPostRequest {
      * @memberof TeamsApiCreateMessageV1TeamsTeamIdMessagesPost
      */
     readonly messageIn: MessageIn;
+}
+/**
+ * Request parameters for createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest
+ */
+export interface TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {MetricRelationshipIn}
+     * @memberof TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost
+     */
+    readonly metricRelationshipIn: MetricRelationshipIn;
 }
 /**
  * Request parameters for createModelsV1TeamsTeamIdStudiesStudyIdModelsPost operation in TeamsApi.
@@ -41437,6 +41718,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     createMessageV1TeamsTeamIdMessagesPost(requestParameters: TeamsApiCreateMessageV1TeamsTeamIdMessagesPostRequest, options?: any): Promise<import("axios").AxiosResponse<MessageOut>>;
+    /**
+     * Create an Dashboard.
+     * @summary Create Metric Relationship Post
+     * @param {TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters: TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest, options?: any): Promise<import("axios").AxiosResponse<SystemObjectBase>>;
     /**
      * Create models and add to study.
      * @summary Create Models
