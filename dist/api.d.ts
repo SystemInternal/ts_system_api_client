@@ -2657,6 +2657,12 @@ export interface EdgeTypedLink {
      */
     isSubstantiated?: boolean;
     /**
+     *
+     * @type {Array<string>}
+     * @memberof EdgeTypedLink
+     */
+    directedAt?: Array<string>;
+    /**
      * Query Count of a dataset relationship.
      * @type {number}
      * @memberof EdgeTypedLink
