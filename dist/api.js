@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricRelationshipsApi = exports.MetricRelationshipsApiFactory = exports.MetricRelationshipsApiFp = exports.MetricRelationshipsApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableToVariableSystemOfSortEnum = exports.VariableToFeatureSystemOfSortEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureToFeatureSystemOfSortEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptToConceptSystemOfSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricRelationshipsApi = exports.MetricRelationshipsApiFactory = exports.MetricRelationshipsApiFp = exports.MetricRelationshipsApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableToVariableSystemOfSortEnum = exports.VariableToFeatureSystemOfSortEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MetricRelationshipSortEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureToFeatureSystemOfSortEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptToConceptSystemOfSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -347,6 +347,17 @@ var MessageType;
  * @export
  * @enum {string}
  */
+var MetricRelationshipSortEnum;
+(function (MetricRelationshipSortEnum) {
+    MetricRelationshipSortEnum["CreatedAt"] = "created_at";
+    MetricRelationshipSortEnum["LastUpdatedAt"] = "last_updated_at";
+    MetricRelationshipSortEnum["Name"] = "name";
+})(MetricRelationshipSortEnum = exports.MetricRelationshipSortEnum || (exports.MetricRelationshipSortEnum = {}));
+/**
+ * An enumeration.
+ * @export
+ * @enum {string}
+ */
 var ModelScoreEnum;
 (function (ModelScoreEnum) {
     ModelScoreEnum["AccuracyScore"] = "accuracy_score";
@@ -589,6 +600,7 @@ var SystemObjectResources;
     SystemObjectResources["Association"] = "association";
     SystemObjectResources["Team"] = "team";
     SystemObjectResources["Dashboard"] = "dashboard";
+    SystemObjectResources["MetricRelationship"] = "metric_relationship";
 })(SystemObjectResources = exports.SystemObjectResources || (exports.SystemObjectResources = {}));
 /**
  * Enum for valid calibrated relationship type.
@@ -8079,7 +8091,7 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dashboard
          * @param {string} dashboardId
          * @param {*} [options] Override http request option.
@@ -8126,7 +8138,7 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dashboard
          * @param {string} teamId
          * @param {string} dashboardId
@@ -8904,7 +8916,7 @@ exports.DashboardsApiFp = function (configuration) {
             });
         },
         /**
-         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dashboard
          * @param {string} dashboardId
          * @param {*} [options] Override http request option.
@@ -8920,7 +8932,7 @@ exports.DashboardsApiFp = function (configuration) {
             });
         },
         /**
-         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dashboard
          * @param {string} teamId
          * @param {string} dashboardId
@@ -9185,7 +9197,7 @@ exports.DashboardsApiFactory = function (configuration, basePath, axios) {
             return exports.DashboardsApiFp(configuration).createDashboardPostV1TeamsTeamIdDashboardsPost(teamId, dashboardIn, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dashboard
          * @param {string} dashboardId
          * @param {*} [options] Override http request option.
@@ -9195,7 +9207,7 @@ exports.DashboardsApiFactory = function (configuration, basePath, axios) {
             return exports.DashboardsApiFp(configuration).deleteDashboardV1DashboardsDashboardIdDelete(dashboardId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dashboard
          * @param {string} teamId
          * @param {string} dashboardId
@@ -9406,7 +9418,7 @@ class DashboardsApi extends base_1.BaseAPI {
         return exports.DashboardsApiFp(this.configuration).createDashboardPostV1TeamsTeamIdDashboardsPost(requestParameters.teamId, requestParameters.dashboardIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {DashboardsApiDeleteDashboardV1DashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -9417,7 +9429,7 @@ class DashboardsApi extends base_1.BaseAPI {
         return exports.DashboardsApiFp(this.configuration).deleteDashboardV1DashboardsDashboardIdDelete(requestParameters.dashboardId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {DashboardsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -20280,7 +20292,7 @@ exports.GraphqlApi = GraphqlApi;
 exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Create an Dashboard.
+         * Create an MetricRelationship.
          * @summary Create Metric Relationship Post
          * @param {MetricRelationshipIn} metricRelationshipIn
          * @param {string} [teamId]
@@ -20333,7 +20345,7 @@ exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Create an Dashboard.
+         * Create an MetricRelationship.
          * @summary Create Metric Relationship Post
          * @param {string} teamId
          * @param {MetricRelationshipIn} metricRelationshipIn
@@ -20387,6 +20399,278 @@ exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Metric Relationship
+         * @param {string} metricRelationshipId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete: (metricRelationshipId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'metricRelationshipId' is not null or undefined
+            if (metricRelationshipId === null || metricRelationshipId === undefined) {
+                throw new base_1.RequiredError('metricRelationshipId', 'Required parameter metricRelationshipId was null or undefined when calling deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete.');
+            }
+            const localVarPath = `/v1/metric_relationships/{metric_relationship_id}`
+                .replace(`{${"metric_relationship_id"}}`, encodeURIComponent(String(metricRelationshipId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Metric Relationship
+         * @param {string} teamId
+         * @param {string} metricRelationshipId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete: (teamId, metricRelationshipId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete.');
+            }
+            // verify required parameter 'metricRelationshipId' is not null or undefined
+            if (metricRelationshipId === null || metricRelationshipId === undefined) {
+                throw new base_1.RequiredError('metricRelationshipId', 'Required parameter metricRelationshipId was null or undefined when calling deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/metric_relationships/{metric_relationship_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"metric_relationship_id"}}`, encodeURIComponent(String(metricRelationshipId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List MetricRelationships.  Paginated list of all MetricRelationships.
+         * @summary List Metric Relationships
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMetricRelationshipsV1MetricRelationshipsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/metric_relationships`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List MetricRelationships.  Paginated list of all MetricRelationships.
+         * @summary List Metric Relationships
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/metric_relationships`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -20396,7 +20680,7 @@ exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
 exports.MetricRelationshipsApiFp = function (configuration) {
     return {
         /**
-         * Create an Dashboard.
+         * Create an MetricRelationship.
          * @summary Create Metric Relationship Post
          * @param {MetricRelationshipIn} metricRelationshipIn
          * @param {string} [teamId]
@@ -20413,7 +20697,7 @@ exports.MetricRelationshipsApiFp = function (configuration) {
             });
         },
         /**
-         * Create an Dashboard.
+         * Create an MetricRelationship.
          * @summary Create Metric Relationship Post
          * @param {string} teamId
          * @param {MetricRelationshipIn} metricRelationshipIn
@@ -20429,6 +20713,91 @@ exports.MetricRelationshipsApiFp = function (configuration) {
                 };
             });
         },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Metric Relationship
+         * @param {string} metricRelationshipId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete(metricRelationshipId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.MetricRelationshipsApiAxiosParamCreator(configuration).deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete(metricRelationshipId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Metric Relationship
+         * @param {string} teamId
+         * @param {string} metricRelationshipId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId, metricRelationshipId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.MetricRelationshipsApiAxiosParamCreator(configuration).deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId, metricRelationshipId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List MetricRelationships.  Paginated list of all MetricRelationships.
+         * @summary List Metric Relationships
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.MetricRelationshipsApiAxiosParamCreator(configuration).listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List MetricRelationships.  Paginated list of all MetricRelationships.
+         * @summary List Metric Relationships
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.MetricRelationshipsApiAxiosParamCreator(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
     };
 };
 /**
@@ -20438,7 +20807,7 @@ exports.MetricRelationshipsApiFp = function (configuration) {
 exports.MetricRelationshipsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         * Create an Dashboard.
+         * Create an MetricRelationship.
          * @summary Create Metric Relationship Post
          * @param {MetricRelationshipIn} metricRelationshipIn
          * @param {string} [teamId]
@@ -20449,7 +20818,7 @@ exports.MetricRelationshipsApiFactory = function (configuration, basePath, axios
             return exports.MetricRelationshipsApiFp(configuration).createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Create an Dashboard.
+         * Create an MetricRelationship.
          * @summary Create Metric Relationship Post
          * @param {string} teamId
          * @param {MetricRelationshipIn} metricRelationshipIn
@@ -20458,6 +20827,67 @@ exports.MetricRelationshipsApiFactory = function (configuration, basePath, axios
          */
         createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId, metricRelationshipIn, options) {
             return exports.MetricRelationshipsApiFp(configuration).createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId, metricRelationshipIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Metric Relationship
+         * @param {string} metricRelationshipId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete(metricRelationshipId, options) {
+            return exports.MetricRelationshipsApiFp(configuration).deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete(metricRelationshipId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Metric Relationship
+         * @param {string} teamId
+         * @param {string} metricRelationshipId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId, metricRelationshipId, options) {
+            return exports.MetricRelationshipsApiFp(configuration).deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId, metricRelationshipId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List MetricRelationships.  Paginated list of all MetricRelationships.
+         * @summary List Metric Relationships
+         * @param {string} [teamId]
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.MetricRelationshipsApiFp(configuration).listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List MetricRelationships.  Paginated list of all MetricRelationships.
+         * @summary List Metric Relationships
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.MetricRelationshipsApiFp(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -20469,7 +20899,7 @@ exports.MetricRelationshipsApiFactory = function (configuration, basePath, axios
  */
 class MetricRelationshipsApi extends base_1.BaseAPI {
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -20480,7 +20910,7 @@ class MetricRelationshipsApi extends base_1.BaseAPI {
         return exports.MetricRelationshipsApiFp(this.configuration).createMetricRelationshipPostV1MetricRelationshipsPost(requestParameters.metricRelationshipIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -20489,6 +20919,50 @@ class MetricRelationshipsApi extends base_1.BaseAPI {
      */
     createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters, options) {
         return exports.MetricRelationshipsApiFp(this.configuration).createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters.teamId, requestParameters.metricRelationshipIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {MetricRelationshipsApiDeleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete(requestParameters, options) {
+        return exports.MetricRelationshipsApiFp(this.configuration).deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete(requestParameters.metricRelationshipId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {MetricRelationshipsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(requestParameters, options) {
+        return exports.MetricRelationshipsApiFp(this.configuration).deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(requestParameters.teamId, requestParameters.metricRelationshipId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    listMetricRelationshipsV1MetricRelationshipsGet(requestParameters = {}, options) {
+        return exports.MetricRelationshipsApiFp(this.configuration).listMetricRelationshipsV1MetricRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters, options) {
+        return exports.MetricRelationshipsApiFp(this.configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.MetricRelationshipsApi = MetricRelationshipsApi;
@@ -32261,7 +32735,7 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Create an Dashboard.
+         * Create an MetricRelationship.
          * @summary Create Metric Relationship Post
          * @param {string} teamId
          * @param {MetricRelationshipIn} metricRelationshipIn
@@ -32658,7 +33132,7 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dashboard
          * @param {string} teamId
          * @param {string} dashboardId
@@ -32872,6 +33346,59 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             const needsSerialization = (typeof bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data = needsSerialization ? JSON.stringify(bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete !== undefined ? bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete : {}) : (bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Metric Relationship
+         * @param {string} teamId
+         * @param {string} metricRelationshipId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete: (teamId, metricRelationshipId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete.');
+            }
+            // verify required parameter 'metricRelationshipId' is not null or undefined
+            if (metricRelationshipId === null || metricRelationshipId === undefined) {
+                throw new base_1.RequiredError('metricRelationshipId', 'Required parameter metricRelationshipId was null or undefined when calling deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/metric_relationships/{metric_relationship_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"metric_relationship_id"}}`, encodeURIComponent(String(metricRelationshipId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
                 url: globalImportUrl.format(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -36401,6 +36928,93 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * List MetricRelationships.  Paginated list of all MetricRelationships.
+         * @summary List Metric Relationships
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/metric_relationships`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+            if (id) {
+                localVarQueryParameter['id'] = id;
+            }
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+            if (orderBy !== undefined) {
+                localVarQueryParameter['order_by'] = orderBy;
+            }
+            if (ordering !== undefined) {
+                localVarQueryParameter['ordering'] = ordering;
+            }
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get models in a project.
          * @summary List Models In Study
          * @param {string} teamId
@@ -39812,7 +40426,7 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
-         * Create an Dashboard.
+         * Create an MetricRelationship.
          * @summary Create Metric Relationship Post
          * @param {string} teamId
          * @param {MetricRelationshipIn} metricRelationshipIn
@@ -39934,7 +40548,7 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
-         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dashboard
          * @param {string} teamId
          * @param {string} dashboardId
@@ -39996,6 +40610,23 @@ exports.TeamsApiFp = function (configuration) {
         deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(teamId, datasetId, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(teamId, datasetId, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Metric Relationship
+         * @param {string} teamId
+         * @param {string} metricRelationshipId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId, metricRelationshipId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId, metricRelationshipId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -41069,6 +41700,32 @@ exports.TeamsApiFp = function (configuration) {
         listFeaturesV1TeamsTeamIdFeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listFeaturesV1TeamsTeamIdFeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * List MetricRelationships.  Paginated list of all MetricRelationships.
+         * @summary List Metric Relationships
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -42217,7 +42874,7 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).createMessageV1TeamsTeamIdMessagesPost(teamId, messageIn, options).then((request) => request(axios, basePath));
         },
         /**
-         * Create an Dashboard.
+         * Create an MetricRelationship.
          * @summary Create Metric Relationship Post
          * @param {string} teamId
          * @param {MetricRelationshipIn} metricRelationshipIn
@@ -42297,7 +42954,7 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId, conceptId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dashboard
          * @param {string} teamId
          * @param {string} dashboardId
@@ -42340,6 +42997,17 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          */
         deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(teamId, datasetId, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options) {
             return exports.TeamsApiFp(configuration).deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(teamId, datasetId, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+         * @summary Delete Metric Relationship
+         * @param {string} teamId
+         * @param {string} metricRelationshipId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId, metricRelationshipId, options) {
+            return exports.TeamsApiFp(configuration).deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId, metricRelationshipId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
@@ -43119,6 +43787,26 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          */
         listFeaturesV1TeamsTeamIdFeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return exports.TeamsApiFp(configuration).listFeaturesV1TeamsTeamIdFeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List MetricRelationships.  Paginated list of all MetricRelationships.
+         * @summary List Metric Relationships
+         * @param {string} teamId
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page]
+         * @param {number} [pageSize]
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return exports.TeamsApiFp(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models in a project.
@@ -44005,7 +44693,7 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).createMessageV1TeamsTeamIdMessagesPost(requestParameters.teamId, requestParameters.messageIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -44082,7 +44770,7 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters.teamId, requestParameters.conceptId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {TeamsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -44124,6 +44812,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(requestParameters.teamId, requestParameters.datasetId, requestParameters.bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {TeamsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(requestParameters.teamId, requestParameters.metricRelationshipId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
@@ -44663,6 +45362,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).listFeaturesV1TeamsTeamIdFeaturesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get models in a project.

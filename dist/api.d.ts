@@ -4173,6 +4173,170 @@ export interface MetricRelationshipIn {
     annotation?: string;
 }
 /**
+ * MetricRelationship resource links.
+ * @export
+ * @interface MetricRelationshipLinks
+ */
+export interface MetricRelationshipLinks {
+    /**
+     * Link to this resource.
+     * @type {string}
+     * @memberof MetricRelationshipLinks
+     */
+    self: string;
+}
+/**
+ * MetricRelationship output model.
+ * @export
+ * @interface MetricRelationshipOut
+ */
+export interface MetricRelationshipOut {
+    /**
+     *
+     * @type {string}
+     * @memberof MetricRelationshipOut
+     */
+    id: string;
+    /**
+     * User who created this resource.
+     * @type {string}
+     * @memberof MetricRelationshipOut
+     */
+    created_by?: string;
+    /**
+     * Time when resource was created.
+     * @type {string}
+     * @memberof MetricRelationshipOut
+     */
+    created_at?: string;
+    /**
+     * User who made the last edit.
+     * @type {string}
+     * @memberof MetricRelationshipOut
+     */
+    last_updated_by?: string;
+    /**
+     * Time of last edit.
+     * @type {string}
+     * @memberof MetricRelationshipOut
+     */
+    last_updated_at?: string;
+    /**
+     *
+     * @type {Array<ResourceAction>}
+     * @memberof MetricRelationshipOut
+     */
+    _permissions?: Array<ResourceAction>;
+    /**
+     * Tags to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof MetricRelationshipOut
+     */
+    tags?: Array<string>;
+    /**
+     * A hidden object is not meant to be shown on the frontend.
+     * @type {boolean}
+     * @memberof MetricRelationshipOut
+     */
+    is_hidden?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof MetricRelationshipOut
+     */
+    is_private?: boolean;
+    /**
+     * Notes whether the resource is private or not
+     * @type {boolean}
+     * @memberof MetricRelationshipOut
+     * @deprecated
+     */
+    _private?: boolean;
+    /**
+     * The id of the metrics for a metric relationship.
+     * @type {Array<string>}
+     * @memberof MetricRelationshipOut
+     */
+    metric_ids?: Array<string>;
+    /**
+     * The id of the metrics that the relationship has direction towards.
+     * @type {Array<string>}
+     * @memberof MetricRelationshipOut
+     */
+    directed_at_ids?: Array<string>;
+    /**
+     * Direction of the association.
+     * @type {ValidRelationshipDirectionEnum}
+     * @memberof MetricRelationshipOut
+     */
+    sign: ValidRelationshipDirectionEnum;
+    /**
+     * Annotation for the metric relationship edge.
+     * @type {string}
+     * @memberof MetricRelationshipOut
+     */
+    annotation?: string;
+    /**
+     * Collection of links to related resources.
+     * @type {MetricRelationshipLinks}
+     * @memberof MetricRelationshipOut
+     */
+    _links?: MetricRelationshipLinks;
+    /**
+     * Team.
+     * @type {TeamOut}
+     * @memberof MetricRelationshipOut
+     */
+    team?: TeamOut;
+}
+/**
+ * MetricRelationship pagination out.
+ * @export
+ * @interface MetricRelationshipPaginationOut
+ */
+export interface MetricRelationshipPaginationOut {
+    /**
+     * Collection of links to related resources.
+     * @type {FirstLastPaginationLinks}
+     * @memberof MetricRelationshipPaginationOut
+     */
+    _links?: FirstLastPaginationLinks;
+    /**
+     * List of results.
+     * @type {Array<MetricRelationshipOut>}
+     * @memberof MetricRelationshipPaginationOut
+     */
+    items?: Array<MetricRelationshipOut>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof MetricRelationshipPaginationOut
+     */
+    ids?: Array<string>;
+    /**
+     * Total number of results available.
+     * @type {number}
+     * @memberof MetricRelationshipPaginationOut
+     */
+    total?: number;
+    /**
+     * Valid \'order_by\' values that can be applied to current pagination set.
+     * @type {Array<string>}
+     * @memberof MetricRelationshipPaginationOut
+     */
+    _sorts?: Array<string>;
+}
+/**
+ * An enumeration.
+ * @export
+ * @enum {string}
+ */
+export declare enum MetricRelationshipSortEnum {
+    CreatedAt = "created_at",
+    LastUpdatedAt = "last_updated_at",
+    Name = "name"
+}
+/**
  * Values available for filtering models.
  * @export
  * @interface ModelFilters
@@ -6558,49 +6722,6 @@ export declare enum StudyTypeEnum {
     RandomizedControlTrial = "randomized_control_trial"
 }
 /**
- * Base system object model.
- * @export
- * @interface SystemObjectBase
- */
-export interface SystemObjectBase {
-    /**
-     *
-     * @type {string}
-     * @memberof SystemObjectBase
-     */
-    id: string;
-    /**
-     * User who created this resource.
-     * @type {string}
-     * @memberof SystemObjectBase
-     */
-    created_by?: string;
-    /**
-     * Time when resource was created.
-     * @type {string}
-     * @memberof SystemObjectBase
-     */
-    created_at?: string;
-    /**
-     * User who made the last edit.
-     * @type {string}
-     * @memberof SystemObjectBase
-     */
-    last_updated_by?: string;
-    /**
-     * Time of last edit.
-     * @type {string}
-     * @memberof SystemObjectBase
-     */
-    last_updated_at?: string;
-    /**
-     *
-     * @type {Array<ResourceAction>}
-     * @memberof SystemObjectBase
-     */
-    _permissions?: Array<ResourceAction>;
-}
-/**
  * Enum System object resource names.
  * @export
  * @enum {string}
@@ -6617,7 +6738,8 @@ export declare enum SystemObjectResources {
     PopulationAttributeValue = "population_attribute_value",
     Association = "association",
     Team = "team",
-    Dashboard = "dashboard"
+    Dashboard = "dashboard",
+    MetricRelationship = "metric_relationship"
 }
 /**
  * System of concepts pagination out.
@@ -13635,7 +13757,7 @@ export declare const DashboardsApiAxiosParamCreator: (configuration?: Configurat
      */
     createDashboardPostV1TeamsTeamIdDashboardsPost: (teamId: string, dashboardIn: DashboardIn, options?: any) => Promise<RequestArgs>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {string} dashboardId
      * @param {*} [options] Override http request option.
@@ -13643,7 +13765,7 @@ export declare const DashboardsApiAxiosParamCreator: (configuration?: Configurat
      */
     deleteDashboardV1DashboardsDashboardIdDelete: (dashboardId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {string} teamId
      * @param {string} dashboardId
@@ -13826,7 +13948,7 @@ export declare const DashboardsApiFp: (configuration?: Configuration) => {
      */
     createDashboardPostV1TeamsTeamIdDashboardsPost(teamId: string, dashboardIn: DashboardIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardOut>>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {string} dashboardId
      * @param {*} [options] Override http request option.
@@ -13834,7 +13956,7 @@ export declare const DashboardsApiFp: (configuration?: Configuration) => {
      */
     deleteDashboardV1DashboardsDashboardIdDelete(dashboardId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {string} teamId
      * @param {string} dashboardId
@@ -14017,7 +14139,7 @@ export declare const DashboardsApiFactory: (configuration?: Configuration, baseP
      */
     createDashboardPostV1TeamsTeamIdDashboardsPost(teamId: string, dashboardIn: DashboardIn, options?: any): AxiosPromise<DashboardOut>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {string} dashboardId
      * @param {*} [options] Override http request option.
@@ -14025,7 +14147,7 @@ export declare const DashboardsApiFactory: (configuration?: Configuration, baseP
      */
     deleteDashboardV1DashboardsDashboardIdDelete(dashboardId: string, options?: any): AxiosPromise<void>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {string} teamId
      * @param {string} dashboardId
@@ -14829,7 +14951,7 @@ export declare class DashboardsApi extends BaseAPI {
      */
     createDashboardPostV1TeamsTeamIdDashboardsPost(requestParameters: DashboardsApiCreateDashboardPostV1TeamsTeamIdDashboardsPostRequest, options?: any): Promise<import("axios").AxiosResponse<DashboardOut>>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {DashboardsApiDeleteDashboardV1DashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -14838,7 +14960,7 @@ export declare class DashboardsApi extends BaseAPI {
      */
     deleteDashboardV1DashboardsDashboardIdDelete(requestParameters: DashboardsApiDeleteDashboardV1DashboardsDashboardIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {DashboardsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -23115,7 +23237,7 @@ export declare class GraphqlApi extends BaseAPI {
  */
 export declare const MetricRelationshipsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {MetricRelationshipIn} metricRelationshipIn
      * @param {string} [teamId]
@@ -23124,7 +23246,7 @@ export declare const MetricRelationshipsApiAxiosParamCreator: (configuration?: C
      */
     createMetricRelationshipPostV1MetricRelationshipsPost: (metricRelationshipIn: MetricRelationshipIn, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {string} teamId
      * @param {MetricRelationshipIn} metricRelationshipIn
@@ -23132,6 +23254,59 @@ export declare const MetricRelationshipsApiAxiosParamCreator: (configuration?: C
      * @throws {RequiredError}
      */
     createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost: (teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {string} metricRelationshipId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete: (metricRelationshipId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {string} teamId
+     * @param {string} metricRelationshipId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete: (teamId: string, metricRelationshipId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listMetricRelationshipsV1MetricRelationshipsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
 };
 /**
  * MetricRelationshipsApi - functional programming interface
@@ -23139,23 +23314,76 @@ export declare const MetricRelationshipsApiAxiosParamCreator: (configuration?: C
  */
 export declare const MetricRelationshipsApiFp: (configuration?: Configuration) => {
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {MetricRelationshipIn} metricRelationshipIn
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn: MetricRelationshipIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemObjectBase>>;
+    createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn: MetricRelationshipIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipOut>>;
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {string} teamId
      * @param {MetricRelationshipIn} metricRelationshipIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemObjectBase>>;
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipOut>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {string} metricRelationshipId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete(metricRelationshipId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {string} teamId
+     * @param {string} metricRelationshipId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId: string, metricRelationshipId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listMetricRelationshipsV1MetricRelationshipsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipPaginationOut>>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipPaginationOut>>;
 };
 /**
  * MetricRelationshipsApi - factory interface
@@ -23163,23 +23391,76 @@ export declare const MetricRelationshipsApiFp: (configuration?: Configuration) =
  */
 export declare const MetricRelationshipsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {MetricRelationshipIn} metricRelationshipIn
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn: MetricRelationshipIn, teamId?: string, options?: any): AxiosPromise<SystemObjectBase>;
+    createMetricRelationshipPostV1MetricRelationshipsPost(metricRelationshipIn: MetricRelationshipIn, teamId?: string, options?: any): AxiosPromise<MetricRelationshipOut>;
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {string} teamId
      * @param {MetricRelationshipIn} metricRelationshipIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): AxiosPromise<SystemObjectBase>;
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): AxiosPromise<MetricRelationshipOut>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {string} metricRelationshipId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete(metricRelationshipId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {string} teamId
+     * @param {string} metricRelationshipId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId: string, metricRelationshipId: string, options?: any): AxiosPromise<void>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listMetricRelationshipsV1MetricRelationshipsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<MetricRelationshipPaginationOut>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<MetricRelationshipPaginationOut>;
 };
 /**
  * Request parameters for createMetricRelationshipPostV1MetricRelationshipsPost operation in MetricRelationshipsApi.
@@ -23220,6 +23501,184 @@ export interface MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamId
     readonly metricRelationshipIn: MetricRelationshipIn;
 }
 /**
+ * Request parameters for deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete operation in MetricRelationshipsApi.
+ * @export
+ * @interface MetricRelationshipsApiDeleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDeleteRequest
+ */
+export interface MetricRelationshipsApiDeleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof MetricRelationshipsApiDeleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete
+     */
+    readonly metricRelationshipId: string;
+}
+/**
+ * Request parameters for deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete operation in MetricRelationshipsApi.
+ * @export
+ * @interface MetricRelationshipsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDeleteRequest
+ */
+export interface MetricRelationshipsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof MetricRelationshipsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof MetricRelationshipsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete
+     */
+    readonly metricRelationshipId: string;
+}
+/**
+ * Request parameters for listMetricRelationshipsV1MetricRelationshipsGet operation in MetricRelationshipsApi.
+ * @export
+ * @interface MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGetRequest
+ */
+export interface MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly teamId?: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {MetricRelationshipSortEnum}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly orderBy?: MetricRelationshipSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly sortBy?: string;
+}
+/**
+ * Request parameters for listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet operation in MetricRelationshipsApi.
+ * @export
+ * @interface MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest
+ */
+export interface MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly teamId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {MetricRelationshipSortEnum}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly orderBy?: MetricRelationshipSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly sortBy?: string;
+}
+/**
  * MetricRelationshipsApi - object-oriented interface
  * @export
  * @class MetricRelationshipsApi
@@ -23227,23 +23686,59 @@ export interface MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamId
  */
 export declare class MetricRelationshipsApi extends BaseAPI {
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MetricRelationshipsApi
      */
-    createMetricRelationshipPostV1MetricRelationshipsPost(requestParameters: MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPostRequest, options?: any): Promise<import("axios").AxiosResponse<SystemObjectBase>>;
+    createMetricRelationshipPostV1MetricRelationshipsPost(requestParameters: MetricRelationshipsApiCreateMetricRelationshipPostV1MetricRelationshipsPostRequest, options?: any): Promise<import("axios").AxiosResponse<MetricRelationshipOut>>;
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MetricRelationshipsApi
      */
-    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters: MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest, options?: any): Promise<import("axios").AxiosResponse<SystemObjectBase>>;
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters: MetricRelationshipsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest, options?: any): Promise<import("axios").AxiosResponse<MetricRelationshipOut>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {MetricRelationshipsApiDeleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    deleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDelete(requestParameters: MetricRelationshipsApiDeleteMetricRelationshipV1MetricRelationshipsMetricRelationshipIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {MetricRelationshipsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(requestParameters: MetricRelationshipsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    listMetricRelationshipsV1MetricRelationshipsGet(requestParameters?: MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGetRequest, options?: any): Promise<import("axios").AxiosResponse<MetricRelationshipPaginationOut>>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricRelationshipsApi
+     */
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters: MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest, options?: any): Promise<import("axios").AxiosResponse<MetricRelationshipPaginationOut>>;
 }
 /**
  * ModeldbApi - axios parameter creator
@@ -32011,7 +32506,7 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createMessageV1TeamsTeamIdMessagesPost: (teamId: string, messageIn: MessageIn, options?: any) => Promise<RequestArgs>;
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {string} teamId
      * @param {MetricRelationshipIn} metricRelationshipIn
@@ -32077,7 +32572,7 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     deleteConceptV1TeamsTeamIdConceptsConceptIdDelete: (teamId: string, conceptId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {string} teamId
      * @param {string} dashboardId
@@ -32113,6 +32608,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: (teamId: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options?: any) => Promise<RequestArgs>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {string} teamId
+     * @param {string} metricRelationshipId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete: (teamId: string, metricRelationshipId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
@@ -32794,6 +33298,24 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     listFeaturesV1TeamsTeamIdFeaturesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -33566,14 +34088,14 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     createMessageV1TeamsTeamIdMessagesPost(teamId: string, messageIn: MessageIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {string} teamId
      * @param {MetricRelationshipIn} metricRelationshipIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemObjectBase>>;
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipOut>>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -33632,7 +34154,7 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {string} teamId
      * @param {string} dashboardId
@@ -33668,6 +34190,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(teamId: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {string} teamId
+     * @param {string} metricRelationshipId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId: string, metricRelationshipId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
@@ -34349,6 +34880,24 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipPaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -35121,14 +35670,14 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     createMessageV1TeamsTeamIdMessagesPost(teamId: string, messageIn: MessageIn, options?: any): AxiosPromise<MessageOut>;
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {string} teamId
      * @param {MetricRelationshipIn} metricRelationshipIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): AxiosPromise<SystemObjectBase>;
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(teamId: string, metricRelationshipIn: MetricRelationshipIn, options?: any): AxiosPromise<MetricRelationshipOut>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -35187,7 +35736,7 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId: string, conceptId: string, options?: any): AxiosPromise<void>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {string} teamId
      * @param {string} dashboardId
@@ -35223,6 +35772,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(teamId: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {string} teamId
+     * @param {string} metricRelationshipId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(teamId: string, metricRelationshipId: string, options?: any): AxiosPromise<void>;
     /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
@@ -35904,6 +36462,24 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {string} teamId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<MetricRelationshipPaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -37162,6 +37738,25 @@ export interface TeamsApiDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatas
      * @memberof TeamsApiDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete
      */
     readonly bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete;
+}
+/**
+ * Request parameters for deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete operation in TeamsApi.
+ * @export
+ * @interface TeamsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDeleteRequest
+ */
+export interface TeamsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete
+     */
+    readonly metricRelationshipId: string;
 }
 /**
  * Request parameters for deleteModelV1TeamsTeamIdModelsModelIdDelete operation in TeamsApi.
@@ -39535,6 +40130,79 @@ export interface TeamsApiListFeaturesV1TeamsTeamIdFeaturesGetRequest {
     readonly inFeatureGraph?: boolean;
 }
 /**
+ * Request parameters for listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest
+ */
+export interface TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly teamId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {MetricRelationshipSortEnum}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly orderBy?: MetricRelationshipSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly sortBy?: string;
+}
+/**
  * Request parameters for listModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGet operation in TeamsApi.
  * @export
  * @interface TeamsApiListModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGetRequest
@@ -41725,14 +42393,14 @@ export declare class TeamsApi extends BaseAPI {
      */
     createMessageV1TeamsTeamIdMessagesPost(requestParameters: TeamsApiCreateMessageV1TeamsTeamIdMessagesPostRequest, options?: any): Promise<import("axios").AxiosResponse<MessageOut>>;
     /**
-     * Create an Dashboard.
+     * Create an MetricRelationship.
      * @summary Create Metric Relationship Post
      * @param {TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters: TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest, options?: any): Promise<import("axios").AxiosResponse<SystemObjectBase>>;
+    createMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPost(requestParameters: TeamsApiCreateMetricRelationshipPostV1TeamsTeamIdMetricRelationshipsPostRequest, options?: any): Promise<import("axios").AxiosResponse<MetricRelationshipOut>>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -41788,7 +42456,7 @@ export declare class TeamsApi extends BaseAPI {
      */
     deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters: TeamsApiDeleteConceptV1TeamsTeamIdConceptsConceptIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * Delete a Dashboard.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dashboard
      * @param {TeamsApiDeleteDashboardV1TeamsTeamIdDashboardsDashboardIdDeleteRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -41823,6 +42491,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(requestParameters: TeamsApiDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
+     * @summary Delete Metric Relationship
+     * @param {TeamsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    deleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDelete(requestParameters: TeamsApiDeleteMetricRelationshipV1TeamsTeamIdMetricRelationshipsMetricRelationshipIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
@@ -42264,6 +42941,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(requestParameters: TeamsApiListFeaturesV1TeamsTeamIdFeaturesGetRequest, options?: any): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
+    /**
+     * List MetricRelationships.  Paginated list of all MetricRelationships.
+     * @summary List Metric Relationships
+     * @param {TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters: TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest, options?: any): Promise<import("axios").AxiosResponse<MetricRelationshipPaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
