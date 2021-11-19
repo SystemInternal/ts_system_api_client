@@ -33135,10 +33135,11 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
      * @summary List Authors
@@ -33650,10 +33651,11 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * List Variables.
      * @summary List Variables
@@ -33669,10 +33671,11 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1TeamsTeamIdVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listVariablesV1TeamsTeamIdVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -34718,10 +34721,11 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
      * @summary List Authors
@@ -35233,10 +35237,11 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List Variables.
      * @summary List Variables
@@ -35252,10 +35257,11 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1TeamsTeamIdVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listVariablesV1TeamsTeamIdVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -36301,10 +36307,11 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
      * @summary List Authors
@@ -36816,10 +36823,11 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List Variables.
      * @summary List Variables
@@ -36835,10 +36843,11 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1TeamsTeamIdVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listVariablesV1TeamsTeamIdVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -39347,6 +39356,12 @@ export interface TeamsApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVariable
      * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof TeamsApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for listAuthorsV1TeamsTeamIdAuthorsGet operation in TeamsApi.
@@ -41562,6 +41577,12 @@ export interface TeamsApiListUserVariablesV1TeamsTeamIdUsersUserIdVariablesGetRe
      * @memberof TeamsApiListUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof TeamsApiListUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for listVariablesV1TeamsTeamIdVariablesGet operation in TeamsApi.
@@ -41641,6 +41662,12 @@ export interface TeamsApiListVariablesV1TeamsTeamIdVariablesGetRequest {
      * @memberof TeamsApiListVariablesV1TeamsTeamIdVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof TeamsApiListVariablesV1TeamsTeamIdVariablesGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch operation in TeamsApi.
@@ -43818,10 +43845,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -43836,11 +43864,12 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -44061,10 +44090,11 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -44080,11 +44110,12 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Create a new user.
      * @summary Update A User By Id.
@@ -44485,10 +44516,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -44503,11 +44535,12 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -44728,10 +44761,11 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -44747,11 +44781,12 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Create a new user.
      * @summary Update A User By Id.
@@ -45152,10 +45187,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -45170,11 +45206,12 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List a user\'s concepts.
      * @summary List User Concepts
@@ -45395,10 +45432,11 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -45414,11 +45452,12 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Create a new user.
      * @summary Update A User By Id.
@@ -46745,6 +46784,12 @@ export interface UsersApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVariable
      * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for listAuthenticatedUserVariablesV1UserVariablesGet operation in UsersApi.
@@ -46818,6 +46863,12 @@ export interface UsersApiListAuthenticatedUserVariablesV1UserVariablesGetRequest
      * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof UsersApiListAuthenticatedUserVariablesV1UserVariablesGet
+     */
+    readonly tags?: Array<string>;
     /**
      *
      * @type {string}
@@ -47783,6 +47834,12 @@ export interface UsersApiListUserVariablesV1TeamsTeamIdUsersUserIdVariablesGetRe
      * @memberof UsersApiListUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof UsersApiListUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for listUserVariablesV1UsersUserIdVariablesGet operation in UsersApi.
@@ -47862,6 +47919,12 @@ export interface UsersApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof UsersApiListUserVariablesV1UsersUserIdVariablesGet
+     */
+    readonly tags?: Array<string>;
     /**
      *
      * @type {string}
@@ -48462,10 +48525,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -48480,11 +48544,12 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
+    listAuthenticatedUserVariablesV1UserVariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
@@ -48635,10 +48700,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -48654,11 +48720,12 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any) => Promise<RequestArgs>;
+    listUserVariablesV1UsersUserIdVariablesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Variables.
      * @summary List Variables
@@ -48674,10 +48741,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1TeamsTeamIdVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listVariablesV1TeamsTeamIdVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * List Variables.
      * @summary List Variables
@@ -48693,10 +48761,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any) => Promise<RequestArgs>;
+    listVariablesV1VariablesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -48849,10 +48918,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -48867,11 +48937,12 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
@@ -49022,10 +49093,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -49041,11 +49113,12 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List Variables.
      * @summary List Variables
@@ -49061,10 +49134,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1TeamsTeamIdVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listVariablesV1TeamsTeamIdVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * List Variables.
      * @summary List Variables
@@ -49080,10 +49154,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listVariablesV1VariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -49236,10 +49311,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -49254,11 +49330,12 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    listAuthenticatedUserVariablesV1UserVariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
@@ -49409,10 +49486,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId: string, userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -49428,11 +49506,12 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    listUserVariablesV1UsersUserIdVariablesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List Variables.
      * @summary List Variables
@@ -49448,10 +49527,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1TeamsTeamIdVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listVariablesV1TeamsTeamIdVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * List Variables.
      * @summary List Variables
@@ -49467,10 +49547,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, options?: any): AxiosPromise<VariablePaginationOut>;
+    listVariablesV1VariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -49891,6 +49972,12 @@ export interface VariablesApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVari
      * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for listAuthenticatedUserVariablesV1UserVariablesGet operation in VariablesApi.
@@ -49964,6 +50051,12 @@ export interface VariablesApiListAuthenticatedUserVariablesV1UserVariablesGetReq
      * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof VariablesApiListAuthenticatedUserVariablesV1UserVariablesGet
+     */
+    readonly tags?: Array<string>;
     /**
      *
      * @type {string}
@@ -50649,6 +50742,12 @@ export interface VariablesApiListUserVariablesV1TeamsTeamIdUsersUserIdVariablesG
      * @memberof VariablesApiListUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof VariablesApiListUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for listUserVariablesV1UsersUserIdVariablesGet operation in VariablesApi.
@@ -50728,6 +50827,12 @@ export interface VariablesApiListUserVariablesV1UsersUserIdVariablesGetRequest {
      * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof VariablesApiListUserVariablesV1UsersUserIdVariablesGet
+     */
+    readonly tags?: Array<string>;
     /**
      *
      * @type {string}
@@ -50813,6 +50918,12 @@ export interface VariablesApiListVariablesV1TeamsTeamIdVariablesGetRequest {
      * @memberof VariablesApiListVariablesV1TeamsTeamIdVariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof VariablesApiListVariablesV1TeamsTeamIdVariablesGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for listVariablesV1VariablesGet operation in VariablesApi.
@@ -50892,6 +51003,12 @@ export interface VariablesApiListVariablesV1VariablesGetRequest {
      * @memberof VariablesApiListVariablesV1VariablesGet
      */
     readonly inVariableGraph?: boolean;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof VariablesApiListVariablesV1VariablesGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for patchVariableV1TeamsTeamIdVariablesVariableIdPatch operation in VariablesApi.

@@ -35923,10 +35923,11 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet.');
@@ -35988,6 +35989,9 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             }
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -38387,10 +38391,11 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet.');
@@ -38458,6 +38463,9 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
             }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -38483,10 +38491,11 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1TeamsTeamIdVariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listVariablesV1TeamsTeamIdVariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listVariablesV1TeamsTeamIdVariablesGet.');
@@ -38548,6 +38557,9 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             }
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -41435,12 +41447,13 @@ exports.TeamsApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -42150,12 +42163,13 @@ exports.TeamsApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -42177,12 +42191,13 @@ exports.TeamsApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -43584,11 +43599,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.TeamsApiFp(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
+            return exports.TeamsApiFp(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
@@ -44149,11 +44165,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.TeamsApiFp(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
+            return exports.TeamsApiFp(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * List Variables.
@@ -44170,11 +44187,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.TeamsApiFp(configuration).listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
+            return exports.TeamsApiFp(configuration).listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * Bulk association patching.
@@ -45269,7 +45287,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Authors.  Common queries:      - Filter authors who are System users: /v1/authors?query=has(user_id)     - Search for authors who are System users /v1/authors?query=search(<name>),has(user_id)
@@ -45544,7 +45562,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(requestParameters.teamId, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(requestParameters.teamId, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Variables.
@@ -45555,7 +45573,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     listVariablesV1TeamsTeamIdVariablesGet(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).listVariablesV1TeamsTeamIdVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).listVariablesV1TeamsTeamIdVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Bulk association patching.
@@ -47733,10 +47751,11 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet.');
@@ -47799,6 +47818,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
             }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -47823,11 +47845,12 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserVariablesV1UserVariablesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -47884,6 +47907,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
             }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
@@ -48890,10 +48916,11 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet.');
@@ -48961,6 +48988,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
             }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -48986,11 +49016,12 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserVariablesV1UsersUserIdVariablesGet.');
@@ -49052,6 +49083,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             }
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
             }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
@@ -49844,12 +49878,13 @@ exports.UsersApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -49870,13 +49905,14 @@ exports.UsersApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options) {
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -50183,12 +50219,13 @@ exports.UsersApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -50210,13 +50247,14 @@ exports.UsersApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options) {
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options);
+                const localVarAxiosArgs = yield exports.UsersApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -50705,11 +50743,12 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s variables.
@@ -50725,12 +50764,13 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options) {
-            return exports.UsersApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options) {
+            return exports.UsersApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s concepts.
@@ -50972,11 +51012,12 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.UsersApiFp(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
+            return exports.UsersApiFp(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s variables.
@@ -50993,12 +51034,13 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options) {
-            return exports.UsersApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options).then((request) => request(axios, basePath));
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options) {
+            return exports.UsersApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new user.
@@ -51325,7 +51367,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s variables.
@@ -51336,7 +51378,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s concepts.
@@ -51457,7 +51499,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(requestParameters.teamId, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(requestParameters.teamId, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s variables.
@@ -51468,7 +51510,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     listUserVariablesV1UsersUserIdVariablesGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new user.
@@ -52153,10 +52195,11 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet.');
@@ -52219,6 +52262,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
             }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -52243,11 +52289,12 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAuthenticatedUserVariablesV1UserVariablesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -52304,6 +52351,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
             }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
@@ -52966,10 +53016,11 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet: (teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet.');
@@ -53037,6 +53088,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
             }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -53062,11 +53116,12 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listUserVariablesV1UsersUserIdVariablesGet: (userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
                 throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling listUserVariablesV1UsersUserIdVariablesGet.');
@@ -53129,6 +53184,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
             }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -53157,10 +53215,11 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1TeamsTeamIdVariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listVariablesV1TeamsTeamIdVariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listVariablesV1TeamsTeamIdVariablesGet.');
@@ -53223,6 +53282,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
             }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -53248,10 +53310,11 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listVariablesV1VariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -53311,6 +53374,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (inVariableGraph !== undefined) {
                 localVarQueryParameter['in_variable_graph'] = inVariableGraph;
+            }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -53653,12 +53719,13 @@ exports.VariablesApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -53679,13 +53746,14 @@ exports.VariablesApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options) {
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -53890,12 +53958,13 @@ exports.VariablesApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -53917,13 +53986,14 @@ exports.VariablesApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options) {
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -53945,12 +54015,13 @@ exports.VariablesApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -53972,12 +54043,13 @@ exports.VariablesApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
+        listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -54174,11 +54246,12 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.VariablesApiFp(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
+            return exports.VariablesApiFp(configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s variables.
@@ -54194,12 +54267,13 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options) {
-            return exports.VariablesApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options).then((request) => request(axios, basePath));
+        listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options) {
+            return exports.VariablesApiFp(configuration).listAuthenticatedUserVariablesV1UserVariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get dashboards connected to the Variable.
@@ -54363,11 +54437,12 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.VariablesApiFp(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
+            return exports.VariablesApiFp(configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(teamId, userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s variables.
@@ -54384,12 +54459,13 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options) {
-            return exports.VariablesApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, teamId, options).then((request) => request(axios, basePath));
+        listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options) {
+            return exports.VariablesApiFp(configuration).listUserVariablesV1UsersUserIdVariablesGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * List Variables.
@@ -54406,11 +54482,12 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.VariablesApiFp(configuration).listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
+            return exports.VariablesApiFp(configuration).listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * List Variables.
@@ -54427,11 +54504,12 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options) {
-            return exports.VariablesApiFp(configuration).listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, options).then((request) => request(axios, basePath));
+        listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
+            return exports.VariablesApiFp(configuration).listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Variable resource with partial update.
@@ -54584,7 +54662,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s variables.
@@ -54595,7 +54673,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters = {}, options) {
-        return exports.VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listAuthenticatedUserVariablesV1UserVariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get dashboards connected to the Variable.
@@ -54672,7 +54750,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(requestParameters.teamId, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listUserVariablesV1TeamsTeamIdUsersUserIdVariablesGet(requestParameters.teamId, requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s variables.
@@ -54683,7 +54761,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listUserVariablesV1UsersUserIdVariablesGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listUserVariablesV1UsersUserIdVariablesGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Variables.
@@ -54694,7 +54772,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listVariablesV1TeamsTeamIdVariablesGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listVariablesV1TeamsTeamIdVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listVariablesV1TeamsTeamIdVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Variables.
@@ -54705,7 +54783,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listVariablesV1VariablesGet(requestParameters = {}, options) {
-        return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Variable resource with partial update.
