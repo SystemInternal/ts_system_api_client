@@ -429,6 +429,12 @@ export interface AssociationValueIn {
      */
     feature_contribution_method: ValidFeatureContributionMethod;
     /**
+     * Association value properties. Use to prototype.
+     * @type {object}
+     * @memberof AssociationValueIn
+     */
+    properties?: object;
+    /**
      * Historical values.
      * @type {{ [key: string]: AssociationValueInBase; }}
      * @memberof AssociationValueIn
@@ -503,6 +509,12 @@ export interface AssociationValueInBase {
      * @memberof AssociationValueInBase
      */
     feature_contribution_method: ValidFeatureContributionMethod;
+    /**
+     * Association value properties. Use to prototype.
+     * @type {object}
+     * @memberof AssociationValueInBase
+     */
+    properties?: object;
 }
 /**
  * Association value output model.
@@ -570,6 +582,12 @@ export interface AssociationValueOut {
      * @memberof AssociationValueOut
      */
     feature_contribution_method?: FeatureContributionMethod;
+    /**
+     * Association value properties. Use to prototype.
+     * @type {object}
+     * @memberof AssociationValueOut
+     */
+    properties?: object;
     /**
      * Historical values.
      * @type {{ [key: string]: AssociationValueInBase; }}
