@@ -23285,10 +23285,11 @@ export declare const MetricRelationshipsApiAxiosParamCreator: (configuration?: C
      * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMetricRelationshipsV1MetricRelationshipsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listMetricRelationshipsV1MetricRelationshipsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * List MetricRelationships.  Paginated list of all MetricRelationships.
      * @summary List Metric Relationships
@@ -23303,10 +23304,11 @@ export declare const MetricRelationshipsApiAxiosParamCreator: (configuration?: C
      * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: any) => Promise<RequestArgs>;
 };
 /**
  * MetricRelationshipsApi - functional programming interface
@@ -23362,10 +23364,11 @@ export declare const MetricRelationshipsApiFp: (configuration?: Configuration) =
      * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMetricRelationshipsV1MetricRelationshipsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipPaginationOut>>;
+    listMetricRelationshipsV1MetricRelationshipsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipPaginationOut>>;
     /**
      * List MetricRelationships.  Paginated list of all MetricRelationships.
      * @summary List Metric Relationships
@@ -23380,10 +23383,11 @@ export declare const MetricRelationshipsApiFp: (configuration?: Configuration) =
      * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipPaginationOut>>;
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipPaginationOut>>;
 };
 /**
  * MetricRelationshipsApi - factory interface
@@ -23439,10 +23443,11 @@ export declare const MetricRelationshipsApiFactory: (configuration?: Configurati
      * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMetricRelationshipsV1MetricRelationshipsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<MetricRelationshipPaginationOut>;
+    listMetricRelationshipsV1MetricRelationshipsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: any): AxiosPromise<MetricRelationshipPaginationOut>;
     /**
      * List MetricRelationships.  Paginated list of all MetricRelationships.
      * @summary List Metric Relationships
@@ -23457,10 +23462,11 @@ export declare const MetricRelationshipsApiFactory: (configuration?: Configurati
      * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<MetricRelationshipPaginationOut>;
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: any): AxiosPromise<MetricRelationshipPaginationOut>;
 };
 /**
  * Request parameters for createMetricRelationshipPostV1MetricRelationshipsPost operation in MetricRelationshipsApi.
@@ -23604,6 +23610,12 @@ export interface MetricRelationshipsApiListMetricRelationshipsV1MetricRelationsh
      * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
      */
     readonly sortBy?: string;
+    /**
+     * Variable IDs to find metric relationships connected to
+     * @type {Array<string>}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1MetricRelationshipsGet
+     */
+    readonly relates?: Array<string>;
 }
 /**
  * Request parameters for listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet operation in MetricRelationshipsApi.
@@ -23677,6 +23689,12 @@ export interface MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetri
      * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
      */
     readonly sortBy?: string;
+    /**
+     * Variable IDs to find metric relationships connected to
+     * @type {Array<string>}
+     * @memberof MetricRelationshipsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly relates?: Array<string>;
 }
 /**
  * MetricRelationshipsApi - object-oriented interface
@@ -33312,10 +33330,11 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any) => Promise<RequestArgs>;
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -34894,10 +34913,11 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipPaginationOut>>;
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipPaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -36476,10 +36496,11 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<MetricRelationshipPaginationOut>;
+    listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: any): AxiosPromise<MetricRelationshipPaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -40201,6 +40222,12 @@ export interface TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationships
      * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
      */
     readonly sortBy?: string;
+    /**
+     * Variable IDs to find metric relationships connected to
+     * @type {Array<string>}
+     * @memberof TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet
+     */
+    readonly relates?: Array<string>;
 }
 /**
  * Request parameters for listModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGet operation in TeamsApi.

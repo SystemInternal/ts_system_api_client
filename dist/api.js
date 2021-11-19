@@ -20513,10 +20513,11 @@ exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
          * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMetricRelationshipsV1MetricRelationshipsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listMetricRelationshipsV1MetricRelationshipsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/metric_relationships`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -20574,6 +20575,9 @@ exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
             }
+            if (relates) {
+                localVarQueryParameter['relates'] = relates;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -20598,10 +20602,11 @@ exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
          * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet.');
@@ -20660,6 +20665,9 @@ exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
             }
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (relates) {
+                localVarQueryParameter['relates'] = relates;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -20760,12 +20768,13 @@ exports.MetricRelationshipsApiFp = function (configuration) {
          * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+        listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.MetricRelationshipsApiAxiosParamCreator(configuration).listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.MetricRelationshipsApiAxiosParamCreator(configuration).listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -20786,12 +20795,13 @@ exports.MetricRelationshipsApiFp = function (configuration) {
          * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.MetricRelationshipsApiAxiosParamCreator(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.MetricRelationshipsApiAxiosParamCreator(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -20863,11 +20873,12 @@ exports.MetricRelationshipsApiFactory = function (configuration, basePath, axios
          * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
-            return exports.MetricRelationshipsApiFp(configuration).listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options) {
+            return exports.MetricRelationshipsApiFp(configuration).listMetricRelationshipsV1MetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options).then((request) => request(axios, basePath));
         },
         /**
          * List MetricRelationships.  Paginated list of all MetricRelationships.
@@ -20883,11 +20894,12 @@ exports.MetricRelationshipsApiFactory = function (configuration, basePath, axios
          * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
-            return exports.MetricRelationshipsApiFp(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options) {
+            return exports.MetricRelationshipsApiFp(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -20951,7 +20963,7 @@ class MetricRelationshipsApi extends base_1.BaseAPI {
      * @memberof MetricRelationshipsApi
      */
     listMetricRelationshipsV1MetricRelationshipsGet(requestParameters = {}, options) {
-        return exports.MetricRelationshipsApiFp(this.configuration).listMetricRelationshipsV1MetricRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.MetricRelationshipsApiFp(this.configuration).listMetricRelationshipsV1MetricRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.relates, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List MetricRelationships.  Paginated list of all MetricRelationships.
@@ -20962,7 +20974,7 @@ class MetricRelationshipsApi extends base_1.BaseAPI {
      * @memberof MetricRelationshipsApi
      */
     listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters, options) {
-        return exports.MetricRelationshipsApiFp(this.configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.MetricRelationshipsApiFp(this.configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.relates, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.MetricRelationshipsApi = MetricRelationshipsApi;
@@ -36941,10 +36953,11 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet.');
@@ -37003,6 +37016,9 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             }
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
+            }
+            if (relates) {
+                localVarQueryParameter['relates'] = relates;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -41720,12 +41736,13 @@ exports.TeamsApiFp = function (configuration) {
          * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -43802,11 +43819,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @param {MetricRelationshipSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {Array<string>} [relates] Variable IDs to find metric relationships connected to
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
-            return exports.TeamsApiFp(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
+        listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options) {
+            return exports.TeamsApiFp(configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, relates, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models in a project.
@@ -45372,7 +45390,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.relates, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get models in a project.
