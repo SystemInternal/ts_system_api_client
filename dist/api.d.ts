@@ -2854,6 +2854,7 @@ export declare enum FeatureContributionMethod {
     LogOddsRatio = "log_odds_ratio",
     PearsonChiSquaredTest = "pearson_chi_squared_test",
     Forecast = "forecast",
+    PercentChangeDifference = "percent_change_difference",
     Invalid = "invalid"
 }
 /**
@@ -7496,7 +7497,8 @@ export declare enum ValidFeatureContributionMethod {
     ProportionDifference = "proportion_difference",
     LogOddsRatio = "log_odds_ratio",
     PearsonChiSquaredTest = "pearson_chi_squared_test",
-    Forecast = "forecast"
+    Forecast = "forecast",
+    PercentChangeDifference = "percent_change_difference"
 }
 /**
  * An enumeration.

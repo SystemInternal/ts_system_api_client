@@ -216,6 +216,7 @@ var FeatureContributionMethod;
     FeatureContributionMethod["LogOddsRatio"] = "log_odds_ratio";
     FeatureContributionMethod["PearsonChiSquaredTest"] = "pearson_chi_squared_test";
     FeatureContributionMethod["Forecast"] = "forecast";
+    FeatureContributionMethod["PercentChangeDifference"] = "percent_change_difference";
     FeatureContributionMethod["Invalid"] = "invalid";
 })(FeatureContributionMethod = exports.FeatureContributionMethod || (exports.FeatureContributionMethod = {}));
 /**
@@ -671,6 +672,7 @@ var ValidFeatureContributionMethod;
     ValidFeatureContributionMethod["LogOddsRatio"] = "log_odds_ratio";
     ValidFeatureContributionMethod["PearsonChiSquaredTest"] = "pearson_chi_squared_test";
     ValidFeatureContributionMethod["Forecast"] = "forecast";
+    ValidFeatureContributionMethod["PercentChangeDifference"] = "percent_change_difference";
 })(ValidFeatureContributionMethod = exports.ValidFeatureContributionMethod || (exports.ValidFeatureContributionMethod = {}));
 /**
  * An enumeration.
