@@ -4215,6 +4215,18 @@ export interface MetricRelationshipIn {
      * @memberof MetricRelationshipIn
      */
     annotation?: string;
+    /**
+     * Summary for this metric relationship.
+     * @type {string}
+     * @memberof MetricRelationshipIn
+     */
+    summary?: string;
+    /**
+     * Source url for supporting evidence.
+     * @type {string}
+     * @memberof MetricRelationshipIn
+     */
+    source_url?: string;
 }
 /**
  * MetricRelationship resource links.
@@ -4320,6 +4332,18 @@ export interface MetricRelationshipOut {
      * @memberof MetricRelationshipOut
      */
     annotation?: string;
+    /**
+     * Summary for this metric relationship.
+     * @type {string}
+     * @memberof MetricRelationshipOut
+     */
+    summary?: string;
+    /**
+     * Source url for supporting evidence.
+     * @type {string}
+     * @memberof MetricRelationshipOut
+     */
+    source_url?: string;
     /**
      * Collection of links to related resources.
      * @type {MetricRelationshipLinks}
