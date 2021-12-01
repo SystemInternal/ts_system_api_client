@@ -4485,6 +4485,12 @@ export interface ModelIn {
      */
     description?: string;
     /**
+     * Statistical controls of the model.
+     * @type {Array<string>}
+     * @memberof ModelIn
+     */
+    statistical_controls?: Array<string>;
+    /**
      * Location of the source code.
      * @type {string}
      * @memberof ModelIn
@@ -4661,6 +4667,12 @@ export interface ModelOut {
      * @memberof ModelOut
      */
     description?: string;
+    /**
+     * Statistical controls of the model.
+     * @type {Array<string>}
+     * @memberof ModelOut
+     */
+    statistical_controls?: Array<string>;
     /**
      * Location of the source code.
      * @type {string}
