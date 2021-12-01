@@ -163,6 +163,12 @@ export interface AssociationIn {
      */
     variable_ids?: Array<string>;
     /**
+     * The ids of the features that are being directed at.
+     * @type {Array<string>}
+     * @memberof AssociationIn
+     */
+    directed_at_feature_ids?: Array<string>;
+    /**
      * Values of the association.
      * @type {Array<AssociationValueIn>}
      * @memberof AssociationIn
@@ -279,6 +285,12 @@ export interface AssociationOut {
      * @memberof AssociationOut
      */
     variable_ids?: Array<string>;
+    /**
+     * The ids of the features that are being directed at.
+     * @type {Array<string>}
+     * @memberof AssociationOut
+     */
+    directed_at_feature_ids?: Array<string>;
     /**
      * Values of the association.
      * @type {Array<AssociationValueOut>}
@@ -2563,6 +2575,19 @@ export declare enum DeploymentStageEnum {
     Staging = "staging",
     Production = "production",
     Invalid = "invalid"
+}
+/**
+ * Direction input for directionality post.
+ * @export
+ * @interface DirectionIn
+ */
+export interface DirectionIn {
+    /**
+     * The id of the features that are being directed at.
+     * @type {Array<string>}
+     * @memberof DirectionIn
+     */
+    directed_at_ids: Array<string>;
 }
 /**
  * Represent dynamic series statistics for a dynamic feature type.
@@ -8593,6 +8618,27 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @throws {RequiredError}
      */
     patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch: (teamId: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId: string, modelId: string, directionIn: DirectionIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost: (teamId: string, associationId: string, modelId: string, directionIn: DirectionIn, options?: any) => Promise<RequestArgs>;
 };
 /**
  * AssociationsApi - functional programming interface
@@ -9043,6 +9089,27 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(teamId: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId: string, associationId: string, modelId: string, directionIn: DirectionIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
 };
 /**
  * AssociationsApi - factory interface
@@ -9493,6 +9560,27 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(teamId: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, options?: any): AxiosPromise<AssociationOut>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId: string, associationId: string, modelId: string, directionIn: DirectionIn, options?: any): AxiosPromise<AssociationOut>;
 };
 /**
  * Request parameters for createAssociationsV1DatasetsDatasetIdAssociationsPost operation in AssociationsApi.
@@ -11039,6 +11127,62 @@ export interface AssociationsApiPatchAssociationsV1TeamsTeamIdModelsModelIdAssoc
     readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
 }
 /**
+ * Request parameters for postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest
+ */
+export interface AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly modelId: string;
+    /**
+     *
+     * @type {DirectionIn}
+     * @memberof AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly directionIn: DirectionIn;
+}
+/**
+ * Request parameters for postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest
+ */
+export interface AssociationsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly modelId: string;
+    /**
+     *
+     * @type {DirectionIn}
+     * @memberof AssociationsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly directionIn: DirectionIn;
+}
+/**
  * AssociationsApi - object-oriented interface
  * @export
  * @class AssociationsApi
@@ -11333,6 +11477,24 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(requestParameters: AssociationsApiPatchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters: AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {AssociationsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters: AssociationsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
 }
 /**
  * AuthorsApi - axios parameter creator
@@ -24271,6 +24433,27 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      */
     patchModelV1TeamsTeamIdModelsModelIdPatch: (teamId: string, modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any) => Promise<RequestArgs>;
     /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId: string, modelId: string, directionIn: DirectionIn, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost: (teamId: string, associationId: string, modelId: string, directionIn: DirectionIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Replace a Model.
      * @summary Replace Model
      * @param {string} modelId
@@ -24666,6 +24849,27 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      */
     patchModelV1TeamsTeamIdModelsModelIdPatch(teamId: string, modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId: string, associationId: string, modelId: string, directionIn: DirectionIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    /**
      * Replace a Model.
      * @summary Replace Model
      * @param {string} modelId
@@ -25060,6 +25264,27 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     patchModelV1TeamsTeamIdModelsModelIdPatch(teamId: string, modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): AxiosPromise<void>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, options?: any): AxiosPromise<AssociationOut>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId: string, associationId: string, modelId: string, directionIn: DirectionIn, options?: any): AxiosPromise<AssociationOut>;
     /**
      * Replace a Model.
      * @summary Replace Model
@@ -26316,6 +26541,62 @@ export interface ModelsApiPatchModelV1TeamsTeamIdModelsModelIdPatchRequest {
     readonly patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>;
 }
 /**
+ * Request parameters for postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost operation in ModelsApi.
+ * @export
+ * @interface ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest
+ */
+export interface ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly modelId: string;
+    /**
+     *
+     * @type {DirectionIn}
+     * @memberof ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly directionIn: DirectionIn;
+}
+/**
+ * Request parameters for postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost operation in ModelsApi.
+ * @export
+ * @interface ModelsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest
+ */
+export interface ModelsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly modelId: string;
+    /**
+     *
+     * @type {DirectionIn}
+     * @memberof ModelsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly directionIn: DirectionIn;
+}
+/**
  * Request parameters for replaceModelV1ModelsModelIdPut operation in ModelsApi.
  * @export
  * @interface ModelsApiReplaceModelV1ModelsModelIdPutRequest
@@ -26624,6 +26905,24 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     patchModelV1TeamsTeamIdModelsModelIdPatch(requestParameters: ModelsApiPatchModelV1TeamsTeamIdModelsModelIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModelsApi
+     */
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters: ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {ModelsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModelsApi
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters: ModelsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
     /**
      * Replace a Model.
      * @summary Replace Model
@@ -33748,6 +34047,17 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     patchVariableV1TeamsTeamIdVariablesVariableIdPatch: (teamId: string, variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options?: any) => Promise<RequestArgs>;
     /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost: (teamId: string, associationId: string, modelId: string, directionIn: DirectionIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Create an Team.
      * @summary Post Team
      * @param {TeamIn} teamIn
@@ -35334,6 +35644,17 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     patchVariableV1TeamsTeamIdVariablesVariableIdPatch(teamId: string, variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId: string, associationId: string, modelId: string, directionIn: DirectionIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    /**
      * Create an Team.
      * @summary Post Team
      * @param {TeamIn} teamIn
@@ -36919,6 +37240,17 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     patchVariableV1TeamsTeamIdVariablesVariableIdPatch(teamId: string, variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options?: any): AxiosPromise<void>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {string} modelId
+     * @param {DirectionIn} directionIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId: string, associationId: string, modelId: string, directionIn: DirectionIn, options?: any): AxiosPromise<AssociationOut>;
     /**
      * Create an Team.
      * @summary Post Team
@@ -41841,6 +42173,37 @@ export interface TeamsApiPatchVariableV1TeamsTeamIdVariablesVariableIdPatchReque
     readonly patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>;
 }
 /**
+ * Request parameters for postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest
+ */
+export interface TeamsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly modelId: string;
+    /**
+     *
+     * @type {DirectionIn}
+     * @memberof TeamsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly directionIn: DirectionIn;
+}
+/**
  * Request parameters for postTeamV1TeamsPost operation in TeamsApi.
  * @export
  * @interface TeamsApiPostTeamV1TeamsPostRequest
@@ -43222,6 +43585,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     patchVariableV1TeamsTeamIdVariablesVariableIdPatch(requestParameters: TeamsApiPatchVariableV1TeamsTeamIdVariablesVariableIdPatchRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {TeamsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters: TeamsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
     /**
      * Create an Team.
      * @summary Post Team

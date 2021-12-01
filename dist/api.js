@@ -3231,6 +3231,134 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId, modelId, directionIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'associationId' is not null or undefined
+            if (associationId === null || associationId === undefined) {
+                throw new base_1.RequiredError('associationId', 'Required parameter associationId was null or undefined when calling postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'modelId' is not null or undefined
+            if (modelId === null || modelId === undefined) {
+                throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'directionIn' is not null or undefined
+            if (directionIn === null || directionIn === undefined) {
+                throw new base_1.RequiredError('directionIn', 'Required parameter directionIn was null or undefined when calling postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            const localVarPath = `/v1/models/{model_id}/associations/{association_id}/directed_at`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)))
+                .replace(`{${"model_id"}}`, encodeURIComponent(String(modelId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof directionIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(directionIn !== undefined ? directionIn : {}) : (directionIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} teamId
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost: (teamId, associationId, modelId, directionIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'associationId' is not null or undefined
+            if (associationId === null || associationId === undefined) {
+                throw new base_1.RequiredError('associationId', 'Required parameter associationId was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'modelId' is not null or undefined
+            if (modelId === null || modelId === undefined) {
+                throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'directionIn' is not null or undefined
+            if (directionIn === null || directionIn === undefined) {
+                throw new base_1.RequiredError('directionIn', 'Required parameter directionIn was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/models/{model_id}/associations/{association_id}/directed_at`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)))
+                .replace(`{${"model_id"}}`, encodeURIComponent(String(modelId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof directionIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(directionIn !== undefined ? directionIn : {}) : (directionIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -3939,6 +4067,43 @@ exports.AssociationsApiFp = function (configuration) {
                 };
             });
         },
+        /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} teamId
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AssociationsApiAxiosParamCreator(configuration).postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
     };
 };
 /**
@@ -4455,6 +4620,31 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
         patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(teamId, modelId, bulkPatchAssociationOp, options) {
             return exports.AssociationsApiFp(configuration).patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(teamId, modelId, bulkPatchAssociationOp, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options) {
+            return exports.AssociationsApiFp(configuration).postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} teamId
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options) {
+            return exports.AssociationsApiFp(configuration).postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -4815,6 +5005,28 @@ class AssociationsApi extends base_1.BaseAPI {
      */
     patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(requestParameters, options) {
         return exports.AssociationsApiFp(this.configuration).patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(requestParameters.teamId, requestParameters.modelId, requestParameters.bulkPatchAssociationOp, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters, options) {
+        return exports.AssociationsApiFp(this.configuration).postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters.associationId, requestParameters.modelId, requestParameters.directionIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {AssociationsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters, options) {
+        return exports.AssociationsApiFp(this.configuration).postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters.teamId, requestParameters.associationId, requestParameters.modelId, requestParameters.directionIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.AssociationsApi = AssociationsApi;
@@ -23150,6 +23362,134 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId, modelId, directionIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'associationId' is not null or undefined
+            if (associationId === null || associationId === undefined) {
+                throw new base_1.RequiredError('associationId', 'Required parameter associationId was null or undefined when calling postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'modelId' is not null or undefined
+            if (modelId === null || modelId === undefined) {
+                throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'directionIn' is not null or undefined
+            if (directionIn === null || directionIn === undefined) {
+                throw new base_1.RequiredError('directionIn', 'Required parameter directionIn was null or undefined when calling postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            const localVarPath = `/v1/models/{model_id}/associations/{association_id}/directed_at`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)))
+                .replace(`{${"model_id"}}`, encodeURIComponent(String(modelId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof directionIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(directionIn !== undefined ? directionIn : {}) : (directionIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} teamId
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost: (teamId, associationId, modelId, directionIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'associationId' is not null or undefined
+            if (associationId === null || associationId === undefined) {
+                throw new base_1.RequiredError('associationId', 'Required parameter associationId was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'modelId' is not null or undefined
+            if (modelId === null || modelId === undefined) {
+                throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'directionIn' is not null or undefined
+            if (directionIn === null || directionIn === undefined) {
+                throw new base_1.RequiredError('directionIn', 'Required parameter directionIn was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/models/{model_id}/associations/{association_id}/directed_at`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)))
+                .replace(`{${"model_id"}}`, encodeURIComponent(String(modelId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof directionIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(directionIn !== undefined ? directionIn : {}) : (directionIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Replace a Model.
          * @summary Replace Model
          * @param {string} modelId
@@ -23871,6 +24211,43 @@ exports.ModelsApiFp = function (configuration) {
             });
         },
         /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} teamId
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Replace a Model.
          * @summary Replace Model
          * @param {string} modelId
@@ -24340,6 +24717,31 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
             return exports.ModelsApiFp(configuration).patchModelV1TeamsTeamIdModelsModelIdPatch(teamId, modelId, patchModelOpArrayPatchModelOp, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options) {
+            return exports.ModelsApiFp(configuration).postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} teamId
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options) {
+            return exports.ModelsApiFp(configuration).postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Replace a Model.
          * @summary Replace Model
          * @param {string} modelId
@@ -24679,6 +25081,28 @@ class ModelsApi extends base_1.BaseAPI {
      */
     patchModelV1TeamsTeamIdModelsModelIdPatch(requestParameters, options) {
         return exports.ModelsApiFp(this.configuration).patchModelV1TeamsTeamIdModelsModelIdPatch(requestParameters.teamId, requestParameters.modelId, requestParameters.patchModelOpArrayPatchModelOp, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModelsApi
+     */
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters, options) {
+        return exports.ModelsApiFp(this.configuration).postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters.associationId, requestParameters.modelId, requestParameters.directionIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {ModelsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModelsApi
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters, options) {
+        return exports.ModelsApiFp(this.configuration).postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters.teamId, requestParameters.associationId, requestParameters.modelId, requestParameters.directionIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Replace a Model.
@@ -38995,6 +39419,73 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} teamId
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost: (teamId, associationId, modelId, directionIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'associationId' is not null or undefined
+            if (associationId === null || associationId === undefined) {
+                throw new base_1.RequiredError('associationId', 'Required parameter associationId was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'modelId' is not null or undefined
+            if (modelId === null || modelId === undefined) {
+                throw new base_1.RequiredError('modelId', 'Required parameter modelId was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            // verify required parameter 'directionIn' is not null or undefined
+            if (directionIn === null || directionIn === undefined) {
+                throw new base_1.RequiredError('directionIn', 'Required parameter directionIn was null or undefined when calling postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/models/{model_id}/associations/{association_id}/directed_at`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)))
+                .replace(`{${"model_id"}}`, encodeURIComponent(String(modelId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof directionIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(directionIn !== undefined ? directionIn : {}) : (directionIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create an Team.
          * @summary Post Team
          * @param {TeamIn} teamIn
@@ -42332,6 +42823,25 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} teamId
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Create an Team.
          * @summary Post Team
          * @param {TeamIn} teamIn
@@ -44280,6 +44790,19 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).patchVariableV1TeamsTeamIdVariablesVariableIdPatch(teamId, variableId, patchVariableOpArrayPatchVariableOp, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get an Association.
+         * @summary Post Association Direction
+         * @param {string} teamId
+         * @param {string} associationId
+         * @param {string} modelId
+         * @param {DirectionIn} directionIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options) {
+            return exports.TeamsApiFp(configuration).postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(teamId, associationId, modelId, directionIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create an Team.
          * @summary Post Team
          * @param {TeamIn} teamIn
@@ -45653,6 +46176,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     patchVariableV1TeamsTeamIdVariablesVariableIdPatch(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).patchVariableV1TeamsTeamIdVariablesVariableIdPatch(requestParameters.teamId, requestParameters.variableId, requestParameters.patchVariableOpArrayPatchVariableOp, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get an Association.
+     * @summary Post Association Direction
+     * @param {TeamsApiPostAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters.teamId, requestParameters.associationId, requestParameters.modelId, requestParameters.directionIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create an Team.
