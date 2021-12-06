@@ -5580,14 +5580,6 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -6889,14 +6881,6 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -8819,14 +8803,6 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -20084,14 +20060,6 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
             }
@@ -20413,14 +20381,6 @@ exports.GraphqlApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
@@ -20842,14 +20802,6 @@ exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -21227,14 +21179,6 @@ exports.ModeldbApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -21268,14 +21212,6 @@ exports.ModeldbApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (algorithmClass !== undefined) {
                 localVarQueryParameter['algorithm_class'] = algorithmClass;
@@ -22760,7 +22696,6 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
         /**
          * List Models.
          * @summary List Models
-         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -22772,10 +22707,11 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listModelsV1ModelsGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/models`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -22799,9 +22735,6 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -22835,6 +22768,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             }
             if (containsVariableId !== undefined) {
                 localVarQueryParameter['contains_variable_id'] = containsVariableId;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -24033,7 +23969,6 @@ exports.ModelsApiFp = function (configuration) {
         /**
          * List Models.
          * @summary List Models
-         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -24045,12 +23980,13 @@ exports.ModelsApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+        listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listModelsV1ModelsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
+                const localVarAxiosArgs = yield exports.ModelsApiAxiosParamCreator(configuration).listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -24587,7 +24523,6 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
         /**
          * List Models.
          * @summary List Models
-         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -24599,11 +24534,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsV1ModelsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
-            return exports.ModelsApiFp(configuration).listModelsV1ModelsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options) {
+            return exports.ModelsApiFp(configuration).listModelsV1ModelsGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * List Models.
@@ -25003,7 +24939,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listModelsV1ModelsGet(requestParameters = {}, options) {
-        return exports.ModelsApiFp(this.configuration).listModelsV1ModelsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listModelsV1ModelsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Models.
@@ -25473,14 +25409,6 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
@@ -26359,14 +26287,6 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
@@ -34114,7 +34034,7 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch the authenticated user\'s profile.
+         * Fetch the authenticated user\'s team or default.
          * @summary Get Authenticated User\'S Teams
          * @param {string} teamId
          * @param {*} [options] Override http request option.
@@ -34293,14 +34213,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
@@ -35075,14 +34987,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
@@ -35126,14 +35030,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (email !== undefined) {
                 localVarQueryParameter['email'] = email;
@@ -36468,14 +36364,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -36648,14 +36536,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -36835,14 +36715,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -37408,14 +37280,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -40565,14 +40429,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -41241,7 +41097,7 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch the authenticated user\'s profile.
+         * Fetch the authenticated user\'s team or default.
          * @summary Get Authenticated User\'S Teams
          * @param {string} teamId
          * @param {*} [options] Override http request option.
@@ -43610,7 +43466,7 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).getAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdGet(teamId, associationId, modelId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch the authenticated user\'s profile.
+         * Fetch the authenticated user\'s team or default.
          * @summary Get Authenticated User\'S Teams
          * @param {string} teamId
          * @param {*} [options] Override http request option.
@@ -45441,7 +45297,7 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).getAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdGet(requestParameters.teamId, requestParameters.associationId, requestParameters.modelId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {TeamsApiGetAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -46431,14 +46287,6 @@ exports.TimelineApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
             if (types) {
                 localVarQueryParameter['types'] = types;
             }
@@ -46757,7 +46605,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch the authenticated user\'s profile.
+         * Fetch the authenticated user\'s team or default.
          * @summary Get Authenticated User\'S Teams
          * @param {string} teamId
          * @param {*} [options] Override http request option.
@@ -46804,7 +46652,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch the authenticated user\'s profile.
+         * Fetch the authenticated user\'s team or default.
          * @summary Get Authenticated User\'S Teams
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -46976,14 +46824,6 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
@@ -47078,14 +46918,6 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (email !== undefined) {
                 localVarQueryParameter['email'] = email;
@@ -49933,7 +49765,7 @@ exports.UsersApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch the authenticated user\'s profile.
+         * Fetch the authenticated user\'s team or default.
          * @summary Get Authenticated User\'S Teams
          * @param {string} teamId
          * @param {*} [options] Override http request option.
@@ -49949,7 +49781,7 @@ exports.UsersApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch the authenticated user\'s profile.
+         * Fetch the authenticated user\'s team or default.
          * @summary Get Authenticated User\'S Teams
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -50918,7 +50750,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
             return exports.UsersApiFp(configuration).createAUserFromCredentialsV1UserPost(userProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch the authenticated user\'s profile.
+         * Fetch the authenticated user\'s team or default.
          * @summary Get Authenticated User\'S Teams
          * @param {string} teamId
          * @param {*} [options] Override http request option.
@@ -50928,7 +50760,7 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
             return exports.UsersApiFp(configuration).getAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGet(teamId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch the authenticated user\'s profile.
+         * Fetch the authenticated user\'s team or default.
          * @summary Get Authenticated User\'S Teams
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -51676,7 +51508,7 @@ class UsersApi extends base_1.BaseAPI {
         return exports.UsersApiFp(this.configuration).createAUserFromCredentialsV1UserPost(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {UsersApiGetAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -51687,7 +51519,7 @@ class UsersApi extends base_1.BaseAPI {
         return exports.UsersApiFp(this.configuration).getAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -53834,7 +53666,6 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
         /**
          * List Variables.
          * @summary List Variables
-         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -53847,10 +53678,11 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
          * @param {Array<string>} [tags] Custom metric tags
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listVariablesV1VariablesGet: (query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/variables`;
             const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
             let baseOptions;
@@ -53874,9 +53706,6 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
                     ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
                     : configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -53913,6 +53742,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (tags) {
                 localVarQueryParameter['tags'] = tags;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -54567,7 +54399,6 @@ exports.VariablesApiFp = function (configuration) {
         /**
          * List Variables.
          * @summary List Variables
-         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -54580,12 +54411,13 @@ exports.VariablesApiFp = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
          * @param {Array<string>} [tags] Custom metric tags
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
+        listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options);
+                const localVarAxiosArgs = yield exports.VariablesApiAxiosParamCreator(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -55028,7 +54860,6 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
         /**
          * List Variables.
          * @summary List Variables
-         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -55041,11 +54872,12 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
          * @param {Array<string>} [tags] Custom metric tags
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options) {
-            return exports.VariablesApiFp(configuration).listVariablesV1VariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
+        listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options) {
+            return exports.VariablesApiFp(configuration).listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Variable resource with partial update.
@@ -55319,7 +55151,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listVariablesV1VariablesGet(requestParameters = {}, options) {
-        return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Variable resource with partial update.

@@ -24355,7 +24355,6 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
     /**
      * List Models.
      * @summary List Models
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -24367,10 +24366,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any) => Promise<RequestArgs>;
+    listModelsV1ModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * List Models.
      * @summary List Models
@@ -24771,7 +24771,6 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
     /**
      * List Models.
      * @summary List Models
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -24783,10 +24782,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * List Models.
      * @summary List Models
@@ -25187,7 +25187,6 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
     /**
      * List Models.
      * @summary List Models
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -25199,10 +25198,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsV1ModelsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsV1ModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * List Models.
      * @summary List Models
@@ -26167,12 +26167,6 @@ export interface ModelsApiListModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGetR
  */
 export interface ModelsApiListModelsV1ModelsGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListModelsV1ModelsGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof ModelsApiListModelsV1ModelsGet
@@ -26238,6 +26232,12 @@ export interface ModelsApiListModelsV1ModelsGetRequest {
      * @memberof ModelsApiListModelsV1ModelsGet
      */
     readonly containsVariableId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListModelsV1ModelsGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listModelsV1TeamsTeamIdModelsGet operation in ModelsApi.
@@ -33037,7 +33037,7 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdGet: (teamId: string, associationId: string, modelId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {string} teamId
      * @param {*} [options] Override http request option.
@@ -34634,7 +34634,7 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     getAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdGet(teamId: string, associationId: string, modelId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {string} teamId
      * @param {*} [options] Override http request option.
@@ -36231,7 +36231,7 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     getAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdGet(teamId: string, associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {string} teamId
      * @param {*} [options] Override http request option.
@@ -43019,7 +43019,7 @@ export declare class TeamsApi extends BaseAPI {
      */
     getAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdGet(requestParameters: TeamsApiGetAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<AssociationOut>>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {TeamsApiGetAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -43934,7 +43934,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createAUserFromCredentialsV1UserPost: (userProfileIn: UserProfileIn, options?: any) => Promise<RequestArgs>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {string} teamId
      * @param {*} [options] Override http request option.
@@ -43942,7 +43942,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGet: (teamId: string, options?: any) => Promise<RequestArgs>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -44605,7 +44605,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      */
     createAUserFromCredentialsV1UserPost(userProfileIn: UserProfileIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {string} teamId
      * @param {*} [options] Override http request option.
@@ -44613,7 +44613,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      */
     getAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGet(teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TeamOut>>>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -45276,7 +45276,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      */
     createAUserFromCredentialsV1UserPost(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {string} teamId
      * @param {*} [options] Override http request option.
@@ -45284,7 +45284,7 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      */
     getAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGet(teamId: string, options?: any): AxiosPromise<Array<TeamOut>>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -48462,7 +48462,7 @@ export declare class UsersApi extends BaseAPI {
      */
     createAUserFromCredentialsV1UserPost(requestParameters: UsersApiCreateAUserFromCredentialsV1UserPostRequest, options?: any): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {UsersApiGetAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -48471,7 +48471,7 @@ export declare class UsersApi extends BaseAPI {
      */
     getAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGet(requestParameters: UsersApiGetAuthenticatedUserSTeamsV1TeamsTeamIdUserTeamsGetRequest, options?: any): Promise<import("axios").AxiosResponse<TeamOut[]>>;
     /**
-     * Fetch the authenticated user\'s profile.
+     * Fetch the authenticated user\'s team or default.
      * @summary Get Authenticated User\'S Teams
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -49159,7 +49159,6 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
     /**
      * List Variables.
      * @summary List Variables
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -49172,10 +49171,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
      * @param {Array<string>} [tags] Custom metric tags
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
+    listVariablesV1VariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any) => Promise<RequestArgs>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -49552,7 +49552,6 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
     /**
      * List Variables.
      * @summary List Variables
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -49565,10 +49564,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
      * @param {Array<string>} [tags] Custom metric tags
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
+    listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -49945,7 +49945,6 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
     /**
      * List Variables.
      * @summary List Variables
-     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -49958,10 +49957,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inVariableGraph] Is Variable in the Variable Graph?
      * @param {Array<string>} [tags] Custom metric tags
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listVariablesV1VariablesGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
+    listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -51342,12 +51342,6 @@ export interface VariablesApiListVariablesV1TeamsTeamIdVariablesGetRequest {
  */
 export interface VariablesApiListVariablesV1VariablesGetRequest {
     /**
-     *
-     * @type {string}
-     * @memberof VariablesApiListVariablesV1VariablesGet
-     */
-    readonly teamId?: string;
-    /**
      * Search query.
      * @type {string}
      * @memberof VariablesApiListVariablesV1VariablesGet
@@ -51419,6 +51413,12 @@ export interface VariablesApiListVariablesV1VariablesGetRequest {
      * @memberof VariablesApiListVariablesV1VariablesGet
      */
     readonly tags?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListVariablesV1VariablesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchVariableV1TeamsTeamIdVariablesVariableIdPatch operation in VariablesApi.
