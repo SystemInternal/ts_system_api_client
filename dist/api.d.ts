@@ -7061,6 +7061,12 @@ export interface TeamOut {
      * @memberof TeamOut
      */
     _links?: TeamLinks;
+    /**
+     * Public status
+     * @type {boolean}
+     * @memberof TeamOut
+     */
+    _public?: boolean;
 }
 /**
  * Represent a test dataset.
