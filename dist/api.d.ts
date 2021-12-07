@@ -1972,6 +1972,12 @@ export interface DatasetIn {
      * @memberof DatasetIn
      */
     db_usage?: Array<DatabaseUsage>;
+    /**
+     * String descriptions of populations.
+     * @type {Array<string>}
+     * @memberof DatasetIn
+     */
+    population_strings?: Array<string>;
 }
 /**
  * An enumeration.
@@ -2201,6 +2207,12 @@ export interface DatasetOut {
      * @memberof DatasetOut
      */
     db_usage?: Array<DatabaseUsage>;
+    /**
+     * String descriptions of populations.
+     * @type {Array<string>}
+     * @memberof DatasetOut
+     */
+    population_strings?: Array<string>;
     /**
      * Collection of links to related resources.
      * @type {DatasetLinks}
