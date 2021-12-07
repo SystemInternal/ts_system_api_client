@@ -20151,14 +20151,6 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -34361,14 +34353,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
