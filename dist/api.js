@@ -5580,6 +5580,14 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -6881,6 +6889,14 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -8803,6 +8819,14 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -20060,6 +20084,14 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
             }
@@ -20150,6 +20182,14 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -20373,6 +20413,14 @@ exports.GraphqlApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
@@ -20794,6 +20842,14 @@ exports.MetricRelationshipsApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -21171,6 +21227,14 @@ exports.ModeldbApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -21204,6 +21268,14 @@ exports.ModeldbApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (algorithmClass !== undefined) {
                 localVarQueryParameter['algorithm_class'] = algorithmClass;
@@ -25402,6 +25474,14 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -26279,6 +26359,14 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
@@ -34206,6 +34294,14 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
             }
@@ -34353,6 +34449,14 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -34971,6 +35075,14 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
@@ -35014,6 +35126,14 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (email !== undefined) {
                 localVarQueryParameter['email'] = email;
@@ -36348,6 +36468,14 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -36520,6 +36648,14 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -36699,6 +36835,14 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -37264,6 +37408,14 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -40412,6 +40564,14 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
@@ -46271,6 +46431,14 @@ exports.TimelineApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
             if (types) {
                 localVarQueryParameter['types'] = types;
             }
@@ -46808,6 +46976,14 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
             }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
@@ -46902,6 +47078,14 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
                     ? yield configuration.apiKey("x-api-key")
                     : yield configuration.apiKey;
                 localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             if (email !== undefined) {
                 localVarQueryParameter['email'] = email;
