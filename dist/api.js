@@ -20006,10 +20006,11 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1GraphConceptGraphGet: (teamId, minRelationshipStrength, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getConceptGraphV1GraphConceptGraphGet: (teamId, minRelationshipStrength, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getConceptGraphV1GraphConceptGraphGet.');
@@ -20041,6 +20042,9 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
             }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
+            }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -20059,10 +20063,11 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId, minRelationshipStrength, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId, minRelationshipStrength, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getConceptGraphV1TeamsTeamIdGraphConceptGraphGet.');
@@ -20094,6 +20099,9 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
             }
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
+            }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -20214,12 +20222,13 @@ exports.GraphApiFp = function (configuration) {
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, options) {
+        getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, options);
+                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -20231,12 +20240,13 @@ exports.GraphApiFp = function (configuration) {
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options) {
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options);
+                const localVarAxiosArgs = yield exports.GraphApiAxiosParamCreator(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -20288,22 +20298,24 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, options) {
-            return exports.GraphApiFp(configuration).getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, options).then((request) => request(axios, basePath));
+        getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, tags, options) {
+            return exports.GraphApiFp(configuration).getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options) {
-            return exports.GraphApiFp(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options).then((request) => request(axios, basePath));
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, tags, options) {
+            return exports.GraphApiFp(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -20343,7 +20355,7 @@ class GraphApi extends base_1.BaseAPI {
      * @memberof GraphApi
      */
     getConceptGraphV1GraphConceptGraphGet(requestParameters, options) {
-        return exports.GraphApiFp(this.configuration).getConceptGraphV1GraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, options).then((request) => request(this.axios, this.basePath));
+        return exports.GraphApiFp(this.configuration).getConceptGraphV1GraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch dataset graph.
@@ -20354,7 +20366,7 @@ class GraphApi extends base_1.BaseAPI {
      * @memberof GraphApi
      */
     getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters, options) {
-        return exports.GraphApiFp(this.configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, options).then((request) => request(this.axios, this.basePath));
+        return exports.GraphApiFp(this.configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch dataset graph.
@@ -34269,10 +34281,11 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId, minRelationshipStrength, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId, minRelationshipStrength, tags, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             if (teamId === null || teamId === undefined) {
                 throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getConceptGraphV1TeamsTeamIdGraphConceptGraphGet.');
@@ -34304,6 +34317,9 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             }
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
+            }
+            if (tags) {
+                localVarQueryParameter['tags'] = tags;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -41295,12 +41311,13 @@ exports.TeamsApiFp = function (configuration) {
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options) {
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, tags, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options);
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, tags, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -43646,11 +43663,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
+         * @param {Array<string>} [tags] Custom metric tags
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options) {
-            return exports.TeamsApiFp(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, options).then((request) => request(axios, basePath));
+        getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, tags, options) {
+            return exports.TeamsApiFp(configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, tags, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Concept.
@@ -45482,7 +45500,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Concept.

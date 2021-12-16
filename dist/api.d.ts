@@ -23177,19 +23177,21 @@ export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) 
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptGraphV1GraphConceptGraphGet: (teamId: string, minRelationshipStrength?: number, options?: any) => Promise<RequestArgs>;
+    getConceptGraphV1GraphConceptGraphGet: (teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * Fetch dataset graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId: string, minRelationshipStrength?: number, options?: any) => Promise<RequestArgs>;
+    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -23217,19 +23219,21 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptGraphV1GraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getConceptGraphV1GraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Fetch dataset graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -23257,19 +23261,21 @@ export declare const GraphApiFactory: (configuration?: Configuration, basePath?:
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptGraphV1GraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, options?: any): AxiosPromise<GraphData>;
+    getConceptGraphV1GraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any): AxiosPromise<GraphData>;
     /**
      * Fetch dataset graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, options?: any): AxiosPromise<GraphData>;
+    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any): AxiosPromise<GraphData>;
     /**
      * Fetch dataset graph.
      * @summary Get Dataset Graph
@@ -23305,6 +23311,12 @@ export interface GraphApiGetConceptGraphV1GraphConceptGraphGetRequest {
      * @memberof GraphApiGetConceptGraphV1GraphConceptGraphGet
      */
     readonly minRelationshipStrength?: number;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof GraphApiGetConceptGraphV1GraphConceptGraphGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for getConceptGraphV1TeamsTeamIdGraphConceptGraphGet operation in GraphApi.
@@ -23324,6 +23336,12 @@ export interface GraphApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest
      * @memberof GraphApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGet
      */
     readonly minRelationshipStrength?: number;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof GraphApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for getDatasetGraphV1GraphDatasetGraphGet operation in GraphApi.
@@ -33085,10 +33103,11 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId: string, minRelationshipStrength?: number, options?: any) => Promise<RequestArgs>;
+    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet: (teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any) => Promise<RequestArgs>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -34682,10 +34701,11 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -36279,10 +36299,11 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
+     * @param {Array<string>} [tags] Custom metric tags
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, options?: any): AxiosPromise<GraphData>;
+    getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any): AxiosPromise<GraphData>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -38364,6 +38385,12 @@ export interface TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest
      * @memberof TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGet
      */
     readonly minRelationshipStrength?: number;
+    /**
+     * Custom metric tags
+     * @type {Array<string>}
+     * @memberof TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGet
+     */
+    readonly tags?: Array<string>;
 }
 /**
  * Request parameters for getConceptV1TeamsTeamIdConceptsConceptIdGet operation in TeamsApi.
