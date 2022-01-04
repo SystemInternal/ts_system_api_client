@@ -11593,6 +11593,24 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      */
     createAuthorV1TeamsTeamIdAuthorsPost: (teamId: string, authorIn: AuthorIn, options?: any) => Promise<RequestArgs>;
     /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleAuthorsV1AuthorsBulkPost: (arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, teamId?: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {string} teamId
+     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost: (teamId: string, arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Delete an Author.
      * @summary Delete Author
      * @param {string} authorId
@@ -11725,6 +11743,24 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      */
     createAuthorV1TeamsTeamIdAuthorsPost(teamId: string, authorIn: AuthorIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
     /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleAuthorsV1AuthorsBulkPost(arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, teamId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthorOut>>>;
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {string} teamId
+     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId: string, arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthorOut>>>;
+    /**
      * Delete an Author.
      * @summary Delete Author
      * @param {string} authorId
@@ -11856,6 +11892,24 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     createAuthorV1TeamsTeamIdAuthorsPost(teamId: string, authorIn: AuthorIn, options?: any): AxiosPromise<AuthorOut>;
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleAuthorsV1AuthorsBulkPost(arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, teamId?: string, options?: any): AxiosPromise<Array<AuthorOut>>;
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {string} teamId
+     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId: string, arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, options?: any): AxiosPromise<Array<AuthorOut>>;
     /**
      * Delete an Author.
      * @summary Delete Author
@@ -12027,6 +12081,44 @@ export interface AuthorsApiCreateAuthorV1TeamsTeamIdAuthorsPostRequest {
      * @memberof AuthorsApiCreateAuthorV1TeamsTeamIdAuthorsPost
      */
     readonly authorIn: AuthorIn;
+}
+/**
+ * Request parameters for createMultipleAuthorsV1AuthorsBulkPost operation in AuthorsApi.
+ * @export
+ * @interface AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPostRequest
+ */
+export interface AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPostRequest {
+    /**
+     *
+     * @type {Array<AuthorIn> | AuthorIn}
+     * @memberof AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPost
+     */
+    readonly arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn;
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPost
+     */
+    readonly teamId?: string;
+}
+/**
+ * Request parameters for createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost operation in AuthorsApi.
+ * @export
+ * @interface AuthorsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPostRequest
+ */
+export interface AuthorsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {Array<AuthorIn> | AuthorIn}
+     * @memberof AuthorsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost
+     */
+    readonly arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn;
 }
 /**
  * Request parameters for deleteAuthorV1AuthorsAuthorIdDelete operation in AuthorsApi.
@@ -12325,6 +12417,24 @@ export declare class AuthorsApi extends BaseAPI {
      * @memberof AuthorsApi
      */
     createAuthorV1TeamsTeamIdAuthorsPost(requestParameters: AuthorsApiCreateAuthorV1TeamsTeamIdAuthorsPostRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut>>;
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    createMultipleAuthorsV1AuthorsBulkPost(requestParameters: AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPostRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut[]>>;
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {AuthorsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(requestParameters: AuthorsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPostRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut[]>>;
     /**
      * Delete an Author.
      * @summary Delete Author
@@ -32934,6 +33044,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     createModelsV1TeamsTeamIdStudiesStudyIdModelsPost: (teamId: string, studyId: string, modelIn: Array<ModelIn>, options?: any) => Promise<RequestArgs>;
     /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {string} teamId
+     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost: (teamId: string, arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, options?: any) => Promise<RequestArgs>;
+    /**
      * Create mulitple Variables.
      * @summary Create Multiple Variables.
      * @param {string} teamId
@@ -34532,6 +34651,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     createModelsV1TeamsTeamIdStudiesStudyIdModelsPost(teamId: string, studyId: string, modelIn: Array<ModelIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
     /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {string} teamId
+     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId: string, arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthorOut>>>;
+    /**
      * Create mulitple Variables.
      * @summary Create Multiple Variables.
      * @param {string} teamId
@@ -36129,6 +36257,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     createModelsV1TeamsTeamIdStudiesStudyIdModelsPost(teamId: string, studyId: string, modelIn: Array<ModelIn>, options?: any): AxiosPromise<Array<ModelOut>>;
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {string} teamId
+     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId: string, arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, options?: any): AxiosPromise<Array<AuthorOut>>;
     /**
      * Create mulitple Variables.
      * @summary Create Multiple Variables.
@@ -38006,6 +38143,25 @@ export interface TeamsApiCreateModelsV1TeamsTeamIdStudiesStudyIdModelsPostReques
      * @memberof TeamsApiCreateModelsV1TeamsTeamIdStudiesStudyIdModelsPost
      */
     readonly modelIn: Array<ModelIn>;
+}
+/**
+ * Request parameters for createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPostRequest
+ */
+export interface TeamsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {Array<AuthorIn> | AuthorIn}
+     * @memberof TeamsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost
+     */
+    readonly arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn;
 }
 /**
  * Request parameters for createMultipleVariablesV1TeamsTeamIdVariablesBulkPost operation in TeamsApi.
@@ -42928,6 +43084,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     createModelsV1TeamsTeamIdStudiesStudyIdModelsPost(requestParameters: TeamsApiCreateModelsV1TeamsTeamIdStudiesStudyIdModelsPostRequest, options?: any): Promise<import("axios").AxiosResponse<ModelOut[]>>;
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {TeamsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(requestParameters: TeamsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPostRequest, options?: any): Promise<import("axios").AxiosResponse<AuthorOut[]>>;
     /**
      * Create mulitple Variables.
      * @summary Create Multiple Variables.

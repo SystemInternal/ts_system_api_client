@@ -5257,6 +5257,114 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create mulitple Authors.
+         * @summary Create Multiple Authors.
+         * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleAuthorsV1AuthorsBulkPost: (arrayAuthorInAuthorIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'arrayAuthorInAuthorIn' is not null or undefined
+            if (arrayAuthorInAuthorIn === null || arrayAuthorInAuthorIn === undefined) {
+                throw new base_1.RequiredError('arrayAuthorInAuthorIn', 'Required parameter arrayAuthorInAuthorIn was null or undefined when calling createMultipleAuthorsV1AuthorsBulkPost.');
+            }
+            const localVarPath = `/v1/authors/bulk`;
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof arrayAuthorInAuthorIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(arrayAuthorInAuthorIn !== undefined ? arrayAuthorInAuthorIn : {}) : (arrayAuthorInAuthorIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Create mulitple Authors.
+         * @summary Create Multiple Authors.
+         * @param {string} teamId
+         * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost: (teamId, arrayAuthorInAuthorIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost.');
+            }
+            // verify required parameter 'arrayAuthorInAuthorIn' is not null or undefined
+            if (arrayAuthorInAuthorIn === null || arrayAuthorInAuthorIn === undefined) {
+                throw new base_1.RequiredError('arrayAuthorInAuthorIn', 'Required parameter arrayAuthorInAuthorIn was null or undefined when calling createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/authors/bulk`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof arrayAuthorInAuthorIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(arrayAuthorInAuthorIn !== undefined ? arrayAuthorInAuthorIn : {}) : (arrayAuthorInAuthorIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Delete an Author.
          * @summary Delete Author
          * @param {string} authorId
@@ -5818,6 +5926,40 @@ exports.AuthorsApiFp = function (configuration) {
             });
         },
         /**
+         * Create mulitple Authors.
+         * @summary Create Multiple Authors.
+         * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleAuthorsV1AuthorsBulkPost(arrayAuthorInAuthorIn, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AuthorsApiAxiosParamCreator(configuration).createMultipleAuthorsV1AuthorsBulkPost(arrayAuthorInAuthorIn, teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Create mulitple Authors.
+         * @summary Create Multiple Authors.
+         * @param {string} teamId
+         * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId, arrayAuthorInAuthorIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.AuthorsApiAxiosParamCreator(configuration).createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId, arrayAuthorInAuthorIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Delete an Author.
          * @summary Delete Author
          * @param {string} authorId
@@ -6024,6 +6166,28 @@ exports.AuthorsApiFactory = function (configuration, basePath, axios) {
             return exports.AuthorsApiFp(configuration).createAuthorV1TeamsTeamIdAuthorsPost(teamId, authorIn, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create mulitple Authors.
+         * @summary Create Multiple Authors.
+         * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleAuthorsV1AuthorsBulkPost(arrayAuthorInAuthorIn, teamId, options) {
+            return exports.AuthorsApiFp(configuration).createMultipleAuthorsV1AuthorsBulkPost(arrayAuthorInAuthorIn, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create mulitple Authors.
+         * @summary Create Multiple Authors.
+         * @param {string} teamId
+         * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId, arrayAuthorInAuthorIn, options) {
+            return exports.AuthorsApiFp(configuration).createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId, arrayAuthorInAuthorIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete an Author.
          * @summary Delete Author
          * @param {string} authorId
@@ -6180,6 +6344,28 @@ class AuthorsApi extends base_1.BaseAPI {
      */
     createAuthorV1TeamsTeamIdAuthorsPost(requestParameters, options) {
         return exports.AuthorsApiFp(this.configuration).createAuthorV1TeamsTeamIdAuthorsPost(requestParameters.teamId, requestParameters.authorIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    createMultipleAuthorsV1AuthorsBulkPost(requestParameters, options) {
+        return exports.AuthorsApiFp(this.configuration).createMultipleAuthorsV1AuthorsBulkPost(requestParameters.arrayAuthorInAuthorIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {AuthorsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(requestParameters, options) {
+        return exports.AuthorsApiFp(this.configuration).createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(requestParameters.teamId, requestParameters.arrayAuthorInAuthorIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete an Author.
@@ -33301,6 +33487,61 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Create mulitple Authors.
+         * @summary Create Multiple Authors.
+         * @param {string} teamId
+         * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost: (teamId, arrayAuthorInAuthorIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost.');
+            }
+            // verify required parameter 'arrayAuthorInAuthorIn' is not null or undefined
+            if (arrayAuthorInAuthorIn === null || arrayAuthorInAuthorIn === undefined) {
+                throw new base_1.RequiredError('arrayAuthorInAuthorIn', 'Required parameter arrayAuthorInAuthorIn was null or undefined when calling createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/authors/bulk`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof arrayAuthorInAuthorIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(arrayAuthorInAuthorIn !== undefined ? arrayAuthorInAuthorIn : {}) : (arrayAuthorInAuthorIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create mulitple Variables.
          * @summary Create Multiple Variables.
          * @param {string} teamId
@@ -40998,6 +41239,23 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Create mulitple Authors.
+         * @summary Create Multiple Authors.
+         * @param {string} teamId
+         * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId, arrayAuthorInAuthorIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId, arrayAuthorInAuthorIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Create mulitple Variables.
          * @summary Create Multiple Variables.
          * @param {string} teamId
@@ -43458,6 +43716,17 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).createModelsV1TeamsTeamIdStudiesStudyIdModelsPost(teamId, studyId, modelIn, options).then((request) => request(axios, basePath));
         },
         /**
+         * Create mulitple Authors.
+         * @summary Create Multiple Authors.
+         * @param {string} teamId
+         * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId, arrayAuthorInAuthorIn, options) {
+            return exports.TeamsApiFp(configuration).createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(teamId, arrayAuthorInAuthorIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create mulitple Variables.
          * @summary Create Multiple Variables.
          * @param {string} teamId
@@ -45292,6 +45561,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     createModelsV1TeamsTeamIdStudiesStudyIdModelsPost(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).createModelsV1TeamsTeamIdStudiesStudyIdModelsPost(requestParameters.teamId, requestParameters.studyId, requestParameters.modelIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Create mulitple Authors.
+     * @summary Create Multiple Authors.
+     * @param {TeamsApiCreateMultipleAuthorsV1TeamsTeamIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).createMultipleAuthorsV1TeamsTeamIdAuthorsBulkPost(requestParameters.teamId, requestParameters.arrayAuthorInAuthorIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create mulitple Variables.
