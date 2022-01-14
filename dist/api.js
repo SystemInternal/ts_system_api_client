@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricRelationshipsApi = exports.MetricRelationshipsApiFactory = exports.MetricRelationshipsApiFp = exports.MetricRelationshipsApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableToVariableSystemOfSortEnum = exports.VariableToFeatureSystemOfSortEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MetricRelationshipSortEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureToFeatureSystemOfSortEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptToConceptSystemOfSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SystemApi = exports.SystemApiFactory = exports.SystemApiFp = exports.SystemApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricRelationshipsApi = exports.MetricRelationshipsApiFactory = exports.MetricRelationshipsApiFp = exports.MetricRelationshipsApiAxiosParamCreator = exports.GraphqlApi = exports.GraphqlApiFactory = exports.GraphqlApiFp = exports.GraphqlApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableToVariableSystemOfSortEnum = exports.VariableToFeatureSystemOfSortEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.TeamRoles = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MetricRelationshipSortEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureToFeatureSystemOfSortEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptToConceptSystemOfSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
 const globalImportUrl = require("url");
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
@@ -603,6 +603,15 @@ var SystemObjectResources;
     SystemObjectResources["Dashboard"] = "dashboard";
     SystemObjectResources["MetricRelationship"] = "metric_relationship";
 })(SystemObjectResources = exports.SystemObjectResources || (exports.SystemObjectResources = {}));
+/**
+ * Roles available for a team.
+ * @export
+ * @enum {string}
+ */
+var TeamRoles;
+(function (TeamRoles) {
+    TeamRoles["Admin"] = "admin";
+})(TeamRoles = exports.TeamRoles || (exports.TeamRoles = {}));
 /**
  * Enum for valid calibrated relationship type.
  * @export
@@ -32216,6 +32225,179 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Add a user to a team by user_id.
+         * @summary Add A Role To A Team.
+         * @param {string} teamId
+         * @param {RoleIn | Array<RoleIn>} roleInArrayRoleIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addARoleToATeamV1TeamsTeamIdRolesPost: (teamId, roleInArrayRoleIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling addARoleToATeamV1TeamsTeamIdRolesPost.');
+            }
+            // verify required parameter 'roleInArrayRoleIn' is not null or undefined
+            if (roleInArrayRoleIn === null || roleInArrayRoleIn === undefined) {
+                throw new base_1.RequiredError('roleInArrayRoleIn', 'Required parameter roleInArrayRoleIn was null or undefined when calling addARoleToATeamV1TeamsTeamIdRolesPost.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/roles`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            const needsSerialization = (typeof roleInArrayRoleIn !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data = needsSerialization ? JSON.stringify(roleInArrayRoleIn !== undefined ? roleInArrayRoleIn : {}) : (roleInArrayRoleIn || "");
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add a user to a team role.
+         * @summary Add A User To A Role.
+         * @param {string} userId
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete: (userId, roleName, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete.');
+            }
+            // verify required parameter 'roleName' is not null or undefined
+            if (roleName === null || roleName === undefined) {
+                throw new base_1.RequiredError('roleName', 'Required parameter roleName was null or undefined when calling addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete.');
+            }
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/roles/{role_name}/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)))
+                .replace(`{${"role_name"}}`, encodeURIComponent(String(roleName)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add a user to a team role.
+         * @summary Add A User To A Role.
+         * @param {string} userId
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut: (userId, roleName, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut.');
+            }
+            // verify required parameter 'roleName' is not null or undefined
+            if (roleName === null || roleName === undefined) {
+                throw new base_1.RequiredError('roleName', 'Required parameter roleName was null or undefined when calling addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut.');
+            }
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/roles/{role_name}/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)))
+                .replace(`{${"role_name"}}`, encodeURIComponent(String(roleName)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'PUT' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add a user to a team by user_id.
          * @summary Add A User To A Team.
          * @param {string} userId
          * @param {string} teamId
@@ -34779,6 +34961,53 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get roles on a team.
+         * @summary Get Existing Roles On A Team.
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getExistingRolesOnATeamV1TeamsTeamIdRolesGet: (teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getExistingRolesOnATeamV1TeamsTeamIdRolesGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/roles`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get feature.
          * @summary Get Feature
          * @param {string} teamId
@@ -35342,6 +35571,59 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             }
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get users with role.
+         * @summary Get Users Of A Role.
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet: (roleName, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'roleName' is not null or undefined
+            if (roleName === null || roleName === undefined) {
+                throw new base_1.RequiredError('roleName', 'Required parameter roleName was null or undefined when calling getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet.');
+            }
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/roles/{role_name}/users`
+                .replace(`{${"role_name"}}`, encodeURIComponent(String(roleName)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
             }
             localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -40853,6 +41135,59 @@ exports.TeamsApiFp = function (configuration) {
     return {
         /**
          * Add a user to a team by user_id.
+         * @summary Add A Role To A Team.
+         * @param {string} teamId
+         * @param {RoleIn | Array<RoleIn>} roleInArrayRoleIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addARoleToATeamV1TeamsTeamIdRolesPost(teamId, roleInArrayRoleIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).addARoleToATeamV1TeamsTeamIdRolesPost(teamId, roleInArrayRoleIn, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Add a user to a team role.
+         * @summary Add A User To A Role.
+         * @param {string} userId
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Add a user to a team role.
+         * @summary Add A User To A Role.
+         * @param {string} userId
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut(userId, roleName, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut(userId, roleName, teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Add a user to a team by user_id.
          * @summary Add A User To A Team.
          * @param {string} userId
          * @param {string} teamId
@@ -41650,6 +41985,22 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Get roles on a team.
+         * @summary Get Existing Roles On A Team.
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getExistingRolesOnATeamV1TeamsTeamIdRolesGet(teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getExistingRolesOnATeamV1TeamsTeamIdRolesGet(teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Get feature.
          * @summary Get Feature
          * @param {string} teamId
@@ -41829,6 +42180,23 @@ exports.TeamsApiFp = function (configuration) {
         getUserV1TeamsTeamIdUsersUserIdGet(teamId, userId, includeAvatar, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getUserV1TeamsTeamIdUsersUserIdGet(teamId, userId, includeAvatar, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
+         * Get users with role.
+         * @summary Get Users Of A Role.
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet(roleName, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet(roleName, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -43462,6 +43830,41 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Add a user to a team by user_id.
+         * @summary Add A Role To A Team.
+         * @param {string} teamId
+         * @param {RoleIn | Array<RoleIn>} roleInArrayRoleIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addARoleToATeamV1TeamsTeamIdRolesPost(teamId, roleInArrayRoleIn, options) {
+            return exports.TeamsApiFp(configuration).addARoleToATeamV1TeamsTeamIdRolesPost(teamId, roleInArrayRoleIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a user to a team role.
+         * @summary Add A User To A Role.
+         * @param {string} userId
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options) {
+            return exports.TeamsApiFp(configuration).addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a user to a team role.
+         * @summary Add A User To A Role.
+         * @param {string} userId
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut(userId, roleName, teamId, options) {
+            return exports.TeamsApiFp(configuration).addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut(userId, roleName, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add a user to a team by user_id.
          * @summary Add A User To A Team.
          * @param {string} userId
          * @param {string} teamId
@@ -43983,6 +44386,16 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).getDatasetV1TeamsTeamIdDatasetsDatasetIdGet(teamId, datasetId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get roles on a team.
+         * @summary Get Existing Roles On A Team.
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getExistingRolesOnATeamV1TeamsTeamIdRolesGet(teamId, options) {
+            return exports.TeamsApiFp(configuration).getExistingRolesOnATeamV1TeamsTeamIdRolesGet(teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get feature.
          * @summary Get Feature
          * @param {string} teamId
@@ -44101,6 +44514,17 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          */
         getUserV1TeamsTeamIdUsersUserIdGet(teamId, userId, includeAvatar, options) {
             return exports.TeamsApiFp(configuration).getUserV1TeamsTeamIdUsersUserIdGet(teamId, userId, includeAvatar, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get users with role.
+         * @summary Get Users Of A Role.
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet(roleName, teamId, options) {
+            return exports.TeamsApiFp(configuration).getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet(roleName, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * List public profiles.
@@ -45322,6 +45746,39 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
 class TeamsApi extends base_1.BaseAPI {
     /**
      * Add a user to a team by user_id.
+     * @summary Add A Role To A Team.
+     * @param {TeamsApiAddARoleToATeamV1TeamsTeamIdRolesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    addARoleToATeamV1TeamsTeamIdRolesPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).addARoleToATeamV1TeamsTeamIdRolesPost(requestParameters.teamId, requestParameters.roleInArrayRoleIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add a user to a team role.
+     * @summary Add A User To A Role.
+     * @param {TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(requestParameters.userId, requestParameters.roleName, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add a user to a team role.
+     * @summary Add A User To A Role.
+     * @param {TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut(requestParameters.userId, requestParameters.roleName, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
      * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -45827,6 +46284,17 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).getDatasetV1TeamsTeamIdDatasetsDatasetIdGet(requestParameters.teamId, requestParameters.datasetId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Get roles on a team.
+     * @summary Get Existing Roles On A Team.
+     * @param {TeamsApiGetExistingRolesOnATeamV1TeamsTeamIdRolesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getExistingRolesOnATeamV1TeamsTeamIdRolesGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getExistingRolesOnATeamV1TeamsTeamIdRolesGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get feature.
      * @summary Get Feature
      * @param {TeamsApiGetFeatureV1TeamsTeamIdFeaturesFeatureIdGetRequest} requestParameters Request parameters.
@@ -45946,6 +46414,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     getUserV1TeamsTeamIdUsersUserIdGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).getUserV1TeamsTeamIdUsersUserIdGet(requestParameters.teamId, requestParameters.userId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get users with role.
+     * @summary Get Users Of A Role.
+     * @param {TeamsApiGetUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet(requestParameters.roleName, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List public profiles.

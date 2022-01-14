@@ -6268,6 +6268,38 @@ export declare enum RetrievalStatus {
     Failure = "failure"
 }
 /**
+ * Role input model.
+ * @export
+ * @interface RoleIn
+ */
+export interface RoleIn {
+    /**
+     * Role name
+     * @type {TeamRoles}
+     * @memberof RoleIn
+     */
+    role_name: TeamRoles;
+}
+/**
+ * Role input model.
+ * @export
+ * @interface RoleOut
+ */
+export interface RoleOut {
+    /**
+     * Role name
+     * @type {TeamRoles}
+     * @memberof RoleOut
+     */
+    role_name: TeamRoles;
+    /**
+     * Role id
+     * @type {string}
+     * @memberof RoleOut
+     */
+    role_id: string;
+}
+/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -7067,6 +7099,14 @@ export interface TeamOut {
      * @memberof TeamOut
      */
     _public?: boolean;
+}
+/**
+ * Roles available for a team.
+ * @export
+ * @enum {string}
+ */
+export declare enum TeamRoles {
+    Admin = "admin"
 }
 /**
  * Represent a test dataset.
@@ -32834,6 +32874,35 @@ export declare class SystemApi extends BaseAPI {
 export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Add a user to a team by user_id.
+     * @summary Add A Role To A Team.
+     * @param {string} teamId
+     * @param {RoleIn | Array<RoleIn>} roleInArrayRoleIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addARoleToATeamV1TeamsTeamIdRolesPost: (teamId: string, roleInArrayRoleIn: RoleIn | Array<RoleIn>, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add a user to a team role.
+     * @summary Add A User To A Role.
+     * @param {string} userId
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete: (userId: string, roleName: string, teamId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add a user to a team role.
+     * @summary Add A User To A Role.
+     * @param {string} userId
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut: (userId: string, roleName: string, teamId: string, options?: any) => Promise<RequestArgs>;
+    /**
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
      * @param {string} userId
      * @param {string} teamId
@@ -33263,6 +33332,14 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getDatasetV1TeamsTeamIdDatasetsDatasetIdGet: (teamId: string, datasetId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Get roles on a team.
+     * @summary Get Existing Roles On A Team.
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getExistingRolesOnATeamV1TeamsTeamIdRolesGet: (teamId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Get feature.
      * @summary Get Feature
      * @param {string} teamId
@@ -33360,6 +33437,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getUserV1TeamsTeamIdUsersUserIdGet: (teamId: string, userId: string, includeAvatar?: boolean, options?: any) => Promise<RequestArgs>;
+    /**
+     * Get users with role.
+     * @summary Get Users Of A Role.
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet: (roleName: string, teamId: string, options?: any) => Promise<RequestArgs>;
     /**
      * List public profiles.
      * @summary Get Users
@@ -34441,6 +34527,35 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
 export declare const TeamsApiFp: (configuration?: Configuration) => {
     /**
      * Add a user to a team by user_id.
+     * @summary Add A Role To A Team.
+     * @param {string} teamId
+     * @param {RoleIn | Array<RoleIn>} roleInArrayRoleIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addARoleToATeamV1TeamsTeamIdRolesPost(teamId: string, roleInArrayRoleIn: RoleIn | Array<RoleIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleOut>>>;
+    /**
+     * Add a user to a team role.
+     * @summary Add A User To A Role.
+     * @param {string} userId
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId: string, roleName: string, teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Add a user to a team role.
+     * @summary Add A User To A Role.
+     * @param {string} userId
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut(userId: string, roleName: string, teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
      * @param {string} userId
      * @param {string} teamId
@@ -34870,6 +34985,14 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     getDatasetV1TeamsTeamIdDatasetsDatasetIdGet(teamId: string, datasetId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
     /**
+     * Get roles on a team.
+     * @summary Get Existing Roles On A Team.
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getExistingRolesOnATeamV1TeamsTeamIdRolesGet(teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleOut>>>;
+    /**
      * Get feature.
      * @summary Get Feature
      * @param {string} teamId
@@ -34967,6 +35090,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getUserV1TeamsTeamIdUsersUserIdGet(teamId: string, userId: string, includeAvatar?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>>;
+    /**
+     * Get users with role.
+     * @summary Get Users Of A Role.
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet(roleName: string, teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>>;
     /**
      * List public profiles.
      * @summary Get Users
@@ -36048,6 +36180,35 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
 export declare const TeamsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Add a user to a team by user_id.
+     * @summary Add A Role To A Team.
+     * @param {string} teamId
+     * @param {RoleIn | Array<RoleIn>} roleInArrayRoleIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addARoleToATeamV1TeamsTeamIdRolesPost(teamId: string, roleInArrayRoleIn: RoleIn | Array<RoleIn>, options?: any): AxiosPromise<Array<RoleOut>>;
+    /**
+     * Add a user to a team role.
+     * @summary Add A User To A Role.
+     * @param {string} userId
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId: string, roleName: string, teamId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add a user to a team role.
+     * @summary Add A User To A Role.
+     * @param {string} userId
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut(userId: string, roleName: string, teamId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
      * @param {string} userId
      * @param {string} teamId
@@ -36477,6 +36638,14 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     getDatasetV1TeamsTeamIdDatasetsDatasetIdGet(teamId: string, datasetId: string, options?: any): AxiosPromise<DatasetOut>;
     /**
+     * Get roles on a team.
+     * @summary Get Existing Roles On A Team.
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getExistingRolesOnATeamV1TeamsTeamIdRolesGet(teamId: string, options?: any): AxiosPromise<Array<RoleOut>>;
+    /**
      * Get feature.
      * @summary Get Feature
      * @param {string} teamId
@@ -36574,6 +36743,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getUserV1TeamsTeamIdUsersUserIdGet(teamId: string, userId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPublicProfileOut>;
+    /**
+     * Get users with role.
+     * @summary Get Users Of A Role.
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet(roleName: string, teamId: string, options?: any): AxiosPromise<Array<string>>;
     /**
      * List public profiles.
      * @summary Get Users
@@ -37649,6 +37827,75 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
     updateMessageV1TeamsTeamIdMessagesMessageIdPatch(teamId: string, messageId: string, messageIn: MessageIn, options?: any): AxiosPromise<MessageOut>;
 };
 /**
+ * Request parameters for addARoleToATeamV1TeamsTeamIdRolesPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiAddARoleToATeamV1TeamsTeamIdRolesPostRequest
+ */
+export interface TeamsApiAddARoleToATeamV1TeamsTeamIdRolesPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddARoleToATeamV1TeamsTeamIdRolesPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {RoleIn | Array<RoleIn>}
+     * @memberof TeamsApiAddARoleToATeamV1TeamsTeamIdRolesPost
+     */
+    readonly roleInArrayRoleIn: RoleIn | Array<RoleIn>;
+}
+/**
+ * Request parameters for addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete operation in TeamsApi.
+ * @export
+ * @interface TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest
+ */
+export interface TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete
+     */
+    readonly userId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete
+     */
+    readonly roleName: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete
+     */
+    readonly teamId: string;
+}
+/**
+ * Request parameters for addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut operation in TeamsApi.
+ * @export
+ * @interface TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPutRequest
+ */
+export interface TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPutRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut
+     */
+    readonly userId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut
+     */
+    readonly roleName: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut
+     */
+    readonly teamId: string;
+}
+/**
  * Request parameters for addAUserToATeamV1TeamsTeamIdUsersUserIdPut operation in TeamsApi.
  * @export
  * @interface TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest
@@ -38619,6 +38866,19 @@ export interface TeamsApiGetDatasetV1TeamsTeamIdDatasetsDatasetIdGetRequest {
     readonly datasetId: string;
 }
 /**
+ * Request parameters for getExistingRolesOnATeamV1TeamsTeamIdRolesGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetExistingRolesOnATeamV1TeamsTeamIdRolesGetRequest
+ */
+export interface TeamsApiGetExistingRolesOnATeamV1TeamsTeamIdRolesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetExistingRolesOnATeamV1TeamsTeamIdRolesGet
+     */
+    readonly teamId: string;
+}
+/**
  * Request parameters for getFeatureV1TeamsTeamIdFeaturesFeatureIdGet operation in TeamsApi.
  * @export
  * @interface TeamsApiGetFeatureV1TeamsTeamIdFeaturesFeatureIdGetRequest
@@ -38820,6 +39080,25 @@ export interface TeamsApiGetUserV1TeamsTeamIdUsersUserIdGetRequest {
      * @memberof TeamsApiGetUserV1TeamsTeamIdUsersUserIdGet
      */
     readonly includeAvatar?: boolean;
+}
+/**
+ * Request parameters for getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGetRequest
+ */
+export interface TeamsApiGetUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet
+     */
+    readonly roleName: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet
+     */
+    readonly teamId: string;
 }
 /**
  * Request parameters for getUsersV1TeamsTeamIdUsersGet operation in TeamsApi.
@@ -42888,6 +43167,33 @@ export interface TeamsApiUpdateMessageV1TeamsTeamIdMessagesMessageIdPatchRequest
 export declare class TeamsApi extends BaseAPI {
     /**
      * Add a user to a team by user_id.
+     * @summary Add A Role To A Team.
+     * @param {TeamsApiAddARoleToATeamV1TeamsTeamIdRolesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    addARoleToATeamV1TeamsTeamIdRolesPost(requestParameters: TeamsApiAddARoleToATeamV1TeamsTeamIdRolesPostRequest, options?: any): Promise<import("axios").AxiosResponse<RoleOut[]>>;
+    /**
+     * Add a user to a team role.
+     * @summary Add A User To A Role.
+     * @param {TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(requestParameters: TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add a user to a team role.
+     * @summary Add A User To A Role.
+     * @param {TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPutRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut(requestParameters: TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPutRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add a user to a team by user_id.
      * @summary Add A User To A Team.
      * @param {TeamsApiAddAUserToATeamV1TeamsTeamIdUsersUserIdPutRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -43301,6 +43607,15 @@ export declare class TeamsApi extends BaseAPI {
      */
     getDatasetV1TeamsTeamIdDatasetsDatasetIdGet(requestParameters: TeamsApiGetDatasetV1TeamsTeamIdDatasetsDatasetIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<DatasetOut>>;
     /**
+     * Get roles on a team.
+     * @summary Get Existing Roles On A Team.
+     * @param {TeamsApiGetExistingRolesOnATeamV1TeamsTeamIdRolesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getExistingRolesOnATeamV1TeamsTeamIdRolesGet(requestParameters: TeamsApiGetExistingRolesOnATeamV1TeamsTeamIdRolesGetRequest, options?: any): Promise<import("axios").AxiosResponse<RoleOut[]>>;
+    /**
      * Get feature.
      * @summary Get Feature
      * @param {TeamsApiGetFeatureV1TeamsTeamIdFeaturesFeatureIdGetRequest} requestParameters Request parameters.
@@ -43399,6 +43714,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     getUserV1TeamsTeamIdUsersUserIdGet(requestParameters: TeamsApiGetUserV1TeamsTeamIdUsersUserIdGetRequest, options?: any): Promise<import("axios").AxiosResponse<UserPublicProfileOut>>;
+    /**
+     * Get users with role.
+     * @summary Get Users Of A Role.
+     * @param {TeamsApiGetUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGet(requestParameters: TeamsApiGetUsersOfARoleV1TeamsTeamIdRolesRoleNameUsersGetRequest, options?: any): Promise<import("axios").AxiosResponse<string[]>>;
     /**
      * List public profiles.
      * @summary Get Users
