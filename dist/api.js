@@ -32287,65 +32287,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete: (userId, roleName, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'userId' is not null or undefined
-            if (userId === null || userId === undefined) {
-                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete.');
-            }
-            // verify required parameter 'roleName' is not null or undefined
-            if (roleName === null || roleName === undefined) {
-                throw new base_1.RequiredError('roleName', 'Required parameter roleName was null or undefined when calling addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete.');
-            }
-            // verify required parameter 'teamId' is not null or undefined
-            if (teamId === null || teamId === undefined) {
-                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete.');
-            }
-            const localVarPath = `/v1/teams/{team_id}/roles/{role_name}/users/{user_id}`
-                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)))
-                .replace(`{${"role_name"}}`, encodeURIComponent(String(roleName)))
-                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
-            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication APIKeyHeader required
-            if (configuration && configuration.apiKey) {
-                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? yield configuration.apiKey("x-api-key")
-                    : yield configuration.apiKey;
-                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
-            }
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            if (configuration && configuration.accessToken) {
-                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
-                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
-                    : configuration.accessToken;
-                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
-            }
-            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            return {
-                url: globalImportUrl.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
-         * Add a user to a team role.
-         * @summary Add A User To A Role.
-         * @param {string} userId
-         * @param {string} roleName
-         * @param {string} teamId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
         addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut: (userId, roleName, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'userId' is not null or undefined
             if (userId === null || userId === undefined) {
@@ -40587,6 +40528,65 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Remove role from user.
+         * @summary Remove Role From User
+         * @param {string} userId
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete: (userId, roleName, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'userId' is not null or undefined
+            if (userId === null || userId === undefined) {
+                throw new base_1.RequiredError('userId', 'Required parameter userId was null or undefined when calling removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete.');
+            }
+            // verify required parameter 'roleName' is not null or undefined
+            if (roleName === null || roleName === undefined) {
+                throw new base_1.RequiredError('roleName', 'Required parameter roleName was null or undefined when calling removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete.');
+            }
+            // verify required parameter 'teamId' is not null or undefined
+            if (teamId === null || teamId === undefined) {
+                throw new base_1.RequiredError('teamId', 'Required parameter teamId was null or undefined when calling removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete.');
+            }
+            const localVarPath = `/v1/teams/{team_id}/roles/{role_name}/users/{user_id}`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)))
+                .replace(`{${"role_name"}}`, encodeURIComponent(String(roleName)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            const localVarUrlObj = globalImportUrl.parse(localVarPath, true);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? yield configuration.apiKey("x-api-key")
+                    : yield configuration.apiKey;
+                localVarHeaderParameter["x-api-key"] = localVarApiKeyValue;
+            }
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            if (configuration && configuration.accessToken) {
+                const localVarAccessTokenValue = typeof configuration.accessToken === 'function'
+                    ? configuration.accessToken("OAuth2AuthorizationCodeBearer", [])
+                    : configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + localVarAccessTokenValue;
+            }
+            localVarUrlObj.query = Object.assign(Object.assign(Object.assign({}, localVarUrlObj.query), localVarQueryParameter), options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: globalImportUrl.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Replace a Dataset.
          * @summary Replace Dataset
          * @param {string} teamId
@@ -41144,24 +41144,6 @@ exports.TeamsApiFp = function (configuration) {
         addARoleToATeamV1TeamsTeamIdRolesPost(teamId, roleInArrayRoleIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).addARoleToATeamV1TeamsTeamIdRolesPost(teamId, roleInArrayRoleIn, options);
-                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
-                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
-                    return axios.request(axiosRequestArgs);
-                };
-            });
-        },
-        /**
-         * Add a user to a team role.
-         * @summary Add A User To A Role.
-         * @param {string} userId
-         * @param {string} roleName
-         * @param {string} teamId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options);
                 return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
                     const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
                     return axios.request(axiosRequestArgs);
@@ -43660,6 +43642,24 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Remove role from user.
+         * @summary Remove Role From User
+         * @param {string} userId
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield exports.TeamsApiAxiosParamCreator(configuration).removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options);
+                return (axios = axios_1.default, basePath = base_1.BASE_PATH) => {
+                    const axiosRequestArgs = Object.assign(Object.assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                    return axios.request(axiosRequestArgs);
+                };
+            });
+        },
+        /**
          * Replace a Dataset.
          * @summary Replace Dataset
          * @param {string} teamId
@@ -43838,18 +43838,6 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          */
         addARoleToATeamV1TeamsTeamIdRolesPost(teamId, roleInArrayRoleIn, options) {
             return exports.TeamsApiFp(configuration).addARoleToATeamV1TeamsTeamIdRolesPost(teamId, roleInArrayRoleIn, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Add a user to a team role.
-         * @summary Add A User To A Role.
-         * @param {string} userId
-         * @param {string} roleName
-         * @param {string} teamId
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options) {
-            return exports.TeamsApiFp(configuration).addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a user to a team role.
@@ -45629,6 +45617,18 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return exports.TeamsApiFp(configuration).removePopulationAttributeValueFromDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(teamId, datasetId, populationAttributeValueId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Remove role from user.
+         * @summary Remove Role From User
+         * @param {string} userId
+         * @param {string} roleName
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options) {
+            return exports.TeamsApiFp(configuration).removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId, roleName, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Replace a Dataset.
          * @summary Replace Dataset
          * @param {string} teamId
@@ -45754,17 +45754,6 @@ class TeamsApi extends base_1.BaseAPI {
      */
     addARoleToATeamV1TeamsTeamIdRolesPost(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).addARoleToATeamV1TeamsTeamIdRolesPost(requestParameters.teamId, requestParameters.roleInArrayRoleIn, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     * Add a user to a team role.
-     * @summary Add A User To A Role.
-     * @param {TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(requestParameters.userId, requestParameters.roleName, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add a user to a team role.
@@ -47074,6 +47063,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     removePopulationAttributeValueFromDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).removePopulationAttributeValueFromDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters.teamId, requestParameters.datasetId, requestParameters.populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Remove role from user.
+     * @summary Remove Role From User
+     * @param {TeamsApiRemoveRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(requestParameters.userId, requestParameters.roleName, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Replace a Dataset.

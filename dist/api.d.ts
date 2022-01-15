@@ -32890,16 +32890,6 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete: (userId: string, roleName: string, teamId: string, options?: any) => Promise<RequestArgs>;
-    /**
-     * Add a user to a team role.
-     * @summary Add A User To A Role.
-     * @param {string} userId
-     * @param {string} roleName
-     * @param {string} teamId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
     addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut: (userId: string, roleName: string, teamId: string, options?: any) => Promise<RequestArgs>;
     /**
      * Add a user to a team by user_id.
@@ -34431,6 +34421,16 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     removePopulationAttributeValueFromDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (teamId: string, datasetId: string, populationAttributeValueId: string, options?: any) => Promise<RequestArgs>;
     /**
+     * Remove role from user.
+     * @summary Remove Role From User
+     * @param {string} userId
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete: (userId: string, roleName: string, teamId: string, options?: any) => Promise<RequestArgs>;
+    /**
      * Replace a Dataset.
      * @summary Replace Dataset
      * @param {string} teamId
@@ -34534,16 +34534,6 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     addARoleToATeamV1TeamsTeamIdRolesPost(teamId: string, roleInArrayRoleIn: RoleIn | Array<RoleIn>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleOut>>>;
-    /**
-     * Add a user to a team role.
-     * @summary Add A User To A Role.
-     * @param {string} userId
-     * @param {string} roleName
-     * @param {string} teamId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId: string, roleName: string, teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a user to a team role.
      * @summary Add A User To A Role.
@@ -36084,6 +36074,16 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     removePopulationAttributeValueFromDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(teamId: string, datasetId: string, populationAttributeValueId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Remove role from user.
+     * @summary Remove Role From User
+     * @param {string} userId
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId: string, roleName: string, teamId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Replace a Dataset.
      * @summary Replace Dataset
      * @param {string} teamId
@@ -36187,16 +36187,6 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     addARoleToATeamV1TeamsTeamIdRolesPost(teamId: string, roleInArrayRoleIn: RoleIn | Array<RoleIn>, options?: any): AxiosPromise<Array<RoleOut>>;
-    /**
-     * Add a user to a team role.
-     * @summary Add A User To A Role.
-     * @param {string} userId
-     * @param {string} roleName
-     * @param {string} teamId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId: string, roleName: string, teamId: string, options?: any): AxiosPromise<void>;
     /**
      * Add a user to a team role.
      * @summary Add A User To A Role.
@@ -37737,6 +37727,16 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     removePopulationAttributeValueFromDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(teamId: string, datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
     /**
+     * Remove role from user.
+     * @summary Remove Role From User
+     * @param {string} userId
+     * @param {string} roleName
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(userId: string, roleName: string, teamId: string, options?: any): AxiosPromise<void>;
+    /**
      * Replace a Dataset.
      * @summary Replace Dataset
      * @param {string} teamId
@@ -37844,31 +37844,6 @@ export interface TeamsApiAddARoleToATeamV1TeamsTeamIdRolesPostRequest {
      * @memberof TeamsApiAddARoleToATeamV1TeamsTeamIdRolesPost
      */
     readonly roleInArrayRoleIn: RoleIn | Array<RoleIn>;
-}
-/**
- * Request parameters for addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete operation in TeamsApi.
- * @export
- * @interface TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest
- */
-export interface TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete
-     */
-    readonly userId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete
-     */
-    readonly roleName: string;
-    /**
-     *
-     * @type {string}
-     * @memberof TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete
-     */
-    readonly teamId: string;
 }
 /**
  * Request parameters for addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdPut operation in TeamsApi.
@@ -42940,6 +42915,31 @@ export interface TeamsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamIdD
     readonly populationAttributeValueId: string;
 }
 /**
+ * Request parameters for removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete operation in TeamsApi.
+ * @export
+ * @interface TeamsApiRemoveRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest
+ */
+export interface TeamsApiRemoveRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiRemoveRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete
+     */
+    readonly userId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiRemoveRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete
+     */
+    readonly roleName: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiRemoveRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete
+     */
+    readonly teamId: string;
+}
+/**
  * Request parameters for replaceDatasetV1TeamsTeamIdDatasetsDatasetIdPut operation in TeamsApi.
  * @export
  * @interface TeamsApiReplaceDatasetV1TeamsTeamIdDatasetsDatasetIdPutRequest
@@ -43174,15 +43174,6 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     addARoleToATeamV1TeamsTeamIdRolesPost(requestParameters: TeamsApiAddARoleToATeamV1TeamsTeamIdRolesPostRequest, options?: any): Promise<import("axios").AxiosResponse<RoleOut[]>>;
-    /**
-     * Add a user to a team role.
-     * @summary Add A User To A Role.
-     * @param {TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TeamsApi
-     */
-    addAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(requestParameters: TeamsApiAddAUserToARoleV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Add a user to a team role.
      * @summary Add A User To A Role.
@@ -44254,6 +44245,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     removePopulationAttributeValueFromDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters: TeamsApiRemovePopulationAttributeValueFromDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Remove role from user.
+     * @summary Remove Role From User
+     * @param {TeamsApiRemoveRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    removeRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDelete(requestParameters: TeamsApiRemoveRoleFromUserV1TeamsTeamIdRolesRoleNameUsersUserIdDeleteRequest, options?: any): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Replace a Dataset.
      * @summary Replace Dataset
