@@ -7052,7 +7052,7 @@ export interface TeamOut {
      */
     last_updated_at?: string;
     /**
-     * The actions the requesting user is allowed to perform on this resource.
+     *
      * @type {Array<ResourceAction>}
      * @memberof TeamOut
      */
