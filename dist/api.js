@@ -218,6 +218,10 @@ var FeatureContributionMethod;
     FeatureContributionMethod["PearsonChiSquaredTest"] = "pearson_chi_squared_test";
     FeatureContributionMethod["Forecast"] = "forecast";
     FeatureContributionMethod["PercentChangeDifference"] = "percent_change_difference";
+    FeatureContributionMethod["AdjustedOddsRatio"] = "adjusted_odds_ratio";
+    FeatureContributionMethod["AdjustedHazardRatio"] = "adjusted_hazard_ratio";
+    FeatureContributionMethod["RiskDifference"] = "risk_difference";
+    FeatureContributionMethod["IncidentRateRatio"] = "incident_rate_ratio";
     FeatureContributionMethod["Invalid"] = "invalid";
 })(FeatureContributionMethod = exports.FeatureContributionMethod || (exports.FeatureContributionMethod = {}));
 /**
@@ -683,6 +687,10 @@ var ValidFeatureContributionMethod;
     ValidFeatureContributionMethod["PearsonChiSquaredTest"] = "pearson_chi_squared_test";
     ValidFeatureContributionMethod["Forecast"] = "forecast";
     ValidFeatureContributionMethod["PercentChangeDifference"] = "percent_change_difference";
+    ValidFeatureContributionMethod["AdjustedOddsRatio"] = "adjusted_odds_ratio";
+    ValidFeatureContributionMethod["AdjustedHazardRatio"] = "adjusted_hazard_ratio";
+    ValidFeatureContributionMethod["RiskDifference"] = "risk_difference";
+    ValidFeatureContributionMethod["IncidentRateRatio"] = "incident_rate_ratio";
 })(ValidFeatureContributionMethod = exports.ValidFeatureContributionMethod || (exports.ValidFeatureContributionMethod = {}));
 /**
  * An enumeration.
