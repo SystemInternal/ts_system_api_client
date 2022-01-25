@@ -12753,6 +12753,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * List Concepts.
      * @summary List Concepts
      * @param {string} [teamId]
+     * @param {number} [minRelationshipStrength] Min strength
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -12767,11 +12768,12 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listConceptsV1ConceptsGet: (teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List Concepts.
      * @summary List Concepts
      * @param {string} teamId
+     * @param {number} [minRelationshipStrength] Min strength
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -12786,7 +12788,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1TeamsTeamIdConceptsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listConceptsV1TeamsTeamIdConceptsGet: (teamId: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -12969,6 +12971,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * List Concepts.
      * @summary List Concepts
      * @param {string} [teamId]
+     * @param {number} [minRelationshipStrength] Min strength
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -12983,11 +12986,12 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listConceptsV1ConceptsGet(teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List Concepts.
      * @summary List Concepts
      * @param {string} teamId
+     * @param {number} [minRelationshipStrength] Min strength
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -13002,7 +13006,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -13185,6 +13189,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * List Concepts.
      * @summary List Concepts
      * @param {string} [teamId]
+     * @param {number} [minRelationshipStrength] Min strength
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -13199,11 +13204,12 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listConceptsV1ConceptsGet(teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List Concepts.
      * @summary List Concepts
      * @param {string} teamId
+     * @param {number} [minRelationshipStrength] Min strength
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -13218,7 +13224,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * Get the concepts in the requested concept\'s system.
      * @summary List System Of Concepts
@@ -13570,6 +13576,12 @@ export interface ConceptsApiListConceptsV1ConceptsGetRequest {
      */
     readonly teamId?: string;
     /**
+     * Min strength
+     * @type {number}
+     * @memberof ConceptsApiListConceptsV1ConceptsGet
+     */
+    readonly minRelationshipStrength?: number;
+    /**
      * Search query.
      * @type {string}
      * @memberof ConceptsApiListConceptsV1ConceptsGet
@@ -13648,6 +13660,12 @@ export interface ConceptsApiListConceptsV1TeamsTeamIdConceptsGetRequest {
      * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
      */
     readonly teamId: string;
+    /**
+     * Min strength
+     * @type {number}
+     * @memberof ConceptsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly minRelationshipStrength?: number;
     /**
      * Search query.
      * @type {string}
@@ -34307,6 +34325,7 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * List Concepts.
      * @summary List Concepts
      * @param {string} teamId
+     * @param {number} [minRelationshipStrength] Min strength
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -34321,7 +34340,7 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1TeamsTeamIdConceptsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listConceptsV1TeamsTeamIdConceptsGet: (teamId: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
@@ -35960,6 +35979,7 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * List Concepts.
      * @summary List Concepts
      * @param {string} teamId
+     * @param {number} [minRelationshipStrength] Min strength
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -35974,7 +35994,7 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
@@ -37613,6 +37633,7 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * List Concepts.
      * @summary List Concepts
      * @param {string} teamId
+     * @param {number} [minRelationshipStrength] Min strength
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -37627,7 +37648,7 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
+    listConceptsV1TeamsTeamIdConceptsGet(teamId: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dashboard Features
@@ -40909,6 +40930,12 @@ export interface TeamsApiListConceptsV1TeamsTeamIdConceptsGetRequest {
      * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
      */
     readonly teamId: string;
+    /**
+     * Min strength
+     * @type {number}
+     * @memberof TeamsApiListConceptsV1TeamsTeamIdConceptsGet
+     */
+    readonly minRelationshipStrength?: number;
     /**
      * Search query.
      * @type {string}

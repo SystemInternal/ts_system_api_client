@@ -6061,6 +6061,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * List Concepts.
          * @summary List Concepts
          * @param {string} [teamId]
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -6075,7 +6076,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listConceptsV1ConceptsGet: (teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/concepts`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -6093,6 +6094,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
+            }
+            if (minRelationshipStrength !== undefined) {
+                localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
             }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -6139,6 +6143,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * List Concepts.
          * @summary List Concepts
          * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -6153,7 +6158,7 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1TeamsTeamIdConceptsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listConceptsV1TeamsTeamIdConceptsGet: (teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('listConceptsV1TeamsTeamIdConceptsGet', 'teamId', teamId);
             const localVarPath = `/v1/teams/{team_id}/concepts`
@@ -6172,6 +6177,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (minRelationshipStrength !== undefined) {
+                localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -6695,6 +6703,7 @@ exports.ConceptsApiFp = function (configuration) {
          * List Concepts.
          * @summary List Concepts
          * @param {string} [teamId]
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -6709,9 +6718,9 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+        listConceptsV1ConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listConceptsV1ConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listConceptsV1ConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -6719,6 +6728,7 @@ exports.ConceptsApiFp = function (configuration) {
          * List Concepts.
          * @summary List Concepts
          * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -6733,9 +6743,9 @@ exports.ConceptsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+        listConceptsV1TeamsTeamIdConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listConceptsV1TeamsTeamIdConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -6960,6 +6970,7 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * List Concepts.
          * @summary List Concepts
          * @param {string} [teamId]
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -6974,13 +6985,14 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
-            return localVarFp.listConceptsV1ConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        listConceptsV1ConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+            return localVarFp.listConceptsV1ConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List Concepts.
          * @summary List Concepts
          * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -6995,8 +7007,8 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
-            return localVarFp.listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        listConceptsV1TeamsTeamIdConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+            return localVarFp.listConceptsV1TeamsTeamIdConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the concepts in the requested concept\'s system.
@@ -7195,7 +7207,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     listConceptsV1ConceptsGet(requestParameters = {}, options) {
-        return exports.ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Concepts.
@@ -7206,7 +7218,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     listConceptsV1TeamsTeamIdConceptsGet(requestParameters, options) {
-        return exports.ConceptsApiFp(this.configuration).listConceptsV1TeamsTeamIdConceptsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).listConceptsV1TeamsTeamIdConceptsGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the concepts in the requested concept\'s system.
@@ -31622,6 +31634,7 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * List Concepts.
          * @summary List Concepts
          * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -31636,7 +31649,7 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1TeamsTeamIdConceptsGet: (teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listConceptsV1TeamsTeamIdConceptsGet: (teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('listConceptsV1TeamsTeamIdConceptsGet', 'teamId', teamId);
             const localVarPath = `/v1/teams/{team_id}/concepts`
@@ -31655,6 +31668,9 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (minRelationshipStrength !== undefined) {
+                localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -36107,6 +36123,7 @@ exports.TeamsApiFp = function (configuration) {
          * List Concepts.
          * @summary List Concepts
          * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -36121,9 +36138,9 @@ exports.TeamsApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+        listConceptsV1TeamsTeamIdConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listConceptsV1TeamsTeamIdConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -38179,6 +38196,7 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * List Concepts.
          * @summary List Concepts
          * @param {string} teamId
+         * @param {number} [minRelationshipStrength] Min strength
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -38193,8 +38211,8 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
-            return localVarFp.listConceptsV1TeamsTeamIdConceptsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
+        listConceptsV1TeamsTeamIdConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options) {
+            return localVarFp.listConceptsV1TeamsTeamIdConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
@@ -39928,7 +39946,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     listConceptsV1TeamsTeamIdConceptsGet(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).listConceptsV1TeamsTeamIdConceptsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).listConceptsV1TeamsTeamIdConceptsGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a datasets features.
