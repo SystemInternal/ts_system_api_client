@@ -8323,10 +8323,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @summary Delete Association
      * @param {string} modelId
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId: string, associationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId: string, associationId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -8342,10 +8343,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @summary Delete Associations
      * @param {string} modelId
      * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
@@ -8361,10 +8363,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @summary Delete Interaction Associations
      * @param {string} datasetId
      * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
@@ -8380,10 +8383,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @summary Get Association
      * @param {string} associationId
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssociationV1ModelsModelIdAssociationsAssociationIdGet: (associationId: string, modelId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAssociationV1ModelsModelIdAssociationsAssociationIdGet: (associationId: string, modelId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -8398,10 +8402,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipDirectionV1AssociationsAssociationIdDirectionGet: (associationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getRelationshipDirectionV1AssociationsAssociationIdDirectionGet: (associationId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get direction of this association.
      * @summary Get Relationship Direction
@@ -8415,10 +8420,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * Get reproducibility of this association.
      * @summary Get Relationship Reproducibility
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet: (associationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet: (associationId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get reproducibility of this association.
      * @summary Get Relationship Reproducibility
@@ -8432,10 +8438,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * Get strength of this association.
      * @summary Get Relationship Strength
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipStrengthV1AssociationsAssociationIdStrengthGet: (associationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getRelationshipStrengthV1AssociationsAssociationIdStrengthGet: (associationId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get strength of this association.
      * @summary Get Relationship Strength
@@ -8514,6 +8521,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8526,15 +8534,15 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8547,15 +8555,15 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8568,11 +8576,10 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List Associations.
      * @summary List Associations
@@ -8684,6 +8691,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8696,20 +8704,20 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
      * @param {string} modelId
      * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -8726,10 +8734,11 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {string} associationId
      * @param {string} modelId
      * @param {DirectionIn} directionIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId: string, modelId: string, directionIn: DirectionIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get an Association.
      * @summary Post Association Direction
@@ -8794,10 +8803,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @summary Delete Association
      * @param {string} modelId
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -8813,10 +8823,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @summary Delete Associations
      * @param {string} modelId
      * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
@@ -8832,10 +8843,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @summary Delete Interaction Associations
      * @param {string} datasetId
      * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
@@ -8851,10 +8863,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @summary Get Association
      * @param {string} associationId
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -8869,10 +8882,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipDirection>>;
+    getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipDirection>>;
     /**
      * Get direction of this association.
      * @summary Get Relationship Direction
@@ -8886,10 +8900,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * Get reproducibility of this association.
      * @summary Get Relationship Reproducibility
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipReproducibility>>;
+    getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipReproducibility>>;
     /**
      * Get reproducibility of this association.
      * @summary Get Relationship Reproducibility
@@ -8903,10 +8918,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * Get strength of this association.
      * @summary Get Relationship Strength
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipStrength>>;
+    getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipStrength>>;
     /**
      * Get strength of this association.
      * @summary Get Relationship Strength
@@ -8985,6 +9001,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -8997,15 +9014,15 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -9018,15 +9035,15 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -9039,11 +9056,10 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List Associations.
      * @summary List Associations
@@ -9155,6 +9171,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -9167,20 +9184,20 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
      * @param {string} modelId
      * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -9197,10 +9214,11 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {string} associationId
      * @param {string} modelId
      * @param {DirectionIn} directionIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
     /**
      * Get an Association.
      * @summary Post Association Direction
@@ -9265,10 +9283,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @summary Delete Association
      * @param {string} modelId
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): AxiosPromise<void>;
+    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -9284,10 +9303,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @summary Delete Associations
      * @param {string} modelId
      * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): AxiosPromise<void>;
+    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
@@ -9303,10 +9323,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @summary Delete Interaction Associations
      * @param {string} datasetId
      * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
@@ -9322,10 +9343,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @summary Get Association
      * @param {string} associationId
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut>;
+    getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, teamId?: string, options?: any): AxiosPromise<AssociationOut>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -9340,10 +9362,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * Get direction of this association.
      * @summary Get Relationship Direction
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId: string, options?: any): AxiosPromise<RelationshipDirection>;
+    getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId: string, teamId?: string, options?: any): AxiosPromise<RelationshipDirection>;
     /**
      * Get direction of this association.
      * @summary Get Relationship Direction
@@ -9357,10 +9380,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * Get reproducibility of this association.
      * @summary Get Relationship Reproducibility
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId: string, options?: any): AxiosPromise<RelationshipReproducibility>;
+    getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId: string, teamId?: string, options?: any): AxiosPromise<RelationshipReproducibility>;
     /**
      * Get reproducibility of this association.
      * @summary Get Relationship Reproducibility
@@ -9374,10 +9398,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * Get strength of this association.
      * @summary Get Relationship Strength
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId: string, options?: any): AxiosPromise<RelationshipStrength>;
+    getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId: string, teamId?: string, options?: any): AxiosPromise<RelationshipStrength>;
     /**
      * Get strength of this association.
      * @summary Get Relationship Strength
@@ -9456,6 +9481,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -9468,15 +9494,15 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -9489,15 +9515,15 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -9510,11 +9536,10 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List Associations.
      * @summary List Associations
@@ -9626,6 +9651,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -9638,20 +9664,20 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
      * @param {string} modelId
      * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void>;
+    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -9668,10 +9694,11 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @param {string} associationId
      * @param {string} modelId
      * @param {DirectionIn} directionIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, options?: any): AxiosPromise<AssociationOut>;
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: any): AxiosPromise<AssociationOut>;
     /**
      * Get an Association.
      * @summary Post Association Direction
@@ -9814,6 +9841,12 @@ export interface AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAsso
      * @memberof AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
      */
     readonly associationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deleteAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDelete operation in AssociationsApi.
@@ -9858,6 +9891,12 @@ export interface AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDel
      * @memberof AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
      */
     readonly bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deleteAssociationsV1TeamsTeamIdModelsModelIdAssociationsDelete operation in AssociationsApi.
@@ -9902,6 +9941,12 @@ export interface AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetId
      * @memberof AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
      */
     readonly bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete operation in AssociationsApi.
@@ -9946,6 +9991,12 @@ export interface AssociationsApiGetAssociationV1ModelsModelIdAssociationsAssocia
      * @memberof AssociationsApiGetAssociationV1ModelsModelIdAssociationsAssociationIdGet
      */
     readonly modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiGetAssociationV1ModelsModelIdAssociationsAssociationIdGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdGet operation in AssociationsApi.
@@ -9984,6 +10035,12 @@ export interface AssociationsApiGetRelationshipDirectionV1AssociationsAssociatio
      * @memberof AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGet
      */
     readonly associationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiGetRelationshipDirectionV1AssociationsAssociationIdDirectionGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getRelationshipDirectionV1TeamsTeamIdAssociationsAssociationIdDirectionGet operation in AssociationsApi.
@@ -10016,6 +10073,12 @@ export interface AssociationsApiGetRelationshipReproducibilityV1AssociationsAsso
      * @memberof AssociationsApiGetRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet
      */
     readonly associationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiGetRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getRelationshipReproducibilityV1TeamsTeamIdAssociationsAssociationIdReproducibilityGet operation in AssociationsApi.
@@ -10048,6 +10111,12 @@ export interface AssociationsApiGetRelationshipStrengthV1AssociationsAssociation
      * @memberof AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGet
      */
     readonly associationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet operation in AssociationsApi.
@@ -10366,6 +10435,12 @@ export interface AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsG
      */
     readonly datasetId: string;
     /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
@@ -10437,12 +10512,6 @@ export interface AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsG
      * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1ModelsModelIdAssociationsGet operation in AssociationsApi.
@@ -10457,6 +10526,12 @@ export interface AssociationsApiListAssociationsV1ModelsModelIdAssociationsGetRe
      */
     readonly modelId: string;
     /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
@@ -10528,12 +10603,6 @@ export interface AssociationsApiListAssociationsV1ModelsModelIdAssociationsGetRe
      * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1ModelsModelIdAssociationsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1StudiesStudyIdAssociationsGet operation in AssociationsApi.
@@ -10548,6 +10617,12 @@ export interface AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGetR
      */
     readonly studyId: string;
     /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGet
@@ -10619,12 +10694,6 @@ export interface AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGetR
      * @memberof AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1StudiesStudyIdAssociationsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1TeamsTeamIdAssociationsGet operation in AssociationsApi.
@@ -11106,6 +11175,12 @@ export interface AssociationsApiListAssociationsV1VariablesVariableIdAssociation
      */
     readonly variableId: string;
     /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
@@ -11177,12 +11252,6 @@ export interface AssociationsApiListAssociationsV1VariablesVariableIdAssociation
      * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for patchAssociationsV1ModelsModelIdAssociationsPatch operation in AssociationsApi.
@@ -11202,6 +11271,12 @@ export interface AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatc
      * @memberof AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatch
      */
     readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatch
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch operation in AssociationsApi.
@@ -11252,6 +11327,12 @@ export interface AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociati
      * @memberof AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
      */
     readonly directionIn: DirectionIn;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost operation in AssociationsApi.
@@ -11608,10 +11689,11 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      * @summary Add Author To Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Add an author to a study.
      * @summary Add Author To Study
@@ -11733,10 +11815,11 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      * @summary Remove Author From Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -11758,10 +11841,11 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      * @summary Add Author To Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add an author to a study.
      * @summary Add Author To Study
@@ -11883,10 +11967,11 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      * @summary Remove Author From Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -11908,10 +11993,11 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @summary Add Author To Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Add an author to a study.
      * @summary Add Author To Study
@@ -12033,10 +12119,11 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @summary Remove Author From Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -12066,6 +12153,12 @@ export interface AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutReq
      * @memberof AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
      */
     readonly authorId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut operation in AuthorsApi.
@@ -12396,6 +12489,12 @@ export interface AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdD
      * @memberof AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
      */
     readonly authorId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for removeAuthorFromStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdDelete operation in AuthorsApi.
@@ -14118,10 +14217,11 @@ export declare const DashboardsApiAxiosParamCreator: (configuration?: Configurat
      * @summary Add Feature To Dashboard Endpoint
      * @param {string} dashboardId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId: string, featureId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dashboard Endpoint
@@ -14283,6 +14383,7 @@ export declare const DashboardsApiAxiosParamCreator: (configuration?: Configurat
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -14293,11 +14394,10 @@ export declare const DashboardsApiAxiosParamCreator: (configuration?: Configurat
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listDashboardsV1VariablesVariableIdDashboardsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * DashboardsApi - functional programming interface
@@ -14309,10 +14409,11 @@ export declare const DashboardsApiFp: (configuration?: Configuration) => {
      * @summary Add Feature To Dashboard Endpoint
      * @param {string} dashboardId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dashboard Endpoint
@@ -14474,6 +14575,7 @@ export declare const DashboardsApiFp: (configuration?: Configuration) => {
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -14484,11 +14586,10 @@ export declare const DashboardsApiFp: (configuration?: Configuration) => {
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
 };
 /**
  * DashboardsApi - factory interface
@@ -14500,10 +14601,11 @@ export declare const DashboardsApiFactory: (configuration?: Configuration, baseP
      * @summary Add Feature To Dashboard Endpoint
      * @param {string} dashboardId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, options?: any): AxiosPromise<void>;
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dashboard Endpoint
@@ -14665,6 +14767,7 @@ export declare const DashboardsApiFactory: (configuration?: Configuration, baseP
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -14675,11 +14778,10 @@ export declare const DashboardsApiFactory: (configuration?: Configuration, baseP
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
 };
 /**
  * Request parameters for addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut operation in DashboardsApi.
@@ -14699,6 +14801,12 @@ export interface DashboardsApiAddFeatureToDashboardEndpointV1DashboardsDashboard
      * @memberof DashboardsApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut
      */
     readonly featureId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut operation in DashboardsApi.
@@ -15235,6 +15343,12 @@ export interface DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGetRe
      */
     readonly variableId: string;
     /**
+     *
+     * @type {string}
+     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
@@ -15294,12 +15408,6 @@ export interface DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGetRe
      * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
      */
     readonly sortBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DashboardsApiListDashboardsV1VariablesVariableIdDashboardsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * DashboardsApi - object-oriented interface
@@ -15446,10 +15554,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} datasetId
      * @param {string} featureId
      * @param {boolean} [index] If true, then set the feature as the dataset index.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId: string, featureId: string, index?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
@@ -15467,10 +15576,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} datasetId
      * @param {string} parentId
      * @param {boolean} [reconcileFeatures]
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: (datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: (datasetId: string, parentId: string, reconcileFeatures?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Add a parent dataset.
      * @summary Add Parent Dataset
@@ -15487,10 +15597,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Add Population Attribute Value To Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (datasetId: string, populationAttributeValueId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (datasetId: string, populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -15563,10 +15674,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteDatasetV1DatasetsDatasetIdDelete: (datasetId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteDatasetV1DatasetsDatasetIdDelete: (datasetId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -15581,10 +15693,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Delete Interaction Associations
      * @param {string} datasetId
      * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
@@ -15599,10 +15712,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: (datasetId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: (datasetId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
@@ -15616,10 +15730,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * Get a Dataset.
      * @summary Get Dataset
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDatasetV1DatasetsDatasetIdGet: (datasetId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getDatasetV1DatasetsDatasetIdGet: (datasetId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Dataset.
      * @summary Get Dataset
@@ -15633,6 +15748,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15645,11 +15761,10 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -15715,6 +15830,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15726,11 +15842,10 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -15755,6 +15870,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * Get parents of this dataset.
      * @summary List Dataset Parents
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15767,11 +15883,10 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
@@ -15841,6 +15956,7 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -15852,11 +15968,10 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -15924,10 +16039,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Patch Dataset
      * @param {string} datasetId
      * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchDatasetV1DatasetsDatasetIdPatch: (datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    patchDatasetV1DatasetsDatasetIdPatch: (datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -15943,10 +16059,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Remove Feature From Dataset
      * @param {string} datasetId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId: string, featureId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
@@ -15962,10 +16079,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Remove Object Tag From Dataset
      * @param {string} datasetId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete: (datasetId: string, tagObjectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete: (datasetId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Tag the dataset with object with provided id.
      * @summary Remove Object Tag From Dataset
@@ -15981,10 +16099,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Remove Parent Dataset
      * @param {string} datasetId
      * @param {string} parentId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete: (datasetId: string, parentId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete: (datasetId: string, parentId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Remove a parent dataset.
      * @summary Remove Parent Dataset
@@ -16000,10 +16119,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Remove Population Attribute Value From Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (datasetId: string, populationAttributeValueId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (datasetId: string, populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -16019,10 +16139,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Replace Dataset
      * @param {string} datasetId
      * @param {DatasetIn} datasetIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    replaceDatasetV1DatasetsDatasetIdPut: (datasetId: string, datasetIn: DatasetIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    replaceDatasetV1DatasetsDatasetIdPut: (datasetId: string, datasetIn: DatasetIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Replace a Dataset.
      * @summary Replace Dataset
@@ -16038,10 +16159,11 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Tag Study With Object
      * @param {string} datasetId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut: (datasetId: string, tagObjectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut: (datasetId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Tag the dataset with object with provided id.
      * @summary Tag Study With Object
@@ -16064,10 +16186,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {string} datasetId
      * @param {string} featureId
      * @param {boolean} [index] If true, then set the feature as the dataset index.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
@@ -16085,10 +16208,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {string} datasetId
      * @param {string} parentId
      * @param {boolean} [reconcileFeatures]
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a parent dataset.
      * @summary Add Parent Dataset
@@ -16105,10 +16229,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary Add Population Attribute Value To Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -16181,10 +16306,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -16199,10 +16325,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary Delete Interaction Associations
      * @param {string} datasetId
      * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
@@ -16217,10 +16344,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>>;
+    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
@@ -16234,10 +16362,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * Get a Dataset.
      * @summary Get Dataset
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDatasetV1DatasetsDatasetIdGet(datasetId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
+    getDatasetV1DatasetsDatasetIdGet(datasetId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
     /**
      * Get a Dataset.
      * @summary Get Dataset
@@ -16251,6 +16380,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16263,11 +16393,10 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -16333,6 +16462,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16344,11 +16474,10 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -16373,6 +16502,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * Get parents of this dataset.
      * @summary List Dataset Parents
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16385,11 +16515,10 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
     /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
@@ -16459,6 +16588,7 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16470,11 +16600,10 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -16542,10 +16671,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary Patch Dataset
      * @param {string} datasetId
      * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -16561,10 +16691,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary Remove Feature From Dataset
      * @param {string} datasetId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
@@ -16580,10 +16711,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary Remove Object Tag From Dataset
      * @param {string} datasetId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId: string, tagObjectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Tag the dataset with object with provided id.
      * @summary Remove Object Tag From Dataset
@@ -16599,10 +16731,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary Remove Parent Dataset
      * @param {string} datasetId
      * @param {string} parentId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Remove a parent dataset.
      * @summary Remove Parent Dataset
@@ -16618,10 +16751,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary Remove Population Attribute Value From Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -16637,10 +16771,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary Replace Dataset
      * @param {string} datasetId
      * @param {DatasetIn} datasetIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
+    replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
     /**
      * Replace a Dataset.
      * @summary Replace Dataset
@@ -16656,10 +16791,11 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @summary Tag Study With Object
      * @param {string} datasetId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId: string, tagObjectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Tag the dataset with object with provided id.
      * @summary Tag Study With Object
@@ -16682,10 +16818,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {string} datasetId
      * @param {string} featureId
      * @param {boolean} [index] If true, then set the feature as the dataset index.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void>;
+    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
@@ -16703,10 +16840,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {string} datasetId
      * @param {string} parentId
      * @param {boolean} [reconcileFeatures]
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, options?: any): AxiosPromise<void>;
+    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Add a parent dataset.
      * @summary Add Parent Dataset
@@ -16723,10 +16861,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary Add Population Attribute Value To Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
+    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -16799,10 +16938,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, options?: any): AxiosPromise<void>;
+    deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Dataset
@@ -16817,10 +16957,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary Delete Interaction Associations
      * @param {string} datasetId
      * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
+    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Interaction Associations
@@ -16835,10 +16976,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
+    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, teamId?: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
@@ -16852,10 +16994,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * Get a Dataset.
      * @summary Get Dataset
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDatasetV1DatasetsDatasetIdGet(datasetId: string, options?: any): AxiosPromise<DatasetOut>;
+    getDatasetV1DatasetsDatasetIdGet(datasetId: string, teamId?: string, options?: any): AxiosPromise<DatasetOut>;
     /**
      * Get a Dataset.
      * @summary Get Dataset
@@ -16869,6 +17012,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * Get associations derived from the Dataset.
      * @summary List Associations
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16881,11 +17025,10 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations derived from the Dataset.
      * @summary List Associations
@@ -16951,6 +17094,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -16962,11 +17106,10 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -16991,6 +17134,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * Get parents of this dataset.
      * @summary List Dataset Parents
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -17003,11 +17147,10 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [variableTag] Filter datasets with variable tag
      * @param {string} [conceptTag] Filter datasets with concept tag
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
+    listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
     /**
      * Get parents of this dataset.
      * @summary List Dataset Parents
@@ -17077,6 +17220,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -17088,11 +17232,10 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Get models that use the dataset either directly or through child datasets.
      * @summary List Models Using Dataset
@@ -17160,10 +17303,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary Patch Dataset
      * @param {string} datasetId
      * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, options?: any): AxiosPromise<void>;
+    patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -17179,10 +17323,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary Remove Feature From Dataset
      * @param {string} datasetId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): AxiosPromise<void>;
+    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
@@ -17198,10 +17343,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary Remove Object Tag From Dataset
      * @param {string} datasetId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
+    removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId: string, tagObjectId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Tag the dataset with object with provided id.
      * @summary Remove Object Tag From Dataset
@@ -17217,10 +17363,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary Remove Parent Dataset
      * @param {string} datasetId
      * @param {string} parentId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, options?: any): AxiosPromise<void>;
+    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Remove a parent dataset.
      * @summary Remove Parent Dataset
@@ -17236,10 +17383,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary Remove Population Attribute Value From Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
+    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -17255,10 +17403,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary Replace Dataset
      * @param {string} datasetId
      * @param {DatasetIn} datasetIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, options?: any): AxiosPromise<DatasetOut>;
+    replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, teamId?: string, options?: any): AxiosPromise<DatasetOut>;
     /**
      * Replace a Dataset.
      * @summary Replace Dataset
@@ -17274,10 +17423,11 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @summary Tag Study With Object
      * @param {string} datasetId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
+    tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId: string, tagObjectId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Tag the dataset with object with provided id.
      * @summary Tag Study With Object
@@ -17313,6 +17463,12 @@ export interface DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatur
      * @memberof DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
      */
     readonly index?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for addFeatureToDatasetV1TeamsTeamIdDatasetsDatasetIdFeaturesFeatureIdPut operation in DatasetsApi.
@@ -17369,6 +17525,12 @@ export interface DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPu
      * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
      */
     readonly reconcileFeatures?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for addParentDatasetV1TeamsTeamIdDatasetsDatasetIdParentsParentIdPut operation in DatasetsApi.
@@ -17419,6 +17581,12 @@ export interface DatasetsApiAddPopulationAttributeValueToDatasetV1DatasetsDatase
      * @memberof DatasetsApiAddPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
      */
     readonly populationAttributeValueId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiAddPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for addPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut operation in DatasetsApi.
@@ -17595,6 +17763,12 @@ export interface DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest {
      * @memberof DatasetsApiDeleteDatasetV1DatasetsDatasetIdDelete
      */
     readonly datasetId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiDeleteDatasetV1DatasetsDatasetIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deleteDatasetV1TeamsTeamIdDatasetsDatasetIdDelete operation in DatasetsApi.
@@ -17633,6 +17807,12 @@ export interface DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAsso
      * @memberof DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
      */
     readonly bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete operation in DatasetsApi.
@@ -17671,6 +17851,12 @@ export interface DatasetsApiFetchDatasetPopulationAttributeValuesV1DatasetsDatas
      * @memberof DatasetsApiFetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet
      */
     readonly datasetId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiFetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for fetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet operation in DatasetsApi.
@@ -17703,6 +17889,12 @@ export interface DatasetsApiGetDatasetV1DatasetsDatasetIdGetRequest {
      * @memberof DatasetsApiGetDatasetV1DatasetsDatasetIdGet
      */
     readonly datasetId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiGetDatasetV1DatasetsDatasetIdGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getDatasetV1TeamsTeamIdDatasetsDatasetIdGet operation in DatasetsApi.
@@ -17735,6 +17927,12 @@ export interface DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRe
      * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
      */
     readonly datasetId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
+     */
+    readonly teamId?: string;
     /**
      * Search query.
      * @type {string}
@@ -17807,12 +18005,6 @@ export interface DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGetRe
      * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListAssociationsV1DatasetsDatasetIdAssociationsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsGet operation in DatasetsApi.
@@ -18088,6 +18280,12 @@ export interface DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      */
     readonly datasetId: string;
     /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
@@ -18153,12 +18351,6 @@ export interface DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGet operation in DatasetsApi.
@@ -18258,6 +18450,12 @@ export interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetReque
      */
     readonly datasetId: string;
     /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
@@ -18329,12 +18527,6 @@ export interface DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGetReque
      * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
      */
     readonly conceptTag?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListDatasetParentsV1DatasetsDatasetIdParentsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listDatasetParentsV1TeamsTeamIdDatasetsDatasetIdParentsGet operation in DatasetsApi.
@@ -18634,6 +18826,12 @@ export interface DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRe
      */
     readonly datasetId: string;
     /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
@@ -18699,12 +18897,6 @@ export interface DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGetRe
      * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
      */
     readonly containsVariableId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiListModelsUsingDatasetV1DatasetsDatasetIdModelsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listModelsUsingDatasetV1TeamsTeamIdDatasetsDatasetIdModelsGet operation in DatasetsApi.
@@ -18991,6 +19183,12 @@ export interface DatasetsApiPatchDatasetV1DatasetsDatasetIdPatchRequest {
      * @memberof DatasetsApiPatchDatasetV1DatasetsDatasetIdPatch
      */
     readonly patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiPatchDatasetV1DatasetsDatasetIdPatch
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchDatasetV1TeamsTeamIdDatasetsDatasetIdPatch operation in DatasetsApi.
@@ -19035,6 +19233,12 @@ export interface DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesF
      * @memberof DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
      */
     readonly featureId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for removeFeatureFromDatasetV1TeamsTeamIdDatasetsDatasetIdFeaturesFeatureIdDelete operation in DatasetsApi.
@@ -19079,6 +19283,12 @@ export interface DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectT
      * @memberof DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete
      */
     readonly tagObjectId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for removeObjectTagFromDatasetV1TeamsTeamIdDatasetsDatasetIdObjectTagsTagObjectIdDelete operation in DatasetsApi.
@@ -19123,6 +19333,12 @@ export interface DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentI
      * @memberof DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDelete
      */
     readonly parentId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for removeParentDatasetV1TeamsTeamIdDatasetsDatasetIdParentsParentIdDelete operation in DatasetsApi.
@@ -19167,6 +19383,12 @@ export interface DatasetsApiRemovePopulationAttributeValueFromDatasetV1DatasetsD
      * @memberof DatasetsApiRemovePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
      */
     readonly populationAttributeValueId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiRemovePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for removePopulationAttributeValueFromDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete operation in DatasetsApi.
@@ -19211,6 +19433,12 @@ export interface DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest {
      * @memberof DatasetsApiReplaceDatasetV1DatasetsDatasetIdPut
      */
     readonly datasetIn: DatasetIn;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiReplaceDatasetV1DatasetsDatasetIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for replaceDatasetV1TeamsTeamIdDatasetsDatasetIdPut operation in DatasetsApi.
@@ -19255,6 +19483,12 @@ export interface DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagOb
      * @memberof DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut
      */
     readonly tagObjectId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for tagStudyWithObjectV1TeamsTeamIdDatasetsDatasetIdObjectTagsTagObjectIdPut operation in DatasetsApi.
@@ -20226,10 +20460,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Add Feature To Dashboard Endpoint
      * @param {string} dashboardId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId: string, featureId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dashboard Endpoint
@@ -20246,10 +20481,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} datasetId
      * @param {string} featureId
      * @param {boolean} [index] If true, then set the feature as the dataset index.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId: string, featureId: string, index?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
@@ -20303,10 +20539,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * Delete a feature.
      * @summary Delete Feature
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeatureV1FeaturesFeatureIdDelete: (featureId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteFeatureV1FeaturesFeatureIdDelete: (featureId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a feature.
      * @summary Delete Feature
@@ -20320,10 +20557,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * Get feature.
      * @summary Get Feature
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeatureV1FeaturesFeatureIdGet: (featureId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getFeatureV1FeaturesFeatureIdGet: (featureId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get feature.
      * @summary Get Feature
@@ -20415,6 +20653,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20426,11 +20665,10 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -20493,6 +20731,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -20514,7 +20753,7 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId: string, teamId?: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -20587,10 +20826,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Patch Feature
      * @param {string} featureId
      * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchFeatureV1FeaturesFeatureIdPatch: (featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    patchFeatureV1FeaturesFeatureIdPatch: (featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
@@ -20623,10 +20863,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Remove Feature From Dataset
      * @param {string} datasetId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId: string, featureId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
@@ -20642,10 +20883,11 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @summary Replace Feature
      * @param {string} featureId
      * @param {FeatureIn} featureIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    replaceFeatureV1FeaturesFeatureIdPut: (featureId: string, featureIn: FeatureIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    replaceFeatureV1FeaturesFeatureIdPut: (featureId: string, featureIn: FeatureIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Replace a Feature.
      * @summary Replace Feature
@@ -20667,10 +20909,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @summary Add Feature To Dashboard Endpoint
      * @param {string} dashboardId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dashboard Endpoint
@@ -20687,10 +20930,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {string} datasetId
      * @param {string} featureId
      * @param {boolean} [index] If true, then set the feature as the dataset index.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
@@ -20744,10 +20988,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * Delete a feature.
      * @summary Delete Feature
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete a feature.
      * @summary Delete Feature
@@ -20761,10 +21006,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * Get feature.
      * @summary Get Feature
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeatureV1FeaturesFeatureIdGet(featureId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
+    getFeatureV1FeaturesFeatureIdGet(featureId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
     /**
      * Get feature.
      * @summary Get Feature
@@ -20856,6 +21102,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -20867,11 +21114,10 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -20934,6 +21180,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -20955,7 +21202,7 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, teamId?: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -21028,10 +21275,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @summary Patch Feature
      * @param {string} featureId
      * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
@@ -21064,10 +21312,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @summary Remove Feature From Dataset
      * @param {string} datasetId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
@@ -21083,10 +21332,11 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @summary Replace Feature
      * @param {string} featureId
      * @param {FeatureIn} featureIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
+    replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
     /**
      * Replace a Feature.
      * @summary Replace Feature
@@ -21108,10 +21358,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @summary Add Feature To Dashboard Endpoint
      * @param {string} dashboardId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, options?: any): AxiosPromise<void>;
+    addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dashboard Endpoint
@@ -21128,10 +21379,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {string} datasetId
      * @param {string} featureId
      * @param {boolean} [index] If true, then set the feature as the dataset index.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, options?: any): AxiosPromise<void>;
+    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
      * @summary Add Feature To Dataset
@@ -21185,10 +21437,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * Delete a feature.
      * @summary Delete Feature
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, options?: any): AxiosPromise<void>;
+    deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Delete a feature.
      * @summary Delete Feature
@@ -21202,10 +21455,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * Get feature.
      * @summary Get Feature
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFeatureV1FeaturesFeatureIdGet(featureId: string, options?: any): AxiosPromise<FeatureOut>;
+    getFeatureV1FeaturesFeatureIdGet(featureId: string, teamId?: string, options?: any): AxiosPromise<FeatureOut>;
     /**
      * Get feature.
      * @summary Get Feature
@@ -21297,6 +21551,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * List a datasets features.
      * @summary List Dataset Features
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -21308,11 +21563,10 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
+    listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * List a datasets features.
      * @summary List Dataset Features
@@ -21375,6 +21629,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -21396,7 +21651,7 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, teamId?: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -21469,10 +21724,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @summary Patch Feature
      * @param {string} featureId
      * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, options?: any): AxiosPromise<void>;
+    patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
      * @summary Patch Feature
@@ -21505,10 +21761,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @summary Remove Feature From Dataset
      * @param {string} datasetId
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, options?: any): AxiosPromise<void>;
+    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
      * @summary Remove Feature From Dataset
@@ -21524,10 +21781,11 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @summary Replace Feature
      * @param {string} featureId
      * @param {FeatureIn} featureIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, options?: any): AxiosPromise<FeatureOut>;
+    replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, teamId?: string, options?: any): AxiosPromise<FeatureOut>;
     /**
      * Replace a Feature.
      * @summary Replace Feature
@@ -21557,6 +21815,12 @@ export interface FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardId
      * @memberof FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut
      */
     readonly featureId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for addFeatureToDashboardEndpointV1TeamsTeamIdDashboardsDashboardIdFeaturesFeatureIdPut operation in FeaturesApi.
@@ -21607,6 +21871,12 @@ export interface FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatur
      * @memberof FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
      */
     readonly index?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for addFeatureToDatasetV1TeamsTeamIdDatasetsDatasetIdFeaturesFeatureIdPut operation in FeaturesApi.
@@ -21739,6 +22009,12 @@ export interface FeaturesApiDeleteFeatureV1FeaturesFeatureIdDeleteRequest {
      * @memberof FeaturesApiDeleteFeatureV1FeaturesFeatureIdDelete
      */
     readonly featureId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiDeleteFeatureV1FeaturesFeatureIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deleteFeatureV1TeamsTeamIdFeaturesFeatureIdDelete operation in FeaturesApi.
@@ -21771,6 +22047,12 @@ export interface FeaturesApiGetFeatureV1FeaturesFeatureIdGetRequest {
      * @memberof FeaturesApiGetFeatureV1FeaturesFeatureIdGet
      */
     readonly featureId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiGetFeatureV1FeaturesFeatureIdGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getFeatureV1TeamsTeamIdFeaturesFeatureIdGet operation in FeaturesApi.
@@ -22132,6 +22414,12 @@ export interface FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      */
     readonly datasetId: string;
     /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
@@ -22197,12 +22485,6 @@ export interface FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGetReq
      * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
      */
     readonly inFeatureGraph?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiListDatasetFeaturesV1DatasetsDatasetIdFeaturesGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listDatasetFeaturesV1TeamsTeamIdDatasetsDatasetIdFeaturesGet operation in FeaturesApi.
@@ -22459,6 +22741,12 @@ export interface FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeature
      * @memberof FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
      */
     readonly featureId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
+     */
+    readonly teamId?: string;
     /**
      * Order by this field.
      * @type {FeatureToFeatureSystemOfSortEnum}
@@ -22883,6 +23171,12 @@ export interface FeaturesApiPatchFeatureV1FeaturesFeatureIdPatchRequest {
      * @memberof FeaturesApiPatchFeatureV1FeaturesFeatureIdPatch
      */
     readonly patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiPatchFeatureV1FeaturesFeatureIdPatch
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchFeatureV1TeamsTeamIdFeaturesFeatureIdPatch operation in FeaturesApi.
@@ -22959,6 +23253,12 @@ export interface FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesF
      * @memberof FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
      */
     readonly featureId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for removeFeatureFromDatasetV1TeamsTeamIdDatasetsDatasetIdFeaturesFeatureIdDelete operation in FeaturesApi.
@@ -23003,6 +23303,12 @@ export interface FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest {
      * @memberof FeaturesApiReplaceFeatureV1FeaturesFeatureIdPut
      */
     readonly featureIn: FeatureIn;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiReplaceFeatureV1FeaturesFeatureIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for replaceFeatureV1TeamsTeamIdFeaturesFeatureIdPut operation in FeaturesApi.
@@ -24340,10 +24646,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @summary Delete Association
      * @param {string} modelId
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId: string, associationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId: string, associationId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -24359,10 +24666,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @summary Delete Associations
      * @param {string} modelId
      * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
@@ -24377,10 +24685,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteModelV1ModelsModelIdDelete: (modelId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteModelV1ModelsModelIdDelete: (modelId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
@@ -24395,10 +24704,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @summary Get Association
      * @param {string} associationId
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssociationV1ModelsModelIdAssociationsAssociationIdGet: (associationId: string, modelId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAssociationV1ModelsModelIdAssociationsAssociationIdGet: (associationId: string, modelId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -24413,10 +24723,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * Get Model.
      * @summary Get Model
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getModelV1ModelsModelIdGet: (modelId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getModelV1ModelsModelIdGet: (modelId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get Model.
      * @summary Get Model
@@ -24430,6 +24741,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -24442,11 +24754,10 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAssociationsV1ModelsModelIdAssociationsGet: (modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -24510,6 +24821,7 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -24521,11 +24833,10 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -24629,10 +24940,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @summary Patch Associations
      * @param {string} modelId
      * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -24648,10 +24960,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @summary Patch Model
      * @param {string} modelId
      * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchModelV1ModelsModelIdPatch: (modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    patchModelV1ModelsModelIdPatch: (modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Modify Model resource with partial update.
      * @summary Patch Model
@@ -24668,10 +24981,11 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @param {string} associationId
      * @param {string} modelId
      * @param {DirectionIn} directionIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId: string, modelId: string, directionIn: DirectionIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get an Association.
      * @summary Post Association Direction
@@ -24756,10 +25070,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @summary Delete Association
      * @param {string} modelId
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -24775,10 +25090,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @summary Delete Associations
      * @param {string} modelId
      * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
@@ -24793,10 +25109,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteModelV1ModelsModelIdDelete(modelId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteModelV1ModelsModelIdDelete(modelId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
@@ -24811,10 +25128,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @summary Get Association
      * @param {string} associationId
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -24829,10 +25147,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * Get Model.
      * @summary Get Model
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getModelV1ModelsModelIdGet(modelId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
+    getModelV1ModelsModelIdGet(modelId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
     /**
      * Get Model.
      * @summary Get Model
@@ -24846,6 +25165,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -24858,11 +25178,10 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -24926,6 +25245,7 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -24937,11 +25257,10 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -25045,10 +25364,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @summary Patch Associations
      * @param {string} modelId
      * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -25064,10 +25384,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @summary Patch Model
      * @param {string} modelId
      * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Modify Model resource with partial update.
      * @summary Patch Model
@@ -25084,10 +25405,11 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @param {string} associationId
      * @param {string} modelId
      * @param {DirectionIn} directionIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
     /**
      * Get an Association.
      * @summary Post Association Direction
@@ -25172,10 +25494,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @summary Delete Association
      * @param {string} modelId
      * @param {string} associationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, options?: any): AxiosPromise<void>;
+    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Delete an Association.
      * @summary Delete Association
@@ -25191,10 +25514,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @summary Delete Associations
      * @param {string} modelId
      * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options?: any): AxiosPromise<void>;
+    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Delete multiple Associations in a Model.
      * @summary Delete Associations
@@ -25209,10 +25533,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteModelV1ModelsModelIdDelete(modelId: string, options?: any): AxiosPromise<void>;
+    deleteModelV1ModelsModelIdDelete(modelId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
      * @summary Delete Model
@@ -25227,10 +25552,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @summary Get Association
      * @param {string} associationId
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, options?: any): AxiosPromise<AssociationOut>;
+    getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId: string, modelId: string, teamId?: string, options?: any): AxiosPromise<AssociationOut>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -25245,10 +25571,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * Get Model.
      * @summary Get Model
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getModelV1ModelsModelIdGet(modelId: string, options?: any): AxiosPromise<ModelOut>;
+    getModelV1ModelsModelIdGet(modelId: string, teamId?: string, options?: any): AxiosPromise<ModelOut>;
     /**
      * Get Model.
      * @summary Get Model
@@ -25262,6 +25589,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * Get associations in model.
      * @summary List Associations
      * @param {string} modelId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -25274,11 +25602,10 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1ModelsModelIdAssociationsGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in model.
      * @summary List Associations
@@ -25342,6 +25669,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -25353,11 +25681,10 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -25461,10 +25788,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @summary Patch Associations
      * @param {string} modelId
      * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void>;
+    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -25480,10 +25808,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @summary Patch Model
      * @param {string} modelId
      * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, options?: any): AxiosPromise<void>;
+    patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Modify Model resource with partial update.
      * @summary Patch Model
@@ -25500,10 +25829,11 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @param {string} associationId
      * @param {string} modelId
      * @param {DirectionIn} directionIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, options?: any): AxiosPromise<AssociationOut>;
+    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: any): AxiosPromise<AssociationOut>;
     /**
      * Get an Association.
      * @summary Post Association Direction
@@ -25666,6 +25996,12 @@ export interface ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociatio
      * @memberof ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
      */
     readonly associationId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deleteAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDelete operation in ModelsApi.
@@ -25710,6 +26046,12 @@ export interface ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteReq
      * @memberof ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
      */
     readonly bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deleteAssociationsV1TeamsTeamIdModelsModelIdAssociationsDelete operation in ModelsApi.
@@ -25748,6 +26090,12 @@ export interface ModelsApiDeleteModelV1ModelsModelIdDeleteRequest {
      * @memberof ModelsApiDeleteModelV1ModelsModelIdDelete
      */
     readonly modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiDeleteModelV1ModelsModelIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deleteModelV1TeamsTeamIdModelsModelIdDelete operation in ModelsApi.
@@ -25786,6 +26134,12 @@ export interface ModelsApiGetAssociationV1ModelsModelIdAssociationsAssociationId
      * @memberof ModelsApiGetAssociationV1ModelsModelIdAssociationsAssociationIdGet
      */
     readonly modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiGetAssociationV1ModelsModelIdAssociationsAssociationIdGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdGet operation in ModelsApi.
@@ -25824,6 +26178,12 @@ export interface ModelsApiGetModelV1ModelsModelIdGetRequest {
      * @memberof ModelsApiGetModelV1ModelsModelIdGet
      */
     readonly modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiGetModelV1ModelsModelIdGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getModelV1TeamsTeamIdModelsModelIdGet operation in ModelsApi.
@@ -25856,6 +26216,12 @@ export interface ModelsApiListAssociationsV1ModelsModelIdAssociationsGetRequest 
      * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
      */
     readonly modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
+     */
+    readonly teamId?: string;
     /**
      * Search query.
      * @type {string}
@@ -25928,12 +26294,6 @@ export interface ModelsApiListAssociationsV1ModelsModelIdAssociationsGetRequest 
      * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListAssociationsV1ModelsModelIdAssociationsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1TeamsTeamIdModelsModelIdAssociationsGet operation in ModelsApi.
@@ -26197,6 +26557,12 @@ export interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      */
     readonly studyId: string;
     /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
@@ -26262,12 +26628,6 @@ export interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
      */
     readonly containsVariableId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiListModelsInStudyV1StudiesStudyIdModelsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGet operation in ModelsApi.
@@ -26700,6 +27060,12 @@ export interface ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatchReque
      * @memberof ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatch
      */
     readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatch
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch operation in ModelsApi.
@@ -26744,6 +27110,12 @@ export interface ModelsApiPatchModelV1ModelsModelIdPatchRequest {
      * @memberof ModelsApiPatchModelV1ModelsModelIdPatch
      */
     readonly patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiPatchModelV1ModelsModelIdPatch
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchModelV1TeamsTeamIdModelsModelIdPatch operation in ModelsApi.
@@ -26794,6 +27166,12 @@ export interface ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAss
      * @memberof ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
      */
     readonly directionIn: DirectionIn;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for postAssociationDirectionV1TeamsTeamIdModelsModelIdAssociationsAssociationIdDirectedAtPost operation in ModelsApi.
@@ -27182,10 +27560,11 @@ export declare const PopulationAttributeValuesApiAxiosParamCreator: (configurati
      * @summary Add Population Attribute Value To Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (datasetId: string, populationAttributeValueId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (datasetId: string, populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -27200,18 +27579,20 @@ export declare const PopulationAttributeValuesApiAxiosParamCreator: (configurati
      * Delete population attribute value.
      * @summary Delete Population Attribute Value
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete: (populationAttributeValueId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete: (populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: (datasetId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: (datasetId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
@@ -27225,10 +27606,11 @@ export declare const PopulationAttributeValuesApiAxiosParamCreator: (configurati
      * Get population attribute value.
      * @summary Get Population Attribute Value
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet: (populationAttributeValueId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet: (populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List population attribute values.
      * @summary List Population Attribute Values
@@ -27252,10 +27634,11 @@ export declare const PopulationAttributeValuesApiAxiosParamCreator: (configurati
      * @summary Remove Population Attribute Value From Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (datasetId: string, populationAttributeValueId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (datasetId: string, populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -27277,10 +27660,11 @@ export declare const PopulationAttributeValuesApiFp: (configuration?: Configurat
      * @summary Add Population Attribute Value To Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -27295,18 +27679,20 @@ export declare const PopulationAttributeValuesApiFp: (configuration?: Configurat
      * Delete population attribute value.
      * @summary Delete Population Attribute Value
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>>;
+    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
@@ -27320,10 +27706,11 @@ export declare const PopulationAttributeValuesApiFp: (configuration?: Configurat
      * Get population attribute value.
      * @summary Get Population Attribute Value
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
+    getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
     /**
      * List population attribute values.
      * @summary List Population Attribute Values
@@ -27347,10 +27734,11 @@ export declare const PopulationAttributeValuesApiFp: (configuration?: Configurat
      * @summary Remove Population Attribute Value From Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -27372,10 +27760,11 @@ export declare const PopulationAttributeValuesApiFactory: (configuration?: Confi
      * @summary Add Population Attribute Value To Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
+    addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId: string, populationAttributeValueId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Add a population attribute value to a dataset.
      * @summary Add Population Attribute Value To Dataset
@@ -27390,18 +27779,20 @@ export declare const PopulationAttributeValuesApiFactory: (configuration?: Confi
      * Delete population attribute value.
      * @summary Delete Population Attribute Value
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId: string, options?: any): AxiosPromise<void>;
+    deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
      * @param {string} datasetId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
+    fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId: string, teamId?: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
     /**
      * Fetch all population attribute values of the dataset.
      * @summary Fetch Dataset Population Attribute Values
@@ -27415,10 +27806,11 @@ export declare const PopulationAttributeValuesApiFactory: (configuration?: Confi
      * Get population attribute value.
      * @summary Get Population Attribute Value
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId: string, options?: any): AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>;
+    getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId: string, teamId?: string, options?: any): AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>;
     /**
      * List population attribute values.
      * @summary List Population Attribute Values
@@ -27442,10 +27834,11 @@ export declare const PopulationAttributeValuesApiFactory: (configuration?: Confi
      * @summary Remove Population Attribute Value From Dataset
      * @param {string} datasetId
      * @param {string} populationAttributeValueId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
+    removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId: string, populationAttributeValueId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Remove a population attribute value from a dataset.
      * @summary Remove Population Attribute Value From Dataset
@@ -27475,6 +27868,12 @@ export interface PopulationAttributeValuesApiAddPopulationAttributeValueToDatase
      * @memberof PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
      */
     readonly populationAttributeValueId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PopulationAttributeValuesApiAddPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for addPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut operation in PopulationAttributeValuesApi.
@@ -27513,6 +27912,12 @@ export interface PopulationAttributeValuesApiDeletePopulationAttributeValueV1Pop
      * @memberof PopulationAttributeValuesApiDeletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete
      */
     readonly populationAttributeValueId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PopulationAttributeValuesApiDeletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet operation in PopulationAttributeValuesApi.
@@ -27526,6 +27931,12 @@ export interface PopulationAttributeValuesApiFetchDatasetPopulationAttributeValu
      * @memberof PopulationAttributeValuesApiFetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet
      */
     readonly datasetId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PopulationAttributeValuesApiFetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for fetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet operation in PopulationAttributeValuesApi.
@@ -27558,6 +27969,12 @@ export interface PopulationAttributeValuesApiGetPopulationAttributeValueV1Popula
      * @memberof PopulationAttributeValuesApiGetPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet
      */
     readonly populationAttributeValueId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PopulationAttributeValuesApiGetPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listPopulationAttributeValuesV1PopulationAttributeValuesGet operation in PopulationAttributeValuesApi.
@@ -27650,6 +28067,12 @@ export interface PopulationAttributeValuesApiRemovePopulationAttributeValueFromD
      * @memberof PopulationAttributeValuesApiRemovePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
      */
     readonly populationAttributeValueId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PopulationAttributeValuesApiRemovePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for removePopulationAttributeValueFromDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete operation in PopulationAttributeValuesApi.
@@ -27783,26 +28206,29 @@ export declare const PopulationAttributesApiAxiosParamCreator: (configuration?: 
      * @summary Create Population Attribute Value
      * @param {string} populationAttributeId
      * @param {DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn} dateRangeInLocationInNumberRangeInCategoryInFreeTextIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost: (populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost: (populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete population attribute.
      * @summary Delete Population Attribute
      * @param {string} populationAttributeId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete: (populationAttributeId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete: (populationAttributeId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get population attribute.
      * @summary Get Population Attribute
      * @param {string} populationAttributeId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet: (populationAttributeId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet: (populationAttributeId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List a population attribute\'s values.
      * @summary List A Population Attributes Values
@@ -27859,26 +28285,29 @@ export declare const PopulationAttributesApiFp: (configuration?: Configuration) 
      * @summary Create Population Attribute Value
      * @param {string} populationAttributeId
      * @param {DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn} dateRangeInLocationInNumberRangeInCategoryInFreeTextIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
+    createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
     /**
      * Delete population attribute.
      * @summary Delete Population Attribute
      * @param {string} populationAttributeId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get population attribute.
      * @summary Get Population Attribute
      * @param {string} populationAttributeId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeOut>>;
+    getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PopulationAttributeOut>>;
     /**
      * List a population attribute\'s values.
      * @summary List A Population Attributes Values
@@ -27935,26 +28364,29 @@ export declare const PopulationAttributesApiFactory: (configuration?: Configurat
      * @summary Create Population Attribute Value
      * @param {string} populationAttributeId
      * @param {DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn} dateRangeInLocationInNumberRangeInCategoryInFreeTextIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, options?: any): AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>;
+    createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId: string, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn, teamId?: string, options?: any): AxiosPromise<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>;
     /**
      * Delete population attribute.
      * @summary Delete Population Attribute
      * @param {string} populationAttributeId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId: string, options?: any): AxiosPromise<void>;
+    deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Get population attribute.
      * @summary Get Population Attribute
      * @param {string} populationAttributeId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId: string, options?: any): AxiosPromise<PopulationAttributeOut>;
+    getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId: string, teamId?: string, options?: any): AxiosPromise<PopulationAttributeOut>;
     /**
      * List a population attribute\'s values.
      * @summary List A Population Attributes Values
@@ -28024,6 +28456,12 @@ export interface PopulationAttributesApiCreatePopulationAttributeValueV1Populati
      * @memberof PopulationAttributesApiCreatePopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost
      */
     readonly dateRangeInLocationInNumberRangeInCategoryInFreeTextIn: DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn;
+    /**
+     *
+     * @type {string}
+     * @memberof PopulationAttributesApiCreatePopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete operation in PopulationAttributesApi.
@@ -28037,6 +28475,12 @@ export interface PopulationAttributesApiDeletePopulationAttributeV1PopulationAtt
      * @memberof PopulationAttributesApiDeletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete
      */
     readonly populationAttributeId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PopulationAttributesApiDeletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet operation in PopulationAttributesApi.
@@ -28050,6 +28494,12 @@ export interface PopulationAttributesApiGetPopulationAttributeV1PopulationAttrib
      * @memberof PopulationAttributesApiGetPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet
      */
     readonly populationAttributeId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PopulationAttributesApiGetPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAPopulationAttributesValuesV1PopulationAttributesPopulationAttributeIdValuesGet operation in PopulationAttributesApi.
@@ -28275,10 +28725,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @summary Add Author To Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Add an author to a study.
      * @summary Add Author To Study
@@ -28331,10 +28782,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteStudyV1StudiesStudyIdDelete: (studyId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteStudyV1StudiesStudyIdDelete: (studyId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
@@ -28348,10 +28800,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * Get Study.
      * @summary Get Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyV1StudiesStudyIdGet: (studyId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getStudyV1StudiesStudyIdGet: (studyId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get Study.
      * @summary Get Study
@@ -28365,6 +28818,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -28377,11 +28831,10 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAssociationsV1StudiesStudyIdAssociationsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -28485,6 +28938,7 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -28496,11 +28950,10 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listModelsInStudyV1StudiesStudyIdModelsGet: (studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -28612,10 +29065,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @summary Patch Study Endpoint
      * @param {string} studyId
      * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchStudyEndpointV1StudiesStudyIdPatch: (studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    patchStudyEndpointV1StudiesStudyIdPatch: (studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study Endpoint
@@ -28630,10 +29084,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * Publish the study making it visible to other users.
      * @summary Publish Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    publishStudyV1StudiesStudyIdPublishPost: (studyId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    publishStudyV1StudiesStudyIdPublishPost: (studyId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Publish the study making it visible to other users.
      * @summary Publish Study
@@ -28648,10 +29103,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @summary Remove Author From Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -28667,10 +29123,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @summary Remove Object Tag From Study
      * @param {string} studyId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete: (studyId: string, tagObjectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete: (studyId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Tag the study with object with provided id.
      * @summary Remove Object Tag From Study
@@ -28686,10 +29143,11 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @summary Tag Study With Object
      * @param {string} studyId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut: (studyId: string, tagObjectId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut: (studyId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Tag the study with object with provided id.
      * @summary Tag Study With Object
@@ -28711,10 +29169,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @summary Add Author To Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Add an author to a study.
      * @summary Add Author To Study
@@ -28767,10 +29226,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteStudyV1StudiesStudyIdDelete(studyId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteStudyV1StudiesStudyIdDelete(studyId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
@@ -28784,10 +29244,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * Get Study.
      * @summary Get Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyV1StudiesStudyIdGet(studyId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
+    getStudyV1StudiesStudyIdGet(studyId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
      * Get Study.
      * @summary Get Study
@@ -28801,6 +29262,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -28813,11 +29275,10 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -28921,6 +29382,7 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -28932,11 +29394,10 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -29048,10 +29509,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @summary Patch Study Endpoint
      * @param {string} studyId
      * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchStudyEndpointV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    patchStudyEndpointV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study Endpoint
@@ -29066,10 +29528,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * Publish the study making it visible to other users.
      * @summary Publish Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    publishStudyV1StudiesStudyIdPublishPost(studyId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
+    publishStudyV1StudiesStudyIdPublishPost(studyId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
      * Publish the study making it visible to other users.
      * @summary Publish Study
@@ -29084,10 +29547,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @summary Remove Author From Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -29103,10 +29567,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @summary Remove Object Tag From Study
      * @param {string} studyId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId: string, tagObjectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Tag the study with object with provided id.
      * @summary Remove Object Tag From Study
@@ -29122,10 +29587,11 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @summary Tag Study With Object
      * @param {string} studyId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId: string, tagObjectId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Tag the study with object with provided id.
      * @summary Tag Study With Object
@@ -29147,10 +29613,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @summary Add Author To Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
+    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Add an author to a study.
      * @summary Add Author To Study
@@ -29203,10 +29670,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteStudyV1StudiesStudyIdDelete(studyId: string, options?: any): AxiosPromise<void>;
+    deleteStudyV1StudiesStudyIdDelete(studyId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
      * @summary Delete Study
@@ -29220,10 +29688,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * Get Study.
      * @summary Get Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyV1StudiesStudyIdGet(studyId: string, options?: any): AxiosPromise<StudyOut>;
+    getStudyV1StudiesStudyIdGet(studyId: string, teamId?: string, options?: any): AxiosPromise<StudyOut>;
     /**
      * Get Study.
      * @summary Get Study
@@ -29237,6 +29706,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * Get associations in a project.
      * @summary List Associations
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -29249,11 +29719,10 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1StudiesStudyIdAssociationsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * Get associations in a project.
      * @summary List Associations
@@ -29357,6 +29826,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -29368,11 +29838,10 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {string} [containsVariableId] Filter models containing a variable via an association
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    listModelsInStudyV1StudiesStudyIdModelsGet(studyId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -29484,10 +29953,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @summary Patch Study Endpoint
      * @param {string} studyId
      * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchStudyEndpointV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, options?: any): AxiosPromise<void>;
+    patchStudyEndpointV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Modify Study resource with partial update.
      * @summary Patch Study Endpoint
@@ -29502,10 +29972,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * Publish the study making it visible to other users.
      * @summary Publish Study
      * @param {string} studyId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    publishStudyV1StudiesStudyIdPublishPost(studyId: string, options?: any): AxiosPromise<StudyOut>;
+    publishStudyV1StudiesStudyIdPublishPost(studyId: string, teamId?: string, options?: any): AxiosPromise<StudyOut>;
     /**
      * Publish the study making it visible to other users.
      * @summary Publish Study
@@ -29520,10 +29991,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @summary Remove Author From Study
      * @param {string} studyId
      * @param {string} authorId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, options?: any): AxiosPromise<void>;
+    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Remove an author from a study.
      * @summary Remove Author From Study
@@ -29539,10 +30011,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @summary Remove Object Tag From Study
      * @param {string} studyId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
+    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId: string, tagObjectId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Tag the study with object with provided id.
      * @summary Remove Object Tag From Study
@@ -29558,10 +30031,11 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @summary Tag Study With Object
      * @param {string} studyId
      * @param {string} tagObjectId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId: string, tagObjectId: string, options?: any): AxiosPromise<void>;
+    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId: string, tagObjectId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Tag the study with object with provided id.
      * @summary Tag Study With Object
@@ -29591,6 +30065,12 @@ export interface StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutReq
      * @memberof StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
      */
     readonly authorId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut operation in StudiesApi.
@@ -29717,6 +30197,12 @@ export interface StudiesApiDeleteStudyV1StudiesStudyIdDeleteRequest {
      * @memberof StudiesApiDeleteStudyV1StudiesStudyIdDelete
      */
     readonly studyId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiDeleteStudyV1StudiesStudyIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for deleteStudyV1TeamsTeamIdStudiesStudyIdDelete operation in StudiesApi.
@@ -29749,6 +30235,12 @@ export interface StudiesApiGetStudyV1StudiesStudyIdGetRequest {
      * @memberof StudiesApiGetStudyV1StudiesStudyIdGet
      */
     readonly studyId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiGetStudyV1StudiesStudyIdGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getStudyV1TeamsTeamIdStudiesStudyIdGet operation in StudiesApi.
@@ -29781,6 +30273,12 @@ export interface StudiesApiListAssociationsV1StudiesStudyIdAssociationsGetReques
      * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
      */
     readonly studyId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
+     */
+    readonly teamId?: string;
     /**
      * Search query.
      * @type {string}
@@ -29853,12 +30351,6 @@ export interface StudiesApiListAssociationsV1StudiesStudyIdAssociationsGetReques
      * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListAssociationsV1StudiesStudyIdAssociationsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1TeamsTeamIdStudiesStudyIdAssociationsGet operation in StudiesApi.
@@ -30292,6 +30784,12 @@ export interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      */
     readonly studyId: string;
     /**
+     *
+     * @type {string}
+     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
@@ -30357,12 +30855,6 @@ export interface StudiesApiListModelsInStudyV1StudiesStudyIdModelsGetRequest {
      * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
      */
     readonly containsVariableId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiListModelsInStudyV1StudiesStudyIdModelsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGet operation in StudiesApi.
@@ -30843,6 +31335,12 @@ export interface StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest {
      * @memberof StudiesApiPatchStudyEndpointV1StudiesStudyIdPatch
      */
     readonly patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiPatchStudyEndpointV1StudiesStudyIdPatch
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for patchStudyEndpointV1TeamsTeamIdStudiesStudyIdPatch operation in StudiesApi.
@@ -30881,6 +31379,12 @@ export interface StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest {
      * @memberof StudiesApiPublishStudyV1StudiesStudyIdPublishPost
      */
     readonly studyId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiPublishStudyV1StudiesStudyIdPublishPost
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for publishStudyV1TeamsTeamIdStudiesStudyIdPublishPost operation in StudiesApi.
@@ -30919,6 +31423,12 @@ export interface StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdD
      * @memberof StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
      */
     readonly authorId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for removeAuthorFromStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdDelete operation in StudiesApi.
@@ -30963,6 +31473,12 @@ export interface StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTag
      * @memberof StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete
      */
     readonly tagObjectId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for removeObjectTagFromStudyV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdDelete operation in StudiesApi.
@@ -31007,6 +31523,12 @@ export interface StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObject
      * @memberof StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut
      */
     readonly tagObjectId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut operation in StudiesApi.
@@ -31381,6 +31903,7 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -31402,7 +31925,7 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId: string, teamId?: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -31461,6 +31984,7 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -31482,7 +32006,7 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId: string, teamId?: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -31509,6 +32033,7 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -31525,7 +32050,7 @@ export declare const SystemApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId: string, teamId?: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SystemApi - functional programming interface
@@ -31579,6 +32104,7 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -31600,7 +32126,7 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, teamId?: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureSystemOfFeaturesPaginationOut>>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -31659,6 +32185,7 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -31680,7 +32207,7 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, teamId?: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -31707,6 +32234,7 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -31723,7 +32251,7 @@ export declare const SystemApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, teamId?: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>>;
 };
 /**
  * SystemApi - factory interface
@@ -31777,6 +32305,7 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {string} featureId
+     * @param {string} [teamId]
      * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -31798,7 +32327,7 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
+    listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId: string, teamId?: string, orderBy?: FeatureToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<FeatureSystemOfFeaturesPaginationOut>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -31857,6 +32386,7 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -31878,7 +32408,7 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, teamId?: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -31905,6 +32435,7 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -31921,7 +32452,7 @@ export declare const SystemApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, teamId?: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut>;
 };
 /**
  * Request parameters for listSystemOfConceptsV1ConceptsConceptIdSystemConceptsGet operation in SystemApi.
@@ -32123,6 +32654,12 @@ export interface SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesG
      * @memberof SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
      */
     readonly featureId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SystemApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet
+     */
+    readonly teamId?: string;
     /**
      * Order by this field.
      * @type {FeatureToFeatureSystemOfSortEnum}
@@ -32499,6 +33036,12 @@ export interface SystemApiListSystemOfFeaturesV1VariablesVariableIdSystemFeature
      */
     readonly variableId: string;
     /**
+     *
+     * @type {string}
+     * @memberof SystemApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
+     */
+    readonly teamId?: string;
+    /**
      * Order by this field.
      * @type {VariableToFeatureSystemOfSortEnum}
      * @memberof SystemApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
@@ -32716,6 +33259,12 @@ export interface SystemApiListSystemOfVariablesV1VariablesVariableIdSystemVariab
      * @memberof SystemApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
      */
     readonly variableId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SystemApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
+     */
+    readonly teamId?: string;
     /**
      * Order by this field.
      * @type {VariableToVariableSystemOfSortEnum}
@@ -49399,10 +49948,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteVariableV1VariablesVariableIdDelete: (variableId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    deleteVariableV1VariablesVariableIdDelete: (variableId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get Variable.
      * @summary Get Variable
@@ -49416,10 +49966,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * Get Variable.
      * @summary Get Variable
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariableV1VariablesVariableIdGet: (variableId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getVariableV1VariablesVariableIdGet: (variableId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -49445,6 +49996,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -49457,11 +50009,10 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -49525,6 +50076,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -49535,11 +50087,10 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet: (variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listDashboardsV1VariablesVariableIdDashboardsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -49571,6 +50122,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -49592,7 +50144,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId: string, teamId?: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -49619,6 +50171,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -49635,7 +50188,7 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId: string, teamId?: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -49733,10 +50286,11 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @summary Patch Variable
      * @param {string} variableId
      * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchVariableV1VariablesVariableIdPatch: (variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    patchVariableV1VariablesVariableIdPatch: (variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * VariablesApi - functional programming interface
@@ -49792,10 +50346,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteVariableV1VariablesVariableIdDelete(variableId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    deleteVariableV1VariablesVariableIdDelete(variableId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get Variable.
      * @summary Get Variable
@@ -49809,10 +50364,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * Get Variable.
      * @summary Get Variable
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariableV1VariablesVariableIdGet(variableId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>>;
+    getVariableV1VariablesVariableIdGet(variableId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -49838,6 +50394,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -49850,11 +50407,10 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -49918,6 +50474,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -49928,11 +50485,10 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DashboardPaginationOut>>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -49964,6 +50520,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -49985,7 +50542,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, teamId?: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfFeaturesPaginationOut>>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -50012,6 +50569,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -50028,7 +50586,7 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, teamId?: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableSystemOfVariablesPaginationOut>>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -50126,10 +50684,11 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @summary Patch Variable
      * @param {string} variableId
      * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * VariablesApi - factory interface
@@ -50185,10 +50744,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
      * @summary Delete Variable
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    deleteVariableV1VariablesVariableIdDelete(variableId: string, options?: any): AxiosPromise<void>;
+    deleteVariableV1VariablesVariableIdDelete(variableId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Get Variable.
      * @summary Get Variable
@@ -50202,10 +50762,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * Get Variable.
      * @summary Get Variable
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariableV1VariablesVariableIdGet(variableId: string, options?: any): AxiosPromise<VariableOut>;
+    getVariableV1VariablesVariableIdGet(variableId: string, teamId?: string, options?: any): AxiosPromise<VariableOut>;
     /**
      * Get associations using the Variable.
      * @summary List Associations
@@ -50231,6 +50792,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * Get associations using the Variable.
      * @summary List Associations
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -50243,11 +50805,10 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
      * @param {boolean} [isInteraction] Is association from interaction model?
      * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, teamId?: string, options?: any): AxiosPromise<AssociationPaginationOut>;
+    listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
     /**
      * List authenticated user\'s variables.
      * @summary List Authenticated User Variables
@@ -50311,6 +50872,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * Get dashboards connected to the Variable.
      * @summary List Dashboards
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {string} [query] Search query.
      * @param {boolean} [includeHidden] Include hidden objects in results.
      * @param {Array<string>} [id] Filter results by id.
@@ -50321,11 +50883,10 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {DashboardSortEnum} [orderBy] Order by this field.
      * @param {Ordering} [ordering] Order ascending or descending.
      * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, teamId?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
+    listDashboardsV1VariablesVariableIdDashboardsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DashboardSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<DashboardPaginationOut>;
     /**
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
@@ -50357,6 +50918,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * Get the features in the requested variable\'s system.
      * @summary List System Of Features
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -50378,7 +50940,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut>;
+    listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId: string, teamId?: string, orderBy?: VariableToFeatureSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, license?: Array<ValidDatasetLicenseEnum>, dsIdx?: Array<string>, includeDatasetIndexIds?: boolean, includeDatasetPopIds?: boolean, dsPopFilter?: string, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfFeaturesPaginationOut>;
     /**
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
@@ -50405,6 +50967,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * Get the variables in the requested variable\'s system.
      * @summary List System Of Variables
      * @param {string} variableId
+     * @param {string} [teamId]
      * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
      * @param {number} [hops] Number of hops.
      * @param {Ordering} [ordering] Order ascending or descending.
@@ -50421,7 +50984,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut>;
+    listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId: string, teamId?: string, orderBy?: VariableToVariableSystemOfSortEnum, hops?: number, ordering?: Ordering, includePathPopIds?: boolean, pathPopFilter?: string, minStrength?: ValidRelationshipStrengthEnum, maxStrength?: ValidRelationshipStrengthEnum, minReproducibility?: ValidReproducibilityEnum, maxReproducibility?: ValidReproducibilityEnum, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, options?: any): AxiosPromise<VariableSystemOfVariablesPaginationOut>;
     /**
      * List a user\'s variables.
      * @summary List User Variables
@@ -50519,10 +51082,11 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @summary Patch Variable
      * @param {string} variableId
      * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, options?: any): AxiosPromise<void>;
+    patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, teamId?: string, options?: any): AxiosPromise<void>;
 };
 /**
  * Request parameters for createAVariableV1TeamsTeamIdVariablesPost operation in VariablesApi.
@@ -50631,6 +51195,12 @@ export interface VariablesApiDeleteVariableV1VariablesVariableIdDeleteRequest {
      * @memberof VariablesApiDeleteVariableV1VariablesVariableIdDelete
      */
     readonly variableId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiDeleteVariableV1VariablesVariableIdDelete
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for getVariableV1TeamsTeamIdVariablesVariableIdGet operation in VariablesApi.
@@ -50663,6 +51233,12 @@ export interface VariablesApiGetVariableV1VariablesVariableIdGetRequest {
      * @memberof VariablesApiGetVariableV1VariablesVariableIdGet
      */
     readonly variableId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiGetVariableV1VariablesVariableIdGet
+     */
+    readonly teamId?: string;
 }
 /**
  * Request parameters for listAssociationsV1TeamsTeamIdVariablesVariableIdAssociationsGet operation in VariablesApi.
@@ -50768,6 +51344,12 @@ export interface VariablesApiListAssociationsV1VariablesVariableIdAssociationsGe
      */
     readonly variableId: string;
     /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
@@ -50839,12 +51421,6 @@ export interface VariablesApiListAssociationsV1VariablesVariableIdAssociationsGe
      * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
      */
     readonly isVariableAssociation?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiListAssociationsV1VariablesVariableIdAssociationsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listAuthenticatedUserVariablesV1TeamsTeamIdUserVariablesGet operation in VariablesApi.
@@ -51108,6 +51684,12 @@ export interface VariablesApiListDashboardsV1VariablesVariableIdDashboardsGetReq
      */
     readonly variableId: string;
     /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
+     */
+    readonly teamId?: string;
+    /**
      * Search query.
      * @type {string}
      * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
@@ -51167,12 +51749,6 @@ export interface VariablesApiListDashboardsV1VariablesVariableIdDashboardsGetReq
      * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
      */
     readonly sortBy?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiListDashboardsV1VariablesVariableIdDashboardsGet
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for listSystemOfFeaturesV1TeamsTeamIdVariablesVariableIdSystemFeaturesGet operation in VariablesApi.
@@ -51313,6 +51889,12 @@ export interface VariablesApiListSystemOfFeaturesV1VariablesVariableIdSystemFeat
      * @memberof VariablesApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
      */
     readonly variableId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet
+     */
+    readonly teamId?: string;
     /**
      * Order by this field.
      * @type {VariableToFeatureSystemOfSortEnum}
@@ -51531,6 +52113,12 @@ export interface VariablesApiListSystemOfVariablesV1VariablesVariableIdSystemVar
      * @memberof VariablesApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
      */
     readonly variableId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiListSystemOfVariablesV1VariablesVariableIdSystemVariablesGet
+     */
+    readonly teamId?: string;
     /**
      * Order by this field.
      * @type {VariableToVariableSystemOfSortEnum}
@@ -52005,6 +52593,12 @@ export interface VariablesApiPatchVariableV1VariablesVariableIdPatchRequest {
      * @memberof VariablesApiPatchVariableV1VariablesVariableIdPatch
      */
     readonly patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiPatchVariableV1VariablesVariableIdPatch
+     */
+    readonly teamId?: string;
 }
 /**
  * VariablesApi - object-oriented interface

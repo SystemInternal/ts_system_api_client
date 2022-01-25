@@ -1102,10 +1102,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @summary Delete Association
          * @param {string} modelId
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId, associationId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId, associationId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete', 'modelId', modelId);
             // verify required parameter 'associationId' is not null or undefined
@@ -1127,6 +1128,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -1182,10 +1186,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @summary Delete Associations
          * @param {string} modelId
          * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('deleteAssociationsV1ModelsModelIdAssociationsDelete', 'modelId', modelId);
             // verify required parameter 'bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete' is not null or undefined
@@ -1206,6 +1211,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1264,10 +1272,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @summary Delete Interaction Associations
          * @param {string} datasetId
          * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete', 'datasetId', datasetId);
             // verify required parameter 'bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete' is not null or undefined
@@ -1288,6 +1297,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -1346,10 +1358,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @summary Get Association
          * @param {string} associationId
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAssociationV1ModelsModelIdAssociationsAssociationIdGet: (associationId, modelId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAssociationV1ModelsModelIdAssociationsAssociationIdGet: (associationId, modelId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'associationId' is not null or undefined
             common_1.assertParamExists('getAssociationV1ModelsModelIdAssociationsAssociationIdGet', 'associationId', associationId);
             // verify required parameter 'modelId' is not null or undefined
@@ -1371,6 +1384,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -1425,10 +1441,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * Get direction of this association.
          * @summary Get Relationship Direction
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipDirectionV1AssociationsAssociationIdDirectionGet: (associationId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getRelationshipDirectionV1AssociationsAssociationIdDirectionGet: (associationId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'associationId' is not null or undefined
             common_1.assertParamExists('getRelationshipDirectionV1AssociationsAssociationIdDirectionGet', 'associationId', associationId);
             const localVarPath = `/v1/associations/{association_id}/direction`
@@ -1447,6 +1464,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -1497,10 +1517,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * Get reproducibility of this association.
          * @summary Get Relationship Reproducibility
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet: (associationId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet: (associationId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'associationId' is not null or undefined
             common_1.assertParamExists('getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet', 'associationId', associationId);
             const localVarPath = `/v1/associations/{association_id}/reproducibility`
@@ -1519,6 +1540,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -1569,10 +1593,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * Get strength of this association.
          * @summary Get Relationship Strength
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipStrengthV1AssociationsAssociationIdStrengthGet: (associationId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getRelationshipStrengthV1AssociationsAssociationIdStrengthGet: (associationId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'associationId' is not null or undefined
             common_1.assertParamExists('getRelationshipStrengthV1AssociationsAssociationIdStrengthGet', 'associationId', associationId);
             const localVarPath = `/v1/associations/{association_id}/strength`
@@ -1591,6 +1616,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -1907,6 +1935,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -1919,11 +1948,10 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('listAssociationsV1DatasetsDatasetIdAssociationsGet', 'datasetId', datasetId);
             const localVarPath = `/v1/datasets/{dataset_id}/associations`
@@ -1942,6 +1970,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -1978,9 +2009,6 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
             }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
-            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -1993,6 +2021,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * Get associations in model.
          * @summary List Associations
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -2005,11 +2034,10 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('listAssociationsV1ModelsModelIdAssociationsGet', 'modelId', modelId);
             const localVarPath = `/v1/models/{model_id}/associations`
@@ -2028,6 +2056,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -2064,9 +2095,6 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
             }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
-            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -2079,6 +2107,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * Get associations in a project.
          * @summary List Associations
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -2091,11 +2120,10 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1StudiesStudyIdAssociationsGet: (studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('listAssociationsV1StudiesStudyIdAssociationsGet', 'studyId', studyId);
             const localVarPath = `/v1/studies/{study_id}/associations`
@@ -2114,6 +2142,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -2149,9 +2180,6 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             }
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -2603,6 +2631,7 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * Get associations using the Variable.
          * @summary List Associations
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -2615,11 +2644,10 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('listAssociationsV1VariablesVariableIdAssociationsGet', 'variableId', variableId);
             const localVarPath = `/v1/variables/{variable_id}/associations`
@@ -2638,6 +2666,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -2674,9 +2705,6 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
             }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
-            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -2690,10 +2718,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @summary Patch Associations
          * @param {string} modelId
          * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId, bulkPatchAssociationOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId, bulkPatchAssociationOp, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('patchAssociationsV1ModelsModelIdAssociationsPatch', 'modelId', modelId);
             // verify required parameter 'bulkPatchAssociationOp' is not null or undefined
@@ -2714,6 +2743,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -2773,10 +2805,11 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
          * @param {string} associationId
          * @param {string} modelId
          * @param {DirectionIn} directionIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId, modelId, directionIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId, modelId, directionIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'associationId' is not null or undefined
             common_1.assertParamExists('postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost', 'associationId', associationId);
             // verify required parameter 'modelId' is not null or undefined
@@ -2800,6 +2833,9 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -2933,12 +2969,13 @@ exports.AssociationsApiFp = function (configuration) {
          * @summary Delete Association
          * @param {string} modelId
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options) {
+        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -2962,12 +2999,13 @@ exports.AssociationsApiFp = function (configuration) {
          * @summary Delete Associations
          * @param {string} modelId
          * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options) {
+        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -2991,12 +3029,13 @@ exports.AssociationsApiFp = function (configuration) {
          * @summary Delete Interaction Associations
          * @param {string} datasetId
          * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options) {
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3020,12 +3059,13 @@ exports.AssociationsApiFp = function (configuration) {
          * @summary Get Association
          * @param {string} associationId
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options) {
+        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3048,12 +3088,13 @@ exports.AssociationsApiFp = function (configuration) {
          * Get direction of this association.
          * @summary Get Relationship Direction
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId, options) {
+        getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3075,12 +3116,13 @@ exports.AssociationsApiFp = function (configuration) {
          * Get reproducibility of this association.
          * @summary Get Relationship Reproducibility
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId, options) {
+        getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3102,12 +3144,13 @@ exports.AssociationsApiFp = function (configuration) {
          * Get strength of this association.
          * @summary Get Relationship Strength
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId, options) {
+        getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3209,6 +3252,7 @@ exports.AssociationsApiFp = function (configuration) {
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -3221,13 +3265,12 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3235,6 +3278,7 @@ exports.AssociationsApiFp = function (configuration) {
          * Get associations in model.
          * @summary List Associations
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -3247,13 +3291,12 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1ModelsModelIdAssociationsGet(modelId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3261,6 +3304,7 @@ exports.AssociationsApiFp = function (configuration) {
          * Get associations in a project.
          * @summary List Associations
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -3273,13 +3317,12 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1StudiesStudyIdAssociationsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3419,6 +3462,7 @@ exports.AssociationsApiFp = function (configuration) {
          * Get associations using the Variable.
          * @summary List Associations
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -3431,13 +3475,12 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1VariablesVariableIdAssociationsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3446,12 +3489,13 @@ exports.AssociationsApiFp = function (configuration) {
          * @summary Patch Associations
          * @param {string} modelId
          * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options) {
+        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3476,12 +3520,13 @@ exports.AssociationsApiFp = function (configuration) {
          * @param {string} associationId
          * @param {string} modelId
          * @param {DirectionIn} directionIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options) {
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3565,11 +3610,12 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @summary Delete Association
          * @param {string} modelId
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options) {
-            return localVarFp.deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options).then((request) => request(axios, basePath));
+        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, teamId, options) {
+            return localVarFp.deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete an Association.
@@ -3588,11 +3634,12 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @summary Delete Associations
          * @param {string} modelId
          * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options) {
-            return localVarFp.deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(axios, basePath));
+        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId, options) {
+            return localVarFp.deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete multiple Associations in a Model.
@@ -3611,11 +3658,12 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @summary Delete Interaction Associations
          * @param {string} datasetId
          * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options) {
-            return localVarFp.deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(axios, basePath));
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId, options) {
+            return localVarFp.deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete multiple Associations in a Model.
@@ -3634,11 +3682,12 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @summary Get Association
          * @param {string} associationId
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options) {
-            return localVarFp.getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options).then((request) => request(axios, basePath));
+        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, teamId, options) {
+            return localVarFp.getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get an Association.
@@ -3656,11 +3705,12 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * Get direction of this association.
          * @summary Get Relationship Direction
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId, options) {
-            return localVarFp.getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId, options).then((request) => request(axios, basePath));
+        getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId, teamId, options) {
+            return localVarFp.getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(associationId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get direction of this association.
@@ -3677,11 +3727,12 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * Get reproducibility of this association.
          * @summary Get Relationship Reproducibility
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId, options) {
-            return localVarFp.getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId, options).then((request) => request(axios, basePath));
+        getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId, teamId, options) {
+            return localVarFp.getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get reproducibility of this association.
@@ -3698,11 +3749,12 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * Get strength of this association.
          * @summary Get Relationship Strength
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId, options) {
-            return localVarFp.getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId, options).then((request) => request(axios, basePath));
+        getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId, teamId, options) {
+            return localVarFp.getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get strength of this association.
@@ -3790,6 +3842,7 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -3802,17 +3855,17 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
-            return localVarFp.listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options).then((request) => request(axios, basePath));
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return localVarFp.listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations in model.
          * @summary List Associations
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -3825,17 +3878,17 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
-            return localVarFp.listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options).then((request) => request(axios, basePath));
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return localVarFp.listAssociationsV1ModelsModelIdAssociationsGet(modelId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations in a project.
          * @summary List Associations
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -3848,12 +3901,11 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
-            return localVarFp.listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options).then((request) => request(axios, basePath));
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return localVarFp.listAssociationsV1StudiesStudyIdAssociationsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * List Associations.
@@ -3976,6 +4028,7 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * Get associations using the Variable.
          * @summary List Associations
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -3988,23 +4041,23 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
-            return localVarFp.listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options).then((request) => request(axios, basePath));
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return localVarFp.listAssociationsV1VariablesVariableIdAssociationsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Bulk association patching.
          * @summary Patch Associations
          * @param {string} modelId
          * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options) {
-            return localVarFp.patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options).then((request) => request(axios, basePath));
+        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, teamId, options) {
+            return localVarFp.patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Bulk association patching.
@@ -4024,11 +4077,12 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
          * @param {string} associationId
          * @param {string} modelId
          * @param {DirectionIn} directionIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options) {
-            return localVarFp.postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options).then((request) => request(axios, basePath));
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, teamId, options) {
+            return localVarFp.postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get an Association.
@@ -4105,7 +4159,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(requestParameters.modelId, requestParameters.associationId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(requestParameters.modelId, requestParameters.associationId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete an Association.
@@ -4127,7 +4181,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters.modelId, requestParameters.bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters.modelId, requestParameters.bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete multiple Associations in a Model.
@@ -4149,7 +4203,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters.datasetId, requestParameters.bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters.datasetId, requestParameters.bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete multiple Associations in a Model.
@@ -4171,7 +4225,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters.associationId, requestParameters.modelId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters.associationId, requestParameters.modelId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get an Association.
@@ -4193,7 +4247,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(requestParameters.associationId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).getRelationshipDirectionV1AssociationsAssociationIdDirectionGet(requestParameters.associationId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get direction of this association.
@@ -4215,7 +4269,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(requestParameters.associationId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(requestParameters.associationId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get reproducibility of this association.
@@ -4237,7 +4291,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(requestParameters.associationId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(requestParameters.associationId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get strength of this association.
@@ -4292,7 +4346,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations in model.
@@ -4303,7 +4357,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1ModelsModelIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations in a project.
@@ -4314,7 +4368,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List Associations.
@@ -4380,7 +4434,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Bulk association patching.
@@ -4391,7 +4445,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(requestParameters.modelId, requestParameters.bulkPatchAssociationOp, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(requestParameters.modelId, requestParameters.bulkPatchAssociationOp, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Bulk association patching.
@@ -4413,7 +4467,7 @@ class AssociationsApi extends base_1.BaseAPI {
      * @memberof AssociationsApi
      */
     postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters, options) {
-        return exports.AssociationsApiFp(this.configuration).postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters.associationId, requestParameters.modelId, requestParameters.directionIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.AssociationsApiFp(this.configuration).postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters.associationId, requestParameters.modelId, requestParameters.directionIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get an Association.
@@ -4439,10 +4493,11 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
          * @summary Add Author To Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId, authorId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId, authorId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut', 'studyId', studyId);
             // verify required parameter 'authorId' is not null or undefined
@@ -4464,6 +4519,9 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -4967,10 +5025,11 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
          * @summary Remove Author From Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId, authorId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId, authorId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete', 'studyId', studyId);
             // verify required parameter 'authorId' is not null or undefined
@@ -4992,6 +5051,9 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -5056,12 +5118,13 @@ exports.AuthorsApiFp = function (configuration) {
          * @summary Add Author To Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options) {
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -5241,12 +5304,13 @@ exports.AuthorsApiFp = function (configuration) {
          * @summary Remove Author From Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options) {
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -5279,11 +5343,12 @@ exports.AuthorsApiFactory = function (configuration, basePath, axios) {
          * @summary Add Author To Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options) {
-            return localVarFp.addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options).then((request) => request(axios, basePath));
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, teamId, options) {
+            return localVarFp.addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add an author to a study.
@@ -5428,11 +5493,12 @@ exports.AuthorsApiFactory = function (configuration, basePath, axios) {
          * @summary Remove Author From Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options) {
-            return localVarFp.removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options).then((request) => request(axios, basePath));
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, teamId, options) {
+            return localVarFp.removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove an author from a study.
@@ -5464,7 +5530,7 @@ class AuthorsApi extends base_1.BaseAPI {
      * @memberof AuthorsApi
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters, options) {
-        return exports.AuthorsApiFp(this.configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AuthorsApiFp(this.configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters.studyId, requestParameters.authorId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add an author to a study.
@@ -5596,7 +5662,7 @@ class AuthorsApi extends base_1.BaseAPI {
      * @memberof AuthorsApi
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters, options) {
-        return exports.AuthorsApiFp(this.configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+        return exports.AuthorsApiFp(this.configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters.studyId, requestParameters.authorId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove an author from a study.
@@ -7199,10 +7265,11 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
          * @summary Add Feature To Dashboard Endpoint
          * @param {string} dashboardId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId, featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId, featureId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'dashboardId' is not null or undefined
             common_1.assertParamExists('addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut', 'dashboardId', dashboardId);
             // verify required parameter 'featureId' is not null or undefined
@@ -7224,6 +7291,9 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -7890,6 +7960,7 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
          * Get dashboards connected to the Variable.
          * @summary List Dashboards
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -7900,11 +7971,10 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
          * @param {DashboardSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDashboardsV1VariablesVariableIdDashboardsGet: (variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDashboardsV1VariablesVariableIdDashboardsGet: (variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('listDashboardsV1VariablesVariableIdDashboardsGet', 'variableId', variableId);
             const localVarPath = `/v1/variables/{variable_id}/dashboards`
@@ -7923,6 +7993,9 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -7953,9 +8026,6 @@ exports.DashboardsApiAxiosParamCreator = function (configuration) {
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
             }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
-            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -7978,12 +8048,13 @@ exports.DashboardsApiFp = function (configuration) {
          * @summary Add Feature To Dashboard Endpoint
          * @param {string} dashboardId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options) {
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -8208,6 +8279,7 @@ exports.DashboardsApiFp = function (configuration) {
          * Get dashboards connected to the Variable.
          * @summary List Dashboards
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -8218,13 +8290,12 @@ exports.DashboardsApiFp = function (configuration) {
          * @param {DashboardSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, teamId, options) {
+        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listDashboardsV1VariablesVariableIdDashboardsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -8242,11 +8313,12 @@ exports.DashboardsApiFactory = function (configuration, basePath, axios) {
          * @summary Add Feature To Dashboard Endpoint
          * @param {string} dashboardId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options) {
-            return localVarFp.addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options).then((request) => request(axios, basePath));
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, teamId, options) {
+            return localVarFp.addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
@@ -8433,6 +8505,7 @@ exports.DashboardsApiFactory = function (configuration, basePath, axios) {
          * Get dashboards connected to the Variable.
          * @summary List Dashboards
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -8443,12 +8516,11 @@ exports.DashboardsApiFactory = function (configuration, basePath, axios) {
          * @param {DashboardSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, teamId, options) {
-            return localVarFp.listDashboardsV1VariablesVariableIdDashboardsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, teamId, options).then((request) => request(axios, basePath));
+        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return localVarFp.listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -8468,7 +8540,7 @@ class DashboardsApi extends base_1.BaseAPI {
      * @memberof DashboardsApi
      */
     addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters, options) {
-        return exports.DashboardsApiFp(this.configuration).addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters.dashboardId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DashboardsApiFp(this.configuration).addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters.dashboardId, requestParameters.featureId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
@@ -8611,7 +8683,7 @@ class DashboardsApi extends base_1.BaseAPI {
      * @memberof DashboardsApi
      */
     listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters, options) {
-        return exports.DashboardsApiFp(this.configuration).listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DashboardsApiFp(this.configuration).listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters.variableId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.DashboardsApi = DashboardsApi;
@@ -8627,10 +8699,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {string} datasetId
          * @param {string} featureId
          * @param {boolean} [index] If true, then set the feature as the dataset index.
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId, featureId, index, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId, featureId, index, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut', 'datasetId', datasetId);
             // verify required parameter 'featureId' is not null or undefined
@@ -8654,6 +8727,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (index !== undefined) {
                 localVarQueryParameter['index'] = index;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8715,10 +8791,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {string} datasetId
          * @param {string} parentId
          * @param {boolean} [reconcileFeatures]
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: (datasetId, parentId, reconcileFeatures, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: (datasetId, parentId, reconcileFeatures, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('addParentDatasetV1DatasetsDatasetIdParentsParentIdPut', 'datasetId', datasetId);
             // verify required parameter 'parentId' is not null or undefined
@@ -8742,6 +8819,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (reconcileFeatures !== undefined) {
                 localVarQueryParameter['reconcile_features'] = reconcileFeatures;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -8802,10 +8882,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary Add Population Attribute Value To Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (datasetId, populationAttributeValueId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (datasetId, populationAttributeValueId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut', 'datasetId', datasetId);
             // verify required parameter 'populationAttributeValueId' is not null or undefined
@@ -8827,6 +8908,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -9131,10 +9215,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dataset
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteDatasetV1DatasetsDatasetIdDelete: (datasetId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteDatasetV1DatasetsDatasetIdDelete: (datasetId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('deleteDatasetV1DatasetsDatasetIdDelete', 'datasetId', datasetId);
             const localVarPath = `/v1/datasets/{dataset_id}`
@@ -9153,6 +9238,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -9204,10 +9292,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary Delete Interaction Associations
          * @param {string} datasetId
          * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete', 'datasetId', datasetId);
             // verify required parameter 'bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete' is not null or undefined
@@ -9228,6 +9317,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -9285,10 +9377,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: (datasetId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: (datasetId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet', 'datasetId', datasetId);
             const localVarPath = `/v1/datasets/{dataset_id}/population_attribute_values`
@@ -9307,6 +9400,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -9357,10 +9453,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * Get a Dataset.
          * @summary Get Dataset
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDatasetV1DatasetsDatasetIdGet: (datasetId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getDatasetV1DatasetsDatasetIdGet: (datasetId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('getDatasetV1DatasetsDatasetIdGet', 'datasetId', datasetId);
             const localVarPath = `/v1/datasets/{dataset_id}`
@@ -9379,6 +9476,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -9429,6 +9529,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -9441,11 +9542,10 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet: (datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('listAssociationsV1DatasetsDatasetIdAssociationsGet', 'datasetId', datasetId);
             const localVarPath = `/v1/datasets/{dataset_id}/associations`
@@ -9464,6 +9564,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -9499,9 +9602,6 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -9765,6 +9865,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -9776,11 +9877,10 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet', 'datasetId', datasetId);
             const localVarPath = `/v1/datasets/{dataset_id}/features`
@@ -9799,6 +9899,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -9831,9 +9934,6 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (inFeatureGraph !== undefined) {
                 localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -9929,6 +10029,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * Get parents of this dataset.
          * @summary List Dataset Parents
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -9941,11 +10042,10 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [variableTag] Filter datasets with variable tag
          * @param {string} [conceptTag] Filter datasets with concept tag
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDatasetParentsV1DatasetsDatasetIdParentsGet: (datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('listDatasetParentsV1DatasetsDatasetIdParentsGet', 'datasetId', datasetId);
             const localVarPath = `/v1/datasets/{dataset_id}/parents`
@@ -9964,6 +10064,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -9999,9 +10102,6 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (conceptTag !== undefined) {
                 localVarQueryParameter['concept_tag'] = conceptTag;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10281,6 +10381,7 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * Get models that use the dataset either directly or through child datasets.
          * @summary List Models Using Dataset
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -10292,11 +10393,10 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet: (datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('listModelsUsingDatasetV1DatasetsDatasetIdModelsGet', 'datasetId', datasetId);
             const localVarPath = `/v1/datasets/{dataset_id}/models`
@@ -10315,6 +10415,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -10347,9 +10450,6 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             }
             if (containsVariableId !== undefined) {
                 localVarQueryParameter['contains_variable_id'] = containsVariableId;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10618,10 +10718,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary Patch Dataset
          * @param {string} datasetId
          * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchDatasetV1DatasetsDatasetIdPatch: (datasetId, patchDatasetOpArrayPatchDatasetOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        patchDatasetV1DatasetsDatasetIdPatch: (datasetId, patchDatasetOpArrayPatchDatasetOp, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('patchDatasetV1DatasetsDatasetIdPatch', 'datasetId', datasetId);
             // verify required parameter 'patchDatasetOpArrayPatchDatasetOp' is not null or undefined
@@ -10642,6 +10743,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -10700,10 +10804,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary Remove Feature From Dataset
          * @param {string} datasetId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId, featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId, featureId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete', 'datasetId', datasetId);
             // verify required parameter 'featureId' is not null or undefined
@@ -10725,6 +10830,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -10780,10 +10888,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary Remove Object Tag From Dataset
          * @param {string} datasetId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete: (datasetId, tagObjectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete: (datasetId, tagObjectId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete', 'datasetId', datasetId);
             // verify required parameter 'tagObjectId' is not null or undefined
@@ -10805,6 +10914,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -10860,10 +10972,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary Remove Parent Dataset
          * @param {string} datasetId
          * @param {string} parentId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete: (datasetId, parentId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete: (datasetId, parentId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete', 'datasetId', datasetId);
             // verify required parameter 'parentId' is not null or undefined
@@ -10885,6 +10998,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -10940,10 +11056,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary Remove Population Attribute Value From Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (datasetId, populationAttributeValueId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (datasetId, populationAttributeValueId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete', 'datasetId', datasetId);
             // verify required parameter 'populationAttributeValueId' is not null or undefined
@@ -10965,6 +11082,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -11020,10 +11140,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary Replace Dataset
          * @param {string} datasetId
          * @param {DatasetIn} datasetIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceDatasetV1DatasetsDatasetIdPut: (datasetId, datasetIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        replaceDatasetV1DatasetsDatasetIdPut: (datasetId, datasetIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('replaceDatasetV1DatasetsDatasetIdPut', 'datasetId', datasetId);
             // verify required parameter 'datasetIn' is not null or undefined
@@ -11044,6 +11165,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -11102,10 +11226,11 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
          * @summary Tag Study With Object
          * @param {string} datasetId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut: (datasetId, tagObjectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut: (datasetId, tagObjectId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut', 'datasetId', datasetId);
             // verify required parameter 'tagObjectId' is not null or undefined
@@ -11127,6 +11252,9 @@ exports.DatasetsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -11192,12 +11320,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {string} datasetId
          * @param {string} featureId
          * @param {boolean} [index] If true, then set the feature as the dataset index.
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options) {
+        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11223,12 +11352,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {string} datasetId
          * @param {string} parentId
          * @param {boolean} [reconcileFeatures]
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, reconcileFeatures, options) {
+        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, reconcileFeatures, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, reconcileFeatures, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, reconcileFeatures, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11253,12 +11383,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary Add Population Attribute Value To Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options) {
+        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11369,12 +11500,13 @@ exports.DatasetsApiFp = function (configuration) {
          * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dataset
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options) {
+        deleteDatasetV1DatasetsDatasetIdDelete(datasetId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteDatasetV1DatasetsDatasetIdDelete(datasetId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11397,12 +11529,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary Delete Interaction Associations
          * @param {string} datasetId
          * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options) {
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11425,12 +11558,13 @@ exports.DatasetsApiFp = function (configuration) {
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options) {
+        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11452,12 +11586,13 @@ exports.DatasetsApiFp = function (configuration) {
          * Get a Dataset.
          * @summary Get Dataset
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDatasetV1DatasetsDatasetIdGet(datasetId, options) {
+        getDatasetV1DatasetsDatasetIdGet(datasetId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getDatasetV1DatasetsDatasetIdGet(datasetId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getDatasetV1DatasetsDatasetIdGet(datasetId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11479,6 +11614,7 @@ exports.DatasetsApiFp = function (configuration) {
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -11491,13 +11627,12 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11581,6 +11716,7 @@ exports.DatasetsApiFp = function (configuration) {
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -11592,13 +11728,12 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options) {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11631,6 +11766,7 @@ exports.DatasetsApiFp = function (configuration) {
          * Get parents of this dataset.
          * @summary List Dataset Parents
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -11643,13 +11779,12 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [variableTag] Filter datasets with variable tag
          * @param {string} [conceptTag] Filter datasets with concept tag
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamId, options) {
+        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11737,6 +11872,7 @@ exports.DatasetsApiFp = function (configuration) {
          * Get models that use the dataset either directly or through child datasets.
          * @summary List Models Using Dataset
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -11748,13 +11884,12 @@ exports.DatasetsApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options) {
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11840,12 +11975,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary Patch Dataset
          * @param {string} datasetId
          * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, options) {
+        patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11869,12 +12005,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary Remove Feature From Dataset
          * @param {string} datasetId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options) {
+        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11898,12 +12035,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary Remove Object Tag From Dataset
          * @param {string} datasetId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId, tagObjectId, options) {
+        removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId, tagObjectId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId, tagObjectId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId, tagObjectId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11927,12 +12065,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary Remove Parent Dataset
          * @param {string} datasetId
          * @param {string} parentId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId, parentId, options) {
+        removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId, parentId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId, parentId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId, parentId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11956,12 +12095,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary Remove Population Attribute Value From Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options) {
+        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -11985,12 +12125,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary Replace Dataset
          * @param {string} datasetId
          * @param {DatasetIn} datasetIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options) {
+        replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -12014,12 +12155,13 @@ exports.DatasetsApiFp = function (configuration) {
          * @summary Tag Study With Object
          * @param {string} datasetId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId, tagObjectId, options) {
+        tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId, tagObjectId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId, tagObjectId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId, tagObjectId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -12053,11 +12195,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {string} datasetId
          * @param {string} featureId
          * @param {boolean} [index] If true, then set the feature as the dataset index.
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options) {
-            return localVarFp.addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options).then((request) => request(axios, basePath));
+        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, teamId, options) {
+            return localVarFp.addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
@@ -12078,11 +12221,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {string} datasetId
          * @param {string} parentId
          * @param {boolean} [reconcileFeatures]
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, reconcileFeatures, options) {
-            return localVarFp.addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, reconcileFeatures, options).then((request) => request(axios, basePath));
+        addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, reconcileFeatures, teamId, options) {
+            return localVarFp.addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId, parentId, reconcileFeatures, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a parent dataset.
@@ -12102,11 +12246,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @summary Add Population Attribute Value To Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options) {
-            return localVarFp.addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options).then((request) => request(axios, basePath));
+        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, teamId, options) {
+            return localVarFp.addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a population attribute value to a dataset.
@@ -12194,11 +12339,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Dataset
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options) {
-            return localVarFp.deleteDatasetV1DatasetsDatasetIdDelete(datasetId, options).then((request) => request(axios, basePath));
+        deleteDatasetV1DatasetsDatasetIdDelete(datasetId, teamId, options) {
+            return localVarFp.deleteDatasetV1DatasetsDatasetIdDelete(datasetId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
@@ -12216,11 +12362,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @summary Delete Interaction Associations
          * @param {string} datasetId
          * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options) {
-            return localVarFp.deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(axios, basePath));
+        deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId, options) {
+            return localVarFp.deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete multiple Associations in a Model.
@@ -12238,11 +12385,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options) {
-            return localVarFp.fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options).then((request) => request(axios, basePath));
+        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, teamId, options) {
+            return localVarFp.fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch all population attribute values of the dataset.
@@ -12259,11 +12407,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * Get a Dataset.
          * @summary Get Dataset
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDatasetV1DatasetsDatasetIdGet(datasetId, options) {
-            return localVarFp.getDatasetV1DatasetsDatasetIdGet(datasetId, options).then((request) => request(axios, basePath));
+        getDatasetV1DatasetsDatasetIdGet(datasetId, teamId, options) {
+            return localVarFp.getDatasetV1DatasetsDatasetIdGet(datasetId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a Dataset.
@@ -12280,6 +12429,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * Get associations derived from the Dataset.
          * @summary List Associations
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -12292,12 +12442,11 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
-            return localVarFp.listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options).then((request) => request(axios, basePath));
+        listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return localVarFp.listAssociationsV1DatasetsDatasetIdAssociationsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations derived from the Dataset.
@@ -12370,6 +12519,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -12381,12 +12531,11 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options) {
-            return localVarFp.listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options).then((request) => request(axios, basePath));
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return localVarFp.listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
@@ -12414,6 +12563,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * Get parents of this dataset.
          * @summary List Dataset Parents
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -12426,12 +12576,11 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [variableTag] Filter datasets with variable tag
          * @param {string} [conceptTag] Filter datasets with concept tag
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamId, options) {
-            return localVarFp.listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, teamId, options).then((request) => request(axios, basePath));
+        listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options) {
+            return localVarFp.listDatasetParentsV1DatasetsDatasetIdParentsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, variableTag, conceptTag, options).then((request) => request(axios, basePath));
         },
         /**
          * Get parents of this dataset.
@@ -12508,6 +12657,7 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * Get models that use the dataset either directly or through child datasets.
          * @summary List Models Using Dataset
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -12519,12 +12669,11 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options) {
-            return localVarFp.listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options).then((request) => request(axios, basePath));
+        listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return localVarFp.listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models that use the dataset either directly or through child datasets.
@@ -12599,11 +12748,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @summary Patch Dataset
          * @param {string} datasetId
          * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, options) {
-            return localVarFp.patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, options).then((request) => request(axios, basePath));
+        patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, teamId, options) {
+            return localVarFp.patchDatasetV1DatasetsDatasetIdPatch(datasetId, patchDatasetOpArrayPatchDatasetOp, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Dataset resource with partial update.
@@ -12622,11 +12772,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @summary Remove Feature From Dataset
          * @param {string} datasetId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options) {
-            return localVarFp.removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options).then((request) => request(axios, basePath));
+        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, teamId, options) {
+            return localVarFp.removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
@@ -12645,11 +12796,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @summary Remove Object Tag From Dataset
          * @param {string} datasetId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId, tagObjectId, options) {
-            return localVarFp.removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId, tagObjectId, options).then((request) => request(axios, basePath));
+        removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId, tagObjectId, teamId, options) {
+            return localVarFp.removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId, tagObjectId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Tag the dataset with object with provided id.
@@ -12668,11 +12820,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @summary Remove Parent Dataset
          * @param {string} datasetId
          * @param {string} parentId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId, parentId, options) {
-            return localVarFp.removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId, parentId, options).then((request) => request(axios, basePath));
+        removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId, parentId, teamId, options) {
+            return localVarFp.removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId, parentId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a parent dataset.
@@ -12691,11 +12844,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @summary Remove Population Attribute Value From Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options) {
-            return localVarFp.removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options).then((request) => request(axios, basePath));
+        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, teamId, options) {
+            return localVarFp.removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a population attribute value from a dataset.
@@ -12714,11 +12868,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @summary Replace Dataset
          * @param {string} datasetId
          * @param {DatasetIn} datasetIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options) {
-            return localVarFp.replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, options).then((request) => request(axios, basePath));
+        replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, teamId, options) {
+            return localVarFp.replaceDatasetV1DatasetsDatasetIdPut(datasetId, datasetIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Replace a Dataset.
@@ -12737,11 +12892,12 @@ exports.DatasetsApiFactory = function (configuration, basePath, axios) {
          * @summary Tag Study With Object
          * @param {string} datasetId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId, tagObjectId, options) {
-            return localVarFp.tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId, tagObjectId, options).then((request) => request(axios, basePath));
+        tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId, tagObjectId, teamId, options) {
+            return localVarFp.tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId, tagObjectId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Tag the dataset with object with provided id.
@@ -12773,7 +12929,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters.datasetId, requestParameters.featureId, requestParameters.index, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters.datasetId, requestParameters.featureId, requestParameters.index, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
@@ -12795,7 +12951,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters.datasetId, requestParameters.parentId, requestParameters.reconcileFeatures, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters.datasetId, requestParameters.parentId, requestParameters.reconcileFeatures, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add a parent dataset.
@@ -12817,7 +12973,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters.datasetId, requestParameters.populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters.datasetId, requestParameters.populationAttributeValueId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add a population attribute value to a dataset.
@@ -12905,7 +13061,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     deleteDatasetV1DatasetsDatasetIdDelete(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).deleteDatasetV1DatasetsDatasetIdDelete(requestParameters.datasetId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).deleteDatasetV1DatasetsDatasetIdDelete(requestParameters.datasetId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
@@ -12927,7 +13083,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters.datasetId, requestParameters.bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters.datasetId, requestParameters.bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete multiple Associations in a Model.
@@ -12949,7 +13105,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(requestParameters.datasetId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(requestParameters.datasetId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch all population attribute values of the dataset.
@@ -12971,7 +13127,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     getDatasetV1DatasetsDatasetIdGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).getDatasetV1DatasetsDatasetIdGet(requestParameters.datasetId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).getDatasetV1DatasetsDatasetIdGet(requestParameters.datasetId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get a Dataset.
@@ -12993,7 +13149,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listAssociationsV1DatasetsDatasetIdAssociationsGet(requestParameters.datasetId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations derived from the Dataset.
@@ -13037,7 +13193,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a datasets features.
@@ -13059,7 +13215,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listDatasetParentsV1DatasetsDatasetIdParentsGet(requestParameters.datasetId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.variableTag, requestParameters.conceptTag, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get parents of this dataset.
@@ -13103,7 +13259,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).listModelsUsingDatasetV1DatasetsDatasetIdModelsGet(requestParameters.datasetId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get models that use the dataset either directly or through child datasets.
@@ -13147,7 +13303,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     patchDatasetV1DatasetsDatasetIdPatch(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).patchDatasetV1DatasetsDatasetIdPatch(requestParameters.datasetId, requestParameters.patchDatasetOpArrayPatchDatasetOp, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).patchDatasetV1DatasetsDatasetIdPatch(requestParameters.datasetId, requestParameters.patchDatasetOpArrayPatchDatasetOp, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Dataset resource with partial update.
@@ -13169,7 +13325,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters.datasetId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters.datasetId, requestParameters.featureId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
@@ -13191,7 +13347,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(requestParameters.datasetId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(requestParameters.datasetId, requestParameters.tagObjectId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Tag the dataset with object with provided id.
@@ -13213,7 +13369,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(requestParameters.datasetId, requestParameters.parentId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(requestParameters.datasetId, requestParameters.parentId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove a parent dataset.
@@ -13235,7 +13391,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters.datasetId, requestParameters.populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters.datasetId, requestParameters.populationAttributeValueId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove a population attribute value from a dataset.
@@ -13257,7 +13413,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     replaceDatasetV1DatasetsDatasetIdPut(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).replaceDatasetV1DatasetsDatasetIdPut(requestParameters.datasetId, requestParameters.datasetIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).replaceDatasetV1DatasetsDatasetIdPut(requestParameters.datasetId, requestParameters.datasetIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Replace a Dataset.
@@ -13279,7 +13435,7 @@ class DatasetsApi extends base_1.BaseAPI {
      * @memberof DatasetsApi
      */
     tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(requestParameters, options) {
-        return exports.DatasetsApiFp(this.configuration).tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(requestParameters.datasetId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
+        return exports.DatasetsApiFp(this.configuration).tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(requestParameters.datasetId, requestParameters.tagObjectId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Tag the dataset with object with provided id.
@@ -13998,10 +14154,11 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @summary Add Feature To Dashboard Endpoint
          * @param {string} dashboardId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId, featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId, featureId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'dashboardId' is not null or undefined
             common_1.assertParamExists('addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut', 'dashboardId', dashboardId);
             // verify required parameter 'featureId' is not null or undefined
@@ -14023,6 +14180,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -14079,10 +14239,11 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {string} datasetId
          * @param {string} featureId
          * @param {boolean} [index] If true, then set the feature as the dataset index.
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId, featureId, index, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId, featureId, index, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut', 'datasetId', datasetId);
             // verify required parameter 'featureId' is not null or undefined
@@ -14106,6 +14267,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (index !== undefined) {
                 localVarQueryParameter['index'] = index;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -14329,10 +14493,11 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * Delete a feature.
          * @summary Delete Feature
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFeatureV1FeaturesFeatureIdDelete: (featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteFeatureV1FeaturesFeatureIdDelete: (featureId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'featureId' is not null or undefined
             common_1.assertParamExists('deleteFeatureV1FeaturesFeatureIdDelete', 'featureId', featureId);
             const localVarPath = `/v1/features/{feature_id}`
@@ -14351,6 +14516,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -14401,10 +14569,11 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * Get feature.
          * @summary Get Feature
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFeatureV1FeaturesFeatureIdGet: (featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getFeatureV1FeaturesFeatureIdGet: (featureId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'featureId' is not null or undefined
             common_1.assertParamExists('getFeatureV1FeaturesFeatureIdGet', 'featureId', featureId);
             const localVarPath = `/v1/features/{feature_id}`
@@ -14423,6 +14592,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -14793,6 +14965,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -14804,11 +14977,10 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet: (datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet', 'datasetId', datasetId);
             const localVarPath = `/v1/datasets/{dataset_id}/features`
@@ -14827,6 +14999,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -14859,9 +15034,6 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             }
             if (inFeatureGraph !== undefined) {
                 localVarQueryParameter['in_feature_graph'] = inFeatureGraph;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -15113,6 +15285,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * Get the features in the requested feature\'s system.
          * @summary List System Of Features
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -15134,7 +15307,7 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'featureId' is not null or undefined
             common_1.assertParamExists('listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet', 'featureId', featureId);
             const localVarPath = `/v1/features/{feature_id}/system/features`
@@ -15153,6 +15326,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -15494,10 +15670,11 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @summary Patch Feature
          * @param {string} featureId
          * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchFeatureV1FeaturesFeatureIdPatch: (featureId, patchFeatureOpArrayPatchFeatureOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        patchFeatureV1FeaturesFeatureIdPatch: (featureId, patchFeatureOpArrayPatchFeatureOp, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'featureId' is not null or undefined
             common_1.assertParamExists('patchFeatureV1FeaturesFeatureIdPatch', 'featureId', featureId);
             // verify required parameter 'patchFeatureOpArrayPatchFeatureOp' is not null or undefined
@@ -15518,6 +15695,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -15650,10 +15830,11 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @summary Remove Feature From Dataset
          * @param {string} datasetId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId, featureId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId, featureId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete', 'datasetId', datasetId);
             // verify required parameter 'featureId' is not null or undefined
@@ -15675,6 +15856,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -15730,10 +15914,11 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
          * @summary Replace Feature
          * @param {string} featureId
          * @param {FeatureIn} featureIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceFeatureV1FeaturesFeatureIdPut: (featureId, featureIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        replaceFeatureV1FeaturesFeatureIdPut: (featureId, featureIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'featureId' is not null or undefined
             common_1.assertParamExists('replaceFeatureV1FeaturesFeatureIdPut', 'featureId', featureId);
             // verify required parameter 'featureIn' is not null or undefined
@@ -15754,6 +15939,9 @@ exports.FeaturesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -15821,12 +16009,13 @@ exports.FeaturesApiFp = function (configuration) {
          * @summary Add Feature To Dashboard Endpoint
          * @param {string} dashboardId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options) {
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -15851,12 +16040,13 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {string} datasetId
          * @param {string} featureId
          * @param {boolean} [index] If true, then set the feature as the dataset index.
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options) {
+        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -15938,12 +16128,13 @@ exports.FeaturesApiFp = function (configuration) {
          * Delete a feature.
          * @summary Delete Feature
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFeatureV1FeaturesFeatureIdDelete(featureId, options) {
+        deleteFeatureV1FeaturesFeatureIdDelete(featureId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteFeatureV1FeaturesFeatureIdDelete(featureId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteFeatureV1FeaturesFeatureIdDelete(featureId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -15965,12 +16156,13 @@ exports.FeaturesApiFp = function (configuration) {
          * Get feature.
          * @summary Get Feature
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFeatureV1FeaturesFeatureIdGet(featureId, options) {
+        getFeatureV1FeaturesFeatureIdGet(featureId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getFeatureV1FeaturesFeatureIdGet(featureId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getFeatureV1FeaturesFeatureIdGet(featureId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -16090,6 +16282,7 @@ exports.FeaturesApiFp = function (configuration) {
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -16101,13 +16294,12 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options) {
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -16188,6 +16380,7 @@ exports.FeaturesApiFp = function (configuration) {
          * Get the features in the requested feature\'s system.
          * @summary List System Of Features
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -16209,9 +16402,9 @@ exports.FeaturesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -16302,12 +16495,13 @@ exports.FeaturesApiFp = function (configuration) {
          * @summary Patch Feature
          * @param {string} featureId
          * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options) {
+        patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -16358,12 +16552,13 @@ exports.FeaturesApiFp = function (configuration) {
          * @summary Remove Feature From Dataset
          * @param {string} datasetId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options) {
+        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -16387,12 +16582,13 @@ exports.FeaturesApiFp = function (configuration) {
          * @summary Replace Feature
          * @param {string} featureId
          * @param {FeatureIn} featureIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, options) {
+        replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -16425,11 +16621,12 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @summary Add Feature To Dashboard Endpoint
          * @param {string} dashboardId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options) {
-            return localVarFp.addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, options).then((request) => request(axios, basePath));
+        addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, teamId, options) {
+            return localVarFp.addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId, featureId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
@@ -16449,11 +16646,12 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {string} datasetId
          * @param {string} featureId
          * @param {boolean} [index] If true, then set the feature as the dataset index.
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options) {
-            return localVarFp.addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, options).then((request) => request(axios, basePath));
+        addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, teamId, options) {
+            return localVarFp.addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId, featureId, index, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
@@ -16518,11 +16716,12 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * Delete a feature.
          * @summary Delete Feature
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteFeatureV1FeaturesFeatureIdDelete(featureId, options) {
-            return localVarFp.deleteFeatureV1FeaturesFeatureIdDelete(featureId, options).then((request) => request(axios, basePath));
+        deleteFeatureV1FeaturesFeatureIdDelete(featureId, teamId, options) {
+            return localVarFp.deleteFeatureV1FeaturesFeatureIdDelete(featureId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a feature.
@@ -16539,11 +16738,12 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * Get feature.
          * @summary Get Feature
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFeatureV1FeaturesFeatureIdGet(featureId, options) {
-            return localVarFp.getFeatureV1FeaturesFeatureIdGet(featureId, options).then((request) => request(axios, basePath));
+        getFeatureV1FeaturesFeatureIdGet(featureId, teamId, options) {
+            return localVarFp.getFeatureV1FeaturesFeatureIdGet(featureId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get feature.
@@ -16646,6 +16846,7 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * List a datasets features.
          * @summary List Dataset Features
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -16657,12 +16858,11 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options) {
-            return localVarFp.listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, teamId, options).then((request) => request(axios, basePath));
+        listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options) {
+            return localVarFp.listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(datasetId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
          * List a datasets features.
@@ -16732,6 +16932,7 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * Get the features in the requested feature\'s system.
          * @summary List System Of Features
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -16753,8 +16954,8 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
-            return localVarFp.listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return localVarFp.listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested feature\'s system.
@@ -16834,11 +17035,12 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @summary Patch Feature
          * @param {string} featureId
          * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options) {
-            return localVarFp.patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, options).then((request) => request(axios, basePath));
+        patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, teamId, options) {
+            return localVarFp.patchFeatureV1FeaturesFeatureIdPatch(featureId, patchFeatureOpArrayPatchFeatureOp, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
@@ -16878,11 +17080,12 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @summary Remove Feature From Dataset
          * @param {string} datasetId
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options) {
-            return localVarFp.removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, options).then((request) => request(axios, basePath));
+        removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, teamId, options) {
+            return localVarFp.removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId, featureId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
@@ -16901,11 +17104,12 @@ exports.FeaturesApiFactory = function (configuration, basePath, axios) {
          * @summary Replace Feature
          * @param {string} featureId
          * @param {FeatureIn} featureIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, options) {
-            return localVarFp.replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, options).then((request) => request(axios, basePath));
+        replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, teamId, options) {
+            return localVarFp.replaceFeatureV1FeaturesFeatureIdPut(featureId, featureIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Replace a Feature.
@@ -16937,7 +17141,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters.dashboardId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters.dashboardId, requestParameters.featureId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
@@ -16959,7 +17163,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters.datasetId, requestParameters.featureId, requestParameters.index, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters.datasetId, requestParameters.featureId, requestParameters.index, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
@@ -17025,7 +17229,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     deleteFeatureV1FeaturesFeatureIdDelete(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).deleteFeatureV1FeaturesFeatureIdDelete(requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).deleteFeatureV1FeaturesFeatureIdDelete(requestParameters.featureId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a feature.
@@ -17047,7 +17251,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     getFeatureV1FeaturesFeatureIdGet(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).getFeatureV1FeaturesFeatureIdGet(requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).getFeatureV1FeaturesFeatureIdGet(requestParameters.featureId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get feature.
@@ -17113,7 +17317,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listDatasetFeaturesV1DatasetsDatasetIdFeaturesGet(requestParameters.datasetId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a datasets features.
@@ -17157,7 +17361,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters.featureId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters.featureId, requestParameters.teamId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the features in the requested feature\'s system.
@@ -17201,7 +17405,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     patchFeatureV1FeaturesFeatureIdPatch(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).patchFeatureV1FeaturesFeatureIdPatch(requestParameters.featureId, requestParameters.patchFeatureOpArrayPatchFeatureOp, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).patchFeatureV1FeaturesFeatureIdPatch(requestParameters.featureId, requestParameters.patchFeatureOpArrayPatchFeatureOp, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
@@ -17245,7 +17449,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters.datasetId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters.datasetId, requestParameters.featureId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
@@ -17267,7 +17471,7 @@ class FeaturesApi extends base_1.BaseAPI {
      * @memberof FeaturesApi
      */
     replaceFeatureV1FeaturesFeatureIdPut(requestParameters, options) {
-        return exports.FeaturesApiFp(this.configuration).replaceFeatureV1FeaturesFeatureIdPut(requestParameters.featureId, requestParameters.featureIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.FeaturesApiFp(this.configuration).replaceFeatureV1FeaturesFeatureIdPut(requestParameters.featureId, requestParameters.featureIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Replace a Feature.
@@ -18678,10 +18882,11 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @summary Delete Association
          * @param {string} modelId
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId, associationId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId, associationId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete', 'modelId', modelId);
             // verify required parameter 'associationId' is not null or undefined
@@ -18703,6 +18908,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -18758,10 +18966,11 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @summary Delete Associations
          * @param {string} modelId
          * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('deleteAssociationsV1ModelsModelIdAssociationsDelete', 'modelId', modelId);
             // verify required parameter 'bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete' is not null or undefined
@@ -18782,6 +18991,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -18839,10 +19051,11 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
          * @summary Delete Model
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteModelV1ModelsModelIdDelete: (modelId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteModelV1ModelsModelIdDelete: (modelId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('deleteModelV1ModelsModelIdDelete', 'modelId', modelId);
             const localVarPath = `/v1/models/{model_id}`
@@ -18861,6 +19074,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -18912,10 +19128,11 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @summary Get Association
          * @param {string} associationId
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAssociationV1ModelsModelIdAssociationsAssociationIdGet: (associationId, modelId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAssociationV1ModelsModelIdAssociationsAssociationIdGet: (associationId, modelId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'associationId' is not null or undefined
             common_1.assertParamExists('getAssociationV1ModelsModelIdAssociationsAssociationIdGet', 'associationId', associationId);
             // verify required parameter 'modelId' is not null or undefined
@@ -18937,6 +19154,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -18991,10 +19211,11 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * Get Model.
          * @summary Get Model
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getModelV1ModelsModelIdGet: (modelId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getModelV1ModelsModelIdGet: (modelId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('getModelV1ModelsModelIdGet', 'modelId', modelId);
             const localVarPath = `/v1/models/{model_id}`
@@ -19013,6 +19234,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -19063,6 +19287,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * Get associations in model.
          * @summary List Associations
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -19075,11 +19300,10 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1ModelsModelIdAssociationsGet: (modelId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('listAssociationsV1ModelsModelIdAssociationsGet', 'modelId', modelId);
             const localVarPath = `/v1/models/{model_id}/associations`
@@ -19098,6 +19322,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -19133,9 +19360,6 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             }
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -19391,6 +19615,7 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * Get models in a project.
          * @summary List Models In Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -19402,11 +19627,10 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listModelsInStudyV1StudiesStudyIdModelsGet: (studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('listModelsInStudyV1StudiesStudyIdModelsGet', 'studyId', studyId);
             const localVarPath = `/v1/studies/{study_id}/models`
@@ -19425,6 +19649,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -19457,9 +19684,6 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             }
             if (containsVariableId !== undefined) {
                 localVarQueryParameter['contains_variable_id'] = containsVariableId;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -19876,10 +20100,11 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @summary Patch Associations
          * @param {string} modelId
          * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId, bulkPatchAssociationOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId, bulkPatchAssociationOp, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('patchAssociationsV1ModelsModelIdAssociationsPatch', 'modelId', modelId);
             // verify required parameter 'bulkPatchAssociationOp' is not null or undefined
@@ -19900,6 +20125,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -19958,10 +20186,11 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @summary Patch Model
          * @param {string} modelId
          * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchModelV1ModelsModelIdPatch: (modelId, patchModelOpArrayPatchModelOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        patchModelV1ModelsModelIdPatch: (modelId, patchModelOpArrayPatchModelOp, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'modelId' is not null or undefined
             common_1.assertParamExists('patchModelV1ModelsModelIdPatch', 'modelId', modelId);
             // verify required parameter 'patchModelOpArrayPatchModelOp' is not null or undefined
@@ -19982,6 +20211,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -20041,10 +20273,11 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
          * @param {string} associationId
          * @param {string} modelId
          * @param {DirectionIn} directionIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId, modelId, directionIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId, modelId, directionIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'associationId' is not null or undefined
             common_1.assertParamExists('postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost', 'associationId', associationId);
             // verify required parameter 'modelId' is not null or undefined
@@ -20068,6 +20301,9 @@ exports.ModelsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -20287,12 +20523,13 @@ exports.ModelsApiFp = function (configuration) {
          * @summary Delete Association
          * @param {string} modelId
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options) {
+        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -20316,12 +20553,13 @@ exports.ModelsApiFp = function (configuration) {
          * @summary Delete Associations
          * @param {string} modelId
          * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options) {
+        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -20344,12 +20582,13 @@ exports.ModelsApiFp = function (configuration) {
          * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
          * @summary Delete Model
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteModelV1ModelsModelIdDelete(modelId, options) {
+        deleteModelV1ModelsModelIdDelete(modelId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteModelV1ModelsModelIdDelete(modelId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteModelV1ModelsModelIdDelete(modelId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -20372,12 +20611,13 @@ exports.ModelsApiFp = function (configuration) {
          * @summary Get Association
          * @param {string} associationId
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options) {
+        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -20400,12 +20640,13 @@ exports.ModelsApiFp = function (configuration) {
          * Get Model.
          * @summary Get Model
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getModelV1ModelsModelIdGet(modelId, options) {
+        getModelV1ModelsModelIdGet(modelId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getModelV1ModelsModelIdGet(modelId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getModelV1ModelsModelIdGet(modelId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -20427,6 +20668,7 @@ exports.ModelsApiFp = function (configuration) {
          * Get associations in model.
          * @summary List Associations
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -20439,13 +20681,12 @@ exports.ModelsApiFp = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1ModelsModelIdAssociationsGet(modelId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -20527,6 +20768,7 @@ exports.ModelsApiFp = function (configuration) {
          * Get models in a project.
          * @summary List Models In Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -20538,13 +20780,12 @@ exports.ModelsApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options) {
+        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listModelsInStudyV1StudiesStudyIdModelsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -20676,12 +20917,13 @@ exports.ModelsApiFp = function (configuration) {
          * @summary Patch Associations
          * @param {string} modelId
          * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options) {
+        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -20705,12 +20947,13 @@ exports.ModelsApiFp = function (configuration) {
          * @summary Patch Model
          * @param {string} modelId
          * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, options) {
+        patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -20735,12 +20978,13 @@ exports.ModelsApiFp = function (configuration) {
          * @param {string} associationId
          * @param {string} modelId
          * @param {DirectionIn} directionIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options) {
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -20854,11 +21098,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @summary Delete Association
          * @param {string} modelId
          * @param {string} associationId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options) {
-            return localVarFp.deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, options).then((request) => request(axios, basePath));
+        deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, teamId, options) {
+            return localVarFp.deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId, associationId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete an Association.
@@ -20877,11 +21122,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @summary Delete Associations
          * @param {string} modelId
          * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options) {
-            return localVarFp.deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(axios, basePath));
+        deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId, options) {
+            return localVarFp.deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete multiple Associations in a Model.
@@ -20899,11 +21145,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
          * @summary Delete Model
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteModelV1ModelsModelIdDelete(modelId, options) {
-            return localVarFp.deleteModelV1ModelsModelIdDelete(modelId, options).then((request) => request(axios, basePath));
+        deleteModelV1ModelsModelIdDelete(modelId, teamId, options) {
+            return localVarFp.deleteModelV1ModelsModelIdDelete(modelId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
@@ -20921,11 +21168,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @summary Get Association
          * @param {string} associationId
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options) {
-            return localVarFp.getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, options).then((request) => request(axios, basePath));
+        getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, teamId, options) {
+            return localVarFp.getAssociationV1ModelsModelIdAssociationsAssociationIdGet(associationId, modelId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get an Association.
@@ -20943,11 +21191,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * Get Model.
          * @summary Get Model
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getModelV1ModelsModelIdGet(modelId, options) {
-            return localVarFp.getModelV1ModelsModelIdGet(modelId, options).then((request) => request(axios, basePath));
+        getModelV1ModelsModelIdGet(modelId, teamId, options) {
+            return localVarFp.getModelV1ModelsModelIdGet(modelId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Model.
@@ -20964,6 +21213,7 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * Get associations in model.
          * @summary List Associations
          * @param {string} modelId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -20976,12 +21226,11 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
-            return localVarFp.listAssociationsV1ModelsModelIdAssociationsGet(modelId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options).then((request) => request(axios, basePath));
+        listAssociationsV1ModelsModelIdAssociationsGet(modelId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return localVarFp.listAssociationsV1ModelsModelIdAssociationsGet(modelId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations in model.
@@ -21052,6 +21301,7 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * Get models in a project.
          * @summary List Models In Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -21063,12 +21313,11 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options) {
-            return localVarFp.listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options).then((request) => request(axios, basePath));
+        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return localVarFp.listModelsInStudyV1StudiesStudyIdModelsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models in a project.
@@ -21183,11 +21432,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @summary Patch Associations
          * @param {string} modelId
          * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options) {
-            return localVarFp.patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, options).then((request) => request(axios, basePath));
+        patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, teamId, options) {
+            return localVarFp.patchAssociationsV1ModelsModelIdAssociationsPatch(modelId, bulkPatchAssociationOp, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Bulk association patching.
@@ -21206,11 +21456,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @summary Patch Model
          * @param {string} modelId
          * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, options) {
-            return localVarFp.patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, options).then((request) => request(axios, basePath));
+        patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, teamId, options) {
+            return localVarFp.patchModelV1ModelsModelIdPatch(modelId, patchModelOpArrayPatchModelOp, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Model resource with partial update.
@@ -21230,11 +21481,12 @@ exports.ModelsApiFactory = function (configuration, basePath, axios) {
          * @param {string} associationId
          * @param {string} modelId
          * @param {DirectionIn} directionIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options) {
-            return localVarFp.postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, options).then((request) => request(axios, basePath));
+        postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, teamId, options) {
+            return localVarFp.postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId, modelId, directionIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get an Association.
@@ -21335,7 +21587,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(requestParameters.modelId, requestParameters.associationId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(requestParameters.modelId, requestParameters.associationId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete an Association.
@@ -21357,7 +21609,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters.modelId, requestParameters.bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters.modelId, requestParameters.bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete multiple Associations in a Model.
@@ -21379,7 +21631,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     deleteModelV1ModelsModelIdDelete(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).deleteModelV1ModelsModelIdDelete(requestParameters.modelId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).deleteModelV1ModelsModelIdDelete(requestParameters.modelId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
@@ -21401,7 +21653,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters.associationId, requestParameters.modelId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).getAssociationV1ModelsModelIdAssociationsAssociationIdGet(requestParameters.associationId, requestParameters.modelId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get an Association.
@@ -21423,7 +21675,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     getModelV1ModelsModelIdGet(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).getModelV1ModelsModelIdGet(requestParameters.modelId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).getModelV1ModelsModelIdGet(requestParameters.modelId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Model.
@@ -21445,7 +21697,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listAssociationsV1ModelsModelIdAssociationsGet(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listAssociationsV1ModelsModelIdAssociationsGet(requestParameters.modelId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations in model.
@@ -21489,7 +21741,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters.studyId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get models in a project.
@@ -21555,7 +21807,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     patchAssociationsV1ModelsModelIdAssociationsPatch(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(requestParameters.modelId, requestParameters.bulkPatchAssociationOp, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).patchAssociationsV1ModelsModelIdAssociationsPatch(requestParameters.modelId, requestParameters.bulkPatchAssociationOp, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Bulk association patching.
@@ -21577,7 +21829,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     patchModelV1ModelsModelIdPatch(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).patchModelV1ModelsModelIdPatch(requestParameters.modelId, requestParameters.patchModelOpArrayPatchModelOp, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).patchModelV1ModelsModelIdPatch(requestParameters.modelId, requestParameters.patchModelOpArrayPatchModelOp, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Model resource with partial update.
@@ -21599,7 +21851,7 @@ class ModelsApi extends base_1.BaseAPI {
      * @memberof ModelsApi
      */
     postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters, options) {
-        return exports.ModelsApiFp(this.configuration).postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters.associationId, requestParameters.modelId, requestParameters.directionIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.ModelsApiFp(this.configuration).postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters.associationId, requestParameters.modelId, requestParameters.directionIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get an Association.
@@ -21647,10 +21899,11 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
          * @summary Add Population Attribute Value To Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (datasetId, populationAttributeValueId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (datasetId, populationAttributeValueId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut', 'datasetId', datasetId);
             // verify required parameter 'populationAttributeValueId' is not null or undefined
@@ -21672,6 +21925,9 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -21726,10 +21982,11 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
          * Delete population attribute value.
          * @summary Delete Population Attribute Value
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete: (populationAttributeValueId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete: (populationAttributeValueId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'populationAttributeValueId' is not null or undefined
             common_1.assertParamExists('deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete', 'populationAttributeValueId', populationAttributeValueId);
             const localVarPath = `/v1/population_attribute_values/{population_attribute_value_id}`
@@ -21748,6 +22005,9 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -21760,10 +22020,11 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: (datasetId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet: (datasetId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet', 'datasetId', datasetId);
             const localVarPath = `/v1/datasets/{dataset_id}/population_attribute_values`
@@ -21782,6 +22043,9 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -21832,10 +22096,11 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
          * Get population attribute value.
          * @summary Get Population Attribute Value
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet: (populationAttributeValueId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet: (populationAttributeValueId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'populationAttributeValueId' is not null or undefined
             common_1.assertParamExists('getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet', 'populationAttributeValueId', populationAttributeValueId);
             const localVarPath = `/v1/population_attribute_values/{population_attribute_value_id}`
@@ -21854,6 +22119,9 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -21941,10 +22209,11 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
          * @summary Remove Population Attribute Value From Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (datasetId, populationAttributeValueId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete: (datasetId, populationAttributeValueId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'datasetId' is not null or undefined
             common_1.assertParamExists('removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete', 'datasetId', datasetId);
             // verify required parameter 'populationAttributeValueId' is not null or undefined
@@ -21966,6 +22235,9 @@ exports.PopulationAttributeValuesApiAxiosParamCreator = function (configuration)
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -22030,12 +22302,13 @@ exports.PopulationAttributeValuesApiFp = function (configuration) {
          * @summary Add Population Attribute Value To Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options) {
+        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -22058,12 +22331,13 @@ exports.PopulationAttributeValuesApiFp = function (configuration) {
          * Delete population attribute value.
          * @summary Delete Population Attribute Value
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, options) {
+        deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -22071,12 +22345,13 @@ exports.PopulationAttributeValuesApiFp = function (configuration) {
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options) {
+        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -22098,12 +22373,13 @@ exports.PopulationAttributeValuesApiFp = function (configuration) {
          * Get population attribute value.
          * @summary Get Population Attribute Value
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, options) {
+        getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -22135,12 +22411,13 @@ exports.PopulationAttributeValuesApiFp = function (configuration) {
          * @summary Remove Population Attribute Value From Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options) {
+        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -22173,11 +22450,12 @@ exports.PopulationAttributeValuesApiFactory = function (configuration, basePath,
          * @summary Add Population Attribute Value To Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options) {
-            return localVarFp.addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, options).then((request) => request(axios, basePath));
+        addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, teamId, options) {
+            return localVarFp.addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(datasetId, populationAttributeValueId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add a population attribute value to a dataset.
@@ -22195,21 +22473,23 @@ exports.PopulationAttributeValuesApiFactory = function (configuration, basePath,
          * Delete population attribute value.
          * @summary Delete Population Attribute Value
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, options) {
-            return localVarFp.deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, options).then((request) => request(axios, basePath));
+        deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, teamId, options) {
+            return localVarFp.deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(populationAttributeValueId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch all population attribute values of the dataset.
          * @summary Fetch Dataset Population Attribute Values
          * @param {string} datasetId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options) {
-            return localVarFp.fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, options).then((request) => request(axios, basePath));
+        fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, teamId, options) {
+            return localVarFp.fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(datasetId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch all population attribute values of the dataset.
@@ -22226,11 +22506,12 @@ exports.PopulationAttributeValuesApiFactory = function (configuration, basePath,
          * Get population attribute value.
          * @summary Get Population Attribute Value
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, options) {
-            return localVarFp.getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, options).then((request) => request(axios, basePath));
+        getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, teamId, options) {
+            return localVarFp.getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(populationAttributeValueId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * List population attribute values.
@@ -22257,11 +22538,12 @@ exports.PopulationAttributeValuesApiFactory = function (configuration, basePath,
          * @summary Remove Population Attribute Value From Dataset
          * @param {string} datasetId
          * @param {string} populationAttributeValueId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options) {
-            return localVarFp.removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, options).then((request) => request(axios, basePath));
+        removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, teamId, options) {
+            return localVarFp.removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(datasetId, populationAttributeValueId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove a population attribute value from a dataset.
@@ -22293,7 +22575,7 @@ class PopulationAttributeValuesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters, options) {
-        return exports.PopulationAttributeValuesApiFp(this.configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters.datasetId, requestParameters.populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributeValuesApiFp(this.configuration).addPopulationAttributeValueToDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters.datasetId, requestParameters.populationAttributeValueId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add a population attribute value to a dataset.
@@ -22315,7 +22597,7 @@ class PopulationAttributeValuesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters, options) {
-        return exports.PopulationAttributeValuesApiFp(this.configuration).deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters.populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributeValuesApiFp(this.configuration).deletePopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters.populationAttributeValueId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch all population attribute values of the dataset.
@@ -22326,7 +22608,7 @@ class PopulationAttributeValuesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(requestParameters, options) {
-        return exports.PopulationAttributeValuesApiFp(this.configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(requestParameters.datasetId, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributeValuesApiFp(this.configuration).fetchDatasetPopulationAttributeValuesV1DatasetsDatasetIdPopulationAttributeValuesGet(requestParameters.datasetId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch all population attribute values of the dataset.
@@ -22348,7 +22630,7 @@ class PopulationAttributeValuesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(requestParameters, options) {
-        return exports.PopulationAttributeValuesApiFp(this.configuration).getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(requestParameters.populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributeValuesApiFp(this.configuration).getPopulationAttributeValueV1PopulationAttributeValuesPopulationAttributeValueIdGet(requestParameters.populationAttributeValueId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List population attribute values.
@@ -22370,7 +22652,7 @@ class PopulationAttributeValuesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributeValuesApi
      */
     removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters, options) {
-        return exports.PopulationAttributeValuesApiFp(this.configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters.datasetId, requestParameters.populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributeValuesApiFp(this.configuration).removePopulationAttributeValueFromDatasetV1DatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdDelete(requestParameters.datasetId, requestParameters.populationAttributeValueId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove a population attribute value from a dataset.
@@ -22431,10 +22713,11 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
          * @summary Create Population Attribute Value
          * @param {string} populationAttributeId
          * @param {DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn} dateRangeInLocationInNumberRangeInCategoryInFreeTextIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost: (populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost: (populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'populationAttributeId' is not null or undefined
             common_1.assertParamExists('createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost', 'populationAttributeId', populationAttributeId);
             // verify required parameter 'dateRangeInLocationInNumberRangeInCategoryInFreeTextIn' is not null or undefined
@@ -22455,6 +22738,9 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -22469,10 +22755,11 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
          * Delete population attribute.
          * @summary Delete Population Attribute
          * @param {string} populationAttributeId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete: (populationAttributeId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete: (populationAttributeId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'populationAttributeId' is not null or undefined
             common_1.assertParamExists('deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete', 'populationAttributeId', populationAttributeId);
             const localVarPath = `/v1/population_attributes/{population_attribute_id}`
@@ -22491,6 +22778,9 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -22503,10 +22793,11 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
          * Get population attribute.
          * @summary Get Population Attribute
          * @param {string} populationAttributeId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet: (populationAttributeId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet: (populationAttributeId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'populationAttributeId' is not null or undefined
             common_1.assertParamExists('getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet', 'populationAttributeId', populationAttributeId);
             const localVarPath = `/v1/population_attributes/{population_attribute_id}`
@@ -22525,6 +22816,9 @@ exports.PopulationAttributesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -22712,12 +23006,13 @@ exports.PopulationAttributesApiFp = function (configuration) {
          * @summary Create Population Attribute Value
          * @param {string} populationAttributeId
          * @param {DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn} dateRangeInLocationInNumberRangeInCategoryInFreeTextIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options) {
+        createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -22725,12 +23020,13 @@ exports.PopulationAttributesApiFp = function (configuration) {
          * Delete population attribute.
          * @summary Delete Population Attribute
          * @param {string} populationAttributeId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, options) {
+        deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -22738,12 +23034,13 @@ exports.PopulationAttributesApiFp = function (configuration) {
          * Get population attribute.
          * @summary Get Population Attribute
          * @param {string} populationAttributeId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, options) {
+        getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -22818,31 +23115,34 @@ exports.PopulationAttributesApiFactory = function (configuration, basePath, axio
          * @summary Create Population Attribute Value
          * @param {string} populationAttributeId
          * @param {DateRangeIn | LocationIn | NumberRangeIn | CategoryIn | FreeTextIn} dateRangeInLocationInNumberRangeInCategoryInFreeTextIn
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options) {
-            return localVarFp.createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options).then((request) => request(axios, basePath));
+        createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, teamId, options) {
+            return localVarFp.createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(populationAttributeId, dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete population attribute.
          * @summary Delete Population Attribute
          * @param {string} populationAttributeId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, options) {
-            return localVarFp.deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, options).then((request) => request(axios, basePath));
+        deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, teamId, options) {
+            return localVarFp.deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(populationAttributeId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get population attribute.
          * @summary Get Population Attribute
          * @param {string} populationAttributeId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, options) {
-            return localVarFp.getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, options).then((request) => request(axios, basePath));
+        getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, teamId, options) {
+            return localVarFp.getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(populationAttributeId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * List a population attribute\'s values.
@@ -22914,7 +23214,7 @@ class PopulationAttributesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributesApi
      */
     createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(requestParameters, options) {
-        return exports.PopulationAttributesApiFp(this.configuration).createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(requestParameters.populationAttributeId, requestParameters.dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributesApiFp(this.configuration).createPopulationAttributeValueV1PopulationAttributesPopulationAttributeIdValuesPost(requestParameters.populationAttributeId, requestParameters.dateRangeInLocationInNumberRangeInCategoryInFreeTextIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete population attribute.
@@ -22925,7 +23225,7 @@ class PopulationAttributesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributesApi
      */
     deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(requestParameters, options) {
-        return exports.PopulationAttributesApiFp(this.configuration).deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(requestParameters.populationAttributeId, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributesApiFp(this.configuration).deletePopulationAttributeV1PopulationAttributesPopulationAttributeIdDelete(requestParameters.populationAttributeId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get population attribute.
@@ -22936,7 +23236,7 @@ class PopulationAttributesApi extends base_1.BaseAPI {
      * @memberof PopulationAttributesApi
      */
     getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(requestParameters, options) {
-        return exports.PopulationAttributesApiFp(this.configuration).getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(requestParameters.populationAttributeId, options).then((request) => request(this.axios, this.basePath));
+        return exports.PopulationAttributesApiFp(this.configuration).getPopulationAttributeV1PopulationAttributesPopulationAttributeIdGet(requestParameters.populationAttributeId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a population attribute\'s values.
@@ -22973,10 +23273,11 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @summary Add Author To Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId, authorId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId, authorId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut', 'studyId', studyId);
             // verify required parameter 'authorId' is not null or undefined
@@ -22998,6 +23299,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -23216,10 +23520,11 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteStudyV1StudiesStudyIdDelete: (studyId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteStudyV1StudiesStudyIdDelete: (studyId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('deleteStudyV1StudiesStudyIdDelete', 'studyId', studyId);
             const localVarPath = `/v1/studies/{study_id}`
@@ -23238,6 +23543,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -23288,10 +23596,11 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * Get Study.
          * @summary Get Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyV1StudiesStudyIdGet: (studyId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getStudyV1StudiesStudyIdGet: (studyId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('getStudyV1StudiesStudyIdGet', 'studyId', studyId);
             const localVarPath = `/v1/studies/{study_id}`
@@ -23310,6 +23619,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -23360,6 +23672,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * Get associations in a project.
          * @summary List Associations
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -23372,11 +23685,10 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1StudiesStudyIdAssociationsGet: (studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('listAssociationsV1StudiesStudyIdAssociationsGet', 'studyId', studyId);
             const localVarPath = `/v1/studies/{study_id}/associations`
@@ -23395,6 +23707,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -23430,9 +23745,6 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             }
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -23852,6 +24164,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * Get models in a project.
          * @summary List Models In Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -23863,11 +24176,10 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet: (studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listModelsInStudyV1StudiesStudyIdModelsGet: (studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('listModelsInStudyV1StudiesStudyIdModelsGet', 'studyId', studyId);
             const localVarPath = `/v1/studies/{study_id}/models`
@@ -23886,6 +24198,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -23918,9 +24233,6 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             }
             if (containsVariableId !== undefined) {
                 localVarQueryParameter['contains_variable_id'] = containsVariableId;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -24369,10 +24681,11 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @summary Patch Study Endpoint
          * @param {string} studyId
          * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchStudyEndpointV1StudiesStudyIdPatch: (studyId, patchStudyOpArrayPatchStudyOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        patchStudyEndpointV1StudiesStudyIdPatch: (studyId, patchStudyOpArrayPatchStudyOp, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('patchStudyEndpointV1StudiesStudyIdPatch', 'studyId', studyId);
             // verify required parameter 'patchStudyOpArrayPatchStudyOp' is not null or undefined
@@ -24393,6 +24706,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -24450,10 +24766,11 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * Publish the study making it visible to other users.
          * @summary Publish Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        publishStudyV1StudiesStudyIdPublishPost: (studyId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        publishStudyV1StudiesStudyIdPublishPost: (studyId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('publishStudyV1StudiesStudyIdPublishPost', 'studyId', studyId);
             const localVarPath = `/v1/studies/{study_id}/publish`
@@ -24472,6 +24789,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -24523,10 +24843,11 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @summary Remove Author From Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId, authorId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId, authorId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete', 'studyId', studyId);
             // verify required parameter 'authorId' is not null or undefined
@@ -24548,6 +24869,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -24603,10 +24927,11 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @summary Remove Object Tag From Study
          * @param {string} studyId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete: (studyId, tagObjectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete: (studyId, tagObjectId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete', 'studyId', studyId);
             // verify required parameter 'tagObjectId' is not null or undefined
@@ -24628,6 +24953,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -24683,10 +25011,11 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @summary Tag Study With Object
          * @param {string} studyId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut: (studyId, tagObjectId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut: (studyId, tagObjectId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyId' is not null or undefined
             common_1.assertParamExists('tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut', 'studyId', studyId);
             // verify required parameter 'tagObjectId' is not null or undefined
@@ -24708,6 +25037,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -24772,12 +25104,13 @@ exports.StudiesApiFp = function (configuration) {
          * @summary Add Author To Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options) {
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -24858,12 +25191,13 @@ exports.StudiesApiFp = function (configuration) {
          * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteStudyV1StudiesStudyIdDelete(studyId, options) {
+        deleteStudyV1StudiesStudyIdDelete(studyId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteStudyV1StudiesStudyIdDelete(studyId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteStudyV1StudiesStudyIdDelete(studyId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -24885,12 +25219,13 @@ exports.StudiesApiFp = function (configuration) {
          * Get Study.
          * @summary Get Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyV1StudiesStudyIdGet(studyId, options) {
+        getStudyV1StudiesStudyIdGet(studyId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyV1StudiesStudyIdGet(studyId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyV1StudiesStudyIdGet(studyId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -24912,6 +25247,7 @@ exports.StudiesApiFp = function (configuration) {
          * Get associations in a project.
          * @summary List Associations
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -24924,13 +25260,12 @@ exports.StudiesApiFp = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1StudiesStudyIdAssociationsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25062,6 +25397,7 @@ exports.StudiesApiFp = function (configuration) {
          * Get models in a project.
          * @summary List Models In Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -25073,13 +25409,12 @@ exports.StudiesApiFp = function (configuration) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options) {
+        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listModelsInStudyV1StudiesStudyIdModelsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25219,12 +25554,13 @@ exports.StudiesApiFp = function (configuration) {
          * @summary Patch Study Endpoint
          * @param {string} studyId
          * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options) {
+        patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25247,12 +25583,13 @@ exports.StudiesApiFp = function (configuration) {
          * Publish the study making it visible to other users.
          * @summary Publish Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        publishStudyV1StudiesStudyIdPublishPost(studyId, options) {
+        publishStudyV1StudiesStudyIdPublishPost(studyId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.publishStudyV1StudiesStudyIdPublishPost(studyId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.publishStudyV1StudiesStudyIdPublishPost(studyId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25275,12 +25612,13 @@ exports.StudiesApiFp = function (configuration) {
          * @summary Remove Author From Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options) {
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25304,12 +25642,13 @@ exports.StudiesApiFp = function (configuration) {
          * @summary Remove Object Tag From Study
          * @param {string} studyId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, options) {
+        removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25333,12 +25672,13 @@ exports.StudiesApiFp = function (configuration) {
          * @summary Tag Study With Object
          * @param {string} studyId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, options) {
+        tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25371,11 +25711,12 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @summary Add Author To Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options) {
-            return localVarFp.addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, options).then((request) => request(axios, basePath));
+        addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, teamId, options) {
+            return localVarFp.addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId, authorId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Add an author to a study.
@@ -25439,11 +25780,12 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
          * @summary Delete Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteStudyV1StudiesStudyIdDelete(studyId, options) {
-            return localVarFp.deleteStudyV1StudiesStudyIdDelete(studyId, options).then((request) => request(axios, basePath));
+        deleteStudyV1StudiesStudyIdDelete(studyId, teamId, options) {
+            return localVarFp.deleteStudyV1StudiesStudyIdDelete(studyId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
@@ -25460,11 +25802,12 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * Get Study.
          * @summary Get Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyV1StudiesStudyIdGet(studyId, options) {
-            return localVarFp.getStudyV1StudiesStudyIdGet(studyId, options).then((request) => request(axios, basePath));
+        getStudyV1StudiesStudyIdGet(studyId, teamId, options) {
+            return localVarFp.getStudyV1StudiesStudyIdGet(studyId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Study.
@@ -25481,6 +25824,7 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * Get associations in a project.
          * @summary List Associations
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -25493,12 +25837,11 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
-            return localVarFp.listAssociationsV1StudiesStudyIdAssociationsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options).then((request) => request(axios, basePath));
+        listAssociationsV1StudiesStudyIdAssociationsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return localVarFp.listAssociationsV1StudiesStudyIdAssociationsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations in a project.
@@ -25613,6 +25956,7 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * Get models in a project.
          * @summary List Models In Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -25624,12 +25968,11 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {string} [containsVariableId] Filter models containing a variable via an association
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options) {
-            return localVarFp.listModelsInStudyV1StudiesStudyIdModelsGet(studyId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, teamId, options).then((request) => request(axios, basePath));
+        listModelsInStudyV1StudiesStudyIdModelsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options) {
+            return localVarFp.listModelsInStudyV1StudiesStudyIdModelsGet(studyId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get models in a project.
@@ -25752,11 +26095,12 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @summary Patch Study Endpoint
          * @param {string} studyId
          * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options) {
-            return localVarFp.patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, options).then((request) => request(axios, basePath));
+        patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, teamId, options) {
+            return localVarFp.patchStudyEndpointV1StudiesStudyIdPatch(studyId, patchStudyOpArrayPatchStudyOp, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Study resource with partial update.
@@ -25774,11 +26118,12 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * Publish the study making it visible to other users.
          * @summary Publish Study
          * @param {string} studyId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        publishStudyV1StudiesStudyIdPublishPost(studyId, options) {
-            return localVarFp.publishStudyV1StudiesStudyIdPublishPost(studyId, options).then((request) => request(axios, basePath));
+        publishStudyV1StudiesStudyIdPublishPost(studyId, teamId, options) {
+            return localVarFp.publishStudyV1StudiesStudyIdPublishPost(studyId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Publish the study making it visible to other users.
@@ -25796,11 +26141,12 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @summary Remove Author From Study
          * @param {string} studyId
          * @param {string} authorId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options) {
-            return localVarFp.removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, options).then((request) => request(axios, basePath));
+        removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, teamId, options) {
+            return localVarFp.removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId, authorId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove an author from a study.
@@ -25819,11 +26165,12 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @summary Remove Object Tag From Study
          * @param {string} studyId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, options) {
-            return localVarFp.removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, options).then((request) => request(axios, basePath));
+        removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, teamId, options) {
+            return localVarFp.removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId, tagObjectId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Tag the study with object with provided id.
@@ -25842,11 +26189,12 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * @summary Tag Study With Object
          * @param {string} studyId
          * @param {string} tagObjectId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, options) {
-            return localVarFp.tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, options).then((request) => request(axios, basePath));
+        tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, teamId, options) {
+            return localVarFp.tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId, tagObjectId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Tag the study with object with provided id.
@@ -25878,7 +26226,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters.studyId, requestParameters.authorId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Add an author to a study.
@@ -25944,7 +26292,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     deleteStudyV1StudiesStudyIdDelete(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).deleteStudyV1StudiesStudyIdDelete(requestParameters.studyId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).deleteStudyV1StudiesStudyIdDelete(requestParameters.studyId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
@@ -25966,7 +26314,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     getStudyV1StudiesStudyIdGet(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).getStudyV1StudiesStudyIdGet(requestParameters.studyId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).getStudyV1StudiesStudyIdGet(requestParameters.studyId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Study.
@@ -25988,7 +26336,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listAssociationsV1StudiesStudyIdAssociationsGet(requestParameters.studyId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations in a project.
@@ -26054,7 +26402,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters.studyId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).listModelsInStudyV1StudiesStudyIdModelsGet(requestParameters.studyId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get models in a project.
@@ -26120,7 +26468,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     patchStudyEndpointV1StudiesStudyIdPatch(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).patchStudyEndpointV1StudiesStudyIdPatch(requestParameters.studyId, requestParameters.patchStudyOpArrayPatchStudyOp, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).patchStudyEndpointV1StudiesStudyIdPatch(requestParameters.studyId, requestParameters.patchStudyOpArrayPatchStudyOp, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Study resource with partial update.
@@ -26142,7 +26490,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     publishStudyV1StudiesStudyIdPublishPost(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).publishStudyV1StudiesStudyIdPublishPost(requestParameters.studyId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).publishStudyV1StudiesStudyIdPublishPost(requestParameters.studyId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Publish the study making it visible to other users.
@@ -26164,7 +26512,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters.studyId, requestParameters.authorId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove an author from a study.
@@ -26186,7 +26534,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(requestParameters.studyId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(requestParameters.studyId, requestParameters.tagObjectId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Tag the study with object with provided id.
@@ -26208,7 +26556,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(requestParameters.studyId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(requestParameters.studyId, requestParameters.tagObjectId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Tag the study with object with provided id.
@@ -26409,6 +26757,7 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
          * Get the features in the requested feature\'s system.
          * @summary List System Of Features
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -26430,7 +26779,7 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet: (featureId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'featureId' is not null or undefined
             common_1.assertParamExists('listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet', 'featureId', featureId);
             const localVarPath = `/v1/features/{feature_id}/system/features`
@@ -26449,6 +26798,9 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -26735,6 +27087,7 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -26756,7 +27109,7 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet', 'variableId', variableId);
             const localVarPath = `/v1/variables/{variable_id}/system/features`
@@ -26775,6 +27128,9 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -26931,6 +27287,7 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
          * Get the variables in the requested variable\'s system.
          * @summary List System Of Variables
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -26947,7 +27304,7 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet', 'variableId', variableId);
             const localVarPath = `/v1/variables/{variable_id}/system/variables`
@@ -26966,6 +27323,9 @@ exports.SystemApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -27079,6 +27439,7 @@ exports.SystemApiFp = function (configuration) {
          * Get the features in the requested feature\'s system.
          * @summary List System Of Features
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -27100,9 +27461,9 @@ exports.SystemApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -27174,6 +27535,7 @@ exports.SystemApiFp = function (configuration) {
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -27195,9 +27557,9 @@ exports.SystemApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -27232,6 +27594,7 @@ exports.SystemApiFp = function (configuration) {
          * Get the variables in the requested variable\'s system.
          * @summary List System Of Variables
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -27248,9 +27611,9 @@ exports.SystemApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -27314,6 +27677,7 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          * Get the features in the requested feature\'s system.
          * @summary List System Of Features
          * @param {string} featureId
+         * @param {string} [teamId]
          * @param {FeatureToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -27335,8 +27699,8 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
-            return localVarFp.listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return localVarFp.listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(featureId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested feature\'s system.
@@ -27400,6 +27764,7 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -27421,8 +27786,8 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
-            return localVarFp.listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return localVarFp.listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the variables in the requested variable\'s system.
@@ -27452,6 +27817,7 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          * Get the variables in the requested variable\'s system.
          * @summary List System Of Variables
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -27468,8 +27834,8 @@ exports.SystemApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
-            return localVarFp.listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return localVarFp.listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -27511,7 +27877,7 @@ class SystemApi extends base_1.BaseAPI {
      * @memberof SystemApi
      */
     listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters, options) {
-        return exports.SystemApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters.featureId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+        return exports.SystemApiFp(this.configuration).listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet(requestParameters.featureId, requestParameters.teamId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the features in the requested feature\'s system.
@@ -27544,7 +27910,7 @@ class SystemApi extends base_1.BaseAPI {
      * @memberof SystemApi
      */
     listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters, options) {
-        return exports.SystemApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+        return exports.SystemApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters.variableId, requestParameters.teamId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the variables in the requested variable\'s system.
@@ -27566,7 +27932,7 @@ class SystemApi extends base_1.BaseAPI {
      * @memberof SystemApi
      */
     listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters, options) {
-        return exports.SystemApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+        return exports.SystemApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters.variableId, requestParameters.teamId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SystemApi = SystemApi;
@@ -45322,10 +45688,11 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
          * @summary Delete Variable
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteVariableV1VariablesVariableIdDelete: (variableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        deleteVariableV1VariablesVariableIdDelete: (variableId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('deleteVariableV1VariablesVariableIdDelete', 'variableId', variableId);
             const localVarPath = `/v1/variables/{variable_id}`
@@ -45344,6 +45711,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -45394,10 +45764,11 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * Get Variable.
          * @summary Get Variable
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariableV1VariablesVariableIdGet: (variableId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getVariableV1VariablesVariableIdGet: (variableId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('getVariableV1VariablesVariableIdGet', 'variableId', variableId);
             const localVarPath = `/v1/variables/{variable_id}`
@@ -45416,6 +45787,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -45514,6 +45888,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * Get associations using the Variable.
          * @summary List Associations
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -45526,11 +45901,10 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listAssociationsV1VariablesVariableIdAssociationsGet: (variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('listAssociationsV1VariablesVariableIdAssociationsGet', 'variableId', variableId);
             const localVarPath = `/v1/variables/{variable_id}/associations`
@@ -45549,6 +45923,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -45584,9 +45961,6 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (isVariableAssociation !== undefined) {
                 localVarQueryParameter['is_variable_association'] = isVariableAssociation;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -45842,6 +46216,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * Get dashboards connected to the Variable.
          * @summary List Dashboards
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -45852,11 +46227,10 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {DashboardSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDashboardsV1VariablesVariableIdDashboardsGet: (variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listDashboardsV1VariablesVariableIdDashboardsGet: (variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('listDashboardsV1VariablesVariableIdDashboardsGet', 'variableId', variableId);
             const localVarPath = `/v1/variables/{variable_id}/dashboards`
@@ -45875,6 +46249,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -45904,9 +46281,6 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             }
             if (sortBy !== undefined) {
                 localVarQueryParameter['sort_by'] = sortBy;
-            }
-            if (teamId !== undefined) {
-                localVarQueryParameter['team_id'] = teamId;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -46030,6 +46404,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -46051,7 +46426,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet: (variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet', 'variableId', variableId);
             const localVarPath = `/v1/variables/{variable_id}/system/features`
@@ -46070,6 +46445,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -46226,6 +46604,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * Get the variables in the requested variable\'s system.
          * @summary List System Of Variables
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -46242,7 +46621,7 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet: (variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet', 'variableId', variableId);
             const localVarPath = `/v1/variables/{variable_id}/system/variables`
@@ -46261,6 +46640,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             if (orderBy !== undefined) {
                 localVarQueryParameter['order_by'] = orderBy;
             }
@@ -46692,10 +47074,11 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
          * @summary Patch Variable
          * @param {string} variableId
          * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchVariableV1VariablesVariableIdPatch: (variableId, patchVariableOpArrayPatchVariableOp, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        patchVariableV1VariablesVariableIdPatch: (variableId, patchVariableOpArrayPatchVariableOp, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'variableId' is not null or undefined
             common_1.assertParamExists('patchVariableV1VariablesVariableIdPatch', 'variableId', variableId);
             // verify required parameter 'patchVariableOpArrayPatchVariableOp' is not null or undefined
@@ -46716,6 +47099,9 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -46809,12 +47195,13 @@ exports.VariablesApiFp = function (configuration) {
          * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
          * @summary Delete Variable
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteVariableV1VariablesVariableIdDelete(variableId, options) {
+        deleteVariableV1VariablesVariableIdDelete(variableId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteVariableV1VariablesVariableIdDelete(variableId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.deleteVariableV1VariablesVariableIdDelete(variableId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -46836,12 +47223,13 @@ exports.VariablesApiFp = function (configuration) {
          * Get Variable.
          * @summary Get Variable
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariableV1VariablesVariableIdGet(variableId, options) {
+        getVariableV1VariablesVariableIdGet(variableId, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getVariableV1VariablesVariableIdGet(variableId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getVariableV1VariablesVariableIdGet(variableId, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -46875,6 +47263,7 @@ exports.VariablesApiFp = function (configuration) {
          * Get associations using the Variable.
          * @summary List Associations
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -46887,13 +47276,12 @@ exports.VariablesApiFp = function (configuration) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listAssociationsV1VariablesVariableIdAssociationsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -46975,6 +47363,7 @@ exports.VariablesApiFp = function (configuration) {
          * Get dashboards connected to the Variable.
          * @summary List Dashboards
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -46985,13 +47374,12 @@ exports.VariablesApiFp = function (configuration) {
          * @param {DashboardSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, teamId, options) {
+        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listDashboardsV1VariablesVariableIdDashboardsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -47031,6 +47419,7 @@ exports.VariablesApiFp = function (configuration) {
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -47052,9 +47441,9 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -47089,6 +47478,7 @@ exports.VariablesApiFp = function (configuration) {
          * Get the variables in the requested variable\'s system.
          * @summary List System Of Variables
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -47105,9 +47495,9 @@ exports.VariablesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -47233,12 +47623,13 @@ exports.VariablesApiFp = function (configuration) {
          * @summary Patch Variable
          * @param {string} variableId
          * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, options) {
+        patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -47310,11 +47701,12 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
          * @summary Delete Variable
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteVariableV1VariablesVariableIdDelete(variableId, options) {
-            return localVarFp.deleteVariableV1VariablesVariableIdDelete(variableId, options).then((request) => request(axios, basePath));
+        deleteVariableV1VariablesVariableIdDelete(variableId, teamId, options) {
+            return localVarFp.deleteVariableV1VariablesVariableIdDelete(variableId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Variable.
@@ -47331,11 +47723,12 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * Get Variable.
          * @summary Get Variable
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariableV1VariablesVariableIdGet(variableId, options) {
-            return localVarFp.getVariableV1VariablesVariableIdGet(variableId, options).then((request) => request(axios, basePath));
+        getVariableV1VariablesVariableIdGet(variableId, teamId, options) {
+            return localVarFp.getVariableV1VariablesVariableIdGet(variableId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get associations using the Variable.
@@ -47364,6 +47757,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * Get associations using the Variable.
          * @summary List Associations
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -47376,12 +47770,11 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
          * @param {boolean} [isInteraction] Is association from interaction model?
          * @param {boolean} [isVariableAssociation] Include only variable-variable associations.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options) {
-            return localVarFp.listAssociationsV1VariablesVariableIdAssociationsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, teamId, options).then((request) => request(axios, basePath));
+        listAssociationsV1VariablesVariableIdAssociationsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options) {
+            return localVarFp.listAssociationsV1VariablesVariableIdAssociationsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
          * List authenticated user\'s variables.
@@ -47452,6 +47845,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * Get dashboards connected to the Variable.
          * @summary List Dashboards
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {Array<string>} [id] Filter results by id.
@@ -47462,12 +47856,11 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {DashboardSortEnum} [orderBy] Order by this field.
          * @param {Ordering} [ordering] Order ascending or descending.
          * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
-         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, teamId, options) {
-            return localVarFp.listDashboardsV1VariablesVariableIdDashboardsGet(variableId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, teamId, options).then((request) => request(axios, basePath));
+        listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options) {
+            return localVarFp.listDashboardsV1VariablesVariableIdDashboardsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the features in the requested variable\'s system.
@@ -47502,6 +47895,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * Get the features in the requested variable\'s system.
          * @summary List System Of Features
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToFeatureSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -47523,8 +47917,8 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
-            return localVarFp.listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options) {
+            return localVarFp.listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, license, dsIdx, includeDatasetIndexIds, includeDatasetPopIds, dsPopFilter, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the variables in the requested variable\'s system.
@@ -47554,6 +47948,7 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * Get the variables in the requested variable\'s system.
          * @summary List System Of Variables
          * @param {string} variableId
+         * @param {string} [teamId]
          * @param {VariableToVariableSystemOfSortEnum} [orderBy] Order by this field.
          * @param {number} [hops] Number of hops.
          * @param {Ordering} [ordering] Order ascending or descending.
@@ -47570,8 +47965,8 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
-            return localVarFp.listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
+        listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options) {
+            return localVarFp.listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(variableId, teamId, orderBy, hops, ordering, includePathPopIds, pathPopFilter, minStrength, maxStrength, minReproducibility, maxReproducibility, page, pageSize, total, idsOnly, options).then((request) => request(axios, basePath));
         },
         /**
          * List a user\'s variables.
@@ -47680,11 +48075,12 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
          * @summary Patch Variable
          * @param {string} variableId
          * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
+         * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, options) {
-            return localVarFp.patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, options).then((request) => request(axios, basePath));
+        patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, teamId, options) {
+            return localVarFp.patchVariableV1VariablesVariableIdPatch(variableId, patchVariableOpArrayPatchVariableOp, teamId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -47759,7 +48155,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     deleteVariableV1VariablesVariableIdDelete(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).deleteVariableV1VariablesVariableIdDelete(requestParameters.variableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).deleteVariableV1VariablesVariableIdDelete(requestParameters.variableId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Variable.
@@ -47781,7 +48177,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     getVariableV1VariablesVariableIdGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).getVariableV1VariablesVariableIdGet(requestParameters.variableId, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).getVariableV1VariablesVariableIdGet(requestParameters.variableId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get associations using the Variable.
@@ -47803,7 +48199,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List authenticated user\'s variables.
@@ -47847,7 +48243,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters.variableId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listDashboardsV1VariablesVariableIdDashboardsGet(requestParameters.variableId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the features in the requested variable\'s system.
@@ -47869,7 +48265,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listSystemOfFeaturesV1VariablesVariableIdSystemFeaturesGet(requestParameters.variableId, requestParameters.teamId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.license, requestParameters.dsIdx, requestParameters.includeDatasetIndexIds, requestParameters.includeDatasetPopIds, requestParameters.dsPopFilter, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get the variables in the requested variable\'s system.
@@ -47891,7 +48287,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters.variableId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).listSystemOfVariablesV1VariablesVariableIdSystemVariablesGet(requestParameters.variableId, requestParameters.teamId, requestParameters.orderBy, requestParameters.hops, requestParameters.ordering, requestParameters.includePathPopIds, requestParameters.pathPopFilter, requestParameters.minStrength, requestParameters.maxStrength, requestParameters.minReproducibility, requestParameters.maxReproducibility, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List a user\'s variables.
@@ -47957,7 +48353,7 @@ class VariablesApi extends base_1.BaseAPI {
      * @memberof VariablesApi
      */
     patchVariableV1VariablesVariableIdPatch(requestParameters, options) {
-        return exports.VariablesApiFp(this.configuration).patchVariableV1VariablesVariableIdPatch(requestParameters.variableId, requestParameters.patchVariableOpArrayPatchVariableOp, options).then((request) => request(this.axios, this.basePath));
+        return exports.VariablesApiFp(this.configuration).patchVariableV1VariablesVariableIdPatch(requestParameters.variableId, requestParameters.patchVariableOpArrayPatchVariableOp, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.VariablesApi = VariablesApi;
