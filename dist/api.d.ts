@@ -3724,10 +3724,10 @@ export interface Integration {
     'id': number;
     /**
      * Integration credentials.
-     * @type {RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials}
+     * @type {RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials | ModeCredentials}
      * @memberof Integration
      */
-    'credentials': RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials;
+    'credentials': RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials | ModeCredentials;
     /**
      * Enterprise link.
      * @type {string}
@@ -3815,10 +3815,10 @@ export interface IntegrationIn {
     'messages'?: Array<MessageOut>;
     /**
      * Integration credentials.
-     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn}
+     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn | ModeCredentialsIn}
      * @memberof IntegrationIn
      */
-    'credentials'?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn;
+    'credentials'?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn | ModeCredentialsIn;
     /**
      * Team or Enterprise link
      * @type {string}
@@ -3845,7 +3845,8 @@ export declare enum IntegrationType {
     Redshift = "REDSHIFT",
     Snowflake = "SNOWFLAKE",
     Bigquery = "BIGQUERY",
-    Looker = "LOOKER"
+    Looker = "LOOKER",
+    Mode = "MODE"
 }
 /**
  * Represent a line plot.
@@ -4419,6 +4420,44 @@ export declare enum MetricRelationshipSortEnum {
     CreatedAt = "created_at",
     LastUpdatedAt = "last_updated_at",
     Name = "name"
+}
+/**
+ * Credentials for a Mode integration without the token and secret.
+ * @export
+ * @interface ModeCredentials
+ */
+export interface ModeCredentials {
+    /**
+     * Integration dashboard
+     * @type {string}
+     * @memberof ModeCredentials
+     */
+    'dashboard': string;
+}
+/**
+ * Input credentials for a Mode integration.
+ * @export
+ * @interface ModeCredentialsIn
+ */
+export interface ModeCredentialsIn {
+    /**
+     * Integration dashboard
+     * @type {string}
+     * @memberof ModeCredentialsIn
+     */
+    'dashboard': string;
+    /**
+     * Integration api token.
+     * @type {string}
+     * @memberof ModeCredentialsIn
+     */
+    'api_token': string;
+    /**
+     * Integration api secret.
+     * @type {string}
+     * @memberof ModeCredentialsIn
+     */
+    'api_secret': string;
 }
 /**
  * Values available for filtering models.

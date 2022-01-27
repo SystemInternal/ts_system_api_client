@@ -337,6 +337,7 @@ var IntegrationType;
     IntegrationType["Snowflake"] = "SNOWFLAKE";
     IntegrationType["Bigquery"] = "BIGQUERY";
     IntegrationType["Looker"] = "LOOKER";
+    IntegrationType["Mode"] = "MODE";
 })(IntegrationType = exports.IntegrationType || (exports.IntegrationType = {}));
 /**
  * Message type.
