@@ -20785,6 +20785,46 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      */
     listFeaturesV1TeamsTeamIdFeaturesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} modelId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1ModelsModelIdFeaturesGet: (modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} teamId
+     * @param {string} modelId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet: (teamId: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {string} featureId
@@ -21234,6 +21274,46 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} modelId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1ModelsModelIdFeaturesGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} teamId
+     * @param {string} modelId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet(teamId: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
      * @param {string} featureId
@@ -21682,6 +21762,46 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} modelId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1ModelsModelIdFeaturesGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} teamId
+     * @param {string} modelId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet(teamId: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -22787,6 +22907,176 @@ export interface FeaturesApiListFeaturesV1TeamsTeamIdFeaturesGetRequest {
     readonly inFeatureGraph?: boolean;
 }
 /**
+ * Request parameters for listModelFeaturesV1ModelsModelIdFeaturesGet operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGetRequest
+ */
+export interface FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly teamId?: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean;
+}
+/**
+ * Request parameters for listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet operation in FeaturesApi.
+ * @export
+ * @interface FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest
+ */
+export interface FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly modelId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean;
+}
+/**
  * Request parameters for listSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGet operation in FeaturesApi.
  * @export
  * @interface FeaturesApiListSystemOfFeaturesV1FeaturesFeatureIdSystemFeaturesGetRequest
@@ -23579,6 +23869,24 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(requestParameters: FeaturesApiListFeaturesV1TeamsTeamIdFeaturesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    listModelFeaturesV1ModelsModelIdFeaturesGet(requestParameters: FeaturesApiListModelFeaturesV1ModelsModelIdFeaturesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeaturesApi
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet(requestParameters: FeaturesApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
     /**
      * Get the features in the requested feature\'s system.
      * @summary List System Of Features
@@ -24875,6 +25183,46 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      */
     listAuthenticatedUserModelsV1UserModelsGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} modelId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1ModelsModelIdFeaturesGet: (modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} teamId
+     * @param {string} modelId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet: (teamId: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
@@ -25299,6 +25647,46 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      */
     listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
     /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} modelId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1ModelsModelIdFeaturesGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} teamId
+     * @param {string} modelId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet(teamId: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} studyId
@@ -25722,6 +26110,46 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     listAuthenticatedUserModelsV1UserModelsGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} modelId
+     * @param {string} [teamId]
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1ModelsModelIdFeaturesGet(modelId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} teamId
+     * @param {string} modelId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet(teamId: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -26602,6 +27030,176 @@ export interface ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest {
     readonly teamId?: string;
 }
 /**
+ * Request parameters for listModelFeaturesV1ModelsModelIdFeaturesGet operation in ModelsApi.
+ * @export
+ * @interface ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGetRequest
+ */
+export interface ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly modelId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly teamId?: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean;
+}
+/**
+ * Request parameters for listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet operation in ModelsApi.
+ * @export
+ * @interface ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest
+ */
+export interface ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly modelId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean;
+}
+/**
  * Request parameters for listModelsInStudyV1StudiesStudyIdModelsGet operation in ModelsApi.
  * @export
  * @interface ModelsApiListModelsInStudyV1StudiesStudyIdModelsGetRequest
@@ -27480,6 +28078,24 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     listAuthenticatedUserModelsV1UserModelsGet(requestParameters?: ModelsApiListAuthenticatedUserModelsV1UserModelsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModelsApi
+     */
+    listModelFeaturesV1ModelsModelIdFeaturesGet(requestParameters: ModelsApiListModelFeaturesV1ModelsModelIdFeaturesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ModelsApi
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet(requestParameters: ModelsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -34539,6 +35155,26 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} teamId
+     * @param {string} modelId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet: (teamId: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} teamId
@@ -36193,6 +36829,26 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MetricRelationshipPaginationOut>>;
     /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} teamId
+     * @param {string} modelId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet(teamId: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
+    /**
      * Get models in a project.
      * @summary List Models In Study
      * @param {string} teamId
@@ -37846,6 +38502,26 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: MetricRelationshipSortEnum, ordering?: Ordering, sortBy?: string, relates?: Array<string>, options?: any): AxiosPromise<MetricRelationshipPaginationOut>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {string} teamId
+     * @param {string} modelId
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {FeatureSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inFeatureGraph] Is Feature in the Feature Graph?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet(teamId: string, modelId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
     /**
      * Get models in a project.
      * @summary List Models In Study
@@ -41711,6 +42387,91 @@ export interface TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationships
     readonly relates?: Array<string>;
 }
 /**
+ * Request parameters for listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest
+ */
+export interface TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly modelId: string;
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly query?: string;
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly includeHidden?: boolean;
+    /**
+     * Filter results by id.
+     * @type {Array<string>}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly id?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly page?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly total?: boolean;
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly idsOnly?: boolean;
+    /**
+     * Order by this field.
+     * @type {FeatureSortEnum}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly orderBy?: FeatureSortEnum;
+    /**
+     * Order ascending or descending.
+     * @type {Ordering}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly ordering?: Ordering;
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Is Feature in the Feature Graph?
+     * @type {boolean}
+     * @memberof TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet
+     */
+    readonly inFeatureGraph?: boolean;
+}
+/**
  * Request parameters for listModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGet operation in TeamsApi.
  * @export
  * @interface TeamsApiListModelsInStudyV1TeamsTeamIdStudiesStudyIdModelsGetRequest
@@ -44571,6 +45332,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     listMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGet(requestParameters: TeamsApiListMetricRelationshipsV1TeamsTeamIdMetricRelationshipsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MetricRelationshipPaginationOut>>;
+    /**
+     * Get features in model.
+     * @summary List Model Features
+     * @param {TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet(requestParameters: TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
     /**
      * Get models in a project.
      * @summary List Models In Study
