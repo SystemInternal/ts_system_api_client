@@ -2894,8 +2894,20 @@ export declare enum FeatureContributionMethod {
     PercentChangeDifference = "percent_change_difference",
     AdjustedOddsRatio = "adjusted_odds_ratio",
     AdjustedHazardRatio = "adjusted_hazard_ratio",
-    RiskDifference = "risk_difference",
     IncidentRateRatio = "incident_rate_ratio",
+    RiskDifference = "risk_difference",
+    InformationFlow = "information_flow",
+    StandardizedCoefficient = "standardized_coefficient",
+    CohensD = "cohens_d",
+    HedgesG = "hedges_g",
+    GlassSDelta = "glass_s_delta",
+    RootMeanSquareDifferencePsi = "root_mean_square_difference_psi",
+    MahalanobisDistance = "mahalanobis_distance",
+    CohensW = "cohens_w",
+    CohensH = "cohens_h",
+    CliffsDelta = "cliffs_delta",
+    RankBiserialCorrelation = "rank_biserial_correlation",
+    SpearmanCorrelation = "spearman_correlation",
     Invalid = "invalid"
 }
 /**
@@ -7663,8 +7675,20 @@ export declare enum ValidFeatureContributionMethod {
     PercentChangeDifference = "percent_change_difference",
     AdjustedOddsRatio = "adjusted_odds_ratio",
     AdjustedHazardRatio = "adjusted_hazard_ratio",
+    IncidentRateRatio = "incident_rate_ratio",
     RiskDifference = "risk_difference",
-    IncidentRateRatio = "incident_rate_ratio"
+    InformationFlow = "information_flow",
+    StandardizedCoefficient = "standardized_coefficient",
+    CohensD = "cohens_d",
+    HedgesG = "hedges_g",
+    GlassSDelta = "glass_s_delta",
+    RootMeanSquareDifferencePsi = "root_mean_square_difference_psi",
+    MahalanobisDistance = "mahalanobis_distance",
+    CohensW = "cohens_w",
+    CohensH = "cohens_h",
+    CliffsDelta = "cliffs_delta",
+    RankBiserialCorrelation = "rank_biserial_correlation",
+    SpearmanCorrelation = "spearman_correlation"
 }
 /**
  * An enumeration.
