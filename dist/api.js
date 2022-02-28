@@ -645,6 +645,7 @@ var ValidCalibratedRelationshipType;
     ValidCalibratedRelationshipType["MlPermutationR2"] = "ml_permutation_r2";
     ValidCalibratedRelationshipType["SiEffectSizeR"] = "si_effect_size_r";
     ValidCalibratedRelationshipType["SiEffectSizeD"] = "si_effect_size_d";
+    ValidCalibratedRelationshipType["SiEffectSizeW"] = "si_effect_size_w";
 })(ValidCalibratedRelationshipType = exports.ValidCalibratedRelationshipType || (exports.ValidCalibratedRelationshipType = {}));
 /**
  * Enum for valid dataset license.

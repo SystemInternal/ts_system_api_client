@@ -7619,7 +7619,8 @@ export declare enum ValidCalibratedRelationshipType {
     MlPermutationF1 = "ml_permutation_f1",
     MlPermutationR2 = "ml_permutation_r2",
     SiEffectSizeR = "si_effect_size_r",
-    SiEffectSizeD = "si_effect_size_d"
+    SiEffectSizeD = "si_effect_size_d",
+    SiEffectSizeW = "si_effect_size_w"
 }
 /**
  * Enum for valid dataset license.
