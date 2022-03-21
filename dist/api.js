@@ -4599,6 +4599,92 @@ exports.AuthorsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: (studyId, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost', 'studyId', studyId);
+            // verify required parameter 'bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost', 'bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost', bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost);
+            const localVarPath = `/v1/studies/{study_id}/authors/bulk`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} teamId
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: (teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', 'teamId', teamId);
+            // verify required parameter 'studyId' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', 'studyId', studyId);
+            // verify required parameter 'bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', 'bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost);
+            const localVarPath = `/v1/teams/{team_id}/studies/{study_id}/authors/bulk`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create an Author.
          * @summary Create Author
          * @param {AuthorIn} authorIn
@@ -5170,6 +5256,36 @@ exports.AuthorsApiFp = function (configuration) {
             });
         },
         /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} teamId
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Create an Author.
          * @summary Create Author
          * @param {AuthorIn} authorIn
@@ -5389,6 +5505,30 @@ exports.AuthorsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(teamId, studyId, authorId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId, options) {
+            return localVarFp.bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} teamId
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options) {
+            return localVarFp.bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create an Author.
          * @summary Create Author
          * @param {AuthorIn} authorIn
@@ -5568,6 +5708,28 @@ class AuthorsApi extends base_1.BaseAPI {
      */
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(requestParameters, options) {
         return exports.AuthorsApiFp(this.configuration).addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(requestParameters.teamId, requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(requestParameters, options) {
+        return exports.AuthorsApiFp(this.configuration).bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(requestParameters.studyId, requestParameters.bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {AuthorsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters, options) {
+        return exports.AuthorsApiFp(this.configuration).bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters.teamId, requestParameters.studyId, requestParameters.bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create an Author.
@@ -23951,6 +24113,92 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: (studyId, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyId' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost', 'studyId', studyId);
+            // verify required parameter 'bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost', 'bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost', bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost);
+            const localVarPath = `/v1/studies/{study_id}/authors/bulk`
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} teamId
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: (teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', 'teamId', teamId);
+            // verify required parameter 'studyId' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', 'studyId', studyId);
+            // verify required parameter 'bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', 'bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost);
+            const localVarPath = `/v1/teams/{team_id}/studies/{study_id}/authors/bulk`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn} studyIn
@@ -25728,6 +25976,36 @@ exports.StudiesApiFp = function (configuration) {
             });
         },
         /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} teamId
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn} studyIn
@@ -26329,6 +26607,30 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
             return localVarFp.addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(teamId, studyId, authorId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId, options) {
+            return localVarFp.bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} teamId
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options) {
+            return localVarFp.bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn} studyIn
@@ -26836,6 +27138,28 @@ class StudiesApi extends base_1.BaseAPI {
      */
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(requestParameters, options) {
         return exports.StudiesApiFp(this.configuration).addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(requestParameters.teamId, requestParameters.studyId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(requestParameters, options) {
+        return exports.StudiesApiFp(this.configuration).bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(requestParameters.studyId, requestParameters.bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {StudiesApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters, options) {
+        return exports.StudiesApiFp(this.configuration).bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters.teamId, requestParameters.studyId, requestParameters.bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a Study.
@@ -28872,6 +29196,49 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} teamId
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: (teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', 'teamId', teamId);
+            // verify required parameter 'studyId' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', 'studyId', studyId);
+            // verify required parameter 'bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost' is not null or undefined
+            common_1.assertParamExists('bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', 'bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost', bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost);
+            const localVarPath = `/v1/teams/{team_id}/studies/{study_id}/authors/bulk`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -35644,6 +36011,21 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} teamId
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
@@ -37952,6 +38334,18 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.addPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(teamId, datasetId, populationAttributeValueId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Add an author to a study.
+         * @summary Bulk Add Authors To Study
+         * @param {string} teamId
+         * @param {string} studyId
+         * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options) {
+            return localVarFp.bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
@@ -39881,6 +40275,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     addPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).addPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters.teamId, requestParameters.datasetId, requestParameters.populationAttributeValueId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters.teamId, requestParameters.studyId, requestParameters.bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a Study.

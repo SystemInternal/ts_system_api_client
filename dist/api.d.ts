@@ -883,6 +883,32 @@ export interface BigQueryCredentialsIn {
 /**
  *
  * @export
+ * @interface BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+ */
+export interface BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     */
+    'ids': Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+ */
+export interface BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     */
+    'ids': Array<string>;
+}
+/**
+ *
+ * @export
  * @interface BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
  */
 export interface BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete {
@@ -11769,6 +11795,26 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      */
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut: (teamId: string, studyId: string, authorId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: (studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} teamId
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: (teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Create an Author.
      * @summary Create Author
      * @param {AuthorIn} authorIn
@@ -11921,6 +11967,26 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      */
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(teamId: string, studyId: string, authorId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} teamId
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Create an Author.
      * @summary Create Author
      * @param {AuthorIn} authorIn
@@ -12072,6 +12138,26 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(teamId: string, studyId: string, authorId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} teamId
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: any): AxiosPromise<void>;
     /**
      * Create an Author.
      * @summary Create Author
@@ -12248,6 +12334,56 @@ export interface AuthorsApiAddAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAut
      * @memberof AuthorsApiAddAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut
      */
     readonly authorId: string;
+}
+/**
+ * Request parameters for bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost operation in AuthorsApi.
+ * @export
+ * @interface AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest
+ */
+export interface AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost}
+     * @memberof AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     */
+    readonly bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost;
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     */
+    readonly teamId?: string;
+}
+/**
+ * Request parameters for bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost operation in AuthorsApi.
+ * @export
+ * @interface AuthorsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest
+ */
+export interface AuthorsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost}
+     * @memberof AuthorsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     */
+    readonly bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost;
 }
 /**
  * Request parameters for createAuthorV1AuthorsPost operation in AuthorsApi.
@@ -12610,6 +12746,24 @@ export declare class AuthorsApi extends BaseAPI {
      * @memberof AuthorsApi
      */
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(requestParameters: AuthorsApiAddAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(requestParameters: AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {AuthorsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthorsApi
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters: AuthorsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Create an Author.
      * @summary Create Author
@@ -29439,6 +29593,26 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      */
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut: (teamId: string, studyId: string, authorId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: (studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} teamId
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: (teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn} studyIn
@@ -29883,6 +30057,26 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      */
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(teamId: string, studyId: string, authorId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} teamId
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn} studyIn
@@ -30326,6 +30520,26 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(teamId: string, studyId: string, authorId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} teamId
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: any): AxiosPromise<void>;
     /**
      * Create a Study.
      * @summary Create A Study.
@@ -30794,6 +31008,56 @@ export interface StudiesApiAddAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAut
      * @memberof StudiesApiAddAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut
      */
     readonly authorId: string;
+}
+/**
+ * Request parameters for bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost operation in StudiesApi.
+ * @export
+ * @interface StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest
+ */
+export interface StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost}
+     * @memberof StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     */
+    readonly bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
+     */
+    readonly teamId?: string;
+}
+/**
+ * Request parameters for bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost operation in StudiesApi.
+ * @export
+ * @interface StudiesApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest
+ */
+export interface StudiesApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudiesApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost}
+     * @memberof StudiesApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     */
+    readonly bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost;
 }
 /**
  * Request parameters for createAStudyV1StudiesPost operation in StudiesApi.
@@ -32278,6 +32542,24 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     addAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPut(requestParameters: StudiesApiAddAuthorToStudyV1TeamsTeamIdStudiesStudyIdAuthorsAuthorIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(requestParameters: StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {StudiesApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudiesApi
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters: StudiesApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Create a Study.
      * @summary Create A Study.
@@ -34208,6 +34490,16 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     addPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut: (teamId: string, datasetId: string, populationAttributeValueId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} teamId
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: (teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Create a Study.
      * @summary Create A Study.
      * @param {string} teamId
@@ -35882,6 +36174,16 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     addPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(teamId: string, datasetId: string, populationAttributeValueId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} teamId
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Create a Study.
      * @summary Create A Study.
      * @param {string} teamId
@@ -37555,6 +37857,16 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     addPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(teamId: string, datasetId: string, populationAttributeValueId: string, options?: any): AxiosPromise<void>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {string} teamId
+     * @param {string} studyId
+     * @param {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: any): AxiosPromise<void>;
     /**
      * Create a Study.
      * @summary Create A Study.
@@ -39343,6 +39655,31 @@ export interface TeamsApiAddPopulationAttributeValueToDatasetV1TeamsTeamIdDatase
      * @memberof TeamsApiAddPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut
      */
     readonly populationAttributeValueId: string;
+}
+/**
+ * Request parameters for bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest
+ */
+export interface TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     */
+    readonly studyId: string;
+    /**
+     *
+     * @type {BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost}
+     * @memberof TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
+     */
+    readonly bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost;
 }
 /**
  * Request parameters for createAStudyV1TeamsTeamIdStudiesPost operation in TeamsApi.
@@ -44646,6 +44983,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     addPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPut(requestParameters: TeamsApiAddPopulationAttributeValueToDatasetV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesPopulationAttributeValueIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Add an author to a study.
+     * @summary Bulk Add Authors To Study
+     * @param {TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters: TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Create a Study.
      * @summary Create A Study.
