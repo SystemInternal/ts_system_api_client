@@ -12882,19 +12882,21 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * Create a Concept.
      * @summary Create Concept
      * @param {ConceptIn} conceptIn
+     * @param {boolean} [overwriteExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConceptV1ConceptsPost: (conceptIn: ConceptIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createConceptV1ConceptsPost: (conceptIn: ConceptIn, overwriteExisting?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a Concept.
      * @summary Create Concept
      * @param {string} teamId
      * @param {ConceptIn} conceptIn
+     * @param {boolean} [overwriteExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConceptV1TeamsTeamIdConceptsPost: (teamId: string, conceptIn: ConceptIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createConceptV1TeamsTeamIdConceptsPost: (teamId: string, conceptIn: ConceptIn, overwriteExisting?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
      * @summary Delete Concept
@@ -13100,19 +13102,21 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * Create a Concept.
      * @summary Create Concept
      * @param {ConceptIn} conceptIn
+     * @param {boolean} [overwriteExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConceptV1ConceptsPost(conceptIn: ConceptIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
+    createConceptV1ConceptsPost(conceptIn: ConceptIn, overwriteExisting?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
     /**
      * Create a Concept.
      * @summary Create Concept
      * @param {string} teamId
      * @param {ConceptIn} conceptIn
+     * @param {boolean} [overwriteExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
+    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, overwriteExisting?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
     /**
      * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
      * @summary Delete Concept
@@ -13318,19 +13322,21 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * Create a Concept.
      * @summary Create Concept
      * @param {ConceptIn} conceptIn
+     * @param {boolean} [overwriteExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConceptV1ConceptsPost(conceptIn: ConceptIn, options?: any): AxiosPromise<ConceptOut>;
+    createConceptV1ConceptsPost(conceptIn: ConceptIn, overwriteExisting?: boolean, options?: any): AxiosPromise<ConceptOut>;
     /**
      * Create a Concept.
      * @summary Create Concept
      * @param {string} teamId
      * @param {ConceptIn} conceptIn
+     * @param {boolean} [overwriteExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): AxiosPromise<ConceptOut>;
+    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, overwriteExisting?: boolean, options?: any): AxiosPromise<ConceptOut>;
     /**
      * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
      * @summary Delete Concept
@@ -13539,6 +13545,12 @@ export interface ConceptsApiCreateConceptV1ConceptsPostRequest {
      * @memberof ConceptsApiCreateConceptV1ConceptsPost
      */
     readonly conceptIn: ConceptIn;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ConceptsApiCreateConceptV1ConceptsPost
+     */
+    readonly overwriteExisting?: boolean;
 }
 /**
  * Request parameters for createConceptV1TeamsTeamIdConceptsPost operation in ConceptsApi.
@@ -13558,6 +13570,12 @@ export interface ConceptsApiCreateConceptV1TeamsTeamIdConceptsPostRequest {
      * @memberof ConceptsApiCreateConceptV1TeamsTeamIdConceptsPost
      */
     readonly conceptIn: ConceptIn;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ConceptsApiCreateConceptV1TeamsTeamIdConceptsPost
+     */
+    readonly overwriteExisting?: boolean;
 }
 /**
  * Request parameters for deleteConceptV1ConceptsConceptIdDelete operation in ConceptsApi.
@@ -34581,10 +34599,11 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @summary Create Concept
      * @param {string} teamId
      * @param {ConceptIn} conceptIn
+     * @param {boolean} [overwriteExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConceptV1TeamsTeamIdConceptsPost: (teamId: string, conceptIn: ConceptIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createConceptV1TeamsTeamIdConceptsPost: (teamId: string, conceptIn: ConceptIn, overwriteExisting?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create an Dashboard.
      * @summary Create Dashboard Post
@@ -36265,10 +36284,11 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @summary Create Concept
      * @param {string} teamId
      * @param {ConceptIn} conceptIn
+     * @param {boolean} [overwriteExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
+    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, overwriteExisting?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
     /**
      * Create an Dashboard.
      * @summary Create Dashboard Post
@@ -37949,10 +37969,11 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @summary Create Concept
      * @param {string} teamId
      * @param {ConceptIn} conceptIn
+     * @param {boolean} [overwriteExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, options?: any): AxiosPromise<ConceptOut>;
+    createConceptV1TeamsTeamIdConceptsPost(teamId: string, conceptIn: ConceptIn, overwriteExisting?: boolean, options?: any): AxiosPromise<ConceptOut>;
     /**
      * Create an Dashboard.
      * @summary Create Dashboard Post
@@ -39881,6 +39902,12 @@ export interface TeamsApiCreateConceptV1TeamsTeamIdConceptsPostRequest {
      * @memberof TeamsApiCreateConceptV1TeamsTeamIdConceptsPost
      */
     readonly conceptIn: ConceptIn;
+    /**
+     *
+     * @type {boolean}
+     * @memberof TeamsApiCreateConceptV1TeamsTeamIdConceptsPost
+     */
+    readonly overwriteExisting?: boolean;
 }
 /**
  * Request parameters for createDashboardPostV1TeamsTeamIdDashboardsPost operation in TeamsApi.

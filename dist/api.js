@@ -5875,10 +5875,11 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * Create a Concept.
          * @summary Create Concept
          * @param {ConceptIn} conceptIn
+         * @param {boolean} [overwriteExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConceptV1ConceptsPost: (conceptIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createConceptV1ConceptsPost: (conceptIn, overwriteExisting, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'conceptIn' is not null or undefined
             common_1.assertParamExists('createConceptV1ConceptsPost', 'conceptIn', conceptIn);
             const localVarPath = `/v1/concepts`;
@@ -5896,6 +5897,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (overwriteExisting !== undefined) {
+                localVarQueryParameter['overwrite_existing'] = overwriteExisting;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -5911,10 +5915,11 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * @summary Create Concept
          * @param {string} teamId
          * @param {ConceptIn} conceptIn
+         * @param {boolean} [overwriteExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConceptV1TeamsTeamIdConceptsPost: (teamId, conceptIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createConceptV1TeamsTeamIdConceptsPost: (teamId, conceptIn, overwriteExisting, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('createConceptV1TeamsTeamIdConceptsPost', 'teamId', teamId);
             // verify required parameter 'conceptIn' is not null or undefined
@@ -5935,6 +5940,9 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (overwriteExisting !== undefined) {
+                localVarQueryParameter['overwrite_existing'] = overwriteExisting;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -6762,12 +6770,13 @@ exports.ConceptsApiFp = function (configuration) {
          * Create a Concept.
          * @summary Create Concept
          * @param {ConceptIn} conceptIn
+         * @param {boolean} [overwriteExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConceptV1ConceptsPost(conceptIn, options) {
+        createConceptV1ConceptsPost(conceptIn, overwriteExisting, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.createConceptV1ConceptsPost(conceptIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createConceptV1ConceptsPost(conceptIn, overwriteExisting, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -6776,12 +6785,13 @@ exports.ConceptsApiFp = function (configuration) {
          * @summary Create Concept
          * @param {string} teamId
          * @param {ConceptIn} conceptIn
+         * @param {boolean} [overwriteExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options) {
+        createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, overwriteExisting, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, overwriteExisting, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -7053,22 +7063,24 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * Create a Concept.
          * @summary Create Concept
          * @param {ConceptIn} conceptIn
+         * @param {boolean} [overwriteExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConceptV1ConceptsPost(conceptIn, options) {
-            return localVarFp.createConceptV1ConceptsPost(conceptIn, options).then((request) => request(axios, basePath));
+        createConceptV1ConceptsPost(conceptIn, overwriteExisting, options) {
+            return localVarFp.createConceptV1ConceptsPost(conceptIn, overwriteExisting, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a Concept.
          * @summary Create Concept
          * @param {string} teamId
          * @param {ConceptIn} conceptIn
+         * @param {boolean} [overwriteExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options) {
-            return localVarFp.createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options).then((request) => request(axios, basePath));
+        createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, overwriteExisting, options) {
+            return localVarFp.createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, overwriteExisting, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
@@ -7307,7 +7319,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     createConceptV1ConceptsPost(requestParameters, options) {
-        return exports.ConceptsApiFp(this.configuration).createConceptV1ConceptsPost(requestParameters.conceptIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).createConceptV1ConceptsPost(requestParameters.conceptIn, requestParameters.overwriteExisting, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a Concept.
@@ -7318,7 +7330,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     createConceptV1TeamsTeamIdConceptsPost(requestParameters, options) {
-        return exports.ConceptsApiFp(this.configuration).createConceptV1TeamsTeamIdConceptsPost(requestParameters.teamId, requestParameters.conceptIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).createConceptV1TeamsTeamIdConceptsPost(requestParameters.teamId, requestParameters.conceptIn, requestParameters.overwriteExisting, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
@@ -29583,10 +29595,11 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @summary Create Concept
          * @param {string} teamId
          * @param {ConceptIn} conceptIn
+         * @param {boolean} [overwriteExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConceptV1TeamsTeamIdConceptsPost: (teamId, conceptIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createConceptV1TeamsTeamIdConceptsPost: (teamId, conceptIn, overwriteExisting, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('createConceptV1TeamsTeamIdConceptsPost', 'teamId', teamId);
             // verify required parameter 'conceptIn' is not null or undefined
@@ -29607,6 +29620,9 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (overwriteExisting !== undefined) {
+                localVarQueryParameter['overwrite_existing'] = overwriteExisting;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -36147,12 +36163,13 @@ exports.TeamsApiFp = function (configuration) {
          * @summary Create Concept
          * @param {string} teamId
          * @param {ConceptIn} conceptIn
+         * @param {boolean} [overwriteExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options) {
+        createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, overwriteExisting, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, overwriteExisting, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -38443,11 +38460,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @summary Create Concept
          * @param {string} teamId
          * @param {ConceptIn} conceptIn
+         * @param {boolean} [overwriteExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options) {
-            return localVarFp.createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, options).then((request) => request(axios, basePath));
+        createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, overwriteExisting, options) {
+            return localVarFp.createConceptV1TeamsTeamIdConceptsPost(teamId, conceptIn, overwriteExisting, options).then((request) => request(axios, basePath));
         },
         /**
          * Create an Dashboard.
@@ -40384,7 +40402,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     createConceptV1TeamsTeamIdConceptsPost(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).createConceptV1TeamsTeamIdConceptsPost(requestParameters.teamId, requestParameters.conceptIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).createConceptV1TeamsTeamIdConceptsPost(requestParameters.teamId, requestParameters.conceptIn, requestParameters.overwriteExisting, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create an Dashboard.
