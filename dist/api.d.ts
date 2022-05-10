@@ -447,6 +447,18 @@ export interface AssociationValueIn {
      */
     'properties'?: object;
     /**
+     * Statistical controls of the association. (overrides model)
+     * @type {Array<string>}
+     * @memberof AssociationValueIn
+     */
+    'statistical_controls'?: Array<string>;
+    /**
+     * Populations of the association. (overrides dataset)
+     * @type {Array<string>}
+     * @memberof AssociationValueIn
+     */
+    'population_strings'?: Array<string>;
+    /**
      * Historical values.
      * @type {{ [key: string]: AssociationValueInBase; }}
      * @memberof AssociationValueIn
@@ -527,6 +539,18 @@ export interface AssociationValueInBase {
      * @memberof AssociationValueInBase
      */
     'properties'?: object;
+    /**
+     * Statistical controls of the association. (overrides model)
+     * @type {Array<string>}
+     * @memberof AssociationValueInBase
+     */
+    'statistical_controls'?: Array<string>;
+    /**
+     * Populations of the association. (overrides dataset)
+     * @type {Array<string>}
+     * @memberof AssociationValueInBase
+     */
+    'population_strings'?: Array<string>;
 }
 /**
  * Association value output model.
@@ -600,6 +624,18 @@ export interface AssociationValueOut {
      * @memberof AssociationValueOut
      */
     'properties'?: object;
+    /**
+     * Statistical controls of the association. (overrides model)
+     * @type {Array<string>}
+     * @memberof AssociationValueOut
+     */
+    'statistical_controls'?: Array<string>;
+    /**
+     * Populations of the association. (overrides dataset)
+     * @type {Array<string>}
+     * @memberof AssociationValueOut
+     */
+    'population_strings'?: Array<string>;
     /**
      * Historical values.
      * @type {{ [key: string]: AssociationValueInBase; }}
