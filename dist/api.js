@@ -234,6 +234,7 @@ var FeatureContributionMethod;
     FeatureContributionMethod["CliffsDelta"] = "cliffs_delta";
     FeatureContributionMethod["RankBiserialCorrelation"] = "rank_biserial_correlation";
     FeatureContributionMethod["SpearmanCorrelation"] = "spearman_correlation";
+    FeatureContributionMethod["Elasticity"] = "elasticity";
     FeatureContributionMethod["Invalid"] = "invalid";
 })(FeatureContributionMethod = exports.FeatureContributionMethod || (exports.FeatureContributionMethod = {}));
 /**
@@ -717,6 +718,7 @@ var ValidFeatureContributionMethod;
     ValidFeatureContributionMethod["CliffsDelta"] = "cliffs_delta";
     ValidFeatureContributionMethod["RankBiserialCorrelation"] = "rank_biserial_correlation";
     ValidFeatureContributionMethod["SpearmanCorrelation"] = "spearman_correlation";
+    ValidFeatureContributionMethod["Elasticity"] = "elasticity";
 })(ValidFeatureContributionMethod = exports.ValidFeatureContributionMethod || (exports.ValidFeatureContributionMethod = {}));
 /**
  * An enumeration.

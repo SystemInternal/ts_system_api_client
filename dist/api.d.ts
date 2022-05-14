@@ -2958,6 +2958,7 @@ export declare enum FeatureContributionMethod {
     CliffsDelta = "cliffs_delta",
     RankBiserialCorrelation = "rank_biserial_correlation",
     SpearmanCorrelation = "spearman_correlation",
+    Elasticity = "elasticity",
     Invalid = "invalid"
 }
 /**
@@ -7739,7 +7740,8 @@ export declare enum ValidFeatureContributionMethod {
     CohensH = "cohens_h",
     CliffsDelta = "cliffs_delta",
     RankBiserialCorrelation = "rank_biserial_correlation",
-    SpearmanCorrelation = "spearman_correlation"
+    SpearmanCorrelation = "spearman_correlation",
+    Elasticity = "elasticity"
 }
 /**
  * An enumeration.
