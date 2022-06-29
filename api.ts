@@ -2960,6 +2960,7 @@ export enum FeatureContributionMethod {
     RankBiserialCorrelation = 'rank_biserial_correlation',
     SpearmanCorrelation = 'spearman_correlation',
     Elasticity = 'elasticity',
+    PrevalenceRatio = 'prevalence_ratio',
     Invalid = 'invalid'
 }
 
@@ -7397,7 +7398,8 @@ export enum ValidFeatureContributionMethod {
     CliffsDelta = 'cliffs_delta',
     RankBiserialCorrelation = 'rank_biserial_correlation',
     SpearmanCorrelation = 'spearman_correlation',
-    Elasticity = 'elasticity'
+    Elasticity = 'elasticity',
+    PrevalenceRatio = 'prevalence_ratio'
 }
 
 /**
@@ -34488,134 +34490,6 @@ export class GraphApi extends BaseAPI {
 
 
 /**
- * GraphqlApi - axios parameter creator
- * @export
- */
-export const GraphqlApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Forward GraphQL request to SystemDB.
-         * @summary Post Graphql
-         * @param {GraphQLQuery} graphQLQuery 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        postGraphqlV1GraphqlPost: async (graphQLQuery: GraphQLQuery, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'graphQLQuery' is not null or undefined
-            assertParamExists('postGraphqlV1GraphqlPost', 'graphQLQuery', graphQLQuery)
-            const localVarPath = `/v1/graphql`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication APIKeyHeader required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(graphQLQuery, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * GraphqlApi - functional programming interface
- * @export
- */
-export const GraphqlApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = GraphqlApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Forward GraphQL request to SystemDB.
-         * @summary Post Graphql
-         * @param {GraphQLQuery} graphQLQuery 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.postGraphqlV1GraphqlPost(graphQLQuery, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * GraphqlApi - factory interface
- * @export
- */
-export const GraphqlApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = GraphqlApiFp(configuration)
-    return {
-        /**
-         * Forward GraphQL request to SystemDB.
-         * @summary Post Graphql
-         * @param {GraphQLQuery} graphQLQuery 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: any): AxiosPromise<any> {
-            return localVarFp.postGraphqlV1GraphqlPost(graphQLQuery, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * Request parameters for postGraphqlV1GraphqlPost operation in GraphqlApi.
- * @export
- * @interface GraphqlApiPostGraphqlV1GraphqlPostRequest
- */
-export interface GraphqlApiPostGraphqlV1GraphqlPostRequest {
-    /**
-     * 
-     * @type {GraphQLQuery}
-     * @memberof GraphqlApiPostGraphqlV1GraphqlPost
-     */
-    readonly graphQLQuery: GraphQLQuery
-}
-
-/**
- * GraphqlApi - object-oriented interface
- * @export
- * @class GraphqlApi
- * @extends {BaseAPI}
- */
-export class GraphqlApi extends BaseAPI {
-    /**
-     * Forward GraphQL request to SystemDB.
-     * @summary Post Graphql
-     * @param {GraphqlApiPostGraphqlV1GraphqlPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GraphqlApi
-     */
-    public postGraphqlV1GraphqlPost(requestParameters: GraphqlApiPostGraphqlV1GraphqlPostRequest, options?: AxiosRequestConfig) {
-        return GraphqlApiFp(this.configuration).postGraphqlV1GraphqlPost(requestParameters.graphQLQuery, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-/**
  * ModeldbApi - axios parameter creator
  * @export
  */
@@ -40455,6 +40329,222 @@ export class ModelsApi extends BaseAPI {
      */
     public replaceModelV1TeamsTeamIdModelsModelIdPut(requestParameters: ModelsApiReplaceModelV1TeamsTeamIdModelsModelIdPutRequest, options?: AxiosRequestConfig) {
         return ModelsApiFp(this.configuration).replaceModelV1TeamsTeamIdModelsModelIdPut(requestParameters.teamId, requestParameters.modelId, requestParameters.modelIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * PassthroughApi - axios parameter creator
+ * @export
+ */
+export const PassthroughApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Forward request to crossref.
+         * @summary Get Crossref
+         * @param {any} restOfPath 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCrossrefV1CrossrefRestOfPathGet: async (restOfPath: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'restOfPath' is not null or undefined
+            assertParamExists('getCrossrefV1CrossrefRestOfPathGet', 'restOfPath', restOfPath)
+            const localVarPath = `/v1/crossref/{rest_of_path}`
+                .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Forward GraphQL request to SystemDB.
+         * @summary Post Graphql
+         * @param {GraphQLQuery} graphQLQuery 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postGraphqlV1GraphqlPost: async (graphQLQuery: GraphQLQuery, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'graphQLQuery' is not null or undefined
+            assertParamExists('postGraphqlV1GraphqlPost', 'graphQLQuery', graphQLQuery)
+            const localVarPath = `/v1/graphql`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(graphQLQuery, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * PassthroughApi - functional programming interface
+ * @export
+ */
+export const PassthroughApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PassthroughApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Forward request to crossref.
+         * @summary Get Crossref
+         * @param {any} restOfPath 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCrossrefV1CrossrefRestOfPathGet(restOfPath, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Forward GraphQL request to SystemDB.
+         * @summary Post Graphql
+         * @param {GraphQLQuery} graphQLQuery 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postGraphqlV1GraphqlPost(graphQLQuery, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * PassthroughApi - factory interface
+ * @export
+ */
+export const PassthroughApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PassthroughApiFp(configuration)
+    return {
+        /**
+         * Forward request to crossref.
+         * @summary Get Crossref
+         * @param {any} restOfPath 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any> {
+            return localVarFp.getCrossrefV1CrossrefRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Forward GraphQL request to SystemDB.
+         * @summary Post Graphql
+         * @param {GraphQLQuery} graphQLQuery 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: any): AxiosPromise<any> {
+            return localVarFp.postGraphqlV1GraphqlPost(graphQLQuery, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getCrossrefV1CrossrefRestOfPathGet operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest
+ */
+export interface PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof PassthroughApiGetCrossrefV1CrossrefRestOfPathGet
+     */
+    readonly restOfPath: any
+}
+
+/**
+ * Request parameters for postGraphqlV1GraphqlPost operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiPostGraphqlV1GraphqlPostRequest
+ */
+export interface PassthroughApiPostGraphqlV1GraphqlPostRequest {
+    /**
+     * 
+     * @type {GraphQLQuery}
+     * @memberof PassthroughApiPostGraphqlV1GraphqlPost
+     */
+    readonly graphQLQuery: GraphQLQuery
+}
+
+/**
+ * PassthroughApi - object-oriented interface
+ * @export
+ * @class PassthroughApi
+ * @extends {BaseAPI}
+ */
+export class PassthroughApi extends BaseAPI {
+    /**
+     * Forward request to crossref.
+     * @summary Get Crossref
+     * @param {PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    public getCrossrefV1CrossrefRestOfPathGet(requestParameters: PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest, options?: AxiosRequestConfig) {
+        return PassthroughApiFp(this.configuration).getCrossrefV1CrossrefRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {PassthroughApiPostGraphqlV1GraphqlPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    public postGraphqlV1GraphqlPost(requestParameters: PassthroughApiPostGraphqlV1GraphqlPostRequest, options?: AxiosRequestConfig) {
+        return PassthroughApiFp(this.configuration).postGraphqlV1GraphqlPost(requestParameters.graphQLQuery, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
