@@ -2950,6 +2950,7 @@ export declare enum FeatureContributionMethod {
     RankBiserialCorrelation = "rank_biserial_correlation",
     SpearmanCorrelation = "spearman_correlation",
     Elasticity = "elasticity",
+    PrevalenceRatio = "prevalence_ratio",
     Invalid = "invalid"
 }
 /**
@@ -7363,7 +7364,8 @@ export declare enum ValidFeatureContributionMethod {
     CliffsDelta = "cliffs_delta",
     RankBiserialCorrelation = "rank_biserial_correlation",
     SpearmanCorrelation = "spearman_correlation",
-    Elasticity = "elasticity"
+    Elasticity = "elasticity",
+    PrevalenceRatio = "prevalence_ratio"
 }
 /**
  * An enumeration.
@@ -23185,78 +23187,6 @@ export declare class GraphApi extends BaseAPI {
     getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(requestParameters: GraphApiGetDatasetGraphV1TeamsTeamIdGraphDatasetGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
 }
 /**
- * GraphqlApi - axios parameter creator
- * @export
- */
-export declare const GraphqlApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     * Forward GraphQL request to SystemDB.
-     * @summary Post Graphql
-     * @param {GraphQLQuery} graphQLQuery
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postGraphqlV1GraphqlPost: (graphQLQuery: GraphQLQuery, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-};
-/**
- * GraphqlApi - functional programming interface
- * @export
- */
-export declare const GraphqlApiFp: (configuration?: Configuration) => {
-    /**
-     * Forward GraphQL request to SystemDB.
-     * @summary Post Graphql
-     * @param {GraphQLQuery} graphQLQuery
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
-};
-/**
- * GraphqlApi - factory interface
- * @export
- */
-export declare const GraphqlApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     * Forward GraphQL request to SystemDB.
-     * @summary Post Graphql
-     * @param {GraphQLQuery} graphQLQuery
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: any): AxiosPromise<any>;
-};
-/**
- * Request parameters for postGraphqlV1GraphqlPost operation in GraphqlApi.
- * @export
- * @interface GraphqlApiPostGraphqlV1GraphqlPostRequest
- */
-export interface GraphqlApiPostGraphqlV1GraphqlPostRequest {
-    /**
-     *
-     * @type {GraphQLQuery}
-     * @memberof GraphqlApiPostGraphqlV1GraphqlPost
-     */
-    readonly graphQLQuery: GraphQLQuery;
-}
-/**
- * GraphqlApi - object-oriented interface
- * @export
- * @class GraphqlApi
- * @extends {BaseAPI}
- */
-export declare class GraphqlApi extends BaseAPI {
-    /**
-     * Forward GraphQL request to SystemDB.
-     * @summary Post Graphql
-     * @param {GraphqlApiPostGraphqlV1GraphqlPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GraphqlApi
-     */
-    postGraphqlV1GraphqlPost(requestParameters: GraphqlApiPostGraphqlV1GraphqlPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
-}
-/**
  * ModeldbApi - axios parameter creator
  * @export
  */
@@ -26637,6 +26567,124 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     replaceModelV1TeamsTeamIdModelsModelIdPut(requestParameters: ModelsApiReplaceModelV1TeamsTeamIdModelsModelIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ModelOut>>;
+}
+/**
+ * PassthroughApi - axios parameter creator
+ * @export
+ */
+export declare const PassthroughApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Forward request to crossref.
+     * @summary Get Crossref
+     * @param {any} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCrossrefV1CrossrefRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {GraphQLQuery} graphQLQuery
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postGraphqlV1GraphqlPost: (graphQLQuery: GraphQLQuery, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * PassthroughApi - functional programming interface
+ * @export
+ */
+export declare const PassthroughApiFp: (configuration?: Configuration) => {
+    /**
+     * Forward request to crossref.
+     * @summary Get Crossref
+     * @param {any} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {GraphQLQuery} graphQLQuery
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+};
+/**
+ * PassthroughApi - factory interface
+ * @export
+ */
+export declare const PassthroughApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Forward request to crossref.
+     * @summary Get Crossref
+     * @param {any} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {GraphQLQuery} graphQLQuery
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: any): AxiosPromise<any>;
+};
+/**
+ * Request parameters for getCrossrefV1CrossrefRestOfPathGet operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest
+ */
+export interface PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest {
+    /**
+     *
+     * @type {any}
+     * @memberof PassthroughApiGetCrossrefV1CrossrefRestOfPathGet
+     */
+    readonly restOfPath: any;
+}
+/**
+ * Request parameters for postGraphqlV1GraphqlPost operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiPostGraphqlV1GraphqlPostRequest
+ */
+export interface PassthroughApiPostGraphqlV1GraphqlPostRequest {
+    /**
+     *
+     * @type {GraphQLQuery}
+     * @memberof PassthroughApiPostGraphqlV1GraphqlPost
+     */
+    readonly graphQLQuery: GraphQLQuery;
+}
+/**
+ * PassthroughApi - object-oriented interface
+ * @export
+ * @class PassthroughApi
+ * @extends {BaseAPI}
+ */
+export declare class PassthroughApi extends BaseAPI {
+    /**
+     * Forward request to crossref.
+     * @summary Get Crossref
+     * @param {PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    getCrossrefV1CrossrefRestOfPathGet(requestParameters: PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Forward GraphQL request to SystemDB.
+     * @summary Post Graphql
+     * @param {PassthroughApiPostGraphqlV1GraphqlPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    postGraphqlV1GraphqlPost(requestParameters: PassthroughApiPostGraphqlV1GraphqlPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * PopulationAttributeValuesApi - axios parameter creator
