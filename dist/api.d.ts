@@ -1304,6 +1304,12 @@ export interface ConceptIn {
      * @memberof ConceptIn
      */
     'wikidata_id': string;
+    /**
+     * Preferred name if different from existing.
+     * @type {string}
+     * @memberof ConceptIn
+     */
+    'preferred_name'?: string;
 }
 /**
  * Concept resource links.
@@ -1391,6 +1397,12 @@ export interface ConceptOut {
      * @memberof ConceptOut
      */
     'wikidata_id': string;
+    /**
+     * Preferred name if different from existing.
+     * @type {string}
+     * @memberof ConceptOut
+     */
+    'preferred_name'?: string;
     /**
      * The Concept\'s name.
      * @type {string}
@@ -5328,6 +5340,31 @@ export interface PartialDependencePlotIn {
      * @memberof PartialDependencePlotIn
      */
     'generated_by'?: ValidValueSource;
+}
+/**
+ * Patch a `Variable` with provided data.
+ * @export
+ * @interface PatchConceptOp
+ */
+export interface PatchConceptOp {
+    /**
+     * Name of field in resource to modify.
+     * @type {string}
+     * @memberof PatchConceptOp
+     */
+    'field': string;
+    /**
+     * Value to set resource field if not deleting.
+     * @type {any}
+     * @memberof PatchConceptOp
+     */
+    'value'?: any;
+    /**
+     * Operation to perform on resource field.
+     * @type {PatchOp}
+     * @memberof PatchConceptOp
+     */
+    'op': PatchOp;
 }
 /**
  * Patch a `Dataset` with provided data.
@@ -12565,6 +12602,25 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {string} conceptId
+     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchConceptV1ConceptsConceptIdPatch: (conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchConceptV1TeamsTeamIdConceptsConceptIdPatch: (teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ConceptsApi - functional programming interface
@@ -12742,6 +12798,25 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {string} conceptId
+     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchConceptV1ConceptsConceptIdPatch(conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * ConceptsApi - factory interface
@@ -12919,6 +12994,25 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {string} conceptId
+     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchConceptV1ConceptsConceptIdPatch(conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: any): AxiosPromise<void>;
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: any): AxiosPromise<void>;
 };
 /**
  * Request parameters for createConceptV1ConceptsPost operation in ConceptsApi.
@@ -13527,6 +13621,50 @@ export interface ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest {
     readonly teamId?: string;
 }
 /**
+ * Request parameters for patchConceptV1ConceptsConceptIdPatch operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest
+ */
+export interface ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiPatchConceptV1ConceptsConceptIdPatch
+     */
+    readonly conceptId: string;
+    /**
+     *
+     * @type {PatchConceptOp | Array<PatchConceptOp>}
+     * @memberof ConceptsApiPatchConceptV1ConceptsConceptIdPatch
+     */
+    readonly patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>;
+}
+/**
+ * Request parameters for patchConceptV1TeamsTeamIdConceptsConceptIdPatch operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest
+ */
+export interface ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly conceptId: string;
+    /**
+     *
+     * @type {PatchConceptOp | Array<PatchConceptOp>}
+     * @memberof ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>;
+}
+/**
  * ConceptsApi - object-oriented interface
  * @export
  * @class ConceptsApi
@@ -13641,6 +13779,24 @@ export declare class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     listUserConceptsV1UsersUserIdConceptsGet(requestParameters: ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptPaginationOut>>;
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    patchConceptV1ConceptsConceptIdPatch(requestParameters: ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    patchConceptV1TeamsTeamIdConceptsConceptIdPatch(requestParameters: ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * DashboardsApi - axios parameter creator
@@ -32401,6 +32557,16 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch: (teamId: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchConceptV1TeamsTeamIdConceptsConceptIdPatch: (teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
      * @param {string} teamId
@@ -33951,6 +34117,16 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(teamId: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
      * @param {string} teamId
@@ -35500,6 +35676,16 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(teamId: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void>;
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {string} teamId
+     * @param {string} conceptId
+     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: any): AxiosPromise<void>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
@@ -40016,6 +40202,31 @@ export interface TeamsApiPatchAssociationsV1TeamsTeamIdModelsModelIdAssociations
     readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
 }
 /**
+ * Request parameters for patchConceptV1TeamsTeamIdConceptsConceptIdPatch operation in TeamsApi.
+ * @export
+ * @interface TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest
+ */
+export interface TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly conceptId: string;
+    /**
+     *
+     * @type {PatchConceptOp | Array<PatchConceptOp>}
+     * @memberof TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>;
+}
+/**
  * Request parameters for patchDatasetV1TeamsTeamIdDatasetsDatasetIdPatch operation in TeamsApi.
  * @export
  * @interface TeamsApiPatchDatasetV1TeamsTeamIdDatasetsDatasetIdPatchRequest
@@ -41543,6 +41754,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(requestParameters: TeamsApiPatchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    patchConceptV1TeamsTeamIdConceptsConceptIdPatch(requestParameters: TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Modify Dataset resource with partial update.
      * @summary Patch Dataset
