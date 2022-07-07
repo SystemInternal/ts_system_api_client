@@ -1313,6 +1313,12 @@ export interface ConceptIn {
      * @memberof ConceptIn
      */
     'wikidata_id': string;
+    /**
+     * Preferred name if different from existing.
+     * @type {string}
+     * @memberof ConceptIn
+     */
+    'preferred_name'?: string;
 }
 /**
  * Concept resource links.
@@ -1400,6 +1406,12 @@ export interface ConceptOut {
      * @memberof ConceptOut
      */
     'wikidata_id': string;
+    /**
+     * Preferred name if different from existing.
+     * @type {string}
+     * @memberof ConceptOut
+     */
+    'preferred_name'?: string;
     /**
      * The Concept\'s name.
      * @type {string}
@@ -5345,6 +5357,31 @@ export interface PartialDependencePlotIn {
      * @memberof PartialDependencePlotIn
      */
     'generated_by'?: ValidValueSource;
+}
+/**
+ * Patch a `Variable` with provided data.
+ * @export
+ * @interface PatchConceptOp
+ */
+export interface PatchConceptOp {
+    /**
+     * Name of field in resource to modify.
+     * @type {string}
+     * @memberof PatchConceptOp
+     */
+    'field': string;
+    /**
+     * Value to set resource field if not deleting.
+     * @type {any}
+     * @memberof PatchConceptOp
+     */
+    'value'?: any;
+    /**
+     * Operation to perform on resource field.
+     * @type {PatchOp}
+     * @memberof PatchConceptOp
+     */
+    'op': PatchOp;
 }
 /**
  * Patch a `Dataset` with provided data.
@@ -16633,6 +16670,104 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Concept
+         * @param {string} conceptId 
+         * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchConceptV1ConceptsConceptIdPatch: async (conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'conceptId' is not null or undefined
+            assertParamExists('patchConceptV1ConceptsConceptIdPatch', 'conceptId', conceptId)
+            // verify required parameter 'patchConceptOpArrayPatchConceptOp' is not null or undefined
+            assertParamExists('patchConceptV1ConceptsConceptIdPatch', 'patchConceptOpArrayPatchConceptOp', patchConceptOpArrayPatchConceptOp)
+            const localVarPath = `/v1/concepts/{concept_id}`
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(patchConceptOpArrayPatchConceptOp, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchConceptV1TeamsTeamIdConceptsConceptIdPatch: async (teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('patchConceptV1TeamsTeamIdConceptsConceptIdPatch', 'teamId', teamId)
+            // verify required parameter 'conceptId' is not null or undefined
+            assertParamExists('patchConceptV1TeamsTeamIdConceptsConceptIdPatch', 'conceptId', conceptId)
+            // verify required parameter 'patchConceptOpArrayPatchConceptOp' is not null or undefined
+            assertParamExists('patchConceptV1TeamsTeamIdConceptsConceptIdPatch', 'patchConceptOpArrayPatchConceptOp', patchConceptOpArrayPatchConceptOp)
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(patchConceptOpArrayPatchConceptOp, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -16850,6 +16985,31 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, teamId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Concept
+         * @param {string} conceptId 
+         * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchConceptV1ConceptsConceptIdPatch(conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchConceptV1ConceptsConceptIdPatch(conceptId, patchConceptOpArrayPatchConceptOp, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId, conceptId, patchConceptOpArrayPatchConceptOp, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -17054,6 +17214,29 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          */
         listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): AxiosPromise<ConceptPaginationOut> {
             return localVarFp.listUserConceptsV1UsersUserIdConceptsGet(userId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Concept
+         * @param {string} conceptId 
+         * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchConceptV1ConceptsConceptIdPatch(conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: any): AxiosPromise<void> {
+            return localVarFp.patchConceptV1ConceptsConceptIdPatch(conceptId, patchConceptOpArrayPatchConceptOp, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: any): AxiosPromise<void> {
+            return localVarFp.patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId, conceptId, patchConceptOpArrayPatchConceptOp, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -17752,6 +17935,55 @@ export interface ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest {
 }
 
 /**
+ * Request parameters for patchConceptV1ConceptsConceptIdPatch operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest
+ */
+export interface ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiPatchConceptV1ConceptsConceptIdPatch
+     */
+    readonly conceptId: string
+
+    /**
+     * 
+     * @type {PatchConceptOp | Array<PatchConceptOp>}
+     * @memberof ConceptsApiPatchConceptV1ConceptsConceptIdPatch
+     */
+    readonly patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>
+}
+
+/**
+ * Request parameters for patchConceptV1TeamsTeamIdConceptsConceptIdPatch operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest
+ */
+export interface ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly conceptId: string
+
+    /**
+     * 
+     * @type {PatchConceptOp | Array<PatchConceptOp>}
+     * @memberof ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>
+}
+
+/**
  * ConceptsApi - object-oriented interface
  * @export
  * @class ConceptsApi
@@ -17900,6 +18132,30 @@ export class ConceptsApi extends BaseAPI {
      */
     public listUserConceptsV1UsersUserIdConceptsGet(requestParameters: ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest, options?: AxiosRequestConfig) {
         return ConceptsApiFp(this.configuration).listUserConceptsV1UsersUserIdConceptsGet(requestParameters.userId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    public patchConceptV1ConceptsConceptIdPatch(requestParameters: ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest, options?: AxiosRequestConfig) {
+        return ConceptsApiFp(this.configuration).patchConceptV1ConceptsConceptIdPatch(requestParameters.conceptId, requestParameters.patchConceptOpArrayPatchConceptOp, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    public patchConceptV1TeamsTeamIdConceptsConceptIdPatch(requestParameters: ConceptsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest, options?: AxiosRequestConfig) {
+        return ConceptsApiFp(this.configuration).patchConceptV1TeamsTeamIdConceptsConceptIdPatch(requestParameters.teamId, requestParameters.conceptId, requestParameters.patchConceptOpArrayPatchConceptOp, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -54686,6 +54942,57 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchConceptV1TeamsTeamIdConceptsConceptIdPatch: async (teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('patchConceptV1TeamsTeamIdConceptsConceptIdPatch', 'teamId', teamId)
+            // verify required parameter 'conceptId' is not null or undefined
+            assertParamExists('patchConceptV1TeamsTeamIdConceptsConceptIdPatch', 'conceptId', conceptId)
+            // verify required parameter 'patchConceptOpArrayPatchConceptOp' is not null or undefined
+            assertParamExists('patchConceptV1TeamsTeamIdConceptsConceptIdPatch', 'patchConceptOpArrayPatchConceptOp', patchConceptOpArrayPatchConceptOp)
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(patchConceptOpArrayPatchConceptOp, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Modify Dataset resource with partial update.
          * @summary Patch Dataset
          * @param {string} teamId 
@@ -57599,6 +57906,19 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId, conceptId, patchConceptOpArrayPatchConceptOp, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Modify Dataset resource with partial update.
          * @summary Patch Dataset
          * @param {string} teamId 
@@ -59428,6 +59748,18 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(teamId: string, modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, options?: any): AxiosPromise<void> {
             return localVarFp.patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(teamId, modelId, bulkPatchAssociationOp, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Modify Variable resource with partial update.
+         * @summary Patch Concept
+         * @param {string} teamId 
+         * @param {string} conceptId 
+         * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId: string, conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: any): AxiosPromise<void> {
+            return localVarFp.patchConceptV1TeamsTeamIdConceptsConceptIdPatch(teamId, conceptId, patchConceptOpArrayPatchConceptOp, options).then((request) => request(axios, basePath));
         },
         /**
          * Modify Dataset resource with partial update.
@@ -64595,6 +64927,34 @@ export interface TeamsApiPatchAssociationsV1TeamsTeamIdModelsModelIdAssociations
 }
 
 /**
+ * Request parameters for patchConceptV1TeamsTeamIdConceptsConceptIdPatch operation in TeamsApi.
+ * @export
+ * @interface TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest
+ */
+export interface TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly conceptId: string
+
+    /**
+     * 
+     * @type {PatchConceptOp | Array<PatchConceptOp>}
+     * @memberof TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatch
+     */
+    readonly patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>
+}
+
+/**
  * Request parameters for patchDatasetV1TeamsTeamIdDatasetsDatasetIdPatch operation in TeamsApi.
  * @export
  * @interface TeamsApiPatchDatasetV1TeamsTeamIdDatasetsDatasetIdPatchRequest
@@ -66489,6 +66849,18 @@ export class TeamsApi extends BaseAPI {
      */
     public patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(requestParameters: TeamsApiPatchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatchRequest, options?: AxiosRequestConfig) {
         return TeamsApiFp(this.configuration).patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch(requestParameters.teamId, requestParameters.modelId, requestParameters.bulkPatchAssociationOp, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Modify Variable resource with partial update.
+     * @summary Patch Concept
+     * @param {TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public patchConceptV1TeamsTeamIdConceptsConceptIdPatch(requestParameters: TeamsApiPatchConceptV1TeamsTeamIdConceptsConceptIdPatchRequest, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).patchConceptV1TeamsTeamIdConceptsConceptIdPatch(requestParameters.teamId, requestParameters.conceptId, requestParameters.patchConceptOpArrayPatchConceptOp, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
