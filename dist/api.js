@@ -23129,14 +23129,14 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
         /**
          * Create a Study.
          * @summary Create A Study.
-         * @param {StudyIn} studyIn
+         * @param {StudyIn | DoiIn} studyInDoiIn
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1StudiesPost: (studyIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'studyIn' is not null or undefined
-            common_1.assertParamExists('createAStudyV1StudiesPost', 'studyIn', studyIn);
+        createAStudyV1StudiesPost: (studyInDoiIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyInDoiIn' is not null or undefined
+            common_1.assertParamExists('createAStudyV1StudiesPost', 'studyInDoiIn', studyInDoiIn);
             const localVarPath = `/v1/studies`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -23159,7 +23159,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyInDoiIn, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -23169,15 +23169,15 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
-         * @param {StudyIn} studyIn
+         * @param {StudyIn | DoiIn} studyInDoiIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost: (teamId, studyIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAStudyV1TeamsTeamIdStudiesPost: (teamId, studyInDoiIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('createAStudyV1TeamsTeamIdStudiesPost', 'teamId', teamId);
-            // verify required parameter 'studyIn' is not null or undefined
-            common_1.assertParamExists('createAStudyV1TeamsTeamIdStudiesPost', 'studyIn', studyIn);
+            // verify required parameter 'studyInDoiIn' is not null or undefined
+            common_1.assertParamExists('createAStudyV1TeamsTeamIdStudiesPost', 'studyInDoiIn', studyInDoiIn);
             const localVarPath = `/v1/teams/{team_id}/studies`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -23198,7 +23198,7 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyInDoiIn, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -24936,14 +24936,14 @@ exports.StudiesApiFp = function (configuration) {
         /**
          * Create a Study.
          * @summary Create A Study.
-         * @param {StudyIn} studyIn
+         * @param {StudyIn | DoiIn} studyInDoiIn
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1StudiesPost(studyIn, teamId, options) {
+        createAStudyV1StudiesPost(studyInDoiIn, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1StudiesPost(studyIn, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1StudiesPost(studyInDoiIn, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -24951,13 +24951,13 @@ exports.StudiesApiFp = function (configuration) {
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
-         * @param {StudyIn} studyIn
+         * @param {StudyIn | DoiIn} studyInDoiIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyIn, options) {
+        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25561,24 +25561,24 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
         /**
          * Create a Study.
          * @summary Create A Study.
-         * @param {StudyIn} studyIn
+         * @param {StudyIn | DoiIn} studyInDoiIn
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1StudiesPost(studyIn, teamId, options) {
-            return localVarFp.createAStudyV1StudiesPost(studyIn, teamId, options).then((request) => request(axios, basePath));
+        createAStudyV1StudiesPost(studyInDoiIn, teamId, options) {
+            return localVarFp.createAStudyV1StudiesPost(studyInDoiIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
-         * @param {StudyIn} studyIn
+         * @param {StudyIn | DoiIn} studyInDoiIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyIn, options) {
-            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyIn, options).then((request) => request(axios, basePath));
+        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options) {
+            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Create models and add to study.
@@ -26098,7 +26098,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     createAStudyV1StudiesPost(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).createAStudyV1StudiesPost(requestParameters.studyIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).createAStudyV1StudiesPost(requestParameters.studyInDoiIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a Study.
@@ -26109,7 +26109,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     createAStudyV1TeamsTeamIdStudiesPost(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyInDoiIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create models and add to study.
@@ -26811,15 +26811,15 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
-         * @param {StudyIn} studyIn
+         * @param {StudyIn | DoiIn} studyInDoiIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost: (teamId, studyIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAStudyV1TeamsTeamIdStudiesPost: (teamId, studyInDoiIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('createAStudyV1TeamsTeamIdStudiesPost', 'teamId', teamId);
-            // verify required parameter 'studyIn' is not null or undefined
-            common_1.assertParamExists('createAStudyV1TeamsTeamIdStudiesPost', 'studyIn', studyIn);
+            // verify required parameter 'studyInDoiIn' is not null or undefined
+            common_1.assertParamExists('createAStudyV1TeamsTeamIdStudiesPost', 'studyInDoiIn', studyInDoiIn);
             const localVarPath = `/v1/teams/{team_id}/studies`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -26840,7 +26840,7 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyInDoiIn, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -33084,13 +33084,13 @@ exports.TeamsApiFp = function (configuration) {
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
-         * @param {StudyIn} studyIn
+         * @param {StudyIn | DoiIn} studyInDoiIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyIn, options) {
+        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -35250,12 +35250,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
-         * @param {StudyIn} studyIn
+         * @param {StudyIn | DoiIn} studyInDoiIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyIn, options) {
-            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyIn, options).then((request) => request(axios, basePath));
+        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options) {
+            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new user.
@@ -37061,7 +37061,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     createAStudyV1TeamsTeamIdStudiesPost(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyInDoiIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new user.
