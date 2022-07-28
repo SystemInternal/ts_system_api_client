@@ -21445,6 +21445,40 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Forward request to ORCID.
+         * @summary Get Orcid
+         * @param {any} restOfPath
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOrcidV1OrcidRestOfPathGet: (restOfPath, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'restOfPath' is not null or undefined
+            common_1.assertParamExists('getOrcidV1OrcidRestOfPathGet', 'restOfPath', restOfPath);
+            const localVarPath = `/v1/orcid/{rest_of_path}`
+                .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Forward GraphQL request to SystemDB.
          * @summary Post Graphql
          * @param {GraphQLQuery} graphQLQuery
@@ -21502,6 +21536,19 @@ exports.PassthroughApiFp = function (configuration) {
             });
         },
         /**
+         * Forward request to ORCID.
+         * @summary Get Orcid
+         * @param {any} restOfPath
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOrcidV1OrcidRestOfPathGet(restOfPath, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getOrcidV1OrcidRestOfPathGet(restOfPath, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Forward GraphQL request to SystemDB.
          * @summary Post Graphql
          * @param {GraphQLQuery} graphQLQuery
@@ -21534,6 +21581,16 @@ exports.PassthroughApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getCrossrefV1CrossrefRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
+         * Forward request to ORCID.
+         * @summary Get Orcid
+         * @param {any} restOfPath
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOrcidV1OrcidRestOfPathGet(restOfPath, options) {
+            return localVarFp.getOrcidV1OrcidRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Forward GraphQL request to SystemDB.
          * @summary Post Graphql
          * @param {GraphQLQuery} graphQLQuery
@@ -21562,6 +21619,17 @@ class PassthroughApi extends base_1.BaseAPI {
      */
     getCrossrefV1CrossrefRestOfPathGet(requestParameters, options) {
         return exports.PassthroughApiFp(this.configuration).getCrossrefV1CrossrefRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Forward request to ORCID.
+     * @summary Get Orcid
+     * @param {PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    getOrcidV1OrcidRestOfPathGet(requestParameters, options) {
+        return exports.PassthroughApiFp(this.configuration).getOrcidV1OrcidRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Forward GraphQL request to SystemDB.

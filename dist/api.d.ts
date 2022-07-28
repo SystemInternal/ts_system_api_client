@@ -26776,6 +26776,14 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      */
     getCrossrefV1CrossrefRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Forward request to ORCID.
+     * @summary Get Orcid
+     * @param {any} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOrcidV1OrcidRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
      * @param {GraphQLQuery} graphQLQuery
@@ -26797,6 +26805,14 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * Forward request to ORCID.
+     * @summary Get Orcid
+     * @param {any} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
@@ -26820,6 +26836,14 @@ export declare const PassthroughApiFactory: (configuration?: Configuration, base
      */
     getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
     /**
+     * Forward request to ORCID.
+     * @summary Get Orcid
+     * @param {any} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
+    /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
      * @param {GraphQLQuery} graphQLQuery
@@ -26838,6 +26862,19 @@ export interface PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest {
      *
      * @type {any}
      * @memberof PassthroughApiGetCrossrefV1CrossrefRestOfPathGet
+     */
+    readonly restOfPath: any;
+}
+/**
+ * Request parameters for getOrcidV1OrcidRestOfPathGet operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest
+ */
+export interface PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest {
+    /**
+     *
+     * @type {any}
+     * @memberof PassthroughApiGetOrcidV1OrcidRestOfPathGet
      */
     readonly restOfPath: any;
 }
@@ -26870,6 +26907,15 @@ export declare class PassthroughApi extends BaseAPI {
      * @memberof PassthroughApi
      */
     getCrossrefV1CrossrefRestOfPathGet(requestParameters: PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Forward request to ORCID.
+     * @summary Get Orcid
+     * @param {PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
