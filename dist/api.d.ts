@@ -132,6 +132,12 @@ export interface AssociationIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof AssociationIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof AssociationIn
@@ -266,6 +272,12 @@ export interface AssociationOut {
      * @memberof AssociationOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof AssociationOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -665,6 +677,12 @@ export interface AuthorIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof AuthorIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof AuthorIn
@@ -763,6 +781,12 @@ export interface AuthorOut {
      * @memberof AuthorOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof AuthorOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -1140,6 +1164,12 @@ export interface CategoryIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof CategoryIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof CategoryIn
@@ -1222,6 +1252,12 @@ export interface CategoryOut {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof CategoryOut
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof CategoryOut
@@ -1279,6 +1315,12 @@ export interface ConceptIn {
      * @memberof ConceptIn
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof ConceptIn
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -1372,6 +1414,12 @@ export interface ConceptOut {
      * @memberof ConceptOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof ConceptOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -1538,6 +1586,12 @@ export interface DashboardIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof DashboardIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof DashboardIn
@@ -1684,6 +1738,12 @@ export interface DashboardOut {
      * @memberof DashboardOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof DashboardOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -1892,6 +1952,12 @@ export interface DatasetIn {
      * @memberof DatasetIn
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof DatasetIn
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -2128,6 +2194,12 @@ export interface DatasetOut {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof DatasetOut
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof DatasetOut
@@ -2358,6 +2430,12 @@ export interface DateRangeIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof DateRangeIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof DateRangeIn
@@ -2457,6 +2535,12 @@ export interface DateRangeOut {
      * @memberof DateRangeOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof DateRangeOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -2666,6 +2750,12 @@ export interface DoiIn {
      * @memberof DoiIn
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof DoiIn
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -3035,6 +3125,12 @@ export interface FeatureIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof FeatureIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof FeatureIn
@@ -3145,6 +3241,12 @@ export interface FeatureOut {
      * @memberof FeatureOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof FeatureOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -3436,6 +3538,12 @@ export interface FreeTextIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof FreeTextIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof FreeTextIn
@@ -3517,6 +3625,12 @@ export interface FreeTextOut {
      * @memberof FreeTextOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof FreeTextOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -3912,6 +4026,12 @@ export interface LocationIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof LocationIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof LocationIn
@@ -3999,6 +4119,12 @@ export interface LocationOut {
      * @memberof LocationOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof LocationOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -4273,6 +4399,12 @@ export interface ModelIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof ModelIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof ModelIn
@@ -4455,6 +4587,12 @@ export interface ModelOut {
      * @memberof ModelOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof ModelOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -5023,6 +5161,12 @@ export interface NumberRangeIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof NumberRangeIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof NumberRangeIn
@@ -5110,6 +5254,12 @@ export interface NumberRangeOut {
      * @memberof NumberRangeOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof NumberRangeOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -5552,6 +5702,12 @@ export interface PopulationAttributeIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof PopulationAttributeIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof PopulationAttributeIn
@@ -5664,6 +5820,12 @@ export interface PopulationAttributeOut {
      * @memberof PopulationAttributeOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof PopulationAttributeOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -6398,6 +6560,12 @@ export interface StudyIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof StudyIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof StudyIn
@@ -6544,6 +6712,12 @@ export interface StudyOut {
      * @memberof StudyOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof StudyOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
@@ -7642,6 +7816,12 @@ export interface VariableIn {
      */
     'tags'?: Array<string>;
     /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof VariableIn
+     */
+    'search_terms'?: Array<string>;
+    /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
      * @memberof VariableIn
@@ -7772,6 +7952,12 @@ export interface VariableOut {
      * @memberof VariableOut
      */
     'tags'?: Array<string>;
+    /**
+     * Search terms to attach to resource (max 64).
+     * @type {Array<string>}
+     * @memberof VariableOut
+     */
+    'search_terms'?: Array<string>;
     /**
      * A hidden object is not meant to be shown on the frontend.
      * @type {boolean}
