@@ -17583,6 +17583,240 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Node Graph
+         * @param {string} metricId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricNodeGraphV1GraphMetricsMetricIdGet: (metricId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'metricId' is not null or undefined
+            common_1.assertParamExists('getMetricNodeGraphV1GraphMetricsMetricIdGet', 'metricId', metricId);
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getMetricNodeGraphV1GraphMetricsMetricIdGet', 'teamId', teamId);
+            const localVarPath = `/v1/graph/metrics/{metric_id}`
+                .replace(`{${"metric_id"}}`, encodeURIComponent(String(metricId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Node Graph
+         * @param {string} metricId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet: (metricId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'metricId' is not null or undefined
+            common_1.assertParamExists('getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet', 'metricId', metricId);
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/graph/metrics/{metric_id}`
+                .replace(`{${"metric_id"}}`, encodeURIComponent(String(metricId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Relationship Graph
+         * @param {string} metricId1
+         * @param {string} metricId2
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get: (metricId1, metricId2, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'metricId1' is not null or undefined
+            common_1.assertParamExists('getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get', 'metricId1', metricId1);
+            // verify required parameter 'metricId2' is not null or undefined
+            common_1.assertParamExists('getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get', 'metricId2', metricId2);
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get', 'teamId', teamId);
+            const localVarPath = `/v1/graph/metrics/{metric_id_1}/relationship/{metric_id_2}`
+                .replace(`{${"metric_id_1"}}`, encodeURIComponent(String(metricId1)))
+                .replace(`{${"metric_id_2"}}`, encodeURIComponent(String(metricId2)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Relationship Graph
+         * @param {string} metricId1
+         * @param {string} metricId2
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get: (metricId1, metricId2, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'metricId1' is not null or undefined
+            common_1.assertParamExists('getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get', 'metricId1', metricId1);
+            // verify required parameter 'metricId2' is not null or undefined
+            common_1.assertParamExists('getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get', 'metricId2', metricId2);
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/graph/metrics/{metric_id_1}/relationship/{metric_id_2}`
+                .replace(`{${"metric_id_1"}}`, encodeURIComponent(String(metricId1)))
+                .replace(`{${"metric_id_2"}}`, encodeURIComponent(String(metricId2)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicGraphV1GraphTopicGraphGet: (teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getTopicGraphV1GraphTopicGraphGet', 'teamId', teamId);
+            const localVarPath = `/v1/graph/topic_graph`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet: (teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getTopicGraphV1TeamsTeamIdGraphTopicGraphGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/graph/topic_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -17648,6 +17882,90 @@ exports.GraphApiFp = function (configuration) {
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Node Graph
+         * @param {string} metricId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricNodeGraphV1GraphMetricsMetricIdGet(metricId, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getMetricNodeGraphV1GraphMetricsMetricIdGet(metricId, teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Node Graph
+         * @param {string} metricId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(metricId, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(metricId, teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Relationship Graph
+         * @param {string} metricId1
+         * @param {string} metricId2
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Relationship Graph
+         * @param {string} metricId1
+         * @param {string} metricId2
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicGraphV1GraphTopicGraphGet(teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getTopicGraphV1GraphTopicGraphGet(teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
     };
 };
 /**
@@ -17701,6 +18019,72 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
         getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(teamId, options) {
             return localVarFp.getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(teamId, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Node Graph
+         * @param {string} metricId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricNodeGraphV1GraphMetricsMetricIdGet(metricId, teamId, options) {
+            return localVarFp.getMetricNodeGraphV1GraphMetricsMetricIdGet(metricId, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Node Graph
+         * @param {string} metricId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(metricId, teamId, options) {
+            return localVarFp.getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(metricId, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Relationship Graph
+         * @param {string} metricId1
+         * @param {string} metricId2
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options) {
+            return localVarFp.getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Relationship Graph
+         * @param {string} metricId1
+         * @param {string} metricId2
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options) {
+            return localVarFp.getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicGraphV1GraphTopicGraphGet(teamId, options) {
+            return localVarFp.getTopicGraphV1GraphTopicGraphGet(teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options) {
+            return localVarFp.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -17753,6 +18137,72 @@ class GraphApi extends base_1.BaseAPI {
      */
     getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(requestParameters, options) {
         return exports.GraphApiFp(this.configuration).getDatasetGraphV1TeamsTeamIdGraphDatasetGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Metric Node Graph
+     * @param {GraphApiGetMetricNodeGraphV1GraphMetricsMetricIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getMetricNodeGraphV1GraphMetricsMetricIdGet(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getMetricNodeGraphV1GraphMetricsMetricIdGet(requestParameters.metricId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Metric Node Graph
+     * @param {GraphApiGetMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(requestParameters.metricId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Metric Relationship Graph
+     * @param {GraphApiGetMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2GetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(requestParameters.metricId1, requestParameters.metricId2, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Metric Relationship Graph
+     * @param {GraphApiGetMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2GetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(requestParameters.metricId1, requestParameters.metricId2, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Graph
+     * @param {GraphApiGetTopicGraphV1GraphTopicGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getTopicGraphV1GraphTopicGraphGet(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getTopicGraphV1GraphTopicGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Graph
+     * @param {GraphApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.GraphApi = GraphApi;
@@ -28563,6 +29013,86 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Fetch dataset graph.
+         * @summary Get Metric Node Graph
+         * @param {string} metricId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet: (metricId, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'metricId' is not null or undefined
+            common_1.assertParamExists('getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet', 'metricId', metricId);
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/graph/metrics/{metric_id}`
+                .replace(`{${"metric_id"}}`, encodeURIComponent(String(metricId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Relationship Graph
+         * @param {string} metricId1
+         * @param {string} metricId2
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get: (metricId1, metricId2, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'metricId1' is not null or undefined
+            common_1.assertParamExists('getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get', 'metricId1', metricId1);
+            // verify required parameter 'metricId2' is not null or undefined
+            common_1.assertParamExists('getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get', 'metricId2', metricId2);
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/graph/metrics/{metric_id_1}/relationship/{metric_id_2}`
+                .replace(`{${"metric_id_1"}}`, encodeURIComponent(String(metricId1)))
+                .replace(`{${"metric_id_2"}}`, encodeURIComponent(String(metricId2)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get Model.
          * @summary Get Model
          * @param {string} teamId
@@ -28764,6 +29294,40 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             const localVarPath = `/v1/teams/{team_id}/studies/{study_id}`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
                 .replace(`{${"study_id"}}`, encodeURIComponent(String(studyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet: (teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getTopicGraphV1TeamsTeamIdGraphTopicGraphGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/graph/topic_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -33759,6 +34323,35 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Fetch dataset graph.
+         * @summary Get Metric Node Graph
+         * @param {string} metricId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(metricId, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(metricId, teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Relationship Graph
+         * @param {string} metricId1
+         * @param {string} metricId2
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get Model.
          * @summary Get Model
          * @param {string} teamId
@@ -33838,6 +34431,19 @@ exports.TeamsApiFp = function (configuration) {
         getStudyV1TeamsTeamIdStudiesStudyIdGet(teamId, studyId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyV1TeamsTeamIdStudiesStudyIdGet(teamId, studyId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -35796,6 +36402,29 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getMessageV1TeamsTeamIdMessagesMessageIdGet(teamId, messageId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Fetch dataset graph.
+         * @summary Get Metric Node Graph
+         * @param {string} metricId
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(metricId, teamId, options) {
+            return localVarFp.getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(metricId, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Metric Relationship Graph
+         * @param {string} metricId1
+         * @param {string} metricId2
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options) {
+            return localVarFp.getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get Model.
          * @summary Get Model
          * @param {string} teamId
@@ -35859,6 +36488,16 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          */
         getStudyV1TeamsTeamIdStudiesStudyIdGet(teamId, studyId, options) {
             return localVarFp.getStudyV1TeamsTeamIdStudiesStudyIdGet(teamId, studyId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Graph
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options) {
+            return localVarFp.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch a single user\'s public profile.
@@ -37594,6 +38233,28 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).getMessageV1TeamsTeamIdMessagesMessageIdGet(requestParameters.teamId, requestParameters.messageId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Fetch dataset graph.
+     * @summary Get Metric Node Graph
+     * @param {TeamsApiGetMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getMetricNodeGraphV1TeamsTeamIdGraphMetricsMetricIdGet(requestParameters.metricId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Metric Relationship Graph
+     * @param {TeamsApiGetMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2GetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(requestParameters.metricId1, requestParameters.metricId2, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get Model.
      * @summary Get Model
      * @param {TeamsApiGetModelV1TeamsTeamIdModelsModelIdGetRequest} requestParameters Request parameters.
@@ -37658,6 +38319,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     getStudyV1TeamsTeamIdStudiesStudyIdGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).getStudyV1TeamsTeamIdStudiesStudyIdGet(requestParameters.teamId, requestParameters.studyId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Graph
+     * @param {TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch a single user\'s public profile.
