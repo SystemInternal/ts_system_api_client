@@ -1007,6 +1007,32 @@ export interface BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetId
     'ids': Array<string>;
 }
 /**
+ *
+ * @export
+ * @interface BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+ */
+export interface BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost {
+    /**
+     * Ids to merge with
+     * @type {Array<string>}
+     * @memberof BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     */
+    'merge_ids': Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface BodyMergeVariablePostV1VariablesVariableIdMergePost
+ */
+export interface BodyMergeVariablePostV1VariablesVariableIdMergePost {
+    /**
+     * Ids to merge with
+     * @type {Array<string>}
+     * @memberof BodyMergeVariablePostV1VariablesVariableIdMergePost
+     */
+    'merge_ids': Array<string>;
+}
+/**
  * Patch a `Association` with provided data.
  * @export
  * @interface BulkPatchAssociationOp
@@ -33174,6 +33200,16 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listVariablesV1TeamsTeamIdVariablesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: (teamId: string, variableId: string, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Bulk association patching.
      * @summary Patch Associations
      * @param {string} teamId
@@ -34761,6 +34797,16 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     listVariablesV1TeamsTeamIdVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId: string, variableId: string, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
      * Bulk association patching.
      * @summary Patch Associations
      * @param {string} teamId
@@ -36347,6 +36393,16 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listVariablesV1TeamsTeamIdVariablesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, options?: any): AxiosPromise<VariablePaginationOut>;
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId: string, variableId: string, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options?: any): AxiosPromise<any>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -40915,6 +40971,31 @@ export interface TeamsApiListVariablesV1TeamsTeamIdVariablesGetRequest {
     readonly tags?: Array<string>;
 }
 /**
+ * Request parameters for mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePostRequest
+ */
+export interface TeamsApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     */
+    readonly variableId: string;
+    /**
+     *
+     * @type {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost}
+     * @memberof TeamsApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     */
+    readonly bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost;
+}
+/**
  * Request parameters for patchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatch operation in TeamsApi.
  * @export
  * @interface TeamsApiPatchAssociationsV1TeamsTeamIdModelsModelIdAssociationsPatchRequest
@@ -42510,6 +42591,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     listVariablesV1TeamsTeamIdVariablesGet(requestParameters: TeamsApiListVariablesV1TeamsTeamIdVariablesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VariablePaginationOut>>;
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {TeamsApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(requestParameters: TeamsApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -48053,6 +48143,26 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      */
     listVariablesV1VariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: (teamId: string, variableId: string, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {string} variableId
+     * @param {BodyMergeVariablePostV1VariablesVariableIdMergePost} bodyMergeVariablePostV1VariablesVariableIdMergePost
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    mergeVariablePostV1VariablesVariableIdMergePost: (variableId: string, bodyMergeVariablePostV1VariablesVariableIdMergePost: BodyMergeVariablePostV1VariablesVariableIdMergePost, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
      * @param {string} teamId
@@ -48353,6 +48463,26 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      */
     listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
     /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId: string, variableId: string, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {string} variableId
+     * @param {BodyMergeVariablePostV1VariablesVariableIdMergePost} bodyMergeVariablePostV1VariablesVariableIdMergePost
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    mergeVariablePostV1VariablesVariableIdMergePost(variableId: string, bodyMergeVariablePostV1VariablesVariableIdMergePost: BodyMergeVariablePostV1VariablesVariableIdMergePost, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
      * @param {string} teamId
@@ -48652,6 +48782,26 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {string} teamId
+     * @param {string} variableId
+     * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId: string, variableId: string, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options?: any): AxiosPromise<any>;
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {string} variableId
+     * @param {BodyMergeVariablePostV1VariablesVariableIdMergePost} bodyMergeVariablePostV1VariablesVariableIdMergePost
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    mergeVariablePostV1VariablesVariableIdMergePost(variableId: string, bodyMergeVariablePostV1VariablesVariableIdMergePost: BodyMergeVariablePostV1VariablesVariableIdMergePost, teamId?: string, options?: any): AxiosPromise<any>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable
@@ -49688,6 +49838,56 @@ export interface VariablesApiListVariablesV1VariablesGetRequest {
     readonly teamId?: string;
 }
 /**
+ * Request parameters for mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost operation in VariablesApi.
+ * @export
+ * @interface VariablesApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePostRequest
+ */
+export interface VariablesApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     */
+    readonly variableId: string;
+    /**
+     *
+     * @type {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost}
+     * @memberof VariablesApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+     */
+    readonly bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost;
+}
+/**
+ * Request parameters for mergeVariablePostV1VariablesVariableIdMergePost operation in VariablesApi.
+ * @export
+ * @interface VariablesApiMergeVariablePostV1VariablesVariableIdMergePostRequest
+ */
+export interface VariablesApiMergeVariablePostV1VariablesVariableIdMergePostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiMergeVariablePostV1VariablesVariableIdMergePost
+     */
+    readonly variableId: string;
+    /**
+     *
+     * @type {BodyMergeVariablePostV1VariablesVariableIdMergePost}
+     * @memberof VariablesApiMergeVariablePostV1VariablesVariableIdMergePost
+     */
+    readonly bodyMergeVariablePostV1VariablesVariableIdMergePost: BodyMergeVariablePostV1VariablesVariableIdMergePost;
+    /**
+     *
+     * @type {string}
+     * @memberof VariablesApiMergeVariablePostV1VariablesVariableIdMergePost
+     */
+    readonly teamId?: string;
+}
+/**
  * Request parameters for patchVariableV1TeamsTeamIdVariablesVariableIdPatch operation in VariablesApi.
  * @export
  * @interface VariablesApiPatchVariableV1TeamsTeamIdVariablesVariableIdPatchRequest
@@ -49906,6 +50106,24 @@ export declare class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     listVariablesV1VariablesGet(requestParameters?: VariablesApiListVariablesV1VariablesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VariablePaginationOut>>;
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {VariablesApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(requestParameters: VariablesApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {VariablesApiMergeVariablePostV1VariablesVariableIdMergePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    mergeVariablePostV1VariablesVariableIdMergePost(requestParameters: VariablesApiMergeVariablePostV1VariablesVariableIdMergePostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Modify Variable resource with partial update.
      * @summary Patch Variable

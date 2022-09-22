@@ -32358,6 +32358,49 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Merge a variable with other ids.
+         * @summary Merge Variable Post
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: (teamId, variableId, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost', 'teamId', teamId);
+            // verify required parameter 'variableId' is not null or undefined
+            common_1.assertParamExists('mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost', 'variableId', variableId);
+            // verify required parameter 'bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost' is not null or undefined
+            common_1.assertParamExists('mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost', 'bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost', bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost);
+            const localVarPath = `/v1/teams/{team_id}/variables/{variable_id}/merge`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Bulk association patching.
          * @summary Patch Associations
          * @param {string} teamId
@@ -35375,6 +35418,21 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Merge a variable with other ids.
+         * @summary Merge Variable Post
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId, variableId, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId, variableId, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Bulk association patching.
          * @summary Patch Associations
          * @param {string} teamId
@@ -37310,6 +37368,18 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.listVariablesV1TeamsTeamIdVariablesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, options).then((request) => request(axios, basePath));
         },
         /**
+         * Merge a variable with other ids.
+         * @summary Merge Variable Post
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId, variableId, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options) {
+            return localVarFp.mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId, variableId, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Bulk association patching.
          * @summary Patch Associations
          * @param {string} teamId
@@ -38759,6 +38829,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     listVariablesV1TeamsTeamIdVariablesGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).listVariablesV1TeamsTeamIdVariablesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {TeamsApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(requestParameters.teamId, requestParameters.variableId, requestParameters.bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Bulk association patching.
@@ -45215,6 +45296,92 @@ exports.VariablesApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Merge a variable with other ids.
+         * @summary Merge Variable Post
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost: (teamId, variableId, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost', 'teamId', teamId);
+            // verify required parameter 'variableId' is not null or undefined
+            common_1.assertParamExists('mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost', 'variableId', variableId);
+            // verify required parameter 'bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost' is not null or undefined
+            common_1.assertParamExists('mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost', 'bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost', bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost);
+            const localVarPath = `/v1/teams/{team_id}/variables/{variable_id}/merge`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Merge a variable with other ids.
+         * @summary Merge Variable Post
+         * @param {string} variableId
+         * @param {BodyMergeVariablePostV1VariablesVariableIdMergePost} bodyMergeVariablePostV1VariablesVariableIdMergePost
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mergeVariablePostV1VariablesVariableIdMergePost: (variableId, bodyMergeVariablePostV1VariablesVariableIdMergePost, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'variableId' is not null or undefined
+            common_1.assertParamExists('mergeVariablePostV1VariablesVariableIdMergePost', 'variableId', variableId);
+            // verify required parameter 'bodyMergeVariablePostV1VariablesVariableIdMergePost' is not null or undefined
+            common_1.assertParamExists('mergeVariablePostV1VariablesVariableIdMergePost', 'bodyMergeVariablePostV1VariablesVariableIdMergePost', bodyMergeVariablePostV1VariablesVariableIdMergePost);
+            const localVarPath = `/v1/variables/{variable_id}/merge`
+                .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(bodyMergeVariablePostV1VariablesVariableIdMergePost, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Modify Variable resource with partial update.
          * @summary Patch Variable
          * @param {string} teamId
@@ -45674,6 +45841,36 @@ exports.VariablesApiFp = function (configuration) {
             });
         },
         /**
+         * Merge a variable with other ids.
+         * @summary Merge Variable Post
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId, variableId, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId, variableId, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Merge a variable with other ids.
+         * @summary Merge Variable Post
+         * @param {string} variableId
+         * @param {BodyMergeVariablePostV1VariablesVariableIdMergePost} bodyMergeVariablePostV1VariablesVariableIdMergePost
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mergeVariablePostV1VariablesVariableIdMergePost(variableId, bodyMergeVariablePostV1VariablesVariableIdMergePost, teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.mergeVariablePostV1VariablesVariableIdMergePost(variableId, bodyMergeVariablePostV1VariablesVariableIdMergePost, teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Modify Variable resource with partial update.
          * @summary Patch Variable
          * @param {string} teamId
@@ -46023,6 +46220,30 @@ exports.VariablesApiFactory = function (configuration, basePath, axios) {
             return localVarFp.listVariablesV1VariablesGet(query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inVariableGraph, tags, teamId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Merge a variable with other ids.
+         * @summary Merge Variable Post
+         * @param {string} teamId
+         * @param {string} variableId
+         * @param {BodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost} bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId, variableId, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options) {
+            return localVarFp.mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(teamId, variableId, bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Merge a variable with other ids.
+         * @summary Merge Variable Post
+         * @param {string} variableId
+         * @param {BodyMergeVariablePostV1VariablesVariableIdMergePost} bodyMergeVariablePostV1VariablesVariableIdMergePost
+         * @param {string} [teamId]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mergeVariablePostV1VariablesVariableIdMergePost(variableId, bodyMergeVariablePostV1VariablesVariableIdMergePost, teamId, options) {
+            return localVarFp.mergeVariablePostV1VariablesVariableIdMergePost(variableId, bodyMergeVariablePostV1VariablesVariableIdMergePost, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Modify Variable resource with partial update.
          * @summary Patch Variable
          * @param {string} teamId
@@ -46252,6 +46473,28 @@ class VariablesApi extends base_1.BaseAPI {
      */
     listVariablesV1VariablesGet(requestParameters = {}, options) {
         return exports.VariablesApiFp(this.configuration).listVariablesV1VariablesGet(requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inVariableGraph, requestParameters.tags, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {VariablesApiMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).mergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost(requestParameters.teamId, requestParameters.variableId, requestParameters.bodyMergeVariablePostV1TeamsTeamIdVariablesVariableIdMergePost, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Merge a variable with other ids.
+     * @summary Merge Variable Post
+     * @param {VariablesApiMergeVariablePostV1VariablesVariableIdMergePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariablesApi
+     */
+    mergeVariablePostV1VariablesVariableIdMergePost(requestParameters, options) {
+        return exports.VariablesApiFp(this.configuration).mergeVariablePostV1VariablesVariableIdMergePost(requestParameters.variableId, requestParameters.bodyMergeVariablePostV1VariablesVariableIdMergePost, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Modify Variable resource with partial update.
