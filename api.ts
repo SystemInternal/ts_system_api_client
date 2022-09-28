@@ -280,6 +280,12 @@ export interface AssociationOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof AssociationOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof AssociationOut
@@ -789,6 +795,12 @@ export interface AuthorOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof AuthorOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof AuthorOut
@@ -1283,6 +1295,12 @@ export interface CategoryOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof CategoryOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof CategoryOut
@@ -1443,6 +1461,12 @@ export interface ConceptOut {
      * @memberof ConceptOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof ConceptOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
@@ -1769,6 +1793,12 @@ export interface DashboardOut {
      * @memberof DashboardOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof DashboardOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
@@ -2227,6 +2257,12 @@ export interface DatasetOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof DatasetOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof DatasetOut
@@ -2568,6 +2604,12 @@ export interface DateRangeOut {
      * @memberof DateRangeOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof DateRangeOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
@@ -3273,6 +3315,12 @@ export interface FeatureOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof FeatureOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof FeatureOut
@@ -3662,6 +3710,12 @@ export interface FreeTextOut {
      * @memberof FreeTextOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof FreeTextOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
@@ -4161,6 +4215,12 @@ export interface LocationOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof LocationOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof LocationOut
@@ -4628,6 +4688,12 @@ export interface ModelOut {
      * @memberof ModelOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof ModelOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
@@ -5298,6 +5364,12 @@ export interface NumberRangeOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof NumberRangeOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof NumberRangeOut
@@ -5858,6 +5930,12 @@ export interface PopulationAttributeOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof PopulationAttributeOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof PopulationAttributeOut
@@ -6321,6 +6399,56 @@ export interface ResourceCollectionElement {
     'elem': any;
 }
 /**
+ * A System Resource Flag Output Object.
+ * @export
+ * @interface ResourceFlag
+ */
+export interface ResourceFlag {
+    /**
+     * Given reasons for the flag.
+     * @type {Array<string>}
+     * @memberof ResourceFlag
+     */
+    'reasons': Array<string>;
+    /**
+     * Additional metadata for the flag.
+     * @type {object}
+     * @memberof ResourceFlag
+     */
+    'meta'?: object;
+    /**
+     * Time when resource was created.
+     * @type {string}
+     * @memberof ResourceFlag
+     */
+    'added_on': string;
+    /**
+     * User who created this resource.
+     * @type {string}
+     * @memberof ResourceFlag
+     */
+    'added_by': string;
+}
+/**
+ * A System Resource Flag Input Object.
+ * @export
+ * @interface ResourceFlagIn
+ */
+export interface ResourceFlagIn {
+    /**
+     * Given reasons for the flag.
+     * @type {Array<string>}
+     * @memberof ResourceFlagIn
+     */
+    'reasons': Array<string>;
+    /**
+     * Additional metadata for the flag.
+     * @type {object}
+     * @memberof ResourceFlagIn
+     */
+    'meta'?: object;
+}
+/**
  * Table retrieval status.
  * @export
  * @enum {string}
@@ -6756,6 +6884,12 @@ export interface StudyOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof StudyOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof StudyOut
@@ -7090,6 +7224,12 @@ export interface TeamOut {
      * @memberof TeamOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof TeamOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Team\'s name.
      * @type {string}
@@ -8024,6 +8164,12 @@ export interface VariableOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof VariableOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof VariableOut
@@ -8739,6 +8885,212 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {string} [teamId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost: async (associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'associationId' is not null or undefined
+            assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost', 'associationId', associationId)
+            // verify required parameter 'resourceFlagIn' is not null or undefined
+            assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost', 'resourceFlagIn', resourceFlagIn)
+            const localVarPath = `/v1/associations/{association_id}/flags`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceFlagIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {string} [teamId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost_1: async (associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'associationId' is not null or undefined
+            assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost_1', 'associationId', associationId)
+            // verify required parameter 'resourceFlagIn' is not null or undefined
+            assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost_1', 'resourceFlagIn', resourceFlagIn)
+            const localVarPath = `/v1/associations/{association_id}/flags`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceFlagIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} teamId 
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost: async (teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost', 'teamId', teamId)
+            // verify required parameter 'associationId' is not null or undefined
+            assertParamExists('flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost', 'associationId', associationId)
+            // verify required parameter 'resourceFlagIn' is not null or undefined
+            assertParamExists('flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost', 'resourceFlagIn', resourceFlagIn)
+            const localVarPath = `/v1/teams/{team_id}/associations/{association_id}/flags`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceFlagIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} teamId 
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2: async (teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2', 'teamId', teamId)
+            // verify required parameter 'associationId' is not null or undefined
+            assertParamExists('flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2', 'associationId', associationId)
+            // verify required parameter 'resourceFlagIn' is not null or undefined
+            assertParamExists('flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2', 'resourceFlagIn', resourceFlagIn)
+            const localVarPath = `/v1/teams/{team_id}/associations/{association_id}/flags`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceFlagIn, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -10762,6 +11114,58 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {string} [teamId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.flagAssociationV1AssociationsAssociationIdFlagsPost(associationId, resourceFlagIn, teamId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {string} [teamId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId, resourceFlagIn, teamId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} teamId 
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId, associationId, resourceFlagIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} teamId 
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(teamId, associationId, resourceFlagIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get an Association.
          * @summary Get Association
          * @param {string} associationId 
@@ -11336,6 +11740,54 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
          */
         deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(teamId: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void> {
             return localVarFp.deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(teamId, datasetId, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {string} [teamId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: any): AxiosPromise<AssociationOut> {
+            return localVarFp.flagAssociationV1AssociationsAssociationIdFlagsPost(associationId, resourceFlagIn, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {string} [teamId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: any): AxiosPromise<AssociationOut> {
+            return localVarFp.flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId, resourceFlagIn, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} teamId 
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<AssociationOut> {
+            return localVarFp.flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId, associationId, resourceFlagIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} teamId 
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<AssociationOut> {
+            return localVarFp.flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(teamId, associationId, resourceFlagIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get an Association.
@@ -12052,6 +12504,118 @@ export interface AssociationsApiDeleteInteractionAssociationsV1TeamsTeamIdDatase
      * @memberof AssociationsApiDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete
      */
     readonly bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete
+}
+
+/**
+ * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest
+ */
+export interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
+     */
+    readonly associationId: string
+
+    /**
+     * 
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
+     */
+    readonly resourceFlagIn: ResourceFlagIn
+
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
+     */
+    readonly teamId?: string
+}
+
+/**
+ * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost_1 operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request
+ */
+export interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
+     */
+    readonly associationId: string
+
+    /**
+     * 
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
+     */
+    readonly resourceFlagIn: ResourceFlagIn
+
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
+     */
+    readonly teamId?: string
+}
+
+/**
+ * Request parameters for flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest
+ */
+export interface AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly associationId: string
+
+    /**
+     * 
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly resourceFlagIn: ResourceFlagIn
+}
+
+/**
+ * Request parameters for flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2 operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0Request
+ */
+export interface AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0Request {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0
+     */
+    readonly associationId: string
+
+    /**
+     * 
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0
+     */
+    readonly resourceFlagIn: ResourceFlagIn
 }
 
 /**
@@ -13775,6 +14339,54 @@ export class AssociationsApi extends BaseAPI {
      */
     public deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(requestParameters: AssociationsApiDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDeleteRequest, options?: AxiosRequestConfig) {
         return AssociationsApiFp(this.configuration).deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(requestParameters.teamId, requestParameters.datasetId, requestParameters.bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig) {
+        return AssociationsApiFp(this.configuration).flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters.associationId, requestParameters.resourceFlagIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig) {
+        return AssociationsApiFp(this.configuration).flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters.associationId, requestParameters.resourceFlagIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig) {
+        return AssociationsApiFp(this.configuration).flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(requestParameters.teamId, requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(requestParameters: AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig) {
+        return AssociationsApiFp(this.configuration).flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(requestParameters.teamId, requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -51275,6 +51887,57 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} teamId 
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost: async (teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost', 'teamId', teamId)
+            // verify required parameter 'associationId' is not null or undefined
+            assertParamExists('flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost', 'associationId', associationId)
+            // verify required parameter 'resourceFlagIn' is not null or undefined
+            assertParamExists('flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost', 'resourceFlagIn', resourceFlagIn)
+            const localVarPath = `/v1/teams/{team_id}/associations/{association_id}/flags`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)))
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceFlagIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get an Association.
          * @summary Get Association
          * @param {string} teamId 
@@ -57946,6 +58609,19 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} teamId 
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId, associationId, resourceFlagIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get an Association.
          * @summary Get Association
          * @param {string} teamId 
@@ -59897,6 +60573,18 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         fetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet(teamId: string, datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>> {
             return localVarFp.fetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet(teamId, datasetId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} teamId 
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<AssociationOut> {
+            return localVarFp.flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId, associationId, resourceFlagIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get an Association.
@@ -62244,6 +62932,34 @@ export interface TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatas
      * @memberof TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet
      */
     readonly datasetId: string
+}
+
+/**
+ * Request parameters for flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest
+ */
+export interface TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly associationId: string
+
+    /**
+     * 
+     * @type {ResourceFlagIn}
+     * @memberof TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly resourceFlagIn: ResourceFlagIn
 }
 
 /**
@@ -67453,6 +68169,18 @@ export class TeamsApi extends BaseAPI {
      */
     public fetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet(requestParameters: TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGetRequest, options?: AxiosRequestConfig) {
         return TeamsApiFp(this.configuration).fetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet(requestParameters.teamId, requestParameters.datasetId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(requestParameters: TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(requestParameters.teamId, requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
