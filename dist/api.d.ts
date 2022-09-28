@@ -267,6 +267,12 @@ export interface AssociationOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof AssociationOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof AssociationOut
@@ -776,6 +782,12 @@ export interface AuthorOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof AuthorOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof AuthorOut
@@ -1272,6 +1284,12 @@ export interface CategoryOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof CategoryOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof CategoryOut
@@ -1434,6 +1452,12 @@ export interface ConceptOut {
      * @memberof ConceptOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof ConceptOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
@@ -1758,6 +1782,12 @@ export interface DashboardOut {
      * @memberof DashboardOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof DashboardOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
@@ -2214,6 +2244,12 @@ export interface DatasetOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof DatasetOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof DatasetOut
@@ -2555,6 +2591,12 @@ export interface DateRangeOut {
      * @memberof DateRangeOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof DateRangeOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
@@ -3262,6 +3304,12 @@ export interface FeatureOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof FeatureOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof FeatureOut
@@ -3645,6 +3693,12 @@ export interface FreeTextOut {
      * @memberof FreeTextOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof FreeTextOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
@@ -4140,6 +4194,12 @@ export interface LocationOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof LocationOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof LocationOut
@@ -4607,6 +4667,12 @@ export interface ModelOut {
      * @memberof ModelOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof ModelOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
@@ -5275,6 +5341,12 @@ export interface NumberRangeOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof NumberRangeOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof NumberRangeOut
@@ -5841,6 +5913,12 @@ export interface PopulationAttributeOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof PopulationAttributeOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof PopulationAttributeOut
@@ -6302,6 +6380,56 @@ export interface ResourceCollectionElement {
     'elem': any;
 }
 /**
+ * A System Resource Flag Output Object.
+ * @export
+ * @interface ResourceFlag
+ */
+export interface ResourceFlag {
+    /**
+     * Given reasons for the flag.
+     * @type {Array<string>}
+     * @memberof ResourceFlag
+     */
+    'reasons': Array<string>;
+    /**
+     * Additional metadata for the flag.
+     * @type {object}
+     * @memberof ResourceFlag
+     */
+    'meta'?: object;
+    /**
+     * Time when resource was created.
+     * @type {string}
+     * @memberof ResourceFlag
+     */
+    'added_on': string;
+    /**
+     * User who created this resource.
+     * @type {string}
+     * @memberof ResourceFlag
+     */
+    'added_by': string;
+}
+/**
+ * A System Resource Flag Input Object.
+ * @export
+ * @interface ResourceFlagIn
+ */
+export interface ResourceFlagIn {
+    /**
+     * Given reasons for the flag.
+     * @type {Array<string>}
+     * @memberof ResourceFlagIn
+     */
+    'reasons': Array<string>;
+    /**
+     * Additional metadata for the flag.
+     * @type {object}
+     * @memberof ResourceFlagIn
+     */
+    'meta'?: object;
+}
+/**
  * Table retrieval status.
  * @export
  * @enum {string}
@@ -6733,6 +6861,12 @@ export interface StudyOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof StudyOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof StudyOut
@@ -7061,6 +7195,12 @@ export interface TeamOut {
      * @memberof TeamOut
      */
     '_permissions'?: Array<ResourceAction>;
+    /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof TeamOut
+     */
+    'flags'?: Array<ResourceFlag>;
     /**
      * Team\'s name.
      * @type {string}
@@ -7973,6 +8113,12 @@ export interface VariableOut {
      */
     '_permissions'?: Array<ResourceAction>;
     /**
+     * Flags on this resource.
+     * @type {Array<ResourceFlag>}
+     * @memberof VariableOut
+     */
+    'flags'?: Array<ResourceFlag>;
+    /**
      * Tags to attach to resource (max 64).
      * @type {Array<string>}
      * @memberof VariableOut
@@ -8271,6 +8417,46 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @throws {RequiredError}
      */
     deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: (teamId: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost: (associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1: (associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost: (teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2: (teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -8752,6 +8938,46 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      */
     deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(teamId: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    /**
      * Get an Association.
      * @summary Get Association
      * @param {string} associationId
@@ -9231,6 +9457,46 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(teamId: string, datasetId: string, bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete, options?: any): AxiosPromise<void>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: any): AxiosPromise<AssociationOut>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {string} [teamId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: any): AxiosPromise<AssociationOut>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<AssociationOut>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<AssociationOut>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -9865,6 +10131,106 @@ export interface AssociationsApiDeleteInteractionAssociationsV1TeamsTeamIdDatase
      * @memberof AssociationsApiDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete
      */
     readonly bodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete;
+}
+/**
+ * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest
+ */
+export interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
+     */
+    readonly resourceFlagIn: ResourceFlagIn;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
+     */
+    readonly teamId?: string;
+}
+/**
+ * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost_1 operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request
+ */
+export interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
+     */
+    readonly resourceFlagIn: ResourceFlagIn;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
+     */
+    readonly teamId?: string;
+}
+/**
+ * Request parameters for flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest
+ */
+export interface AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly resourceFlagIn: ResourceFlagIn;
+}
+/**
+ * Request parameters for flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2 operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0Request
+ */
+export interface AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0Request {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0
+     */
+    readonly resourceFlagIn: ResourceFlagIn;
 }
 /**
  * Request parameters for getAssociationV1ModelsModelIdAssociationsAssociationIdGet operation in AssociationsApi.
@@ -11355,6 +11721,42 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     deleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDelete(requestParameters: AssociationsApiDeleteInteractionAssociationsV1TeamsTeamIdDatasetsDatasetIdAssociationsDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(requestParameters: AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -32264,6 +32666,16 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     fetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet: (teamId: string, datasetId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost: (teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get an Association.
      * @summary Get Association
      * @param {string} teamId
@@ -33861,6 +34273,16 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     fetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet(teamId: string, datasetId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>>;
     /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    /**
      * Get an Association.
      * @summary Get Association
      * @param {string} teamId
@@ -35457,6 +35879,16 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     fetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet(teamId: string, datasetId: string, options?: any): AxiosPromise<Array<DateRangeOut | LocationOut | NumberRangeOut | CategoryOut | FreeTextOut>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} teamId
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<AssociationOut>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -37523,6 +37955,31 @@ export interface TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatas
      * @memberof TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet
      */
     readonly datasetId: string;
+}
+/**
+ * Request parameters for flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest
+ */
+export interface TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {ResourceFlagIn}
+     * @memberof TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
+     */
+    readonly resourceFlagIn: ResourceFlagIn;
 }
 /**
  * Request parameters for getAssociationV1TeamsTeamIdModelsModelIdAssociationsAssociationIdGet operation in TeamsApi.
@@ -42033,6 +42490,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     fetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGet(requestParameters: TeamsApiFetchDatasetPopulationAttributeValuesV1TeamsTeamIdDatasetsDatasetIdPopulationAttributeValuesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<(CategoryOut | DateRangeOut | FreeTextOut | LocationOut | NumberRangeOut)[]>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(requestParameters: TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
     /**
      * Get an Association.
      * @summary Get Association
