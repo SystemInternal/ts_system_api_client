@@ -7500,6 +7500,12 @@ export interface UpdateProfileIn {
      */
     'last_name'?: string;
     /**
+     * User\'s field of work.
+     * @type {string}
+     * @memberof UpdateProfileIn
+     */
+    'field_of_work'?: string;
+    /**
      * User email address.
      * @type {string}
      * @memberof UpdateProfileIn
@@ -7580,6 +7586,12 @@ export interface UserPrivateProfileOut {
      */
     'last_name'?: string;
     /**
+     * User\'s field of work.
+     * @type {string}
+     * @memberof UserPrivateProfileOut
+     */
+    'field_of_work'?: string;
+    /**
      * User email address.
      * @type {string}
      * @memberof UserPrivateProfileOut
@@ -7628,6 +7640,12 @@ export interface UserProfileIn {
      * @memberof UserProfileIn
      */
     'last_name'?: string;
+    /**
+     * User\'s field of work.
+     * @type {string}
+     * @memberof UserProfileIn
+     */
+    'field_of_work'?: string;
     /**
      * User email address.
      * @type {string}
@@ -7695,6 +7713,12 @@ export interface UserPublicProfileOut {
      * @memberof UserPublicProfileOut
      */
     'last_name'?: string;
+    /**
+     * User\'s field of work.
+     * @type {string}
+     * @memberof UserPublicProfileOut
+     */
+    'field_of_work'?: string;
 }
 /**
  * Enum for valid calibrated relationship type.
