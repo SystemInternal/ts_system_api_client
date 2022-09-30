@@ -7280,7 +7280,8 @@ export interface TeamOut {
  */
 
 export enum TeamRoles {
-    Admin = 'admin'
+    Admin = 'admin',
+    Editor = 'editor'
 }
 
 /**
