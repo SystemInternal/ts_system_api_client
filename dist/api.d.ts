@@ -7250,7 +7250,8 @@ export interface TeamOut {
  * @enum {string}
  */
 export declare enum TeamRoles {
-    Admin = "admin"
+    Admin = "admin",
+    Editor = "editor"
 }
 /**
  * Represent a test dataset.

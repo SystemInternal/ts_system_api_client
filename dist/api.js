@@ -598,6 +598,7 @@ var SystemObjectResources;
 var TeamRoles;
 (function (TeamRoles) {
     TeamRoles["Admin"] = "admin";
+    TeamRoles["Editor"] = "editor";
 })(TeamRoles = exports.TeamRoles || (exports.TeamRoles = {}));
 /**
  * Enum for valid calibrated relationship type.
