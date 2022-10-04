@@ -44659,11 +44659,12 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn | DoiIn} studyInDoiIn 
+         * @param {boolean} [updateExisting] 
          * @param {string} [teamId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1StudiesPost: async (studyInDoiIn: StudyIn | DoiIn, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createAStudyV1StudiesPost: async (studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'studyInDoiIn' is not null or undefined
             assertParamExists('createAStudyV1StudiesPost', 'studyInDoiIn', studyInDoiIn)
             const localVarPath = `/v1/studies`;
@@ -44684,6 +44685,10 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (updateExisting !== undefined) {
+                localVarQueryParameter['update_existing'] = updateExisting;
+            }
 
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
@@ -44708,10 +44713,11 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
          * @summary Create A Study.
          * @param {string} teamId 
          * @param {StudyIn | DoiIn} studyInDoiIn 
+         * @param {boolean} [updateExisting] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost: async (teamId: string, studyInDoiIn: StudyIn | DoiIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createAStudyV1TeamsTeamIdStudiesPost: async (teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('createAStudyV1TeamsTeamIdStudiesPost', 'teamId', teamId)
             // verify required parameter 'studyInDoiIn' is not null or undefined
@@ -44735,6 +44741,10 @@ export const StudiesApiAxiosParamCreator = function (configuration?: Configurati
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (updateExisting !== undefined) {
+                localVarQueryParameter['update_existing'] = updateExisting;
+            }
 
 
     
@@ -46832,12 +46842,13 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn | DoiIn} studyInDoiIn 
+         * @param {boolean} [updateExisting] 
          * @param {string} [teamId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAStudyV1StudiesPost(studyInDoiIn: StudyIn | DoiIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAStudyV1StudiesPost(studyInDoiIn, teamId, options);
+        async createAStudyV1StudiesPost(studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAStudyV1StudiesPost(studyInDoiIn, updateExisting, teamId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -46845,11 +46856,12 @@ export const StudiesApiFp = function(configuration?: Configuration) {
          * @summary Create A Study.
          * @param {string} teamId 
          * @param {StudyIn | DoiIn} studyInDoiIn 
+         * @param {boolean} [updateExisting] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options);
+        async createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -47398,23 +47410,25 @@ export const StudiesApiFactory = function (configuration?: Configuration, basePa
          * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn | DoiIn} studyInDoiIn 
+         * @param {boolean} [updateExisting] 
          * @param {string} [teamId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1StudiesPost(studyInDoiIn: StudyIn | DoiIn, teamId?: string, options?: any): AxiosPromise<StudyOut> {
-            return localVarFp.createAStudyV1StudiesPost(studyInDoiIn, teamId, options).then((request) => request(axios, basePath));
+        createAStudyV1StudiesPost(studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, teamId?: string, options?: any): AxiosPromise<StudyOut> {
+            return localVarFp.createAStudyV1StudiesPost(studyInDoiIn, updateExisting, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId 
          * @param {StudyIn | DoiIn} studyInDoiIn 
+         * @param {boolean} [updateExisting] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, options?: any): AxiosPromise<StudyOut> {
-            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options).then((request) => request(axios, basePath));
+        createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options?: any): AxiosPromise<StudyOut> {
+            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options).then((request) => request(axios, basePath));
         },
         /**
          * Create models and add to study.
@@ -48002,6 +48016,13 @@ export interface StudiesApiCreateAStudyV1StudiesPostRequest {
 
     /**
      * 
+     * @type {boolean}
+     * @memberof StudiesApiCreateAStudyV1StudiesPost
+     */
+    readonly updateExisting?: boolean
+
+    /**
+     * 
      * @type {string}
      * @memberof StudiesApiCreateAStudyV1StudiesPost
      */
@@ -48027,6 +48048,13 @@ export interface StudiesApiCreateAStudyV1TeamsTeamIdStudiesPostRequest {
      * @memberof StudiesApiCreateAStudyV1TeamsTeamIdStudiesPost
      */
     readonly studyInDoiIn: StudyIn | DoiIn
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof StudiesApiCreateAStudyV1TeamsTeamIdStudiesPost
+     */
+    readonly updateExisting?: boolean
 }
 
 /**
@@ -49717,7 +49745,7 @@ export class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     public createAStudyV1StudiesPost(requestParameters: StudiesApiCreateAStudyV1StudiesPostRequest, options?: AxiosRequestConfig) {
-        return StudiesApiFp(this.configuration).createAStudyV1StudiesPost(requestParameters.studyInDoiIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).createAStudyV1StudiesPost(requestParameters.studyInDoiIn, requestParameters.updateExisting, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49729,7 +49757,7 @@ export class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     public createAStudyV1TeamsTeamIdStudiesPost(requestParameters: StudiesApiCreateAStudyV1TeamsTeamIdStudiesPostRequest, options?: AxiosRequestConfig) {
-        return StudiesApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyInDoiIn, options).then((request) => request(this.axios, this.basePath));
+        return StudiesApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyInDoiIn, requestParameters.updateExisting, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50528,10 +50556,11 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Create A Study.
          * @param {string} teamId 
          * @param {StudyIn | DoiIn} studyInDoiIn 
+         * @param {boolean} [updateExisting] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost: async (teamId: string, studyInDoiIn: StudyIn | DoiIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createAStudyV1TeamsTeamIdStudiesPost: async (teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('createAStudyV1TeamsTeamIdStudiesPost', 'teamId', teamId)
             // verify required parameter 'studyInDoiIn' is not null or undefined
@@ -50555,6 +50584,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (updateExisting !== undefined) {
+                localVarQueryParameter['update_existing'] = updateExisting;
+            }
 
 
     
@@ -58280,11 +58313,12 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @summary Create A Study.
          * @param {string} teamId 
          * @param {StudyIn | DoiIn} studyInDoiIn 
+         * @param {boolean} [updateExisting] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options);
+        async createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -60275,11 +60309,12 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @summary Create A Study.
          * @param {string} teamId 
          * @param {StudyIn | DoiIn} studyInDoiIn 
+         * @param {boolean} [updateExisting] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, options?: any): AxiosPromise<StudyOut> {
-            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options).then((request) => request(axios, basePath));
+        createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options?: any): AxiosPromise<StudyOut> {
+            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new user.
@@ -62299,6 +62334,13 @@ export interface TeamsApiCreateAStudyV1TeamsTeamIdStudiesPostRequest {
      * @memberof TeamsApiCreateAStudyV1TeamsTeamIdStudiesPost
      */
     readonly studyInDoiIn: StudyIn | DoiIn
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TeamsApiCreateAStudyV1TeamsTeamIdStudiesPost
+     */
+    readonly updateExisting?: boolean
 }
 
 /**
@@ -67857,7 +67899,7 @@ export class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     public createAStudyV1TeamsTeamIdStudiesPost(requestParameters: TeamsApiCreateAStudyV1TeamsTeamIdStudiesPostRequest, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyInDoiIn, options).then((request) => request(this.axios, this.basePath));
+        return TeamsApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyInDoiIn, requestParameters.updateExisting, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
