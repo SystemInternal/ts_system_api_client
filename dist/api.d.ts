@@ -29109,20 +29109,22 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn | DoiIn} studyInDoiIn
+     * @param {boolean} [updateExisting]
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1StudiesPost: (studyInDoiIn: StudyIn | DoiIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createAStudyV1StudiesPost: (studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a Study.
      * @summary Create A Study.
      * @param {string} teamId
      * @param {StudyIn | DoiIn} studyInDoiIn
+     * @param {boolean} [updateExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1TeamsTeamIdStudiesPost: (teamId: string, studyInDoiIn: StudyIn | DoiIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createAStudyV1TeamsTeamIdStudiesPost: (teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -29573,20 +29575,22 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn | DoiIn} studyInDoiIn
+     * @param {boolean} [updateExisting]
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1StudiesPost(studyInDoiIn: StudyIn | DoiIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
+    createAStudyV1StudiesPost(studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
      * Create a Study.
      * @summary Create A Study.
      * @param {string} teamId
      * @param {StudyIn | DoiIn} studyInDoiIn
+     * @param {boolean} [updateExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
+    createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -30037,20 +30041,22 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * Create a Study.
      * @summary Create A Study.
      * @param {StudyIn | DoiIn} studyInDoiIn
+     * @param {boolean} [updateExisting]
      * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1StudiesPost(studyInDoiIn: StudyIn | DoiIn, teamId?: string, options?: any): AxiosPromise<StudyOut>;
+    createAStudyV1StudiesPost(studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, teamId?: string, options?: any): AxiosPromise<StudyOut>;
     /**
      * Create a Study.
      * @summary Create A Study.
      * @param {string} teamId
      * @param {StudyIn | DoiIn} studyInDoiIn
+     * @param {boolean} [updateExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, options?: any): AxiosPromise<StudyOut>;
+    createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options?: any): AxiosPromise<StudyOut>;
     /**
      * Create models and add to study.
      * @summary Create Models
@@ -30566,6 +30572,12 @@ export interface StudiesApiCreateAStudyV1StudiesPostRequest {
     readonly studyInDoiIn: StudyIn | DoiIn;
     /**
      *
+     * @type {boolean}
+     * @memberof StudiesApiCreateAStudyV1StudiesPost
+     */
+    readonly updateExisting?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof StudiesApiCreateAStudyV1StudiesPost
      */
@@ -30589,6 +30601,12 @@ export interface StudiesApiCreateAStudyV1TeamsTeamIdStudiesPostRequest {
      * @memberof StudiesApiCreateAStudyV1TeamsTeamIdStudiesPost
      */
     readonly studyInDoiIn: StudyIn | DoiIn;
+    /**
+     *
+     * @type {boolean}
+     * @memberof StudiesApiCreateAStudyV1TeamsTeamIdStudiesPost
+     */
+    readonly updateExisting?: boolean;
 }
 /**
  * Request parameters for createModelsV1StudiesStudyIdModelsPost operation in StudiesApi.
@@ -32424,10 +32442,11 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @summary Create A Study.
      * @param {string} teamId
      * @param {StudyIn | DoiIn} studyInDoiIn
+     * @param {boolean} [updateExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1TeamsTeamIdStudiesPost: (teamId: string, studyInDoiIn: StudyIn | DoiIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    createAStudyV1TeamsTeamIdStudiesPost: (teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new user.
      * @summary Create A User By Cognito Id.
@@ -34031,10 +34050,11 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @summary Create A Study.
      * @param {string} teamId
      * @param {StudyIn | DoiIn} studyInDoiIn
+     * @param {boolean} [updateExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
+    createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
      * Create a new user.
      * @summary Create A User By Cognito Id.
@@ -35638,10 +35658,11 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @summary Create A Study.
      * @param {string} teamId
      * @param {StudyIn | DoiIn} studyInDoiIn
+     * @param {boolean} [updateExisting]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, options?: any): AxiosPromise<StudyOut>;
+    createAStudyV1TeamsTeamIdStudiesPost(teamId: string, studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, options?: any): AxiosPromise<StudyOut>;
     /**
      * Create a new user.
      * @summary Create A User By Cognito Id.
@@ -37388,6 +37409,12 @@ export interface TeamsApiCreateAStudyV1TeamsTeamIdStudiesPostRequest {
      * @memberof TeamsApiCreateAStudyV1TeamsTeamIdStudiesPost
      */
     readonly studyInDoiIn: StudyIn | DoiIn;
+    /**
+     *
+     * @type {boolean}
+     * @memberof TeamsApiCreateAStudyV1TeamsTeamIdStudiesPost
+     */
+    readonly updateExisting?: boolean;
 }
 /**
  * Request parameters for createAUserByCognitoIdV1TeamsTeamIdUsersPost operation in TeamsApi.

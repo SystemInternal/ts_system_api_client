@@ -23973,11 +23973,12 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn | DoiIn} studyInDoiIn
+         * @param {boolean} [updateExisting]
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1StudiesPost: (studyInDoiIn, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAStudyV1StudiesPost: (studyInDoiIn, updateExisting, teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyInDoiIn' is not null or undefined
             common_1.assertParamExists('createAStudyV1StudiesPost', 'studyInDoiIn', studyInDoiIn);
             const localVarPath = `/v1/studies`;
@@ -23995,6 +23996,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (updateExisting !== undefined) {
+                localVarQueryParameter['update_existing'] = updateExisting;
+            }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -24013,10 +24017,11 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
          * @summary Create A Study.
          * @param {string} teamId
          * @param {StudyIn | DoiIn} studyInDoiIn
+         * @param {boolean} [updateExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost: (teamId, studyInDoiIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAStudyV1TeamsTeamIdStudiesPost: (teamId, studyInDoiIn, updateExisting, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('createAStudyV1TeamsTeamIdStudiesPost', 'teamId', teamId);
             // verify required parameter 'studyInDoiIn' is not null or undefined
@@ -24037,6 +24042,9 @@ exports.StudiesApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (updateExisting !== undefined) {
+                localVarQueryParameter['update_existing'] = updateExisting;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -25780,13 +25788,14 @@ exports.StudiesApiFp = function (configuration) {
          * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn | DoiIn} studyInDoiIn
+         * @param {boolean} [updateExisting]
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1StudiesPost(studyInDoiIn, teamId, options) {
+        createAStudyV1StudiesPost(studyInDoiIn, updateExisting, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1StudiesPost(studyInDoiIn, teamId, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1StudiesPost(studyInDoiIn, updateExisting, teamId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25795,12 +25804,13 @@ exports.StudiesApiFp = function (configuration) {
          * @summary Create A Study.
          * @param {string} teamId
          * @param {StudyIn | DoiIn} studyInDoiIn
+         * @param {boolean} [updateExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options) {
+        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -26405,23 +26415,25 @@ exports.StudiesApiFactory = function (configuration, basePath, axios) {
          * Create a Study.
          * @summary Create A Study.
          * @param {StudyIn | DoiIn} studyInDoiIn
+         * @param {boolean} [updateExisting]
          * @param {string} [teamId]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1StudiesPost(studyInDoiIn, teamId, options) {
-            return localVarFp.createAStudyV1StudiesPost(studyInDoiIn, teamId, options).then((request) => request(axios, basePath));
+        createAStudyV1StudiesPost(studyInDoiIn, updateExisting, teamId, options) {
+            return localVarFp.createAStudyV1StudiesPost(studyInDoiIn, updateExisting, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
          * @param {StudyIn | DoiIn} studyInDoiIn
+         * @param {boolean} [updateExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options) {
-            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options).then((request) => request(axios, basePath));
+        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options) {
+            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options).then((request) => request(axios, basePath));
         },
         /**
          * Create models and add to study.
@@ -26941,7 +26953,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     createAStudyV1StudiesPost(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).createAStudyV1StudiesPost(requestParameters.studyInDoiIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).createAStudyV1StudiesPost(requestParameters.studyInDoiIn, requestParameters.updateExisting, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a Study.
@@ -26952,7 +26964,7 @@ class StudiesApi extends base_1.BaseAPI {
      * @memberof StudiesApi
      */
     createAStudyV1TeamsTeamIdStudiesPost(requestParameters, options) {
-        return exports.StudiesApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyInDoiIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.StudiesApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyInDoiIn, requestParameters.updateExisting, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create models and add to study.
@@ -27655,10 +27667,11 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @summary Create A Study.
          * @param {string} teamId
          * @param {StudyIn | DoiIn} studyInDoiIn
+         * @param {boolean} [updateExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost: (teamId, studyInDoiIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAStudyV1TeamsTeamIdStudiesPost: (teamId, studyInDoiIn, updateExisting, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('createAStudyV1TeamsTeamIdStudiesPost', 'teamId', teamId);
             // verify required parameter 'studyInDoiIn' is not null or undefined
@@ -27679,6 +27692,9 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (updateExisting !== undefined) {
+                localVarQueryParameter['update_existing'] = updateExisting;
+            }
             localVarHeaderParameter['Content-Type'] = 'application/json';
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -34128,12 +34144,13 @@ exports.TeamsApiFp = function (configuration) {
          * @summary Create A Study.
          * @param {string} teamId
          * @param {StudyIn | DoiIn} studyInDoiIn
+         * @param {boolean} [updateExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options) {
+        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -36366,11 +36383,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @summary Create A Study.
          * @param {string} teamId
          * @param {StudyIn | DoiIn} studyInDoiIn
+         * @param {boolean} [updateExisting]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options) {
-            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, options).then((request) => request(axios, basePath));
+        createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options) {
+            return localVarFp.createAStudyV1TeamsTeamIdStudiesPost(teamId, studyInDoiIn, updateExisting, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new user.
@@ -38233,7 +38251,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     createAStudyV1TeamsTeamIdStudiesPost(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyInDoiIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).createAStudyV1TeamsTeamIdStudiesPost(requestParameters.teamId, requestParameters.studyInDoiIn, requestParameters.updateExisting, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new user.
