@@ -6102,6 +6102,50 @@ export declare enum PopulationAttributeValueSortEnum {
     Name = "name"
 }
 /**
+ * Publication author.
+ * @export
+ * @interface PublicationAuthor
+ */
+export interface PublicationAuthor {
+    /**
+     * Name of author.
+     * @type {string}
+     * @memberof PublicationAuthor
+     */
+    'name': string;
+    /**
+     * ORCID of author.
+     * @type {string}
+     * @memberof PublicationAuthor
+     */
+    'orcid'?: string;
+}
+/**
+ * Publication info model.
+ * @export
+ * @interface PublicationInfo
+ */
+export interface PublicationInfo {
+    /**
+     * Date of publication.
+     * @type {string}
+     * @memberof PublicationInfo
+     */
+    'date_published'?: string;
+    /**
+     * Publication name (journal, etc).
+     * @type {string}
+     * @memberof PublicationInfo
+     */
+    'publication'?: string;
+    /**
+     * Ordered authors of publication.
+     * @type {Array<PublicationAuthor>}
+     * @memberof PublicationInfo
+     */
+    'ordered_authors'?: Array<PublicationAuthor>;
+}
+/**
  * Credentials for a Redshift integration without password.
  * @export
  * @interface RedshiftCredentials
@@ -6792,6 +6836,12 @@ export interface StudyIn {
      * @memberof StudyIn
      */
     'insights'?: Array<string>;
+    /**
+     * Publication info of study.
+     * @type {PublicationInfo}
+     * @memberof StudyIn
+     */
+    'publication_info'?: PublicationInfo;
 }
 /**
  * Study resource links.
@@ -6951,6 +7001,12 @@ export interface StudyOut {
      * @memberof StudyOut
      */
     'insights'?: Array<string>;
+    /**
+     * Publication info of study.
+     * @type {PublicationInfo}
+     * @memberof StudyOut
+     */
+    'publication_info'?: PublicationInfo;
     /**
      * Collection of links to related resources.
      * @type {StudyLinks}
