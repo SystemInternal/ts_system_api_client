@@ -23924,6 +23924,44 @@ export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getTopicGraphV1TeamsTeamIdGraphTopicGraphGet: (teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {string} topicId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicNodeGraphV1GraphTopicsTopicIdGet: (topicId: string, teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {string} topicId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet: (topicId: string, teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {string} topicId1
+     * @param {string} topicId2
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get: (topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {string} topicId1
+     * @param {string} topicId2
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get: (topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * GraphApi - functional programming interface
@@ -24020,6 +24058,44 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {string} topicId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {string} topicId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {string} topicId1
+     * @param {string} topicId2
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {string} topicId1
+     * @param {string} topicId2
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
 };
 /**
  * GraphApi - factory interface
@@ -24116,6 +24192,44 @@ export declare const GraphApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, options?: any): AxiosPromise<GraphData>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {string} topicId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId: string, teamId: string, options?: any): AxiosPromise<GraphData>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {string} topicId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId: string, teamId: string, options?: any): AxiosPromise<GraphData>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {string} topicId1
+     * @param {string} topicId2
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: any): AxiosPromise<GraphData>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {string} topicId1
+     * @param {string} topicId2
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: any): AxiosPromise<GraphData>;
 };
 /**
  * Request parameters for getConceptGraphV1GraphConceptGraphGet operation in GraphApi.
@@ -24308,6 +24422,94 @@ export interface GraphApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest {
     readonly teamId: string;
 }
 /**
+ * Request parameters for getTopicNodeGraphV1GraphTopicsTopicIdGet operation in GraphApi.
+ * @export
+ * @interface GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGetRequest
+ */
+export interface GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGet
+     */
+    readonly topicId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGet
+     */
+    readonly teamId: string;
+}
+/**
+ * Request parameters for getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet operation in GraphApi.
+ * @export
+ * @interface GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest
+ */
+export interface GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet
+     */
+    readonly topicId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet
+     */
+    readonly teamId: string;
+}
+/**
+ * Request parameters for getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get operation in GraphApi.
+ * @export
+ * @interface GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2GetRequest
+ */
+export interface GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2GetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId1: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId2: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly teamId: string;
+}
+/**
+ * Request parameters for getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get operation in GraphApi.
+ * @export
+ * @interface GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest
+ */
+export interface GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId1: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId2: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly teamId: string;
+}
+/**
  * GraphApi - object-oriented interface
  * @export
  * @class GraphApi
@@ -24404,6 +24606,42 @@ export declare class GraphApi extends BaseAPI {
      * @memberof GraphApi
      */
     getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters: GraphApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getTopicNodeGraphV1GraphTopicsTopicIdGet(requestParameters: GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(requestParameters: GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2GetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(requestParameters: GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2GetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(requestParameters: GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
 }
 /**
  * ModeldbApi - axios parameter creator
@@ -32980,6 +33218,25 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getTopicGraphV1TeamsTeamIdGraphTopicGraphGet: (teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {string} topicId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet: (topicId: string, teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {string} topicId1
+     * @param {string} topicId2
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get: (topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Fetch a single user\'s public profile.
      * @summary Get User
      * @param {string} teamId
@@ -34588,6 +34845,25 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {string} topicId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {string} topicId1
+     * @param {string} topicId2
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    /**
      * Fetch a single user\'s public profile.
      * @summary Get User
      * @param {string} teamId
@@ -36195,6 +36471,25 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, options?: any): AxiosPromise<GraphData>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {string} topicId
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId: string, teamId: string, options?: any): AxiosPromise<GraphData>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {string} topicId1
+     * @param {string} topicId2
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: any): AxiosPromise<GraphData>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -38505,6 +38800,50 @@ export interface TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest {
      *
      * @type {string}
      * @memberof TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGet
+     */
+    readonly teamId: string;
+}
+/**
+ * Request parameters for getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest
+ */
+export interface TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet
+     */
+    readonly topicId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet
+     */
+    readonly teamId: string;
+}
+/**
+ * Request parameters for getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest
+ */
+export interface TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId1: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId2: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
      */
     readonly teamId: string;
 }
@@ -42814,6 +43153,24 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters: TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(requestParameters: TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(requestParameters: TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
