@@ -35711,6 +35711,200 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Node Graph
+         * @param {string} topicId 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicNodeGraphV1GraphTopicsTopicIdGet: async (topicId: string, teamId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicId' is not null or undefined
+            assertParamExists('getTopicNodeGraphV1GraphTopicsTopicIdGet', 'topicId', topicId)
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getTopicNodeGraphV1GraphTopicsTopicIdGet', 'teamId', teamId)
+            const localVarPath = `/v1/graph/topics/{topic_id}`
+                .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Node Graph
+         * @param {string} topicId 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet: async (topicId: string, teamId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicId' is not null or undefined
+            assertParamExists('getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet', 'topicId', topicId)
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet', 'teamId', teamId)
+            const localVarPath = `/v1/teams/{team_id}/graph/topics/{topic_id}`
+                .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Relationship Graph
+         * @param {string} topicId1 
+         * @param {string} topicId2 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get: async (topicId1: string, topicId2: string, teamId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicId1' is not null or undefined
+            assertParamExists('getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get', 'topicId1', topicId1)
+            // verify required parameter 'topicId2' is not null or undefined
+            assertParamExists('getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get', 'topicId2', topicId2)
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get', 'teamId', teamId)
+            const localVarPath = `/v1/graph/topics/{topic_id_1}/relationship/{topic_id_2}`
+                .replace(`{${"topic_id_1"}}`, encodeURIComponent(String(topicId1)))
+                .replace(`{${"topic_id_2"}}`, encodeURIComponent(String(topicId2)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Relationship Graph
+         * @param {string} topicId1 
+         * @param {string} topicId2 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get: async (topicId1: string, topicId2: string, teamId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicId1' is not null or undefined
+            assertParamExists('getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get', 'topicId1', topicId1)
+            // verify required parameter 'topicId2' is not null or undefined
+            assertParamExists('getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get', 'topicId2', topicId2)
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get', 'teamId', teamId)
+            const localVarPath = `/v1/teams/{team_id}/graph/topics/{topic_id_1}/relationship/{topic_id_2}`
+                .replace(`{${"topic_id_1"}}`, encodeURIComponent(String(topicId1)))
+                .replace(`{${"topic_id_2"}}`, encodeURIComponent(String(topicId2)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -35841,6 +36035,56 @@ export const GraphApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Node Graph
+         * @param {string} topicId 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId, teamId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Node Graph
+         * @param {string} topicId 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId, teamId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Relationship Graph
+         * @param {string} topicId1 
+         * @param {string} topicId2 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1, topicId2, teamId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Relationship Graph
+         * @param {string} topicId1 
+         * @param {string} topicId2 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1, topicId2, teamId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -35960,6 +36204,52 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          */
         getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, options?: any): AxiosPromise<GraphData> {
             return localVarFp.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Node Graph
+         * @param {string} topicId 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId: string, teamId: string, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Node Graph
+         * @param {string} topicId 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId: string, teamId: string, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Relationship Graph
+         * @param {string} topicId1 
+         * @param {string} topicId2 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1, topicId2, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Relationship Graph
+         * @param {string} topicId1 
+         * @param {string} topicId2 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1, topicId2, teamId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -36175,6 +36465,104 @@ export interface GraphApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest {
 }
 
 /**
+ * Request parameters for getTopicNodeGraphV1GraphTopicsTopicIdGet operation in GraphApi.
+ * @export
+ * @interface GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGetRequest
+ */
+export interface GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGet
+     */
+    readonly topicId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGet
+     */
+    readonly teamId: string
+}
+
+/**
+ * Request parameters for getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet operation in GraphApi.
+ * @export
+ * @interface GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest
+ */
+export interface GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet
+     */
+    readonly topicId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet
+     */
+    readonly teamId: string
+}
+
+/**
+ * Request parameters for getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get operation in GraphApi.
+ * @export
+ * @interface GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2GetRequest
+ */
+export interface GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2GetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId1: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId2: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly teamId: string
+}
+
+/**
+ * Request parameters for getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get operation in GraphApi.
+ * @export
+ * @interface GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest
+ */
+export interface GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId1: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId2: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly teamId: string
+}
+
+/**
  * GraphApi - object-oriented interface
  * @export
  * @class GraphApi
@@ -36299,6 +36687,54 @@ export class GraphApi extends BaseAPI {
      */
     public getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters: GraphApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest, options?: AxiosRequestConfig) {
         return GraphApiFp(this.configuration).getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    public getTopicNodeGraphV1GraphTopicsTopicIdGet(requestParameters: GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGetRequest, options?: AxiosRequestConfig) {
+        return GraphApiFp(this.configuration).getTopicNodeGraphV1GraphTopicsTopicIdGet(requestParameters.topicId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    public getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(requestParameters: GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest, options?: AxiosRequestConfig) {
+        return GraphApiFp(this.configuration).getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(requestParameters.topicId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2GetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    public getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(requestParameters: GraphApiGetTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2GetRequest, options?: AxiosRequestConfig) {
+        return GraphApiFp(this.configuration).getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(requestParameters.topicId1, requestParameters.topicId2, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    public getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(requestParameters: GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest, options?: AxiosRequestConfig) {
+        return GraphApiFp(this.configuration).getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(requestParameters.topicId1, requestParameters.topicId2, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -53078,6 +53514,100 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Fetch dataset graph.
+         * @summary Get Topic Node Graph
+         * @param {string} topicId 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet: async (topicId: string, teamId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicId' is not null or undefined
+            assertParamExists('getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet', 'topicId', topicId)
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet', 'teamId', teamId)
+            const localVarPath = `/v1/teams/{team_id}/graph/topics/{topic_id}`
+                .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Relationship Graph
+         * @param {string} topicId1 
+         * @param {string} topicId2 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get: async (topicId1: string, topicId2: string, teamId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicId1' is not null or undefined
+            assertParamExists('getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get', 'topicId1', topicId1)
+            // verify required parameter 'topicId2' is not null or undefined
+            assertParamExists('getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get', 'topicId2', topicId2)
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get', 'teamId', teamId)
+            const localVarPath = `/v1/teams/{team_id}/graph/topics/{topic_id_1}/relationship/{topic_id_2}`
+                .replace(`{${"topic_id_1"}}`, encodeURIComponent(String(topicId1)))
+                .replace(`{${"topic_id_2"}}`, encodeURIComponent(String(topicId2)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Fetch a single user\'s public profile.
          * @summary Get User
          * @param {string} teamId 
@@ -59010,6 +59540,31 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetch dataset graph.
+         * @summary Get Topic Node Graph
+         * @param {string} topicId 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId, teamId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Relationship Graph
+         * @param {string} topicId1 
+         * @param {string} topicId2 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1, topicId2, teamId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Fetch a single user\'s public profile.
          * @summary Get User
          * @param {string} teamId 
@@ -60951,6 +61506,29 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, options?: any): AxiosPromise<GraphData> {
             return localVarFp.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Node Graph
+         * @param {string} topicId 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId: string, teamId: string, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(topicId, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch dataset graph.
+         * @summary Get Topic Relationship Graph
+         * @param {string} topicId1 
+         * @param {string} topicId2 
+         * @param {string} teamId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(topicId1, topicId2, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch a single user\'s public profile.
@@ -63543,6 +64121,55 @@ export interface TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest {
      * 
      * @type {string}
      * @memberof TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGet
+     */
+    readonly teamId: string
+}
+
+/**
+ * Request parameters for getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest
+ */
+export interface TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet
+     */
+    readonly topicId: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet
+     */
+    readonly teamId: string
+}
+
+/**
+ * Request parameters for getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest
+ */
+export interface TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId1: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
+     */
+    readonly topicId2: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get
      */
     readonly teamId: string
 }
@@ -68580,6 +69207,30 @@ export class TeamsApi extends BaseAPI {
      */
     public getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters: TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest, options?: AxiosRequestConfig) {
         return TeamsApiFp(this.configuration).getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Node Graph
+     * @param {TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(requestParameters: TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).getTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGet(requestParameters.topicId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch dataset graph.
+     * @summary Get Topic Relationship Graph
+     * @param {TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(requestParameters: TeamsApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(requestParameters.topicId1, requestParameters.topicId2, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
