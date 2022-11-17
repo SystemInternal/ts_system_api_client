@@ -35630,10 +35630,11 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
+         * @param {boolean} [randomSubset] Flag for getting a random subset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicGraphV1GraphTopicGraphGet: async (teamId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTopicGraphV1GraphTopicGraphGet: async (teamId: string, randomSubset?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('getTopicGraphV1GraphTopicGraphGet', 'teamId', teamId)
             const localVarPath = `/v1/graph/topic_graph`;
@@ -35655,6 +35656,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
+            if (randomSubset !== undefined) {
+                localVarQueryParameter['random_subset'] = randomSubset;
+            }
+
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -35674,10 +35679,11 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
+         * @param {boolean} [randomSubset] Flag for getting a random subset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet: async (teamId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet: async (teamId: string, randomSubset?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('getTopicGraphV1TeamsTeamIdGraphTopicGraphGet', 'teamId', teamId)
             const localVarPath = `/v1/teams/{team_id}/graph/topic_graph`
@@ -35699,6 +35705,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (randomSubset !== undefined) {
+                localVarQueryParameter['random_subset'] = randomSubset;
+            }
 
 
     
@@ -36017,22 +36027,24 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
+         * @param {boolean} [randomSubset] Flag for getting a random subset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTopicGraphV1GraphTopicGraphGet(teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicGraphV1GraphTopicGraphGet(teamId, options);
+        async getTopicGraphV1GraphTopicGraphGet(teamId: string, randomSubset?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicGraphV1GraphTopicGraphGet(teamId, randomSubset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
+         * @param {boolean} [randomSubset] Flag for getting a random subset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options);
+        async getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, randomSubset?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, randomSubset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -36189,21 +36201,23 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
+         * @param {boolean} [randomSubset] Flag for getting a random subset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicGraphV1GraphTopicGraphGet(teamId: string, options?: any): AxiosPromise<GraphData> {
-            return localVarFp.getTopicGraphV1GraphTopicGraphGet(teamId, options).then((request) => request(axios, basePath));
+        getTopicGraphV1GraphTopicGraphGet(teamId: string, randomSubset?: boolean, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getTopicGraphV1GraphTopicGraphGet(teamId, randomSubset, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
+         * @param {boolean} [randomSubset] Flag for getting a random subset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, options?: any): AxiosPromise<GraphData> {
-            return localVarFp.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options).then((request) => request(axios, basePath));
+        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, randomSubset?: boolean, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, randomSubset, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -36448,6 +36462,13 @@ export interface GraphApiGetTopicGraphV1GraphTopicGraphGetRequest {
      * @memberof GraphApiGetTopicGraphV1GraphTopicGraphGet
      */
     readonly teamId: string
+
+    /**
+     * Flag for getting a random subset.
+     * @type {boolean}
+     * @memberof GraphApiGetTopicGraphV1GraphTopicGraphGet
+     */
+    readonly randomSubset?: boolean
 }
 
 /**
@@ -36462,6 +36483,13 @@ export interface GraphApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest {
      * @memberof GraphApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGet
      */
     readonly teamId: string
+
+    /**
+     * Flag for getting a random subset.
+     * @type {boolean}
+     * @memberof GraphApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGet
+     */
+    readonly randomSubset?: boolean
 }
 
 /**
@@ -36674,7 +36702,7 @@ export class GraphApi extends BaseAPI {
      * @memberof GraphApi
      */
     public getTopicGraphV1GraphTopicGraphGet(requestParameters: GraphApiGetTopicGraphV1GraphTopicGraphGetRequest, options?: AxiosRequestConfig) {
-        return GraphApiFp(this.configuration).getTopicGraphV1GraphTopicGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return GraphApiFp(this.configuration).getTopicGraphV1GraphTopicGraphGet(requestParameters.teamId, requestParameters.randomSubset, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36686,7 +36714,7 @@ export class GraphApi extends BaseAPI {
      * @memberof GraphApi
      */
     public getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters: GraphApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest, options?: AxiosRequestConfig) {
-        return GraphApiFp(this.configuration).getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return GraphApiFp(this.configuration).getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters.teamId, requestParameters.randomSubset, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -53476,10 +53504,11 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
+         * @param {boolean} [randomSubset] Flag for getting a random subset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet: async (teamId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet: async (teamId: string, randomSubset?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('getTopicGraphV1TeamsTeamIdGraphTopicGraphGet', 'teamId', teamId)
             const localVarPath = `/v1/teams/{team_id}/graph/topic_graph`
@@ -53501,6 +53530,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (randomSubset !== undefined) {
+                localVarQueryParameter['random_subset'] = randomSubset;
+            }
 
 
     
@@ -59532,11 +59565,12 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
+         * @param {boolean} [randomSubset] Flag for getting a random subset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options);
+        async getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, randomSubset?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, randomSubset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -61501,11 +61535,12 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
+         * @param {boolean} [randomSubset] Flag for getting a random subset.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, options?: any): AxiosPromise<GraphData> {
-            return localVarFp.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, options).then((request) => request(axios, basePath));
+        getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId: string, randomSubset?: boolean, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, randomSubset, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -64123,6 +64158,13 @@ export interface TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest {
      * @memberof TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGet
      */
     readonly teamId: string
+
+    /**
+     * Flag for getting a random subset.
+     * @type {boolean}
+     * @memberof TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGet
+     */
+    readonly randomSubset?: boolean
 }
 
 /**
@@ -69206,7 +69248,7 @@ export class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     public getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters: TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return TeamsApiFp(this.configuration).getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters.teamId, requestParameters.randomSubset, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
