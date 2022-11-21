@@ -8182,6 +8182,18 @@ export interface VariableIn {
      * @memberof VariableIn
      */
     'monitoring'?: MetricMonitoring;
+    /**
+     * The uuid of the metric cluster.
+     * @type {string}
+     * @memberof VariableIn
+     */
+    'cluster_id'?: string;
+    /**
+     * The name of the metric cluster.
+     * @type {string}
+     * @memberof VariableIn
+     */
+    'cluster_name'?: string;
 }
 /**
  * Variable resource links.
@@ -8323,6 +8335,18 @@ export interface VariableOut {
      * @memberof VariableOut
      */
     'monitoring'?: MetricMonitoring;
+    /**
+     * The uuid of the metric cluster.
+     * @type {string}
+     * @memberof VariableOut
+     */
+    'cluster_id'?: string;
+    /**
+     * The name of the metric cluster.
+     * @type {string}
+     * @memberof VariableOut
+     */
+    'cluster_name'?: string;
     /**
      * Collection of links to related resources.
      * @type {VariableLinks}
