@@ -6746,6 +6746,56 @@ export interface StringFeatureStatisticsSimpleBase {
     'distinct_values'?: number;
 }
 /**
+ * Stripe object.
+ * @export
+ * @interface StripeOut
+ */
+export interface StripeOut {
+    /**
+     * Subscription start date.
+     * @type {string}
+     * @memberof StripeOut
+     */
+    'start_date'?: string;
+    /**
+     * Subscription end date.
+     * @type {string}
+     * @memberof StripeOut
+     */
+    'end_date'?: string;
+    /**
+     * Subscription status.
+     * @type {string}
+     * @memberof StripeOut
+     */
+    'status'?: string;
+    /**
+     * Monthly or yearly.
+     * @type {string}
+     * @memberof StripeOut
+     */
+    'interval'?: string;
+    /**
+     * Autonew subscription
+     * @type {boolean}
+     * @memberof StripeOut
+     */
+    'cancel_at_period_end'?: boolean;
+}
+/**
+ * Stripe session object.
+ * @export
+ * @interface StripeSessionOut
+ */
+export interface StripeSessionOut {
+    /**
+     * Session url link.
+     * @type {string}
+     * @memberof StripeSessionOut
+     */
+    'session_url'?: string;
+}
+/**
  * A real world study.
  * @export
  * @interface StudyIn
@@ -7659,6 +7709,12 @@ export interface UserPrivateProfileOut {
      * @memberof UserPrivateProfileOut
      */
     'roles'?: Array<string>;
+    /**
+     * Stripe object
+     * @type {StripeOut}
+     * @memberof UserPrivateProfileOut
+     */
+    'stripe'?: StripeOut;
 }
 /**
  * User profile data input.
@@ -29397,6 +29453,61 @@ export declare class PopulationAttributesApi extends BaseAPI {
     listPopulationAttributesV1PopulationAttributesGet(requestParameters?: PopulationAttributesApiListPopulationAttributesV1PopulationAttributesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PopulationAttributePaginationOut>>;
 }
 /**
+ * StripeApi - axios parameter creator
+ * @export
+ */
+export declare const StripeApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Start stripe checkout session.
+     * @summary Stripe Status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeStatusV1StripeSubscriptionManagePost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * StripeApi - functional programming interface
+ * @export
+ */
+export declare const StripeApiFp: (configuration?: Configuration) => {
+    /**
+     * Start stripe checkout session.
+     * @summary Stripe Status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeStatusV1StripeSubscriptionManagePost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>>;
+};
+/**
+ * StripeApi - factory interface
+ * @export
+ */
+export declare const StripeApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Start stripe checkout session.
+     * @summary Stripe Status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    stripeStatusV1StripeSubscriptionManagePost(options?: any): AxiosPromise<StripeSessionOut>;
+};
+/**
+ * StripeApi - object-oriented interface
+ * @export
+ * @class StripeApi
+ * @extends {BaseAPI}
+ */
+export declare class StripeApi extends BaseAPI {
+    /**
+     * Start stripe checkout session.
+     * @summary Stripe Status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeApi
+     */
+    stripeStatusV1StripeSubscriptionManagePost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StripeSessionOut>>;
+}
+/**
  * StudiesApi - axios parameter creator
  * @export
  */
@@ -33078,10 +33189,11 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId: string, includeAvatar?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get Author.
      * @summary Get Author
@@ -34706,10 +34818,11 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Get Author.
      * @summary Get Author
@@ -36334,10 +36447,11 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Get Author.
      * @summary Get Author
@@ -38485,6 +38599,12 @@ export interface TeamsApiGetAuthenticatedUserV1TeamsTeamIdUserGetRequest {
      * @memberof TeamsApiGetAuthenticatedUserV1TeamsTeamIdUserGet
      */
     readonly includeAvatar?: boolean;
+    /**
+     * Date the trial expires
+     * @type {string}
+     * @memberof TeamsApiGetAuthenticatedUserV1TeamsTeamIdUserGet
+     */
+    readonly trialExpireDate?: string;
 }
 /**
  * Request parameters for getAuthorV1TeamsTeamIdAuthorsAuthorIdGet operation in TeamsApi.
@@ -43995,18 +44115,20 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId: string, includeAvatar?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet: (includeAvatar?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAuthenticatedUserV1UserGet: (includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -44666,18 +44788,20 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -45337,18 +45461,20 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, trialExpireDate?: string, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -46054,6 +46180,12 @@ export interface UsersApiGetAuthenticatedUserV1TeamsTeamIdUserGetRequest {
      * @memberof UsersApiGetAuthenticatedUserV1TeamsTeamIdUserGet
      */
     readonly includeAvatar?: boolean;
+    /**
+     * Date the trial expires
+     * @type {string}
+     * @memberof UsersApiGetAuthenticatedUserV1TeamsTeamIdUserGet
+     */
+    readonly trialExpireDate?: string;
 }
 /**
  * Request parameters for getAuthenticatedUserV1UserGet operation in UsersApi.
@@ -46067,6 +46199,12 @@ export interface UsersApiGetAuthenticatedUserV1UserGetRequest {
      * @memberof UsersApiGetAuthenticatedUserV1UserGet
      */
     readonly includeAvatar?: boolean;
+    /**
+     * Date the trial expires
+     * @type {string}
+     * @memberof UsersApiGetAuthenticatedUserV1UserGet
+     */
+    readonly trialExpireDate?: string;
 }
 /**
  * Request parameters for getUserV1TeamsTeamIdUsersUserIdGet operation in UsersApi.

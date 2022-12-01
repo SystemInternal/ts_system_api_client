@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.TeamRoles = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.TeamRoles = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -24118,6 +24118,102 @@ class PopulationAttributesApi extends base_1.BaseAPI {
 }
 exports.PopulationAttributesApi = PopulationAttributesApi;
 /**
+ * StripeApi - axios parameter creator
+ * @export
+ */
+exports.StripeApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Start stripe checkout session.
+         * @summary Stripe Status
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stripeStatusV1StripeSubscriptionManagePost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/stripe/subscription-manage`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * StripeApi - functional programming interface
+ * @export
+ */
+exports.StripeApiFp = function (configuration) {
+    const localVarAxiosParamCreator = exports.StripeApiAxiosParamCreator(configuration);
+    return {
+        /**
+         * Start stripe checkout session.
+         * @summary Stripe Status
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stripeStatusV1StripeSubscriptionManagePost(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.stripeStatusV1StripeSubscriptionManagePost(options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+    };
+};
+/**
+ * StripeApi - factory interface
+ * @export
+ */
+exports.StripeApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = exports.StripeApiFp(configuration);
+    return {
+        /**
+         * Start stripe checkout session.
+         * @summary Stripe Status
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        stripeStatusV1StripeSubscriptionManagePost(options) {
+            return localVarFp.stripeStatusV1StripeSubscriptionManagePost(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * StripeApi - object-oriented interface
+ * @export
+ * @class StripeApi
+ * @extends {BaseAPI}
+ */
+class StripeApi extends base_1.BaseAPI {
+    /**
+     * Start stripe checkout session.
+     * @summary Stripe Status
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeApi
+     */
+    stripeStatusV1StripeSubscriptionManagePost(options) {
+        return exports.StripeApiFp(this.configuration).stripeStatusV1StripeSubscriptionManagePost(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.StripeApi = StripeApi;
+/**
  * StudiesApi - axios parameter creator
  * @export
  */
@@ -29277,10 +29373,11 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId, includeAvatar, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId, includeAvatar, trialExpireDate, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('getAuthenticatedUserV1TeamsTeamIdUserGet', 'teamId', teamId);
             const localVarPath = `/v1/teams/{team_id}/user`
@@ -29301,6 +29398,9 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
+            }
+            if (trialExpireDate !== undefined) {
+                localVarQueryParameter['trial_expire_date'] = trialExpireDate;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -35012,12 +35112,13 @@ exports.TeamsApiFp = function (configuration) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options) {
+        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -37185,11 +37286,12 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options) {
-            return localVarFp.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options).then((request) => request(axios, basePath));
+        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options) {
+            return localVarFp.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Author.
@@ -39065,7 +39167,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters.teamId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters.teamId, requestParameters.includeAvatar, requestParameters.trialExpireDate, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Author.
@@ -40420,10 +40522,11 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId, includeAvatar, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId, includeAvatar, trialExpireDate, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('getAuthenticatedUserV1TeamsTeamIdUserGet', 'teamId', teamId);
             const localVarPath = `/v1/teams/{team_id}/user`
@@ -40445,6 +40548,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
+            if (trialExpireDate !== undefined) {
+                localVarQueryParameter['trial_expire_date'] = trialExpireDate;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -40457,10 +40563,11 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet: (includeAvatar, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAuthenticatedUserV1UserGet: (includeAvatar, trialExpireDate, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -40478,6 +40585,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
+            }
+            if (trialExpireDate !== undefined) {
+                localVarQueryParameter['trial_expire_date'] = trialExpireDate;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -43042,12 +43152,13 @@ exports.UsersApiFp = function (configuration) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options) {
+        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -43055,12 +43166,13 @@ exports.UsersApiFp = function (configuration) {
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet(includeAvatar, options) {
+        getAuthenticatedUserV1UserGet(includeAvatar, trialExpireDate, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1UserGet(includeAvatar, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1UserGet(includeAvatar, trialExpireDate, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -43908,21 +44020,23 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options) {
-            return localVarFp.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options).then((request) => request(axios, basePath));
+        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options) {
+            return localVarFp.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet(includeAvatar, options) {
-            return localVarFp.getAuthenticatedUserV1UserGet(includeAvatar, options).then((request) => request(axios, basePath));
+        getAuthenticatedUserV1UserGet(includeAvatar, trialExpireDate, options) {
+            return localVarFp.getAuthenticatedUserV1UserGet(includeAvatar, trialExpireDate, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch a single user\'s public profile.
@@ -44672,7 +44786,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters.teamId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters.teamId, requestParameters.includeAvatar, requestParameters.trialExpireDate, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch the authenticated user\'s profile.
@@ -44683,7 +44797,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     getAuthenticatedUserV1UserGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, requestParameters.trialExpireDate, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch a single user\'s public profile.
