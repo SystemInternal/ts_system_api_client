@@ -6295,6 +6295,87 @@ export interface RelationshipDirection {
     'relationship_type': ValidCalibratedRelationshipType;
 }
 /**
+ * Relationship resource links.
+ * @export
+ * @interface RelationshipLinks
+ */
+export interface RelationshipLinks {
+    /**
+     * Link to this resource.
+     * @type {string}
+     * @memberof RelationshipLinks
+     */
+    'self': string;
+    /**
+     * Link to Relationships\'s variables.
+     * @type {string}
+     * @memberof RelationshipLinks
+     */
+    'variables'?: string;
+    /**
+     * Link to Relationships\'s concepts.
+     * @type {string}
+     * @memberof RelationshipLinks
+     */
+    'topics'?: string;
+}
+/**
+ * Relationship output model.
+ * @export
+ * @interface RelationshipOut
+ */
+export interface RelationshipOut {
+    /**
+     * The concepts in this relationship
+     * @type {Array<string>}
+     * @memberof RelationshipOut
+     */
+    'concept_ids'?: Array<string>;
+    /**
+     * Collection of links to related resources.
+     * @type {RelationshipLinks}
+     * @memberof RelationshipOut
+     */
+    '_links'?: RelationshipLinks;
+}
+/**
+ * Relationship pagination out.
+ * @export
+ * @interface RelationshipPaginationOut
+ */
+export interface RelationshipPaginationOut {
+    /**
+     * Collection of links to related resources.
+     * @type {FirstLastPaginationLinks}
+     * @memberof RelationshipPaginationOut
+     */
+    '_links'?: FirstLastPaginationLinks;
+    /**
+     * List of results.
+     * @type {Array<RelationshipOut>}
+     * @memberof RelationshipPaginationOut
+     */
+    'items'?: Array<RelationshipOut>;
+    /**
+     * List of ids.
+     * @type {Array<string>}
+     * @memberof RelationshipPaginationOut
+     */
+    'ids'?: Array<string>;
+    /**
+     * Total number of results available.
+     * @type {number}
+     * @memberof RelationshipPaginationOut
+     */
+    'total'?: number;
+    /**
+     * Valid \'order_by\' values that can be applied to current pagination set.
+     * @type {Array<string>}
+     * @memberof RelationshipPaginationOut
+     */
+    '_sorts'?: Array<string>;
+}
+/**
  * Model to represent reproducibility of an Association.
  * @export
  * @interface RelationshipReproducibility
@@ -7186,7 +7267,8 @@ export enum SystemObjectResources {
     PopulationAttributeValue = 'population_attribute_value',
     Association = 'association',
     Team = 'team',
-    Dashboard = 'dashboard'
+    Dashboard = 'dashboard',
+    Relationship = 'relationship'
 }
 
 /**
@@ -45048,6 +45130,473 @@ export class PopulationAttributesApi extends BaseAPI {
 
 
 /**
+ * RelationshipsApi - axios parameter creator
+ * @export
+ */
+export const RelationshipsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * List relationships.
+         * @summary List Relationships
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {number} [directionality] Filter by directionality
+         * @param {string} [originQuery] Search query for the origin node.
+         * @param {string} [teamId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRelationshipsV1RelationshipsGet: async (query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/relationships`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (directionality !== undefined) {
+                localVarQueryParameter['directionality'] = directionality;
+            }
+
+            if (originQuery !== undefined) {
+                localVarQueryParameter['origin_query'] = originQuery;
+            }
+
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List relationships.
+         * @summary List Relationships
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {number} [directionality] Filter by directionality
+         * @param {string} [originQuery] Search query for the origin node.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRelationshipsV1TeamsTeamIdRelationshipsGet: async (teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('listRelationshipsV1TeamsTeamIdRelationshipsGet', 'teamId', teamId)
+            const localVarPath = `/v1/teams/{team_id}/relationships`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (directionality !== undefined) {
+                localVarQueryParameter['directionality'] = directionality;
+            }
+
+            if (originQuery !== undefined) {
+                localVarQueryParameter['origin_query'] = originQuery;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * RelationshipsApi - functional programming interface
+ * @export
+ */
+export const RelationshipsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = RelationshipsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * List relationships.
+         * @summary List Relationships
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {number} [directionality] Filter by directionality
+         * @param {string} [originQuery] Search query for the origin node.
+         * @param {string} [teamId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listRelationshipsV1RelationshipsGet(query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1RelationshipsGet(query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, teamId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List relationships.
+         * @summary List Relationships
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {number} [directionality] Filter by directionality
+         * @param {string} [originQuery] Search query for the origin node.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * RelationshipsApi - factory interface
+ * @export
+ */
+export const RelationshipsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = RelationshipsApiFp(configuration)
+    return {
+        /**
+         * List relationships.
+         * @summary List Relationships
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {number} [directionality] Filter by directionality
+         * @param {string} [originQuery] Search query for the origin node.
+         * @param {string} [teamId] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRelationshipsV1RelationshipsGet(query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
+            return localVarFp.listRelationshipsV1RelationshipsGet(query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List relationships.
+         * @summary List Relationships
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {number} [directionality] Filter by directionality
+         * @param {string} [originQuery] Search query for the origin node.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
+            return localVarFp.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for listRelationshipsV1RelationshipsGet operation in RelationshipsApi.
+ * @export
+ * @interface RelationshipsApiListRelationshipsV1RelationshipsGetRequest
+ */
+export interface RelationshipsApiListRelationshipsV1RelationshipsGetRequest {
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * 
+     * @type {number}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter by directionality
+     * @type {number}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly directionality?: number
+
+    /**
+     * Search query for the origin node.
+     * @type {string}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly originQuery?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly teamId?: string
+}
+
+/**
+ * Request parameters for listRelationshipsV1TeamsTeamIdRelationshipsGet operation in RelationshipsApi.
+ * @export
+ * @interface RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest
+ */
+export interface RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly teamId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * 
+     * @type {number}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter by directionality
+     * @type {number}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly directionality?: number
+
+    /**
+     * Search query for the origin node.
+     * @type {string}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly originQuery?: string
+}
+
+/**
+ * RelationshipsApi - object-oriented interface
+ * @export
+ * @class RelationshipsApi
+ * @extends {BaseAPI}
+ */
+export class RelationshipsApi extends BaseAPI {
+    /**
+     * List relationships.
+     * @summary List Relationships
+     * @param {RelationshipsApiListRelationshipsV1RelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RelationshipsApi
+     */
+    public listRelationshipsV1RelationshipsGet(requestParameters: RelationshipsApiListRelationshipsV1RelationshipsGetRequest = {}, options?: AxiosRequestConfig) {
+        return RelationshipsApiFp(this.configuration).listRelationshipsV1RelationshipsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List relationships.
+     * @summary List Relationships
+     * @param {RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RelationshipsApi
+     */
+    public listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters: RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest, options?: AxiosRequestConfig) {
+        return RelationshipsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
  * StripeApi - axios parameter creator
  * @export
  */
@@ -56682,6 +57231,92 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * List relationships.
+         * @summary List Relationships
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {number} [directionality] Filter by directionality
+         * @param {string} [originQuery] Search query for the origin node.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRelationshipsV1TeamsTeamIdRelationshipsGet: async (teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('listRelationshipsV1TeamsTeamIdRelationshipsGet', 'teamId', teamId)
+            const localVarPath = `/v1/teams/{team_id}/relationships`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (includeHidden !== undefined) {
+                localVarQueryParameter['include_hidden'] = includeHidden;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (total !== undefined) {
+                localVarQueryParameter['total'] = total;
+            }
+
+            if (idsOnly !== undefined) {
+                localVarQueryParameter['ids_only'] = idsOnly;
+            }
+
+            if (sortBy !== undefined) {
+                localVarQueryParameter['sort_by'] = sortBy;
+            }
+
+            if (directionality !== undefined) {
+                localVarQueryParameter['directionality'] = directionality;
+            }
+
+            if (originQuery !== undefined) {
+                localVarQueryParameter['origin_query'] = originQuery;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * List Studies.
          * @summary List Studies
          * @param {string} teamId 
@@ -60450,6 +61085,26 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * List relationships.
+         * @summary List Relationships
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {number} [directionality] Filter by directionality
+         * @param {string} [originQuery] Search query for the origin node.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * List Studies.
          * @summary List Studies
          * @param {string} teamId 
@@ -62385,6 +63040,25 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         listModelsV1TeamsTeamIdModelsGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, options?: any): AxiosPromise<ModelPaginationOut> {
             return localVarFp.listModelsV1TeamsTeamIdModelsGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, containsVariableId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List relationships.
+         * @summary List Relationships
+         * @param {string} teamId 
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {number} [directionality] Filter by directionality
+         * @param {string} [originQuery] Search query for the origin node.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
+            return localVarFp.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options).then((request) => request(axios, basePath));
         },
         /**
          * List Studies.
@@ -67083,6 +67757,83 @@ export interface TeamsApiListModelsV1TeamsTeamIdModelsGetRequest {
 }
 
 /**
+ * Request parameters for listRelationshipsV1TeamsTeamIdRelationshipsGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest
+ */
+export interface TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly teamId: string
+
+    /**
+     * Search query.
+     * @type {string}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly query?: string
+
+    /**
+     * Include hidden objects in results.
+     * @type {boolean}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly includeHidden?: boolean
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly page?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Include total count in response. Only use if you need it as a separate database call is required.
+     * @type {boolean}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly total?: boolean
+
+    /**
+     * Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @type {boolean}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly idsOnly?: boolean
+
+    /**
+     * Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @type {string}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly sortBy?: string
+
+    /**
+     * Filter by directionality
+     * @type {number}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly directionality?: number
+
+    /**
+     * Search query for the origin node.
+     * @type {string}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly originQuery?: string
+}
+
+/**
  * Request parameters for listStudiesV1TeamsTeamIdStudiesGet operation in TeamsApi.
  * @export
  * @interface TeamsApiListStudiesV1TeamsTeamIdStudiesGetRequest
@@ -69844,6 +70595,18 @@ export class TeamsApi extends BaseAPI {
      */
     public listModelsV1TeamsTeamIdModelsGet(requestParameters: TeamsApiListModelsV1TeamsTeamIdModelsGetRequest, options?: AxiosRequestConfig) {
         return TeamsApiFp(this.configuration).listModelsV1TeamsTeamIdModelsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.containsVariableId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List relationships.
+     * @summary List Relationships
+     * @param {TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters: TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
