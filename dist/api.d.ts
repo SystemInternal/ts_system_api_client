@@ -3877,6 +3877,128 @@ export interface Histogram {
     'bin_edges'?: Array<number>;
 }
 /**
+ * Return type for an indexed document.
+ * @export
+ * @interface IndexedSource
+ */
+export interface IndexedSource {
+    /**
+     *
+     * @type {string}
+     * @memberof IndexedSource
+     */
+    'doi': string;
+    /**
+     *
+     * @type {string}
+     * @memberof IndexedSource
+     */
+    'title': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof IndexedSource
+     */
+    'topics': Array<string>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof IndexedSource
+     */
+    'has_relationships': boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof IndexedSource
+     */
+    'on_system': boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof IndexedSource
+     */
+    'system_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof IndexedSource
+     */
+    'journal'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof IndexedSource
+     */
+    'publish_date'?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof IndexedSource
+     */
+    'is_oa': boolean;
+    /**
+     *
+     * @type {number}
+     * @memberof IndexedSource
+     */
+    'citation_count'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof IndexedSource
+     */
+    'study_type'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof IndexedSource
+     */
+    'sample_size'?: number;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof IndexedSource
+     */
+    'authors'?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof IndexedSource
+     */
+    'text_match': number;
+}
+/**
+ * Return type from typesense sources index.
+ * @export
+ * @interface IndexedSourcesOut
+ */
+export interface IndexedSourcesOut {
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof IndexedSourcesOut
+     */
+    'facet_counts': Array<object>;
+    /**
+     *
+     * @type {number}
+     * @memberof IndexedSourcesOut
+     */
+    'count': number;
+    /**
+     *
+     * @type {number}
+     * @memberof IndexedSourcesOut
+     */
+    'page': number;
+    /**
+     *
+     * @type {Array<IndexedSource>}
+     * @memberof IndexedSourcesOut
+     */
+    'sources': Array<IndexedSource>;
+}
+/**
  * An Integration Resource.
  * @export
  * @interface Integration
@@ -24822,6 +24944,150 @@ export declare class GraphApi extends BaseAPI {
      * @memberof GraphApi
      */
     getTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2Get(requestParameters: GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicId1RelationshipTopicId2GetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
+}
+/**
+ * IndexedSourcesApi - axios parameter creator
+ * @export
+ */
+export declare const IndexedSourcesApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * List Indexed Sources.  Paginated list of all Indexed Sources.
+     * @summary Get Sources Paged
+     * @param {number} [page] Page number
+     * @param {number} [perPage] Number of results per paginated page return
+     * @param {string} [q] Search query
+     * @param {string} [filterBy] Filters for search results
+     * @param {string} [sortBy] Sorts for search results
+     * @param {string} [queryBy] Fields to query
+     * @param {string} [facetBy] Fields to facet on
+     * @param {string} [facetQuery] Search query for facets
+     * @param {number} [maxFacetValues] Max number of facet values returned
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSourcesPagedV1IndexedSourcesGet: (page?: number, perPage?: number, q?: string, filterBy?: string, sortBy?: string, queryBy?: string, facetBy?: string, facetQuery?: string, maxFacetValues?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * IndexedSourcesApi - functional programming interface
+ * @export
+ */
+export declare const IndexedSourcesApiFp: (configuration?: Configuration) => {
+    /**
+     * List Indexed Sources.  Paginated list of all Indexed Sources.
+     * @summary Get Sources Paged
+     * @param {number} [page] Page number
+     * @param {number} [perPage] Number of results per paginated page return
+     * @param {string} [q] Search query
+     * @param {string} [filterBy] Filters for search results
+     * @param {string} [sortBy] Sorts for search results
+     * @param {string} [queryBy] Fields to query
+     * @param {string} [facetBy] Fields to facet on
+     * @param {string} [facetQuery] Search query for facets
+     * @param {number} [maxFacetValues] Max number of facet values returned
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSourcesPagedV1IndexedSourcesGet(page?: number, perPage?: number, q?: string, filterBy?: string, sortBy?: string, queryBy?: string, facetBy?: string, facetQuery?: string, maxFacetValues?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IndexedSourcesOut>>;
+};
+/**
+ * IndexedSourcesApi - factory interface
+ * @export
+ */
+export declare const IndexedSourcesApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * List Indexed Sources.  Paginated list of all Indexed Sources.
+     * @summary Get Sources Paged
+     * @param {number} [page] Page number
+     * @param {number} [perPage] Number of results per paginated page return
+     * @param {string} [q] Search query
+     * @param {string} [filterBy] Filters for search results
+     * @param {string} [sortBy] Sorts for search results
+     * @param {string} [queryBy] Fields to query
+     * @param {string} [facetBy] Fields to facet on
+     * @param {string} [facetQuery] Search query for facets
+     * @param {number} [maxFacetValues] Max number of facet values returned
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSourcesPagedV1IndexedSourcesGet(page?: number, perPage?: number, q?: string, filterBy?: string, sortBy?: string, queryBy?: string, facetBy?: string, facetQuery?: string, maxFacetValues?: number, options?: any): AxiosPromise<IndexedSourcesOut>;
+};
+/**
+ * Request parameters for getSourcesPagedV1IndexedSourcesGet operation in IndexedSourcesApi.
+ * @export
+ * @interface IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGetRequest
+ */
+export interface IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGetRequest {
+    /**
+     * Page number
+     * @type {number}
+     * @memberof IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGet
+     */
+    readonly page?: number;
+    /**
+     * Number of results per paginated page return
+     * @type {number}
+     * @memberof IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGet
+     */
+    readonly perPage?: number;
+    /**
+     * Search query
+     * @type {string}
+     * @memberof IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGet
+     */
+    readonly q?: string;
+    /**
+     * Filters for search results
+     * @type {string}
+     * @memberof IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGet
+     */
+    readonly filterBy?: string;
+    /**
+     * Sorts for search results
+     * @type {string}
+     * @memberof IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGet
+     */
+    readonly sortBy?: string;
+    /**
+     * Fields to query
+     * @type {string}
+     * @memberof IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGet
+     */
+    readonly queryBy?: string;
+    /**
+     * Fields to facet on
+     * @type {string}
+     * @memberof IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGet
+     */
+    readonly facetBy?: string;
+    /**
+     * Search query for facets
+     * @type {string}
+     * @memberof IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGet
+     */
+    readonly facetQuery?: string;
+    /**
+     * Max number of facet values returned
+     * @type {number}
+     * @memberof IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGet
+     */
+    readonly maxFacetValues?: number;
+}
+/**
+ * IndexedSourcesApi - object-oriented interface
+ * @export
+ * @class IndexedSourcesApi
+ * @extends {BaseAPI}
+ */
+export declare class IndexedSourcesApi extends BaseAPI {
+    /**
+     * List Indexed Sources.  Paginated list of all Indexed Sources.
+     * @summary Get Sources Paged
+     * @param {IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IndexedSourcesApi
+     */
+    getSourcesPagedV1IndexedSourcesGet(requestParameters?: IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<IndexedSourcesOut>>;
 }
 /**
  * ModeldbApi - axios parameter creator
