@@ -3111,6 +3111,44 @@ export declare enum ExternalToolEnum {
     Tableau = "TABLEAU"
 }
 /**
+ * Properties of each facet in a query.
+ * @export
+ * @interface Facet
+ */
+export interface Facet {
+    /**
+     * Total value of matching results in the database.
+     * @type {number}
+     * @memberof Facet
+     */
+    'total_values': number;
+    /**
+     * List of items for this facet and their counts.
+     * @type {Array<FacetItem>}
+     * @memberof Facet
+     */
+    'data': Array<FacetItem>;
+}
+/**
+ * Properties of each item in a facet list.
+ * @export
+ * @interface FacetItem
+ */
+export interface FacetItem {
+    /**
+     *
+     * @type {any}
+     * @memberof FacetItem
+     */
+    'value'?: any;
+    /**
+     *
+     * @type {number}
+     * @memberof FacetItem
+     */
+    'count': number;
+}
+/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -3968,17 +4006,19 @@ export interface IndexedSource {
     'text_match': number;
 }
 /**
- * Return type from typesense sources index.
+ * Return type from Typesense sources index.
  * @export
  * @interface IndexedSourcesOut
  */
 export interface IndexedSourcesOut {
     /**
      *
-     * @type {Array<object>}
+     * @type {{ [key: string]: Facet; }}
      * @memberof IndexedSourcesOut
      */
-    'facet_counts': Array<object>;
+    'facets': {
+        [key: string]: Facet;
+    };
     /**
      *
      * @type {number}
