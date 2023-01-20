@@ -3120,44 +3120,6 @@ export enum ExternalToolEnum {
 }
 
 /**
- * Properties of each facet in a query.
- * @export
- * @interface Facet
- */
-export interface Facet {
-    /**
-     * Total value of matching results in the database.
-     * @type {number}
-     * @memberof Facet
-     */
-    'total_values': number;
-    /**
-     * List of items for this facet and their counts.
-     * @type {Array<FacetItem>}
-     * @memberof Facet
-     */
-    'data': Array<FacetItem>;
-}
-/**
- * Properties of each item in a facet list.
- * @export
- * @interface FacetItem
- */
-export interface FacetItem {
-    /**
-     * 
-     * @type {any}
-     * @memberof FacetItem
-     */
-    'value'?: any;
-    /**
-     * 
-     * @type {number}
-     * @memberof FacetItem
-     */
-    'count': number;
-}
-/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -4025,17 +3987,17 @@ export interface IndexedSource {
     'text_match': number;
 }
 /**
- * Return type from Typesense sources index.
+ * Return type from typesense sources index.
  * @export
  * @interface IndexedSourcesOut
  */
 export interface IndexedSourcesOut {
     /**
      * 
-     * @type {{ [key: string]: Facet; }}
+     * @type {Array<object>}
      * @memberof IndexedSourcesOut
      */
-    'facets': { [key: string]: Facet; };
+    'facet_counts': Array<object>;
     /**
      * 
      * @type {number}
