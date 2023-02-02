@@ -3925,6 +3925,12 @@ export interface IndexedSource {
      * @type {string}
      * @memberof IndexedSource
      */
+    'id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof IndexedSource
+     */
     'doi': string;
     /**
      *
@@ -3937,7 +3943,7 @@ export interface IndexedSource {
      * @type {Array<string>}
      * @memberof IndexedSource
      */
-    'topics': Array<string>;
+    'topics'?: Array<string>;
     /**
      *
      * @type {boolean}
@@ -3964,16 +3970,16 @@ export interface IndexedSource {
     'journal'?: string;
     /**
      *
+     * @type {Array<TopicRelationship>}
+     * @memberof IndexedSource
+     */
+    'relationships'?: Array<TopicRelationship>;
+    /**
+     *
      * @type {number}
      * @memberof IndexedSource
      */
     'publish_date'?: number;
-    /**
-     *
-     * @type {boolean}
-     * @memberof IndexedSource
-     */
-    'is_oa': boolean;
     /**
      *
      * @type {number}
@@ -6820,6 +6826,31 @@ export interface SignificanceValueOut {
     'generated_by'?: ValueSourceEnum;
 }
 /**
+ * Simplified topic schema.
+ * @export
+ * @interface SimpleTopic
+ */
+export interface SimpleTopic {
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleTopic
+     */
+    'system_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleTopic
+     */
+    'wikidata_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleTopic
+     */
+    'name': string;
+}
+/**
  * Credentials for a Snowflake integration without password.
  * @export
  * @interface SnowflakeCredentials
@@ -7812,6 +7843,25 @@ export interface TimelinePaginationOut {
      * @memberof TimelinePaginationOut
      */
     '_sorts'?: Array<string>;
+}
+/**
+ * Simplified topic relationships schema.
+ * @export
+ * @interface TopicRelationship
+ */
+export interface TopicRelationship {
+    /**
+     *
+     * @type {Array<SimpleTopic>}
+     * @memberof TopicRelationship
+     */
+    'topics': Array<SimpleTopic>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof TopicRelationship
+     */
+    'directed_at': Array<string>;
 }
 /**
  * User profile data input.
