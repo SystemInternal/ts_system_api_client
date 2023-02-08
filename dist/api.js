@@ -24276,6 +24276,86 @@ exports.PopulationAttributesApi = PopulationAttributesApi;
 exports.RelationshipsApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Get Topic Relationship Synthesis.
+         * @summary Get Synthesis
+         * @param {any} relationshipId
+         * @param {string} [directedAt]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSynthesisV1RelationshipsRelationshipIdSynthesisGet: (relationshipId, directedAt, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'relationshipId' is not null or undefined
+            common_1.assertParamExists('getSynthesisV1RelationshipsRelationshipIdSynthesisGet', 'relationshipId', relationshipId);
+            const localVarPath = `/v1/relationships/{relationship_id}/synthesis`
+                .replace(`{${"relationship_id"}}`, encodeURIComponent(String(relationshipId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (directedAt !== undefined) {
+                localVarQueryParameter['directed_at'] = directedAt;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get Topic Relationship Synthesis.
+         * @summary Get Synthesis
+         * @param {any} relationshipId
+         * @param {string} teamId
+         * @param {string} [directedAt]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet: (relationshipId, teamId, directedAt, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'relationshipId' is not null or undefined
+            common_1.assertParamExists('getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet', 'relationshipId', relationshipId);
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/relationships/{relationship_id}/synthesis`
+                .replace(`{${"relationship_id"}}`, encodeURIComponent(String(relationshipId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (directedAt !== undefined) {
+                localVarQueryParameter['directed_at'] = directedAt;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * List relationships.
          * @summary List Relationships
          * @param {string} [query] Search query.
@@ -24425,6 +24505,35 @@ exports.RelationshipsApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.RelationshipsApiAxiosParamCreator(configuration);
     return {
         /**
+         * Get Topic Relationship Synthesis.
+         * @summary Get Synthesis
+         * @param {any} relationshipId
+         * @param {string} [directedAt]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSynthesisV1RelationshipsRelationshipIdSynthesisGet(relationshipId, directedAt, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSynthesisV1RelationshipsRelationshipIdSynthesisGet(relationshipId, directedAt, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get Topic Relationship Synthesis.
+         * @summary Get Synthesis
+         * @param {any} relationshipId
+         * @param {string} teamId
+         * @param {string} [directedAt]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId, teamId, directedAt, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId, teamId, directedAt, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * List relationships.
          * @summary List Relationships
          * @param {string} [query] Search query.
@@ -24478,6 +24587,29 @@ exports.RelationshipsApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.RelationshipsApiFp(configuration);
     return {
         /**
+         * Get Topic Relationship Synthesis.
+         * @summary Get Synthesis
+         * @param {any} relationshipId
+         * @param {string} [directedAt]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSynthesisV1RelationshipsRelationshipIdSynthesisGet(relationshipId, directedAt, options) {
+            return localVarFp.getSynthesisV1RelationshipsRelationshipIdSynthesisGet(relationshipId, directedAt, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get Topic Relationship Synthesis.
+         * @summary Get Synthesis
+         * @param {any} relationshipId
+         * @param {string} teamId
+         * @param {string} [directedAt]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId, teamId, directedAt, options) {
+            return localVarFp.getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId, teamId, directedAt, options).then((request) => request(axios, basePath));
+        },
+        /**
          * List relationships.
          * @summary List Relationships
          * @param {string} [query] Search query.
@@ -24524,6 +24656,28 @@ exports.RelationshipsApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class RelationshipsApi extends base_1.BaseAPI {
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {RelationshipsApiGetSynthesisV1RelationshipsRelationshipIdSynthesisGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RelationshipsApi
+     */
+    getSynthesisV1RelationshipsRelationshipIdSynthesisGet(requestParameters, options) {
+        return exports.RelationshipsApiFp(this.configuration).getSynthesisV1RelationshipsRelationshipIdSynthesisGet(requestParameters.relationshipId, requestParameters.directedAt, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {RelationshipsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RelationshipsApi
+     */
+    getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(requestParameters, options) {
+        return exports.RelationshipsApiFp(this.configuration).getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(requestParameters.relationshipId, requestParameters.teamId, requestParameters.directedAt, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * List relationships.
      * @summary List Relationships
@@ -30556,6 +30710,48 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get Topic Relationship Synthesis.
+         * @summary Get Synthesis
+         * @param {any} relationshipId
+         * @param {string} teamId
+         * @param {string} [directedAt]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet: (relationshipId, teamId, directedAt, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'relationshipId' is not null or undefined
+            common_1.assertParamExists('getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet', 'relationshipId', relationshipId);
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/relationships/{relationship_id}/synthesis`
+                .replace(`{${"relationship_id"}}`, encodeURIComponent(String(relationshipId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (directedAt !== undefined) {
+                localVarQueryParameter['directed_at'] = directedAt;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId
@@ -35888,6 +36084,21 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Get Topic Relationship Synthesis.
+         * @summary Get Synthesis
+         * @param {any} relationshipId
+         * @param {string} teamId
+         * @param {string} [directedAt]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId, teamId, directedAt, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId, teamId, directedAt, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId
@@ -38024,6 +38235,18 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getStudyV1TeamsTeamIdStudiesStudyIdGet(teamId, studyId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get Topic Relationship Synthesis.
+         * @summary Get Synthesis
+         * @param {any} relationshipId
+         * @param {string} teamId
+         * @param {string} [directedAt]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId, teamId, directedAt, options) {
+            return localVarFp.getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId, teamId, directedAt, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId
@@ -39919,6 +40142,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     getStudyV1TeamsTeamIdStudiesStudyIdGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).getStudyV1TeamsTeamIdStudiesStudyIdGet(requestParameters.teamId, requestParameters.studyId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {TeamsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(requestParameters.relationshipId, requestParameters.teamId, requestParameters.directedAt, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch dataset graph.

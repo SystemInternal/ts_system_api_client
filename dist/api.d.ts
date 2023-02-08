@@ -7864,6 +7864,49 @@ export interface TopicRelationship {
     'directed_at': Array<string>;
 }
 /**
+ * Return type for topic relationship syntheses.
+ * @export
+ * @interface TopicRelationshipSynthesisOut
+ */
+export interface TopicRelationshipSynthesisOut {
+    /**
+     * ID of topic relationship
+     * @type {string}
+     * @memberof TopicRelationshipSynthesisOut
+     */
+    'relationship_id'?: string;
+    /**
+     * Direction Enum for Relationship
+     * @type {string}
+     * @memberof TopicRelationshipSynthesisOut
+     */
+    'directed_at'?: string;
+    /**
+     * Topic ID 1
+     * @type {string}
+     * @memberof TopicRelationshipSynthesisOut
+     */
+    'topic_id_1'?: string;
+    /**
+     * Topic ID 2
+     * @type {string}
+     * @memberof TopicRelationshipSynthesisOut
+     */
+    'topic_id_2'?: string;
+    /**
+     * Relationship Synthesis Summary
+     * @type {string}
+     * @memberof TopicRelationshipSynthesisOut
+     */
+    'synthesis'?: string;
+    /**
+     * Last updated time stamp
+     * @type {number}
+     * @memberof TopicRelationshipSynthesisOut
+     */
+    'last_updated'?: number;
+}
+/**
  * User profile data input.
  * @export
  * @interface UpdateProfileIn
@@ -29896,6 +29939,25 @@ export declare class PopulationAttributesApi extends BaseAPI {
  */
 export declare const RelationshipsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {any} relationshipId
+     * @param {string} [directedAt]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSynthesisV1RelationshipsRelationshipIdSynthesisGet: (relationshipId: any, directedAt?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {any} relationshipId
+     * @param {string} teamId
+     * @param {string} [directedAt]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet: (relationshipId: any, teamId: string, directedAt?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * List relationships.
      * @summary List Relationships
      * @param {string} [query] Search query.
@@ -29935,6 +29997,25 @@ export declare const RelationshipsApiAxiosParamCreator: (configuration?: Configu
  * @export
  */
 export declare const RelationshipsApiFp: (configuration?: Configuration) => {
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {any} relationshipId
+     * @param {string} [directedAt]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSynthesisV1RelationshipsRelationshipIdSynthesisGet(relationshipId: any, directedAt?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicRelationshipSynthesisOut>>;
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {any} relationshipId
+     * @param {string} teamId
+     * @param {string} [directedAt]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId: any, teamId: string, directedAt?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicRelationshipSynthesisOut>>;
     /**
      * List relationships.
      * @summary List Relationships
@@ -29976,6 +30057,25 @@ export declare const RelationshipsApiFp: (configuration?: Configuration) => {
  */
 export declare const RelationshipsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {any} relationshipId
+     * @param {string} [directedAt]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSynthesisV1RelationshipsRelationshipIdSynthesisGet(relationshipId: any, directedAt?: string, options?: any): AxiosPromise<TopicRelationshipSynthesisOut>;
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {any} relationshipId
+     * @param {string} teamId
+     * @param {string} [directedAt]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId: any, teamId: string, directedAt?: string, options?: any): AxiosPromise<TopicRelationshipSynthesisOut>;
+    /**
      * List relationships.
      * @summary List Relationships
      * @param {string} [query] Search query.
@@ -30010,6 +30110,50 @@ export declare const RelationshipsApiFactory: (configuration?: Configuration, ba
      */
     listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut>;
 };
+/**
+ * Request parameters for getSynthesisV1RelationshipsRelationshipIdSynthesisGet operation in RelationshipsApi.
+ * @export
+ * @interface RelationshipsApiGetSynthesisV1RelationshipsRelationshipIdSynthesisGetRequest
+ */
+export interface RelationshipsApiGetSynthesisV1RelationshipsRelationshipIdSynthesisGetRequest {
+    /**
+     *
+     * @type {any}
+     * @memberof RelationshipsApiGetSynthesisV1RelationshipsRelationshipIdSynthesisGet
+     */
+    readonly relationshipId: any;
+    /**
+     *
+     * @type {string}
+     * @memberof RelationshipsApiGetSynthesisV1RelationshipsRelationshipIdSynthesisGet
+     */
+    readonly directedAt?: string;
+}
+/**
+ * Request parameters for getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet operation in RelationshipsApi.
+ * @export
+ * @interface RelationshipsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest
+ */
+export interface RelationshipsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest {
+    /**
+     *
+     * @type {any}
+     * @memberof RelationshipsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet
+     */
+    readonly relationshipId: any;
+    /**
+     *
+     * @type {string}
+     * @memberof RelationshipsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof RelationshipsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet
+     */
+    readonly directedAt?: string;
+}
 /**
  * Request parameters for listRelationshipsV1RelationshipsGet operation in RelationshipsApi.
  * @export
@@ -30151,6 +30295,24 @@ export interface RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetR
  * @extends {BaseAPI}
  */
 export declare class RelationshipsApi extends BaseAPI {
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {RelationshipsApiGetSynthesisV1RelationshipsRelationshipIdSynthesisGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RelationshipsApi
+     */
+    getSynthesisV1RelationshipsRelationshipIdSynthesisGet(requestParameters: RelationshipsApiGetSynthesisV1RelationshipsRelationshipIdSynthesisGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicRelationshipSynthesisOut>>;
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {RelationshipsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RelationshipsApi
+     */
+    getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(requestParameters: RelationshipsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicRelationshipSynthesisOut>>;
     /**
      * List relationships.
      * @summary List Relationships
@@ -34082,6 +34244,16 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getStudyV1TeamsTeamIdStudiesStudyIdGet: (teamId: string, studyId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {any} relationshipId
+     * @param {string} teamId
+     * @param {string} [directedAt]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet: (relationshipId: any, teamId: string, directedAt?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
      * @param {string} teamId
@@ -35728,6 +35900,16 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     getStudyV1TeamsTeamIdStudiesStudyIdGet(teamId: string, studyId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
     /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {any} relationshipId
+     * @param {string} teamId
+     * @param {string} [directedAt]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId: any, teamId: string, directedAt?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicRelationshipSynthesisOut>>;
+    /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
      * @param {string} teamId
@@ -37373,6 +37555,16 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getStudyV1TeamsTeamIdStudiesStudyIdGet(teamId: string, studyId: string, options?: any): AxiosPromise<StudyOut>;
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {any} relationshipId
+     * @param {string} teamId
+     * @param {string} [directedAt]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId: any, teamId: string, directedAt?: string, options?: any): AxiosPromise<TopicRelationshipSynthesisOut>;
     /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
@@ -39723,6 +39915,31 @@ export interface TeamsApiGetStudyV1TeamsTeamIdStudiesStudyIdGetRequest {
      * @memberof TeamsApiGetStudyV1TeamsTeamIdStudiesStudyIdGet
      */
     readonly studyId: string;
+}
+/**
+ * Request parameters for getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest
+ */
+export interface TeamsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest {
+    /**
+     *
+     * @type {any}
+     * @memberof TeamsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet
+     */
+    readonly relationshipId: any;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet
+     */
+    readonly directedAt?: string;
 }
 /**
  * Request parameters for getTopicGraphV1TeamsTeamIdGraphTopicGraphGet operation in TeamsApi.
@@ -44151,6 +44368,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     getStudyV1TeamsTeamIdStudiesStudyIdGet(requestParameters: TeamsApiGetStudyV1TeamsTeamIdStudiesStudyIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyOut>>;
+    /**
+     * Get Topic Relationship Synthesis.
+     * @summary Get Synthesis
+     * @param {TeamsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(requestParameters: TeamsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicRelationshipSynthesisOut>>;
     /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
