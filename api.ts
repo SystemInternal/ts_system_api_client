@@ -3959,10 +3959,10 @@ export interface IndexedSource {
     'title': string;
     /**
      * 
-     * @type {Array<string>}
+     * @type {Array<SimpleTopic>}
      * @memberof IndexedSource
      */
-    'topics'?: Array<string>;
+    'topics'?: Array<SimpleTopic>;
     /**
      * 
      * @type {boolean}
