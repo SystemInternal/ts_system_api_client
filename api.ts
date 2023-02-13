@@ -4013,6 +4013,12 @@ export interface IndexedSource {
     'study_type'?: string;
     /**
      * 
+     * @type {Array<string>}
+     * @memberof IndexedSource
+     */
+    'population_strings'?: Array<string>;
+    /**
+     * 
      * @type {number}
      * @memberof IndexedSource
      */
