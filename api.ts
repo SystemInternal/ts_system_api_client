@@ -6790,6 +6790,25 @@ export interface RoleOut {
     'role_id': string;
 }
 /**
+ * Semantic search out model.
+ * @export
+ * @interface SemanticSearchOut
+ */
+export interface SemanticSearchOut {
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof SemanticSearchOut
+     */
+    'clusters': Array<object>;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof SemanticSearchOut
+     */
+    'relationships': Array<object>;
+}
+/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -46307,6 +46326,133 @@ export class RelationshipsApi extends BaseAPI {
      */
     public listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters: RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest, options?: AxiosRequestConfig) {
         return RelationshipsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * SemanticSearchApi - axios parameter creator
+ * @export
+ */
+export const SemanticSearchApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Get Semantic Search
+         * @param {string} [q] Search query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticSearchV1SemanticSearchGet: async (q?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/semantic-search`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (q !== undefined) {
+                localVarQueryParameter['q'] = q;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SemanticSearchApi - functional programming interface
+ * @export
+ */
+export const SemanticSearchApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SemanticSearchApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Get Semantic Search
+         * @param {string} [q] Search query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSemanticSearchV1SemanticSearchGet(q?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(q, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SemanticSearchApi - factory interface
+ * @export
+ */
+export const SemanticSearchApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SemanticSearchApiFp(configuration)
+    return {
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Get Semantic Search
+         * @param {string} [q] Search query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticSearchV1SemanticSearchGet(q?: string, options?: any): AxiosPromise<SemanticSearchOut> {
+            return localVarFp.getSemanticSearchV1SemanticSearchGet(q, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getSemanticSearchV1SemanticSearchGet operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest
+ */
+export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
+    /**
+     * Search query
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly q?: string
+}
+
+/**
+ * SemanticSearchApi - object-oriented interface
+ * @export
+ * @class SemanticSearchApi
+ * @extends {BaseAPI}
+ */
+export class SemanticSearchApi extends BaseAPI {
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Get Semantic Search
+     * @param {SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    public getSemanticSearchV1SemanticSearchGet(requestParameters: SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest = {}, options?: AxiosRequestConfig) {
+        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.q, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
