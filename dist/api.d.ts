@@ -6771,6 +6771,25 @@ export interface RoleOut {
     'role_id': string;
 }
 /**
+ * Semantic search out model.
+ * @export
+ * @interface SemanticSearchOut
+ */
+export interface SemanticSearchOut {
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof SemanticSearchOut
+     */
+    'clusters': Array<object>;
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof SemanticSearchOut
+     */
+    'relationships': Array<object>;
+}
+/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -30337,6 +30356,78 @@ export declare class RelationshipsApi extends BaseAPI {
      * @memberof RelationshipsApi
      */
     listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters: RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<RelationshipPaginationOut>>;
+}
+/**
+ * SemanticSearchApi - axios parameter creator
+ * @export
+ */
+export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Get Semantic Search
+     * @param {string} [q] Search query
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticSearchV1SemanticSearchGet: (q?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * SemanticSearchApi - functional programming interface
+ * @export
+ */
+export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Get Semantic Search
+     * @param {string} [q] Search query
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticSearchV1SemanticSearchGet(q?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
+};
+/**
+ * SemanticSearchApi - factory interface
+ * @export
+ */
+export declare const SemanticSearchApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Get Semantic Search
+     * @param {string} [q] Search query
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticSearchV1SemanticSearchGet(q?: string, options?: any): AxiosPromise<SemanticSearchOut>;
+};
+/**
+ * Request parameters for getSemanticSearchV1SemanticSearchGet operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest
+ */
+export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
+    /**
+     * Search query
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly q?: string;
+}
+/**
+ * SemanticSearchApi - object-oriented interface
+ * @export
+ * @class SemanticSearchApi
+ * @extends {BaseAPI}
+ */
+export declare class SemanticSearchApi extends BaseAPI {
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Get Semantic Search
+     * @param {SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    getSemanticSearchV1SemanticSearchGet(requestParameters?: SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SemanticSearchOut>>;
 }
 /**
  * StripeApi - axios parameter creator
