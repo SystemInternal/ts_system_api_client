@@ -17754,7 +17754,7 @@ exports.FeaturesApi = FeaturesApi;
 exports.GraphApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Fetch dataset graph.
+         * Fetch concept graph.
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
@@ -17798,7 +17798,7 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch dataset graph.
+         * Fetch concept graph.
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
@@ -18074,6 +18074,124 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph
+         * @param {string} teamId
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1GraphSemanticGraphGet: (teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getSemanticGraphV1GraphSemanticGraphGet', 'teamId', teamId);
+            const localVarPath = `/v1/graph/semantic_graph`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topic1 !== undefined) {
+                localVarQueryParameter['topic_1'] = topic1;
+            }
+            if (topic2 !== undefined) {
+                localVarQueryParameter['topic_2'] = topic2;
+            }
+            if (ids1) {
+                localVarQueryParameter['ids_1'] = ids1;
+            }
+            if (ids2) {
+                localVarQueryParameter['ids_2'] = ids2;
+            }
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+            if (minCount !== undefined) {
+                localVarQueryParameter['min_count'] = minCount;
+            }
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph
+         * @param {string} teamId
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/graph/semantic_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topic1 !== undefined) {
+                localVarQueryParameter['topic_1'] = topic1;
+            }
+            if (topic2 !== undefined) {
+                localVarQueryParameter['topic_2'] = topic2;
+            }
+            if (ids1) {
+                localVarQueryParameter['ids_1'] = ids1;
+            }
+            if (ids2) {
+                localVarQueryParameter['ids_2'] = ids2;
+            }
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+            if (minCount !== undefined) {
+                localVarQueryParameter['min_count'] = minCount;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId
@@ -18325,7 +18443,7 @@ exports.GraphApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.GraphApiAxiosParamCreator(configuration);
     return {
         /**
-         * Fetch dataset graph.
+         * Fetch concept graph.
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
@@ -18340,7 +18458,7 @@ exports.GraphApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch dataset graph.
+         * Fetch concept graph.
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
@@ -18435,6 +18553,44 @@ exports.GraphApiFp = function (configuration) {
         getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph
+         * @param {string} teamId
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph
+         * @param {string} teamId
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -18534,7 +18690,7 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.GraphApiFp(configuration);
     return {
         /**
-         * Fetch dataset graph.
+         * Fetch concept graph.
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
@@ -18546,7 +18702,7 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, tags, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch dataset graph.
+         * Fetch concept graph.
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
@@ -18622,6 +18778,38 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
          */
         getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options) {
             return localVarFp.getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph
+         * @param {string} teamId
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options) {
+            return localVarFp.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph
+         * @param {string} teamId
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options) {
+            return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -18701,7 +18889,7 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
  */
 class GraphApi extends base_1.BaseAPI {
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {GraphApiGetConceptGraphV1GraphConceptGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -18712,7 +18900,7 @@ class GraphApi extends base_1.BaseAPI {
         return exports.GraphApiFp(this.configuration).getConceptGraphV1GraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {GraphApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -18787,6 +18975,28 @@ class GraphApi extends base_1.BaseAPI {
      */
     getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(requestParameters, options) {
         return exports.GraphApiFp(this.configuration).getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(requestParameters.metricId1, requestParameters.metricId2, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {GraphApiGetSemanticGraphV1GraphSemanticGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getSemanticGraphV1GraphSemanticGraphGet(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getSemanticGraphV1GraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters, options) {
+        return exports.GraphApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch dataset graph.
@@ -30137,7 +30347,7 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch dataset graph.
+         * Fetch concept graph.
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
@@ -30766,6 +30976,64 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph
+         * @param {string} teamId
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/graph/semantic_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topic1 !== undefined) {
+                localVarQueryParameter['topic_1'] = topic1;
+            }
+            if (topic2 !== undefined) {
+                localVarQueryParameter['topic_2'] = topic2;
+            }
+            if (ids1) {
+                localVarQueryParameter['ids_1'] = ids1;
+            }
+            if (ids2) {
+                localVarQueryParameter['ids_2'] = ids2;
+            }
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
+            }
+            if (minCount !== undefined) {
+                localVarQueryParameter['min_count'] = minCount;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -35937,7 +36205,7 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch dataset graph.
+         * Fetch concept graph.
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
@@ -36169,6 +36437,25 @@ exports.TeamsApiFp = function (configuration) {
         getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet(teamId, associationId, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet(teamId, associationId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph
+         * @param {string} teamId
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -38142,7 +38429,7 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getAuthorV1TeamsTeamIdAuthorsAuthorIdGet(teamId, authorId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch dataset graph.
+         * Fetch concept graph.
          * @summary Get Concept Graph
          * @param {string} teamId
          * @param {number} [minRelationshipStrength] Min strength
@@ -38325,6 +38612,22 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          */
         getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet(teamId, associationId, options) {
             return localVarFp.getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet(teamId, associationId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph
+         * @param {string} teamId
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options) {
+            return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Study.
@@ -40049,7 +40352,7 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).getAuthorV1TeamsTeamIdAuthorsAuthorIdGet(requestParameters.teamId, requestParameters.authorId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -40234,6 +40537,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet(requestParameters.teamId, requestParameters.associationId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Study.

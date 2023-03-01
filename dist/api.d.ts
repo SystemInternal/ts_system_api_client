@@ -897,6 +897,19 @@ export declare enum AuthorSortEnum {
     Name = "name"
 }
 /**
+ * Basic Graph.
+ * @export
+ * @interface BasicGraphData
+ */
+export interface BasicGraphData {
+    /**
+     * Links of graph data.
+     * @type {Array<Link>}
+     * @memberof BasicGraphData
+     */
+    'links': Array<Link>;
+}
+/**
  * Credentials for an integration without password.
  * @export
  * @interface BigQueryCredentials
@@ -4266,6 +4279,25 @@ export interface LinePlot {
      * @memberof LinePlot
      */
     'index'?: Array<string>;
+}
+/**
+ * Link model.
+ * @export
+ * @interface Link
+ */
+export interface Link {
+    /**
+     *
+     * @type {string}
+     * @memberof Link
+     */
+    'source': string;
+    /**
+     *
+     * @type {string}
+     * @memberof Link
+     */
+    'target': string;
 }
 /**
  * Location population attribute value input.
@@ -24277,7 +24309,7 @@ export declare class FeaturesApi extends BaseAPI {
  */
 export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
@@ -24287,7 +24319,7 @@ export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getConceptGraphV1GraphConceptGraphGet: (teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
@@ -24351,6 +24383,34 @@ export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get: (metricId1: string, metricId2: string, teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {string} teamId
+     * @param {string} [topic1] Topic 1
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids1] Topic 1 ids
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [minStrength] Min strength
+     * @param {number} [minCount] Min count
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1GraphSemanticGraphGet: (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {string} teamId
+     * @param {string} [topic1] Topic 1
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids1] Topic 1 ids
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [minStrength] Min strength
+     * @param {number} [minCount] Min count
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
      * @param {string} teamId
@@ -24413,7 +24473,7 @@ export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) 
  */
 export declare const GraphApiFp: (configuration?: Configuration) => {
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
@@ -24423,7 +24483,7 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
      */
     getConceptGraphV1GraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
@@ -24487,6 +24547,34 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
      */
     getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1: string, metricId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {string} teamId
+     * @param {string} [topic1] Topic 1
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids1] Topic 1 ids
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [minStrength] Min strength
+     * @param {number} [minCount] Min count
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicGraphData>>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {string} teamId
+     * @param {string} [topic1] Topic 1
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids1] Topic 1 ids
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [minStrength] Min strength
+     * @param {number} [minCount] Min count
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicGraphData>>;
+    /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
      * @param {string} teamId
@@ -24549,7 +24637,7 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
  */
 export declare const GraphApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
@@ -24559,7 +24647,7 @@ export declare const GraphApiFactory: (configuration?: Configuration, basePath?:
      */
     getConceptGraphV1GraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any): AxiosPromise<GraphData>;
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
@@ -24622,6 +24710,34 @@ export declare const GraphApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(metricId1: string, metricId2: string, teamId: string, options?: any): AxiosPromise<GraphData>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {string} teamId
+     * @param {string} [topic1] Topic 1
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids1] Topic 1 ids
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [minStrength] Min strength
+     * @param {number} [minCount] Min count
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<BasicGraphData>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {string} teamId
+     * @param {string} [topic1] Topic 1
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids1] Topic 1 ids
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [minStrength] Min strength
+     * @param {number} [minCount] Min count
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<BasicGraphData>;
     /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
@@ -24844,6 +24960,104 @@ export interface GraphApiGetMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetr
     readonly teamId: string;
 }
 /**
+ * Request parameters for getSemanticGraphV1GraphSemanticGraphGet operation in GraphApi.
+ * @export
+ * @interface GraphApiGetSemanticGraphV1GraphSemanticGraphGetRequest
+ */
+export interface GraphApiGetSemanticGraphV1GraphSemanticGraphGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
+     */
+    readonly teamId: string;
+    /**
+     * Topic 1
+     * @type {string}
+     * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
+     */
+    readonly topic1?: string;
+    /**
+     * Topic 2
+     * @type {string}
+     * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
+     */
+    readonly topic2?: string;
+    /**
+     * Topic 1 ids
+     * @type {Array<string>}
+     * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
+     */
+    readonly ids1?: Array<string>;
+    /**
+     * Topic 2 ids
+     * @type {Array<string>}
+     * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
+     */
+    readonly ids2?: Array<string>;
+    /**
+     * Min strength
+     * @type {number}
+     * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
+     */
+    readonly minStrength?: number;
+    /**
+     * Min count
+     * @type {number}
+     * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
+     */
+    readonly minCount?: number;
+}
+/**
+ * Request parameters for getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet operation in GraphApi.
+ * @export
+ * @interface GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest
+ */
+export interface GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly teamId: string;
+    /**
+     * Topic 1
+     * @type {string}
+     * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly topic1?: string;
+    /**
+     * Topic 2
+     * @type {string}
+     * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly topic2?: string;
+    /**
+     * Topic 1 ids
+     * @type {Array<string>}
+     * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly ids1?: Array<string>;
+    /**
+     * Topic 2 ids
+     * @type {Array<string>}
+     * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly ids2?: Array<string>;
+    /**
+     * Min strength
+     * @type {number}
+     * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly minStrength?: number;
+    /**
+     * Min count
+     * @type {number}
+     * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly minCount?: number;
+}
+/**
  * Request parameters for getTopicGraphV1GraphTopicGraphGet operation in GraphApi.
  * @export
  * @interface GraphApiGetTopicGraphV1GraphTopicGraphGetRequest
@@ -24977,7 +25191,7 @@ export interface GraphApiGetTopicRelationshipGraphV1TeamsTeamIdGraphTopicsTopicI
  */
 export declare class GraphApi extends BaseAPI {
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {GraphApiGetConceptGraphV1GraphConceptGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -24986,7 +25200,7 @@ export declare class GraphApi extends BaseAPI {
      */
     getConceptGraphV1GraphConceptGraphGet(requestParameters: GraphApiGetConceptGraphV1GraphConceptGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {GraphApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -25048,6 +25262,24 @@ export declare class GraphApi extends BaseAPI {
      * @memberof GraphApi
      */
     getMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2Get(requestParameters: GraphApiGetMetricRelationshipGraphV1TeamsTeamIdGraphMetricsMetricId1RelationshipMetricId2GetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {GraphApiGetSemanticGraphV1GraphSemanticGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getSemanticGraphV1GraphSemanticGraphGet(requestParameters: GraphApiGetSemanticGraphV1GraphSemanticGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BasicGraphData>>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BasicGraphData>>;
     /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
@@ -34181,7 +34413,7 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getAuthorV1TeamsTeamIdAuthorsAuthorIdGet: (teamId: string, authorId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
@@ -34331,6 +34563,20 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @throws {RequiredError}
      */
     getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet: (teamId: string, associationId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {string} teamId
+     * @param {string} [topic1] Topic 1
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids1] Topic 1 ids
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [minStrength] Min strength
+     * @param {number} [minCount] Min count
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get Study.
      * @summary Get Study
@@ -35837,7 +36083,7 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     getAuthorV1TeamsTeamIdAuthorsAuthorIdGet(teamId: string, authorId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
@@ -35987,6 +36233,20 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet(teamId: string, associationId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipStrength>>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {string} teamId
+     * @param {string} [topic1] Topic 1
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids1] Topic 1 ids
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [minStrength] Min strength
+     * @param {number} [minCount] Min count
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicGraphData>>;
     /**
      * Get Study.
      * @summary Get Study
@@ -37493,7 +37753,7 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      */
     getAuthorV1TeamsTeamIdAuthorsAuthorIdGet(teamId: string, authorId: string, options?: any): AxiosPromise<AuthorOut>;
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {string} teamId
      * @param {number} [minRelationshipStrength] Min strength
@@ -37643,6 +37903,20 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet(teamId: string, associationId: string, options?: any): AxiosPromise<RelationshipStrength>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {string} teamId
+     * @param {string} [topic1] Topic 1
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids1] Topic 1 ids
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [minStrength] Min strength
+     * @param {number} [minCount] Min count
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<BasicGraphData>;
     /**
      * Get Study.
      * @summary Get Study
@@ -39993,6 +40267,55 @@ export interface TeamsApiGetRelationshipStrengthV1TeamsTeamIdAssociationsAssocia
      * @memberof TeamsApiGetRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet
      */
     readonly associationId: string;
+}
+/**
+ * Request parameters for getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest
+ */
+export interface TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly teamId: string;
+    /**
+     * Topic 1
+     * @type {string}
+     * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly topic1?: string;
+    /**
+     * Topic 2
+     * @type {string}
+     * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly topic2?: string;
+    /**
+     * Topic 1 ids
+     * @type {Array<string>}
+     * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly ids1?: Array<string>;
+    /**
+     * Topic 2 ids
+     * @type {Array<string>}
+     * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly ids2?: Array<string>;
+    /**
+     * Min strength
+     * @type {number}
+     * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly minStrength?: number;
+    /**
+     * Min count
+     * @type {number}
+     * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly minCount?: number;
 }
 /**
  * Request parameters for getStudyV1TeamsTeamIdStudiesStudyIdGet operation in TeamsApi.
@@ -44304,7 +44627,7 @@ export declare class TeamsApi extends BaseAPI {
      */
     getAuthorV1TeamsTeamIdAuthorsAuthorIdGet(requestParameters: TeamsApiGetAuthorV1TeamsTeamIdAuthorsAuthorIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AuthorOut>>;
     /**
-     * Fetch dataset graph.
+     * Fetch concept graph.
      * @summary Get Concept Graph
      * @param {TeamsApiGetConceptGraphV1TeamsTeamIdGraphConceptGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -44456,6 +44779,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     getRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGet(requestParameters: TeamsApiGetRelationshipStrengthV1TeamsTeamIdAssociationsAssociationIdStrengthGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<RelationshipStrength>>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph
+     * @param {TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BasicGraphData>>;
     /**
      * Get Study.
      * @summary Get Study
