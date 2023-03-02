@@ -6920,13 +6920,13 @@ export interface SimpleTopic {
      * @type {string}
      * @memberof SimpleTopic
      */
-    'wikidata_id': string;
+    'name': string;
     /**
      * 
      * @type {string}
      * @memberof SimpleTopic
      */
-    'name': string;
+    'wikidata_id': string;
 }
 /**
  * Credentials for a Snowflake integration without password.
