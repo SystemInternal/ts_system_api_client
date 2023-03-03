@@ -897,19 +897,6 @@ export declare enum AuthorSortEnum {
     Name = "name"
 }
 /**
- * Basic Graph.
- * @export
- * @interface BasicGraphData
- */
-export interface BasicGraphData {
-    /**
-     * Links of graph data.
-     * @type {Array<Link>}
-     * @memberof BasicGraphData
-     */
-    'links': Array<Link>;
-}
-/**
  * Credentials for an integration without password.
  * @export
  * @interface BigQueryCredentials
@@ -2944,49 +2931,6 @@ export interface DynamicFeatureStatisticsSimpleBase {
     'max_series_length'?: number;
 }
 /**
- * Edge Typed Link model.
- * @export
- * @interface EdgeTypedLink
- */
-export interface EdgeTypedLink {
-    /**
-     *
-     * @type {string}
-     * @memberof EdgeTypedLink
-     */
-    'source': string;
-    /**
-     *
-     * @type {string}
-     * @memberof EdgeTypedLink
-     */
-    'target': string;
-    /**
-     *
-     * @type {GraphLinkType}
-     * @memberof EdgeTypedLink
-     */
-    'edgeType': GraphLinkType;
-    /**
-     *
-     * @type {boolean}
-     * @memberof EdgeTypedLink
-     */
-    'isSubstantiated'?: boolean;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof EdgeTypedLink
-     */
-    'directedAt'?: Array<string>;
-    /**
-     * Query Count of a dataset relationship.
-     * @type {number}
-     * @memberof EdgeTypedLink
-     */
-    'numQueries'?: number;
-}
-/**
  * An Enterprise Resource.
  * @export
  * @interface Enterprise
@@ -3083,6 +3027,80 @@ export interface EnterpriseIn {
      * @memberof EnterpriseIn
      */
     'idp_metadata'?: string;
+}
+/**
+ * Edge Typed Link model.
+ * @export
+ * @interface ExtendedLinkObject
+ */
+export interface ExtendedLinkObject {
+    /**
+     *
+     * @type {string}
+     * @memberof ExtendedLinkObject
+     */
+    'source': string;
+    /**
+     *
+     * @type {string}
+     * @memberof ExtendedLinkObject
+     */
+    'target': string;
+    /**
+     * Type of link.
+     * @type {GraphLinkType}
+     * @memberof ExtendedLinkObject
+     */
+    'edgeType'?: GraphLinkType;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ExtendedLinkObject
+     */
+    'isSubstantiated'?: boolean;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ExtendedLinkObject
+     */
+    'directedAt'?: Array<string>;
+    /**
+     * Query Count of a dataset relationship.
+     * @type {number}
+     * @memberof ExtendedLinkObject
+     */
+    'numQueries'?: number;
+}
+/**
+ * Object Typed Node model.
+ * @export
+ * @interface ExtendedNodeObject
+ */
+export interface ExtendedNodeObject {
+    /**
+     *
+     * @type {string}
+     * @memberof ExtendedNodeObject
+     */
+    'id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof ExtendedNodeObject
+     */
+    'name': string;
+    /**
+     *
+     * @type {GraphNodeType}
+     * @memberof ExtendedNodeObject
+     */
+    'objectType': GraphNodeType;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ExtendedNodeObject
+     */
+    'tags'?: Array<string>;
 }
 /**
  * External asset model.
@@ -3835,16 +3853,16 @@ export interface Frequency {
 export interface GraphData {
     /**
      * Nodes of graph data.
-     * @type {Array<OjbectTypedNode>}
+     * @type {Array<ExtendedNodeObject>}
      * @memberof GraphData
      */
-    'nodes': Array<OjbectTypedNode>;
+    'nodes': Array<ExtendedNodeObject>;
     /**
      * Links of graph data.
-     * @type {Array<EdgeTypedLink>}
+     * @type {Array<ExtendedLinkObject>}
      * @memberof GraphData
      */
-    'links': Array<EdgeTypedLink>;
+    'links': Array<ExtendedLinkObject>;
 }
 /**
  * Graph Link Type enum.
@@ -4279,25 +4297,6 @@ export interface LinePlot {
      * @memberof LinePlot
      */
     'index'?: Array<string>;
-}
-/**
- * Link model.
- * @export
- * @interface Link
- */
-export interface Link {
-    /**
-     *
-     * @type {string}
-     * @memberof Link
-     */
-    'source': string;
-    /**
-     *
-     * @type {string}
-     * @memberof Link
-     */
-    'target': string;
 }
 /**
  * Location population attribute value input.
@@ -5767,37 +5766,6 @@ export interface NumericalFeatureStatisticsSimpleBase {
      * @memberof NumericalFeatureStatisticsSimpleBase
      */
     'percent_missing'?: number;
-}
-/**
- * Object Typed Node model.
- * @export
- * @interface OjbectTypedNode
- */
-export interface OjbectTypedNode {
-    /**
-     *
-     * @type {string}
-     * @memberof OjbectTypedNode
-     */
-    'id': string;
-    /**
-     *
-     * @type {string}
-     * @memberof OjbectTypedNode
-     */
-    'name': string;
-    /**
-     *
-     * @type {GraphNodeType}
-     * @memberof OjbectTypedNode
-     */
-    'objectType': GraphNodeType;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof OjbectTypedNode
-     */
-    'tags'?: Array<string>;
 }
 /**
  * Ordering direction enum.
@@ -24559,7 +24527,7 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicGraphData>>;
+    getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph
@@ -24573,7 +24541,7 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicGraphData>>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
@@ -24723,7 +24691,7 @@ export declare const GraphApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<BasicGraphData>;
+    getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph
@@ -24737,7 +24705,7 @@ export declare const GraphApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<BasicGraphData>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData>;
     /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
@@ -25270,7 +25238,7 @@ export declare class GraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GraphApi
      */
-    getSemanticGraphV1GraphSemanticGraphGet(requestParameters: GraphApiGetSemanticGraphV1GraphSemanticGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BasicGraphData>>;
+    getSemanticGraphV1GraphSemanticGraphGet(requestParameters: GraphApiGetSemanticGraphV1GraphSemanticGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph
@@ -25279,7 +25247,7 @@ export declare class GraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GraphApi
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BasicGraphData>>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
@@ -36246,7 +36214,7 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicGraphData>>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Get Study.
      * @summary Get Study
@@ -37916,7 +37884,7 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<BasicGraphData>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData>;
     /**
      * Get Study.
      * @summary Get Study
@@ -44787,7 +44755,7 @@ export declare class TeamsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<BasicGraphData>>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
      * Get Study.
      * @summary Get Study
