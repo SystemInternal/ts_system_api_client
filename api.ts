@@ -3034,6 +3034,25 @@ export interface EnterpriseIn {
     'idp_metadata'?: string;
 }
 /**
+ * Evidence dict for SynthesisIn.
+ * @export
+ * @interface Evidence
+ */
+export interface Evidence {
+    /**
+     * 
+     * @type {number}
+     * @memberof Evidence
+     */
+    'id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Evidence
+     */
+    'summary': string;
+}
+/**
  * Edge Typed Link model.
  * @export
  * @interface ExtendedLinkObject
@@ -7465,6 +7484,50 @@ export enum StudyTypeEnum {
     RandomizedControlTrial = 'randomized_control_trial'
 }
 
+/**
+ * Post body for /synthesis endpoint.
+ * @export
+ * @interface SynthesisIn
+ */
+export interface SynthesisIn {
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisIn
+     */
+    'term_1': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisIn
+     */
+    'term_2': string;
+    /**
+     * 
+     * @type {Array<Evidence>}
+     * @memberof SynthesisIn
+     */
+    'evidence': Array<Evidence>;
+}
+/**
+ * Synthesis output model.
+ * @export
+ * @interface SynthesisOut
+ */
+export interface SynthesisOut {
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisOut
+     */
+    'synthesis': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SynthesisOut
+     */
+    'last_updated': number;
+}
 /**
  * Enum System object resource names.
  * @export
@@ -52556,6 +52619,162 @@ export class StudiesApi extends BaseAPI {
      */
     public tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut(requestParameters: StudiesApiTagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPutRequest, options?: AxiosRequestConfig) {
         return StudiesApiFp(this.configuration).tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut(requestParameters.teamId, requestParameters.studyId, requestParameters.tagObjectId, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * SynthesisApi - axios parameter creator
+ * @export
+ */
+export const SynthesisApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Generate and return summary synthesis.
+         * @summary Generate A Synthesis.
+         * @param {SynthesisIn} synthesisIn 
+         * @param {number} [length] 
+         * @param {number} [temperature] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateASynthesisV1SynthesisPost: async (synthesisIn: SynthesisIn, length?: number, temperature?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'synthesisIn' is not null or undefined
+            assertParamExists('generateASynthesisV1SynthesisPost', 'synthesisIn', synthesisIn)
+            const localVarPath = `/v1/synthesis`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (length !== undefined) {
+                localVarQueryParameter['length'] = length;
+            }
+
+            if (temperature !== undefined) {
+                localVarQueryParameter['temperature'] = temperature;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(synthesisIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SynthesisApi - functional programming interface
+ * @export
+ */
+export const SynthesisApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SynthesisApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Generate and return summary synthesis.
+         * @summary Generate A Synthesis.
+         * @param {SynthesisIn} synthesisIn 
+         * @param {number} [length] 
+         * @param {number} [temperature] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, length, temperature, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SynthesisApi - factory interface
+ * @export
+ */
+export const SynthesisApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SynthesisApiFp(configuration)
+    return {
+        /**
+         * Generate and return summary synthesis.
+         * @summary Generate A Synthesis.
+         * @param {SynthesisIn} synthesisIn 
+         * @param {number} [length] 
+         * @param {number} [temperature] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: any): AxiosPromise<SynthesisOut> {
+            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, length, temperature, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for generateASynthesisV1SynthesisPost operation in SynthesisApi.
+ * @export
+ * @interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest
+ */
+export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
+    /**
+     * 
+     * @type {SynthesisIn}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly synthesisIn: SynthesisIn
+
+    /**
+     * 
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly length?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly temperature?: number
+}
+
+/**
+ * SynthesisApi - object-oriented interface
+ * @export
+ * @class SynthesisApi
+ * @extends {BaseAPI}
+ */
+export class SynthesisApi extends BaseAPI {
+    /**
+     * Generate and return summary synthesis.
+     * @summary Generate A Synthesis.
+     * @param {SynthesisApiGenerateASynthesisV1SynthesisPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SynthesisApi
+     */
+    public generateASynthesisV1SynthesisPost(requestParameters: SynthesisApiGenerateASynthesisV1SynthesisPostRequest, options?: AxiosRequestConfig) {
+        return SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.length, requestParameters.temperature, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
