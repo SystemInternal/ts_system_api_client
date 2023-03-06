@@ -8016,10 +8016,10 @@ export interface TopicRelationshipSynthesisOut {
     'synthesis'?: string;
     /**
      * Last updated time stamp
-     * @type {number}
+     * @type {string}
      * @memberof TopicRelationshipSynthesisOut
      */
-    'last_updated'?: number;
+    'last_updated'?: string;
 }
 /**
  * User profile data input.
