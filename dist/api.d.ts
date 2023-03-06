@@ -3029,6 +3029,25 @@ export interface EnterpriseIn {
     'idp_metadata'?: string;
 }
 /**
+ * Evidence dict for SynthesisIn.
+ * @export
+ * @interface Evidence
+ */
+export interface Evidence {
+    /**
+     *
+     * @type {number}
+     * @memberof Evidence
+     */
+    'id': number;
+    /**
+     *
+     * @type {string}
+     * @memberof Evidence
+     */
+    'summary': string;
+}
+/**
  * Edge Typed Link model.
  * @export
  * @interface ExtendedLinkObject
@@ -7439,6 +7458,50 @@ export declare enum StudyTypeEnum {
     UnsupervisedMl = "unsupervised_ml",
     StatisticalInference = "statistical_inference",
     RandomizedControlTrial = "randomized_control_trial"
+}
+/**
+ * Post body for /synthesis endpoint.
+ * @export
+ * @interface SynthesisIn
+ */
+export interface SynthesisIn {
+    /**
+     *
+     * @type {string}
+     * @memberof SynthesisIn
+     */
+    'term_1': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SynthesisIn
+     */
+    'term_2': string;
+    /**
+     *
+     * @type {Array<Evidence>}
+     * @memberof SynthesisIn
+     */
+    'evidence': Array<Evidence>;
+}
+/**
+ * Synthesis output model.
+ * @export
+ * @interface SynthesisOut
+ */
+export interface SynthesisOut {
+    /**
+     *
+     * @type {string}
+     * @memberof SynthesisOut
+     */
+    'synthesis': string;
+    /**
+     *
+     * @type {number}
+     * @memberof SynthesisOut
+     */
+    'last_updated': number;
 }
 /**
  * Enum System object resource names.
@@ -33965,6 +34028,96 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut(requestParameters: StudiesApiTagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+}
+/**
+ * SynthesisApi - axios parameter creator
+ * @export
+ */
+export declare const SynthesisApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Generate and return summary synthesis.
+     * @summary Generate A Synthesis.
+     * @param {SynthesisIn} synthesisIn
+     * @param {number} [length]
+     * @param {number} [temperature]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateASynthesisV1SynthesisPost: (synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * SynthesisApi - functional programming interface
+ * @export
+ */
+export declare const SynthesisApiFp: (configuration?: Configuration) => {
+    /**
+     * Generate and return summary synthesis.
+     * @summary Generate A Synthesis.
+     * @param {SynthesisIn} synthesisIn
+     * @param {number} [length]
+     * @param {number} [temperature]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
+};
+/**
+ * SynthesisApi - factory interface
+ * @export
+ */
+export declare const SynthesisApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Generate and return summary synthesis.
+     * @summary Generate A Synthesis.
+     * @param {SynthesisIn} synthesisIn
+     * @param {number} [length]
+     * @param {number} [temperature]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: any): AxiosPromise<SynthesisOut>;
+};
+/**
+ * Request parameters for generateASynthesisV1SynthesisPost operation in SynthesisApi.
+ * @export
+ * @interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest
+ */
+export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
+    /**
+     *
+     * @type {SynthesisIn}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly synthesisIn: SynthesisIn;
+    /**
+     *
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly length?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly temperature?: number;
+}
+/**
+ * SynthesisApi - object-oriented interface
+ * @export
+ * @class SynthesisApi
+ * @extends {BaseAPI}
+ */
+export declare class SynthesisApi extends BaseAPI {
+    /**
+     * Generate and return summary synthesis.
+     * @summary Generate A Synthesis.
+     * @param {SynthesisApiGenerateASynthesisV1SynthesisPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SynthesisApi
+     */
+    generateASynthesisV1SynthesisPost(requestParameters: SynthesisApiGenerateASynthesisV1SynthesisPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SynthesisOut>>;
 }
 /**
  * TeamsApi - axios parameter creator
