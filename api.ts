@@ -912,19 +912,6 @@ export enum AuthorSortEnum {
 }
 
 /**
- * Basic Graph.
- * @export
- * @interface BasicGraphData
- */
-export interface BasicGraphData {
-    /**
-     * Links of graph data.
-     * @type {Array<Link>}
-     * @memberof BasicGraphData
-     */
-    'links': Array<Link>;
-}
-/**
  * Credentials for an integration without password.
  * @export
  * @interface BigQueryCredentials
@@ -2949,49 +2936,6 @@ export interface DynamicFeatureStatisticsSimpleBase {
     'max_series_length'?: number;
 }
 /**
- * Edge Typed Link model.
- * @export
- * @interface EdgeTypedLink
- */
-export interface EdgeTypedLink {
-    /**
-     * 
-     * @type {string}
-     * @memberof EdgeTypedLink
-     */
-    'source': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof EdgeTypedLink
-     */
-    'target': string;
-    /**
-     * 
-     * @type {GraphLinkType}
-     * @memberof EdgeTypedLink
-     */
-    'edgeType': GraphLinkType;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EdgeTypedLink
-     */
-    'isSubstantiated'?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof EdgeTypedLink
-     */
-    'directedAt'?: Array<string>;
-    /**
-     * Query Count of a dataset relationship.
-     * @type {number}
-     * @memberof EdgeTypedLink
-     */
-    'numQueries'?: number;
-}
-/**
  * An Enterprise Resource.
  * @export
  * @interface Enterprise
@@ -3088,6 +3032,99 @@ export interface EnterpriseIn {
      * @memberof EnterpriseIn
      */
     'idp_metadata'?: string;
+}
+/**
+ * Evidence dict for SynthesisIn.
+ * @export
+ * @interface Evidence
+ */
+export interface Evidence {
+    /**
+     * 
+     * @type {number}
+     * @memberof Evidence
+     */
+    'id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Evidence
+     */
+    'summary': string;
+}
+/**
+ * Edge Typed Link model.
+ * @export
+ * @interface ExtendedLinkObject
+ */
+export interface ExtendedLinkObject {
+    /**
+     * 
+     * @type {string}
+     * @memberof ExtendedLinkObject
+     */
+    'source': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ExtendedLinkObject
+     */
+    'target': string;
+    /**
+     * Type of link.
+     * @type {GraphLinkType}
+     * @memberof ExtendedLinkObject
+     */
+    'edgeType'?: GraphLinkType;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ExtendedLinkObject
+     */
+    'isSubstantiated'?: boolean;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ExtendedLinkObject
+     */
+    'directedAt'?: Array<string>;
+    /**
+     * Query Count of a dataset relationship.
+     * @type {number}
+     * @memberof ExtendedLinkObject
+     */
+    'numQueries'?: number;
+}
+/**
+ * Object Typed Node model.
+ * @export
+ * @interface ExtendedNodeObject
+ */
+export interface ExtendedNodeObject {
+    /**
+     * 
+     * @type {string}
+     * @memberof ExtendedNodeObject
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ExtendedNodeObject
+     */
+    'name': string;
+    /**
+     * 
+     * @type {GraphNodeType}
+     * @memberof ExtendedNodeObject
+     */
+    'objectType': GraphNodeType;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ExtendedNodeObject
+     */
+    'tags'?: Array<string>;
 }
 /**
  * External asset model.
@@ -3850,16 +3887,16 @@ export interface Frequency {
 export interface GraphData {
     /**
      * Nodes of graph data.
-     * @type {Array<OjbectTypedNode>}
+     * @type {Array<ExtendedNodeObject>}
      * @memberof GraphData
      */
-    'nodes': Array<OjbectTypedNode>;
+    'nodes': Array<ExtendedNodeObject>;
     /**
      * Links of graph data.
-     * @type {Array<EdgeTypedLink>}
+     * @type {Array<ExtendedLinkObject>}
      * @memberof GraphData
      */
-    'links': Array<EdgeTypedLink>;
+    'links': Array<ExtendedLinkObject>;
 }
 /**
  * Graph Link Type enum.
@@ -4300,25 +4337,6 @@ export interface LinePlot {
      * @memberof LinePlot
      */
     'index'?: Array<string>;
-}
-/**
- * Link model.
- * @export
- * @interface Link
- */
-export interface Link {
-    /**
-     * 
-     * @type {string}
-     * @memberof Link
-     */
-    'source': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Link
-     */
-    'target': string;
 }
 /**
  * Location population attribute value input.
@@ -5780,37 +5798,6 @@ export interface NumericalFeatureStatisticsSimpleBase {
      * @memberof NumericalFeatureStatisticsSimpleBase
      */
     'percent_missing'?: number;
-}
-/**
- * Object Typed Node model.
- * @export
- * @interface OjbectTypedNode
- */
-export interface OjbectTypedNode {
-    /**
-     * 
-     * @type {string}
-     * @memberof OjbectTypedNode
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof OjbectTypedNode
-     */
-    'name': string;
-    /**
-     * 
-     * @type {GraphNodeType}
-     * @memberof OjbectTypedNode
-     */
-    'objectType': GraphNodeType;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof OjbectTypedNode
-     */
-    'tags'?: Array<string>;
 }
 /**
  * Ordering direction enum.
@@ -7498,6 +7485,50 @@ export enum StudyTypeEnum {
 }
 
 /**
+ * Post body for /synthesis endpoint.
+ * @export
+ * @interface SynthesisIn
+ */
+export interface SynthesisIn {
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisIn
+     */
+    'term_1': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisIn
+     */
+    'term_2': string;
+    /**
+     * 
+     * @type {Array<Evidence>}
+     * @memberof SynthesisIn
+     */
+    'evidence': Array<Evidence>;
+}
+/**
+ * Synthesis output model.
+ * @export
+ * @interface SynthesisOut
+ */
+export interface SynthesisOut {
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisOut
+     */
+    'synthesis': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SynthesisOut
+     */
+    'last_updated': number;
+}
+/**
  * Enum System object resource names.
  * @export
  * @enum {string}
@@ -7985,10 +8016,10 @@ export interface TopicRelationshipSynthesisOut {
     'synthesis'?: string;
     /**
      * Last updated time stamp
-     * @type {number}
+     * @type {string}
      * @memberof TopicRelationshipSynthesisOut
      */
-    'last_updated'?: number;
+    'last_updated'?: string;
 }
 /**
  * User profile data input.
@@ -36609,7 +36640,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicGraphData>> {
+        async getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -36626,7 +36657,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicGraphData>> {
+        async getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -36817,7 +36848,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<BasicGraphData> {
+        getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData> {
             return localVarFp.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
         },
         /**
@@ -36833,7 +36864,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<BasicGraphData> {
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData> {
             return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
         },
         /**
@@ -52525,6 +52556,162 @@ export class StudiesApi extends BaseAPI {
 
 
 /**
+ * SynthesisApi - axios parameter creator
+ * @export
+ */
+export const SynthesisApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Generate and return summary synthesis.
+         * @summary Generate A Synthesis.
+         * @param {SynthesisIn} synthesisIn 
+         * @param {number} [length] 
+         * @param {number} [temperature] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateASynthesisV1SynthesisPost: async (synthesisIn: SynthesisIn, length?: number, temperature?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'synthesisIn' is not null or undefined
+            assertParamExists('generateASynthesisV1SynthesisPost', 'synthesisIn', synthesisIn)
+            const localVarPath = `/v1/synthesis`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (length !== undefined) {
+                localVarQueryParameter['length'] = length;
+            }
+
+            if (temperature !== undefined) {
+                localVarQueryParameter['temperature'] = temperature;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(synthesisIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SynthesisApi - functional programming interface
+ * @export
+ */
+export const SynthesisApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SynthesisApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Generate and return summary synthesis.
+         * @summary Generate A Synthesis.
+         * @param {SynthesisIn} synthesisIn 
+         * @param {number} [length] 
+         * @param {number} [temperature] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, length, temperature, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SynthesisApi - factory interface
+ * @export
+ */
+export const SynthesisApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SynthesisApiFp(configuration)
+    return {
+        /**
+         * Generate and return summary synthesis.
+         * @summary Generate A Synthesis.
+         * @param {SynthesisIn} synthesisIn 
+         * @param {number} [length] 
+         * @param {number} [temperature] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: any): AxiosPromise<SynthesisOut> {
+            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, length, temperature, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for generateASynthesisV1SynthesisPost operation in SynthesisApi.
+ * @export
+ * @interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest
+ */
+export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
+    /**
+     * 
+     * @type {SynthesisIn}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly synthesisIn: SynthesisIn
+
+    /**
+     * 
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly length?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly temperature?: number
+}
+
+/**
+ * SynthesisApi - object-oriented interface
+ * @export
+ * @class SynthesisApi
+ * @extends {BaseAPI}
+ */
+export class SynthesisApi extends BaseAPI {
+    /**
+     * Generate and return summary synthesis.
+     * @summary Generate A Synthesis.
+     * @param {SynthesisApiGenerateASynthesisV1SynthesisPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SynthesisApi
+     */
+    public generateASynthesisV1SynthesisPost(requestParameters: SynthesisApiGenerateASynthesisV1SynthesisPostRequest, options?: AxiosRequestConfig) {
+        return SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.length, requestParameters.temperature, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
  * TeamsApi - axios parameter creator
  * @export
  */
@@ -61621,7 +61808,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BasicGraphData>> {
+        async getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -63643,7 +63830,7 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<BasicGraphData> {
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData> {
             return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
         },
         /**
