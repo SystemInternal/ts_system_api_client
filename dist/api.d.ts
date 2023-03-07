@@ -7210,6 +7210,12 @@ export interface StudyIn {
      * @memberof StudyIn
      */
     'publication_info'?: PublicationInfo;
+    /**
+     * Publication type string field.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    'publication_type'?: string;
 }
 /**
  * Study resource links.
@@ -7375,6 +7381,12 @@ export interface StudyOut {
      * @memberof StudyOut
      */
     'publication_info'?: PublicationInfo;
+    /**
+     * Publication type string field.
+     * @type {string}
+     * @memberof StudyOut
+     */
+    'publication_type'?: string;
     /**
      * Collection of links to related resources.
      * @type {StudyLinks}
