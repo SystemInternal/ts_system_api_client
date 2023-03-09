@@ -1348,6 +1348,68 @@ export interface CategoryOut {
     'category_name': string;
 }
 /**
+ * Cluster model.
+ * @export
+ * @interface Cluster
+ */
+export interface Cluster {
+    /**
+     *
+     * @type {string}
+     * @memberof Cluster
+     */
+    'id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof Cluster
+     */
+    'display_summary': string;
+    /**
+     *
+     * @type {string}
+     * @memberof Cluster
+     */
+    'prompt_summary': string;
+    /**
+     *
+     * @type {number}
+     * @memberof Cluster
+     */
+    'num_studies': number;
+    /**
+     *
+     * @type {number}
+     * @memberof Cluster
+     */
+    'avg_distance': number;
+}
+/**
+ * Clustered relationship model.
+ * @export
+ * @interface ClusteredRelationship
+ */
+export interface ClusteredRelationship {
+    /**
+     *
+     * @type {Array<SimpleBaseObject>}
+     * @memberof ClusteredRelationship
+     */
+    'variables': Array<SimpleBaseObject>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ClusteredRelationship
+     */
+    'cluster_ids': Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ClusteredRelationship
+     */
+    'association_ids': Array<string>;
+}
+/**
  * Concept input resource model.
  * @export
  * @interface ConceptIn
@@ -6797,16 +6859,16 @@ export interface RoleOut {
 export interface SemanticSearchOut {
     /**
      *
-     * @type {Array<object>}
+     * @type {Array<Cluster>}
      * @memberof SemanticSearchOut
      */
-    'clusters': Array<object>;
+    'clusters': Array<Cluster>;
     /**
      *
-     * @type {Array<object>}
+     * @type {Array<ClusteredRelationship>}
      * @memberof SemanticSearchOut
      */
-    'relationships': Array<object>;
+    'relationships': Array<ClusteredRelationship>;
 }
 /**
  * An enumeration.
@@ -6868,6 +6930,25 @@ export interface SignificanceValueOut {
      * @memberof SignificanceValueOut
      */
     'generated_by'?: ValueSourceEnum;
+}
+/**
+ * Simplified object schema.
+ * @export
+ * @interface SimpleBaseObject
+ */
+export interface SimpleBaseObject {
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleBaseObject
+     */
+    'system_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleBaseObject
+     */
+    'name': string;
 }
 /**
  * Simplified topic schema.
