@@ -1357,7 +1357,7 @@ export interface CategoryOut {
     'category_name': string;
 }
 /**
- * Cluster model.
+ * Schema for cluster response.
  * @export
  * @interface Cluster
  */
@@ -1394,7 +1394,7 @@ export interface Cluster {
     'avg_distance': number;
 }
 /**
- * Clustered relationship model.
+ * Schema for clustered relationship response.
  * @export
  * @interface ClusteredRelationship
  */
