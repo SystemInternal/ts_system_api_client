@@ -30722,10 +30722,17 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
      * @param {string} [q] Search query
+     * @param {string} [filterBy] Filter semantic search results.
+     * @param {number} [studyDistance] Study distance threshold
+     * @param {number} [studyMoveTo] Study moveTo distance force
+     * @param {number} [relationshipDistance] Relationship distance threshold
+     * @param {number} [relationshipMoveTo] Relationship moveTo distance force
+     * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+     * @param {string} [clusteringThresholds] Clustering thresholds as list of json dumped lists of floats.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet: (q?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchV1SemanticSearchGet: (q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SemanticSearchApi - functional programming interface
@@ -30736,10 +30743,17 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
      * @param {string} [q] Search query
+     * @param {string} [filterBy] Filter semantic search results.
+     * @param {number} [studyDistance] Study distance threshold
+     * @param {number} [studyMoveTo] Study moveTo distance force
+     * @param {number} [relationshipDistance] Relationship distance threshold
+     * @param {number} [relationshipMoveTo] Relationship moveTo distance force
+     * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+     * @param {string} [clusteringThresholds] Clustering thresholds as list of json dumped lists of floats.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(q?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
+    getSemanticSearchV1SemanticSearchGet(q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
 };
 /**
  * SemanticSearchApi - factory interface
@@ -30750,10 +30764,17 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
      * @param {string} [q] Search query
+     * @param {string} [filterBy] Filter semantic search results.
+     * @param {number} [studyDistance] Study distance threshold
+     * @param {number} [studyMoveTo] Study moveTo distance force
+     * @param {number} [relationshipDistance] Relationship distance threshold
+     * @param {number} [relationshipMoveTo] Relationship moveTo distance force
+     * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+     * @param {string} [clusteringThresholds] Clustering thresholds as list of json dumped lists of floats.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(q?: string, options?: any): AxiosPromise<SemanticSearchOut>;
+    getSemanticSearchV1SemanticSearchGet(q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: any): AxiosPromise<SemanticSearchOut>;
 };
 /**
  * Request parameters for getSemanticSearchV1SemanticSearchGet operation in SemanticSearchApi.
@@ -30767,6 +30788,48 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
     readonly q?: string;
+    /**
+     * Filter semantic search results.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly filterBy?: string;
+    /**
+     * Study distance threshold
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly studyDistance?: number;
+    /**
+     * Study moveTo distance force
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly studyMoveTo?: number;
+    /**
+     * Relationship distance threshold
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly relationshipDistance?: number;
+    /**
+     * Relationship moveTo distance force
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly relationshipMoveTo?: number;
+    /**
+     * Relationship moveAwayFrom distance force
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly relationshipMoveAwayFrom?: number;
+    /**
+     * Clustering thresholds as list of json dumped lists of floats.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly clusteringThresholds?: string;
 }
 /**
  * SemanticSearchApi - object-oriented interface
