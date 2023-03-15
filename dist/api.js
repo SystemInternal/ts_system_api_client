@@ -24928,7 +24928,7 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {number} [relationshipDistance] Relationship distance threshold
          * @param {number} [relationshipMoveTo] Relationship moveTo distance force
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {string} [clusteringThresholds] Clustering thresholds as list of json dumped lists of floats.
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -24999,7 +24999,7 @@ exports.SemanticSearchApiFp = function (configuration) {
          * @param {number} [relationshipDistance] Relationship distance threshold
          * @param {number} [relationshipMoveTo] Relationship moveTo distance force
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {string} [clusteringThresholds] Clustering thresholds as list of json dumped lists of floats.
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -25028,7 +25028,7 @@ exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
          * @param {number} [relationshipDistance] Relationship distance threshold
          * @param {number} [relationshipMoveTo] Relationship moveTo distance force
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {string} [clusteringThresholds] Clustering thresholds as list of json dumped lists of floats.
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
