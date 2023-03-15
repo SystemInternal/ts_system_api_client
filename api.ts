@@ -46849,7 +46849,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {number} [relationshipDistance] Relationship distance threshold
          * @param {number} [relationshipMoveTo] Relationship moveTo distance force
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {string} [clusteringThresholds] Clustering thresholds as list of json dumped lists of floats.
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -46936,7 +46936,7 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {number} [relationshipDistance] Relationship distance threshold
          * @param {number} [relationshipMoveTo] Relationship moveTo distance force
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {string} [clusteringThresholds] Clustering thresholds as list of json dumped lists of floats.
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -46964,7 +46964,7 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * @param {number} [relationshipDistance] Relationship distance threshold
          * @param {number} [relationshipMoveTo] Relationship moveTo distance force
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {string} [clusteringThresholds] Clustering thresholds as list of json dumped lists of floats.
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -47030,7 +47030,7 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
     readonly relationshipMoveAwayFrom?: number
 
     /**
-     * Clustering thresholds as list of json dumped lists of floats.
+     * Clustering thresholds as json stringified list of pairs of floats.
      * @type {string}
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
