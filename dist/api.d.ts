@@ -34194,12 +34194,14 @@ export declare const SynthesisApiAxiosParamCreator: (configuration?: Configurati
      * Generate and return summary synthesis.
      * @summary Generate A Synthesis.
      * @param {SynthesisIn} synthesisIn
-     * @param {number} [length]
+     * @param {string} [modelName]
+     * @param {string} [length]
      * @param {number} [temperature]
+     * @param {number} [maxTokens]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateASynthesisV1SynthesisPost: (synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    generateASynthesisV1SynthesisPost: (synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SynthesisApi - functional programming interface
@@ -34210,12 +34212,14 @@ export declare const SynthesisApiFp: (configuration?: Configuration) => {
      * Generate and return summary synthesis.
      * @summary Generate A Synthesis.
      * @param {SynthesisIn} synthesisIn
-     * @param {number} [length]
+     * @param {string} [modelName]
+     * @param {string} [length]
      * @param {number} [temperature]
+     * @param {number} [maxTokens]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
+    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
 };
 /**
  * SynthesisApi - factory interface
@@ -34226,12 +34230,14 @@ export declare const SynthesisApiFactory: (configuration?: Configuration, basePa
      * Generate and return summary synthesis.
      * @summary Generate A Synthesis.
      * @param {SynthesisIn} synthesisIn
-     * @param {number} [length]
+     * @param {string} [modelName]
+     * @param {string} [length]
      * @param {number} [temperature]
+     * @param {number} [maxTokens]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: any): AxiosPromise<SynthesisOut>;
+    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: any): AxiosPromise<SynthesisOut>;
 };
 /**
  * Request parameters for generateASynthesisV1SynthesisPost operation in SynthesisApi.
@@ -34247,16 +34253,28 @@ export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
     readonly synthesisIn: SynthesisIn;
     /**
      *
-     * @type {number}
+     * @type {string}
      * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
      */
-    readonly length?: number;
+    readonly modelName?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly length?: string;
     /**
      *
      * @type {number}
      * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
      */
     readonly temperature?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly maxTokens?: number;
 }
 /**
  * SynthesisApi - object-oriented interface
