@@ -1357,6 +1357,68 @@ export interface CategoryOut {
     'category_name': string;
 }
 /**
+ * Schema for cluster response.
+ * @export
+ * @interface Cluster
+ */
+export interface Cluster {
+    /**
+     * 
+     * @type {string}
+     * @memberof Cluster
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Cluster
+     */
+    'display_summary': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Cluster
+     */
+    'prompt_summary': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Cluster
+     */
+    'num_studies': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Cluster
+     */
+    'avg_distance': number;
+}
+/**
+ * Schema for clustered relationship response.
+ * @export
+ * @interface ClusteredRelationship
+ */
+export interface ClusteredRelationship {
+    /**
+     * 
+     * @type {Array<SimpleBaseObject>}
+     * @memberof ClusteredRelationship
+     */
+    'variables': Array<SimpleBaseObject>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ClusteredRelationship
+     */
+    'cluster_ids': Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ClusteredRelationship
+     */
+    'association_ids': Array<string>;
+}
+/**
  * Concept input resource model.
  * @export
  * @interface ConceptIn
@@ -6816,16 +6878,16 @@ export interface RoleOut {
 export interface SemanticSearchOut {
     /**
      * 
-     * @type {Array<object>}
+     * @type {Array<Cluster>}
      * @memberof SemanticSearchOut
      */
-    'clusters': Array<object>;
+    'clusters': Array<Cluster>;
     /**
      * 
-     * @type {Array<object>}
+     * @type {Array<ClusteredRelationship>}
      * @memberof SemanticSearchOut
      */
-    'relationships': Array<object>;
+    'relationships': Array<ClusteredRelationship>;
 }
 /**
  * An enumeration.
@@ -6889,6 +6951,25 @@ export interface SignificanceValueOut {
      * @memberof SignificanceValueOut
      */
     'generated_by'?: ValueSourceEnum;
+}
+/**
+ * Simplified object schema.
+ * @export
+ * @interface SimpleBaseObject
+ */
+export interface SimpleBaseObject {
+    /**
+     * 
+     * @type {string}
+     * @memberof SimpleBaseObject
+     */
+    'system_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SimpleBaseObject
+     */
+    'name': string;
 }
 /**
  * Simplified topic schema.
@@ -7231,6 +7312,12 @@ export interface StudyIn {
      * @memberof StudyIn
      */
     'publication_info'?: PublicationInfo;
+    /**
+     * Publication type string field.
+     * @type {string}
+     * @memberof StudyIn
+     */
+    'publication_type'?: string;
 }
 /**
  * Study resource links.
@@ -7396,6 +7483,12 @@ export interface StudyOut {
      * @memberof StudyOut
      */
     'publication_info'?: PublicationInfo;
+    /**
+     * Publication type string field.
+     * @type {string}
+     * @memberof StudyOut
+     */
+    'publication_type'?: string;
     /**
      * Collection of links to related resources.
      * @type {StudyLinks}
@@ -46750,10 +46843,17 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
          * @param {string} [q] Search query
+         * @param {string} [filterBy] Filter semantic search results.
+         * @param {number} [studyDistance] Study distance threshold
+         * @param {number} [studyMoveTo] Study moveTo distance force
+         * @param {number} [relationshipDistance] Relationship distance threshold
+         * @param {number} [relationshipMoveTo] Relationship moveTo distance force
+         * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet: async (q?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticSearchV1SemanticSearchGet: async (q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/semantic-search`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -46775,6 +46875,34 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
 
             if (q !== undefined) {
                 localVarQueryParameter['q'] = q;
+            }
+
+            if (filterBy !== undefined) {
+                localVarQueryParameter['filter_by'] = filterBy;
+            }
+
+            if (studyDistance !== undefined) {
+                localVarQueryParameter['study_distance'] = studyDistance;
+            }
+
+            if (studyMoveTo !== undefined) {
+                localVarQueryParameter['study_move_to'] = studyMoveTo;
+            }
+
+            if (relationshipDistance !== undefined) {
+                localVarQueryParameter['relationship_distance'] = relationshipDistance;
+            }
+
+            if (relationshipMoveTo !== undefined) {
+                localVarQueryParameter['relationship_move_to'] = relationshipMoveTo;
+            }
+
+            if (relationshipMoveAwayFrom !== undefined) {
+                localVarQueryParameter['relationship_move_away_from'] = relationshipMoveAwayFrom;
+            }
+
+            if (clusteringThresholds !== undefined) {
+                localVarQueryParameter['clustering_thresholds'] = clusteringThresholds;
             }
 
 
@@ -46802,11 +46930,18 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
          * @param {string} [q] Search query
+         * @param {string} [filterBy] Filter semantic search results.
+         * @param {number} [studyDistance] Study distance threshold
+         * @param {number} [studyMoveTo] Study moveTo distance force
+         * @param {number} [relationshipDistance] Relationship distance threshold
+         * @param {number} [relationshipMoveTo] Relationship moveTo distance force
+         * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticSearchV1SemanticSearchGet(q?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(q, options);
+        async getSemanticSearchV1SemanticSearchGet(q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(q, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, clusteringThresholds, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -46823,11 +46958,18 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
          * @param {string} [q] Search query
+         * @param {string} [filterBy] Filter semantic search results.
+         * @param {number} [studyDistance] Study distance threshold
+         * @param {number} [studyMoveTo] Study moveTo distance force
+         * @param {number} [relationshipDistance] Relationship distance threshold
+         * @param {number} [relationshipMoveTo] Relationship moveTo distance force
+         * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet(q?: string, options?: any): AxiosPromise<SemanticSearchOut> {
-            return localVarFp.getSemanticSearchV1SemanticSearchGet(q, options).then((request) => request(axios, basePath));
+        getSemanticSearchV1SemanticSearchGet(q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: any): AxiosPromise<SemanticSearchOut> {
+            return localVarFp.getSemanticSearchV1SemanticSearchGet(q, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, clusteringThresholds, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -46844,6 +46986,55 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
     readonly q?: string
+
+    /**
+     * Filter semantic search results.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly filterBy?: string
+
+    /**
+     * Study distance threshold
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly studyDistance?: number
+
+    /**
+     * Study moveTo distance force
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly studyMoveTo?: number
+
+    /**
+     * Relationship distance threshold
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly relationshipDistance?: number
+
+    /**
+     * Relationship moveTo distance force
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly relationshipMoveTo?: number
+
+    /**
+     * Relationship moveAwayFrom distance force
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly relationshipMoveAwayFrom?: number
+
+    /**
+     * Clustering thresholds as json stringified list of pairs of floats.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly clusteringThresholds?: string
 }
 
 /**
@@ -46862,7 +47053,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     public getSemanticSearchV1SemanticSearchGet(requestParameters: SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest = {}, options?: AxiosRequestConfig) {
-        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.q, options).then((request) => request(this.axios, this.basePath));
+        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.q, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.studyMoveTo, requestParameters.relationshipDistance, requestParameters.relationshipMoveTo, requestParameters.relationshipMoveAwayFrom, requestParameters.clusteringThresholds, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -52633,12 +52824,14 @@ export const SynthesisApiAxiosParamCreator = function (configuration?: Configura
          * Generate and return summary synthesis.
          * @summary Generate A Synthesis.
          * @param {SynthesisIn} synthesisIn 
-         * @param {number} [length] 
+         * @param {string} [modelName] 
+         * @param {string} [length] 
          * @param {number} [temperature] 
+         * @param {number} [maxTokens] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateASynthesisV1SynthesisPost: async (synthesisIn: SynthesisIn, length?: number, temperature?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        generateASynthesisV1SynthesisPost: async (synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'synthesisIn' is not null or undefined
             assertParamExists('generateASynthesisV1SynthesisPost', 'synthesisIn', synthesisIn)
             const localVarPath = `/v1/synthesis`;
@@ -52660,12 +52853,20 @@ export const SynthesisApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
+            if (modelName !== undefined) {
+                localVarQueryParameter['model_name'] = modelName;
+            }
+
             if (length !== undefined) {
                 localVarQueryParameter['length'] = length;
             }
 
             if (temperature !== undefined) {
                 localVarQueryParameter['temperature'] = temperature;
+            }
+
+            if (maxTokens !== undefined) {
+                localVarQueryParameter['max_tokens'] = maxTokens;
             }
 
 
@@ -52696,13 +52897,15 @@ export const SynthesisApiFp = function(configuration?: Configuration) {
          * Generate and return summary synthesis.
          * @summary Generate A Synthesis.
          * @param {SynthesisIn} synthesisIn 
-         * @param {number} [length] 
+         * @param {string} [modelName] 
+         * @param {string} [length] 
          * @param {number} [temperature] 
+         * @param {number} [maxTokens] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, length, temperature, options);
+        async generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, modelName, length, temperature, maxTokens, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -52719,13 +52922,15 @@ export const SynthesisApiFactory = function (configuration?: Configuration, base
          * Generate and return summary synthesis.
          * @summary Generate A Synthesis.
          * @param {SynthesisIn} synthesisIn 
-         * @param {number} [length] 
+         * @param {string} [modelName] 
+         * @param {string} [length] 
          * @param {number} [temperature] 
+         * @param {number} [maxTokens] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: any): AxiosPromise<SynthesisOut> {
-            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, length, temperature, options).then((request) => request(axios, basePath));
+        generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: any): AxiosPromise<SynthesisOut> {
+            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, modelName, length, temperature, maxTokens, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -52745,10 +52950,17 @@ export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
 
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
      */
-    readonly length?: number
+    readonly modelName?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly length?: string
 
     /**
      * 
@@ -52756,6 +52968,13 @@ export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
      * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
      */
     readonly temperature?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly maxTokens?: number
 }
 
 /**
@@ -52774,7 +52993,7 @@ export class SynthesisApi extends BaseAPI {
      * @memberof SynthesisApi
      */
     public generateASynthesisV1SynthesisPost(requestParameters: SynthesisApiGenerateASynthesisV1SynthesisPostRequest, options?: AxiosRequestConfig) {
-        return SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.length, requestParameters.temperature, options).then((request) => request(this.axios, this.basePath));
+        return SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
