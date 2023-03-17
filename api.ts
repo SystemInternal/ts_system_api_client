@@ -52824,12 +52824,14 @@ export const SynthesisApiAxiosParamCreator = function (configuration?: Configura
          * Generate and return summary synthesis.
          * @summary Generate A Synthesis.
          * @param {SynthesisIn} synthesisIn 
-         * @param {number} [length] 
+         * @param {string} [modelName] 
+         * @param {string} [length] 
          * @param {number} [temperature] 
+         * @param {number} [maxTokens] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateASynthesisV1SynthesisPost: async (synthesisIn: SynthesisIn, length?: number, temperature?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        generateASynthesisV1SynthesisPost: async (synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'synthesisIn' is not null or undefined
             assertParamExists('generateASynthesisV1SynthesisPost', 'synthesisIn', synthesisIn)
             const localVarPath = `/v1/synthesis`;
@@ -52851,12 +52853,20 @@ export const SynthesisApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
+            if (modelName !== undefined) {
+                localVarQueryParameter['model_name'] = modelName;
+            }
+
             if (length !== undefined) {
                 localVarQueryParameter['length'] = length;
             }
 
             if (temperature !== undefined) {
                 localVarQueryParameter['temperature'] = temperature;
+            }
+
+            if (maxTokens !== undefined) {
+                localVarQueryParameter['max_tokens'] = maxTokens;
             }
 
 
@@ -52887,13 +52897,15 @@ export const SynthesisApiFp = function(configuration?: Configuration) {
          * Generate and return summary synthesis.
          * @summary Generate A Synthesis.
          * @param {SynthesisIn} synthesisIn 
-         * @param {number} [length] 
+         * @param {string} [modelName] 
+         * @param {string} [length] 
          * @param {number} [temperature] 
+         * @param {number} [maxTokens] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, length, temperature, options);
+        async generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, modelName, length, temperature, maxTokens, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -52910,13 +52922,15 @@ export const SynthesisApiFactory = function (configuration?: Configuration, base
          * Generate and return summary synthesis.
          * @summary Generate A Synthesis.
          * @param {SynthesisIn} synthesisIn 
-         * @param {number} [length] 
+         * @param {string} [modelName] 
+         * @param {string} [length] 
          * @param {number} [temperature] 
+         * @param {number} [maxTokens] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, length?: number, temperature?: number, options?: any): AxiosPromise<SynthesisOut> {
-            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, length, temperature, options).then((request) => request(axios, basePath));
+        generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: any): AxiosPromise<SynthesisOut> {
+            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, modelName, length, temperature, maxTokens, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -52936,10 +52950,17 @@ export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
 
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
      */
-    readonly length?: number
+    readonly modelName?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly length?: string
 
     /**
      * 
@@ -52947,6 +52968,13 @@ export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
      * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
      */
     readonly temperature?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly maxTokens?: number
 }
 
 /**
@@ -52965,7 +52993,7 @@ export class SynthesisApi extends BaseAPI {
      * @memberof SynthesisApi
      */
     public generateASynthesisV1SynthesisPost(requestParameters: SynthesisApiGenerateASynthesisV1SynthesisPostRequest, options?: AxiosRequestConfig) {
-        return SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.length, requestParameters.temperature, options).then((request) => request(this.axios, this.basePath));
+        return SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
