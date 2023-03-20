@@ -1376,12 +1376,6 @@ export interface Cluster {
      * @type {number}
      * @memberof Cluster
      */
-    'num_studies': number;
-    /**
-     *
-     * @type {number}
-     * @memberof Cluster
-     */
     'avg_distance': number;
 }
 /**
@@ -1404,10 +1398,10 @@ export interface ClusteredRelationship {
     'cluster_ids': Array<string>;
     /**
      *
-     * @type {Array<string>}
+     * @type {Array<FindingId>}
      * @memberof ClusteredRelationship
      */
-    'association_ids': Array<string>;
+    'finding_ids': Array<FindingId>;
 }
 /**
  * Concept input resource model.
@@ -3711,6 +3705,25 @@ export interface FilterValue {
 export declare enum FilterValueType {
     Filter = "filter",
     Sort = "sort"
+}
+/**
+ * Schema for identifying finding.
+ * @export
+ * @interface FindingId
+ */
+export interface FindingId {
+    /**
+     *
+     * @type {string}
+     * @memberof FindingId
+     */
+    'doi': string;
+    /**
+     *
+     * @type {string}
+     * @memberof FindingId
+     */
+    'association_id': string;
 }
 /**
  * Next/prev Pagination links with first and last urls.
