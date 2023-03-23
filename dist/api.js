@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SynthesisApi = exports.SynthesisApiFactory = exports.SynthesisApiFp = exports.SynthesisApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RelationshipsApi = exports.RelationshipsApiFactory = exports.RelationshipsApiFp = exports.RelationshipsApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.IndexedSourcesApi = exports.IndexedSourcesApiFactory = exports.IndexedSourcesApiFp = exports.IndexedSourcesApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.TeamRoles = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.SynthesisApi = exports.SynthesisApiFactory = exports.SynthesisApiFp = exports.SynthesisApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RelationshipsApi = exports.RelationshipsApiFactory = exports.RelationshipsApiFp = exports.RelationshipsApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.IndexedSourcesApi = exports.IndexedSourcesApiFactory = exports.IndexedSourcesApiFp = exports.IndexedSourcesApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.TeamRoles = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StatisticalTestType = exports.SignificanceLevel = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -17748,6 +17748,110 @@ class FeaturesApi extends base_1.BaseAPI {
 }
 exports.FeaturesApi = FeaturesApi;
 /**
+ * FindingsApi - axios parameter creator
+ * @export
+ */
+exports.FindingsApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Get study findings via dois and association ids.
+         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @param {StudyFindingsIn} studyFindingsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost: (studyFindingsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyFindingsIn' is not null or undefined
+            common_1.assertParamExists('getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost', 'studyFindingsIn', studyFindingsIn);
+            const localVarPath = `/v1/findings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyFindingsIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * FindingsApi - functional programming interface
+ * @export
+ */
+exports.FindingsApiFp = function (configuration) {
+    const localVarAxiosParamCreator = exports.FindingsApiAxiosParamCreator(configuration);
+    return {
+        /**
+         * Get study findings via dois and association ids.
+         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @param {StudyFindingsIn} studyFindingsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+    };
+};
+/**
+ * FindingsApi - factory interface
+ * @export
+ */
+exports.FindingsApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = exports.FindingsApiFp(configuration);
+    return {
+        /**
+         * Get study findings via dois and association ids.
+         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @param {StudyFindingsIn} studyFindingsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options) {
+            return localVarFp.getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * FindingsApi - object-oriented interface
+ * @export
+ * @class FindingsApi
+ * @extends {BaseAPI}
+ */
+class FindingsApi extends base_1.BaseAPI {
+    /**
+     * Get study findings via dois and association ids.
+     * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+     * @param {FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FindingsApi
+     */
+    getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(requestParameters, options) {
+        return exports.FindingsApiFp(this.configuration).getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.FindingsApi = FindingsApi;
+/**
  * GraphApi - axios parameter creator
  * @export
  */
@@ -28636,6 +28740,110 @@ class StudiesApi extends base_1.BaseAPI {
     }
 }
 exports.StudiesApi = StudiesApi;
+/**
+ * StudyMetadataApi - axios parameter creator
+ * @export
+ */
+exports.StudyMetadataApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Get study metadata from OpenAlex via dois.
+         * @summary Get Study Metadata From Openalex For A Given List Of Dois.
+         * @param {StudyMetadataIn} studyMetadataIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost: (studyMetadataIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyMetadataIn' is not null or undefined
+            common_1.assertParamExists('getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost', 'studyMetadataIn', studyMetadataIn);
+            const localVarPath = `/v1/study-metadata`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyMetadataIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * StudyMetadataApi - functional programming interface
+ * @export
+ */
+exports.StudyMetadataApiFp = function (configuration) {
+    const localVarAxiosParamCreator = exports.StudyMetadataApiAxiosParamCreator(configuration);
+    return {
+        /**
+         * Get study metadata from OpenAlex via dois.
+         * @summary Get Study Metadata From Openalex For A Given List Of Dois.
+         * @param {StudyMetadataIn} studyMetadataIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+    };
+};
+/**
+ * StudyMetadataApi - factory interface
+ * @export
+ */
+exports.StudyMetadataApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = exports.StudyMetadataApiFp(configuration);
+    return {
+        /**
+         * Get study metadata from OpenAlex via dois.
+         * @summary Get Study Metadata From Openalex For A Given List Of Dois.
+         * @param {StudyMetadataIn} studyMetadataIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn, options) {
+            return localVarFp.getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * StudyMetadataApi - object-oriented interface
+ * @export
+ * @class StudyMetadataApi
+ * @extends {BaseAPI}
+ */
+class StudyMetadataApi extends base_1.BaseAPI {
+    /**
+     * Get study metadata from OpenAlex via dois.
+     * @summary Get Study Metadata From Openalex For A Given List Of Dois.
+     * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudyMetadataApi
+     */
+    getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(requestParameters, options) {
+        return exports.StudyMetadataApiFp(this.configuration).getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.StudyMetadataApi = StudyMetadataApi;
 /**
  * SynthesisApi - axios parameter creator
  * @export

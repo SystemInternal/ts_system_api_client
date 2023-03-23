@@ -5862,6 +5862,49 @@ export interface NumericalFeatureStatisticsSimpleBase {
     'percent_missing'?: number;
 }
 /**
+ * Interface for OpenAlex Metadata output.
+ * @export
+ * @interface OpenAlexStudyMetadata
+ */
+export interface OpenAlexStudyMetadata {
+    /**
+     *
+     * @type {number}
+     * @memberof OpenAlexStudyMetadata
+     */
+    'cited_by': number;
+    /**
+     *
+     * @type {string}
+     * @memberof OpenAlexStudyMetadata
+     */
+    'doi': string;
+    /**
+     *
+     * @type {string}
+     * @memberof OpenAlexStudyMetadata
+     */
+    'journal': string;
+    /**
+     *
+     * @type {string}
+     * @memberof OpenAlexStudyMetadata
+     */
+    'publish_date': string;
+    /**
+     *
+     * @type {string}
+     * @memberof OpenAlexStudyMetadata
+     */
+    'link': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof OpenAlexStudyMetadata
+     */
+    'authors': Array<string>;
+}
+/**
  * Ordering direction enum.
  * @export
  * @enum {string}
@@ -7208,6 +7251,82 @@ export interface StripeSessionOut {
     'session_url'?: string;
 }
 /**
+ * Interface for individual association finding in study.
+ * @export
+ * @interface StudyFinding
+ */
+export interface StudyFinding {
+    /**
+     *
+     * @type {string}
+     * @memberof StudyFinding
+     */
+    'finding': string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyFinding
+     */
+    'association_id': string;
+}
+/**
+ * Interface for a single study and its finding sentences, populations, sample size, and id.
+ * @export
+ * @interface StudyFindingObject
+ */
+export interface StudyFindingObject {
+    /**
+     *
+     * @type {Array<StudyFinding>}
+     * @memberof StudyFindingObject
+     */
+    'findings': Array<StudyFinding>;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyFindingObject
+     */
+    'populations': string;
+    /**
+     *
+     * @type {number}
+     * @memberof StudyFindingObject
+     */
+    'sample_size': number;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyFindingObject
+     */
+    'system_id': string;
+}
+/**
+ * Interface for /all-sources/findings input.
+ * @export
+ * @interface StudyFindingsIn
+ */
+export interface StudyFindingsIn {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof StudyFindingsIn
+     */
+    'association_ids': Array<string>;
+}
+/**
+ * Interface for /all-sources/findings response type.
+ * @export
+ * @interface StudyFindingsOut
+ */
+export interface StudyFindingsOut {
+    /**
+     *
+     * @type {Array<StudyFindingObject>}
+     * @memberof StudyFindingsOut
+     */
+    'studies': Array<StudyFindingObject>;
+}
+/**
  * A real world study.
  * @export
  * @interface StudyIn
@@ -7335,6 +7454,32 @@ export interface StudyLinks {
      * @memberof StudyLinks
      */
     'models': string;
+}
+/**
+ * Interface for input to /all-sources/metadata.
+ * @export
+ * @interface StudyMetadataIn
+ */
+export interface StudyMetadataIn {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof StudyMetadataIn
+     */
+    'dois': Array<string>;
+}
+/**
+ * Interface for /all-sources/metadata response type.
+ * @export
+ * @interface StudyMetadataOut
+ */
+export interface StudyMetadataOut {
+    /**
+     *
+     * @type {Array<OpenAlexStudyMetadata>}
+     * @memberof StudyMetadataOut
+     */
+    'open_alex_metadata': Array<OpenAlexStudyMetadata>;
 }
 /**
  * A real world study.
@@ -24441,6 +24586,78 @@ export declare class FeaturesApi extends BaseAPI {
     replaceFeatureV1TeamsTeamIdFeaturesFeatureIdPut(requestParameters: FeaturesApiReplaceFeatureV1TeamsTeamIdFeaturesFeatureIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeatureOut>>;
 }
 /**
+ * FindingsApi - axios parameter creator
+ * @export
+ */
+export declare const FindingsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get study findings via dois and association ids.
+     * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+     * @param {StudyFindingsIn} studyFindingsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost: (studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * FindingsApi - functional programming interface
+ * @export
+ */
+export declare const FindingsApiFp: (configuration?: Configuration) => {
+    /**
+     * Get study findings via dois and association ids.
+     * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+     * @param {StudyFindingsIn} studyFindingsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>>;
+};
+/**
+ * FindingsApi - factory interface
+ * @export
+ */
+export declare const FindingsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get study findings via dois and association ids.
+     * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+     * @param {StudyFindingsIn} studyFindingsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: any): AxiosPromise<StudyFindingsOut>;
+};
+/**
+ * Request parameters for getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost operation in FindingsApi.
+ * @export
+ * @interface FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest
+ */
+export interface FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest {
+    /**
+     *
+     * @type {StudyFindingsIn}
+     * @memberof FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost
+     */
+    readonly studyFindingsIn: StudyFindingsIn;
+}
+/**
+ * FindingsApi - object-oriented interface
+ * @export
+ * @class FindingsApi
+ * @extends {BaseAPI}
+ */
+export declare class FindingsApi extends BaseAPI {
+    /**
+     * Get study findings via dois and association ids.
+     * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+     * @param {FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FindingsApi
+     */
+    getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyFindingsOut>>;
+}
+/**
  * GraphApi - axios parameter creator
  * @export
  */
@@ -34197,6 +34414,78 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     tagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPut(requestParameters: StudiesApiTagStudyWithObjectV1TeamsTeamIdStudiesStudyIdObjectTagsTagObjectIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+}
+/**
+ * StudyMetadataApi - axios parameter creator
+ * @export
+ */
+export declare const StudyMetadataApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get study metadata from OpenAlex via dois.
+     * @summary Get Study Metadata From Openalex For A Given List Of Dois.
+     * @param {StudyMetadataIn} studyMetadataIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost: (studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * StudyMetadataApi - functional programming interface
+ * @export
+ */
+export declare const StudyMetadataApiFp: (configuration?: Configuration) => {
+    /**
+     * Get study metadata from OpenAlex via dois.
+     * @summary Get Study Metadata From Openalex For A Given List Of Dois.
+     * @param {StudyMetadataIn} studyMetadataIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataOut>>;
+};
+/**
+ * StudyMetadataApi - factory interface
+ * @export
+ */
+export declare const StudyMetadataApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get study metadata from OpenAlex via dois.
+     * @summary Get Study Metadata From Openalex For A Given List Of Dois.
+     * @param {StudyMetadataIn} studyMetadataIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: any): AxiosPromise<StudyMetadataOut>;
+};
+/**
+ * Request parameters for getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost operation in StudyMetadataApi.
+ * @export
+ * @interface StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest
+ */
+export interface StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest {
+    /**
+     *
+     * @type {StudyMetadataIn}
+     * @memberof StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost
+     */
+    readonly studyMetadataIn: StudyMetadataIn;
+}
+/**
+ * StudyMetadataApi - object-oriented interface
+ * @export
+ * @class StudyMetadataApi
+ * @extends {BaseAPI}
+ */
+export declare class StudyMetadataApi extends BaseAPI {
+    /**
+     * Get study metadata from OpenAlex via dois.
+     * @summary Get Study Metadata From Openalex For A Given List Of Dois.
+     * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudyMetadataApi
+     */
+    getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyMetadataOut>>;
 }
 /**
  * SynthesisApi - axios parameter creator
