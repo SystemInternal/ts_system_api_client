@@ -5884,25 +5884,31 @@ export interface OpenAlexStudyMetadata {
      * @type {string}
      * @memberof OpenAlexStudyMetadata
      */
-    'journal': string;
+    'journal'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof OpenAlexStudyMetadata
+     */
+    'publish_date'?: number;
     /**
      *
      * @type {string}
      * @memberof OpenAlexStudyMetadata
      */
-    'publish_date': string;
-    /**
-     *
-     * @type {string}
-     * @memberof OpenAlexStudyMetadata
-     */
-    'link': string;
+    'link'?: string;
     /**
      *
      * @type {Array<string>}
      * @memberof OpenAlexStudyMetadata
      */
     'authors': Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof OpenAlexStudyMetadata
+     */
+    'name'?: string;
 }
 /**
  * Ordering direction enum.
@@ -7261,13 +7267,13 @@ export interface StudyFinding {
      * @type {string}
      * @memberof StudyFinding
      */
-    'finding': string;
+    'association_id': string;
     /**
      *
      * @type {string}
      * @memberof StudyFinding
      */
-    'association_id': string;
+    'finding': string;
 }
 /**
  * Interface for a single study and its finding sentences, populations, sample size, and id.
@@ -7301,7 +7307,7 @@ export interface StudyFindingObject {
     'system_id': string;
 }
 /**
- * Interface for /all-sources/findings input.
+ * Interface for /findings input.
  * @export
  * @interface StudyFindingsIn
  */
@@ -7314,7 +7320,7 @@ export interface StudyFindingsIn {
     'association_ids': Array<string>;
 }
 /**
- * Interface for /all-sources/findings response type.
+ * Interface for /findings response type.
  * @export
  * @interface StudyFindingsOut
  */
@@ -7456,7 +7462,7 @@ export interface StudyLinks {
     'models': string;
 }
 /**
- * Interface for input to /all-sources/metadata.
+ * Interface for input to /study-metadata.
  * @export
  * @interface StudyMetadataIn
  */
@@ -7469,7 +7475,7 @@ export interface StudyMetadataIn {
     'dois': Array<string>;
 }
 /**
- * Interface for /all-sources/metadata response type.
+ * Interface for /study-metadata response type.
  * @export
  * @interface StudyMetadataOut
  */
