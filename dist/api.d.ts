@@ -7289,16 +7289,16 @@ export interface StudyFindingObject {
     'findings': Array<StudyFinding>;
     /**
      *
-     * @type {string}
+     * @type {Array<string>}
      * @memberof StudyFindingObject
      */
-    'populations': string;
+    'populations': Array<string>;
     /**
      *
      * @type {number}
      * @memberof StudyFindingObject
      */
-    'sample_size': number;
+    'sample_size'?: number;
     /**
      *
      * @type {string}
