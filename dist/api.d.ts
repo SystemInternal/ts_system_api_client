@@ -5887,10 +5887,10 @@ export interface OpenAlexStudyMetadata {
     'journal'?: string;
     /**
      *
-     * @type {number}
+     * @type {string}
      * @memberof OpenAlexStudyMetadata
      */
-    'publish_date'?: number;
+    'publish_date'?: string;
     /**
      *
      * @type {string}
