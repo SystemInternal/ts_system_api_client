@@ -7727,13 +7727,7 @@ export interface SynthesisIn {
      * @type {string}
      * @memberof SynthesisIn
      */
-    'term_1': string;
-    /**
-     *
-     * @type {string}
-     * @memberof SynthesisIn
-     */
-    'term_2': string;
+    'question'?: string;
     /**
      *
      * @type {Array<Evidence>}
@@ -34502,6 +34496,7 @@ export declare const SynthesisApiAxiosParamCreator: (configuration?: Configurati
      * Generate and return summary synthesis.
      * @summary Generate A Synthesis.
      * @param {SynthesisIn} synthesisIn
+     * @param {boolean} [singleQuestionPrompt]
      * @param {string} [modelName]
      * @param {string} [length]
      * @param {number} [temperature]
@@ -34509,7 +34504,7 @@ export declare const SynthesisApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateASynthesisV1SynthesisPost: (synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    generateASynthesisV1SynthesisPost: (synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SynthesisApi - functional programming interface
@@ -34520,6 +34515,7 @@ export declare const SynthesisApiFp: (configuration?: Configuration) => {
      * Generate and return summary synthesis.
      * @summary Generate A Synthesis.
      * @param {SynthesisIn} synthesisIn
+     * @param {boolean} [singleQuestionPrompt]
      * @param {string} [modelName]
      * @param {string} [length]
      * @param {number} [temperature]
@@ -34527,7 +34523,7 @@ export declare const SynthesisApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
+    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
 };
 /**
  * SynthesisApi - factory interface
@@ -34538,6 +34534,7 @@ export declare const SynthesisApiFactory: (configuration?: Configuration, basePa
      * Generate and return summary synthesis.
      * @summary Generate A Synthesis.
      * @param {SynthesisIn} synthesisIn
+     * @param {boolean} [singleQuestionPrompt]
      * @param {string} [modelName]
      * @param {string} [length]
      * @param {number} [temperature]
@@ -34545,7 +34542,7 @@ export declare const SynthesisApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: any): AxiosPromise<SynthesisOut>;
+    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: any): AxiosPromise<SynthesisOut>;
 };
 /**
  * Request parameters for generateASynthesisV1SynthesisPost operation in SynthesisApi.
@@ -34559,6 +34556,12 @@ export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
      * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
      */
     readonly synthesisIn: SynthesisIn;
+    /**
+     *
+     * @type {boolean}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly singleQuestionPrompt?: boolean;
     /**
      *
      * @type {string}

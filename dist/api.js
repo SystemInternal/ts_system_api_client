@@ -28854,6 +28854,7 @@ exports.SynthesisApiAxiosParamCreator = function (configuration) {
          * Generate and return summary synthesis.
          * @summary Generate A Synthesis.
          * @param {SynthesisIn} synthesisIn
+         * @param {boolean} [singleQuestionPrompt]
          * @param {string} [modelName]
          * @param {string} [length]
          * @param {number} [temperature]
@@ -28861,7 +28862,7 @@ exports.SynthesisApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateASynthesisV1SynthesisPost: (synthesisIn, modelName, length, temperature, maxTokens, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        generateASynthesisV1SynthesisPost: (synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'synthesisIn' is not null or undefined
             common_1.assertParamExists('generateASynthesisV1SynthesisPost', 'synthesisIn', synthesisIn);
             const localVarPath = `/v1/synthesis`;
@@ -28879,6 +28880,9 @@ exports.SynthesisApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (singleQuestionPrompt !== undefined) {
+                localVarQueryParameter['single_question_prompt'] = singleQuestionPrompt;
+            }
             if (modelName !== undefined) {
                 localVarQueryParameter['model_name'] = modelName;
             }
@@ -28914,6 +28918,7 @@ exports.SynthesisApiFp = function (configuration) {
          * Generate and return summary synthesis.
          * @summary Generate A Synthesis.
          * @param {SynthesisIn} synthesisIn
+         * @param {boolean} [singleQuestionPrompt]
          * @param {string} [modelName]
          * @param {string} [length]
          * @param {number} [temperature]
@@ -28921,9 +28926,9 @@ exports.SynthesisApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateASynthesisV1SynthesisPost(synthesisIn, modelName, length, temperature, maxTokens, options) {
+        generateASynthesisV1SynthesisPost(synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, modelName, length, temperature, maxTokens, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -28940,6 +28945,7 @@ exports.SynthesisApiFactory = function (configuration, basePath, axios) {
          * Generate and return summary synthesis.
          * @summary Generate A Synthesis.
          * @param {SynthesisIn} synthesisIn
+         * @param {boolean} [singleQuestionPrompt]
          * @param {string} [modelName]
          * @param {string} [length]
          * @param {number} [temperature]
@@ -28947,8 +28953,8 @@ exports.SynthesisApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateASynthesisV1SynthesisPost(synthesisIn, modelName, length, temperature, maxTokens, options) {
-            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, modelName, length, temperature, maxTokens, options).then((request) => request(axios, basePath));
+        generateASynthesisV1SynthesisPost(synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, options) {
+            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -28968,7 +28974,7 @@ class SynthesisApi extends base_1.BaseAPI {
      * @memberof SynthesisApi
      */
     generateASynthesisV1SynthesisPost(requestParameters, options) {
-        return exports.SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, options).then((request) => request(this.axios, this.basePath));
+        return exports.SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.singleQuestionPrompt, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SynthesisApi = SynthesisApi;
