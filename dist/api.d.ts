@@ -7734,6 +7734,12 @@ export interface SynthesisIn {
      * @memberof SynthesisIn
      */
     'evidence': Array<Evidence>;
+    /**
+     *
+     * @type {string}
+     * @memberof SynthesisIn
+     */
+    'prompt_override'?: string;
 }
 /**
  * Synthesis output model.
