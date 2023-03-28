@@ -1398,10 +1398,10 @@ export interface ClusteredRelationship {
     'cluster_ids': Array<string>;
     /**
      *
-     * @type {Array<FindingId>}
+     * @type {Array<FindingMeta>}
      * @memberof ClusteredRelationship
      */
-    'finding_ids': Array<FindingId>;
+    'finding_metas': Array<FindingMeta>;
 }
 /**
  * Concept input resource model.
@@ -3709,21 +3709,27 @@ export declare enum FilterValueType {
 /**
  * Schema for identifying finding.
  * @export
- * @interface FindingId
+ * @interface FindingMeta
  */
-export interface FindingId {
+export interface FindingMeta {
     /**
      *
      * @type {string}
-     * @memberof FindingId
+     * @memberof FindingMeta
      */
     'doi': string;
     /**
      *
      * @type {string}
-     * @memberof FindingId
+     * @memberof FindingMeta
      */
     'association_id': string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof FindingMeta
+     */
+    'is_rct': boolean;
 }
 /**
  * Next/prev Pagination links with first and last urls.
