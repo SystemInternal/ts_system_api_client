@@ -1382,10 +1382,10 @@ export interface Cluster {
     'prompt_summary': string;
     /**
      * 
-     * @type {number}
+     * @type {Array<number>}
      * @memberof Cluster
      */
-    'avg_distance': number;
+    'relationship_distances': Array<number>;
 }
 /**
  * Schema for clustered relationship response.
