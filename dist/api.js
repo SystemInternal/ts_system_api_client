@@ -17755,14 +17755,14 @@ exports.FindingsApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get study findings via dois and association ids.
-         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @summary Get Study Findings From Association Ids
          * @param {StudyFindingsIn} studyFindingsIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost: (studyFindingsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getStudyFindingsFromAssociationIdsV1FindingsPost: (studyFindingsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyFindingsIn' is not null or undefined
-            common_1.assertParamExists('getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost', 'studyFindingsIn', studyFindingsIn);
+            common_1.assertParamExists('getStudyFindingsFromAssociationIdsV1FindingsPost', 'studyFindingsIn', studyFindingsIn);
             const localVarPath = `/v1/findings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -17799,14 +17799,14 @@ exports.FindingsApiFp = function (configuration) {
     return {
         /**
          * Get study findings via dois and association ids.
-         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @summary Get Study Findings From Association Ids
          * @param {StudyFindingsIn} studyFindingsIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options) {
+        getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -17821,13 +17821,13 @@ exports.FindingsApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Get study findings via dois and association ids.
-         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @summary Get Study Findings From Association Ids
          * @param {StudyFindingsIn} studyFindingsIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options) {
-            return localVarFp.getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
+        getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options) {
+            return localVarFp.getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -17840,14 +17840,14 @@ exports.FindingsApiFactory = function (configuration, basePath, axios) {
 class FindingsApi extends base_1.BaseAPI {
     /**
      * Get study findings via dois and association ids.
-     * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
-     * @param {FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest} requestParameters Request parameters.
+     * @summary Get Study Findings From Association Ids
+     * @param {FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FindingsApi
      */
-    getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(requestParameters, options) {
-        return exports.FindingsApiFp(this.configuration).getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
+    getStudyFindingsFromAssociationIdsV1FindingsPost(requestParameters, options) {
+        return exports.FindingsApiFp(this.configuration).getStudyFindingsFromAssociationIdsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.FindingsApi = FindingsApi;
