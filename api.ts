@@ -3726,6 +3726,25 @@ export enum FilterValueType {
 }
 
 /**
+ * Interface for finding in study.
+ * @export
+ * @interface Finding
+ */
+export interface Finding {
+    /**
+     * 
+     * @type {string}
+     * @memberof Finding
+     */
+    'summary': string;
+    /**
+     * 
+     * @type {RawFinding}
+     * @memberof Finding
+     */
+    'data': RawFinding;
+}
+/**
  * Schema for identifying finding.
  * @export
  * @interface FindingMeta
@@ -6486,6 +6505,67 @@ export interface PublicationInfo {
     'ordered_authors'?: Array<PublicationAuthor>;
 }
 /**
+ * Statistical finding.
+ * @export
+ * @interface RawFinding
+ */
+export interface RawFinding {
+    /**
+     * 
+     * @type {string}
+     * @memberof RawFinding
+     */
+    'association_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RawFinding
+     */
+    'variable_1': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RawFinding
+     */
+    'variable_2': string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof RawFinding
+     */
+    'bidirectional': boolean;
+    /**
+     * 
+     * @type {FeatureContributionMethod}
+     * @memberof RawFinding
+     */
+    'feature_contribution_method': FeatureContributionMethod;
+    /**
+     * 
+     * @type {number}
+     * @memberof RawFinding
+     */
+    'value': number;
+    /**
+     * 
+     * @type {ConfidenceIntervalOut}
+     * @memberof RawFinding
+     */
+    'ci'?: ConfidenceIntervalOut;
+    /**
+     * 
+     * @type {number}
+     * @memberof RawFinding
+     */
+    'p_value'?: number;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof RawFinding
+     */
+    'flags'?: Array<string>;
+}
+/**
  * Credentials for a Redshift integration without password.
  * @export
  * @interface RedshiftCredentials
@@ -7284,52 +7364,33 @@ export interface StripeSessionOut {
     'session_url'?: string;
 }
 /**
- * Interface for individual association finding in study.
- * @export
- * @interface StudyFinding
- */
-export interface StudyFinding {
-    /**
-     * 
-     * @type {string}
-     * @memberof StudyFinding
-     */
-    'association_id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StudyFinding
-     */
-    'finding': string;
-}
-/**
  * Interface for a single study and its finding sentences, populations, sample size, and id.
  * @export
- * @interface StudyFindingObject
+ * @interface StudyFindings
  */
-export interface StudyFindingObject {
+export interface StudyFindings {
     /**
      * 
-     * @type {Array<StudyFinding>}
-     * @memberof StudyFindingObject
+     * @type {Array<Finding>}
+     * @memberof StudyFindings
      */
-    'findings': Array<StudyFinding>;
+    'findings': Array<Finding>;
     /**
      * 
      * @type {Array<string>}
-     * @memberof StudyFindingObject
+     * @memberof StudyFindings
      */
-    'populations': Array<string>;
+    'populations'?: Array<string>;
     /**
      * 
      * @type {number}
-     * @memberof StudyFindingObject
+     * @memberof StudyFindings
      */
     'sample_size'?: number;
     /**
      * 
      * @type {string}
-     * @memberof StudyFindingObject
+     * @memberof StudyFindings
      */
     'system_id': string;
 }
@@ -7354,10 +7415,10 @@ export interface StudyFindingsIn {
 export interface StudyFindingsOut {
     /**
      * 
-     * @type {Array<StudyFindingObject>}
+     * @type {Array<StudyFindings>}
      * @memberof StudyFindingsOut
      */
-    'studies': Array<StudyFindingObject>;
+    'studies': Array<StudyFindings>;
 }
 /**
  * A real world study.
@@ -36010,14 +36071,14 @@ export const FindingsApiAxiosParamCreator = function (configuration?: Configurat
     return {
         /**
          * Get study findings via dois and association ids.
-         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @summary Get Study Findings From Association Ids
          * @param {StudyFindingsIn} studyFindingsIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost: async (studyFindingsIn: StudyFindingsIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getStudyFindingsFromAssociationIdsV1FindingsPost: async (studyFindingsIn: StudyFindingsIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'studyFindingsIn' is not null or undefined
-            assertParamExists('getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost', 'studyFindingsIn', studyFindingsIn)
+            assertParamExists('getStudyFindingsFromAssociationIdsV1FindingsPost', 'studyFindingsIn', studyFindingsIn)
             const localVarPath = `/v1/findings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -36063,13 +36124,13 @@ export const FindingsApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Get study findings via dois and association ids.
-         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @summary Get Study Findings From Association Ids
          * @param {StudyFindingsIn} studyFindingsIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options);
+        async getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -36084,27 +36145,27 @@ export const FindingsApiFactory = function (configuration?: Configuration, baseP
     return {
         /**
          * Get study findings via dois and association ids.
-         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @summary Get Study Findings From Association Ids
          * @param {StudyFindingsIn} studyFindingsIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: any): AxiosPromise<StudyFindingsOut> {
-            return localVarFp.getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
+        getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: any): AxiosPromise<StudyFindingsOut> {
+            return localVarFp.getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost operation in FindingsApi.
+ * Request parameters for getStudyFindingsFromAssociationIdsV1FindingsPost operation in FindingsApi.
  * @export
- * @interface FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest
+ * @interface FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest
  */
-export interface FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest {
+export interface FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest {
     /**
      * 
      * @type {StudyFindingsIn}
-     * @memberof FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost
+     * @memberof FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPost
      */
     readonly studyFindingsIn: StudyFindingsIn
 }
@@ -36118,14 +36179,14 @@ export interface FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssocia
 export class FindingsApi extends BaseAPI {
     /**
      * Get study findings via dois and association ids.
-     * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
-     * @param {FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest} requestParameters Request parameters.
+     * @summary Get Study Findings From Association Ids
+     * @param {FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FindingsApi
      */
-    public getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest, options?: AxiosRequestConfig) {
-        return FindingsApiFp(this.configuration).getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
+    public getStudyFindingsFromAssociationIdsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest, options?: AxiosRequestConfig) {
+        return FindingsApiFp(this.configuration).getStudyFindingsFromAssociationIdsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
