@@ -6542,6 +6542,12 @@ export interface RawFinding {
     'feature_contribution_method': FeatureContributionMethod;
     /**
      * 
+     * @type {boolean}
+     * @memberof RawFinding
+     */
+    'is_ratio': boolean;
+    /**
+     * 
      * @type {number}
      * @memberof RawFinding
      */
