@@ -47208,6 +47208,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
          * @param {string} [q] Search query
+         * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
          * @param {number} [studyMoveTo] Study moveTo distance force
@@ -47218,7 +47219,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet: async (q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticSearchV1SemanticSearchGet: async (q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/semantic-search`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -47240,6 +47241,10 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
 
             if (q !== undefined) {
                 localVarQueryParameter['q'] = q;
+            }
+
+            if (cluster !== undefined) {
+                localVarQueryParameter['cluster'] = cluster;
             }
 
             if (filterBy !== undefined) {
@@ -47295,6 +47300,7 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
          * @param {string} [q] Search query
+         * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
          * @param {number} [studyMoveTo] Study moveTo distance force
@@ -47305,8 +47311,8 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticSearchV1SemanticSearchGet(q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(q, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, clusteringThresholds, options);
+        async getSemanticSearchV1SemanticSearchGet(q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(q, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, clusteringThresholds, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -47323,6 +47329,7 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
          * @param {string} [q] Search query
+         * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
          * @param {number} [studyMoveTo] Study moveTo distance force
@@ -47333,8 +47340,8 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet(q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: any): AxiosPromise<SemanticSearchOut> {
-            return localVarFp.getSemanticSearchV1SemanticSearchGet(q, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, clusteringThresholds, options).then((request) => request(axios, basePath));
+        getSemanticSearchV1SemanticSearchGet(q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: any): AxiosPromise<SemanticSearchOut> {
+            return localVarFp.getSemanticSearchV1SemanticSearchGet(q, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, clusteringThresholds, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -47351,6 +47358,13 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
     readonly q?: string
+
+    /**
+     * To cluster results or not. Default True.
+     * @type {boolean}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly cluster?: boolean
 
     /**
      * Filter semantic search results.
@@ -47418,7 +47432,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     public getSemanticSearchV1SemanticSearchGet(requestParameters: SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest = {}, options?: AxiosRequestConfig) {
-        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.q, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.studyMoveTo, requestParameters.relationshipDistance, requestParameters.relationshipMoveTo, requestParameters.relationshipMoveAwayFrom, requestParameters.clusteringThresholds, options).then((request) => request(this.axios, this.basePath));
+        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.q, requestParameters.cluster, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.studyMoveTo, requestParameters.relationshipDistance, requestParameters.relationshipMoveTo, requestParameters.relationshipMoveAwayFrom, requestParameters.clusteringThresholds, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
