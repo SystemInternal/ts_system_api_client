@@ -7392,7 +7392,7 @@ export interface StudyFindings {
      * @type {string}
      * @memberof StudyFindings
      */
-    'system_id': string;
+    'doi': string;
 }
 /**
  * Interface for /findings input.
