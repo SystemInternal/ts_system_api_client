@@ -36597,10 +36597,11 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
          * @param {Array<string>} [ids2] Topic 2 ids
          * @param {number} [minStrength] Min strength
          * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1GraphSemanticGraphGet: async (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticGraphV1GraphSemanticGraphGet: async (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('getSemanticGraphV1GraphSemanticGraphGet', 'teamId', teamId)
             const localVarPath = `/v1/graph/semantic_graph`;
@@ -36646,6 +36647,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['min_count'] = minCount;
             }
 
+            if (clusterThreshold !== undefined) {
+                localVarQueryParameter['cluster_threshold'] = clusterThreshold;
+            }
+
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -36671,10 +36676,11 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
          * @param {Array<string>} [ids2] Topic 2 ids
          * @param {number} [minStrength] Min strength
          * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: async (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: async (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet', 'teamId', teamId)
             const localVarPath = `/v1/teams/{team_id}/graph/semantic_graph`
@@ -36719,6 +36725,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             if (minCount !== undefined) {
                 localVarQueryParameter['min_count'] = minCount;
+            }
+
+            if (clusterThreshold !== undefined) {
+                localVarQueryParameter['cluster_threshold'] = clusterThreshold;
             }
 
 
@@ -37139,11 +37149,12 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {Array<string>} [ids2] Topic 2 ids
          * @param {number} [minStrength] Min strength
          * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options);
+        async getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -37156,11 +37167,12 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {Array<string>} [ids2] Topic 2 ids
          * @param {number} [minStrength] Min strength
          * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options);
+        async getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -37347,11 +37359,12 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {Array<string>} [ids2] Topic 2 ids
          * @param {number} [minStrength] Min strength
          * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData> {
-            return localVarFp.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
+        getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch semantic graph.
@@ -37363,11 +37376,12 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {Array<string>} [ids2] Topic 2 ids
          * @param {number} [minStrength] Min strength
          * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData> {
-            return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -37676,6 +37690,13 @@ export interface GraphApiGetSemanticGraphV1GraphSemanticGraphGetRequest {
      * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
      */
     readonly minCount?: number
+
+    /**
+     * Clustering threshold.
+     * @type {number}
+     * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
+     */
+    readonly clusterThreshold?: number
 }
 
 /**
@@ -37732,6 +37753,13 @@ export interface GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetReque
      * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
      */
     readonly minCount?: number
+
+    /**
+     * Clustering threshold.
+     * @type {number}
+     * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly clusterThreshold?: number
 }
 
 /**
@@ -37986,7 +38014,7 @@ export class GraphApi extends BaseAPI {
      * @memberof GraphApi
      */
     public getSemanticGraphV1GraphSemanticGraphGet(requestParameters: GraphApiGetSemanticGraphV1GraphSemanticGraphGetRequest, options?: AxiosRequestConfig) {
-        return GraphApiFp(this.configuration).getSemanticGraphV1GraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, options).then((request) => request(this.axios, this.basePath));
+        return GraphApiFp(this.configuration).getSemanticGraphV1GraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, requestParameters.clusterThreshold, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37998,7 +38026,7 @@ export class GraphApi extends BaseAPI {
      * @memberof GraphApi
      */
     public getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig) {
-        return GraphApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, options).then((request) => request(this.axios, this.basePath));
+        return GraphApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, requestParameters.clusterThreshold, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56371,10 +56399,11 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {Array<string>} [ids2] Topic 2 ids
          * @param {number} [minStrength] Min strength
          * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: async (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: async (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet', 'teamId', teamId)
             const localVarPath = `/v1/teams/{team_id}/graph/semantic_graph`
@@ -56419,6 +56448,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             if (minCount !== undefined) {
                 localVarQueryParameter['min_count'] = minCount;
+            }
+
+            if (clusterThreshold !== undefined) {
+                localVarQueryParameter['cluster_threshold'] = clusterThreshold;
             }
 
 
@@ -62673,11 +62706,12 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {Array<string>} [ids2] Topic 2 ids
          * @param {number} [minStrength] Min strength
          * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options);
+        async getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -64695,11 +64729,12 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {Array<string>} [ids2] Topic 2 ids
          * @param {number} [minStrength] Min strength
          * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData> {
-            return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Study.
@@ -67398,6 +67433,13 @@ export interface TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetReque
      * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
      */
     readonly minCount?: number
+
+    /**
+     * Clustering threshold.
+     * @type {number}
+     * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
+     */
+    readonly clusterThreshold?: number
 }
 
 /**
@@ -72616,7 +72658,7 @@ export class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     public getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, options).then((request) => request(this.axios, this.basePath));
+        return TeamsApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, requestParameters.clusterThreshold, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
