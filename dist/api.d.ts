@@ -31056,11 +31056,12 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {number} [relationshipDistance] Relationship distance threshold
      * @param {number} [relationshipMoveTo] Relationship moveTo distance force
      * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+     * @param {number} [relationshipMax] Max number of relationships returned
      * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet: (q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchV1SemanticSearchGet: (q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SemanticSearchApi - functional programming interface
@@ -31078,11 +31079,12 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {number} [relationshipDistance] Relationship distance threshold
      * @param {number} [relationshipMoveTo] Relationship moveTo distance force
      * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+     * @param {number} [relationshipMax] Max number of relationships returned
      * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
+    getSemanticSearchV1SemanticSearchGet(q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
 };
 /**
  * SemanticSearchApi - factory interface
@@ -31100,11 +31102,12 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {number} [relationshipDistance] Relationship distance threshold
      * @param {number} [relationshipMoveTo] Relationship moveTo distance force
      * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+     * @param {number} [relationshipMax] Max number of relationships returned
      * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: any): AxiosPromise<SemanticSearchOut>;
+    getSemanticSearchV1SemanticSearchGet(q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, options?: any): AxiosPromise<SemanticSearchOut>;
 };
 /**
  * Request parameters for getSemanticSearchV1SemanticSearchGet operation in SemanticSearchApi.
@@ -31160,6 +31163,12 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
     readonly relationshipMoveAwayFrom?: number;
+    /**
+     * Max number of relationships returned
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly relationshipMax?: number;
     /**
      * Clustering thresholds as json stringified list of pairs of floats.
      * @type {string}
