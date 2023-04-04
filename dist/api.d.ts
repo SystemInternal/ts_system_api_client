@@ -24823,13 +24823,12 @@ export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {string} [topic2] Topic 2
      * @param {Array<string>} [ids1] Topic 1 ids
      * @param {Array<string>} [ids2] Topic 2 ids
-     * @param {number} [minStrength] Min strength
-     * @param {number} [minCount] Min count
-     * @param {number} [clusterThreshold] Clustering threshold.
+     * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
+     * @param {number} [minNumberEdges] Min number of edges to compare against percentile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1GraphSemanticGraphGet: (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticGraphV1GraphSemanticGraphGet: (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, countPercentile?: number, minNumberEdges?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph
@@ -24838,13 +24837,12 @@ export declare const GraphApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {string} [topic2] Topic 2
      * @param {Array<string>} [ids1] Topic 1 ids
      * @param {Array<string>} [ids2] Topic 2 ids
-     * @param {number} [minStrength] Min strength
-     * @param {number} [minCount] Min count
-     * @param {number} [clusterThreshold] Clustering threshold.
+     * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
+     * @param {number} [minNumberEdges] Min number of edges to compare against percentile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, countPercentile?: number, minNumberEdges?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
@@ -24989,13 +24987,12 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
      * @param {string} [topic2] Topic 2
      * @param {Array<string>} [ids1] Topic 1 ids
      * @param {Array<string>} [ids2] Topic 2 ids
-     * @param {number} [minStrength] Min strength
-     * @param {number} [minCount] Min count
-     * @param {number} [clusterThreshold] Clustering threshold.
+     * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
+     * @param {number} [minNumberEdges] Min number of edges to compare against percentile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, countPercentile?: number, minNumberEdges?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph
@@ -25004,13 +25001,12 @@ export declare const GraphApiFp: (configuration?: Configuration) => {
      * @param {string} [topic2] Topic 2
      * @param {Array<string>} [ids1] Topic 1 ids
      * @param {Array<string>} [ids2] Topic 2 ids
-     * @param {number} [minStrength] Min strength
-     * @param {number} [minCount] Min count
-     * @param {number} [clusterThreshold] Clustering threshold.
+     * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
+     * @param {number} [minNumberEdges] Min number of edges to compare against percentile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, countPercentile?: number, minNumberEdges?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
@@ -25155,13 +25151,12 @@ export declare const GraphApiFactory: (configuration?: Configuration, basePath?:
      * @param {string} [topic2] Topic 2
      * @param {Array<string>} [ids1] Topic 1 ids
      * @param {Array<string>} [ids2] Topic 2 ids
-     * @param {number} [minStrength] Min strength
-     * @param {number} [minCount] Min count
-     * @param {number} [clusterThreshold] Clustering threshold.
+     * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
+     * @param {number} [minNumberEdges] Min number of edges to compare against percentile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: any): AxiosPromise<GraphData>;
+    getSemanticGraphV1GraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, countPercentile?: number, minNumberEdges?: number, options?: any): AxiosPromise<GraphData>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph
@@ -25170,13 +25165,12 @@ export declare const GraphApiFactory: (configuration?: Configuration, basePath?:
      * @param {string} [topic2] Topic 2
      * @param {Array<string>} [ids1] Topic 1 ids
      * @param {Array<string>} [ids2] Topic 2 ids
-     * @param {number} [minStrength] Min strength
-     * @param {number} [minCount] Min count
-     * @param {number} [clusterThreshold] Clustering threshold.
+     * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
+     * @param {number} [minNumberEdges] Min number of edges to compare against percentile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: any): AxiosPromise<GraphData>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, countPercentile?: number, minNumberEdges?: number, options?: any): AxiosPromise<GraphData>;
     /**
      * Fetch dataset graph.
      * @summary Get Topic Graph
@@ -25435,23 +25429,17 @@ export interface GraphApiGetSemanticGraphV1GraphSemanticGraphGetRequest {
      */
     readonly ids2?: Array<string>;
     /**
-     * Min strength
+     * Top X percentile cuttoff of evidence count for edges
      * @type {number}
      * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
      */
-    readonly minStrength?: number;
+    readonly countPercentile?: number;
     /**
-     * Min count
+     * Min number of edges to compare against percentile
      * @type {number}
      * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
      */
-    readonly minCount?: number;
-    /**
-     * Clustering threshold.
-     * @type {number}
-     * @memberof GraphApiGetSemanticGraphV1GraphSemanticGraphGet
-     */
-    readonly clusterThreshold?: number;
+    readonly minNumberEdges?: number;
 }
 /**
  * Request parameters for getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet operation in GraphApi.
@@ -25490,23 +25478,17 @@ export interface GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetReque
      */
     readonly ids2?: Array<string>;
     /**
-     * Min strength
+     * Top X percentile cuttoff of evidence count for edges
      * @type {number}
      * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
      */
-    readonly minStrength?: number;
+    readonly countPercentile?: number;
     /**
-     * Min count
+     * Min number of edges to compare against percentile
      * @type {number}
      * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
      */
-    readonly minCount?: number;
-    /**
-     * Clustering threshold.
-     * @type {number}
-     * @memberof GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
-     */
-    readonly clusterThreshold?: number;
+    readonly minNumberEdges?: number;
 }
 /**
  * Request parameters for getTopicGraphV1GraphTopicGraphGet operation in GraphApi.
@@ -35292,13 +35274,12 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {string} [topic2] Topic 2
      * @param {Array<string>} [ids1] Topic 1 ids
      * @param {Array<string>} [ids2] Topic 2 ids
-     * @param {number} [minStrength] Min strength
-     * @param {number} [minCount] Min count
-     * @param {number} [clusterThreshold] Clustering threshold.
+     * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
+     * @param {number} [minNumberEdges] Min number of edges to compare against percentile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, countPercentile?: number, minNumberEdges?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get Study.
      * @summary Get Study
@@ -36963,13 +36944,12 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @param {string} [topic2] Topic 2
      * @param {Array<string>} [ids1] Topic 1 ids
      * @param {Array<string>} [ids2] Topic 2 ids
-     * @param {number} [minStrength] Min strength
-     * @param {number} [minCount] Min count
-     * @param {number} [clusterThreshold] Clustering threshold.
+     * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
+     * @param {number} [minNumberEdges] Min number of edges to compare against percentile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, countPercentile?: number, minNumberEdges?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Get Study.
      * @summary Get Study
@@ -38634,13 +38614,12 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @param {string} [topic2] Topic 2
      * @param {Array<string>} [ids1] Topic 1 ids
      * @param {Array<string>} [ids2] Topic 2 ids
-     * @param {number} [minStrength] Min strength
-     * @param {number} [minCount] Min count
-     * @param {number} [clusterThreshold] Clustering threshold.
+     * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
+     * @param {number} [minNumberEdges] Min number of edges to compare against percentile
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, clusterThreshold?: number, options?: any): AxiosPromise<GraphData>;
+    getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, countPercentile?: number, minNumberEdges?: number, options?: any): AxiosPromise<GraphData>;
     /**
      * Get Study.
      * @summary Get Study
@@ -41029,23 +41008,17 @@ export interface TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetReque
      */
     readonly ids2?: Array<string>;
     /**
-     * Min strength
+     * Top X percentile cuttoff of evidence count for edges
      * @type {number}
      * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
      */
-    readonly minStrength?: number;
+    readonly countPercentile?: number;
     /**
-     * Min count
+     * Min number of edges to compare against percentile
      * @type {number}
      * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
      */
-    readonly minCount?: number;
-    /**
-     * Clustering threshold.
-     * @type {number}
-     * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
-     */
-    readonly clusterThreshold?: number;
+    readonly minNumberEdges?: number;
 }
 /**
  * Request parameters for getStudyV1TeamsTeamIdStudiesStudyIdGet operation in TeamsApi.
