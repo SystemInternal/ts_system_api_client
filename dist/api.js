@@ -18185,12 +18185,13 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
          * @param {string} [topic2] Topic 2
          * @param {Array<string>} [ids1] Topic 1 ids
          * @param {Array<string>} [ids2] Topic 2 ids
-         * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
-         * @param {number} [minNumberEdges] Min number of edges to compare against percentile
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1GraphSemanticGraphGet: (teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSemanticGraphV1GraphSemanticGraphGet: (teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('getSemanticGraphV1GraphSemanticGraphGet', 'teamId', teamId);
             const localVarPath = `/v1/graph/semantic_graph`;
@@ -18220,11 +18221,14 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
             if (ids2) {
                 localVarQueryParameter['ids_2'] = ids2;
             }
-            if (countPercentile !== undefined) {
-                localVarQueryParameter['count_percentile'] = countPercentile;
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
             }
-            if (minNumberEdges !== undefined) {
-                localVarQueryParameter['min_number_edges'] = minNumberEdges;
+            if (minCount !== undefined) {
+                localVarQueryParameter['min_count'] = minCount;
+            }
+            if (clusterThreshold !== undefined) {
+                localVarQueryParameter['cluster_threshold'] = clusterThreshold;
             }
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
@@ -18245,12 +18249,13 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
          * @param {string} [topic2] Topic 2
          * @param {Array<string>} [ids1] Topic 1 ids
          * @param {Array<string>} [ids2] Topic 2 ids
-         * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
-         * @param {number} [minNumberEdges] Min number of edges to compare against percentile
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet', 'teamId', teamId);
             const localVarPath = `/v1/teams/{team_id}/graph/semantic_graph`
@@ -18281,11 +18286,14 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
             if (ids2) {
                 localVarQueryParameter['ids_2'] = ids2;
             }
-            if (countPercentile !== undefined) {
-                localVarQueryParameter['count_percentile'] = countPercentile;
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
             }
-            if (minNumberEdges !== undefined) {
-                localVarQueryParameter['min_number_edges'] = minNumberEdges;
+            if (minCount !== undefined) {
+                localVarQueryParameter['min_count'] = minCount;
+            }
+            if (clusterThreshold !== undefined) {
+                localVarQueryParameter['cluster_threshold'] = clusterThreshold;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -18668,14 +18676,15 @@ exports.GraphApiFp = function (configuration) {
          * @param {string} [topic2] Topic 2
          * @param {Array<string>} [ids1] Topic 1 ids
          * @param {Array<string>} [ids2] Topic 2 ids
-         * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
-         * @param {number} [minNumberEdges] Min number of edges to compare against percentile
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options) {
+        getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -18687,14 +18696,15 @@ exports.GraphApiFp = function (configuration) {
          * @param {string} [topic2] Topic 2
          * @param {Array<string>} [ids1] Topic 1 ids
          * @param {Array<string>} [ids2] Topic 2 ids
-         * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
-         * @param {number} [minNumberEdges] Min number of edges to compare against percentile
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options) {
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -18891,13 +18901,14 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
          * @param {string} [topic2] Topic 2
          * @param {Array<string>} [ids1] Topic 1 ids
          * @param {Array<string>} [ids2] Topic 2 ids
-         * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
-         * @param {number} [minNumberEdges] Min number of edges to compare against percentile
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options) {
-            return localVarFp.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options).then((request) => request(axios, basePath));
+        getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options) {
+            return localVarFp.getSemanticGraphV1GraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch semantic graph.
@@ -18907,13 +18918,14 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
          * @param {string} [topic2] Topic 2
          * @param {Array<string>} [ids1] Topic 1 ids
          * @param {Array<string>} [ids2] Topic 2 ids
-         * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
-         * @param {number} [minNumberEdges] Min number of edges to compare against percentile
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options) {
-            return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options).then((request) => request(axios, basePath));
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options) {
+            return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -19089,7 +19101,7 @@ class GraphApi extends base_1.BaseAPI {
      * @memberof GraphApi
      */
     getSemanticGraphV1GraphSemanticGraphGet(requestParameters, options) {
-        return exports.GraphApiFp(this.configuration).getSemanticGraphV1GraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.countPercentile, requestParameters.minNumberEdges, options).then((request) => request(this.axios, this.basePath));
+        return exports.GraphApiFp(this.configuration).getSemanticGraphV1GraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, requestParameters.clusterThreshold, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch semantic graph.
@@ -19100,7 +19112,7 @@ class GraphApi extends base_1.BaseAPI {
      * @memberof GraphApi
      */
     getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters, options) {
-        return exports.GraphApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.countPercentile, requestParameters.minNumberEdges, options).then((request) => request(this.axios, this.basePath));
+        return exports.GraphApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, requestParameters.clusterThreshold, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch dataset graph.
@@ -31388,12 +31400,13 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @param {string} [topic2] Topic 2
          * @param {Array<string>} [ids1] Topic 1 ids
          * @param {Array<string>} [ids2] Topic 2 ids
-         * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
-         * @param {number} [minNumberEdges] Min number of edges to compare against percentile
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet: (teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet', 'teamId', teamId);
             const localVarPath = `/v1/teams/{team_id}/graph/semantic_graph`
@@ -31424,11 +31437,14 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             if (ids2) {
                 localVarQueryParameter['ids_2'] = ids2;
             }
-            if (countPercentile !== undefined) {
-                localVarQueryParameter['count_percentile'] = countPercentile;
+            if (minStrength !== undefined) {
+                localVarQueryParameter['min_strength'] = minStrength;
             }
-            if (minNumberEdges !== undefined) {
-                localVarQueryParameter['min_number_edges'] = minNumberEdges;
+            if (minCount !== undefined) {
+                localVarQueryParameter['min_count'] = minCount;
+            }
+            if (clusterThreshold !== undefined) {
+                localVarQueryParameter['cluster_threshold'] = clusterThreshold;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -36844,14 +36860,15 @@ exports.TeamsApiFp = function (configuration) {
          * @param {string} [topic2] Topic 2
          * @param {Array<string>} [ids1] Topic 1 ids
          * @param {Array<string>} [ids2] Topic 2 ids
-         * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
-         * @param {number} [minNumberEdges] Min number of edges to compare against percentile
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options) {
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -39017,13 +39034,14 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @param {string} [topic2] Topic 2
          * @param {Array<string>} [ids1] Topic 1 ids
          * @param {Array<string>} [ids2] Topic 2 ids
-         * @param {number} [countPercentile] Top X percentile cuttoff of evidence count for edges
-         * @param {number} [minNumberEdges] Min number of edges to compare against percentile
+         * @param {number} [minStrength] Min strength
+         * @param {number} [minCount] Min count
+         * @param {number} [clusterThreshold] Clustering threshold.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options) {
-            return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, countPercentile, minNumberEdges, options).then((request) => request(axios, basePath));
+        getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options) {
+            return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, clusterThreshold, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Study.
@@ -40943,7 +40961,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.countPercentile, requestParameters.minNumberEdges, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, requestParameters.clusterThreshold, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Study.
