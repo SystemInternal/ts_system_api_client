@@ -7025,6 +7025,16 @@ export interface SemanticSearchOut {
     'relationships': Array<ClusteredRelationship>;
 }
 /**
+ * Defines modes for semantic search.
+ * @export
+ * @enum {string}
+ */
+export declare enum SemanticSearchType {
+    RiskFactorOf = "risk_factor_of",
+    Outcome = "outcome",
+    Relationship = "relationship"
+}
+/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -7801,6 +7811,12 @@ export interface SynthesisIn {
      * @memberof SynthesisIn
      */
     'question'?: string;
+    /**
+     *
+     * @type {SemanticSearchType}
+     * @memberof SynthesisIn
+     */
+    'question_type'?: SemanticSearchType;
     /**
      *
      * @type {Array<Evidence>}
@@ -34598,10 +34614,11 @@ export declare const SynthesisApiAxiosParamCreator: (configuration?: Configurati
      * @param {string} [length]
      * @param {number} [temperature]
      * @param {number} [maxTokens]
+     * @param {number} [choices]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateASynthesisV1SynthesisPost: (synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    generateASynthesisV1SynthesisPost: (synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SynthesisApi - functional programming interface
@@ -34617,10 +34634,11 @@ export declare const SynthesisApiFp: (configuration?: Configuration) => {
      * @param {string} [length]
      * @param {number} [temperature]
      * @param {number} [maxTokens]
+     * @param {number} [choices]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
+    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
 };
 /**
  * SynthesisApi - factory interface
@@ -34636,10 +34654,11 @@ export declare const SynthesisApiFactory: (configuration?: Configuration, basePa
      * @param {string} [length]
      * @param {number} [temperature]
      * @param {number} [maxTokens]
+     * @param {number} [choices]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: any): AxiosPromise<SynthesisOut>;
+    generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SynthesisOut>;
 };
 /**
  * Request parameters for generateASynthesisV1SynthesisPost operation in SynthesisApi.
@@ -34683,6 +34702,12 @@ export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
      * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
      */
     readonly maxTokens?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly choices?: number;
 }
 /**
  * SynthesisApi - object-oriented interface
