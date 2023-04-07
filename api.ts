@@ -7044,6 +7044,18 @@ export interface SemanticSearchOut {
     'relationships': Array<ClusteredRelationship>;
 }
 /**
+ * Defines modes for semantic search.
+ * @export
+ * @enum {string}
+ */
+
+export enum SemanticSearchType {
+    RiskFactorOf = 'risk_factor_of',
+    Outcome = 'outcome',
+    Relationship = 'relationship'
+}
+
+/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -7826,6 +7838,12 @@ export interface SynthesisIn {
      * @memberof SynthesisIn
      */
     'question'?: string;
+    /**
+     * 
+     * @type {SemanticSearchType}
+     * @memberof SynthesisIn
+     */
+    'question_type'?: SemanticSearchType;
     /**
      * 
      * @type {Array<Evidence>}
@@ -53350,10 +53368,11 @@ export const SynthesisApiAxiosParamCreator = function (configuration?: Configura
          * @param {string} [length] 
          * @param {number} [temperature] 
          * @param {number} [maxTokens] 
+         * @param {number} [choices] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateASynthesisV1SynthesisPost: async (synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        generateASynthesisV1SynthesisPost: async (synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'synthesisIn' is not null or undefined
             assertParamExists('generateASynthesisV1SynthesisPost', 'synthesisIn', synthesisIn)
             const localVarPath = `/v1/synthesis`;
@@ -53395,6 +53414,10 @@ export const SynthesisApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['max_tokens'] = maxTokens;
             }
 
+            if (choices !== undefined) {
+                localVarQueryParameter['choices'] = choices;
+            }
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -53428,11 +53451,12 @@ export const SynthesisApiFp = function(configuration?: Configuration) {
          * @param {string} [length] 
          * @param {number} [temperature] 
          * @param {number} [maxTokens] 
+         * @param {number} [choices] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, options);
+        async generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, choices, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -53454,11 +53478,12 @@ export const SynthesisApiFactory = function (configuration?: Configuration, base
          * @param {string} [length] 
          * @param {number} [temperature] 
          * @param {number} [maxTokens] 
+         * @param {number} [choices] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: any): AxiosPromise<SynthesisOut> {
-            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, options).then((request) => request(axios, basePath));
+        generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SynthesisOut> {
+            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, choices, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -53510,6 +53535,13 @@ export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
      * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
      */
     readonly maxTokens?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
+     */
+    readonly choices?: number
 }
 
 /**
@@ -53528,7 +53560,7 @@ export class SynthesisApi extends BaseAPI {
      * @memberof SynthesisApi
      */
     public generateASynthesisV1SynthesisPost(requestParameters: SynthesisApiGenerateASynthesisV1SynthesisPostRequest, options?: AxiosRequestConfig) {
-        return SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.singleQuestionPrompt, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, options).then((request) => request(this.axios, this.basePath));
+        return SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.singleQuestionPrompt, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
