@@ -1367,7 +1367,13 @@ export interface Cluster {
      * @type {number}
      * @memberof Cluster
      */
-    'id': number;
+    'sort_id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Cluster
+     */
+    'id': string;
     /**
      * 
      * @type {string}
