@@ -1364,10 +1364,10 @@ export interface CategoryOut {
 export interface Cluster {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof Cluster
      */
-    'id': string;
+    'id': number;
     /**
      * 
      * @type {string}
@@ -1380,12 +1380,6 @@ export interface Cluster {
      * @memberof Cluster
      */
     'prompt_summary': string;
-    /**
-     * 
-     * @type {Array<number>}
-     * @memberof Cluster
-     */
-    'relationship_distances': Array<number>;
 }
 /**
  * Schema for clustered relationship response.
@@ -3088,25 +3082,6 @@ export interface EnterpriseIn {
      * @memberof EnterpriseIn
      */
     'idp_metadata'?: string;
-}
-/**
- * Evidence dict for SynthesisIn.
- * @export
- * @interface Evidence
- */
-export interface Evidence {
-    /**
-     * 
-     * @type {number}
-     * @memberof Evidence
-     */
-    'id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Evidence
-     */
-    'summary': string;
 }
 /**
  * Edge Typed Link model.
@@ -7042,6 +7017,12 @@ export interface SemanticSearchOut {
      * @memberof SemanticSearchOut
      */
     'relationships': Array<ClusteredRelationship>;
+    /**
+     * 
+     * @type {string}
+     * @memberof SemanticSearchOut
+     */
+    'synthesis'?: string;
 }
 /**
  * Defines modes for semantic search.
@@ -7826,56 +7807,6 @@ export enum StudyTypeEnum {
     RandomizedControlTrial = 'randomized_control_trial'
 }
 
-/**
- * Post body for /synthesis endpoint.
- * @export
- * @interface SynthesisIn
- */
-export interface SynthesisIn {
-    /**
-     * 
-     * @type {string}
-     * @memberof SynthesisIn
-     */
-    'question'?: string;
-    /**
-     * 
-     * @type {SemanticSearchType}
-     * @memberof SynthesisIn
-     */
-    'question_type'?: SemanticSearchType;
-    /**
-     * 
-     * @type {Array<Evidence>}
-     * @memberof SynthesisIn
-     */
-    'evidence': Array<Evidence>;
-    /**
-     * 
-     * @type {string}
-     * @memberof SynthesisIn
-     */
-    'prompt_override'?: string;
-}
-/**
- * Synthesis output model.
- * @export
- * @interface SynthesisOut
- */
-export interface SynthesisOut {
-    /**
-     * 
-     * @type {string}
-     * @memberof SynthesisOut
-     */
-    'synthesis': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof SynthesisOut
-     */
-    'last_updated': number;
-}
 /**
  * Enum System object resource names.
  * @export
@@ -47225,7 +47156,9 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
-         * @param {string} [q] Search query
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
          * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
@@ -47235,10 +47168,15 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
          * @param {number} [relationshipMax] Max number of relationships returned
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet: async (q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticSearchV1SemanticSearchGet: async (questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/semantic-search`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -47258,8 +47196,16 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
-            if (q !== undefined) {
-                localVarQueryParameter['q'] = q;
+            if (questionType !== undefined) {
+                localVarQueryParameter['question_type'] = questionType;
+            }
+
+            if (term1 !== undefined) {
+                localVarQueryParameter['term1'] = term1;
+            }
+
+            if (term2 !== undefined) {
+                localVarQueryParameter['term2'] = term2;
             }
 
             if (cluster !== undefined) {
@@ -47298,6 +47244,26 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['clustering_thresholds'] = clusteringThresholds;
             }
 
+            if (modelName !== undefined) {
+                localVarQueryParameter['model_name'] = modelName;
+            }
+
+            if (length !== undefined) {
+                localVarQueryParameter['length'] = length;
+            }
+
+            if (temperature !== undefined) {
+                localVarQueryParameter['temperature'] = temperature;
+            }
+
+            if (maxTokens !== undefined) {
+                localVarQueryParameter['max_tokens'] = maxTokens;
+            }
+
+            if (choices !== undefined) {
+                localVarQueryParameter['choices'] = choices;
+            }
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -47322,7 +47288,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
-         * @param {string} [q] Search query
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
          * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
@@ -47332,11 +47300,16 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
          * @param {number} [relationshipMax] Max number of relationships returned
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticSearchV1SemanticSearchGet(q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(q, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, relationshipMax, clusteringThresholds, options);
+        async getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, relationshipMax, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -47352,7 +47325,9 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
-         * @param {string} [q] Search query
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
          * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
@@ -47362,11 +47337,16 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
          * @param {number} [relationshipMax] Max number of relationships returned
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet(q?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, options?: any): AxiosPromise<SemanticSearchOut> {
-            return localVarFp.getSemanticSearchV1SemanticSearchGet(q, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, relationshipMax, clusteringThresholds, options).then((request) => request(axios, basePath));
+        getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchOut> {
+            return localVarFp.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, relationshipMax, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -47378,11 +47358,25 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
  */
 export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
     /**
-     * Search query
+     * Search query type
+     * @type {SemanticSearchType}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly questionType?: SemanticSearchType
+
+    /**
+     * First term part of the question.
      * @type {string}
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
-    readonly q?: string
+    readonly term1?: string
+
+    /**
+     * Optional second term part of the question.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly term2?: string
 
     /**
      * To cluster results or not. Default True.
@@ -47446,6 +47440,41 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
     readonly clusteringThresholds?: string
+
+    /**
+     * OpenAI model name
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly modelName?: string
+
+    /**
+     * Length of synthesis paragraph, in sentences.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly length?: string
+
+    /**
+     * Temperature of summary
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly temperature?: number
+
+    /**
+     * Maximum token size
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly maxTokens?: number
+
+    /**
+     * Number of choices for OpenAI to produce.
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly choices?: number
 }
 
 /**
@@ -47464,7 +47493,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     public getSemanticSearchV1SemanticSearchGet(requestParameters: SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest = {}, options?: AxiosRequestConfig) {
-        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.q, requestParameters.cluster, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.studyMoveTo, requestParameters.relationshipDistance, requestParameters.relationshipMoveTo, requestParameters.relationshipMoveAwayFrom, requestParameters.relationshipMax, requestParameters.clusteringThresholds, options).then((request) => request(this.axios, this.basePath));
+        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.questionType, requestParameters.term1, requestParameters.term2, requestParameters.cluster, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.studyMoveTo, requestParameters.relationshipDistance, requestParameters.relationshipMoveTo, requestParameters.relationshipMoveAwayFrom, requestParameters.relationshipMax, requestParameters.clusteringThresholds, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -53349,218 +53378,6 @@ export class StudyMetadataApi extends BaseAPI {
      */
     public getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest, options?: AxiosRequestConfig) {
         return StudyMetadataApiFp(this.configuration).getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-/**
- * SynthesisApi - axios parameter creator
- * @export
- */
-export const SynthesisApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Generate and return summary synthesis.
-         * @summary Generate A Synthesis.
-         * @param {SynthesisIn} synthesisIn 
-         * @param {boolean} [singleQuestionPrompt] 
-         * @param {string} [modelName] 
-         * @param {string} [length] 
-         * @param {number} [temperature] 
-         * @param {number} [maxTokens] 
-         * @param {number} [choices] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        generateASynthesisV1SynthesisPost: async (synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'synthesisIn' is not null or undefined
-            assertParamExists('generateASynthesisV1SynthesisPost', 'synthesisIn', synthesisIn)
-            const localVarPath = `/v1/synthesis`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication APIKeyHeader required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
-            if (singleQuestionPrompt !== undefined) {
-                localVarQueryParameter['single_question_prompt'] = singleQuestionPrompt;
-            }
-
-            if (modelName !== undefined) {
-                localVarQueryParameter['model_name'] = modelName;
-            }
-
-            if (length !== undefined) {
-                localVarQueryParameter['length'] = length;
-            }
-
-            if (temperature !== undefined) {
-                localVarQueryParameter['temperature'] = temperature;
-            }
-
-            if (maxTokens !== undefined) {
-                localVarQueryParameter['max_tokens'] = maxTokens;
-            }
-
-            if (choices !== undefined) {
-                localVarQueryParameter['choices'] = choices;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(synthesisIn, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * SynthesisApi - functional programming interface
- * @export
- */
-export const SynthesisApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SynthesisApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Generate and return summary synthesis.
-         * @summary Generate A Synthesis.
-         * @param {SynthesisIn} synthesisIn 
-         * @param {boolean} [singleQuestionPrompt] 
-         * @param {string} [modelName] 
-         * @param {string} [length] 
-         * @param {number} [temperature] 
-         * @param {number} [maxTokens] 
-         * @param {number} [choices] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, choices, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * SynthesisApi - factory interface
- * @export
- */
-export const SynthesisApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SynthesisApiFp(configuration)
-    return {
-        /**
-         * Generate and return summary synthesis.
-         * @summary Generate A Synthesis.
-         * @param {SynthesisIn} synthesisIn 
-         * @param {boolean} [singleQuestionPrompt] 
-         * @param {string} [modelName] 
-         * @param {string} [length] 
-         * @param {number} [temperature] 
-         * @param {number} [maxTokens] 
-         * @param {number} [choices] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, singleQuestionPrompt?: boolean, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SynthesisOut> {
-            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, singleQuestionPrompt, modelName, length, temperature, maxTokens, choices, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * Request parameters for generateASynthesisV1SynthesisPost operation in SynthesisApi.
- * @export
- * @interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest
- */
-export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
-    /**
-     * 
-     * @type {SynthesisIn}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly synthesisIn: SynthesisIn
-
-    /**
-     * 
-     * @type {boolean}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly singleQuestionPrompt?: boolean
-
-    /**
-     * 
-     * @type {string}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly modelName?: string
-
-    /**
-     * 
-     * @type {string}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly length?: string
-
-    /**
-     * 
-     * @type {number}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly temperature?: number
-
-    /**
-     * 
-     * @type {number}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly maxTokens?: number
-
-    /**
-     * 
-     * @type {number}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly choices?: number
-}
-
-/**
- * SynthesisApi - object-oriented interface
- * @export
- * @class SynthesisApi
- * @extends {BaseAPI}
- */
-export class SynthesisApi extends BaseAPI {
-    /**
-     * Generate and return summary synthesis.
-     * @summary Generate A Synthesis.
-     * @param {SynthesisApiGenerateASynthesisV1SynthesisPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SynthesisApi
-     */
-    public generateASynthesisV1SynthesisPost(requestParameters: SynthesisApiGenerateASynthesisV1SynthesisPostRequest, options?: AxiosRequestConfig) {
-        return SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.singleQuestionPrompt, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
