@@ -1371,6 +1371,12 @@ export interface Cluster {
      * @memberof Cluster
      */
     'prompt_summary': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof Cluster
+     */
+    'cluster_labels': Array<string>;
 }
 /**
  * Schema for clustered relationship response.
