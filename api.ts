@@ -7156,6 +7156,17 @@ export interface SimpleTopic {
     'wikidata_id': string;
 }
 /**
+ * Single topic graph direction for enum.
+ * @export
+ * @enum {string}
+ */
+
+export enum SingleTopicGraphDirection {
+    In = 'in',
+    Out = 'out'
+}
+
+/**
  * Credentials for a Snowflake integration without password.
  * @export
  * @interface SnowflakeCredentials
@@ -36694,6 +36705,121 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {string} [topic] Topic
+         * @param {Array<string>} [topicRelationshipIds] Topic relationship ids. Two topic system ids concatenated together by |.
+         * @param {SingleTopicGraphDirection} [direction] Direction of graph in relation to topic.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1GraphSemanticTopicGraphGet: async (teamId: string, topic?: string, topicRelationshipIds?: Array<string>, direction?: SingleTopicGraphDirection, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getSemanticTopicGraphV1GraphSemanticTopicGraphGet', 'teamId', teamId)
+            const localVarPath = `/v1/graph/semantic_topic_graph`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (topic !== undefined) {
+                localVarQueryParameter['topic'] = topic;
+            }
+
+            if (topicRelationshipIds) {
+                localVarQueryParameter['topic_relationship_ids'] = topicRelationshipIds;
+            }
+
+            if (direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
+
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {string} [topic] Topic
+         * @param {Array<string>} [topicRelationshipIds] Topic relationship ids. Two topic system ids concatenated together by |.
+         * @param {SingleTopicGraphDirection} [direction] Direction of graph in relation to topic.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet: async (teamId: string, topic?: string, topicRelationshipIds?: Array<string>, direction?: SingleTopicGraphDirection, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet', 'teamId', teamId)
+            const localVarPath = `/v1/teams/{team_id}/graph/semantic_topic_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (topic !== undefined) {
+                localVarQueryParameter['topic'] = topic;
+            }
+
+            if (topicRelationshipIds) {
+                localVarQueryParameter['topic_relationship_ids'] = topicRelationshipIds;
+            }
+
+            if (direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
@@ -37125,6 +37251,34 @@ export const GraphApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {string} [topic] Topic
+         * @param {Array<string>} [topicRelationshipIds] Topic relationship ids. Two topic system ids concatenated together by |.
+         * @param {SingleTopicGraphDirection} [direction] Direction of graph in relation to topic.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSemanticTopicGraphV1GraphSemanticTopicGraphGet(teamId: string, topic?: string, topicRelationshipIds?: Array<string>, direction?: SingleTopicGraphDirection, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticTopicGraphV1GraphSemanticTopicGraphGet(teamId, topic, topicRelationshipIds, direction, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {string} [topic] Topic
+         * @param {Array<string>} [topicRelationshipIds] Topic relationship ids. Two topic system ids concatenated together by |.
+         * @param {SingleTopicGraphDirection} [direction] Direction of graph in relation to topic.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(teamId: string, topic?: string, topicRelationshipIds?: Array<string>, direction?: SingleTopicGraphDirection, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(teamId, topic, topicRelationshipIds, direction, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
@@ -37329,6 +37483,32 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          */
         getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData> {
             return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {string} [topic] Topic
+         * @param {Array<string>} [topicRelationshipIds] Topic relationship ids. Two topic system ids concatenated together by |.
+         * @param {SingleTopicGraphDirection} [direction] Direction of graph in relation to topic.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1GraphSemanticTopicGraphGet(teamId: string, topic?: string, topicRelationshipIds?: Array<string>, direction?: SingleTopicGraphDirection, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticTopicGraphV1GraphSemanticTopicGraphGet(teamId, topic, topicRelationshipIds, direction, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {string} [topic] Topic
+         * @param {Array<string>} [topicRelationshipIds] Topic relationship ids. Two topic system ids concatenated together by |.
+         * @param {SingleTopicGraphDirection} [direction] Direction of graph in relation to topic.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(teamId: string, topic?: string, topicRelationshipIds?: Array<string>, direction?: SingleTopicGraphDirection, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(teamId, topic, topicRelationshipIds, direction, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -37696,6 +37876,76 @@ export interface GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetReque
 }
 
 /**
+ * Request parameters for getSemanticTopicGraphV1GraphSemanticTopicGraphGet operation in GraphApi.
+ * @export
+ * @interface GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphGetRequest
+ */
+export interface GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphGet
+     */
+    readonly teamId: string
+
+    /**
+     * Topic
+     * @type {string}
+     * @memberof GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphGet
+     */
+    readonly topic?: string
+
+    /**
+     * Topic relationship ids. Two topic system ids concatenated together by |.
+     * @type {Array<string>}
+     * @memberof GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphGet
+     */
+    readonly topicRelationshipIds?: Array<string>
+
+    /**
+     * Direction of graph in relation to topic.
+     * @type {SingleTopicGraphDirection}
+     * @memberof GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphGet
+     */
+    readonly direction?: SingleTopicGraphDirection
+}
+
+/**
+ * Request parameters for getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet operation in GraphApi.
+ * @export
+ * @interface GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGetRequest
+ */
+export interface GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet
+     */
+    readonly teamId: string
+
+    /**
+     * Topic
+     * @type {string}
+     * @memberof GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet
+     */
+    readonly topic?: string
+
+    /**
+     * Topic relationship ids. Two topic system ids concatenated together by |.
+     * @type {Array<string>}
+     * @memberof GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet
+     */
+    readonly topicRelationshipIds?: Array<string>
+
+    /**
+     * Direction of graph in relation to topic.
+     * @type {SingleTopicGraphDirection}
+     * @memberof GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet
+     */
+    readonly direction?: SingleTopicGraphDirection
+}
+
+/**
  * Request parameters for getTopicGraphV1GraphTopicGraphGet operation in GraphApi.
  * @export
  * @interface GraphApiGetTopicGraphV1GraphTopicGraphGetRequest
@@ -37960,6 +38210,30 @@ export class GraphApi extends BaseAPI {
      */
     public getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig) {
         return GraphApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch single topic semantic graph.
+     * @summary Get Semantic Topic Graph
+     * @param {GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    public getSemanticTopicGraphV1GraphSemanticTopicGraphGet(requestParameters: GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphGetRequest, options?: AxiosRequestConfig) {
+        return GraphApiFp(this.configuration).getSemanticTopicGraphV1GraphSemanticTopicGraphGet(requestParameters.teamId, requestParameters.topic, requestParameters.topicRelationshipIds, requestParameters.direction, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch single topic semantic graph.
+     * @summary Get Semantic Topic Graph
+     * @param {GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    public getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(requestParameters: GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGetRequest, options?: AxiosRequestConfig) {
+        return GraphApiFp(this.configuration).getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(requestParameters.teamId, requestParameters.topic, requestParameters.topicRelationshipIds, requestParameters.direction, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56308,6 +56582,62 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {string} [topic] Topic
+         * @param {Array<string>} [topicRelationshipIds] Topic relationship ids. Two topic system ids concatenated together by |.
+         * @param {SingleTopicGraphDirection} [direction] Direction of graph in relation to topic.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet: async (teamId: string, topic?: string, topicRelationshipIds?: Array<string>, direction?: SingleTopicGraphDirection, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet', 'teamId', teamId)
+            const localVarPath = `/v1/teams/{team_id}/graph/semantic_topic_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (topic !== undefined) {
+                localVarQueryParameter['topic'] = topic;
+            }
+
+            if (topicRelationshipIds) {
+                localVarQueryParameter['topic_relationship_ids'] = topicRelationshipIds;
+            }
+
+            if (direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get Study.
          * @summary Get Study
          * @param {string} teamId 
@@ -62556,6 +62886,20 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {string} [topic] Topic
+         * @param {Array<string>} [topicRelationshipIds] Topic relationship ids. Two topic system ids concatenated together by |.
+         * @param {SingleTopicGraphDirection} [direction] Direction of graph in relation to topic.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(teamId: string, topic?: string, topicRelationshipIds?: Array<string>, direction?: SingleTopicGraphDirection, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(teamId, topic, topicRelationshipIds, direction, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get Study.
          * @summary Get Study
          * @param {string} teamId 
@@ -64575,6 +64919,19 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          */
         getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData> {
             return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {string} [topic] Topic
+         * @param {Array<string>} [topicRelationshipIds] Topic relationship ids. Two topic system ids concatenated together by |.
+         * @param {SingleTopicGraphDirection} [direction] Direction of graph in relation to topic.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(teamId: string, topic?: string, topicRelationshipIds?: Array<string>, direction?: SingleTopicGraphDirection, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(teamId, topic, topicRelationshipIds, direction, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Study.
@@ -67273,6 +67630,41 @@ export interface TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetReque
      * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
      */
     readonly minCount?: number
+}
+
+/**
+ * Request parameters for getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGetRequest
+ */
+export interface TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet
+     */
+    readonly teamId: string
+
+    /**
+     * Topic
+     * @type {string}
+     * @memberof TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet
+     */
+    readonly topic?: string
+
+    /**
+     * Topic relationship ids. Two topic system ids concatenated together by |.
+     * @type {Array<string>}
+     * @memberof TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet
+     */
+    readonly topicRelationshipIds?: Array<string>
+
+    /**
+     * Direction of graph in relation to topic.
+     * @type {SingleTopicGraphDirection}
+     * @memberof TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet
+     */
+    readonly direction?: SingleTopicGraphDirection
 }
 
 /**
@@ -72492,6 +72884,18 @@ export class TeamsApi extends BaseAPI {
      */
     public getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig) {
         return TeamsApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch single topic semantic graph.
+     * @summary Get Semantic Topic Graph
+     * @param {TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(requestParameters: TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGetRequest, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphGet(requestParameters.teamId, requestParameters.topic, requestParameters.topicRelationshipIds, requestParameters.direction, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
