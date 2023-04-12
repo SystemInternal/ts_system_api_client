@@ -7040,11 +7040,11 @@ export interface SemanticTopicGraphIn {
      */
     'topic'?: string;
     /**
-     * Topic relationship ids. Two topic system ids concatenated together by |.
-     * @type {Array<string>}
+     * List of topic relationship pairs. Two topic system ids ordered by direction.
+     * @type {Array<Array<string>>}
      * @memberof SemanticTopicGraphIn
      */
-    'topic_relationship_ids'?: Array<string>;
+    'topic_relationship_ids'?: Array<Array<string>>;
     /**
      * Direction of graph in relation to topic.
      * @type {SingleTopicGraphDirection}
