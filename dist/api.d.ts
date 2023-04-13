@@ -29419,6 +29419,14 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      */
     getOrcidV1OrcidRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Forward request to UMLS.
+     * @summary Get Umls Concepts
+     * @param {any} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUmlsConceptsV1UmlsRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
      * @param {GraphQLQuery} graphQLQuery
@@ -29449,6 +29457,14 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      */
     getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
+     * Forward request to UMLS.
+     * @summary Get Umls Concepts
+     * @param {any} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
      * @param {GraphQLQuery} graphQLQuery
@@ -29478,6 +29494,14 @@ export declare const PassthroughApiFactory: (configuration?: Configuration, base
      * @throws {RequiredError}
      */
     getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
+    /**
+     * Forward request to UMLS.
+     * @summary Get Umls Concepts
+     * @param {any} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
@@ -29510,6 +29534,19 @@ export interface PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest {
      *
      * @type {any}
      * @memberof PassthroughApiGetOrcidV1OrcidRestOfPathGet
+     */
+    readonly restOfPath: any;
+}
+/**
+ * Request parameters for getUmlsConceptsV1UmlsRestOfPathGet operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest
+ */
+export interface PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest {
+    /**
+     *
+     * @type {any}
+     * @memberof PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGet
      */
     readonly restOfPath: any;
 }
@@ -29551,6 +29588,15 @@ export declare class PassthroughApi extends BaseAPI {
      * @memberof PassthroughApi
      */
     getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Forward request to UMLS.
+     * @summary Get Umls Concepts
+     * @param {PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    getUmlsConceptsV1UmlsRestOfPathGet(requestParameters: PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
