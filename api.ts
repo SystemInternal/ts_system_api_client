@@ -44453,6 +44453,47 @@ export const PassthroughApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * Forward request to UMLS.
+         * @summary Get Umls Concepts
+         * @param {any} restOfPath 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUmlsConceptsV1UmlsRestOfPathGet: async (restOfPath: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'restOfPath' is not null or undefined
+            assertParamExists('getUmlsConceptsV1UmlsRestOfPathGet', 'restOfPath', restOfPath)
+            const localVarPath = `/v1/umls/{rest_of_path}`
+                .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Forward GraphQL request to SystemDB.
          * @summary Post Graphql
          * @param {GraphQLQuery} graphQLQuery 
@@ -44528,6 +44569,17 @@ export const PassthroughApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Forward request to UMLS.
+         * @summary Get Umls Concepts
+         * @param {any} restOfPath 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Forward GraphQL request to SystemDB.
          * @summary Post Graphql
          * @param {GraphQLQuery} graphQLQuery 
@@ -44569,6 +44621,16 @@ export const PassthroughApiFactory = function (configuration?: Configuration, ba
             return localVarFp.getOrcidV1OrcidRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
+         * Forward request to UMLS.
+         * @summary Get Umls Concepts
+         * @param {any} restOfPath 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any> {
+            return localVarFp.getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Forward GraphQL request to SystemDB.
          * @summary Post Graphql
          * @param {GraphQLQuery} graphQLQuery 
@@ -44605,6 +44667,20 @@ export interface PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest {
      * 
      * @type {any}
      * @memberof PassthroughApiGetOrcidV1OrcidRestOfPathGet
+     */
+    readonly restOfPath: any
+}
+
+/**
+ * Request parameters for getUmlsConceptsV1UmlsRestOfPathGet operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest
+ */
+export interface PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGet
      */
     readonly restOfPath: any
 }
@@ -44652,6 +44728,18 @@ export class PassthroughApi extends BaseAPI {
      */
     public getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: AxiosRequestConfig) {
         return PassthroughApiFp(this.configuration).getOrcidV1OrcidRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Forward request to UMLS.
+     * @summary Get Umls Concepts
+     * @param {PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    public getUmlsConceptsV1UmlsRestOfPathGet(requestParameters: PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest, options?: AxiosRequestConfig) {
+        return PassthroughApiFp(this.configuration).getUmlsConceptsV1UmlsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
