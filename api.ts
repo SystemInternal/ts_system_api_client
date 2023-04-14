@@ -3723,7 +3723,7 @@ export interface Finding {
      * @type {string}
      * @memberof Finding
      */
-    'summary': string;
+    'summary'?: string;
     /**
      * 
      * @type {RawFinding}
