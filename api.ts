@@ -4039,6 +4039,17 @@ export interface GraphQLQuery {
     'variables'?: any;
 }
 /**
+ * Single topic graph direction for enum.
+ * @export
+ * @enum {string}
+ */
+
+export enum GraphSearchDirection {
+    In = 'in',
+    Out = 'out'
+}
+
+/**
  * 
  * @export
  * @interface HTTPValidationError
@@ -7068,10 +7079,10 @@ export interface SemanticTopicGraphIn {
     'topic_relationship_ids'?: Array<Array<string>>;
     /**
      * Direction of graph in relation to topic.
-     * @type {SingleTopicGraphDirection}
+     * @type {GraphSearchDirection}
      * @memberof SemanticTopicGraphIn
      */
-    'direction'?: SingleTopicGraphDirection;
+    'direction'?: GraphSearchDirection;
 }
 /**
  * An enumeration.
@@ -7180,17 +7191,6 @@ export interface SimpleTopic {
      */
     'wikidata_id': string;
 }
-/**
- * Single topic graph direction for enum.
- * @export
- * @enum {string}
- */
-
-export enum SingleTopicGraphDirection {
-    In = 'in',
-    Out = 'out'
-}
-
 /**
  * Credentials for a Snowflake integration without password.
  * @export
@@ -46913,6 +46913,7 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * List relationships.
          * @summary List Relationships
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -46926,7 +46927,7 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1RelationshipsGet: async (query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listRelationshipsV1RelationshipsGet: async (direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/relationships`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -46945,6 +46946,10 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -47001,6 +47006,7 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -47013,7 +47019,7 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1TeamsTeamIdRelationshipsGet: async (teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listRelationshipsV1TeamsTeamIdRelationshipsGet: async (teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('listRelationshipsV1TeamsTeamIdRelationshipsGet', 'teamId', teamId)
             const localVarPath = `/v1/teams/{team_id}/relationships`
@@ -47035,6 +47041,10 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -47121,6 +47131,7 @@ export const RelationshipsApiFp = function(configuration?: Configuration) {
         /**
          * List relationships.
          * @summary List Relationships
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -47134,14 +47145,15 @@ export const RelationshipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listRelationshipsV1RelationshipsGet(query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1RelationshipsGet(query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, teamId, options);
+        async listRelationshipsV1RelationshipsGet(direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1RelationshipsGet(direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, teamId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -47154,8 +47166,8 @@ export const RelationshipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options);
+        async listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -47194,6 +47206,7 @@ export const RelationshipsApiFactory = function (configuration?: Configuration, 
         /**
          * List relationships.
          * @summary List Relationships
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -47207,13 +47220,14 @@ export const RelationshipsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1RelationshipsGet(query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
-            return localVarFp.listRelationshipsV1RelationshipsGet(query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, teamId, options).then((request) => request(axios, basePath));
+        listRelationshipsV1RelationshipsGet(direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
+            return localVarFp.listRelationshipsV1RelationshipsGet(direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -47226,8 +47240,8 @@ export const RelationshipsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
-            return localVarFp.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options).then((request) => request(axios, basePath));
+        listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
+            return localVarFp.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -47287,6 +47301,13 @@ export interface RelationshipsApiGetSynthesisV1TeamsTeamIdRelationshipsRelations
  * @interface RelationshipsApiListRelationshipsV1RelationshipsGetRequest
  */
 export interface RelationshipsApiListRelationshipsV1RelationshipsGetRequest {
+    /**
+     * Optional directionality.
+     * @type {GraphSearchDirection}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly direction?: GraphSearchDirection
+
     /**
      * Search query.
      * @type {string}
@@ -47370,6 +47391,13 @@ export interface RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetR
      * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
      */
     readonly teamId: string
+
+    /**
+     * Optional directionality.
+     * @type {GraphSearchDirection}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly direction?: GraphSearchDirection
 
     /**
      * Search query.
@@ -47475,7 +47503,7 @@ export class RelationshipsApi extends BaseAPI {
      * @memberof RelationshipsApi
      */
     public listRelationshipsV1RelationshipsGet(requestParameters: RelationshipsApiListRelationshipsV1RelationshipsGetRequest = {}, options?: AxiosRequestConfig) {
-        return RelationshipsApiFp(this.configuration).listRelationshipsV1RelationshipsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return RelationshipsApiFp(this.configuration).listRelationshipsV1RelationshipsGet(requestParameters.direction, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -47487,7 +47515,7 @@ export class RelationshipsApi extends BaseAPI {
      * @memberof RelationshipsApi
      */
     public listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters: RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest, options?: AxiosRequestConfig) {
-        return RelationshipsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
+        return RelationshipsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.direction, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -59777,6 +59805,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -59789,7 +59818,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1TeamsTeamIdRelationshipsGet: async (teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listRelationshipsV1TeamsTeamIdRelationshipsGet: async (teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('listRelationshipsV1TeamsTeamIdRelationshipsGet', 'teamId', teamId)
             const localVarPath = `/v1/teams/{team_id}/relationships`
@@ -59811,6 +59840,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -63673,6 +63706,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -63685,8 +63719,8 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options);
+        async listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -65669,6 +65703,7 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -65681,8 +65716,8 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
-            return localVarFp.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options).then((request) => request(axios, basePath));
+        listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
+            return localVarFp.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options).then((request) => request(axios, basePath));
         },
         /**
          * List Studies.
@@ -70499,6 +70534,13 @@ export interface TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest {
     readonly teamId: string
 
     /**
+     * Optional directionality.
+     * @type {GraphSearchDirection}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly direction?: GraphSearchDirection
+
+    /**
      * Search query.
      * @type {string}
      * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
@@ -73371,7 +73413,7 @@ export class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     public listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters: TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
+        return TeamsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.direction, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
