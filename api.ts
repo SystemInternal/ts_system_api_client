@@ -47535,11 +47535,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
-         * @param {number} [studyMoveTo] Study moveTo distance force
-         * @param {number} [relationshipDistance] Relationship distance threshold
-         * @param {number} [relationshipMoveTo] Relationship moveTo distance force
-         * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {number} [relationshipMax] Max number of relationships returned
+         * @param {number} [variableDistance] Variable distance threshold
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {string} [modelName] OpenAI model name
          * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -47549,7 +47545,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet: async (questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticSearchV1SemanticSearchGet: async (questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/semantic-search`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -47593,24 +47589,8 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['study_distance'] = studyDistance;
             }
 
-            if (studyMoveTo !== undefined) {
-                localVarQueryParameter['study_move_to'] = studyMoveTo;
-            }
-
-            if (relationshipDistance !== undefined) {
-                localVarQueryParameter['relationship_distance'] = relationshipDistance;
-            }
-
-            if (relationshipMoveTo !== undefined) {
-                localVarQueryParameter['relationship_move_to'] = relationshipMoveTo;
-            }
-
-            if (relationshipMoveAwayFrom !== undefined) {
-                localVarQueryParameter['relationship_move_away_from'] = relationshipMoveAwayFrom;
-            }
-
-            if (relationshipMax !== undefined) {
-                localVarQueryParameter['relationship_max'] = relationshipMax;
+            if (variableDistance !== undefined) {
+                localVarQueryParameter['variable_distance'] = variableDistance;
             }
 
             if (clusteringThresholds !== undefined) {
@@ -47667,11 +47647,7 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
-         * @param {number} [studyMoveTo] Study moveTo distance force
-         * @param {number} [relationshipDistance] Relationship distance threshold
-         * @param {number} [relationshipMoveTo] Relationship moveTo distance force
-         * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {number} [relationshipMax] Max number of relationships returned
+         * @param {number} [variableDistance] Variable distance threshold
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {string} [modelName] OpenAI model name
          * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -47681,8 +47657,8 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, relationshipMax, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options);
+        async getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, variableDistance, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -47704,11 +47680,7 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
-         * @param {number} [studyMoveTo] Study moveTo distance force
-         * @param {number} [relationshipDistance] Relationship distance threshold
-         * @param {number} [relationshipMoveTo] Relationship moveTo distance force
-         * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {number} [relationshipMax] Max number of relationships returned
+         * @param {number} [variableDistance] Variable distance threshold
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {string} [modelName] OpenAI model name
          * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -47718,8 +47690,8 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchOut> {
-            return localVarFp.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, relationshipMax, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options).then((request) => request(axios, basePath));
+        getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchOut> {
+            return localVarFp.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, variableDistance, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -47773,39 +47745,11 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
     readonly studyDistance?: number
 
     /**
-     * Study moveTo distance force
+     * Variable distance threshold
      * @type {number}
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
-    readonly studyMoveTo?: number
-
-    /**
-     * Relationship distance threshold
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly relationshipDistance?: number
-
-    /**
-     * Relationship moveTo distance force
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly relationshipMoveTo?: number
-
-    /**
-     * Relationship moveAwayFrom distance force
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly relationshipMoveAwayFrom?: number
-
-    /**
-     * Max number of relationships returned
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly relationshipMax?: number
+    readonly variableDistance?: number
 
     /**
      * Clustering thresholds as json stringified list of pairs of floats.
@@ -47866,7 +47810,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     public getSemanticSearchV1SemanticSearchGet(requestParameters: SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest = {}, options?: AxiosRequestConfig) {
-        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.questionType, requestParameters.term1, requestParameters.term2, requestParameters.cluster, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.studyMoveTo, requestParameters.relationshipDistance, requestParameters.relationshipMoveTo, requestParameters.relationshipMoveAwayFrom, requestParameters.relationshipMax, requestParameters.clusteringThresholds, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, options).then((request) => request(this.axios, this.basePath));
+        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.questionType, requestParameters.term1, requestParameters.term2, requestParameters.cluster, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.variableDistance, requestParameters.clusteringThresholds, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
