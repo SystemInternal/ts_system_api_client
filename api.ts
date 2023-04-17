@@ -1364,6 +1364,12 @@ export interface CategoryOut {
 export interface Cluster {
     /**
      * 
+     * @type {number}
+     * @memberof Cluster
+     */
+    'sort_id': number;
+    /**
+     * 
      * @type {string}
      * @memberof Cluster
      */
@@ -1382,10 +1388,10 @@ export interface Cluster {
     'prompt_summary': string;
     /**
      * 
-     * @type {number}
+     * @type {Array<string>}
      * @memberof Cluster
      */
-    'avg_distance': number;
+    'cluster_labels': Array<string>;
 }
 /**
  * Schema for clustered relationship response.
@@ -1407,10 +1413,10 @@ export interface ClusteredRelationship {
     'cluster_ids': Array<string>;
     /**
      * 
-     * @type {Array<FindingId>}
+     * @type {Array<FindingMeta>}
      * @memberof ClusteredRelationship
      */
-    'finding_ids': Array<FindingId>;
+    'finding_metas': Array<FindingMeta>;
 }
 /**
  * Concept input resource model.
@@ -3090,25 +3096,6 @@ export interface EnterpriseIn {
     'idp_metadata'?: string;
 }
 /**
- * Evidence dict for SynthesisIn.
- * @export
- * @interface Evidence
- */
-export interface Evidence {
-    /**
-     * 
-     * @type {number}
-     * @memberof Evidence
-     */
-    'id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Evidence
-     */
-    'summary': string;
-}
-/**
  * Edge Typed Link model.
  * @export
  * @interface ExtendedLinkObject
@@ -3726,23 +3713,48 @@ export enum FilterValueType {
 }
 
 /**
- * Schema for identifying finding.
+ * Interface for finding in study.
  * @export
- * @interface FindingId
+ * @interface Finding
  */
-export interface FindingId {
+export interface Finding {
     /**
      * 
      * @type {string}
-     * @memberof FindingId
+     * @memberof Finding
+     */
+    'summary'?: string;
+    /**
+     * 
+     * @type {RawFinding}
+     * @memberof Finding
+     */
+    'data': RawFinding;
+}
+/**
+ * Schema for identifying finding.
+ * @export
+ * @interface FindingMeta
+ */
+export interface FindingMeta {
+    /**
+     * 
+     * @type {string}
+     * @memberof FindingMeta
      */
     'doi': string;
     /**
      * 
      * @type {string}
-     * @memberof FindingId
+     * @memberof FindingMeta
      */
     'association_id': string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof FindingMeta
+     */
+    'is_rct': boolean;
 }
 /**
  * Next/prev Pagination links with first and last urls.
@@ -4026,6 +4038,17 @@ export interface GraphQLQuery {
      */
     'variables'?: any;
 }
+/**
+ * Single topic graph direction for enum.
+ * @export
+ * @enum {string}
+ */
+
+export enum GraphSearchDirection {
+    In = 'in',
+    Out = 'out'
+}
+
 /**
  * 
  * @export
@@ -6480,6 +6503,73 @@ export interface PublicationInfo {
     'ordered_authors'?: Array<PublicationAuthor>;
 }
 /**
+ * Statistical finding.
+ * @export
+ * @interface RawFinding
+ */
+export interface RawFinding {
+    /**
+     * 
+     * @type {string}
+     * @memberof RawFinding
+     */
+    'association_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RawFinding
+     */
+    'variable_1': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof RawFinding
+     */
+    'variable_2': string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof RawFinding
+     */
+    'bidirectional': boolean;
+    /**
+     * 
+     * @type {FeatureContributionMethod}
+     * @memberof RawFinding
+     */
+    'feature_contribution_method': FeatureContributionMethod;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof RawFinding
+     */
+    'is_ratio': boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof RawFinding
+     */
+    'value': number;
+    /**
+     * 
+     * @type {ConfidenceIntervalOut}
+     * @memberof RawFinding
+     */
+    'ci'?: ConfidenceIntervalOut;
+    /**
+     * 
+     * @type {number}
+     * @memberof RawFinding
+     */
+    'p_value'?: number;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof RawFinding
+     */
+    'flags'?: Array<string>;
+}
+/**
  * Credentials for a Redshift integration without password.
  * @export
  * @interface RedshiftCredentials
@@ -6950,6 +7040,49 @@ export interface SemanticSearchOut {
      * @memberof SemanticSearchOut
      */
     'relationships': Array<ClusteredRelationship>;
+    /**
+     * 
+     * @type {string}
+     * @memberof SemanticSearchOut
+     */
+    'synthesis'?: string;
+}
+/**
+ * Defines modes for semantic search.
+ * @export
+ * @enum {string}
+ */
+
+export enum SemanticSearchType {
+    RiskFactorOf = 'risk_factor_of',
+    Outcome = 'outcome',
+    Relationship = 'relationship'
+}
+
+/**
+ * Single topic graph payload.
+ * @export
+ * @interface SemanticTopicGraphIn
+ */
+export interface SemanticTopicGraphIn {
+    /**
+     * Topic
+     * @type {string}
+     * @memberof SemanticTopicGraphIn
+     */
+    'topic'?: string;
+    /**
+     * List of topic relationship pairs. Two topic system ids ordered by direction.
+     * @type {Array<Array<string>>}
+     * @memberof SemanticTopicGraphIn
+     */
+    'topic_relationship_ids'?: Array<Array<string>>;
+    /**
+     * Direction of graph in relation to topic.
+     * @type {GraphSearchDirection}
+     * @memberof SemanticTopicGraphIn
+     */
+    'direction'?: GraphSearchDirection;
 }
 /**
  * An enumeration.
@@ -7278,54 +7411,35 @@ export interface StripeSessionOut {
     'session_url'?: string;
 }
 /**
- * Interface for individual association finding in study.
- * @export
- * @interface StudyFinding
- */
-export interface StudyFinding {
-    /**
-     * 
-     * @type {string}
-     * @memberof StudyFinding
-     */
-    'association_id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StudyFinding
-     */
-    'finding': string;
-}
-/**
  * Interface for a single study and its finding sentences, populations, sample size, and id.
  * @export
- * @interface StudyFindingObject
+ * @interface StudyFindings
  */
-export interface StudyFindingObject {
+export interface StudyFindings {
     /**
      * 
-     * @type {Array<StudyFinding>}
-     * @memberof StudyFindingObject
+     * @type {Array<Finding>}
+     * @memberof StudyFindings
      */
-    'findings': Array<StudyFinding>;
+    'findings': Array<Finding>;
     /**
      * 
      * @type {Array<string>}
-     * @memberof StudyFindingObject
+     * @memberof StudyFindings
      */
-    'populations': Array<string>;
+    'populations'?: Array<string>;
     /**
      * 
      * @type {number}
-     * @memberof StudyFindingObject
+     * @memberof StudyFindings
      */
     'sample_size'?: number;
     /**
      * 
      * @type {string}
-     * @memberof StudyFindingObject
+     * @memberof StudyFindings
      */
-    'system_id': string;
+    'doi': string;
 }
 /**
  * Interface for /findings input.
@@ -7348,10 +7462,10 @@ export interface StudyFindingsIn {
 export interface StudyFindingsOut {
     /**
      * 
-     * @type {Array<StudyFindingObject>}
+     * @type {Array<StudyFindings>}
      * @memberof StudyFindingsOut
      */
-    'studies': Array<StudyFindingObject>;
+    'studies': Array<StudyFindings>;
 }
 /**
  * A real world study.
@@ -7741,50 +7855,6 @@ export enum StudyTypeEnum {
     RandomizedControlTrial = 'randomized_control_trial'
 }
 
-/**
- * Post body for /synthesis endpoint.
- * @export
- * @interface SynthesisIn
- */
-export interface SynthesisIn {
-    /**
-     * 
-     * @type {string}
-     * @memberof SynthesisIn
-     */
-    'term_1': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SynthesisIn
-     */
-    'term_2': string;
-    /**
-     * 
-     * @type {Array<Evidence>}
-     * @memberof SynthesisIn
-     */
-    'evidence': Array<Evidence>;
-}
-/**
- * Synthesis output model.
- * @export
- * @interface SynthesisOut
- */
-export interface SynthesisOut {
-    /**
-     * 
-     * @type {string}
-     * @memberof SynthesisOut
-     */
-    'synthesis': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof SynthesisOut
-     */
-    'last_updated': number;
-}
 /**
  * Enum System object resource names.
  * @export
@@ -35992,14 +36062,14 @@ export const FindingsApiAxiosParamCreator = function (configuration?: Configurat
     return {
         /**
          * Get study findings via dois and association ids.
-         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @summary Get Study Findings From Association Ids
          * @param {StudyFindingsIn} studyFindingsIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost: async (studyFindingsIn: StudyFindingsIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getStudyFindingsFromAssociationIdsV1FindingsPost: async (studyFindingsIn: StudyFindingsIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'studyFindingsIn' is not null or undefined
-            assertParamExists('getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost', 'studyFindingsIn', studyFindingsIn)
+            assertParamExists('getStudyFindingsFromAssociationIdsV1FindingsPost', 'studyFindingsIn', studyFindingsIn)
             const localVarPath = `/v1/findings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -36045,13 +36115,13 @@ export const FindingsApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Get study findings via dois and association ids.
-         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @summary Get Study Findings From Association Ids
          * @param {StudyFindingsIn} studyFindingsIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options);
+        async getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -36066,27 +36136,27 @@ export const FindingsApiFactory = function (configuration?: Configuration, baseP
     return {
         /**
          * Get study findings via dois and association ids.
-         * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
+         * @summary Get Study Findings From Association Ids
          * @param {StudyFindingsIn} studyFindingsIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: any): AxiosPromise<StudyFindingsOut> {
-            return localVarFp.getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
+        getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: any): AxiosPromise<StudyFindingsOut> {
+            return localVarFp.getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost operation in FindingsApi.
+ * Request parameters for getStudyFindingsFromAssociationIdsV1FindingsPost operation in FindingsApi.
  * @export
- * @interface FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest
+ * @interface FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest
  */
-export interface FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest {
+export interface FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest {
     /**
      * 
      * @type {StudyFindingsIn}
-     * @memberof FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost
+     * @memberof FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPost
      */
     readonly studyFindingsIn: StudyFindingsIn
 }
@@ -36100,14 +36170,14 @@ export interface FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssocia
 export class FindingsApi extends BaseAPI {
     /**
      * Get study findings via dois and association ids.
-     * @summary Get Study Findings Ans Systemdb Metadata From List Of Association Ids
-     * @param {FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest} requestParameters Request parameters.
+     * @summary Get Study Findings From Association Ids
+     * @param {FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FindingsApi
      */
-    public getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPostRequest, options?: AxiosRequestConfig) {
-        return FindingsApiFp(this.configuration).getStudyFindingsAnsSystemDBMetadataFromListOfAssociationIdsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
+    public getStudyFindingsFromAssociationIdsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest, options?: AxiosRequestConfig) {
+        return FindingsApiFp(this.configuration).getStudyFindingsFromAssociationIdsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -36628,6 +36698,99 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {SemanticTopicGraphIn} semanticTopicGraphIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1GraphSemanticTopicGraphPost: async (teamId: string, semanticTopicGraphIn: SemanticTopicGraphIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getSemanticTopicGraphV1GraphSemanticTopicGraphPost', 'teamId', teamId)
+            // verify required parameter 'semanticTopicGraphIn' is not null or undefined
+            assertParamExists('getSemanticTopicGraphV1GraphSemanticTopicGraphPost', 'semanticTopicGraphIn', semanticTopicGraphIn)
+            const localVarPath = `/v1/graph/semantic_topic_graph`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (teamId !== undefined) {
+                localVarQueryParameter['team_id'] = teamId;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(semanticTopicGraphIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {SemanticTopicGraphIn} semanticTopicGraphIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost: async (teamId: string, semanticTopicGraphIn: SemanticTopicGraphIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost', 'teamId', teamId)
+            // verify required parameter 'semanticTopicGraphIn' is not null or undefined
+            assertParamExists('getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost', 'semanticTopicGraphIn', semanticTopicGraphIn)
+            const localVarPath = `/v1/teams/{team_id}/graph/semantic_topic_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(semanticTopicGraphIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
@@ -37047,6 +37210,30 @@ export const GraphApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {SemanticTopicGraphIn} semanticTopicGraphIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSemanticTopicGraphV1GraphSemanticTopicGraphPost(teamId: string, semanticTopicGraphIn: SemanticTopicGraphIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticTopicGraphV1GraphSemanticTopicGraphPost(teamId, semanticTopicGraphIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {SemanticTopicGraphIn} semanticTopicGraphIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(teamId: string, semanticTopicGraphIn: SemanticTopicGraphIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(teamId, semanticTopicGraphIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Fetch dataset graph.
          * @summary Get Topic Graph
          * @param {string} teamId 
@@ -37251,6 +37438,28 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          */
         getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId: string, topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData> {
             return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {SemanticTopicGraphIn} semanticTopicGraphIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1GraphSemanticTopicGraphPost(teamId: string, semanticTopicGraphIn: SemanticTopicGraphIn, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticTopicGraphV1GraphSemanticTopicGraphPost(teamId, semanticTopicGraphIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {SemanticTopicGraphIn} semanticTopicGraphIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(teamId: string, semanticTopicGraphIn: SemanticTopicGraphIn, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(teamId, semanticTopicGraphIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch dataset graph.
@@ -37618,6 +37827,48 @@ export interface GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetReque
 }
 
 /**
+ * Request parameters for getSemanticTopicGraphV1GraphSemanticTopicGraphPost operation in GraphApi.
+ * @export
+ * @interface GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphPostRequest
+ */
+export interface GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphPost
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {SemanticTopicGraphIn}
+     * @memberof GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphPost
+     */
+    readonly semanticTopicGraphIn: SemanticTopicGraphIn
+}
+
+/**
+ * Request parameters for getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost operation in GraphApi.
+ * @export
+ * @interface GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPostRequest
+ */
+export interface GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {SemanticTopicGraphIn}
+     * @memberof GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost
+     */
+    readonly semanticTopicGraphIn: SemanticTopicGraphIn
+}
+
+/**
  * Request parameters for getTopicGraphV1GraphTopicGraphGet operation in GraphApi.
  * @export
  * @interface GraphApiGetTopicGraphV1GraphTopicGraphGetRequest
@@ -37882,6 +38133,30 @@ export class GraphApi extends BaseAPI {
      */
     public getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters: GraphApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetRequest, options?: AxiosRequestConfig) {
         return GraphApiFp(this.configuration).getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(requestParameters.teamId, requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, requestParameters.minStrength, requestParameters.minCount, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch single topic semantic graph.
+     * @summary Get Semantic Topic Graph
+     * @param {GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    public getSemanticTopicGraphV1GraphSemanticTopicGraphPost(requestParameters: GraphApiGetSemanticTopicGraphV1GraphSemanticTopicGraphPostRequest, options?: AxiosRequestConfig) {
+        return GraphApiFp(this.configuration).getSemanticTopicGraphV1GraphSemanticTopicGraphPost(requestParameters.teamId, requestParameters.semanticTopicGraphIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch single topic semantic graph.
+     * @summary Get Semantic Topic Graph
+     * @param {GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GraphApi
+     */
+    public getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(requestParameters: GraphApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPostRequest, options?: AxiosRequestConfig) {
+        return GraphApiFp(this.configuration).getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(requestParameters.teamId, requestParameters.semanticTopicGraphIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -44122,6 +44397,47 @@ export const PassthroughApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * Forward request to UMLS.
+         * @summary Get Umls Concepts
+         * @param {any} restOfPath 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUmlsConceptsV1UmlsRestOfPathGet: async (restOfPath: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'restOfPath' is not null or undefined
+            assertParamExists('getUmlsConceptsV1UmlsRestOfPathGet', 'restOfPath', restOfPath)
+            const localVarPath = `/v1/umls/{rest_of_path}`
+                .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Forward GraphQL request to SystemDB.
          * @summary Post Graphql
          * @param {GraphQLQuery} graphQLQuery 
@@ -44197,6 +44513,17 @@ export const PassthroughApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Forward request to UMLS.
+         * @summary Get Umls Concepts
+         * @param {any} restOfPath 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Forward GraphQL request to SystemDB.
          * @summary Post Graphql
          * @param {GraphQLQuery} graphQLQuery 
@@ -44238,6 +44565,16 @@ export const PassthroughApiFactory = function (configuration?: Configuration, ba
             return localVarFp.getOrcidV1OrcidRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
+         * Forward request to UMLS.
+         * @summary Get Umls Concepts
+         * @param {any} restOfPath 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any> {
+            return localVarFp.getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Forward GraphQL request to SystemDB.
          * @summary Post Graphql
          * @param {GraphQLQuery} graphQLQuery 
@@ -44274,6 +44611,20 @@ export interface PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest {
      * 
      * @type {any}
      * @memberof PassthroughApiGetOrcidV1OrcidRestOfPathGet
+     */
+    readonly restOfPath: any
+}
+
+/**
+ * Request parameters for getUmlsConceptsV1UmlsRestOfPathGet operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest
+ */
+export interface PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGet
      */
     readonly restOfPath: any
 }
@@ -44321,6 +44672,18 @@ export class PassthroughApi extends BaseAPI {
      */
     public getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: AxiosRequestConfig) {
         return PassthroughApiFp(this.configuration).getOrcidV1OrcidRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Forward request to UMLS.
+     * @summary Get Umls Concepts
+     * @param {PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    public getUmlsConceptsV1UmlsRestOfPathGet(requestParameters: PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest, options?: AxiosRequestConfig) {
+        return PassthroughApiFp(this.configuration).getUmlsConceptsV1UmlsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46478,6 +46841,7 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * List relationships.
          * @summary List Relationships
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -46491,7 +46855,7 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1RelationshipsGet: async (query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listRelationshipsV1RelationshipsGet: async (direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/relationships`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -46510,6 +46874,10 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -46566,6 +46934,7 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -46578,7 +46947,7 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1TeamsTeamIdRelationshipsGet: async (teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listRelationshipsV1TeamsTeamIdRelationshipsGet: async (teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('listRelationshipsV1TeamsTeamIdRelationshipsGet', 'teamId', teamId)
             const localVarPath = `/v1/teams/{team_id}/relationships`
@@ -46600,6 +46969,10 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -46686,6 +47059,7 @@ export const RelationshipsApiFp = function(configuration?: Configuration) {
         /**
          * List relationships.
          * @summary List Relationships
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -46699,14 +47073,15 @@ export const RelationshipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listRelationshipsV1RelationshipsGet(query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1RelationshipsGet(query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, teamId, options);
+        async listRelationshipsV1RelationshipsGet(direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1RelationshipsGet(direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, teamId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -46719,8 +47094,8 @@ export const RelationshipsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options);
+        async listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -46759,6 +47134,7 @@ export const RelationshipsApiFactory = function (configuration?: Configuration, 
         /**
          * List relationships.
          * @summary List Relationships
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -46772,13 +47148,14 @@ export const RelationshipsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1RelationshipsGet(query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
-            return localVarFp.listRelationshipsV1RelationshipsGet(query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, teamId, options).then((request) => request(axios, basePath));
+        listRelationshipsV1RelationshipsGet(direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, teamId?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
+            return localVarFp.listRelationshipsV1RelationshipsGet(direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -46791,8 +47168,8 @@ export const RelationshipsApiFactory = function (configuration?: Configuration, 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
-            return localVarFp.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options).then((request) => request(axios, basePath));
+        listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
+            return localVarFp.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -46852,6 +47229,13 @@ export interface RelationshipsApiGetSynthesisV1TeamsTeamIdRelationshipsRelations
  * @interface RelationshipsApiListRelationshipsV1RelationshipsGetRequest
  */
 export interface RelationshipsApiListRelationshipsV1RelationshipsGetRequest {
+    /**
+     * Optional directionality.
+     * @type {GraphSearchDirection}
+     * @memberof RelationshipsApiListRelationshipsV1RelationshipsGet
+     */
+    readonly direction?: GraphSearchDirection
+
     /**
      * Search query.
      * @type {string}
@@ -46935,6 +47319,13 @@ export interface RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetR
      * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
      */
     readonly teamId: string
+
+    /**
+     * Optional directionality.
+     * @type {GraphSearchDirection}
+     * @memberof RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly direction?: GraphSearchDirection
 
     /**
      * Search query.
@@ -47040,7 +47431,7 @@ export class RelationshipsApi extends BaseAPI {
      * @memberof RelationshipsApi
      */
     public listRelationshipsV1RelationshipsGet(requestParameters: RelationshipsApiListRelationshipsV1RelationshipsGetRequest = {}, options?: AxiosRequestConfig) {
-        return RelationshipsApiFp(this.configuration).listRelationshipsV1RelationshipsGet(requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+        return RelationshipsApiFp(this.configuration).listRelationshipsV1RelationshipsGet(requestParameters.direction, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -47052,7 +47443,7 @@ export class RelationshipsApi extends BaseAPI {
      * @memberof RelationshipsApi
      */
     public listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters: RelationshipsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest, options?: AxiosRequestConfig) {
-        return RelationshipsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
+        return RelationshipsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.direction, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -47066,18 +47457,27 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
-         * @param {string} [q] Search query
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
+         * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
          * @param {number} [studyMoveTo] Study moveTo distance force
          * @param {number} [relationshipDistance] Relationship distance threshold
          * @param {number} [relationshipMoveTo] Relationship moveTo distance force
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+         * @param {number} [relationshipMax] Max number of relationships returned
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet: async (q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticSearchV1SemanticSearchGet: async (questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/semantic-search`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -47097,8 +47497,20 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
-            if (q !== undefined) {
-                localVarQueryParameter['q'] = q;
+            if (questionType !== undefined) {
+                localVarQueryParameter['question_type'] = questionType;
+            }
+
+            if (term1 !== undefined) {
+                localVarQueryParameter['term1'] = term1;
+            }
+
+            if (term2 !== undefined) {
+                localVarQueryParameter['term2'] = term2;
+            }
+
+            if (cluster !== undefined) {
+                localVarQueryParameter['cluster'] = cluster;
             }
 
             if (filterBy !== undefined) {
@@ -47125,8 +47537,32 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['relationship_move_away_from'] = relationshipMoveAwayFrom;
             }
 
+            if (relationshipMax !== undefined) {
+                localVarQueryParameter['relationship_max'] = relationshipMax;
+            }
+
             if (clusteringThresholds !== undefined) {
                 localVarQueryParameter['clustering_thresholds'] = clusteringThresholds;
+            }
+
+            if (modelName !== undefined) {
+                localVarQueryParameter['model_name'] = modelName;
+            }
+
+            if (length !== undefined) {
+                localVarQueryParameter['length'] = length;
+            }
+
+            if (temperature !== undefined) {
+                localVarQueryParameter['temperature'] = temperature;
+            }
+
+            if (maxTokens !== undefined) {
+                localVarQueryParameter['max_tokens'] = maxTokens;
+            }
+
+            if (choices !== undefined) {
+                localVarQueryParameter['choices'] = choices;
             }
 
 
@@ -47153,19 +47589,28 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
-         * @param {string} [q] Search query
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
+         * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
          * @param {number} [studyMoveTo] Study moveTo distance force
          * @param {number} [relationshipDistance] Relationship distance threshold
          * @param {number} [relationshipMoveTo] Relationship moveTo distance force
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+         * @param {number} [relationshipMax] Max number of relationships returned
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticSearchV1SemanticSearchGet(q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(q, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, clusteringThresholds, options);
+        async getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, relationshipMax, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -47181,19 +47626,28 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Get Semantic Search
-         * @param {string} [q] Search query
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
+         * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
          * @param {number} [studyMoveTo] Study moveTo distance force
          * @param {number} [relationshipDistance] Relationship distance threshold
          * @param {number} [relationshipMoveTo] Relationship moveTo distance force
          * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
+         * @param {number} [relationshipMax] Max number of relationships returned
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet(q?: string, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, clusteringThresholds?: string, options?: any): AxiosPromise<SemanticSearchOut> {
-            return localVarFp.getSemanticSearchV1SemanticSearchGet(q, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, clusteringThresholds, options).then((request) => request(axios, basePath));
+        getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchOut> {
+            return localVarFp.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, relationshipMax, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -47205,11 +47659,32 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
  */
 export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
     /**
-     * Search query
+     * Search query type
+     * @type {SemanticSearchType}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly questionType?: SemanticSearchType
+
+    /**
+     * First term part of the question.
      * @type {string}
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
-    readonly q?: string
+    readonly term1?: string
+
+    /**
+     * Optional second term part of the question.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly term2?: string
+
+    /**
+     * To cluster results or not. Default True.
+     * @type {boolean}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly cluster?: boolean
 
     /**
      * Filter semantic search results.
@@ -47254,11 +47729,53 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
     readonly relationshipMoveAwayFrom?: number
 
     /**
+     * Max number of relationships returned
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly relationshipMax?: number
+
+    /**
      * Clustering thresholds as json stringified list of pairs of floats.
      * @type {string}
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
     readonly clusteringThresholds?: string
+
+    /**
+     * OpenAI model name
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly modelName?: string
+
+    /**
+     * Length of synthesis paragraph, in sentences.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly length?: string
+
+    /**
+     * Temperature of summary
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly temperature?: number
+
+    /**
+     * Maximum token size
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly maxTokens?: number
+
+    /**
+     * Number of choices for OpenAI to produce.
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly choices?: number
 }
 
 /**
@@ -47277,7 +47794,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     public getSemanticSearchV1SemanticSearchGet(requestParameters: SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest = {}, options?: AxiosRequestConfig) {
-        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.q, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.studyMoveTo, requestParameters.relationshipDistance, requestParameters.relationshipMoveTo, requestParameters.relationshipMoveAwayFrom, requestParameters.clusteringThresholds, options).then((request) => request(this.axios, this.basePath));
+        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.questionType, requestParameters.term1, requestParameters.term2, requestParameters.cluster, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.studyMoveTo, requestParameters.relationshipDistance, requestParameters.relationshipMoveTo, requestParameters.relationshipMoveAwayFrom, requestParameters.relationshipMax, requestParameters.clusteringThresholds, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -53167,190 +53684,6 @@ export class StudyMetadataApi extends BaseAPI {
 
 
 /**
- * SynthesisApi - axios parameter creator
- * @export
- */
-export const SynthesisApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Generate and return summary synthesis.
-         * @summary Generate A Synthesis.
-         * @param {SynthesisIn} synthesisIn 
-         * @param {string} [modelName] 
-         * @param {string} [length] 
-         * @param {number} [temperature] 
-         * @param {number} [maxTokens] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        generateASynthesisV1SynthesisPost: async (synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'synthesisIn' is not null or undefined
-            assertParamExists('generateASynthesisV1SynthesisPost', 'synthesisIn', synthesisIn)
-            const localVarPath = `/v1/synthesis`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication APIKeyHeader required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
-            if (modelName !== undefined) {
-                localVarQueryParameter['model_name'] = modelName;
-            }
-
-            if (length !== undefined) {
-                localVarQueryParameter['length'] = length;
-            }
-
-            if (temperature !== undefined) {
-                localVarQueryParameter['temperature'] = temperature;
-            }
-
-            if (maxTokens !== undefined) {
-                localVarQueryParameter['max_tokens'] = maxTokens;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(synthesisIn, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * SynthesisApi - functional programming interface
- * @export
- */
-export const SynthesisApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SynthesisApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Generate and return summary synthesis.
-         * @summary Generate A Synthesis.
-         * @param {SynthesisIn} synthesisIn 
-         * @param {string} [modelName] 
-         * @param {string} [length] 
-         * @param {number} [temperature] 
-         * @param {number} [maxTokens] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.generateASynthesisV1SynthesisPost(synthesisIn, modelName, length, temperature, maxTokens, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * SynthesisApi - factory interface
- * @export
- */
-export const SynthesisApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SynthesisApiFp(configuration)
-    return {
-        /**
-         * Generate and return summary synthesis.
-         * @summary Generate A Synthesis.
-         * @param {SynthesisIn} synthesisIn 
-         * @param {string} [modelName] 
-         * @param {string} [length] 
-         * @param {number} [temperature] 
-         * @param {number} [maxTokens] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        generateASynthesisV1SynthesisPost(synthesisIn: SynthesisIn, modelName?: string, length?: string, temperature?: number, maxTokens?: number, options?: any): AxiosPromise<SynthesisOut> {
-            return localVarFp.generateASynthesisV1SynthesisPost(synthesisIn, modelName, length, temperature, maxTokens, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * Request parameters for generateASynthesisV1SynthesisPost operation in SynthesisApi.
- * @export
- * @interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest
- */
-export interface SynthesisApiGenerateASynthesisV1SynthesisPostRequest {
-    /**
-     * 
-     * @type {SynthesisIn}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly synthesisIn: SynthesisIn
-
-    /**
-     * 
-     * @type {string}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly modelName?: string
-
-    /**
-     * 
-     * @type {string}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly length?: string
-
-    /**
-     * 
-     * @type {number}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly temperature?: number
-
-    /**
-     * 
-     * @type {number}
-     * @memberof SynthesisApiGenerateASynthesisV1SynthesisPost
-     */
-    readonly maxTokens?: number
-}
-
-/**
- * SynthesisApi - object-oriented interface
- * @export
- * @class SynthesisApi
- * @extends {BaseAPI}
- */
-export class SynthesisApi extends BaseAPI {
-    /**
-     * Generate and return summary synthesis.
-     * @summary Generate A Synthesis.
-     * @param {SynthesisApiGenerateASynthesisV1SynthesisPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SynthesisApi
-     */
-    public generateASynthesisV1SynthesisPost(requestParameters: SynthesisApiGenerateASynthesisV1SynthesisPostRequest, options?: AxiosRequestConfig) {
-        return SynthesisApiFp(this.configuration).generateASynthesisV1SynthesisPost(requestParameters.synthesisIn, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-/**
  * TeamsApi - axios parameter creator
  * @export
  */
@@ -56237,6 +56570,49 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {SemanticTopicGraphIn} semanticTopicGraphIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost: async (teamId: string, semanticTopicGraphIn: SemanticTopicGraphIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'teamId' is not null or undefined
+            assertParamExists('getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost', 'teamId', teamId)
+            // verify required parameter 'semanticTopicGraphIn' is not null or undefined
+            assertParamExists('getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost', 'semanticTopicGraphIn', semanticTopicGraphIn)
+            const localVarPath = `/v1/teams/{team_id}/graph/semantic_topic_graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(semanticTopicGraphIn, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -59297,6 +59673,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -59309,7 +59686,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1TeamsTeamIdRelationshipsGet: async (teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listRelationshipsV1TeamsTeamIdRelationshipsGet: async (teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'teamId' is not null or undefined
             assertParamExists('listRelationshipsV1TeamsTeamIdRelationshipsGet', 'teamId', teamId)
             const localVarPath = `/v1/teams/{team_id}/relationships`
@@ -59331,6 +59708,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -62452,6 +62833,18 @@ export const TeamsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {SemanticTopicGraphIn} semanticTopicGraphIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(teamId: string, semanticTopicGraphIn: SemanticTopicGraphIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(teamId, semanticTopicGraphIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get Study.
          * @summary Get Study
          * @param {string} teamId 
@@ -63177,6 +63570,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -63189,8 +63583,8 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options);
+        async listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipPaginationOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -64473,6 +64867,17 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet(teamId, topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
         },
         /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph
+         * @param {string} teamId 
+         * @param {SemanticTopicGraphIn} semanticTopicGraphIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(teamId: string, semanticTopicGraphIn: SemanticTopicGraphIn, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(teamId, semanticTopicGraphIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get Study.
          * @summary Get Study
          * @param {string} teamId 
@@ -65162,6 +65567,7 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * List relationships.
          * @summary List Relationships
          * @param {string} teamId 
+         * @param {GraphSearchDirection} [direction] Optional directionality.
          * @param {string} [query] Search query.
          * @param {boolean} [includeHidden] Include hidden objects in results.
          * @param {number} [page] 
@@ -65174,8 +65580,8 @@ export const TeamsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
-            return localVarFp.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options).then((request) => request(axios, basePath));
+        listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId: string, direction?: GraphSearchDirection, query?: string, includeHidden?: boolean, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, sortBy?: string, directionality?: number, originQuery?: string, options?: any): AxiosPromise<RelationshipPaginationOut> {
+            return localVarFp.listRelationshipsV1TeamsTeamIdRelationshipsGet(teamId, direction, query, includeHidden, page, pageSize, total, idsOnly, sortBy, directionality, originQuery, options).then((request) => request(axios, basePath));
         },
         /**
          * List Studies.
@@ -67169,6 +67575,27 @@ export interface TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGetReque
      * @memberof TeamsApiGetSemanticGraphV1TeamsTeamIdGraphSemanticGraphGet
      */
     readonly minCount?: number
+}
+
+/**
+ * Request parameters for getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPostRequest
+ */
+export interface TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost
+     */
+    readonly teamId: string
+
+    /**
+     * 
+     * @type {SemanticTopicGraphIn}
+     * @memberof TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost
+     */
+    readonly semanticTopicGraphIn: SemanticTopicGraphIn
 }
 
 /**
@@ -69971,6 +70398,13 @@ export interface TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest {
     readonly teamId: string
 
     /**
+     * Optional directionality.
+     * @type {GraphSearchDirection}
+     * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
+     */
+    readonly direction?: GraphSearchDirection
+
+    /**
      * Search query.
      * @type {string}
      * @memberof TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGet
@@ -72391,6 +72825,18 @@ export class TeamsApi extends BaseAPI {
     }
 
     /**
+     * Fetch single topic semantic graph.
+     * @summary Get Semantic Topic Graph
+     * @param {TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    public getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(requestParameters: TeamsApiGetSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPostRequest, options?: AxiosRequestConfig) {
+        return TeamsApiFp(this.configuration).getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(requestParameters.teamId, requestParameters.semanticTopicGraphIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get Study.
      * @summary Get Study
      * @param {TeamsApiGetStudyV1TeamsTeamIdStudiesStudyIdGetRequest} requestParameters Request parameters.
@@ -72831,7 +73277,7 @@ export class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     public listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters: TeamsApiListRelationshipsV1TeamsTeamIdRelationshipsGetRequest, options?: AxiosRequestConfig) {
-        return TeamsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
+        return TeamsApiFp(this.configuration).listRelationshipsV1TeamsTeamIdRelationshipsGet(requestParameters.teamId, requestParameters.direction, requestParameters.query, requestParameters.includeHidden, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.sortBy, requestParameters.directionality, requestParameters.originQuery, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
