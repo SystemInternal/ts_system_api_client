@@ -3730,6 +3730,12 @@ export interface Finding {
      * @memberof Finding
      */
     'data': RawFinding;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof Finding
+     */
+    'labels'?: Array<string>;
 }
 /**
  * Schema for identifying finding.
