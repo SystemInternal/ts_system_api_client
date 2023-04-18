@@ -5487,6 +5487,25 @@ export interface MonitoringRuleSet {
     'value': number;
 }
 /**
+ * Information related to a thumbs down feedback.
+ * @export
+ * @interface NegativeSynthesisFeedback
+ */
+export interface NegativeSynthesisFeedback {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof NegativeSynthesisFeedback
+     */
+    'choice': Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof NegativeSynthesisFeedback
+     */
+    'additional': string;
+}
+/**
  * Pagination links with next and prev urls.
  * @export
  * @interface NextPrevPaginationLinks
@@ -7855,6 +7874,37 @@ export enum StudyTypeEnum {
     RandomizedControlTrial = 'randomized_control_trial'
 }
 
+/**
+ * Input of feedback on synthesis from client.
+ * @export
+ * @interface SynthesisFeedbackIn
+ */
+export interface SynthesisFeedbackIn {
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisFeedbackIn
+     */
+    'question': string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SynthesisFeedbackIn
+     */
+    'prompt_summaries': Array<string>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SynthesisFeedbackIn
+     */
+    'is_positive': boolean;
+    /**
+     * 
+     * @type {NegativeSynthesisFeedback}
+     * @memberof SynthesisFeedbackIn
+     */
+    'negative_feedback'?: NegativeSynthesisFeedback;
+}
 /**
  * Enum System object resource names.
  * @export
@@ -36062,6 +36112,134 @@ export class FeaturesApi extends BaseAPI {
      */
     public replaceFeatureV1TeamsTeamIdFeaturesFeatureIdPut(requestParameters: FeaturesApiReplaceFeatureV1TeamsTeamIdFeaturesFeatureIdPutRequest, options?: AxiosRequestConfig) {
         return FeaturesApiFp(this.configuration).replaceFeatureV1TeamsTeamIdFeaturesFeatureIdPut(requestParameters.teamId, requestParameters.featureId, requestParameters.featureIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * FeedbackApi - axios parameter creator
+ * @export
+ */
+export const FeedbackApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Post user feedback on AI-generated relationship synthesis.
+         * @summary Post Synthesis Feedback
+         * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postSynthesisFeedbackV1FeedbackSynthesisPost: async (synthesisFeedbackIn: SynthesisFeedbackIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'synthesisFeedbackIn' is not null or undefined
+            assertParamExists('postSynthesisFeedbackV1FeedbackSynthesisPost', 'synthesisFeedbackIn', synthesisFeedbackIn)
+            const localVarPath = `/v1/feedback/synthesis`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(synthesisFeedbackIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * FeedbackApi - functional programming interface
+ * @export
+ */
+export const FeedbackApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = FeedbackApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Post user feedback on AI-generated relationship synthesis.
+         * @summary Post Synthesis Feedback
+         * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * FeedbackApi - factory interface
+ * @export
+ */
+export const FeedbackApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = FeedbackApiFp(configuration)
+    return {
+        /**
+         * Post user feedback on AI-generated relationship synthesis.
+         * @summary Post Synthesis Feedback
+         * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: any): AxiosPromise<any> {
+            return localVarFp.postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for postSynthesisFeedbackV1FeedbackSynthesisPost operation in FeedbackApi.
+ * @export
+ * @interface FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest
+ */
+export interface FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest {
+    /**
+     * 
+     * @type {SynthesisFeedbackIn}
+     * @memberof FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPost
+     */
+    readonly synthesisFeedbackIn: SynthesisFeedbackIn
+}
+
+/**
+ * FeedbackApi - object-oriented interface
+ * @export
+ * @class FeedbackApi
+ * @extends {BaseAPI}
+ */
+export class FeedbackApi extends BaseAPI {
+    /**
+     * Post user feedback on AI-generated relationship synthesis.
+     * @summary Post Synthesis Feedback
+     * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeedbackApi
+     */
+    public postSynthesisFeedbackV1FeedbackSynthesisPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest, options?: AxiosRequestConfig) {
+        return FeedbackApiFp(this.configuration).postSynthesisFeedbackV1FeedbackSynthesisPost(requestParameters.synthesisFeedbackIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
