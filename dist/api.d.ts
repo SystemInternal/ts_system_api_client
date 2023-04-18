@@ -5462,6 +5462,25 @@ export interface MonitoringRuleSet {
     'value': number;
 }
 /**
+ * Information related to a thumbs down feedback.
+ * @export
+ * @interface NegativeSynthesisFeedback
+ */
+export interface NegativeSynthesisFeedback {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof NegativeSynthesisFeedback
+     */
+    'choice': Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof NegativeSynthesisFeedback
+     */
+    'additional': string;
+}
+/**
  * Pagination links with next and prev urls.
  * @export
  * @interface NextPrevPaginationLinks
@@ -7825,6 +7844,37 @@ export declare enum StudyTypeEnum {
     UnsupervisedMl = "unsupervised_ml",
     StatisticalInference = "statistical_inference",
     RandomizedControlTrial = "randomized_control_trial"
+}
+/**
+ * Input of feedback on synthesis from client.
+ * @export
+ * @interface SynthesisFeedbackIn
+ */
+export interface SynthesisFeedbackIn {
+    /**
+     *
+     * @type {string}
+     * @memberof SynthesisFeedbackIn
+     */
+    'question': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof SynthesisFeedbackIn
+     */
+    'prompt_summaries': Array<string>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof SynthesisFeedbackIn
+     */
+    'is_positive': boolean;
+    /**
+     *
+     * @type {NegativeSynthesisFeedback}
+     * @memberof SynthesisFeedbackIn
+     */
+    'negative_feedback'?: NegativeSynthesisFeedback;
 }
 /**
  * Enum System object resource names.
@@ -24656,6 +24706,78 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     replaceFeatureV1TeamsTeamIdFeaturesFeatureIdPut(requestParameters: FeaturesApiReplaceFeatureV1TeamsTeamIdFeaturesFeatureIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeatureOut>>;
+}
+/**
+ * FeedbackApi - axios parameter creator
+ * @export
+ */
+export declare const FeedbackApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Post user feedback on AI-generated relationship synthesis.
+     * @summary Post Synthesis Feedback
+     * @param {SynthesisFeedbackIn} synthesisFeedbackIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postSynthesisFeedbackV1FeedbackSynthesisPost: (synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * FeedbackApi - functional programming interface
+ * @export
+ */
+export declare const FeedbackApiFp: (configuration?: Configuration) => {
+    /**
+     * Post user feedback on AI-generated relationship synthesis.
+     * @summary Post Synthesis Feedback
+     * @param {SynthesisFeedbackIn} synthesisFeedbackIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+};
+/**
+ * FeedbackApi - factory interface
+ * @export
+ */
+export declare const FeedbackApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Post user feedback on AI-generated relationship synthesis.
+     * @summary Post Synthesis Feedback
+     * @param {SynthesisFeedbackIn} synthesisFeedbackIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: any): AxiosPromise<any>;
+};
+/**
+ * Request parameters for postSynthesisFeedbackV1FeedbackSynthesisPost operation in FeedbackApi.
+ * @export
+ * @interface FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest
+ */
+export interface FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest {
+    /**
+     *
+     * @type {SynthesisFeedbackIn}
+     * @memberof FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPost
+     */
+    readonly synthesisFeedbackIn: SynthesisFeedbackIn;
+}
+/**
+ * FeedbackApi - object-oriented interface
+ * @export
+ * @class FeedbackApi
+ * @extends {BaseAPI}
+ */
+export declare class FeedbackApi extends BaseAPI {
+    /**
+     * Post user feedback on AI-generated relationship synthesis.
+     * @summary Post Synthesis Feedback
+     * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeedbackApi
+     */
+    postSynthesisFeedbackV1FeedbackSynthesisPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * FindingsApi - axios parameter creator
