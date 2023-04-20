@@ -36154,10 +36154,10 @@ export const FeedbackApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postSynthesisFeedbackV1FeedbackSynthesisPost: async (synthesisFeedbackIn: SynthesisFeedbackIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        postSynthesisFeedbackV1FeedbackPost: async (synthesisFeedbackIn: SynthesisFeedbackIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'synthesisFeedbackIn' is not null or undefined
-            assertParamExists('postSynthesisFeedbackV1FeedbackSynthesisPost', 'synthesisFeedbackIn', synthesisFeedbackIn)
-            const localVarPath = `/v1/feedback/synthesis`;
+            assertParamExists('postSynthesisFeedbackV1FeedbackPost', 'synthesisFeedbackIn', synthesisFeedbackIn)
+            const localVarPath = `/v1/feedback`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -36207,8 +36207,8 @@ export const FeedbackApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn, options);
+        async postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -36228,22 +36228,22 @@ export const FeedbackApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: any): AxiosPromise<any> {
-            return localVarFp.postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn, options).then((request) => request(axios, basePath));
+        postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: any): AxiosPromise<any> {
+            return localVarFp.postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for postSynthesisFeedbackV1FeedbackSynthesisPost operation in FeedbackApi.
+ * Request parameters for postSynthesisFeedbackV1FeedbackPost operation in FeedbackApi.
  * @export
- * @interface FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest
+ * @interface FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest
  */
-export interface FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest {
+export interface FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest {
     /**
      * 
      * @type {SynthesisFeedbackIn}
-     * @memberof FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPost
+     * @memberof FeedbackApiPostSynthesisFeedbackV1FeedbackPost
      */
     readonly synthesisFeedbackIn: SynthesisFeedbackIn
 }
@@ -36258,13 +36258,13 @@ export class FeedbackApi extends BaseAPI {
     /**
      * Post user feedback on AI-generated relationship synthesis.
      * @summary Post Synthesis Feedback
-     * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest} requestParameters Request parameters.
+     * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FeedbackApi
      */
-    public postSynthesisFeedbackV1FeedbackSynthesisPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest, options?: AxiosRequestConfig) {
-        return FeedbackApiFp(this.configuration).postSynthesisFeedbackV1FeedbackSynthesisPost(requestParameters.synthesisFeedbackIn, options).then((request) => request(this.axios, this.basePath));
+    public postSynthesisFeedbackV1FeedbackPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest, options?: AxiosRequestConfig) {
+        return FeedbackApiFp(this.configuration).postSynthesisFeedbackV1FeedbackPost(requestParameters.synthesisFeedbackIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
