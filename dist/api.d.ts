@@ -24744,7 +24744,7 @@ export declare const FeedbackApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postSynthesisFeedbackV1FeedbackSynthesisPost: (synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    postSynthesisFeedbackV1FeedbackPost: (synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * FeedbackApi - functional programming interface
@@ -24758,7 +24758,7 @@ export declare const FeedbackApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
 };
 /**
  * FeedbackApi - factory interface
@@ -24772,18 +24772,18 @@ export declare const FeedbackApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postSynthesisFeedbackV1FeedbackSynthesisPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: any): AxiosPromise<any>;
+    postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: any): AxiosPromise<any>;
 };
 /**
- * Request parameters for postSynthesisFeedbackV1FeedbackSynthesisPost operation in FeedbackApi.
+ * Request parameters for postSynthesisFeedbackV1FeedbackPost operation in FeedbackApi.
  * @export
- * @interface FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest
+ * @interface FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest
  */
-export interface FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest {
+export interface FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest {
     /**
      *
      * @type {SynthesisFeedbackIn}
-     * @memberof FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPost
+     * @memberof FeedbackApiPostSynthesisFeedbackV1FeedbackPost
      */
     readonly synthesisFeedbackIn: SynthesisFeedbackIn;
 }
@@ -24797,12 +24797,12 @@ export declare class FeedbackApi extends BaseAPI {
     /**
      * Post user feedback on AI-generated relationship synthesis.
      * @summary Post Synthesis Feedback
-     * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest} requestParameters Request parameters.
+     * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FeedbackApi
      */
-    postSynthesisFeedbackV1FeedbackSynthesisPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackSynthesisPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    postSynthesisFeedbackV1FeedbackPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * FindingsApi - axios parameter creator
