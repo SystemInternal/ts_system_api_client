@@ -7086,10 +7086,10 @@ export interface SemanticSearchOut {
     'relationships': Array<ClusteredRelationship>;
     /**
      * 
-     * @type {string}
+     * @type {Synthesis}
      * @memberof SemanticSearchOut
      */
-    'synthesis'?: string;
+    'synthesis'?: Synthesis;
 }
 /**
  * Defines modes for semantic search.
@@ -7900,6 +7900,25 @@ export enum StudyTypeEnum {
 }
 
 /**
+ * Synthesis output schema.
+ * @export
+ * @interface Synthesis
+ */
+export interface Synthesis {
+    /**
+     * 
+     * @type {string}
+     * @memberof Synthesis
+     */
+    'text': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Synthesis
+     */
+    'cache_key': string;
+}
+/**
  * Input of feedback on synthesis from client.
  * @export
  * @interface SynthesisFeedbackIn
@@ -7929,6 +7948,12 @@ export interface SynthesisFeedbackIn {
      * @memberof SynthesisFeedbackIn
      */
     'negative_feedback'?: NegativeSynthesisFeedback;
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisFeedbackIn
+     */
+    'cache_key'?: string;
 }
 /**
  * Enum System object resource names.
