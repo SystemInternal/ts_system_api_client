@@ -5936,6 +5936,12 @@ export interface OpenAlexStudyMetadata {
      * @type {string}
      * @memberof OpenAlexStudyMetadata
      */
+    'journal_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof OpenAlexStudyMetadata
+     */
     'publish_date'?: string;
     /**
      *
