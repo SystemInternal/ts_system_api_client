@@ -3730,6 +3730,12 @@ export interface Finding {
      * @memberof Finding
      */
     'data': RawFinding;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof Finding
+     */
+    'labels'?: Array<string>;
 }
 /**
  * Schema for identifying finding.
@@ -5487,6 +5493,25 @@ export interface MonitoringRuleSet {
     'value': number;
 }
 /**
+ * Information related to a thumbs down feedback.
+ * @export
+ * @interface NegativeSynthesisFeedback
+ */
+export interface NegativeSynthesisFeedback {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof NegativeSynthesisFeedback
+     */
+    'choice': Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof NegativeSynthesisFeedback
+     */
+    'additional': string;
+}
+/**
  * Pagination links with next and prev urls.
  * @export
  * @interface NextPrevPaginationLinks
@@ -5921,6 +5946,12 @@ export interface OpenAlexStudyMetadata {
      * @memberof OpenAlexStudyMetadata
      */
     'journal'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OpenAlexStudyMetadata
+     */
+    'journal_id'?: string;
     /**
      * 
      * @type {string}
@@ -7023,6 +7054,25 @@ export interface RoleOut {
     'role_id': string;
 }
 /**
+ * Semantic search count.
+ * @export
+ * @interface SemanticSearchCount
+ */
+export interface SemanticSearchCount {
+    /**
+     * 
+     * @type {number}
+     * @memberof SemanticSearchCount
+     */
+    'total_relationships': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SemanticSearchCount
+     */
+    'total_studies': number;
+}
+/**
  * Semantic search out model.
  * @export
  * @interface SemanticSearchOut
@@ -7042,10 +7092,10 @@ export interface SemanticSearchOut {
     'relationships': Array<ClusteredRelationship>;
     /**
      * 
-     * @type {string}
+     * @type {Synthesis}
      * @memberof SemanticSearchOut
      */
-    'synthesis'?: string;
+    'synthesis'?: Synthesis;
 }
 /**
  * Defines modes for semantic search.
@@ -7056,7 +7106,9 @@ export interface SemanticSearchOut {
 export enum SemanticSearchType {
     RiskFactorOf = 'risk_factor_of',
     Outcome = 'outcome',
-    Relationship = 'relationship'
+    Relationship = 'relationship',
+    Relationship2d = 'relationship_2d',
+    SingleVariable2d = 'single_variable_2d'
 }
 
 /**
@@ -7855,6 +7907,62 @@ export enum StudyTypeEnum {
     RandomizedControlTrial = 'randomized_control_trial'
 }
 
+/**
+ * Synthesis output schema.
+ * @export
+ * @interface Synthesis
+ */
+export interface Synthesis {
+    /**
+     * 
+     * @type {string}
+     * @memberof Synthesis
+     */
+    'text': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Synthesis
+     */
+    'cache_key': string;
+}
+/**
+ * Input of feedback on synthesis from client.
+ * @export
+ * @interface SynthesisFeedbackIn
+ */
+export interface SynthesisFeedbackIn {
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisFeedbackIn
+     */
+    'question': string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SynthesisFeedbackIn
+     */
+    'prompt_summaries': Array<string>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SynthesisFeedbackIn
+     */
+    'is_positive': boolean;
+    /**
+     * 
+     * @type {NegativeSynthesisFeedback}
+     * @memberof SynthesisFeedbackIn
+     */
+    'negative_feedback'?: NegativeSynthesisFeedback;
+    /**
+     * 
+     * @type {string}
+     * @memberof SynthesisFeedbackIn
+     */
+    'cache_key'?: string;
+}
 /**
  * Enum System object resource names.
  * @export
@@ -16288,6 +16396,10 @@ export const AuthorsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -18174,6 +18286,10 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
@@ -20625,6 +20741,10 @@ export const DashboardsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -36055,6 +36175,134 @@ export class FeaturesApi extends BaseAPI {
 
 
 /**
+ * FeedbackApi - axios parameter creator
+ * @export
+ */
+export const FeedbackApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Post user feedback on AI-generated relationship synthesis.
+         * @summary Post Synthesis Feedback
+         * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postSynthesisFeedbackV1FeedbackPost: async (synthesisFeedbackIn: SynthesisFeedbackIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'synthesisFeedbackIn' is not null or undefined
+            assertParamExists('postSynthesisFeedbackV1FeedbackPost', 'synthesisFeedbackIn', synthesisFeedbackIn)
+            const localVarPath = `/v1/feedback`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(synthesisFeedbackIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * FeedbackApi - functional programming interface
+ * @export
+ */
+export const FeedbackApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = FeedbackApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Post user feedback on AI-generated relationship synthesis.
+         * @summary Post Synthesis Feedback
+         * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * FeedbackApi - factory interface
+ * @export
+ */
+export const FeedbackApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = FeedbackApiFp(configuration)
+    return {
+        /**
+         * Post user feedback on AI-generated relationship synthesis.
+         * @summary Post Synthesis Feedback
+         * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: any): AxiosPromise<any> {
+            return localVarFp.postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for postSynthesisFeedbackV1FeedbackPost operation in FeedbackApi.
+ * @export
+ * @interface FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest
+ */
+export interface FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest {
+    /**
+     * 
+     * @type {SynthesisFeedbackIn}
+     * @memberof FeedbackApiPostSynthesisFeedbackV1FeedbackPost
+     */
+    readonly synthesisFeedbackIn: SynthesisFeedbackIn
+}
+
+/**
+ * FeedbackApi - object-oriented interface
+ * @export
+ * @class FeedbackApi
+ * @extends {BaseAPI}
+ */
+export class FeedbackApi extends BaseAPI {
+    /**
+     * Post user feedback on AI-generated relationship synthesis.
+     * @summary Post Synthesis Feedback
+     * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeedbackApi
+     */
+    public postSynthesisFeedbackV1FeedbackPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest, options?: AxiosRequestConfig) {
+        return FeedbackApiFp(this.configuration).postSynthesisFeedbackV1FeedbackPost(requestParameters.synthesisFeedbackIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
  * FindingsApi - axios parameter creator
  * @export
  */
@@ -36270,6 +36518,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
             }
@@ -36359,6 +36611,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -36447,6 +36703,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -36544,6 +36804,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -36662,6 +36926,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (topic1 !== undefined) {
                 localVarQueryParameter['topic_1'] = topic1;
             }
@@ -36776,6 +37044,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -36865,6 +37137,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (randomSubset !== undefined) {
                 localVarQueryParameter['random_subset'] = randomSubset;
@@ -36958,6 +37234,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -37055,6 +37335,10 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -38504,6 +38788,10 @@ export const ModeldbApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -38537,6 +38825,10 @@ export const ModeldbApiAxiosParamCreator = function (configuration?: Configurati
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (algorithmClass !== undefined) {
                 localVarQueryParameter['algorithm_class'] = algorithmClass;
@@ -45021,6 +45313,10 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -46150,6 +46446,10 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -46777,6 +47077,10 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (directedAt !== undefined) {
                 localVarQueryParameter['directed_at'] = directedAt;
             }
@@ -46822,6 +47126,10 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (directedAt !== undefined) {
                 localVarQueryParameter['directed_at'] = directedAt;
@@ -47455,19 +47763,15 @@ export class RelationshipsApi extends BaseAPI {
 export const SemanticSearchApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Get semantic search.  Values from semantic search.
-         * @summary Get Semantic Search
+         * Get semantic search count.
+         * @summary Get Semantic Search Count
          * @param {SemanticSearchType} [questionType] Search query type
          * @param {string} [term1] First term part of the question.
          * @param {string} [term2] Optional second term part of the question.
          * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
-         * @param {number} [studyMoveTo] Study moveTo distance force
-         * @param {number} [relationshipDistance] Relationship distance threshold
-         * @param {number} [relationshipMoveTo] Relationship moveTo distance force
-         * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {number} [relationshipMax] Max number of relationships returned
+         * @param {number} [variableDistance] Variable distance threshold
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {string} [modelName] OpenAI model name
          * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -47477,7 +47781,109 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet: async (questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticSearchCountV1SemanticSearchTotalGet: async (questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/semantic-search/total`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (questionType !== undefined) {
+                localVarQueryParameter['question_type'] = questionType;
+            }
+
+            if (term1 !== undefined) {
+                localVarQueryParameter['term1'] = term1;
+            }
+
+            if (term2 !== undefined) {
+                localVarQueryParameter['term2'] = term2;
+            }
+
+            if (cluster !== undefined) {
+                localVarQueryParameter['cluster'] = cluster;
+            }
+
+            if (filterBy !== undefined) {
+                localVarQueryParameter['filter_by'] = filterBy;
+            }
+
+            if (studyDistance !== undefined) {
+                localVarQueryParameter['study_distance'] = studyDistance;
+            }
+
+            if (variableDistance !== undefined) {
+                localVarQueryParameter['variable_distance'] = variableDistance;
+            }
+
+            if (clusteringThresholds !== undefined) {
+                localVarQueryParameter['clustering_thresholds'] = clusteringThresholds;
+            }
+
+            if (modelName !== undefined) {
+                localVarQueryParameter['model_name'] = modelName;
+            }
+
+            if (length !== undefined) {
+                localVarQueryParameter['length'] = length;
+            }
+
+            if (temperature !== undefined) {
+                localVarQueryParameter['temperature'] = temperature;
+            }
+
+            if (maxTokens !== undefined) {
+                localVarQueryParameter['max_tokens'] = maxTokens;
+            }
+
+            if (choices !== undefined) {
+                localVarQueryParameter['choices'] = choices;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Get Semantic Search
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
+         * @param {boolean} [cluster] To cluster results or not. Default True.
+         * @param {string} [filterBy] Filter semantic search results.
+         * @param {number} [studyDistance] Study distance threshold
+         * @param {number} [variableDistance] Variable distance threshold
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticSearchV1SemanticSearchGet: async (questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/semantic-search`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -47521,24 +47927,8 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['study_distance'] = studyDistance;
             }
 
-            if (studyMoveTo !== undefined) {
-                localVarQueryParameter['study_move_to'] = studyMoveTo;
-            }
-
-            if (relationshipDistance !== undefined) {
-                localVarQueryParameter['relationship_distance'] = relationshipDistance;
-            }
-
-            if (relationshipMoveTo !== undefined) {
-                localVarQueryParameter['relationship_move_to'] = relationshipMoveTo;
-            }
-
-            if (relationshipMoveAwayFrom !== undefined) {
-                localVarQueryParameter['relationship_move_away_from'] = relationshipMoveAwayFrom;
-            }
-
-            if (relationshipMax !== undefined) {
-                localVarQueryParameter['relationship_max'] = relationshipMax;
+            if (variableDistance !== undefined) {
+                localVarQueryParameter['variable_distance'] = variableDistance;
             }
 
             if (clusteringThresholds !== undefined) {
@@ -47587,19 +47977,15 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SemanticSearchApiAxiosParamCreator(configuration)
     return {
         /**
-         * Get semantic search.  Values from semantic search.
-         * @summary Get Semantic Search
+         * Get semantic search count.
+         * @summary Get Semantic Search Count
          * @param {SemanticSearchType} [questionType] Search query type
          * @param {string} [term1] First term part of the question.
          * @param {string} [term2] Optional second term part of the question.
          * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
-         * @param {number} [studyMoveTo] Study moveTo distance force
-         * @param {number} [relationshipDistance] Relationship distance threshold
-         * @param {number} [relationshipMoveTo] Relationship moveTo distance force
-         * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {number} [relationshipMax] Max number of relationships returned
+         * @param {number} [variableDistance] Variable distance threshold
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {string} [modelName] OpenAI model name
          * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -47609,8 +47995,31 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, relationshipMax, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options);
+        async getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchCount>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchCountV1SemanticSearchTotalGet(questionType, term1, term2, cluster, filterBy, studyDistance, variableDistance, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Get Semantic Search
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
+         * @param {boolean} [cluster] To cluster results or not. Default True.
+         * @param {string} [filterBy] Filter semantic search results.
+         * @param {number} [studyDistance] Study distance threshold
+         * @param {number} [variableDistance] Variable distance threshold
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, variableDistance, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -47624,19 +48033,15 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
     const localVarFp = SemanticSearchApiFp(configuration)
     return {
         /**
-         * Get semantic search.  Values from semantic search.
-         * @summary Get Semantic Search
+         * Get semantic search count.
+         * @summary Get Semantic Search Count
          * @param {SemanticSearchType} [questionType] Search query type
          * @param {string} [term1] First term part of the question.
          * @param {string} [term2] Optional second term part of the question.
          * @param {boolean} [cluster] To cluster results or not. Default True.
          * @param {string} [filterBy] Filter semantic search results.
          * @param {number} [studyDistance] Study distance threshold
-         * @param {number} [studyMoveTo] Study moveTo distance force
-         * @param {number} [relationshipDistance] Relationship distance threshold
-         * @param {number} [relationshipMoveTo] Relationship moveTo distance force
-         * @param {number} [relationshipMoveAwayFrom] Relationship moveAwayFrom distance force
-         * @param {number} [relationshipMax] Max number of relationships returned
+         * @param {number} [variableDistance] Variable distance threshold
          * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
          * @param {string} [modelName] OpenAI model name
          * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -47646,11 +48051,131 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, studyMoveTo?: number, relationshipDistance?: number, relationshipMoveTo?: number, relationshipMoveAwayFrom?: number, relationshipMax?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchOut> {
-            return localVarFp.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, studyMoveTo, relationshipDistance, relationshipMoveTo, relationshipMoveAwayFrom, relationshipMax, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options).then((request) => request(axios, basePath));
+        getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchCount> {
+            return localVarFp.getSemanticSearchCountV1SemanticSearchTotalGet(questionType, term1, term2, cluster, filterBy, studyDistance, variableDistance, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Get Semantic Search
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
+         * @param {boolean} [cluster] To cluster results or not. Default True.
+         * @param {string} [filterBy] Filter semantic search results.
+         * @param {number} [studyDistance] Study distance threshold
+         * @param {number} [variableDistance] Variable distance threshold
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchOut> {
+            return localVarFp.getSemanticSearchV1SemanticSearchGet(questionType, term1, term2, cluster, filterBy, studyDistance, variableDistance, clusteringThresholds, modelName, length, temperature, maxTokens, choices, options).then((request) => request(axios, basePath));
         },
     };
 };
+
+/**
+ * Request parameters for getSemanticSearchCountV1SemanticSearchTotalGet operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGetRequest
+ */
+export interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGetRequest {
+    /**
+     * Search query type
+     * @type {SemanticSearchType}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly questionType?: SemanticSearchType
+
+    /**
+     * First term part of the question.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly term1?: string
+
+    /**
+     * Optional second term part of the question.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly term2?: string
+
+    /**
+     * To cluster results or not. Default True.
+     * @type {boolean}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly cluster?: boolean
+
+    /**
+     * Filter semantic search results.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly filterBy?: string
+
+    /**
+     * Study distance threshold
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly studyDistance?: number
+
+    /**
+     * Variable distance threshold
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly variableDistance?: number
+
+    /**
+     * Clustering thresholds as json stringified list of pairs of floats.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly clusteringThresholds?: string
+
+    /**
+     * OpenAI model name
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly modelName?: string
+
+    /**
+     * Length of synthesis paragraph, in sentences.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly length?: string
+
+    /**
+     * Temperature of summary
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly temperature?: number
+
+    /**
+     * Maximum token size
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly maxTokens?: number
+
+    /**
+     * Number of choices for OpenAI to produce.
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly choices?: number
+}
 
 /**
  * Request parameters for getSemanticSearchV1SemanticSearchGet operation in SemanticSearchApi.
@@ -47701,39 +48226,11 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
     readonly studyDistance?: number
 
     /**
-     * Study moveTo distance force
+     * Variable distance threshold
      * @type {number}
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
-    readonly studyMoveTo?: number
-
-    /**
-     * Relationship distance threshold
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly relationshipDistance?: number
-
-    /**
-     * Relationship moveTo distance force
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly relationshipMoveTo?: number
-
-    /**
-     * Relationship moveAwayFrom distance force
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly relationshipMoveAwayFrom?: number
-
-    /**
-     * Max number of relationships returned
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly relationshipMax?: number
+    readonly variableDistance?: number
 
     /**
      * Clustering thresholds as json stringified list of pairs of floats.
@@ -47786,6 +48283,18 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
  */
 export class SemanticSearchApi extends BaseAPI {
     /**
+     * Get semantic search count.
+     * @summary Get Semantic Search Count
+     * @param {SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    public getSemanticSearchCountV1SemanticSearchTotalGet(requestParameters: SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGetRequest = {}, options?: AxiosRequestConfig) {
+        return SemanticSearchApiFp(this.configuration).getSemanticSearchCountV1SemanticSearchTotalGet(requestParameters.questionType, requestParameters.term1, requestParameters.term2, requestParameters.cluster, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.variableDistance, requestParameters.clusteringThresholds, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
      * @param {SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest} requestParameters Request parameters.
@@ -47794,7 +48303,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     public getSemanticSearchV1SemanticSearchGet(requestParameters: SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest = {}, options?: AxiosRequestConfig) {
-        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.questionType, requestParameters.term1, requestParameters.term2, requestParameters.cluster, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.studyMoveTo, requestParameters.relationshipDistance, requestParameters.relationshipMoveTo, requestParameters.relationshipMoveAwayFrom, requestParameters.relationshipMax, requestParameters.clusteringThresholds, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, options).then((request) => request(this.axios, this.basePath));
+        return SemanticSearchApiFp(this.configuration).getSemanticSearchV1SemanticSearchGet(requestParameters.questionType, requestParameters.term1, requestParameters.term2, requestParameters.cluster, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.variableDistance, requestParameters.clusteringThresholds, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -55794,6 +56303,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
             }
@@ -55928,6 +56441,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -56232,6 +56749,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -56276,6 +56797,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -56541,6 +57066,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (topic1 !== undefined) {
                 localVarQueryParameter['topic_1'] = topic1;
             }
@@ -56604,6 +57133,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -56695,6 +57228,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (directedAt !== undefined) {
                 localVarQueryParameter['directed_at'] = directedAt;
             }
@@ -56736,6 +57273,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (randomSubset !== undefined) {
                 localVarQueryParameter['random_subset'] = randomSubset;
@@ -56782,6 +57323,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -56827,6 +57372,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -56868,6 +57417,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
@@ -56956,6 +57509,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (email !== undefined) {
                 localVarQueryParameter['email'] = email;
@@ -58336,6 +58893,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -58519,6 +59080,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
@@ -58714,6 +59279,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -62050,6 +62619,10 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -73769,6 +74342,10 @@ export const TimelineApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (types) {
                 localVarQueryParameter['types'] = Array.from(types);
             }
@@ -74296,6 +74873,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
@@ -74384,6 +74965,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (email !== undefined) {
                 localVarQueryParameter['email'] = email;
