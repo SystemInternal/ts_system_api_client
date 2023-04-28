@@ -7084,7 +7084,9 @@ export interface SemanticSearchOut {
 export declare enum SemanticSearchType {
     RiskFactorOf = "risk_factor_of",
     Outcome = "outcome",
-    Relationship = "relationship"
+    Relationship = "relationship",
+    Relationship2d = "relationship_2d",
+    SingleVariable2d = "single_variable_2d"
 }
 /**
  * Single topic graph payload.

@@ -540,6 +540,8 @@ var SemanticSearchType;
     SemanticSearchType["RiskFactorOf"] = "risk_factor_of";
     SemanticSearchType["Outcome"] = "outcome";
     SemanticSearchType["Relationship"] = "relationship";
+    SemanticSearchType["Relationship2d"] = "relationship_2d";
+    SemanticSearchType["SingleVariable2d"] = "single_variable_2d";
 })(SemanticSearchType = exports.SemanticSearchType || (exports.SemanticSearchType = {}));
 /**
  * An enumeration.
