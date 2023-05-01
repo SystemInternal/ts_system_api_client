@@ -1383,6 +1383,12 @@ export interface Cluster {
      * @memberof Cluster
      */
     'cluster_labels': Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof Cluster
+     */
+    'stat_descriptor'?: string;
 }
 /**
  * Schema for clustered relationship response.
