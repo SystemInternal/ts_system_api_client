@@ -7419,6 +7419,18 @@ export interface StringFeatureStatisticsSimpleBase {
     'distinct_values'?: number;
 }
 /**
+ * Stripe account status enum.
+ * @export
+ * @enum {string}
+ */
+
+export enum StripeAccontStatus {
+    Trial = 'trial',
+    Subscribed = 'subscribed',
+    Expired = 'expired'
+}
+
+/**
  * Stripe object.
  * @export
  * @interface StripeOut
@@ -7438,10 +7450,10 @@ export interface StripeOut {
     'end_date'?: string;
     /**
      * Subscription status.
-     * @type {string}
+     * @type {StripeAccontStatus}
      * @memberof StripeOut
      */
-    'status'?: string;
+    'status'?: StripeAccontStatus;
     /**
      * Monthly or yearly.
      * @type {string}
