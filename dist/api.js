@@ -25713,8 +25713,8 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        enrollTrialV1StripeEnrollInTrialPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/stripe/enroll-in-trial`;
+        enrollTrialV1StripeEnrollTrialPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/stripe/enroll-trial`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -25782,9 +25782,9 @@ exports.StripeApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        enrollTrialV1StripeEnrollInTrialPost(options) {
+        enrollTrialV1StripeEnrollTrialPost(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.enrollTrialV1StripeEnrollInTrialPost(options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.enrollTrialV1StripeEnrollTrialPost(options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25815,8 +25815,8 @@ exports.StripeApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        enrollTrialV1StripeEnrollInTrialPost(options) {
-            return localVarFp.enrollTrialV1StripeEnrollInTrialPost(options).then((request) => request(axios, basePath));
+        enrollTrialV1StripeEnrollTrialPost(options) {
+            return localVarFp.enrollTrialV1StripeEnrollTrialPost(options).then((request) => request(axios, basePath));
         },
         /**
          * Start stripe checkout session.
@@ -25843,8 +25843,8 @@ class StripeApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    enrollTrialV1StripeEnrollInTrialPost(options) {
-        return exports.StripeApiFp(this.configuration).enrollTrialV1StripeEnrollInTrialPost(options).then((request) => request(this.axios, this.basePath));
+    enrollTrialV1StripeEnrollTrialPost(options) {
+        return exports.StripeApiFp(this.configuration).enrollTrialV1StripeEnrollTrialPost(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Start stripe checkout session.
