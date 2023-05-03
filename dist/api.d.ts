@@ -31732,6 +31732,13 @@ export declare class SemanticSearchApi extends BaseAPI {
 export declare const StripeApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Start stripe checkout session.
+     * @summary Enroll Trial
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    enrollTrialV1StripeEnrollInTrialPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Start stripe checkout session.
      * @summary Manage Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -31743,6 +31750,13 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
  * @export
  */
 export declare const StripeApiFp: (configuration?: Configuration) => {
+    /**
+     * Start stripe checkout session.
+     * @summary Enroll Trial
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    enrollTrialV1StripeEnrollInTrialPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>>;
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
@@ -31758,6 +31772,13 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
 export declare const StripeApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Start stripe checkout session.
+     * @summary Enroll Trial
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    enrollTrialV1StripeEnrollInTrialPost(options?: any): AxiosPromise<StripeSessionOut>;
+    /**
+     * Start stripe checkout session.
      * @summary Manage Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -31771,6 +31792,14 @@ export declare const StripeApiFactory: (configuration?: Configuration, basePath?
  * @extends {BaseAPI}
  */
 export declare class StripeApi extends BaseAPI {
+    /**
+     * Start stripe checkout session.
+     * @summary Enroll Trial
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeApi
+     */
+    enrollTrialV1StripeEnrollInTrialPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StripeSessionOut>>;
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
