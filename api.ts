@@ -3767,6 +3767,12 @@ export interface FindingMeta {
      * @memberof FindingMeta
      */
     'is_rct': boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof FindingMeta
+     */
+    'publish_date'?: string;
 }
 /**
  * Next/prev Pagination links with first and last urls.
@@ -7419,6 +7425,18 @@ export interface StringFeatureStatisticsSimpleBase {
     'distinct_values'?: number;
 }
 /**
+ * Stripe account status enum.
+ * @export
+ * @enum {string}
+ */
+
+export enum StripeAccontStatus {
+    Trial = 'trial',
+    Subscribed = 'subscribed',
+    Expired = 'expired'
+}
+
+/**
  * Stripe object.
  * @export
  * @interface StripeOut
@@ -7438,10 +7456,10 @@ export interface StripeOut {
     'end_date'?: string;
     /**
      * Subscription status.
-     * @type {string}
+     * @type {StripeAccontStatus}
      * @memberof StripeOut
      */
-    'status'?: string;
+    'status'?: StripeAccontStatus;
     /**
      * Monthly or yearly.
      * @type {string}
@@ -16402,10 +16420,6 @@ export const AuthorsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -18292,10 +18306,6 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
@@ -20747,10 +20757,6 @@ export const DashboardsApiAxiosParamCreator = function (configuration?: Configur
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -36524,10 +36530,6 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
             }
@@ -36617,10 +36619,6 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -36709,10 +36707,6 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -36810,10 +36804,6 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -36932,10 +36922,6 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (topic1 !== undefined) {
                 localVarQueryParameter['topic_1'] = topic1;
             }
@@ -37050,10 +37036,6 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -37143,10 +37125,6 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (randomSubset !== undefined) {
                 localVarQueryParameter['random_subset'] = randomSubset;
@@ -37240,10 +37218,6 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -37341,10 +37315,6 @@ export const GraphApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -38794,10 +38764,6 @@ export const ModeldbApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -38831,10 +38797,6 @@ export const ModeldbApiAxiosParamCreator = function (configuration?: Configurati
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (algorithmClass !== undefined) {
                 localVarQueryParameter['algorithm_class'] = algorithmClass;
@@ -45319,10 +45281,6 @@ export const PopulationAttributeValuesApiAxiosParamCreator = function (configura
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -46452,10 +46410,6 @@ export const PopulationAttributesApiAxiosParamCreator = function (configuration?
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -47083,10 +47037,6 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (directedAt !== undefined) {
                 localVarQueryParameter['directed_at'] = directedAt;
             }
@@ -47132,10 +47082,6 @@ export const RelationshipsApiAxiosParamCreator = function (configuration?: Confi
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (directedAt !== undefined) {
                 localVarQueryParameter['directed_at'] = directedAt;
@@ -48322,11 +48268,48 @@ export const StripeApiAxiosParamCreator = function (configuration?: Configuratio
     return {
         /**
          * Start stripe checkout session.
-         * @summary Stripe Status
+         * @summary Enroll Trial
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stripeStatusV1StripeSubscriptionManagePost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        enrollTrialV1StripeEnrollInTrialPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/stripe/enroll-in-trial`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Start stripe checkout session.
+         * @summary Manage Subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        manageSubscriptionV1StripeSubscriptionManagePost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/stripe/subscription-manage`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -48369,12 +48352,22 @@ export const StripeApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Start stripe checkout session.
-         * @summary Stripe Status
+         * @summary Enroll Trial
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async stripeStatusV1StripeSubscriptionManagePost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.stripeStatusV1StripeSubscriptionManagePost(options);
+        async enrollTrialV1StripeEnrollInTrialPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enrollTrialV1StripeEnrollInTrialPost(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Start stripe checkout session.
+         * @summary Manage Subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async manageSubscriptionV1StripeSubscriptionManagePost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.manageSubscriptionV1StripeSubscriptionManagePost(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -48389,12 +48382,21 @@ export const StripeApiFactory = function (configuration?: Configuration, basePat
     return {
         /**
          * Start stripe checkout session.
-         * @summary Stripe Status
+         * @summary Enroll Trial
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stripeStatusV1StripeSubscriptionManagePost(options?: any): AxiosPromise<StripeSessionOut> {
-            return localVarFp.stripeStatusV1StripeSubscriptionManagePost(options).then((request) => request(axios, basePath));
+        enrollTrialV1StripeEnrollInTrialPost(options?: any): AxiosPromise<StripeSessionOut> {
+            return localVarFp.enrollTrialV1StripeEnrollInTrialPost(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Start stripe checkout session.
+         * @summary Manage Subscription
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        manageSubscriptionV1StripeSubscriptionManagePost(options?: any): AxiosPromise<StripeSessionOut> {
+            return localVarFp.manageSubscriptionV1StripeSubscriptionManagePost(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -48408,13 +48410,24 @@ export const StripeApiFactory = function (configuration?: Configuration, basePat
 export class StripeApi extends BaseAPI {
     /**
      * Start stripe checkout session.
-     * @summary Stripe Status
+     * @summary Enroll Trial
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    public stripeStatusV1StripeSubscriptionManagePost(options?: AxiosRequestConfig) {
-        return StripeApiFp(this.configuration).stripeStatusV1StripeSubscriptionManagePost(options).then((request) => request(this.axios, this.basePath));
+    public enrollTrialV1StripeEnrollInTrialPost(options?: AxiosRequestConfig) {
+        return StripeApiFp(this.configuration).enrollTrialV1StripeEnrollInTrialPost(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Start stripe checkout session.
+     * @summary Manage Subscription
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeApi
+     */
+    public manageSubscriptionV1StripeSubscriptionManagePost(options?: AxiosRequestConfig) {
+        return StripeApiFp(this.configuration).manageSubscriptionV1StripeSubscriptionManagePost(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -56309,10 +56322,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
             }
@@ -56447,10 +56456,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -56755,10 +56760,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -56803,10 +56804,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -57072,10 +57069,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (topic1 !== undefined) {
                 localVarQueryParameter['topic_1'] = topic1;
             }
@@ -57139,10 +57132,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -57234,10 +57223,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (directedAt !== undefined) {
                 localVarQueryParameter['directed_at'] = directedAt;
             }
@@ -57279,10 +57264,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (randomSubset !== undefined) {
                 localVarQueryParameter['random_subset'] = randomSubset;
@@ -57329,10 +57310,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -57378,10 +57355,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -57423,10 +57396,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
@@ -57515,10 +57484,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (email !== undefined) {
                 localVarQueryParameter['email'] = email;
@@ -58899,10 +58864,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -59086,10 +59047,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (minRelationshipStrength !== undefined) {
                 localVarQueryParameter['min_relationship_strength'] = minRelationshipStrength;
@@ -59285,10 +59242,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
@@ -62625,10 +62578,6 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
@@ -74348,10 +74297,6 @@ export const TimelineApiAxiosParamCreator = function (configuration?: Configurat
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (types) {
                 localVarQueryParameter['types'] = Array.from(types);
             }
@@ -74879,10 +74824,6 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
@@ -74971,10 +74912,6 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (email !== undefined) {
                 localVarQueryParameter['email'] = email;
