@@ -25709,11 +25709,11 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Start stripe checkout session.
-         * @summary Stripe Status
+         * @summary Manage Subscription
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stripeStatusV1StripeSubscriptionManagePost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        manageSubscriptionV1StripeSubscriptionManagePost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/stripe/subscription-manage`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -25748,13 +25748,13 @@ exports.StripeApiFp = function (configuration) {
     return {
         /**
          * Start stripe checkout session.
-         * @summary Stripe Status
+         * @summary Manage Subscription
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stripeStatusV1StripeSubscriptionManagePost(options) {
+        manageSubscriptionV1StripeSubscriptionManagePost(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.stripeStatusV1StripeSubscriptionManagePost(options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.manageSubscriptionV1StripeSubscriptionManagePost(options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25769,12 +25769,12 @@ exports.StripeApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Start stripe checkout session.
-         * @summary Stripe Status
+         * @summary Manage Subscription
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        stripeStatusV1StripeSubscriptionManagePost(options) {
-            return localVarFp.stripeStatusV1StripeSubscriptionManagePost(options).then((request) => request(axios, basePath));
+        manageSubscriptionV1StripeSubscriptionManagePost(options) {
+            return localVarFp.manageSubscriptionV1StripeSubscriptionManagePost(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -25787,13 +25787,13 @@ exports.StripeApiFactory = function (configuration, basePath, axios) {
 class StripeApi extends base_1.BaseAPI {
     /**
      * Start stripe checkout session.
-     * @summary Stripe Status
+     * @summary Manage Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    stripeStatusV1StripeSubscriptionManagePost(options) {
-        return exports.StripeApiFp(this.configuration).stripeStatusV1StripeSubscriptionManagePost(options).then((request) => request(this.axios, this.basePath));
+    manageSubscriptionV1StripeSubscriptionManagePost(options) {
+        return exports.StripeApiFp(this.configuration).manageSubscriptionV1StripeSubscriptionManagePost(options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.StripeApi = StripeApi;

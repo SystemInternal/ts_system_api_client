@@ -31732,11 +31732,11 @@ export declare class SemanticSearchApi extends BaseAPI {
 export declare const StripeApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Start stripe checkout session.
-     * @summary Stripe Status
+     * @summary Manage Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    stripeStatusV1StripeSubscriptionManagePost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    manageSubscriptionV1StripeSubscriptionManagePost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * StripeApi - functional programming interface
@@ -31745,11 +31745,11 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
 export declare const StripeApiFp: (configuration?: Configuration) => {
     /**
      * Start stripe checkout session.
-     * @summary Stripe Status
+     * @summary Manage Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    stripeStatusV1StripeSubscriptionManagePost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>>;
+    manageSubscriptionV1StripeSubscriptionManagePost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>>;
 };
 /**
  * StripeApi - factory interface
@@ -31758,11 +31758,11 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
 export declare const StripeApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Start stripe checkout session.
-     * @summary Stripe Status
+     * @summary Manage Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    stripeStatusV1StripeSubscriptionManagePost(options?: any): AxiosPromise<StripeSessionOut>;
+    manageSubscriptionV1StripeSubscriptionManagePost(options?: any): AxiosPromise<StripeSessionOut>;
 };
 /**
  * StripeApi - object-oriented interface
@@ -31773,12 +31773,12 @@ export declare const StripeApiFactory: (configuration?: Configuration, basePath?
 export declare class StripeApi extends BaseAPI {
     /**
      * Start stripe checkout session.
-     * @summary Stripe Status
+     * @summary Manage Subscription
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    stripeStatusV1StripeSubscriptionManagePost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StripeSessionOut>>;
+    manageSubscriptionV1StripeSubscriptionManagePost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StripeSessionOut>>;
 }
 /**
  * StudiesApi - axios parameter creator
