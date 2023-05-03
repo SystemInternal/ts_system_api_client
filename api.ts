@@ -3767,6 +3767,12 @@ export interface FindingMeta {
      * @memberof FindingMeta
      */
     'is_rct': boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof FindingMeta
+     */
+    'publish_date'?: string;
 }
 /**
  * Next/prev Pagination links with first and last urls.
