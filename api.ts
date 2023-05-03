@@ -48344,8 +48344,8 @@ export const StripeApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        enrollTrialV1StripeEnrollInTrialPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/stripe/enroll-in-trial`;
+        enrollTrialV1StripeEnrollTrialPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/stripe/enroll-trial`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -48428,8 +48428,8 @@ export const StripeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async enrollTrialV1StripeEnrollInTrialPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enrollTrialV1StripeEnrollInTrialPost(options);
+        async enrollTrialV1StripeEnrollTrialPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enrollTrialV1StripeEnrollTrialPost(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -48458,8 +48458,8 @@ export const StripeApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        enrollTrialV1StripeEnrollInTrialPost(options?: any): AxiosPromise<StripeSessionOut> {
-            return localVarFp.enrollTrialV1StripeEnrollInTrialPost(options).then((request) => request(axios, basePath));
+        enrollTrialV1StripeEnrollTrialPost(options?: any): AxiosPromise<StripeSessionOut> {
+            return localVarFp.enrollTrialV1StripeEnrollTrialPost(options).then((request) => request(axios, basePath));
         },
         /**
          * Start stripe checkout session.
@@ -48487,8 +48487,8 @@ export class StripeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    public enrollTrialV1StripeEnrollInTrialPost(options?: AxiosRequestConfig) {
-        return StripeApiFp(this.configuration).enrollTrialV1StripeEnrollInTrialPost(options).then((request) => request(this.axios, this.basePath));
+    public enrollTrialV1StripeEnrollTrialPost(options?: AxiosRequestConfig) {
+        return StripeApiFp(this.configuration).enrollTrialV1StripeEnrollTrialPost(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
