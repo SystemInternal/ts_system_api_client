@@ -579,6 +579,8 @@ var StripeAccontStatus;
     StripeAccontStatus["Trial"] = "trial";
     StripeAccontStatus["Subscribed"] = "subscribed";
     StripeAccontStatus["Expired"] = "expired";
+    StripeAccontStatus["GroupSubscribed"] = "group_subscribed";
+    StripeAccontStatus["Unsubscribed"] = "unsubscribed";
 })(StripeAccontStatus = exports.StripeAccontStatus || (exports.StripeAccontStatus = {}));
 /**
  * An enumeration.
@@ -25708,6 +25710,46 @@ exports.SemanticSearchApi = SemanticSearchApi;
 exports.StripeApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Add subscription seat.
+         * @summary Add Subscription Seat
+         * @param {string} subscriptionId
+         * @param {string} input
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost: (subscriptionId, input, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'subscriptionId' is not null or undefined
+            common_1.assertParamExists('addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost', 'subscriptionId', subscriptionId);
+            // verify required parameter 'input' is not null or undefined
+            common_1.assertParamExists('addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost', 'input', input);
+            const localVarPath = `/v1/stripe/subscriptions/{subscription_id}/seats`
+                .replace(`{${"subscription_id"}}`, encodeURIComponent(String(subscriptionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (input !== undefined) {
+                localVarQueryParameter['input'] = input;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Start stripe checkout session.
          * @summary Enroll Trial
          * @param {*} [options] Override http request option.
@@ -25722,6 +25764,40 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
                 baseOptions = configuration.baseOptions;
             }
             const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get subscription seats.
+         * @summary Get Subscription Seats
+         * @param {string} subscriptionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet: (subscriptionId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'subscriptionId' is not null or undefined
+            common_1.assertParamExists('getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet', 'subscriptionId', subscriptionId);
+            const localVarPath = `/v1/stripe/subscriptions/{subscription_id}/seats`
+                .replace(`{${"subscription_id"}}`, encodeURIComponent(String(subscriptionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
@@ -25767,6 +25843,44 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Remove subscription seat.
+         * @summary Remove Subscription Seat
+         * @param {string} email
+         * @param {string} subscriptionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete: (email, subscriptionId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'email' is not null or undefined
+            common_1.assertParamExists('removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete', 'email', email);
+            // verify required parameter 'subscriptionId' is not null or undefined
+            common_1.assertParamExists('removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete', 'subscriptionId', subscriptionId);
+            const localVarPath = `/v1/stripe/subscriptions/{subscription_id}/seats/{email}`
+                .replace(`{${"email"}}`, encodeURIComponent(String(email)))
+                .replace(`{${"subscription_id"}}`, encodeURIComponent(String(subscriptionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'DELETE' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -25777,6 +25891,20 @@ exports.StripeApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.StripeApiAxiosParamCreator(configuration);
     return {
         /**
+         * Add subscription seat.
+         * @summary Add Subscription Seat
+         * @param {string} subscriptionId
+         * @param {string} input
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, input, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, input, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Start stripe checkout session.
          * @summary Enroll Trial
          * @param {*} [options] Override http request option.
@@ -25785,6 +25913,19 @@ exports.StripeApiFp = function (configuration) {
         enrollTrialV1StripeEnrollTrialPost(options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.enrollTrialV1StripeEnrollTrialPost(options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get subscription seats.
+         * @summary Get Subscription Seats
+         * @param {string} subscriptionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -25800,6 +25941,20 @@ exports.StripeApiFp = function (configuration) {
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
+        /**
+         * Remove subscription seat.
+         * @summary Remove Subscription Seat
+         * @param {string} email
+         * @param {string} subscriptionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email, subscriptionId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email, subscriptionId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
     };
 };
 /**
@@ -25810,6 +25965,17 @@ exports.StripeApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.StripeApiFp(configuration);
     return {
         /**
+         * Add subscription seat.
+         * @summary Add Subscription Seat
+         * @param {string} subscriptionId
+         * @param {string} input
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, input, options) {
+            return localVarFp.addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, input, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Start stripe checkout session.
          * @summary Enroll Trial
          * @param {*} [options] Override http request option.
@@ -25819,6 +25985,16 @@ exports.StripeApiFactory = function (configuration, basePath, axios) {
             return localVarFp.enrollTrialV1StripeEnrollTrialPost(options).then((request) => request(axios, basePath));
         },
         /**
+         * Get subscription seats.
+         * @summary Get Subscription Seats
+         * @param {string} subscriptionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options) {
+            return localVarFp.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Start stripe checkout session.
          * @summary Manage Subscription
          * @param {*} [options] Override http request option.
@@ -25826,6 +26002,17 @@ exports.StripeApiFactory = function (configuration, basePath, axios) {
          */
         manageSubscriptionV1StripeSubscriptionManagePost(options) {
             return localVarFp.manageSubscriptionV1StripeSubscriptionManagePost(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Remove subscription seat.
+         * @summary Remove Subscription Seat
+         * @param {string} email
+         * @param {string} subscriptionId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email, subscriptionId, options) {
+            return localVarFp.removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email, subscriptionId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -25837,6 +26024,17 @@ exports.StripeApiFactory = function (configuration, basePath, axios) {
  */
 class StripeApi extends base_1.BaseAPI {
     /**
+     * Add subscription seat.
+     * @summary Add Subscription Seat
+     * @param {StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeApi
+     */
+    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters, options) {
+        return exports.StripeApiFp(this.configuration).addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters.subscriptionId, requestParameters.input, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Start stripe checkout session.
      * @summary Enroll Trial
      * @param {*} [options] Override http request option.
@@ -25847,6 +26045,17 @@ class StripeApi extends base_1.BaseAPI {
         return exports.StripeApiFp(this.configuration).enrollTrialV1StripeEnrollTrialPost(options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Get subscription seats.
+     * @summary Get Subscription Seats
+     * @param {StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeApi
+     */
+    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters, options) {
+        return exports.StripeApiFp(this.configuration).getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Start stripe checkout session.
      * @summary Manage Subscription
      * @param {*} [options] Override http request option.
@@ -25855,6 +26064,17 @@ class StripeApi extends base_1.BaseAPI {
      */
     manageSubscriptionV1StripeSubscriptionManagePost(options) {
         return exports.StripeApiFp(this.configuration).manageSubscriptionV1StripeSubscriptionManagePost(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Remove subscription seat.
+     * @summary Remove Subscription Seat
+     * @param {StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDeleteRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeApi
+     */
+    removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters, options) {
+        return exports.StripeApiFp(this.configuration).removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters.email, requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.StripeApi = StripeApi;
