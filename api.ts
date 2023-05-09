@@ -7499,6 +7499,12 @@ export interface StripeOut {
      * @memberof StripeOut
      */
     'is_group_admin'?: boolean;
+    /**
+     * Is group member.
+     * @type {boolean}
+     * @memberof StripeOut
+     */
+    'is_group_member'?: boolean;
 }
 /**
  * Stripe session object.
