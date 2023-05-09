@@ -22,6 +22,19 @@ export declare enum AddFlowContext {
     QuickProject = "quick_project"
 }
 /**
+ * Add subscription seat input.
+ * @export
+ * @interface AddSubscriptionSeatIn
+ */
+export interface AddSubscriptionSeatIn {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof AddSubscriptionSeatIn
+     */
+    'emails': Array<string>;
+}
+/**
  * Alert colors for metric monitoring.
  * @export
  * @enum {string}
@@ -31748,11 +31761,11 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
      * Add subscription seat.
      * @summary Add Subscription Seat
      * @param {string} subscriptionId
-     * @param {string} input
+     * @param {AddSubscriptionSeatIn} addSubscriptionSeatIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost: (subscriptionId: string, input: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost: (subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Start stripe checkout session.
      * @summary Enroll Trial
@@ -31794,11 +31807,11 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
      * Add subscription seat.
      * @summary Add Subscription Seat
      * @param {string} subscriptionId
-     * @param {string} input
+     * @param {AddSubscriptionSeatIn} addSubscriptionSeatIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, input: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
+    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      * Start stripe checkout session.
      * @summary Enroll Trial
@@ -31840,11 +31853,11 @@ export declare const StripeApiFactory: (configuration?: Configuration, basePath?
      * Add subscription seat.
      * @summary Add Subscription Seat
      * @param {string} subscriptionId
-     * @param {string} input
+     * @param {AddSubscriptionSeatIn} addSubscriptionSeatIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, input: string, options?: any): AxiosPromise<boolean>;
+    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: any): AxiosPromise<boolean>;
     /**
      * Start stripe checkout session.
      * @summary Enroll Trial
@@ -31891,10 +31904,10 @@ export interface StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionId
     readonly subscriptionId: string;
     /**
      *
-     * @type {string}
+     * @type {AddSubscriptionSeatIn}
      * @memberof StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost
      */
-    readonly input: string;
+    readonly addSubscriptionSeatIn: AddSubscriptionSeatIn;
 }
 /**
  * Request parameters for getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet operation in StripeApi.
