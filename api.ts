@@ -7965,6 +7965,31 @@ export enum StudyTypeEnum {
 }
 
 /**
+ * Subscription seats.
+ * @export
+ * @interface SubscriptionSeats
+ */
+export interface SubscriptionSeats {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SubscriptionSeats
+     */
+    'used_seats': Array<string>;
+    /**
+     * 
+     * @type {number}
+     * @memberof SubscriptionSeats
+     */
+    'available_seats': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SubscriptionSeats
+     */
+    'total_seats': number;
+}
+/**
  * Synthesis output schema.
  * @export
  * @interface Synthesis
@@ -48457,14 +48482,14 @@ export const StripeApiAxiosParamCreator = function (configuration?: Configuratio
         },
         /**
          * Get subscription seats.
-         * @summary Get Subscription Seats Info
+         * @summary Get Subscription Seats
          * @param {string} subscriptionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet: async (subscriptionId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet: async (subscriptionId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'subscriptionId' is not null or undefined
-            assertParamExists('getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet', 'subscriptionId', subscriptionId)
+            assertParamExists('getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet', 'subscriptionId', subscriptionId)
             const localVarPath = `/v1/stripe/subscriptions/{subscription_id}/seats`
                 .replace(`{${"subscription_id"}}`, encodeURIComponent(String(subscriptionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -48612,13 +48637,13 @@ export const StripeApiFp = function(configuration?: Configuration) {
         },
         /**
          * Get subscription seats.
-         * @summary Get Subscription Seats Info
+         * @summary Get Subscription Seats
          * @param {string} subscriptionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options);
+        async getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionSeats>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -48675,13 +48700,13 @@ export const StripeApiFactory = function (configuration?: Configuration, basePat
         },
         /**
          * Get subscription seats.
-         * @summary Get Subscription Seats Info
+         * @summary Get Subscription Seats
          * @param {string} subscriptionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: any): AxiosPromise<Array<string>> {
-            return localVarFp.getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options).then((request) => request(axios, basePath));
+        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: any): AxiosPromise<SubscriptionSeats> {
+            return localVarFp.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options).then((request) => request(axios, basePath));
         },
         /**
          * Start stripe checkout session.
@@ -48728,15 +48753,15 @@ export interface StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionId
 }
 
 /**
- * Request parameters for getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet operation in StripeApi.
+ * Request parameters for getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet operation in StripeApi.
  * @export
- * @interface StripeApiGetSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGetRequest
+ * @interface StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest
  */
-export interface StripeApiGetSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGetRequest {
+export interface StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest {
     /**
      * 
      * @type {string}
-     * @memberof StripeApiGetSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet
+     * @memberof StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet
      */
     readonly subscriptionId: string
 }
@@ -48794,14 +48819,14 @@ export class StripeApi extends BaseAPI {
 
     /**
      * Get subscription seats.
-     * @summary Get Subscription Seats Info
-     * @param {StripeApiGetSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGetRequest} requestParameters Request parameters.
+     * @summary Get Subscription Seats
+     * @param {StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    public getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters: StripeApiGetSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGetRequest, options?: AxiosRequestConfig) {
-        return StripeApiFp(this.configuration).getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
+    public getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters: StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest, options?: AxiosRequestConfig) {
+        return StripeApiFp(this.configuration).getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
