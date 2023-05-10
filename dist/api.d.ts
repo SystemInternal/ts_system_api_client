@@ -31781,12 +31781,12 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
     enrollTrialV1StripeEnrollTrialPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get subscription seats.
-     * @summary Get Subscription Seats
+     * @summary Get Subscription Seats Info
      * @param {string} subscriptionId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet: (subscriptionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet: (subscriptionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
@@ -31827,12 +31827,12 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
     enrollTrialV1StripeEnrollTrialPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>>;
     /**
      * Get subscription seats.
-     * @summary Get Subscription Seats
+     * @summary Get Subscription Seats Info
      * @param {string} subscriptionId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>>;
+    getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>>;
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
@@ -31873,12 +31873,12 @@ export declare const StripeApiFactory: (configuration?: Configuration, basePath?
     enrollTrialV1StripeEnrollTrialPost(options?: any): AxiosPromise<StripeSessionOut>;
     /**
      * Get subscription seats.
-     * @summary Get Subscription Seats
+     * @summary Get Subscription Seats Info
      * @param {string} subscriptionId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: any): AxiosPromise<Array<string>>;
+    getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: any): AxiosPromise<Array<string>>;
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
@@ -31916,15 +31916,15 @@ export interface StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionId
     readonly addSubscriptionSeatIn: AddSubscriptionSeatIn;
 }
 /**
- * Request parameters for getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet operation in StripeApi.
+ * Request parameters for getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet operation in StripeApi.
  * @export
- * @interface StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest
+ * @interface StripeApiGetSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGetRequest
  */
-export interface StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest {
+export interface StripeApiGetSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGetRequest {
     /**
      *
      * @type {string}
-     * @memberof StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet
+     * @memberof StripeApiGetSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet
      */
     readonly subscriptionId: string;
 }
@@ -31973,13 +31973,13 @@ export declare class StripeApi extends BaseAPI {
     enrollTrialV1StripeEnrollTrialPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StripeSessionOut>>;
     /**
      * Get subscription seats.
-     * @summary Get Subscription Seats
-     * @param {StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest} requestParameters Request parameters.
+     * @summary Get Subscription Seats Info
+     * @param {StripeApiGetSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters: StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string[]>>;
+    getSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters: StripeApiGetSubscriptionSeatsInfoV1StripeSubscriptionsSubscriptionIdSeatsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string[]>>;
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
