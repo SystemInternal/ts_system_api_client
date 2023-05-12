@@ -6337,6 +6337,86 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Fetch concept relationships.
+         * @summary Get Concept Relationships
+         * @param {string} conceptId
+         * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet: (conceptId, topPercentileLimit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'conceptId' is not null or undefined
+            common_1.assertParamExists('getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet', 'conceptId', conceptId);
+            const localVarPath = `/v1/concepts/{concept_id}/relationships`
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topPercentileLimit !== undefined) {
+                localVarQueryParameter['top_percentile_limit'] = topPercentileLimit;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch concept relationships.
+         * @summary Get Concept Relationships
+         * @param {string} conceptId
+         * @param {string} teamId
+         * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet: (conceptId, teamId, topPercentileLimit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'conceptId' is not null or undefined
+            common_1.assertParamExists('getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet', 'conceptId', conceptId);
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}/relationships`
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topPercentileLimit !== undefined) {
+                localVarQueryParameter['top_percentile_limit'] = topPercentileLimit;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get Concept.
          * @summary Get Concept
          * @param {string} conceptId
@@ -7040,6 +7120,35 @@ exports.ConceptsApiFp = function (configuration) {
             });
         },
         /**
+         * Fetch concept relationships.
+         * @summary Get Concept Relationships
+         * @param {string} conceptId
+         * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId, topPercentileLimit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId, topPercentileLimit, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch concept relationships.
+         * @summary Get Concept Relationships
+         * @param {string} conceptId
+         * @param {string} teamId
+         * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId, teamId, topPercentileLimit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId, teamId, topPercentileLimit, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get Concept.
          * @summary Get Concept
          * @param {string} conceptId
@@ -7297,6 +7406,29 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(teamId, conceptId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Fetch concept relationships.
+         * @summary Get Concept Relationships
+         * @param {string} conceptId
+         * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId, topPercentileLimit, options) {
+            return localVarFp.getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId, topPercentileLimit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch concept relationships.
+         * @summary Get Concept Relationships
+         * @param {string} conceptId
+         * @param {string} teamId
+         * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId, teamId, topPercentileLimit, options) {
+            return localVarFp.getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId, teamId, topPercentileLimit, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get Concept.
          * @summary Get Concept
          * @param {string} conceptId
@@ -7522,6 +7654,28 @@ class ConceptsApi extends base_1.BaseAPI {
      */
     deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters, options) {
         return exports.ConceptsApiFp(this.configuration).deleteConceptV1TeamsTeamIdConceptsConceptIdDelete(requestParameters.teamId, requestParameters.conceptId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch concept relationships.
+     * @summary Get Concept Relationships
+     * @param {ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters, options) {
+        return exports.ConceptsApiFp(this.configuration).getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters.conceptId, requestParameters.topPercentileLimit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch concept relationships.
+     * @summary Get Concept Relationships
+     * @param {ConceptsApiGetConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(requestParameters, options) {
+        return exports.ConceptsApiFp(this.configuration).getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(requestParameters.conceptId, requestParameters.teamId, requestParameters.topPercentileLimit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Concept.
@@ -18516,7 +18670,7 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch dataset graph.
+         * Fetch topic graph.
          * @summary Get Topic Graph
          * @param {string} teamId
          * @param {boolean} [randomSubset] Flag for getting a random subset.
@@ -18556,7 +18710,7 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch dataset graph.
+         * Fetch topic graph.
          * @summary Get Topic Graph
          * @param {string} teamId
          * @param {boolean} [randomSubset] Flag for getting a random subset.
@@ -18594,7 +18748,7 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch dataset graph.
+         * Fetch topic node graph.
          * @summary Get Topic Node Graph
          * @param {string} topicId
          * @param {string} teamId
@@ -18634,7 +18788,7 @@ exports.GraphApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch dataset graph.
+         * Fetch topic node graph.
          * @summary Get Topic Node Graph
          * @param {string} topicId
          * @param {string} teamId
@@ -18947,7 +19101,7 @@ exports.GraphApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic graph.
          * @summary Get Topic Graph
          * @param {string} teamId
          * @param {boolean} [randomSubset] Flag for getting a random subset.
@@ -18961,7 +19115,7 @@ exports.GraphApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic graph.
          * @summary Get Topic Graph
          * @param {string} teamId
          * @param {boolean} [randomSubset] Flag for getting a random subset.
@@ -18975,7 +19129,7 @@ exports.GraphApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic node graph.
          * @summary Get Topic Node Graph
          * @param {string} topicId
          * @param {string} teamId
@@ -18989,7 +19143,7 @@ exports.GraphApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic node graph.
          * @summary Get Topic Node Graph
          * @param {string} topicId
          * @param {string} teamId
@@ -19186,7 +19340,7 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(teamId, semanticTopicGraphIn, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic graph.
          * @summary Get Topic Graph
          * @param {string} teamId
          * @param {boolean} [randomSubset] Flag for getting a random subset.
@@ -19197,7 +19351,7 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getTopicGraphV1GraphTopicGraphGet(teamId, randomSubset, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic graph.
          * @summary Get Topic Graph
          * @param {string} teamId
          * @param {boolean} [randomSubset] Flag for getting a random subset.
@@ -19208,7 +19362,7 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, randomSubset, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic node graph.
          * @summary Get Topic Node Graph
          * @param {string} topicId
          * @param {string} teamId
@@ -19219,7 +19373,7 @@ exports.GraphApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic node graph.
          * @summary Get Topic Node Graph
          * @param {string} topicId
          * @param {string} teamId
@@ -19395,7 +19549,7 @@ class GraphApi extends base_1.BaseAPI {
         return exports.GraphApiFp(this.configuration).getSemanticTopicGraphV1TeamsTeamIdGraphSemanticTopicGraphPost(requestParameters.teamId, requestParameters.semanticTopicGraphIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch dataset graph.
+     * Fetch topic graph.
      * @summary Get Topic Graph
      * @param {GraphApiGetTopicGraphV1GraphTopicGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -19406,7 +19560,7 @@ class GraphApi extends base_1.BaseAPI {
         return exports.GraphApiFp(this.configuration).getTopicGraphV1GraphTopicGraphGet(requestParameters.teamId, requestParameters.randomSubset, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch dataset graph.
+     * Fetch topic graph.
      * @summary Get Topic Graph
      * @param {GraphApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -19417,7 +19571,7 @@ class GraphApi extends base_1.BaseAPI {
         return exports.GraphApiFp(this.configuration).getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters.teamId, requestParameters.randomSubset, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch dataset graph.
+     * Fetch topic node graph.
      * @summary Get Topic Node Graph
      * @param {GraphApiGetTopicNodeGraphV1GraphTopicsTopicIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -19428,7 +19582,7 @@ class GraphApi extends base_1.BaseAPI {
         return exports.GraphApiFp(this.configuration).getTopicNodeGraphV1GraphTopicsTopicIdGet(requestParameters.topicId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch dataset graph.
+     * Fetch topic node graph.
      * @summary Get Topic Node Graph
      * @param {GraphApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -31459,6 +31613,48 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Fetch concept relationships.
+         * @summary Get Concept Relationships
+         * @param {string} conceptId
+         * @param {string} teamId
+         * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet: (conceptId, teamId, topPercentileLimit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'conceptId' is not null or undefined
+            common_1.assertParamExists('getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet', 'conceptId', conceptId);
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/concepts/{concept_id}/relationships`
+                .replace(`{${"concept_id"}}`, encodeURIComponent(String(conceptId)))
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topPercentileLimit !== undefined) {
+                localVarQueryParameter['top_percentile_limit'] = topPercentileLimit;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get Concept.
          * @summary Get Concept
          * @param {string} teamId
@@ -32232,7 +32428,7 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch dataset graph.
+         * Fetch topic graph.
          * @summary Get Topic Graph
          * @param {string} teamId
          * @param {boolean} [randomSubset] Flag for getting a random subset.
@@ -32270,7 +32466,7 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Fetch dataset graph.
+         * Fetch topic node graph.
          * @summary Get Topic Node Graph
          * @param {string} topicId
          * @param {string} teamId
@@ -37333,6 +37529,21 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Fetch concept relationships.
+         * @summary Get Concept Relationships
+         * @param {string} conceptId
+         * @param {string} teamId
+         * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId, teamId, topPercentileLimit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId, teamId, topPercentileLimit, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get Concept.
          * @summary Get Concept
          * @param {string} teamId
@@ -37616,7 +37827,7 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic graph.
          * @summary Get Topic Graph
          * @param {string} teamId
          * @param {boolean} [randomSubset] Flag for getting a random subset.
@@ -37630,7 +37841,7 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic node graph.
          * @summary Get Topic Node Graph
          * @param {string} topicId
          * @param {string} teamId
@@ -39569,6 +39780,18 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(teamId, minRelationshipStrength, tags, options).then((request) => request(axios, basePath));
         },
         /**
+         * Fetch concept relationships.
+         * @summary Get Concept Relationships
+         * @param {string} conceptId
+         * @param {string} teamId
+         * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId, teamId, topPercentileLimit, options) {
+            return localVarFp.getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId, teamId, topPercentileLimit, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get Concept.
          * @summary Get Concept
          * @param {string} teamId
@@ -39792,7 +40015,7 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId, teamId, directedAt, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic graph.
          * @summary Get Topic Graph
          * @param {string} teamId
          * @param {boolean} [randomSubset] Flag for getting a random subset.
@@ -39803,7 +40026,7 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(teamId, randomSubset, options).then((request) => request(axios, basePath));
         },
         /**
-         * Fetch dataset graph.
+         * Fetch topic node graph.
          * @summary Get Topic Node Graph
          * @param {string} topicId
          * @param {string} teamId
@@ -41503,6 +41726,17 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).getConceptGraphV1TeamsTeamIdGraphConceptGraphGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.tags, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Fetch concept relationships.
+     * @summary Get Concept Relationships
+     * @param {TeamsApiGetConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(requestParameters.conceptId, requestParameters.teamId, requestParameters.topPercentileLimit, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get Concept.
      * @summary Get Concept
      * @param {TeamsApiGetConceptV1TeamsTeamIdConceptsConceptIdGetRequest} requestParameters Request parameters.
@@ -41723,7 +41957,7 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(requestParameters.relationshipId, requestParameters.teamId, requestParameters.directedAt, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch dataset graph.
+     * Fetch topic graph.
      * @summary Get Topic Graph
      * @param {TeamsApiGetTopicGraphV1TeamsTeamIdGraphTopicGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -41734,7 +41968,7 @@ class TeamsApi extends base_1.BaseAPI {
         return exports.TeamsApiFp(this.configuration).getTopicGraphV1TeamsTeamIdGraphTopicGraphGet(requestParameters.teamId, requestParameters.randomSubset, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Fetch dataset graph.
+     * Fetch topic node graph.
      * @summary Get Topic Node Graph
      * @param {TeamsApiGetTopicNodeGraphV1TeamsTeamIdGraphTopicsTopicIdGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
