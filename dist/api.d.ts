@@ -5989,61 +5989,6 @@ export interface NumericalFeatureStatisticsSimpleBase {
     'percent_missing'?: number;
 }
 /**
- * Interface for OpenAlex Metadata output.
- * @export
- * @interface OpenAlexStudyMetadata
- */
-export interface OpenAlexStudyMetadata {
-    /**
-     *
-     * @type {number}
-     * @memberof OpenAlexStudyMetadata
-     */
-    'cited_by': number;
-    /**
-     *
-     * @type {string}
-     * @memberof OpenAlexStudyMetadata
-     */
-    'doi': string;
-    /**
-     *
-     * @type {string}
-     * @memberof OpenAlexStudyMetadata
-     */
-    'journal'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof OpenAlexStudyMetadata
-     */
-    'journal_id'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof OpenAlexStudyMetadata
-     */
-    'publish_date'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof OpenAlexStudyMetadata
-     */
-    'link'?: string;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof OpenAlexStudyMetadata
-     */
-    'authors': Array<string>;
-    /**
-     *
-     * @type {string}
-     * @memberof OpenAlexStudyMetadata
-     */
-    'name'?: string;
-}
-/**
  * Ordering direction enum.
  * @export
  * @enum {string}
@@ -7735,6 +7680,67 @@ export interface StudyLinks {
     'models': string;
 }
 /**
+ * Interface for Study Metadata retrieved from DynamoDB and OpenAlex.
+ * @export
+ * @interface StudyMetadata
+ */
+export interface StudyMetadata {
+    /**
+     *
+     * @type {string}
+     * @memberof StudyMetadata
+     */
+    'doi': string;
+    /**
+     *
+     * @type {number}
+     * @memberof StudyMetadata
+     */
+    'cited_by'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyMetadata
+     */
+    'journal'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyMetadata
+     */
+    'journal_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyMetadata
+     */
+    'publish_date'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyMetadata
+     */
+    'link'?: string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof StudyMetadata
+     */
+    'authors'?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyMetadata
+     */
+    'name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyMetadata
+     */
+    'summary'?: string;
+}
+/**
  * Interface for input to /study-metadata.
  * @export
  * @interface StudyMetadataIn
@@ -7755,10 +7761,10 @@ export interface StudyMetadataIn {
 export interface StudyMetadataOut {
     /**
      *
-     * @type {Array<OpenAlexStudyMetadata>}
+     * @type {Array<StudyMetadata>}
      * @memberof StudyMetadataOut
      */
-    'open_alex_metadata': Array<OpenAlexStudyMetadata>;
+    'study_metadata': Array<StudyMetadata>;
 }
 /**
  * A real world study.
@@ -35486,7 +35492,7 @@ export declare class StudiesApi extends BaseAPI {
  */
 export declare const StudyMetadataApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Get study metadata from OpenAlex via dois.
+     * Get study metadata from OpenAlex and DynamoDB via dois.
      * @summary Get Study Metadata From Openalex For A Given List Of Dois.
      * @param {StudyMetadataIn} studyMetadataIn
      * @param {*} [options] Override http request option.
@@ -35500,7 +35506,7 @@ export declare const StudyMetadataApiAxiosParamCreator: (configuration?: Configu
  */
 export declare const StudyMetadataApiFp: (configuration?: Configuration) => {
     /**
-     * Get study metadata from OpenAlex via dois.
+     * Get study metadata from OpenAlex and DynamoDB via dois.
      * @summary Get Study Metadata From Openalex For A Given List Of Dois.
      * @param {StudyMetadataIn} studyMetadataIn
      * @param {*} [options] Override http request option.
@@ -35514,7 +35520,7 @@ export declare const StudyMetadataApiFp: (configuration?: Configuration) => {
  */
 export declare const StudyMetadataApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Get study metadata from OpenAlex via dois.
+     * Get study metadata from OpenAlex and DynamoDB via dois.
      * @summary Get Study Metadata From Openalex For A Given List Of Dois.
      * @param {StudyMetadataIn} studyMetadataIn
      * @param {*} [options] Override http request option.
@@ -35543,7 +35549,7 @@ export interface StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDois
  */
 export declare class StudyMetadataApi extends BaseAPI {
     /**
-     * Get study metadata from OpenAlex via dois.
+     * Get study metadata from OpenAlex and DynamoDB via dois.
      * @summary Get Study Metadata From Openalex For A Given List Of Dois.
      * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

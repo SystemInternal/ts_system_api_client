@@ -29721,7 +29721,7 @@ exports.StudiesApi = StudiesApi;
 exports.StudyMetadataApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Get study metadata from OpenAlex via dois.
+         * Get study metadata from OpenAlex and DynamoDB via dois.
          * @summary Get Study Metadata From Openalex For A Given List Of Dois.
          * @param {StudyMetadataIn} studyMetadataIn
          * @param {*} [options] Override http request option.
@@ -29765,7 +29765,7 @@ exports.StudyMetadataApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.StudyMetadataApiAxiosParamCreator(configuration);
     return {
         /**
-         * Get study metadata from OpenAlex via dois.
+         * Get study metadata from OpenAlex and DynamoDB via dois.
          * @summary Get Study Metadata From Openalex For A Given List Of Dois.
          * @param {StudyMetadataIn} studyMetadataIn
          * @param {*} [options] Override http request option.
@@ -29787,7 +29787,7 @@ exports.StudyMetadataApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.StudyMetadataApiFp(configuration);
     return {
         /**
-         * Get study metadata from OpenAlex via dois.
+         * Get study metadata from OpenAlex and DynamoDB via dois.
          * @summary Get Study Metadata From Openalex For A Given List Of Dois.
          * @param {StudyMetadataIn} studyMetadataIn
          * @param {*} [options] Override http request option.
@@ -29806,7 +29806,7 @@ exports.StudyMetadataApiFactory = function (configuration, basePath, axios) {
  */
 class StudyMetadataApi extends base_1.BaseAPI {
     /**
-     * Get study metadata from OpenAlex via dois.
+     * Get study metadata from OpenAlex and DynamoDB via dois.
      * @summary Get Study Metadata From Openalex For A Given List Of Dois.
      * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
