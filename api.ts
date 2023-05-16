@@ -36542,7 +36542,7 @@ export class FeaturesApi extends BaseAPI {
 export const FeedbackApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Post user feedback on AI-generated relationship synthesis.
+         * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
          * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
          * @param {*} [options] Override http request option.
@@ -36595,7 +36595,7 @@ export const FeedbackApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = FeedbackApiAxiosParamCreator(configuration)
     return {
         /**
-         * Post user feedback on AI-generated relationship synthesis.
+         * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
          * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
          * @param {*} [options] Override http request option.
@@ -36616,7 +36616,7 @@ export const FeedbackApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = FeedbackApiFp(configuration)
     return {
         /**
-         * Post user feedback on AI-generated relationship synthesis.
+         * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
          * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
          * @param {*} [options] Override http request option.
@@ -36650,7 +36650,7 @@ export interface FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest {
  */
 export class FeedbackApi extends BaseAPI {
     /**
-     * Post user feedback on AI-generated relationship synthesis.
+     * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback
      * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
