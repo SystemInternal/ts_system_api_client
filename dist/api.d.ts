@@ -1670,10 +1670,10 @@ export interface ConceptRelationshipNode {
     'wikidata_id': string;
     /**
      *
-     * @type {number}
+     * @type {Array<string>}
      * @memberof ConceptRelationshipNode
      */
-    'num_findings': number;
+    'supporting_association_ids': Array<string>;
 }
 /**
  * Concept relationships model.
