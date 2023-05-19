@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RelationshipsApi = exports.RelationshipsApiFactory = exports.RelationshipsApiFp = exports.RelationshipsApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.IndexedSourcesApi = exports.IndexedSourcesApiFactory = exports.IndexedSourcesApiFp = exports.IndexedSourcesApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.TeamRoles = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StripeAccontStatus = exports.StatisticalTestType = exports.SignificanceLevel = exports.SemanticSearchType = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphSearchDirection = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TimelineApi = exports.TimelineApiFactory = exports.TimelineApiFp = exports.TimelineApiAxiosParamCreator = exports.TeamsApi = exports.TeamsApiFactory = exports.TeamsApiFp = exports.TeamsApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RelationshipsApi = exports.RelationshipsApiFactory = exports.RelationshipsApiFp = exports.RelationshipsApiAxiosParamCreator = exports.PopulationAttributesApi = exports.PopulationAttributesApiFactory = exports.PopulationAttributesApiFp = exports.PopulationAttributesApiAxiosParamCreator = exports.PopulationAttributeValuesApi = exports.PopulationAttributeValuesApiFactory = exports.PopulationAttributeValuesApiFp = exports.PopulationAttributeValuesApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.IndexedSourcesApi = exports.IndexedSourcesApiFactory = exports.IndexedSourcesApiFp = exports.IndexedSourcesApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.TeamRoles = exports.SystemObjectResources = exports.StudyTypeEnum = exports.StudySortEnum = exports.StripeAccontStatus = exports.StatisticalTestType = exports.SignificanceLevel = exports.SemanticSearchType = exports.RetrievalStatus = exports.ResourceAction = exports.PopulationAttributeValueSortEnum = exports.PopulationAttributeSortEnum = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.GraphSearchDirection = exports.GraphNodeType = exports.GraphLinkType = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptSortEnum = exports.AuthorSortEnum = exports.AttributeTypeEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -19768,6 +19768,170 @@ class IndexedSourcesApi extends base_1.BaseAPI {
 }
 exports.IndexedSourcesApi = IndexedSourcesApi;
 /**
+ * MetricsApi - axios parameter creator
+ * @export
+ */
+exports.MetricsApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Get metrics on the graph.
+         * @summary Get Graph Metrics
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGraphMetricsV1MetricsGraphGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/metrics/graph`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get metrics on the graph.
+         * @summary Get Graph Metrics
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGraphMetricsV1TeamsTeamIdMetricsGraphGet: (teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getGraphMetricsV1TeamsTeamIdMetricsGraphGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/metrics/graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * MetricsApi - functional programming interface
+ * @export
+ */
+exports.MetricsApiFp = function (configuration) {
+    const localVarAxiosParamCreator = exports.MetricsApiAxiosParamCreator(configuration);
+    return {
+        /**
+         * Get metrics on the graph.
+         * @summary Get Graph Metrics
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGraphMetricsV1MetricsGraphGet(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getGraphMetricsV1MetricsGraphGet(options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get metrics on the graph.
+         * @summary Get Graph Metrics
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+    };
+};
+/**
+ * MetricsApi - factory interface
+ * @export
+ */
+exports.MetricsApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = exports.MetricsApiFp(configuration);
+    return {
+        /**
+         * Get metrics on the graph.
+         * @summary Get Graph Metrics
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGraphMetricsV1MetricsGraphGet(options) {
+            return localVarFp.getGraphMetricsV1MetricsGraphGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get metrics on the graph.
+         * @summary Get Graph Metrics
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId, options) {
+            return localVarFp.getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * MetricsApi - object-oriented interface
+ * @export
+ * @class MetricsApi
+ * @extends {BaseAPI}
+ */
+class MetricsApi extends base_1.BaseAPI {
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    getGraphMetricsV1MetricsGraphGet(options) {
+        return exports.MetricsApiFp(this.configuration).getGraphMetricsV1MetricsGraphGet(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {MetricsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    getGraphMetricsV1TeamsTeamIdMetricsGraphGet(requestParameters, options) {
+        return exports.MetricsApiFp(this.configuration).getGraphMetricsV1TeamsTeamIdMetricsGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.MetricsApi = MetricsApi;
+/**
  * ModeldbApi - axios parameter creator
  * @export
  */
@@ -31887,6 +32051,40 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get metrics on the graph.
+         * @summary Get Graph Metrics
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGraphMetricsV1TeamsTeamIdMetricsGraphGet: (teamId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('getGraphMetricsV1TeamsTeamIdMetricsGraphGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/metrics/graph`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get an Integration.
          * @summary Get Integration
          * @param {string} teamId
@@ -37638,6 +37836,19 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Get metrics on the graph.
+         * @summary Get Graph Metrics
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get an Integration.
          * @summary Get Integration
          * @param {string} teamId
@@ -39868,6 +40079,16 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getFeatureV1TeamsTeamIdFeaturesFeatureIdGet(teamId, featureId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get metrics on the graph.
+         * @summary Get Graph Metrics
+         * @param {string} teamId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId, options) {
+            return localVarFp.getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get an Integration.
          * @summary Get Integration
          * @param {string} teamId
@@ -41813,6 +42034,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     getFeatureV1TeamsTeamIdFeaturesFeatureIdGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).getFeatureV1TeamsTeamIdFeaturesFeatureIdGet(requestParameters.teamId, requestParameters.featureId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {TeamsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getGraphMetricsV1TeamsTeamIdMetricsGraphGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getGraphMetricsV1TeamsTeamIdMetricsGraphGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get an Integration.

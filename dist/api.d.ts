@@ -4071,6 +4071,37 @@ export declare enum GraphLinkType {
     Measures = "measures"
 }
 /**
+ * Graph metrics schema.
+ * @export
+ * @interface GraphMetrics
+ */
+export interface GraphMetrics {
+    /**
+     *
+     * @type {number}
+     * @memberof GraphMetrics
+     */
+    'num_relationships': number;
+    /**
+     *
+     * @type {number}
+     * @memberof GraphMetrics
+     */
+    'num_topics': number;
+    /**
+     *
+     * @type {number}
+     * @memberof GraphMetrics
+     */
+    'num_sources': number;
+    /**
+     *
+     * @type {string}
+     * @memberof GraphMetrics
+     */
+    'last_updated': string;
+}
+/**
  * Graph Node Type enum.
  * @export
  * @enum {string}
@@ -26457,6 +26488,107 @@ export declare class IndexedSourcesApi extends BaseAPI {
     getSourcesPagedV1IndexedSourcesGet(requestParameters?: IndexedSourcesApiGetSourcesPagedV1IndexedSourcesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<IndexedSourcesOut>>;
 }
 /**
+ * MetricsApi - axios parameter creator
+ * @export
+ */
+export declare const MetricsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGraphMetricsV1MetricsGraphGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGraphMetricsV1TeamsTeamIdMetricsGraphGet: (teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * MetricsApi - functional programming interface
+ * @export
+ */
+export declare const MetricsApiFp: (configuration?: Configuration) => {
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGraphMetricsV1MetricsGraphGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphMetrics>>;
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphMetrics>>;
+};
+/**
+ * MetricsApi - factory interface
+ * @export
+ */
+export declare const MetricsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGraphMetricsV1MetricsGraphGet(options?: any): AxiosPromise<GraphMetrics>;
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId: string, options?: any): AxiosPromise<GraphMetrics>;
+};
+/**
+ * Request parameters for getGraphMetricsV1TeamsTeamIdMetricsGraphGet operation in MetricsApi.
+ * @export
+ * @interface MetricsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest
+ */
+export interface MetricsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof MetricsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGet
+     */
+    readonly teamId: string;
+}
+/**
+ * MetricsApi - object-oriented interface
+ * @export
+ * @class MetricsApi
+ * @extends {BaseAPI}
+ */
+export declare class MetricsApi extends BaseAPI {
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    getGraphMetricsV1MetricsGraphGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphMetrics>>;
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {MetricsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    getGraphMetricsV1TeamsTeamIdMetricsGraphGet(requestParameters: MetricsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphMetrics>>;
+}
+/**
  * ModeldbApi - axios parameter creator
  * @export
  */
@@ -36063,6 +36195,14 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     getFeatureV1TeamsTeamIdFeaturesFeatureIdGet: (teamId: string, featureId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGraphMetricsV1TeamsTeamIdMetricsGraphGet: (teamId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get an Integration.
      * @summary Get Integration
      * @param {string} teamId
@@ -37753,6 +37893,14 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     getFeatureV1TeamsTeamIdFeaturesFeatureIdGet(teamId: string, featureId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
     /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphMetrics>>;
+    /**
      * Get an Integration.
      * @summary Get Integration
      * @param {string} teamId
@@ -39442,6 +39590,14 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     getFeatureV1TeamsTeamIdFeaturesFeatureIdGet(teamId: string, featureId: string, options?: any): AxiosPromise<FeatureOut>;
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {string} teamId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId: string, options?: any): AxiosPromise<GraphMetrics>;
     /**
      * Get an Integration.
      * @summary Get Integration
@@ -41746,6 +41902,19 @@ export interface TeamsApiGetFeatureV1TeamsTeamIdFeaturesFeatureIdGetRequest {
      * @memberof TeamsApiGetFeatureV1TeamsTeamIdFeaturesFeatureIdGet
      */
     readonly featureId: string;
+}
+/**
+ * Request parameters for getGraphMetricsV1TeamsTeamIdMetricsGraphGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest
+ */
+export interface TeamsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGet
+     */
+    readonly teamId: string;
 }
 /**
  * Request parameters for getIntegrationV1TeamsTeamIdIntegrationsIntegrationIdGet operation in TeamsApi.
@@ -46386,6 +46555,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     getFeatureV1TeamsTeamIdFeaturesFeatureIdGet(requestParameters: TeamsApiGetFeatureV1TeamsTeamIdFeaturesFeatureIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeatureOut>>;
+    /**
+     * Get metrics on the graph.
+     * @summary Get Graph Metrics
+     * @param {TeamsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    getGraphMetricsV1TeamsTeamIdMetricsGraphGet(requestParameters: TeamsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphMetrics>>;
     /**
      * Get an Integration.
      * @summary Get Integration
