@@ -1404,6 +1404,44 @@ export interface Cluster {
     'stat_descriptor'?: string;
 }
 /**
+ * Payload for relationships clustering.
+ * @export
+ * @interface ClusterRelationshipsIn
+ */
+export interface ClusterRelationshipsIn {
+    /**
+     *
+     * @type {Array<any>}
+     * @memberof ClusterRelationshipsIn
+     */
+    'relationships': Array<any>;
+    /**
+     *
+     * @type {Array<Array<number>>}
+     * @memberof ClusterRelationshipsIn
+     */
+    'thresholds': Array<Array<number>>;
+}
+/**
+ * Response for relationships clustering.
+ * @export
+ * @interface ClusterRelationshipsOut
+ */
+export interface ClusterRelationshipsOut {
+    /**
+     *
+     * @type {Array<any>}
+     * @memberof ClusterRelationshipsOut
+     */
+    'clusters': Array<any>;
+    /**
+     *
+     * @type {Array<any>}
+     * @memberof ClusterRelationshipsOut
+     */
+    'relationships': Array<any>;
+}
+/**
  * Schema for clustered relationship response.
  * @export
  * @interface ClusteredRelationship
@@ -8635,6 +8673,12 @@ export interface UpdateProfileIn {
      */
     'last_name'?: string;
     /**
+     * User\'s organizations.
+     * @type {Array<string>}
+     * @memberof UpdateProfileIn
+     */
+    'organizations'?: Array<string>;
+    /**
      * User\'s field of work.
      * @type {string}
      * @memberof UpdateProfileIn
@@ -8721,6 +8765,12 @@ export interface UserPrivateProfileOut {
      */
     'last_name'?: string;
     /**
+     * User\'s organizations.
+     * @type {Array<string>}
+     * @memberof UserPrivateProfileOut
+     */
+    'organizations'?: Array<string>;
+    /**
      * User\'s field of work.
      * @type {string}
      * @memberof UserPrivateProfileOut
@@ -8781,6 +8831,12 @@ export interface UserProfileIn {
      * @memberof UserProfileIn
      */
     'last_name'?: string;
+    /**
+     * User\'s organizations.
+     * @type {Array<string>}
+     * @memberof UserProfileIn
+     */
+    'organizations'?: Array<string>;
     /**
      * User\'s field of work.
      * @type {string}
@@ -8854,6 +8910,12 @@ export interface UserPublicProfileOut {
      * @memberof UserPublicProfileOut
      */
     'last_name'?: string;
+    /**
+     * User\'s organizations.
+     * @type {Array<string>}
+     * @memberof UserPublicProfileOut
+     */
+    'organizations'?: Array<string>;
     /**
      * User\'s field of work.
      * @type {string}
@@ -26493,6 +26555,23 @@ export declare class IndexedSourcesApi extends BaseAPI {
  */
 export declare const MetricsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    clusterRelationshipsV1ClusterRelationshipsPost: (clusterRelationshipsIn: ClusterRelationshipsIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {string} teamId
+     * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost: (teamId: string, clusterRelationshipsIn: ClusterRelationshipsIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get metrics on the graph.
      * @summary Get Graph Metrics
      * @param {*} [options] Override http request option.
@@ -26513,6 +26592,23 @@ export declare const MetricsApiAxiosParamCreator: (configuration?: Configuration
  * @export
  */
 export declare const MetricsApiFp: (configuration?: Configuration) => {
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    clusterRelationshipsV1ClusterRelationshipsPost(clusterRelationshipsIn: ClusterRelationshipsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterRelationshipsOut>>;
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {string} teamId
+     * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId: string, clusterRelationshipsIn: ClusterRelationshipsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterRelationshipsOut>>;
     /**
      * Get metrics on the graph.
      * @summary Get Graph Metrics
@@ -26535,6 +26631,23 @@ export declare const MetricsApiFp: (configuration?: Configuration) => {
  */
 export declare const MetricsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    clusterRelationshipsV1ClusterRelationshipsPost(clusterRelationshipsIn: ClusterRelationshipsIn, options?: any): AxiosPromise<ClusterRelationshipsOut>;
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {string} teamId
+     * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId: string, clusterRelationshipsIn: ClusterRelationshipsIn, options?: any): AxiosPromise<ClusterRelationshipsOut>;
+    /**
      * Get metrics on the graph.
      * @summary Get Graph Metrics
      * @param {*} [options] Override http request option.
@@ -26550,6 +26663,38 @@ export declare const MetricsApiFactory: (configuration?: Configuration, basePath
      */
     getGraphMetricsV1TeamsTeamIdMetricsGraphGet(teamId: string, options?: any): AxiosPromise<GraphMetrics>;
 };
+/**
+ * Request parameters for clusterRelationshipsV1ClusterRelationshipsPost operation in MetricsApi.
+ * @export
+ * @interface MetricsApiClusterRelationshipsV1ClusterRelationshipsPostRequest
+ */
+export interface MetricsApiClusterRelationshipsV1ClusterRelationshipsPostRequest {
+    /**
+     *
+     * @type {ClusterRelationshipsIn}
+     * @memberof MetricsApiClusterRelationshipsV1ClusterRelationshipsPost
+     */
+    readonly clusterRelationshipsIn: ClusterRelationshipsIn;
+}
+/**
+ * Request parameters for clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost operation in MetricsApi.
+ * @export
+ * @interface MetricsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPostRequest
+ */
+export interface MetricsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof MetricsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {ClusterRelationshipsIn}
+     * @memberof MetricsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost
+     */
+    readonly clusterRelationshipsIn: ClusterRelationshipsIn;
+}
 /**
  * Request parameters for getGraphMetricsV1TeamsTeamIdMetricsGraphGet operation in MetricsApi.
  * @export
@@ -26570,6 +26715,24 @@ export interface MetricsApiGetGraphMetricsV1TeamsTeamIdMetricsGraphGetRequest {
  * @extends {BaseAPI}
  */
 export declare class MetricsApi extends BaseAPI {
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {MetricsApiClusterRelationshipsV1ClusterRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    clusterRelationshipsV1ClusterRelationshipsPost(requestParameters: MetricsApiClusterRelationshipsV1ClusterRelationshipsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterRelationshipsOut>>;
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {MetricsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(requestParameters: MetricsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterRelationshipsOut>>;
     /**
      * Get metrics on the graph.
      * @summary Get Graph Metrics
@@ -35804,6 +35967,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: (teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {string} teamId
+     * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost: (teamId: string, clusterRelationshipsIn: ClusterRelationshipsIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Create a Study.
      * @summary Create A Study.
      * @param {string} teamId
@@ -37502,6 +37674,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {string} teamId
+     * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId: string, clusterRelationshipsIn: ClusterRelationshipsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterRelationshipsOut>>;
+    /**
      * Create a Study.
      * @summary Create A Study.
      * @param {string} teamId
@@ -39199,6 +39380,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId: string, studyId: string, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options?: any): AxiosPromise<void>;
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {string} teamId
+     * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId: string, clusterRelationshipsIn: ClusterRelationshipsIn, options?: any): AxiosPromise<ClusterRelationshipsOut>;
     /**
      * Create a Study.
      * @summary Create A Study.
@@ -41026,6 +41216,25 @@ export interface TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthors
      * @memberof TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost
      */
     readonly bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost;
+}
+/**
+ * Request parameters for clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost operation in TeamsApi.
+ * @export
+ * @interface TeamsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPostRequest
+ */
+export interface TeamsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost
+     */
+    readonly teamId: string;
+    /**
+     *
+     * @type {ClusterRelationshipsIn}
+     * @memberof TeamsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost
+     */
+    readonly clusterRelationshipsIn: ClusterRelationshipsIn;
 }
 /**
  * Request parameters for createAStudyV1TeamsTeamIdStudiesPost operation in TeamsApi.
@@ -46177,6 +46386,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters: TeamsApiBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {TeamsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(requestParameters: TeamsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterRelationshipsOut>>;
     /**
      * Create a Study.
      * @summary Create A Study.

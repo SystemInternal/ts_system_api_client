@@ -19774,6 +19774,80 @@ exports.IndexedSourcesApi = IndexedSourcesApi;
 exports.MetricsApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Get relationship clusters.
+         * @summary Cluster Relationships
+         * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clusterRelationshipsV1ClusterRelationshipsPost: (clusterRelationshipsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'clusterRelationshipsIn' is not null or undefined
+            common_1.assertParamExists('clusterRelationshipsV1ClusterRelationshipsPost', 'clusterRelationshipsIn', clusterRelationshipsIn);
+            const localVarPath = `/v1/cluster/relationships`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(clusterRelationshipsIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get relationship clusters.
+         * @summary Cluster Relationships
+         * @param {string} teamId
+         * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost: (teamId, clusterRelationshipsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost', 'teamId', teamId);
+            // verify required parameter 'clusterRelationshipsIn' is not null or undefined
+            common_1.assertParamExists('clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost', 'clusterRelationshipsIn', clusterRelationshipsIn);
+            const localVarPath = `/v1/teams/{team_id}/cluster/relationships`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(clusterRelationshipsIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get metrics on the graph.
          * @summary Get Graph Metrics
          * @param {*} [options] Override http request option.
@@ -19847,6 +19921,33 @@ exports.MetricsApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.MetricsApiAxiosParamCreator(configuration);
     return {
         /**
+         * Get relationship clusters.
+         * @summary Cluster Relationships
+         * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clusterRelationshipsV1ClusterRelationshipsPost(clusterRelationshipsIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.clusterRelationshipsV1ClusterRelationshipsPost(clusterRelationshipsIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get relationship clusters.
+         * @summary Cluster Relationships
+         * @param {string} teamId
+         * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId, clusterRelationshipsIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId, clusterRelationshipsIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get metrics on the graph.
          * @summary Get Graph Metrics
          * @param {*} [options] Override http request option.
@@ -19881,6 +19982,27 @@ exports.MetricsApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.MetricsApiFp(configuration);
     return {
         /**
+         * Get relationship clusters.
+         * @summary Cluster Relationships
+         * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clusterRelationshipsV1ClusterRelationshipsPost(clusterRelationshipsIn, options) {
+            return localVarFp.clusterRelationshipsV1ClusterRelationshipsPost(clusterRelationshipsIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get relationship clusters.
+         * @summary Cluster Relationships
+         * @param {string} teamId
+         * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId, clusterRelationshipsIn, options) {
+            return localVarFp.clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId, clusterRelationshipsIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get metrics on the graph.
          * @summary Get Graph Metrics
          * @param {*} [options] Override http request option.
@@ -19908,6 +20030,28 @@ exports.MetricsApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class MetricsApi extends base_1.BaseAPI {
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {MetricsApiClusterRelationshipsV1ClusterRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    clusterRelationshipsV1ClusterRelationshipsPost(requestParameters, options) {
+        return exports.MetricsApiFp(this.configuration).clusterRelationshipsV1ClusterRelationshipsPost(requestParameters.clusterRelationshipsIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {MetricsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MetricsApi
+     */
+    clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(requestParameters, options) {
+        return exports.MetricsApiFp(this.configuration).clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(requestParameters.teamId, requestParameters.clusterRelationshipsIn, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Get metrics on the graph.
      * @summary Get Graph Metrics
@@ -30381,6 +30525,45 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get relationship clusters.
+         * @summary Cluster Relationships
+         * @param {string} teamId
+         * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost: (teamId, clusterRelationshipsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost', 'teamId', teamId);
+            // verify required parameter 'clusterRelationshipsIn' is not null or undefined
+            common_1.assertParamExists('clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost', 'clusterRelationshipsIn', clusterRelationshipsIn);
+            const localVarPath = `/v1/teams/{team_id}/cluster/relationships`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(clusterRelationshipsIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
@@ -37235,6 +37418,20 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * Get relationship clusters.
+         * @summary Cluster Relationships
+         * @param {string} teamId
+         * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId, clusterRelationshipsIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId, clusterRelationshipsIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
@@ -39604,6 +39801,17 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(teamId, studyId, bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get relationship clusters.
+         * @summary Cluster Relationships
+         * @param {string} teamId
+         * @param {ClusterRelationshipsIn} clusterRelationshipsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId, clusterRelationshipsIn, options) {
+            return localVarFp.clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(teamId, clusterRelationshipsIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Create a Study.
          * @summary Create A Study.
          * @param {string} teamId
@@ -41572,6 +41780,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).bulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost(requestParameters.teamId, requestParameters.studyId, requestParameters.bodyBulkAddAuthorsToStudyV1TeamsTeamIdStudiesStudyIdAuthorsBulkPost, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get relationship clusters.
+     * @summary Cluster Relationships
+     * @param {TeamsApiClusterRelationshipsV1TeamsTeamIdClusterRelationshipsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).clusterRelationshipsV1TeamsTeamIdClusterRelationshipsPost(requestParameters.teamId, requestParameters.clusterRelationshipsIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a Study.
