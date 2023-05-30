@@ -7548,6 +7548,12 @@ export interface StripeOut {
      * @memberof StripeOut
      */
     'is_group_member'?: boolean;
+    /**
+     * Coupon code.
+     * @type {string}
+     * @memberof StripeOut
+     */
+    'coupon_id'?: string;
 }
 /**
  * Stripe session object.
@@ -32293,6 +32299,13 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
     addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost: (subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Start stripe checkout session.
+     * @summary Apply Edu Discount
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    applyEduDiscountV1StripeApplyEduDiscountPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Start stripe checkout session.
      * @summary Enroll Trial
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -32339,6 +32352,13 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
     addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      * Start stripe checkout session.
+     * @summary Apply Edu Discount
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    applyEduDiscountV1StripeApplyEduDiscountPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>>;
+    /**
+     * Start stripe checkout session.
      * @summary Enroll Trial
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -32383,6 +32403,13 @@ export declare const StripeApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: any): AxiosPromise<boolean>;
+    /**
+     * Start stripe checkout session.
+     * @summary Apply Edu Discount
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    applyEduDiscountV1StripeApplyEduDiscountPost(options?: any): AxiosPromise<StripeSessionOut>;
     /**
      * Start stripe checkout session.
      * @summary Enroll Trial
@@ -32482,6 +32509,14 @@ export declare class StripeApi extends BaseAPI {
      * @memberof StripeApi
      */
     addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters: StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean>>;
+    /**
+     * Start stripe checkout session.
+     * @summary Apply Edu Discount
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StripeApi
+     */
+    applyEduDiscountV1StripeApplyEduDiscountPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StripeSessionOut>>;
     /**
      * Start stripe checkout session.
      * @summary Enroll Trial
