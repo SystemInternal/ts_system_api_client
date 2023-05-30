@@ -26319,10 +26319,11 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
         /**
          * Start stripe checkout session.
          * @summary Manage Subscription
+         * @param {string} [domainCallback]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        manageSubscriptionV1StripeSubscriptionManagePost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        manageSubscriptionV1StripeSubscriptionManagePost: (domainCallback, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/stripe/subscription-manage`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -26338,6 +26339,9 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (domainCallback !== undefined) {
+                localVarQueryParameter['domain_callback'] = domainCallback;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -26447,12 +26451,13 @@ exports.StripeApiFp = function (configuration) {
         /**
          * Start stripe checkout session.
          * @summary Manage Subscription
+         * @param {string} [domainCallback]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        manageSubscriptionV1StripeSubscriptionManagePost(options) {
+        manageSubscriptionV1StripeSubscriptionManagePost(domainCallback, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.manageSubscriptionV1StripeSubscriptionManagePost(options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.manageSubscriptionV1StripeSubscriptionManagePost(domainCallback, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -26521,11 +26526,12 @@ exports.StripeApiFactory = function (configuration, basePath, axios) {
         /**
          * Start stripe checkout session.
          * @summary Manage Subscription
+         * @param {string} [domainCallback]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        manageSubscriptionV1StripeSubscriptionManagePost(options) {
-            return localVarFp.manageSubscriptionV1StripeSubscriptionManagePost(options).then((request) => request(axios, basePath));
+        manageSubscriptionV1StripeSubscriptionManagePost(domainCallback, options) {
+            return localVarFp.manageSubscriptionV1StripeSubscriptionManagePost(domainCallback, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove subscription seat.
@@ -26592,12 +26598,13 @@ class StripeApi extends base_1.BaseAPI {
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
+     * @param {StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    manageSubscriptionV1StripeSubscriptionManagePost(options) {
-        return exports.StripeApiFp(this.configuration).manageSubscriptionV1StripeSubscriptionManagePost(options).then((request) => request(this.axios, this.basePath));
+    manageSubscriptionV1StripeSubscriptionManagePost(requestParameters = {}, options) {
+        return exports.StripeApiFp(this.configuration).manageSubscriptionV1StripeSubscriptionManagePost(requestParameters.domainCallback, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove subscription seat.

@@ -32322,10 +32322,11 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
+     * @param {string} [domainCallback]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    manageSubscriptionV1StripeSubscriptionManagePost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    manageSubscriptionV1StripeSubscriptionManagePost: (domainCallback?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Remove subscription seat.
      * @summary Remove Subscription Seat
@@ -32375,10 +32376,11 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
+     * @param {string} [domainCallback]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    manageSubscriptionV1StripeSubscriptionManagePost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>>;
+    manageSubscriptionV1StripeSubscriptionManagePost(domainCallback?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>>;
     /**
      * Remove subscription seat.
      * @summary Remove Subscription Seat
@@ -32428,10 +32430,11 @@ export declare const StripeApiFactory: (configuration?: Configuration, basePath?
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
+     * @param {string} [domainCallback]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    manageSubscriptionV1StripeSubscriptionManagePost(options?: any): AxiosPromise<StripeSessionOut>;
+    manageSubscriptionV1StripeSubscriptionManagePost(domainCallback?: string, options?: any): AxiosPromise<StripeSessionOut>;
     /**
      * Remove subscription seat.
      * @summary Remove Subscription Seat
@@ -32473,6 +32476,19 @@ export interface StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionI
      * @memberof StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet
      */
     readonly subscriptionId: string;
+}
+/**
+ * Request parameters for manageSubscriptionV1StripeSubscriptionManagePost operation in StripeApi.
+ * @export
+ * @interface StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest
+ */
+export interface StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof StripeApiManageSubscriptionV1StripeSubscriptionManagePost
+     */
+    readonly domainCallback?: string;
 }
 /**
  * Request parameters for removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete operation in StripeApi.
@@ -32537,11 +32553,12 @@ export declare class StripeApi extends BaseAPI {
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
+     * @param {StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    manageSubscriptionV1StripeSubscriptionManagePost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StripeSessionOut>>;
+    manageSubscriptionV1StripeSubscriptionManagePost(requestParameters?: StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StripeSessionOut>>;
     /**
      * Remove subscription seat.
      * @summary Remove Subscription Seat
