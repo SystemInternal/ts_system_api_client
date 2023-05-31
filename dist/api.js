@@ -18048,15 +18048,15 @@ exports.FeedbackApi = FeedbackApi;
 exports.FindingsApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Get study findings via dois and association ids.
-         * @summary Get Study Findings From Association Ids
+         * Get study findings via association ids or dois.
+         * @summary Get Study Findings From Association Ids Or Dois
          * @param {StudyFindingsIn} studyFindingsIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsFromAssociationIdsV1FindingsPost: (studyFindingsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost: (studyFindingsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyFindingsIn' is not null or undefined
-            common_1.assertParamExists('getStudyFindingsFromAssociationIdsV1FindingsPost', 'studyFindingsIn', studyFindingsIn);
+            common_1.assertParamExists('getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost', 'studyFindingsIn', studyFindingsIn);
             const localVarPath = `/v1/findings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -18092,15 +18092,15 @@ exports.FindingsApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.FindingsApiAxiosParamCreator(configuration);
     return {
         /**
-         * Get study findings via dois and association ids.
-         * @summary Get Study Findings From Association Ids
+         * Get study findings via association ids or dois.
+         * @summary Get Study Findings From Association Ids Or Dois
          * @param {StudyFindingsIn} studyFindingsIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options) {
+        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -18114,14 +18114,14 @@ exports.FindingsApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.FindingsApiFp(configuration);
     return {
         /**
-         * Get study findings via dois and association ids.
-         * @summary Get Study Findings From Association Ids
+         * Get study findings via association ids or dois.
+         * @summary Get Study Findings From Association Ids Or Dois
          * @param {StudyFindingsIn} studyFindingsIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options) {
-            return localVarFp.getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
+        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn, options) {
+            return localVarFp.getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -18133,15 +18133,15 @@ exports.FindingsApiFactory = function (configuration, basePath, axios) {
  */
 class FindingsApi extends base_1.BaseAPI {
     /**
-     * Get study findings via dois and association ids.
-     * @summary Get Study Findings From Association Ids
-     * @param {FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest} requestParameters Request parameters.
+     * Get study findings via association ids or dois.
+     * @summary Get Study Findings From Association Ids Or Dois
+     * @param {FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FindingsApi
      */
-    getStudyFindingsFromAssociationIdsV1FindingsPost(requestParameters, options) {
-        return exports.FindingsApiFp(this.configuration).getStudyFindingsFromAssociationIdsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
+    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters, options) {
+        return exports.FindingsApiFp(this.configuration).getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.FindingsApi = FindingsApi;

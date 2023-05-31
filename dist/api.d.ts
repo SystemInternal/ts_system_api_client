@@ -7610,7 +7610,13 @@ export interface StudyFindingsIn {
      * @type {Array<string>}
      * @memberof StudyFindingsIn
      */
-    'association_ids': Array<string>;
+    'association_ids'?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof StudyFindingsIn
+     */
+    'dois'?: Array<string>;
 }
 /**
  * Interface for /findings response type.
@@ -25203,13 +25209,13 @@ export declare class FeedbackApi extends BaseAPI {
  */
 export declare const FindingsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Get study findings via dois and association ids.
-     * @summary Get Study Findings From Association Ids
+     * Get study findings via association ids or dois.
+     * @summary Get Study Findings From Association Ids Or Dois
      * @param {StudyFindingsIn} studyFindingsIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyFindingsFromAssociationIdsV1FindingsPost: (studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost: (studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * FindingsApi - functional programming interface
@@ -25217,13 +25223,13 @@ export declare const FindingsApiAxiosParamCreator: (configuration?: Configuratio
  */
 export declare const FindingsApiFp: (configuration?: Configuration) => {
     /**
-     * Get study findings via dois and association ids.
-     * @summary Get Study Findings From Association Ids
+     * Get study findings via association ids or dois.
+     * @summary Get Study Findings From Association Ids Or Dois
      * @param {StudyFindingsIn} studyFindingsIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>>;
+    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>>;
 };
 /**
  * FindingsApi - factory interface
@@ -25231,24 +25237,24 @@ export declare const FindingsApiFp: (configuration?: Configuration) => {
  */
 export declare const FindingsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Get study findings via dois and association ids.
-     * @summary Get Study Findings From Association Ids
+     * Get study findings via association ids or dois.
+     * @summary Get Study Findings From Association Ids Or Dois
      * @param {StudyFindingsIn} studyFindingsIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyFindingsFromAssociationIdsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: any): AxiosPromise<StudyFindingsOut>;
+    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: any): AxiosPromise<StudyFindingsOut>;
 };
 /**
- * Request parameters for getStudyFindingsFromAssociationIdsV1FindingsPost operation in FindingsApi.
+ * Request parameters for getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost operation in FindingsApi.
  * @export
- * @interface FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest
+ * @interface FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest
  */
-export interface FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest {
+export interface FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest {
     /**
      *
      * @type {StudyFindingsIn}
-     * @memberof FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPost
+     * @memberof FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost
      */
     readonly studyFindingsIn: StudyFindingsIn;
 }
@@ -25260,14 +25266,14 @@ export interface FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequ
  */
 export declare class FindingsApi extends BaseAPI {
     /**
-     * Get study findings via dois and association ids.
-     * @summary Get Study Findings From Association Ids
-     * @param {FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest} requestParameters Request parameters.
+     * Get study findings via association ids or dois.
+     * @summary Get Study Findings From Association Ids Or Dois
+     * @param {FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FindingsApi
      */
-    getStudyFindingsFromAssociationIdsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsV1FindingsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyFindingsOut>>;
+    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyFindingsOut>>;
 }
 /**
  * GraphApi - axios parameter creator
