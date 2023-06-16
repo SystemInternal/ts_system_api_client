@@ -31948,6 +31948,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {SemanticSearchType} [questionType] Search query type
      * @param {string} [term1] First term part of the question.
      * @param {string} [term2] Optional second term part of the question.
+     * @param {string} [population] Optional query to filter studies which have populations matching query.
      * @param {boolean} [cluster] To cluster results or not. Default True.
      * @param {boolean} [synthesize] To synthesize results or not. Default True.
      * @param {string} [filterBy] Filter semantic search results.
@@ -31962,13 +31963,14 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchCountV1SemanticSearchTotalGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
      * @param {SemanticSearchType} [questionType] Search query type
      * @param {string} [term1] First term part of the question.
      * @param {string} [term2] Optional second term part of the question.
+     * @param {string} [population] Optional query to filter studies which have populations matching query.
      * @param {boolean} [cluster] To cluster results or not. Default True.
      * @param {boolean} [synthesize] To synthesize results or not. Default True.
      * @param {string} [filterBy] Filter semantic search results.
@@ -31983,7 +31985,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchV1SemanticSearchGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SemanticSearchApi - functional programming interface
@@ -31996,6 +31998,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {SemanticSearchType} [questionType] Search query type
      * @param {string} [term1] First term part of the question.
      * @param {string} [term2] Optional second term part of the question.
+     * @param {string} [population] Optional query to filter studies which have populations matching query.
      * @param {boolean} [cluster] To cluster results or not. Default True.
      * @param {boolean} [synthesize] To synthesize results or not. Default True.
      * @param {string} [filterBy] Filter semantic search results.
@@ -32010,13 +32013,14 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchCount>>;
+    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchCount>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
      * @param {SemanticSearchType} [questionType] Search query type
      * @param {string} [term1] First term part of the question.
      * @param {string} [term2] Optional second term part of the question.
+     * @param {string} [population] Optional query to filter studies which have populations matching query.
      * @param {boolean} [cluster] To cluster results or not. Default True.
      * @param {boolean} [synthesize] To synthesize results or not. Default True.
      * @param {string} [filterBy] Filter semantic search results.
@@ -32031,7 +32035,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
+    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
 };
 /**
  * SemanticSearchApi - factory interface
@@ -32044,6 +32048,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {SemanticSearchType} [questionType] Search query type
      * @param {string} [term1] First term part of the question.
      * @param {string} [term2] Optional second term part of the question.
+     * @param {string} [population] Optional query to filter studies which have populations matching query.
      * @param {boolean} [cluster] To cluster results or not. Default True.
      * @param {boolean} [synthesize] To synthesize results or not. Default True.
      * @param {string} [filterBy] Filter semantic search results.
@@ -32058,13 +32063,14 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchCount>;
+    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchCount>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
      * @param {SemanticSearchType} [questionType] Search query type
      * @param {string} [term1] First term part of the question.
      * @param {string} [term2] Optional second term part of the question.
+     * @param {string} [population] Optional query to filter studies which have populations matching query.
      * @param {boolean} [cluster] To cluster results or not. Default True.
      * @param {boolean} [synthesize] To synthesize results or not. Default True.
      * @param {string} [filterBy] Filter semantic search results.
@@ -32079,7 +32085,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchOut>;
+    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchOut>;
 };
 /**
  * Request parameters for getSemanticSearchCountV1SemanticSearchTotalGet operation in SemanticSearchApi.
@@ -32105,6 +32111,12 @@ export interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
      * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
      */
     readonly term2?: string;
+    /**
+     * Optional query to filter studies which have populations matching query.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly population?: string;
     /**
      * To cluster results or not. Default True.
      * @type {boolean}
@@ -32196,6 +32208,12 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
     readonly term2?: string;
+    /**
+     * Optional query to filter studies which have populations matching query.
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly population?: string;
     /**
      * To cluster results or not. Default True.
      * @type {boolean}
