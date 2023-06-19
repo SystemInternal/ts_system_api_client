@@ -7575,6 +7575,25 @@ export interface StripeSessionOut {
     'session_url'?: string;
 }
 /**
+ * Interface for an author on a study.
+ * @export
+ * @interface StudyAuthor
+ */
+export interface StudyAuthor {
+    /**
+     *
+     * @type {string}
+     * @memberof StudyAuthor
+     */
+    'oa_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyAuthor
+     */
+    'name': string;
+}
+/**
  * Interface for a single study and its finding sentences, populations, sample size, and id.
  * @export
  * @interface StudyFindings
@@ -7810,10 +7829,10 @@ export interface StudyMetadata {
     'link'?: string;
     /**
      *
-     * @type {Array<string>}
+     * @type {Array<StudyAuthor>}
      * @memberof StudyMetadata
      */
-    'authors'?: Array<string>;
+    'authors'?: Array<StudyAuthor>;
     /**
      *
      * @type {string}
