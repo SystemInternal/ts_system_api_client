@@ -1449,10 +1449,10 @@ export interface ClusterRelationshipsOut {
 export interface ClusteredRelationship {
     /**
      *
-     * @type {Array<SimpleBaseObject>}
+     * @type {Array<FlexibleSimpleBaseObject>}
      * @memberof ClusteredRelationship
      */
-    'variables': Array<SimpleBaseObject>;
+    'variables': Array<FlexibleSimpleBaseObject>;
     /**
      *
      * @type {Array<string>}
@@ -1465,6 +1465,12 @@ export interface ClusteredRelationship {
      * @memberof ClusteredRelationship
      */
     'finding_metas': Array<FindingMeta>;
+    /**
+     *
+     * @type {Array<Finding>}
+     * @memberof ClusteredRelationship
+     */
+    'findings'?: Array<Finding>;
 }
 /**
  * Concept input resource model.
@@ -3823,7 +3829,7 @@ export interface Finding {
      * @type {RawFinding}
      * @memberof Finding
      */
-    'data': RawFinding;
+    'data'?: RawFinding;
     /**
      *
      * @type {Array<string>}
@@ -3848,7 +3854,7 @@ export interface FindingMeta {
      * @type {string}
      * @memberof FindingMeta
      */
-    'association_id': string;
+    'association_id'?: string;
     /**
      *
      * @type {boolean}
@@ -3898,6 +3904,25 @@ export interface FirstLastPaginationLinks {
      * @memberof FirstLastPaginationLinks
      */
     'last'?: string;
+}
+/**
+ * Optional id base object.
+ * @export
+ * @interface FlexibleSimpleBaseObject
+ */
+export interface FlexibleSimpleBaseObject {
+    /**
+     *
+     * @type {string}
+     * @memberof FlexibleSimpleBaseObject
+     */
+    'system_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FlexibleSimpleBaseObject
+     */
+    'name': string;
 }
 /**
  * Free text population attribute value input.
@@ -7268,25 +7293,6 @@ export interface SignificanceValueOut {
      * @memberof SignificanceValueOut
      */
     'generated_by'?: ValueSourceEnum;
-}
-/**
- * Simplified object schema.
- * @export
- * @interface SimpleBaseObject
- */
-export interface SimpleBaseObject {
-    /**
-     *
-     * @type {string}
-     * @memberof SimpleBaseObject
-     */
-    'system_id': string;
-    /**
-     *
-     * @type {string}
-     * @memberof SimpleBaseObject
-     */
-    'name': string;
 }
 /**
  * Simplified topic schema.
@@ -31960,10 +31966,11 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {number} [temperature] Temperature of summary
      * @param {number} [maxTokens] Maximum token size
      * @param {number} [choices] Number of choices for OpenAI to produce.
+     * @param {boolean} [indra] To search indra or not.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchCountV1SemanticSearchTotalGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
@@ -31982,10 +31989,11 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {number} [temperature] Temperature of summary
      * @param {number} [maxTokens] Maximum token size
      * @param {number} [choices] Number of choices for OpenAI to produce.
+     * @param {boolean} [indra] To search indra or not.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchV1SemanticSearchGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SemanticSearchApi - functional programming interface
@@ -32010,10 +32018,11 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {number} [temperature] Temperature of summary
      * @param {number} [maxTokens] Maximum token size
      * @param {number} [choices] Number of choices for OpenAI to produce.
+     * @param {boolean} [indra] To search indra or not.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchCount>>;
+    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchCount>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
@@ -32032,10 +32041,11 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {number} [temperature] Temperature of summary
      * @param {number} [maxTokens] Maximum token size
      * @param {number} [choices] Number of choices for OpenAI to produce.
+     * @param {boolean} [indra] To search indra or not.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
+    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
 };
 /**
  * SemanticSearchApi - factory interface
@@ -32060,10 +32070,11 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {number} [temperature] Temperature of summary
      * @param {number} [maxTokens] Maximum token size
      * @param {number} [choices] Number of choices for OpenAI to produce.
+     * @param {boolean} [indra] To search indra or not.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchCount>;
+    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<SemanticSearchCount>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
@@ -32082,10 +32093,11 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {number} [temperature] Temperature of summary
      * @param {number} [maxTokens] Maximum token size
      * @param {number} [choices] Number of choices for OpenAI to produce.
+     * @param {boolean} [indra] To search indra or not.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, options?: any): AxiosPromise<SemanticSearchOut>;
+    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<SemanticSearchOut>;
 };
 /**
  * Request parameters for getSemanticSearchCountV1SemanticSearchTotalGet operation in SemanticSearchApi.
@@ -32183,6 +32195,12 @@ export interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
      * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
      */
     readonly choices?: number;
+    /**
+     * To search indra or not.
+     * @type {boolean}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly indra?: boolean;
 }
 /**
  * Request parameters for getSemanticSearchV1SemanticSearchGet operation in SemanticSearchApi.
@@ -32280,6 +32298,12 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
     readonly choices?: number;
+    /**
+     * To search indra or not.
+     * @type {boolean}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly indra?: boolean;
 }
 /**
  * SemanticSearchApi - object-oriented interface
