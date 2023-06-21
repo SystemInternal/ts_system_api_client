@@ -1467,10 +1467,10 @@ export interface ClusteredRelationship {
     'finding_metas': Array<FindingMeta>;
     /**
      *
-     * @type {Array<Finding>}
+     * @type {Array<StudyFindings>}
      * @memberof ClusteredRelationship
      */
-    'findings'?: Array<Finding>;
+    'findings'?: Array<StudyFindings>;
 }
 /**
  * Concept input resource model.
