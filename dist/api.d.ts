@@ -31979,6 +31979,8 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {string} [filterBy] Filter semantic search results.
      * @param {number} [studyDistance] Study distance threshold
      * @param {number} [variableDistance] Variable distance threshold
+     * @param {number} [keywordStudyDistance] Study distance for keyword search
+     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
      * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
      * @param {string} [modelName] OpenAI model name
      * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -31989,7 +31991,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchCountV1SemanticSearchTotalGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
@@ -32002,6 +32004,8 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {string} [filterBy] Filter semantic search results.
      * @param {number} [studyDistance] Study distance threshold
      * @param {number} [variableDistance] Variable distance threshold
+     * @param {number} [keywordStudyDistance] Study distance for keyword search
+     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
      * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
      * @param {string} [modelName] OpenAI model name
      * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -32012,7 +32016,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchV1SemanticSearchGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SemanticSearchApi - functional programming interface
@@ -32031,6 +32035,8 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {string} [filterBy] Filter semantic search results.
      * @param {number} [studyDistance] Study distance threshold
      * @param {number} [variableDistance] Variable distance threshold
+     * @param {number} [keywordStudyDistance] Study distance for keyword search
+     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
      * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
      * @param {string} [modelName] OpenAI model name
      * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -32041,7 +32047,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchCount>>;
+    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchCount>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
@@ -32054,6 +32060,8 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {string} [filterBy] Filter semantic search results.
      * @param {number} [studyDistance] Study distance threshold
      * @param {number} [variableDistance] Variable distance threshold
+     * @param {number} [keywordStudyDistance] Study distance for keyword search
+     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
      * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
      * @param {string} [modelName] OpenAI model name
      * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -32064,7 +32072,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
+    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
 };
 /**
  * SemanticSearchApi - factory interface
@@ -32083,6 +32091,8 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {string} [filterBy] Filter semantic search results.
      * @param {number} [studyDistance] Study distance threshold
      * @param {number} [variableDistance] Variable distance threshold
+     * @param {number} [keywordStudyDistance] Study distance for keyword search
+     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
      * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
      * @param {string} [modelName] OpenAI model name
      * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -32093,7 +32103,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<SemanticSearchCount>;
+    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<SemanticSearchCount>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get Semantic Search
@@ -32106,6 +32116,8 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {string} [filterBy] Filter semantic search results.
      * @param {number} [studyDistance] Study distance threshold
      * @param {number} [variableDistance] Variable distance threshold
+     * @param {number} [keywordStudyDistance] Study distance for keyword search
+     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
      * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
      * @param {string} [modelName] OpenAI model name
      * @param {string} [length] Length of synthesis paragraph, in sentences.
@@ -32116,7 +32128,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<SemanticSearchOut>;
+    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<SemanticSearchOut>;
 };
 /**
  * Request parameters for getSemanticSearchCountV1SemanticSearchTotalGet operation in SemanticSearchApi.
@@ -32178,6 +32190,18 @@ export interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
      * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
      */
     readonly variableDistance?: number;
+    /**
+     * Study distance for keyword search
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly keywordStudyDistance?: number;
+    /**
+     * Number of relationship results needed to avoid keyword search.
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     */
+    readonly keywordRelationshipsThreshold?: number;
     /**
      * Clustering thresholds as json stringified list of pairs of floats.
      * @type {string}
@@ -32281,6 +32305,18 @@ export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
      * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
      */
     readonly variableDistance?: number;
+    /**
+     * Study distance for keyword search
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly keywordStudyDistance?: number;
+    /**
+     * Number of relationship results needed to avoid keyword search.
+     * @type {number}
+     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     */
+    readonly keywordRelationshipsThreshold?: number;
     /**
      * Clustering thresholds as json stringified list of pairs of floats.
      * @type {string}
