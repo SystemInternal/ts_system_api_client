@@ -25857,6 +25857,144 @@ exports.RelationshipsApi = RelationshipsApi;
 exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Async Semantic Search
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
+         * @param {string} [population] Optional query to filter studies which have populations matching query.
+         * @param {boolean} [cluster] To cluster results or not. Default True.
+         * @param {boolean} [synthesize] To synthesize results or not. Default True.
+         * @param {string} [filterBy] Filter semantic search results.
+         * @param {number} [studyDistance] Study distance threshold
+         * @param {number} [variableDistance] Variable distance threshold
+         * @param {number} [keywordStudyDistance] Study distance for keyword search
+         * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
+         * @param {boolean} [indra] To search indra or not.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        asyncSemanticSearchV1SemanticSearchclusterGet: (questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/semantic-searchcluster`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (questionType !== undefined) {
+                localVarQueryParameter['question_type'] = questionType;
+            }
+            if (term1 !== undefined) {
+                localVarQueryParameter['term1'] = term1;
+            }
+            if (term2 !== undefined) {
+                localVarQueryParameter['term2'] = term2;
+            }
+            if (population !== undefined) {
+                localVarQueryParameter['population'] = population;
+            }
+            if (cluster !== undefined) {
+                localVarQueryParameter['cluster'] = cluster;
+            }
+            if (synthesize !== undefined) {
+                localVarQueryParameter['synthesize'] = synthesize;
+            }
+            if (filterBy !== undefined) {
+                localVarQueryParameter['filter_by'] = filterBy;
+            }
+            if (studyDistance !== undefined) {
+                localVarQueryParameter['study_distance'] = studyDistance;
+            }
+            if (variableDistance !== undefined) {
+                localVarQueryParameter['variable_distance'] = variableDistance;
+            }
+            if (keywordStudyDistance !== undefined) {
+                localVarQueryParameter['keyword_study_distance'] = keywordStudyDistance;
+            }
+            if (keywordRelationshipsThreshold !== undefined) {
+                localVarQueryParameter['keyword_relationships_threshold'] = keywordRelationshipsThreshold;
+            }
+            if (clusteringThresholds !== undefined) {
+                localVarQueryParameter['clustering_thresholds'] = clusteringThresholds;
+            }
+            if (modelName !== undefined) {
+                localVarQueryParameter['model_name'] = modelName;
+            }
+            if (length !== undefined) {
+                localVarQueryParameter['length'] = length;
+            }
+            if (temperature !== undefined) {
+                localVarQueryParameter['temperature'] = temperature;
+            }
+            if (maxTokens !== undefined) {
+                localVarQueryParameter['max_tokens'] = maxTokens;
+            }
+            if (choices !== undefined) {
+                localVarQueryParameter['choices'] = choices;
+            }
+            if (indra !== undefined) {
+                localVarQueryParameter['indra'] = indra;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Fetch Synthesis
+         * @param {string} cacheKey
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchSynthesisV1SemanticSearchfetchGet: (cacheKey, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'cacheKey' is not null or undefined
+            common_1.assertParamExists('fetchSynthesisV1SemanticSearchfetchGet', 'cacheKey', cacheKey);
+            const localVarPath = `/v1/semantic-searchfetch`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (cacheKey !== undefined) {
+                localVarQueryParameter['cache_key'] = cacheKey;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get semantic search count.
          * @summary Get Semantic Search Count
          * @param {SemanticSearchType} [questionType] Search query type
@@ -26070,6 +26208,49 @@ exports.SemanticSearchApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.SemanticSearchApiAxiosParamCreator(configuration);
     return {
         /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Async Semantic Search
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
+         * @param {string} [population] Optional query to filter studies which have populations matching query.
+         * @param {boolean} [cluster] To cluster results or not. Default True.
+         * @param {boolean} [synthesize] To synthesize results or not. Default True.
+         * @param {string} [filterBy] Filter semantic search results.
+         * @param {number} [studyDistance] Study distance threshold
+         * @param {number} [variableDistance] Variable distance threshold
+         * @param {number} [keywordStudyDistance] Study distance for keyword search
+         * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
+         * @param {boolean} [indra] To search indra or not.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        asyncSemanticSearchV1SemanticSearchclusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.asyncSemanticSearchV1SemanticSearchclusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Fetch Synthesis
+         * @param {string} cacheKey
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchSynthesisV1SemanticSearchfetchGet(cacheKey, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchSynthesisV1SemanticSearchfetchGet(cacheKey, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get semantic search count.
          * @summary Get Semantic Search Count
          * @param {SemanticSearchType} [questionType] Search query type
@@ -26139,6 +26320,43 @@ exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.SemanticSearchApiFp(configuration);
     return {
         /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Async Semantic Search
+         * @param {SemanticSearchType} [questionType] Search query type
+         * @param {string} [term1] First term part of the question.
+         * @param {string} [term2] Optional second term part of the question.
+         * @param {string} [population] Optional query to filter studies which have populations matching query.
+         * @param {boolean} [cluster] To cluster results or not. Default True.
+         * @param {boolean} [synthesize] To synthesize results or not. Default True.
+         * @param {string} [filterBy] Filter semantic search results.
+         * @param {number} [studyDistance] Study distance threshold
+         * @param {number} [variableDistance] Variable distance threshold
+         * @param {number} [keywordStudyDistance] Study distance for keyword search
+         * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
+         * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
+         * @param {string} [modelName] OpenAI model name
+         * @param {string} [length] Length of synthesis paragraph, in sentences.
+         * @param {number} [temperature] Temperature of summary
+         * @param {number} [maxTokens] Maximum token size
+         * @param {number} [choices] Number of choices for OpenAI to produce.
+         * @param {boolean} [indra] To search indra or not.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        asyncSemanticSearchV1SemanticSearchclusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options) {
+            return localVarFp.asyncSemanticSearchV1SemanticSearchclusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Fetch Synthesis
+         * @param {string} cacheKey
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchSynthesisV1SemanticSearchfetchGet(cacheKey, options) {
+            return localVarFp.fetchSynthesisV1SemanticSearchfetchGet(cacheKey, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get semantic search count.
          * @summary Get Semantic Search Count
          * @param {SemanticSearchType} [questionType] Search query type
@@ -26201,6 +26419,28 @@ exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class SemanticSearchApi extends base_1.BaseAPI {
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Async Semantic Search
+     * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    asyncSemanticSearchV1SemanticSearchclusterGet(requestParameters = {}, options) {
+        return exports.SemanticSearchApiFp(this.configuration).asyncSemanticSearchV1SemanticSearchclusterGet(requestParameters.questionType, requestParameters.term1, requestParameters.term2, requestParameters.population, requestParameters.cluster, requestParameters.synthesize, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.variableDistance, requestParameters.keywordStudyDistance, requestParameters.keywordRelationshipsThreshold, requestParameters.clusteringThresholds, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, requestParameters.indra, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Fetch Synthesis
+     * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchfetchGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    fetchSynthesisV1SemanticSearchfetchGet(requestParameters, options) {
+        return exports.SemanticSearchApiFp(this.configuration).fetchSynthesisV1SemanticSearchfetchGet(requestParameters.cacheKey, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
