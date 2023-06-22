@@ -32059,7 +32059,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchclusterGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    asyncSemanticSearchV1SemanticSearchClusterGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
@@ -32067,7 +32067,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchSynthesisV1SemanticSearchfetchGet: (cacheKey: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    fetchSynthesisV1SemanticSearchFetchGet: (cacheKey: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
@@ -32148,7 +32148,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchclusterGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOut>>;
+    asyncSemanticSearchV1SemanticSearchClusterGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOut>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
@@ -32156,7 +32156,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchSynthesisV1SemanticSearchfetchGet(cacheKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Synthesis>>;
+    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Synthesis>>;
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
@@ -32237,7 +32237,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchclusterGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<ClusterOut>;
+    asyncSemanticSearchV1SemanticSearchClusterGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<ClusterOut>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
@@ -32245,7 +32245,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchSynthesisV1SemanticSearchfetchGet(cacheKey: string, options?: any): AxiosPromise<Synthesis>;
+    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<Synthesis>;
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
@@ -32298,130 +32298,130 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
     getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<SemanticSearchOut>;
 };
 /**
- * Request parameters for asyncSemanticSearchV1SemanticSearchclusterGet operation in SemanticSearchApi.
+ * Request parameters for asyncSemanticSearchV1SemanticSearchClusterGet operation in SemanticSearchApi.
  * @export
- * @interface SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGetRequest
+ * @interface SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGetRequest
  */
-export interface SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGetRequest {
+export interface SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGetRequest {
     /**
      * Search query type
      * @type {SemanticSearchType}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly questionType?: SemanticSearchType;
     /**
      * First term part of the question.
      * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly term1?: string;
     /**
      * Optional second term part of the question.
      * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly term2?: string;
     /**
      * Optional query to filter studies which have populations matching query.
      * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly population?: string;
     /**
      * To cluster results or not. Default True.
      * @type {boolean}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly cluster?: boolean;
     /**
      * To synthesize results or not. Default True.
      * @type {boolean}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly synthesize?: boolean;
     /**
      * Filter semantic search results.
      * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly filterBy?: string;
     /**
      * Study distance threshold
      * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly studyDistance?: number;
     /**
      * Variable distance threshold
      * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly variableDistance?: number;
     /**
      * Study distance for keyword search
      * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly keywordStudyDistance?: number;
     /**
      * Number of relationship results needed to avoid keyword search.
      * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly keywordRelationshipsThreshold?: number;
     /**
      * Clustering thresholds as json stringified list of pairs of floats.
      * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly clusteringThresholds?: string;
     /**
      * OpenAI model name
      * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly modelName?: string;
     /**
      * Length of synthesis paragraph, in sentences.
      * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly length?: string;
     /**
      * Temperature of summary
      * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly temperature?: number;
     /**
      * Maximum token size
      * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly maxTokens?: number;
     /**
      * Number of choices for OpenAI to produce.
      * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly choices?: number;
     /**
      * To search indra or not.
      * @type {boolean}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGet
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
      */
     readonly indra?: boolean;
 }
 /**
- * Request parameters for fetchSynthesisV1SemanticSearchfetchGet operation in SemanticSearchApi.
+ * Request parameters for fetchSynthesisV1SemanticSearchFetchGet operation in SemanticSearchApi.
  * @export
- * @interface SemanticSearchApiFetchSynthesisV1SemanticSearchfetchGetRequest
+ * @interface SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest
  */
-export interface SemanticSearchApiFetchSynthesisV1SemanticSearchfetchGetRequest {
+export interface SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest {
     /**
      *
      * @type {string}
-     * @memberof SemanticSearchApiFetchSynthesisV1SemanticSearchfetchGet
+     * @memberof SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGet
      */
     readonly cacheKey: string;
 }
@@ -32665,21 +32665,21 @@ export declare class SemanticSearchApi extends BaseAPI {
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
-     * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGetRequest} requestParameters Request parameters.
+     * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    asyncSemanticSearchV1SemanticSearchclusterGet(requestParameters?: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterOut>>;
+    asyncSemanticSearchV1SemanticSearchClusterGet(requestParameters?: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterOut>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
-     * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchfetchGetRequest} requestParameters Request parameters.
+     * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    fetchSynthesisV1SemanticSearchfetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchfetchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Synthesis>>;
+    fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Synthesis>>;
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count

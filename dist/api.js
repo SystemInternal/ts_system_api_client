@@ -25880,8 +25880,8 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncSemanticSearchV1SemanticSearchclusterGet: (questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/semantic-searchcluster`;
+        asyncSemanticSearchV1SemanticSearchClusterGet: (questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/semantic-search/cluster`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -25965,10 +25965,10 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchSynthesisV1SemanticSearchfetchGet: (cacheKey, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchSynthesisV1SemanticSearchFetchGet: (cacheKey, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'cacheKey' is not null or undefined
-            common_1.assertParamExists('fetchSynthesisV1SemanticSearchfetchGet', 'cacheKey', cacheKey);
-            const localVarPath = `/v1/semantic-searchfetch`;
+            common_1.assertParamExists('fetchSynthesisV1SemanticSearchFetchGet', 'cacheKey', cacheKey);
+            const localVarPath = `/v1/semantic-search/fetch`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -26231,9 +26231,9 @@ exports.SemanticSearchApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncSemanticSearchV1SemanticSearchclusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options) {
+        asyncSemanticSearchV1SemanticSearchClusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.asyncSemanticSearchV1SemanticSearchclusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.asyncSemanticSearchV1SemanticSearchClusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -26244,9 +26244,9 @@ exports.SemanticSearchApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchSynthesisV1SemanticSearchfetchGet(cacheKey, options) {
+        fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchSynthesisV1SemanticSearchfetchGet(cacheKey, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -26343,8 +26343,8 @@ exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncSemanticSearchV1SemanticSearchclusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options) {
-            return localVarFp.asyncSemanticSearchV1SemanticSearchclusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options).then((request) => request(axios, basePath));
+        asyncSemanticSearchV1SemanticSearchClusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options) {
+            return localVarFp.asyncSemanticSearchV1SemanticSearchClusterGet(questionType, term1, term2, population, cluster, synthesize, filterBy, studyDistance, variableDistance, keywordStudyDistance, keywordRelationshipsThreshold, clusteringThresholds, modelName, length, temperature, maxTokens, choices, indra, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
@@ -26353,8 +26353,8 @@ exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchSynthesisV1SemanticSearchfetchGet(cacheKey, options) {
-            return localVarFp.fetchSynthesisV1SemanticSearchfetchGet(cacheKey, options).then((request) => request(axios, basePath));
+        fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options) {
+            return localVarFp.fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search count.
@@ -26422,24 +26422,24 @@ class SemanticSearchApi extends base_1.BaseAPI {
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
-     * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchclusterGetRequest} requestParameters Request parameters.
+     * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    asyncSemanticSearchV1SemanticSearchclusterGet(requestParameters = {}, options) {
-        return exports.SemanticSearchApiFp(this.configuration).asyncSemanticSearchV1SemanticSearchclusterGet(requestParameters.questionType, requestParameters.term1, requestParameters.term2, requestParameters.population, requestParameters.cluster, requestParameters.synthesize, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.variableDistance, requestParameters.keywordStudyDistance, requestParameters.keywordRelationshipsThreshold, requestParameters.clusteringThresholds, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, requestParameters.indra, options).then((request) => request(this.axios, this.basePath));
+    asyncSemanticSearchV1SemanticSearchClusterGet(requestParameters = {}, options) {
+        return exports.SemanticSearchApiFp(this.configuration).asyncSemanticSearchV1SemanticSearchClusterGet(requestParameters.questionType, requestParameters.term1, requestParameters.term2, requestParameters.population, requestParameters.cluster, requestParameters.synthesize, requestParameters.filterBy, requestParameters.studyDistance, requestParameters.variableDistance, requestParameters.keywordStudyDistance, requestParameters.keywordRelationshipsThreshold, requestParameters.clusteringThresholds, requestParameters.modelName, requestParameters.length, requestParameters.temperature, requestParameters.maxTokens, requestParameters.choices, requestParameters.indra, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
-     * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchfetchGetRequest} requestParameters Request parameters.
+     * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    fetchSynthesisV1SemanticSearchfetchGet(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).fetchSynthesisV1SemanticSearchfetchGet(requestParameters.cacheKey, options).then((request) => request(this.axios, this.basePath));
+    fetchSynthesisV1SemanticSearchFetchGet(requestParameters, options) {
+        return exports.SemanticSearchApiFp(this.configuration).fetchSynthesisV1SemanticSearchFetchGet(requestParameters.cacheKey, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search count.
