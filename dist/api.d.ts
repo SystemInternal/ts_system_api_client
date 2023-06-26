@@ -101,6 +101,43 @@ export interface AppSchemaDatasetsObjectTags {
     'variables'?: Array<VariableOut>;
 }
 /**
+ * Interface for Groundings for a specific namespace.
+ * @export
+ * @interface AppSchemaGroundingsGrounding
+ */
+export interface AppSchemaGroundingsGrounding {
+    /**
+     *
+     * @type {string}
+     * @memberof AppSchemaGroundingsGrounding
+     */
+    'id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AppSchemaGroundingsGrounding
+     */
+    'name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AppSchemaGroundingsGrounding
+     */
+    'namespace': string;
+    /**
+     *
+     * @type {string}
+     * @memberof AppSchemaGroundingsGrounding
+     */
+    'namespace_id_label'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof AppSchemaGroundingsGrounding
+     */
+    'definition'?: string;
+}
+/**
  * Object tag model.
  * @export
  * @interface AppSchemaStudiesObjectTags
@@ -1398,10 +1435,10 @@ export interface Cluster {
     'cluster_labels': Array<string>;
     /**
      *
-     * @type {Array<Array<Grounding>>}
+     * @type {Array<Array<AppSchemaGroundingsGrounding>>}
      * @memberof Cluster
      */
-    'label_groundings'?: Array<Array<Grounding>>;
+    'label_groundings'?: Array<Array<AppSchemaGroundingsGrounding>>;
     /**
      *
      * @type {string}
@@ -4241,41 +4278,23 @@ export declare enum GraphSearchDirection {
     Out = "out"
 }
 /**
- * Interface for Groundings for a specific namespace.
+ *
  * @export
- * @interface Grounding
+ * @interface GroundedEntity
  */
-export interface Grounding {
+export interface GroundedEntity {
     /**
      *
      * @type {string}
-     * @memberof Grounding
+     * @memberof GroundedEntity
      */
-    'id'?: string;
+    'name': string;
     /**
      *
-     * @type {string}
-     * @memberof Grounding
+     * @type {Array<QueryParserApiModelsPydanticGrounding>}
+     * @memberof GroundedEntity
      */
-    'name'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof Grounding
-     */
-    'namespace': string;
-    /**
-     *
-     * @type {string}
-     * @memberof Grounding
-     */
-    'namespace_id_label'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof Grounding
-     */
-    'definition'?: string;
+    'groundings'?: Array<QueryParserApiModelsPydanticGrounding>;
 }
 /**
  *
@@ -6703,6 +6722,37 @@ export interface PublicationInfo {
     'ordered_authors'?: Array<PublicationAuthor>;
 }
 /**
+ *
+ * @export
+ * @interface QueryParserApiModelsPydanticGrounding
+ */
+export interface QueryParserApiModelsPydanticGrounding {
+    /**
+     *
+     * @type {string}
+     * @memberof QueryParserApiModelsPydanticGrounding
+     */
+    'name': string;
+    /**
+     *
+     * @type {string}
+     * @memberof QueryParserApiModelsPydanticGrounding
+     */
+    'namespace': string;
+    /**
+     *
+     * @type {string}
+     * @memberof QueryParserApiModelsPydanticGrounding
+     */
+    'id': string;
+    /**
+     *
+     * @type {number}
+     * @memberof QueryParserApiModelsPydanticGrounding
+     */
+    'score': number;
+}
+/**
  * Statistical finding.
  * @export
  * @interface RawFinding
@@ -7221,51 +7271,7 @@ export interface RoleOut {
     'role_id': string;
 }
 /**
- * Semantic search count.
- * @export
- * @interface SemanticSearchCount
- */
-export interface SemanticSearchCount {
-    /**
-     *
-     * @type {number}
-     * @memberof SemanticSearchCount
-     */
-    'total_relationships': number;
-    /**
-     *
-     * @type {number}
-     * @memberof SemanticSearchCount
-     */
-    'total_studies': number;
-}
-/**
- * Semantic search out model.
- * @export
- * @interface SemanticSearchOut
- */
-export interface SemanticSearchOut {
-    /**
-     *
-     * @type {Array<Cluster>}
-     * @memberof SemanticSearchOut
-     */
-    'clusters': Array<Cluster>;
-    /**
-     *
-     * @type {Array<ClusteredRelationship>}
-     * @memberof SemanticSearchOut
-     */
-    'relationships': Array<ClusteredRelationship>;
-    /**
-     *
-     * @type {Synthesis}
-     * @memberof SemanticSearchOut
-     */
-    'synthesis'?: Synthesis;
-}
-/**
- * Defines modes for semantic search.
+ * An enumeration.
  * @export
  * @enum {string}
  */
@@ -8269,6 +8275,171 @@ export declare enum SystemObjectResources {
     Team = "team",
     Dashboard = "dashboard",
     Relationship = "relationship"
+}
+/**
+ * Semantic search count.
+ * @export
+ * @interface SystemSearchCount
+ */
+export interface SystemSearchCount {
+    /**
+     *
+     * @type {number}
+     * @memberof SystemSearchCount
+     */
+    'total_relationships': number;
+    /**
+     *
+     * @type {number}
+     * @memberof SystemSearchCount
+     */
+    'total_studies': number;
+}
+/**
+ * System Search Fields.
+ * @export
+ * @interface SystemSearchIn
+ */
+export interface SystemSearchIn {
+    /**
+     * Search Field type
+     * @type {SemanticSearchType}
+     * @memberof SystemSearchIn
+     */
+    'question_type'?: SemanticSearchType;
+    /**
+     * First term part of the question.
+     * @type {GroundedEntity}
+     * @memberof SystemSearchIn
+     */
+    'term1': GroundedEntity;
+    /**
+     * Optional second term part of the question.
+     * @type {GroundedEntity}
+     * @memberof SystemSearchIn
+     */
+    'term2'?: GroundedEntity;
+    /**
+     * Optional Field to filter studies which have populations matching Field.
+     * @type {string}
+     * @memberof SystemSearchIn
+     */
+    'population'?: string;
+    /**
+     * To cluster results or not. Default True.
+     * @type {boolean}
+     * @memberof SystemSearchIn
+     */
+    'cluster'?: boolean;
+    /**
+     * To synthesize results or not. Default True.
+     * @type {boolean}
+     * @memberof SystemSearchIn
+     */
+    'synthesize'?: boolean;
+    /**
+     * Filter semantic search results.
+     * @type {string}
+     * @memberof SystemSearchIn
+     */
+    'filter_by'?: string;
+    /**
+     * Weaviate formatted filters
+     * @type {Array<string>}
+     * @memberof SystemSearchIn
+     */
+    'weaviate_filters'?: Array<string>;
+    /**
+     * Study distance threshold
+     * @type {number}
+     * @memberof SystemSearchIn
+     */
+    'study_distance'?: number;
+    /**
+     * Variable distance threshold
+     * @type {number}
+     * @memberof SystemSearchIn
+     */
+    'variable_distance'?: number;
+    /**
+     * Study distance for keyword search
+     * @type {number}
+     * @memberof SystemSearchIn
+     */
+    'keyword_study_distance'?: number;
+    /**
+     * Number of relationship results needed to avoid keyword search.
+     * @type {number}
+     * @memberof SystemSearchIn
+     */
+    'keyword_relationships_threshold'?: number;
+    /**
+     * Clustering thresholds as json stringified list of pairs of floats.
+     * @type {Array<Array<number>>}
+     * @memberof SystemSearchIn
+     */
+    'clustering_thresholds'?: Array<Array<number>>;
+    /**
+     * OpenAI model name
+     * @type {string}
+     * @memberof SystemSearchIn
+     */
+    'model_name'?: string;
+    /**
+     * Length of synthesis paragraph, in sentences.
+     * @type {string}
+     * @memberof SystemSearchIn
+     */
+    'length'?: string;
+    /**
+     * Temperature of summary
+     * @type {number}
+     * @memberof SystemSearchIn
+     */
+    'temperature'?: number;
+    /**
+     * Maximum token size
+     * @type {number}
+     * @memberof SystemSearchIn
+     */
+    'max_tokens'?: number;
+    /**
+     * Number of choices for OpenAI to produce.
+     * @type {number}
+     * @memberof SystemSearchIn
+     */
+    'choices'?: number;
+    /**
+     * To search indra or not.
+     * @type {boolean}
+     * @memberof SystemSearchIn
+     */
+    'indra'?: boolean;
+}
+/**
+ * Semantic search out model.
+ * @export
+ * @interface SystemSearchOut
+ */
+export interface SystemSearchOut {
+    /**
+     *
+     * @type {Array<Cluster>}
+     * @memberof SystemSearchOut
+     */
+    'clusters': Array<Cluster>;
+    /**
+     *
+     * @type {Array<ClusteredRelationship>}
+     * @memberof SystemSearchOut
+     */
+    'relationships': Array<ClusteredRelationship>;
+    /**
+     *
+     * @type {Synthesis}
+     * @memberof SystemSearchOut
+     */
+    'synthesis'?: Synthesis;
 }
 /**
  * A table object.
@@ -32038,28 +32209,11 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
-     * @param {SemanticSearchType} [questionType] Search query type
-     * @param {string} [term1] First term part of the question.
-     * @param {string} [term2] Optional second term part of the question.
-     * @param {string} [population] Optional query to filter studies which have populations matching query.
-     * @param {boolean} [cluster] To cluster results or not. Default True.
-     * @param {boolean} [synthesize] To synthesize results or not. Default True.
-     * @param {string} [filterBy] Filter semantic search results.
-     * @param {number} [studyDistance] Study distance threshold
-     * @param {number} [variableDistance] Variable distance threshold
-     * @param {number} [keywordStudyDistance] Study distance for keyword search
-     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
-     * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
-     * @param {string} [modelName] OpenAI model name
-     * @param {string} [length] Length of synthesis paragraph, in sentences.
-     * @param {number} [temperature] Temperature of summary
-     * @param {number} [maxTokens] Maximum token size
-     * @param {number} [choices] Number of choices for OpenAI to produce.
-     * @param {boolean} [indra] To search indra or not.
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchClusterGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    asyncSemanticSearchV1SemanticSearchClusterPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
@@ -32071,53 +32225,19 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
-     * @param {SemanticSearchType} [questionType] Search query type
-     * @param {string} [term1] First term part of the question.
-     * @param {string} [term2] Optional second term part of the question.
-     * @param {string} [population] Optional query to filter studies which have populations matching query.
-     * @param {boolean} [cluster] To cluster results or not. Default True.
-     * @param {boolean} [synthesize] To synthesize results or not. Default True.
-     * @param {string} [filterBy] Filter semantic search results.
-     * @param {number} [studyDistance] Study distance threshold
-     * @param {number} [variableDistance] Variable distance threshold
-     * @param {number} [keywordStudyDistance] Study distance for keyword search
-     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
-     * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
-     * @param {string} [modelName] OpenAI model name
-     * @param {string} [length] Length of synthesis paragraph, in sentences.
-     * @param {number} [temperature] Temperature of summary
-     * @param {number} [maxTokens] Maximum token size
-     * @param {number} [choices] Number of choices for OpenAI to produce.
-     * @param {boolean} [indra] To search indra or not.
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchCountV1SemanticSearchTotalPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
-     * @summary Get Semantic Search
-     * @param {SemanticSearchType} [questionType] Search query type
-     * @param {string} [term1] First term part of the question.
-     * @param {string} [term2] Optional second term part of the question.
-     * @param {string} [population] Optional query to filter studies which have populations matching query.
-     * @param {boolean} [cluster] To cluster results or not. Default True.
-     * @param {boolean} [synthesize] To synthesize results or not. Default True.
-     * @param {string} [filterBy] Filter semantic search results.
-     * @param {number} [studyDistance] Study distance threshold
-     * @param {number} [variableDistance] Variable distance threshold
-     * @param {number} [keywordStudyDistance] Study distance for keyword search
-     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
-     * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
-     * @param {string} [modelName] OpenAI model name
-     * @param {string} [length] Length of synthesis paragraph, in sentences.
-     * @param {number} [temperature] Temperature of summary
-     * @param {number} [maxTokens] Maximum token size
-     * @param {number} [choices] Number of choices for OpenAI to produce.
-     * @param {boolean} [indra] To search indra or not.
+     * @summary Get System Search
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet: (questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSystemSearchV1SemanticSearchPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SemanticSearchApi - functional programming interface
@@ -32127,28 +32247,11 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
-     * @param {SemanticSearchType} [questionType] Search query type
-     * @param {string} [term1] First term part of the question.
-     * @param {string} [term2] Optional second term part of the question.
-     * @param {string} [population] Optional query to filter studies which have populations matching query.
-     * @param {boolean} [cluster] To cluster results or not. Default True.
-     * @param {boolean} [synthesize] To synthesize results or not. Default True.
-     * @param {string} [filterBy] Filter semantic search results.
-     * @param {number} [studyDistance] Study distance threshold
-     * @param {number} [variableDistance] Variable distance threshold
-     * @param {number} [keywordStudyDistance] Study distance for keyword search
-     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
-     * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
-     * @param {string} [modelName] OpenAI model name
-     * @param {string} [length] Length of synthesis paragraph, in sentences.
-     * @param {number} [temperature] Temperature of summary
-     * @param {number} [maxTokens] Maximum token size
-     * @param {number} [choices] Number of choices for OpenAI to produce.
-     * @param {boolean} [indra] To search indra or not.
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchClusterGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOut>>;
+    asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOut>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
@@ -32160,53 +32263,19 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
-     * @param {SemanticSearchType} [questionType] Search query type
-     * @param {string} [term1] First term part of the question.
-     * @param {string} [term2] Optional second term part of the question.
-     * @param {string} [population] Optional query to filter studies which have populations matching query.
-     * @param {boolean} [cluster] To cluster results or not. Default True.
-     * @param {boolean} [synthesize] To synthesize results or not. Default True.
-     * @param {string} [filterBy] Filter semantic search results.
-     * @param {number} [studyDistance] Study distance threshold
-     * @param {number} [variableDistance] Variable distance threshold
-     * @param {number} [keywordStudyDistance] Study distance for keyword search
-     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
-     * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
-     * @param {string} [modelName] OpenAI model name
-     * @param {string} [length] Length of synthesis paragraph, in sentences.
-     * @param {number} [temperature] Temperature of summary
-     * @param {number} [maxTokens] Maximum token size
-     * @param {number} [choices] Number of choices for OpenAI to produce.
-     * @param {boolean} [indra] To search indra or not.
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchCount>>;
+    getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchCount>>;
     /**
      * Get semantic search.  Values from semantic search.
-     * @summary Get Semantic Search
-     * @param {SemanticSearchType} [questionType] Search query type
-     * @param {string} [term1] First term part of the question.
-     * @param {string} [term2] Optional second term part of the question.
-     * @param {string} [population] Optional query to filter studies which have populations matching query.
-     * @param {boolean} [cluster] To cluster results or not. Default True.
-     * @param {boolean} [synthesize] To synthesize results or not. Default True.
-     * @param {string} [filterBy] Filter semantic search results.
-     * @param {number} [studyDistance] Study distance threshold
-     * @param {number} [variableDistance] Variable distance threshold
-     * @param {number} [keywordStudyDistance] Study distance for keyword search
-     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
-     * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
-     * @param {string} [modelName] OpenAI model name
-     * @param {string} [length] Length of synthesis paragraph, in sentences.
-     * @param {number} [temperature] Temperature of summary
-     * @param {number} [maxTokens] Maximum token size
-     * @param {number} [choices] Number of choices for OpenAI to produce.
-     * @param {boolean} [indra] To search indra or not.
+     * @summary Get System Search
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SemanticSearchOut>>;
+    getSystemSearchV1SemanticSearchPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchOut>>;
 };
 /**
  * SemanticSearchApi - factory interface
@@ -32216,28 +32285,11 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
-     * @param {SemanticSearchType} [questionType] Search query type
-     * @param {string} [term1] First term part of the question.
-     * @param {string} [term2] Optional second term part of the question.
-     * @param {string} [population] Optional query to filter studies which have populations matching query.
-     * @param {boolean} [cluster] To cluster results or not. Default True.
-     * @param {boolean} [synthesize] To synthesize results or not. Default True.
-     * @param {string} [filterBy] Filter semantic search results.
-     * @param {number} [studyDistance] Study distance threshold
-     * @param {number} [variableDistance] Variable distance threshold
-     * @param {number} [keywordStudyDistance] Study distance for keyword search
-     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
-     * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
-     * @param {string} [modelName] OpenAI model name
-     * @param {string} [length] Length of synthesis paragraph, in sentences.
-     * @param {number} [temperature] Temperature of summary
-     * @param {number} [maxTokens] Maximum token size
-     * @param {number} [choices] Number of choices for OpenAI to produce.
-     * @param {boolean} [indra] To search indra or not.
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchClusterGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<ClusterOut>;
+    asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<ClusterOut>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
@@ -32249,168 +32301,32 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
-     * @param {SemanticSearchType} [questionType] Search query type
-     * @param {string} [term1] First term part of the question.
-     * @param {string} [term2] Optional second term part of the question.
-     * @param {string} [population] Optional query to filter studies which have populations matching query.
-     * @param {boolean} [cluster] To cluster results or not. Default True.
-     * @param {boolean} [synthesize] To synthesize results or not. Default True.
-     * @param {string} [filterBy] Filter semantic search results.
-     * @param {number} [studyDistance] Study distance threshold
-     * @param {number} [variableDistance] Variable distance threshold
-     * @param {number} [keywordStudyDistance] Study distance for keyword search
-     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
-     * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
-     * @param {string} [modelName] OpenAI model name
-     * @param {string} [length] Length of synthesis paragraph, in sentences.
-     * @param {number} [temperature] Temperature of summary
-     * @param {number} [maxTokens] Maximum token size
-     * @param {number} [choices] Number of choices for OpenAI to produce.
-     * @param {boolean} [indra] To search indra or not.
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<SemanticSearchCount>;
+    getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchCount>;
     /**
      * Get semantic search.  Values from semantic search.
-     * @summary Get Semantic Search
-     * @param {SemanticSearchType} [questionType] Search query type
-     * @param {string} [term1] First term part of the question.
-     * @param {string} [term2] Optional second term part of the question.
-     * @param {string} [population] Optional query to filter studies which have populations matching query.
-     * @param {boolean} [cluster] To cluster results or not. Default True.
-     * @param {boolean} [synthesize] To synthesize results or not. Default True.
-     * @param {string} [filterBy] Filter semantic search results.
-     * @param {number} [studyDistance] Study distance threshold
-     * @param {number} [variableDistance] Variable distance threshold
-     * @param {number} [keywordStudyDistance] Study distance for keyword search
-     * @param {number} [keywordRelationshipsThreshold] Number of relationship results needed to avoid keyword search.
-     * @param {string} [clusteringThresholds] Clustering thresholds as json stringified list of pairs of floats.
-     * @param {string} [modelName] OpenAI model name
-     * @param {string} [length] Length of synthesis paragraph, in sentences.
-     * @param {number} [temperature] Temperature of summary
-     * @param {number} [maxTokens] Maximum token size
-     * @param {number} [choices] Number of choices for OpenAI to produce.
-     * @param {boolean} [indra] To search indra or not.
+     * @summary Get System Search
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchV1SemanticSearchGet(questionType?: SemanticSearchType, term1?: string, term2?: string, population?: string, cluster?: boolean, synthesize?: boolean, filterBy?: string, studyDistance?: number, variableDistance?: number, keywordStudyDistance?: number, keywordRelationshipsThreshold?: number, clusteringThresholds?: string, modelName?: string, length?: string, temperature?: number, maxTokens?: number, choices?: number, indra?: boolean, options?: any): AxiosPromise<SemanticSearchOut>;
+    getSystemSearchV1SemanticSearchPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchOut>;
 };
 /**
- * Request parameters for asyncSemanticSearchV1SemanticSearchClusterGet operation in SemanticSearchApi.
+ * Request parameters for asyncSemanticSearchV1SemanticSearchClusterPost operation in SemanticSearchApi.
  * @export
- * @interface SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGetRequest
+ * @interface SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest
  */
-export interface SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGetRequest {
+export interface SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest {
     /**
-     * Search query type
-     * @type {SemanticSearchType}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
+     *
+     * @type {SystemSearchIn}
+     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPost
      */
-    readonly questionType?: SemanticSearchType;
-    /**
-     * First term part of the question.
-     * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly term1?: string;
-    /**
-     * Optional second term part of the question.
-     * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly term2?: string;
-    /**
-     * Optional query to filter studies which have populations matching query.
-     * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly population?: string;
-    /**
-     * To cluster results or not. Default True.
-     * @type {boolean}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly cluster?: boolean;
-    /**
-     * To synthesize results or not. Default True.
-     * @type {boolean}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly synthesize?: boolean;
-    /**
-     * Filter semantic search results.
-     * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly filterBy?: string;
-    /**
-     * Study distance threshold
-     * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly studyDistance?: number;
-    /**
-     * Variable distance threshold
-     * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly variableDistance?: number;
-    /**
-     * Study distance for keyword search
-     * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly keywordStudyDistance?: number;
-    /**
-     * Number of relationship results needed to avoid keyword search.
-     * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly keywordRelationshipsThreshold?: number;
-    /**
-     * Clustering thresholds as json stringified list of pairs of floats.
-     * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly clusteringThresholds?: string;
-    /**
-     * OpenAI model name
-     * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly modelName?: string;
-    /**
-     * Length of synthesis paragraph, in sentences.
-     * @type {string}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly length?: string;
-    /**
-     * Temperature of summary
-     * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly temperature?: number;
-    /**
-     * Maximum token size
-     * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly maxTokens?: number;
-    /**
-     * Number of choices for OpenAI to produce.
-     * @type {number}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly choices?: number;
-    /**
-     * To search indra or not.
-     * @type {boolean}
-     * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGet
-     */
-    readonly indra?: boolean;
+    readonly systemSearchIn: SystemSearchIn;
 }
 /**
  * Request parameters for fetchSynthesisV1SemanticSearchFetchGet operation in SemanticSearchApi.
@@ -32426,234 +32342,30 @@ export interface SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest 
     readonly cacheKey: string;
 }
 /**
- * Request parameters for getSemanticSearchCountV1SemanticSearchTotalGet operation in SemanticSearchApi.
+ * Request parameters for getSemanticSearchCountV1SemanticSearchTotalPost operation in SemanticSearchApi.
  * @export
- * @interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGetRequest
+ * @interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest
  */
-export interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGetRequest {
+export interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest {
     /**
-     * Search query type
-     * @type {SemanticSearchType}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
+     *
+     * @type {SystemSearchIn}
+     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPost
      */
-    readonly questionType?: SemanticSearchType;
-    /**
-     * First term part of the question.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly term1?: string;
-    /**
-     * Optional second term part of the question.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly term2?: string;
-    /**
-     * Optional query to filter studies which have populations matching query.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly population?: string;
-    /**
-     * To cluster results or not. Default True.
-     * @type {boolean}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly cluster?: boolean;
-    /**
-     * To synthesize results or not. Default True.
-     * @type {boolean}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly synthesize?: boolean;
-    /**
-     * Filter semantic search results.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly filterBy?: string;
-    /**
-     * Study distance threshold
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly studyDistance?: number;
-    /**
-     * Variable distance threshold
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly variableDistance?: number;
-    /**
-     * Study distance for keyword search
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly keywordStudyDistance?: number;
-    /**
-     * Number of relationship results needed to avoid keyword search.
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly keywordRelationshipsThreshold?: number;
-    /**
-     * Clustering thresholds as json stringified list of pairs of floats.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly clusteringThresholds?: string;
-    /**
-     * OpenAI model name
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly modelName?: string;
-    /**
-     * Length of synthesis paragraph, in sentences.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly length?: string;
-    /**
-     * Temperature of summary
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly temperature?: number;
-    /**
-     * Maximum token size
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly maxTokens?: number;
-    /**
-     * Number of choices for OpenAI to produce.
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly choices?: number;
-    /**
-     * To search indra or not.
-     * @type {boolean}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGet
-     */
-    readonly indra?: boolean;
+    readonly systemSearchIn: SystemSearchIn;
 }
 /**
- * Request parameters for getSemanticSearchV1SemanticSearchGet operation in SemanticSearchApi.
+ * Request parameters for getSystemSearchV1SemanticSearchPost operation in SemanticSearchApi.
  * @export
- * @interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest
+ * @interface SemanticSearchApiGetSystemSearchV1SemanticSearchPostRequest
  */
-export interface SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest {
+export interface SemanticSearchApiGetSystemSearchV1SemanticSearchPostRequest {
     /**
-     * Search query type
-     * @type {SemanticSearchType}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
+     *
+     * @type {SystemSearchIn}
+     * @memberof SemanticSearchApiGetSystemSearchV1SemanticSearchPost
      */
-    readonly questionType?: SemanticSearchType;
-    /**
-     * First term part of the question.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly term1?: string;
-    /**
-     * Optional second term part of the question.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly term2?: string;
-    /**
-     * Optional query to filter studies which have populations matching query.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly population?: string;
-    /**
-     * To cluster results or not. Default True.
-     * @type {boolean}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly cluster?: boolean;
-    /**
-     * To synthesize results or not. Default True.
-     * @type {boolean}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly synthesize?: boolean;
-    /**
-     * Filter semantic search results.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly filterBy?: string;
-    /**
-     * Study distance threshold
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly studyDistance?: number;
-    /**
-     * Variable distance threshold
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly variableDistance?: number;
-    /**
-     * Study distance for keyword search
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly keywordStudyDistance?: number;
-    /**
-     * Number of relationship results needed to avoid keyword search.
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly keywordRelationshipsThreshold?: number;
-    /**
-     * Clustering thresholds as json stringified list of pairs of floats.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly clusteringThresholds?: string;
-    /**
-     * OpenAI model name
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly modelName?: string;
-    /**
-     * Length of synthesis paragraph, in sentences.
-     * @type {string}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly length?: string;
-    /**
-     * Temperature of summary
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly temperature?: number;
-    /**
-     * Maximum token size
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly maxTokens?: number;
-    /**
-     * Number of choices for OpenAI to produce.
-     * @type {number}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly choices?: number;
-    /**
-     * To search indra or not.
-     * @type {boolean}
-     * @memberof SemanticSearchApiGetSemanticSearchV1SemanticSearchGet
-     */
-    readonly indra?: boolean;
+    readonly systemSearchIn: SystemSearchIn;
 }
 /**
  * SemanticSearchApi - object-oriented interface
@@ -32665,12 +32377,12 @@ export declare class SemanticSearchApi extends BaseAPI {
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
-     * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGetRequest} requestParameters Request parameters.
+     * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    asyncSemanticSearchV1SemanticSearchClusterGet(requestParameters?: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterOut>>;
+    asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterOut>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
@@ -32683,21 +32395,21 @@ export declare class SemanticSearchApi extends BaseAPI {
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
-     * @param {SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGetRequest} requestParameters Request parameters.
+     * @param {SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getSemanticSearchCountV1SemanticSearchTotalGet(requestParameters?: SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SemanticSearchCount>>;
+    getSemanticSearchCountV1SemanticSearchTotalPost(requestParameters: SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchCount>>;
     /**
      * Get semantic search.  Values from semantic search.
-     * @summary Get Semantic Search
-     * @param {SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest} requestParameters Request parameters.
+     * @summary Get System Search
+     * @param {SemanticSearchApiGetSystemSearchV1SemanticSearchPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getSemanticSearchV1SemanticSearchGet(requestParameters?: SemanticSearchApiGetSemanticSearchV1SemanticSearchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SemanticSearchOut>>;
+    getSystemSearchV1SemanticSearchPost(requestParameters: SemanticSearchApiGetSystemSearchV1SemanticSearchPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchOut>>;
 }
 /**
  * StripeApi - axios parameter creator
