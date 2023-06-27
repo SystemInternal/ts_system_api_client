@@ -8402,11 +8402,11 @@ export interface SystemSearchIn {
      */
     'keyword_study_distance'?: number;
     /**
-     * Number of relationship results needed to avoid keyword search.
+     * Ratio of study results needed to avoid keyword search.
      * @type {number}
      * @memberof SystemSearchIn
      */
-    'keyword_relationships_threshold'?: number;
+    'keyword_study_ratio_threshold'?: number;
     /**
      * Clustering thresholds as json stringified list of pairs of floats.
      * @type {Array<Array<number>>}
