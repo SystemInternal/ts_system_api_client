@@ -1470,6 +1470,12 @@ export interface ClusterOut {
      * @memberof ClusterOut
      */
     'cache_key': string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ClusterOut
+     */
+    'keyword_search'?: boolean;
 }
 /**
  * Payload for relationships clustering.
