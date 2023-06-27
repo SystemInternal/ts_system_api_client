@@ -3835,6 +3835,25 @@ export declare enum FeatureTypeEnum {
     String = "string"
 }
 /**
+ * Synthesis fetching output schema.
+ * @export
+ * @interface FetchSynthesisOut
+ */
+export interface FetchSynthesisOut {
+    /**
+     *
+     * @type {PollingStatus}
+     * @memberof FetchSynthesisOut
+     */
+    'status': PollingStatus;
+    /**
+     *
+     * @type {Synthesis}
+     * @memberof FetchSynthesisOut
+     */
+    'synthesis'?: Synthesis;
+}
+/**
  * A Filter value object model.
  * @export
  * @interface FilterValue
@@ -6362,6 +6381,15 @@ export interface PatchVariableOp {
      * @memberof PatchVariableOp
      */
     'op': PatchOp;
+}
+/**
+ * Polling status enum.
+ * @export
+ * @enum {string}
+ */
+export declare enum PollingStatus {
+    Running = "running",
+    Success = "success"
 }
 /**
  * A real-world population attribute.
@@ -32259,7 +32287,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Synthesis>>;
+    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FetchSynthesisOut>>;
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
@@ -32297,7 +32325,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<Synthesis>;
+    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<FetchSynthesisOut>;
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
@@ -32391,7 +32419,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Synthesis>>;
+    fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FetchSynthesisOut>>;
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
