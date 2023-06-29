@@ -8342,6 +8342,12 @@ export interface SystemSearchIn {
      */
     'question_type'?: SemanticSearchType;
     /**
+     * Question to search for.
+     * @type {string}
+     * @memberof SystemSearchIn
+     */
+    'question'?: string;
+    /**
      * First term part of the question.
      * @type {GroundedEntity}
      * @memberof SystemSearchIn
