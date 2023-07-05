@@ -3965,7 +3965,7 @@ export interface FindingMeta {
      * @type {number}
      * @memberof FindingMeta
      */
-    'score'?: number;
+    'article_score'?: number;
 }
 /**
  * Next/prev Pagination links with first and last urls.
