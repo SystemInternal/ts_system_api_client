@@ -1454,10 +1454,10 @@ export interface Cluster {
 export interface ClusterOut {
     /**
      *
-     * @type {Array<Cluster>}
+     * @type {Array<ScoredCluster>}
      * @memberof ClusterOut
      */
-    'clusters': Array<Cluster>;
+    'clusters': Array<ScoredCluster>;
     /**
      *
      * @type {Array<ClusteredRelationship>}
@@ -3960,6 +3960,12 @@ export interface FindingMeta {
      * @memberof FindingMeta
      */
     'publish_date'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof FindingMeta
+     */
+    'score'?: number;
 }
 /**
  * Next/prev Pagination links with first and last urls.
@@ -7303,6 +7309,67 @@ export interface RoleOut {
      * @memberof RoleOut
      */
     'role_id': string;
+}
+/**
+ * Schema for scored cluster.
+ * @export
+ * @interface ScoredCluster
+ */
+export interface ScoredCluster {
+    /**
+     *
+     * @type {number}
+     * @memberof ScoredCluster
+     */
+    'sort_id': number;
+    /**
+     *
+     * @type {string}
+     * @memberof ScoredCluster
+     */
+    'id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof ScoredCluster
+     */
+    'display_summary': string;
+    /**
+     *
+     * @type {string}
+     * @memberof ScoredCluster
+     */
+    'prompt_summary': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ScoredCluster
+     */
+    'cluster_labels': Array<string>;
+    /**
+     *
+     * @type {Array<Array<AppSchemaGroundingsGrounding>>}
+     * @memberof ScoredCluster
+     */
+    'label_groundings'?: Array<Array<AppSchemaGroundingsGrounding>>;
+    /**
+     *
+     * @type {string}
+     * @memberof ScoredCluster
+     */
+    'stat_descriptor'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof ScoredCluster
+     */
+    'score': number;
+    /**
+     *
+     * @type {number}
+     * @memberof ScoredCluster
+     */
+    'original_score'?: number;
 }
 /**
  * An enumeration.
