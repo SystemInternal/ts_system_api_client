@@ -8445,6 +8445,12 @@ export interface SystemSearchIn {
      */
     'synthesize'?: boolean;
     /**
+     * To use cache or not. Default True.
+     * @type {boolean}
+     * @memberof SystemSearchIn
+     */
+    'use_cache'?: boolean;
+    /**
      * Filter semantic search results.
      * @type {string}
      * @memberof SystemSearchIn
