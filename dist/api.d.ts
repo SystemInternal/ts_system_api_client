@@ -7376,6 +7376,20 @@ export interface ScoredCluster {
      * @memberof ScoredCluster
      */
     'original_score'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof ScoredCluster
+     */
+    'sort_bucket'?: number;
+    /**
+     *
+     * @type {{ [key: string]: string; }}
+     * @memberof ScoredCluster
+     */
+    'search_term_grounding_namespaces'?: {
+        [key: string]: string;
+    };
 }
 /**
  * An enumeration.
