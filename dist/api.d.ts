@@ -3966,6 +3966,12 @@ export interface FindingMeta {
      * @memberof FindingMeta
      */
     'article_score'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof FindingMeta
+     */
+    'citation_count'?: number;
 }
 /**
  * Next/prev Pagination links with first and last urls.
