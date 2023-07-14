@@ -8513,12 +8513,6 @@ export interface SystemSearchIn {
      */
     'clustering_thresholds'?: Array<Array<number>>;
     /**
-     * Clustering method to use.
-     * @type {string}
-     * @memberof SystemSearchIn
-     */
-    'clustering_method'?: string;
-    /**
      * OpenAI model name
      * @type {string}
      * @memberof SystemSearchIn
