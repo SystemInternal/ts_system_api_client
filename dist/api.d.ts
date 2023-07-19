@@ -3972,6 +3972,12 @@ export interface FindingMeta {
      * @memberof FindingMeta
      */
     'citation_count'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof FindingMeta
+     */
+    'name'?: string;
 }
 /**
  * Next/prev Pagination links with first and last urls.
