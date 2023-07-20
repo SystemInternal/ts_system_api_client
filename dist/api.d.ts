@@ -3978,6 +3978,18 @@ export interface FindingMeta {
      * @memberof FindingMeta
      */
     'name'?: string;
+    /**
+     *
+     * @type {Array<StudyAuthor>}
+     * @memberof FindingMeta
+     */
+    'authorships'?: Array<StudyAuthor>;
+    /**
+     *
+     * @type {string}
+     * @memberof FindingMeta
+     */
+    'journal'?: string;
 }
 /**
  * Next/prev Pagination links with first and last urls.
@@ -5771,25 +5783,6 @@ export interface MonitoringRuleSet {
      * @memberof MonitoringRuleSet
      */
     'value': number;
-}
-/**
- * Information related to a thumbs down feedback.
- * @export
- * @interface NegativeSynthesisFeedback
- */
-export interface NegativeSynthesisFeedback {
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof NegativeSynthesisFeedback
-     */
-    'choice': Array<string>;
-    /**
-     *
-     * @type {string}
-     * @memberof NegativeSynthesisFeedback
-     */
-    'additional': string;
 }
 /**
  * Pagination links with next and prev urls.
@@ -8347,6 +8340,25 @@ export interface Synthesis {
     'cache_key': string;
 }
 /**
+ * Information related to a thumbs down feedback.
+ * @export
+ * @interface SynthesisFeedback
+ */
+export interface SynthesisFeedback {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof SynthesisFeedback
+     */
+    'choice'?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof SynthesisFeedback
+     */
+    'text': string;
+}
+/**
  * Input of feedback on synthesis from client.
  * @export
  * @interface SynthesisFeedbackIn
@@ -8372,10 +8384,10 @@ export interface SynthesisFeedbackIn {
     'is_positive': boolean;
     /**
      *
-     * @type {NegativeSynthesisFeedback}
+     * @type {SynthesisFeedback}
      * @memberof SynthesisFeedbackIn
      */
-    'negative_feedback'?: NegativeSynthesisFeedback;
+    'feedback_value'?: SynthesisFeedback;
     /**
      *
      * @type {string}
