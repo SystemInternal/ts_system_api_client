@@ -7389,6 +7389,24 @@ export interface ScoredCluster {
     'search_term_grounding_namespaces'?: {
         [key: string]: string;
     };
+    /**
+     *
+     * @type {string}
+     * @memberof ScoredCluster
+     */
+    'reference_agent_position'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ScoredCluster
+     */
+    'other_agent_category'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ScoredCluster
+     */
+    'modification_verb'?: string;
 }
 /**
  * An enumeration.
