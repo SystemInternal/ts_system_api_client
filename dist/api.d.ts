@@ -7406,7 +7406,7 @@ export interface ScoredCluster {
      * @type {string}
      * @memberof ScoredCluster
      */
-    'modification_verb'?: string;
+    'modification_type'?: string;
 }
 /**
  * An enumeration.
