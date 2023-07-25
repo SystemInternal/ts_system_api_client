@@ -8590,6 +8590,12 @@ export interface SystemSearchIn {
      * @memberof SystemSearchIn
      */
     'indra'?: boolean;
+    /**
+     * To augment with graph search or not.
+     * @type {boolean}
+     * @memberof SystemSearchIn
+     */
+    'graph'?: boolean;
 }
 /**
  * Semantic search out model.
