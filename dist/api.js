@@ -23675,6 +23675,40 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Forward request to SearchGraph.
+         * @summary Get Semantic Graph
+         * @param {string} restOfPath
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1SemanticGraphRestOfPathGet: (restOfPath, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'restOfPath' is not null or undefined
+            common_1.assertParamExists('getSemanticGraphV1SemanticGraphRestOfPathGet', 'restOfPath', restOfPath);
+            const localVarPath = `/v1/semantic_graph/{rest_of_path}`
+                .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Forward request to UMLS.
          * @summary Get Umls Concepts
          * @param {any} restOfPath
@@ -23685,6 +23719,40 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
             // verify required parameter 'restOfPath' is not null or undefined
             common_1.assertParamExists('getUmlsConceptsV1UmlsRestOfPathGet', 'restOfPath', restOfPath);
             const localVarPath = `/v1/umls/{rest_of_path}`
+                .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Forward request to SearchGraph.
+         * @summary Get Variable Concepts
+         * @param {string} restOfPath
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariableConceptsV1VariableConceptsRestOfPathGet: (restOfPath, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'restOfPath' is not null or undefined
+            common_1.assertParamExists('getVariableConceptsV1VariableConceptsRestOfPathGet', 'restOfPath', restOfPath);
+            const localVarPath = `/v1/variable_concepts/{rest_of_path}`
                 .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -23779,6 +23847,19 @@ exports.PassthroughApiFp = function (configuration) {
             });
         },
         /**
+         * Forward request to SearchGraph.
+         * @summary Get Semantic Graph
+         * @param {string} restOfPath
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Forward request to UMLS.
          * @summary Get Umls Concepts
          * @param {any} restOfPath
@@ -23788,6 +23869,19 @@ exports.PassthroughApiFp = function (configuration) {
         getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Forward request to SearchGraph.
+         * @summary Get Variable Concepts
+         * @param {string} restOfPath
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -23834,6 +23928,16 @@ exports.PassthroughApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getOrcidV1OrcidRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
+         * Forward request to SearchGraph.
+         * @summary Get Semantic Graph
+         * @param {string} restOfPath
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath, options) {
+            return localVarFp.getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Forward request to UMLS.
          * @summary Get Umls Concepts
          * @param {any} restOfPath
@@ -23842,6 +23946,16 @@ exports.PassthroughApiFactory = function (configuration, basePath, axios) {
          */
         getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options) {
             return localVarFp.getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Forward request to SearchGraph.
+         * @summary Get Variable Concepts
+         * @param {string} restOfPath
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath, options) {
+            return localVarFp.getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
          * Forward GraphQL request to SystemDB.
@@ -23885,6 +23999,17 @@ class PassthroughApi extends base_1.BaseAPI {
         return exports.PassthroughApiFp(this.configuration).getOrcidV1OrcidRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Forward request to SearchGraph.
+     * @summary Get Semantic Graph
+     * @param {PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters, options) {
+        return exports.PassthroughApiFp(this.configuration).getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Forward request to UMLS.
      * @summary Get Umls Concepts
      * @param {PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest} requestParameters Request parameters.
@@ -23894,6 +24019,17 @@ class PassthroughApi extends base_1.BaseAPI {
      */
     getUmlsConceptsV1UmlsRestOfPathGet(requestParameters, options) {
         return exports.PassthroughApiFp(this.configuration).getUmlsConceptsV1UmlsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Forward request to SearchGraph.
+     * @summary Get Variable Concepts
+     * @param {PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters, options) {
+        return exports.PassthroughApiFp(this.configuration).getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Forward GraphQL request to SystemDB.

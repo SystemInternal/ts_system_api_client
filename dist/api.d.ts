@@ -30483,6 +30483,14 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      */
     getOrcidV1OrcidRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Forward request to SearchGraph.
+     * @summary Get Semantic Graph
+     * @param {string} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1SemanticGraphRestOfPathGet: (restOfPath: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Forward request to UMLS.
      * @summary Get Umls Concepts
      * @param {any} restOfPath
@@ -30490,6 +30498,14 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      * @throws {RequiredError}
      */
     getUmlsConceptsV1UmlsRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Forward request to SearchGraph.
+     * @summary Get Variable Concepts
+     * @param {string} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getVariableConceptsV1VariableConceptsRestOfPathGet: (restOfPath: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
@@ -30521,6 +30537,14 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      */
     getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
+     * Forward request to SearchGraph.
+     * @summary Get Semantic Graph
+     * @param {string} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
      * Forward request to UMLS.
      * @summary Get Umls Concepts
      * @param {any} restOfPath
@@ -30528,6 +30552,14 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * Forward request to SearchGraph.
+     * @summary Get Variable Concepts
+     * @param {string} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
@@ -30559,6 +30591,14 @@ export declare const PassthroughApiFactory: (configuration?: Configuration, base
      */
     getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
     /**
+     * Forward request to SearchGraph.
+     * @summary Get Semantic Graph
+     * @param {string} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath: string, options?: any): AxiosPromise<any>;
+    /**
      * Forward request to UMLS.
      * @summary Get Umls Concepts
      * @param {any} restOfPath
@@ -30566,6 +30606,14 @@ export declare const PassthroughApiFactory: (configuration?: Configuration, base
      * @throws {RequiredError}
      */
     getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
+    /**
+     * Forward request to SearchGraph.
+     * @summary Get Variable Concepts
+     * @param {string} restOfPath
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath: string, options?: any): AxiosPromise<any>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
@@ -30602,6 +30650,19 @@ export interface PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest {
     readonly restOfPath: any;
 }
 /**
+ * Request parameters for getSemanticGraphV1SemanticGraphRestOfPathGet operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest
+ */
+export interface PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGet
+     */
+    readonly restOfPath: string;
+}
+/**
  * Request parameters for getUmlsConceptsV1UmlsRestOfPathGet operation in PassthroughApi.
  * @export
  * @interface PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest
@@ -30613,6 +30674,19 @@ export interface PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest {
      * @memberof PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGet
      */
     readonly restOfPath: any;
+}
+/**
+ * Request parameters for getVariableConceptsV1VariableConceptsRestOfPathGet operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest
+ */
+export interface PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGet
+     */
+    readonly restOfPath: string;
 }
 /**
  * Request parameters for postGraphqlV1GraphqlPost operation in PassthroughApi.
@@ -30653,6 +30727,15 @@ export declare class PassthroughApi extends BaseAPI {
      */
     getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
+     * Forward request to SearchGraph.
+     * @summary Get Semantic Graph
+     * @param {PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters: PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
      * Forward request to UMLS.
      * @summary Get Umls Concepts
      * @param {PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest} requestParameters Request parameters.
@@ -30661,6 +30744,15 @@ export declare class PassthroughApi extends BaseAPI {
      * @memberof PassthroughApi
      */
     getUmlsConceptsV1UmlsRestOfPathGet(requestParameters: PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Forward request to SearchGraph.
+     * @summary Get Variable Concepts
+     * @param {PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters: PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
