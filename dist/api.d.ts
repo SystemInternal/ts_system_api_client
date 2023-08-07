@@ -3913,13 +3913,7 @@ export interface FindingMeta {
      * @type {string}
      * @memberof FindingMeta
      */
-    'pmid'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FindingMeta
-     */
-    'doi'?: string;
+    'doi': string;
     /**
      *
      * @type {string}
@@ -7986,13 +7980,7 @@ export interface StudyMetadata {
      * @type {string}
      * @memberof StudyMetadata
      */
-    'pmid'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudyMetadata
-     */
-    'doi'?: string;
+    'doi': string;
     /**
      *
      * @type {number}
@@ -8053,7 +8041,7 @@ export interface StudyMetadataIn {
      * @type {Array<string>}
      * @memberof StudyMetadataIn
      */
-    'pmids': Array<string>;
+    'dois': Array<string>;
 }
 /**
  * Interface for /study-metadata response type.
@@ -36141,13 +36129,13 @@ export declare class StudiesApi extends BaseAPI {
  */
 export declare const StudyMetadataApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Get study metadata from OpenAlex and DynamoDB via pmids.
-     * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
+     * Get study metadata from OpenAlex and DynamoDB via dois.
+     * @summary Get Study Metadata From Openalex For A Given List Of Dois.
      * @param {StudyMetadataIn} studyMetadataIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost: (studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost: (studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * StudyMetadataApi - functional programming interface
@@ -36155,13 +36143,13 @@ export declare const StudyMetadataApiAxiosParamCreator: (configuration?: Configu
  */
 export declare const StudyMetadataApiFp: (configuration?: Configuration) => {
     /**
-     * Get study metadata from OpenAlex and DynamoDB via pmids.
-     * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
+     * Get study metadata from OpenAlex and DynamoDB via dois.
+     * @summary Get Study Metadata From Openalex For A Given List Of Dois.
      * @param {StudyMetadataIn} studyMetadataIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataOut>>;
+    getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataOut>>;
 };
 /**
  * StudyMetadataApi - factory interface
@@ -36169,24 +36157,24 @@ export declare const StudyMetadataApiFp: (configuration?: Configuration) => {
  */
 export declare const StudyMetadataApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Get study metadata from OpenAlex and DynamoDB via pmids.
-     * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
+     * Get study metadata from OpenAlex and DynamoDB via dois.
+     * @summary Get Study Metadata From Openalex For A Given List Of Dois.
      * @param {StudyMetadataIn} studyMetadataIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: any): AxiosPromise<StudyMetadataOut>;
+    getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: any): AxiosPromise<StudyMetadataOut>;
 };
 /**
- * Request parameters for getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost operation in StudyMetadataApi.
+ * Request parameters for getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost operation in StudyMetadataApi.
  * @export
- * @interface StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest
+ * @interface StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest
  */
-export interface StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest {
+export interface StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest {
     /**
      *
      * @type {StudyMetadataIn}
-     * @memberof StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost
+     * @memberof StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost
      */
     readonly studyMetadataIn: StudyMetadataIn;
 }
@@ -36198,14 +36186,14 @@ export interface StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmid
  */
 export declare class StudyMetadataApi extends BaseAPI {
     /**
-     * Get study metadata from OpenAlex and DynamoDB via pmids.
-     * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
-     * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest} requestParameters Request parameters.
+     * Get study metadata from OpenAlex and DynamoDB via dois.
+     * @summary Get Study Metadata From Openalex For A Given List Of Dois.
+     * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StudyMetadataApi
      */
-    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyMetadataOut>>;
+    getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyMetadataOut>>;
 }
 /**
  * TeamsApi - axios parameter creator

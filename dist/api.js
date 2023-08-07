@@ -30107,15 +30107,15 @@ exports.StudiesApi = StudiesApi;
 exports.StudyMetadataApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Get study metadata from OpenAlex and DynamoDB via pmids.
-         * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
+         * Get study metadata from OpenAlex and DynamoDB via dois.
+         * @summary Get Study Metadata From Openalex For A Given List Of Dois.
          * @param {StudyMetadataIn} studyMetadataIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost: (studyMetadataIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost: (studyMetadataIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'studyMetadataIn' is not null or undefined
-            common_1.assertParamExists('getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost', 'studyMetadataIn', studyMetadataIn);
+            common_1.assertParamExists('getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost', 'studyMetadataIn', studyMetadataIn);
             const localVarPath = `/v1/study-metadata`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -30151,15 +30151,15 @@ exports.StudyMetadataApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.StudyMetadataApiAxiosParamCreator(configuration);
     return {
         /**
-         * Get study metadata from OpenAlex and DynamoDB via pmids.
-         * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
+         * Get study metadata from OpenAlex and DynamoDB via dois.
+         * @summary Get Study Metadata From Openalex For A Given List Of Dois.
          * @param {StudyMetadataIn} studyMetadataIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options) {
+        getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -30173,14 +30173,14 @@ exports.StudyMetadataApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.StudyMetadataApiFp(configuration);
     return {
         /**
-         * Get study metadata from OpenAlex and DynamoDB via pmids.
-         * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
+         * Get study metadata from OpenAlex and DynamoDB via dois.
+         * @summary Get Study Metadata From Openalex For A Given List Of Dois.
          * @param {StudyMetadataIn} studyMetadataIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options) {
-            return localVarFp.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options).then((request) => request(axios, basePath));
+        getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn, options) {
+            return localVarFp.getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(studyMetadataIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -30192,15 +30192,15 @@ exports.StudyMetadataApiFactory = function (configuration, basePath, axios) {
  */
 class StudyMetadataApi extends base_1.BaseAPI {
     /**
-     * Get study metadata from OpenAlex and DynamoDB via pmids.
-     * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
-     * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest} requestParameters Request parameters.
+     * Get study metadata from OpenAlex and DynamoDB via dois.
+     * @summary Get Study Metadata From Openalex For A Given List Of Dois.
+     * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StudyMetadataApi
      */
-    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters, options) {
-        return exports.StudyMetadataApiFp(this.configuration).getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
+    getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(requestParameters, options) {
+        return exports.StudyMetadataApiFp(this.configuration).getStudyMetadataFromOpenAlexForAGivenListOfDoisV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.StudyMetadataApi = StudyMetadataApi;
