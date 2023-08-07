@@ -3913,7 +3913,7 @@ export interface FindingMeta {
      * @type {string}
      * @memberof FindingMeta
      */
-    'pmid': string;
+    'pmid'?: string;
     /**
      *
      * @type {string}
@@ -7986,7 +7986,7 @@ export interface StudyMetadata {
      * @type {string}
      * @memberof StudyMetadata
      */
-    'pmid': string;
+    'pmid'?: string;
     /**
      *
      * @type {string}
