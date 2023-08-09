@@ -36293,21 +36293,21 @@ export declare class StudyMetadataApi extends BaseAPI {
 export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
+     * @summary Get System Graph Endpoint
      * @param {number} [numRelationships] Number of relationships to return.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphV1SystemGraphSystemGraphGet: (numRelationships?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSystemGraphEndpointV1SystemGraphSystemGraphGet: (numRelationships?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
+     * @summary Get System Graph Endpoint
      * @param {string} teamId
      * @param {number} [numRelationships] Number of relationships to return.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet: (teamId: string, numRelationships?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet: (teamId: string, numRelationships?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SystemGraphApi - functional programming interface
@@ -36316,21 +36316,21 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
 export declare const SystemGraphApiFp: (configuration?: Configuration) => {
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
+     * @summary Get System Graph Endpoint
      * @param {number} [numRelationships] Number of relationships to return.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphV1SystemGraphSystemGraphGet(numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
+     * @summary Get System Graph Endpoint
      * @param {string} teamId
      * @param {number} [numRelationships] Number of relationships to return.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId: string, numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId: string, numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
 };
 /**
  * SystemGraphApi - factory interface
@@ -36339,51 +36339,51 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
 export declare const SystemGraphApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
+     * @summary Get System Graph Endpoint
      * @param {number} [numRelationships] Number of relationships to return.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphV1SystemGraphSystemGraphGet(numRelationships?: number, options?: any): AxiosPromise<any>;
+    getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: any): AxiosPromise<any>;
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
+     * @summary Get System Graph Endpoint
      * @param {string} teamId
      * @param {number} [numRelationships] Number of relationships to return.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId: string, numRelationships?: number, options?: any): AxiosPromise<any>;
+    getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId: string, numRelationships?: number, options?: any): AxiosPromise<any>;
 };
 /**
- * Request parameters for getSystemGraphV1SystemGraphSystemGraphGet operation in SystemGraphApi.
+ * Request parameters for getSystemGraphEndpointV1SystemGraphSystemGraphGet operation in SystemGraphApi.
  * @export
- * @interface SystemGraphApiGetSystemGraphV1SystemGraphSystemGraphGetRequest
+ * @interface SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest
  */
-export interface SystemGraphApiGetSystemGraphV1SystemGraphSystemGraphGetRequest {
+export interface SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest {
     /**
      * Number of relationships to return.
      * @type {number}
-     * @memberof SystemGraphApiGetSystemGraphV1SystemGraphSystemGraphGet
+     * @memberof SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGet
      */
     readonly numRelationships?: number;
 }
 /**
- * Request parameters for getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet operation in SystemGraphApi.
+ * Request parameters for getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet operation in SystemGraphApi.
  * @export
- * @interface SystemGraphApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGetRequest
+ * @interface SystemGraphApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGetRequest
  */
-export interface SystemGraphApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGetRequest {
+export interface SystemGraphApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGetRequest {
     /**
      *
      * @type {string}
-     * @memberof SystemGraphApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet
+     * @memberof SystemGraphApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet
      */
     readonly teamId: string;
     /**
      * Number of relationships to return.
      * @type {number}
-     * @memberof SystemGraphApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet
+     * @memberof SystemGraphApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet
      */
     readonly numRelationships?: number;
 }
@@ -36396,22 +36396,22 @@ export interface SystemGraphApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraph
 export declare class SystemGraphApi extends BaseAPI {
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
-     * @param {SystemGraphApiGetSystemGraphV1SystemGraphSystemGraphGetRequest} requestParameters Request parameters.
+     * @summary Get System Graph Endpoint
+     * @param {SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getSystemGraphV1SystemGraphSystemGraphGet(requestParameters?: SystemGraphApiGetSystemGraphV1SystemGraphSystemGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters?: SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
-     * @param {SystemGraphApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGetRequest} requestParameters Request parameters.
+     * @summary Get System Graph Endpoint
+     * @param {SystemGraphApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters: SystemGraphApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters: SystemGraphApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * TeamsApi - axios parameter creator
@@ -37040,13 +37040,13 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
     getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet: (relationshipId: any, teamId: string, directedAt?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
+     * @summary Get System Graph Endpoint
      * @param {string} teamId
      * @param {number} [numRelationships] Number of relationships to return.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet: (teamId: string, numRelationships?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet: (teamId: string, numRelationships?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch topic graph.
      * @summary Get Topic Graph
@@ -38747,13 +38747,13 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
     getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId: any, teamId: string, directedAt?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicRelationshipSynthesisOut>>;
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
+     * @summary Get System Graph Endpoint
      * @param {string} teamId
      * @param {number} [numRelationships] Number of relationships to return.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId: string, numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId: string, numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Fetch topic graph.
      * @summary Get Topic Graph
@@ -40454,13 +40454,13 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
     getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(relationshipId: any, teamId: string, directedAt?: string, options?: any): AxiosPromise<TopicRelationshipSynthesisOut>;
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
+     * @summary Get System Graph Endpoint
      * @param {string} teamId
      * @param {number} [numRelationships] Number of relationships to return.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId: string, numRelationships?: number, options?: any): AxiosPromise<any>;
+    getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId: string, numRelationships?: number, options?: any): AxiosPromise<any>;
     /**
      * Fetch topic graph.
      * @summary Get Topic Graph
@@ -42945,21 +42945,21 @@ export interface TeamsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSyn
     readonly directedAt?: string;
 }
 /**
- * Request parameters for getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet operation in TeamsApi.
+ * Request parameters for getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet operation in TeamsApi.
  * @export
- * @interface TeamsApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGetRequest
+ * @interface TeamsApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGetRequest
  */
-export interface TeamsApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGetRequest {
+export interface TeamsApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGetRequest {
     /**
      *
      * @type {string}
-     * @memberof TeamsApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet
+     * @memberof TeamsApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet
      */
     readonly teamId: string;
     /**
      * Number of relationships to return.
      * @type {number}
-     * @memberof TeamsApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet
+     * @memberof TeamsApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet
      */
     readonly numRelationships?: number;
 }
@@ -47443,13 +47443,13 @@ export declare class TeamsApi extends BaseAPI {
     getSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGet(requestParameters: TeamsApiGetSynthesisV1TeamsTeamIdRelationshipsRelationshipIdSynthesisGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicRelationshipSynthesisOut>>;
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
-     * @param {TeamsApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGetRequest} requestParameters Request parameters.
+     * @summary Get System Graph Endpoint
+     * @param {TeamsApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters: TeamsApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters: TeamsApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Fetch topic graph.
      * @summary Get Topic Graph

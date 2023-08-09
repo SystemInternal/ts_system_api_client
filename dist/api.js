@@ -30293,12 +30293,12 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get system graph from the database.
-         * @summary Get System Graph
+         * @summary Get System Graph Endpoint
          * @param {number} [numRelationships] Number of relationships to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphV1SystemGraphSystemGraphGet: (numRelationships, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSystemGraphEndpointV1SystemGraphSystemGraphGet: (numRelationships, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/system_graph/system_graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -30327,15 +30327,15 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Get system graph from the database.
-         * @summary Get System Graph
+         * @summary Get System Graph Endpoint
          * @param {string} teamId
          * @param {number} [numRelationships] Number of relationships to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet: (teamId, numRelationships, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet: (teamId, numRelationships, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
-            common_1.assertParamExists('getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet', 'teamId', teamId);
+            common_1.assertParamExists('getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet', 'teamId', teamId);
             const localVarPath = `/v1/teams/{team_id}/system_graph/system_graph`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -30374,28 +30374,28 @@ exports.SystemGraphApiFp = function (configuration) {
     return {
         /**
          * Get system graph from the database.
-         * @summary Get System Graph
+         * @summary Get System Graph Endpoint
          * @param {number} [numRelationships] Number of relationships to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphV1SystemGraphSystemGraphGet(numRelationships, options) {
+        getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemGraphV1SystemGraphSystemGraphGet(numRelationships, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
         /**
          * Get system graph from the database.
-         * @summary Get System Graph
+         * @summary Get System Graph Endpoint
          * @param {string} teamId
          * @param {number} [numRelationships] Number of relationships to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options) {
+        getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -30410,24 +30410,24 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Get system graph from the database.
-         * @summary Get System Graph
+         * @summary Get System Graph Endpoint
          * @param {number} [numRelationships] Number of relationships to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphV1SystemGraphSystemGraphGet(numRelationships, options) {
-            return localVarFp.getSystemGraphV1SystemGraphSystemGraphGet(numRelationships, options).then((request) => request(axios, basePath));
+        getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options) {
+            return localVarFp.getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system graph from the database.
-         * @summary Get System Graph
+         * @summary Get System Graph Endpoint
          * @param {string} teamId
          * @param {number} [numRelationships] Number of relationships to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options) {
-            return localVarFp.getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options).then((request) => request(axios, basePath));
+        getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options) {
+            return localVarFp.getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -30440,25 +30440,25 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
 class SystemGraphApi extends base_1.BaseAPI {
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
-     * @param {SystemGraphApiGetSystemGraphV1SystemGraphSystemGraphGetRequest} requestParameters Request parameters.
+     * @summary Get System Graph Endpoint
+     * @param {SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getSystemGraphV1SystemGraphSystemGraphGet(requestParameters = {}, options) {
-        return exports.SystemGraphApiFp(this.configuration).getSystemGraphV1SystemGraphSystemGraphGet(requestParameters.numRelationships, options).then((request) => request(this.axios, this.basePath));
+    getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters = {}, options) {
+        return exports.SystemGraphApiFp(this.configuration).getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters.numRelationships, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
-     * @param {SystemGraphApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGetRequest} requestParameters Request parameters.
+     * @summary Get System Graph Endpoint
+     * @param {SystemGraphApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters.teamId, requestParameters.numRelationships, options).then((request) => request(this.axios, this.basePath));
+    getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters, options) {
+        return exports.SystemGraphApiFp(this.configuration).getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters.teamId, requestParameters.numRelationships, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SystemGraphApi = SystemGraphApi;
@@ -33107,15 +33107,15 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Get system graph from the database.
-         * @summary Get System Graph
+         * @summary Get System Graph Endpoint
          * @param {string} teamId
          * @param {number} [numRelationships] Number of relationships to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet: (teamId, numRelationships, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet: (teamId, numRelationships, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
-            common_1.assertParamExists('getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet', 'teamId', teamId);
+            common_1.assertParamExists('getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet', 'teamId', teamId);
             const localVarPath = `/v1/teams/{team_id}/system_graph/system_graph`
                 .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -38557,15 +38557,15 @@ exports.TeamsApiFp = function (configuration) {
         },
         /**
          * Get system graph from the database.
-         * @summary Get System Graph
+         * @summary Get System Graph Endpoint
          * @param {string} teamId
          * @param {number} [numRelationships] Number of relationships to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options) {
+        getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -40769,14 +40769,14 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
         },
         /**
          * Get system graph from the database.
-         * @summary Get System Graph
+         * @summary Get System Graph Endpoint
          * @param {string} teamId
          * @param {number} [numRelationships] Number of relationships to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options) {
-            return localVarFp.getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options).then((request) => request(axios, basePath));
+        getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options) {
+            return localVarFp.getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(teamId, numRelationships, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch topic graph.
@@ -42733,14 +42733,14 @@ class TeamsApi extends base_1.BaseAPI {
     }
     /**
      * Get system graph from the database.
-     * @summary Get System Graph
-     * @param {TeamsApiGetSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGetRequest} requestParameters Request parameters.
+     * @summary Get System Graph Endpoint
+     * @param {TeamsApiGetSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).getSystemGraphV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters.teamId, requestParameters.numRelationships, options).then((request) => request(this.axios, this.basePath));
+    getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).getSystemGraphEndpointV1TeamsTeamIdSystemGraphSystemGraphGet(requestParameters.teamId, requestParameters.numRelationships, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch topic graph.
