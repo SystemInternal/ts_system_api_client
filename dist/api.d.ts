@@ -5043,6 +5043,14 @@ export interface MetricMonitoring {
     'rule': MonitoringRuleSet;
 }
 /**
+ * Metrics name enum.
+ * @export
+ * @enum {string}
+ */
+export declare enum Metrics {
+    SemanticSearchCreate = "semantic_search.create"
+}
+/**
  * Credentials for a Mode integration without the token and secret.
  * @export
  * @interface ModeCredentials
@@ -9150,6 +9158,31 @@ export interface UserInvite {
      * @memberof UserInvite
      */
     'email': string;
+}
+/**
+ * User metric usage result.
+ * @export
+ * @interface UserMetricUsageOut
+ */
+export interface UserMetricUsageOut {
+    /**
+     * Usage Metric
+     * @type {Metrics}
+     * @memberof UserMetricUsageOut
+     */
+    'metric': Metrics;
+    /**
+     * Metric usage count
+     * @type {number}
+     * @memberof UserMetricUsageOut
+     */
+    'count': number;
+    /**
+     * Metric usage from date
+     * @type {string}
+     * @memberof UserMetricUsageOut
+     */
+    'date_from': string;
 }
 /**
  * Private user profile out.
@@ -32387,6 +32420,14 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      */
     getSemanticSearchCountV1SemanticSearchTotalPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get semantic search usage.
+     * @summary Get Semantic Search Usage
+     * @param {string} dateFrom
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get semantic search.  Values from semantic search.
      * @summary Get System Search
      * @param {SystemSearchIn} systemSearchIn
@@ -32425,6 +32466,14 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      */
     getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchCount>>;
     /**
+     * Get semantic search usage.
+     * @summary Get Semantic Search Usage
+     * @param {string} dateFrom
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>>;
+    /**
      * Get semantic search.  Values from semantic search.
      * @summary Get System Search
      * @param {SystemSearchIn} systemSearchIn
@@ -32462,6 +32511,14 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @throws {RequiredError}
      */
     getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchCount>;
+    /**
+     * Get semantic search usage.
+     * @summary Get Semantic Search Usage
+     * @param {string} dateFrom
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: any): AxiosPromise<UserMetricUsageOut>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get System Search
@@ -32511,6 +32568,19 @@ export interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPos
     readonly systemSearchIn: SystemSearchIn;
 }
 /**
+ * Request parameters for getSemanticSearchUsageV1SemanticSearchUsageGet operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest
+ */
+export interface SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
+     */
+    readonly dateFrom: string;
+}
+/**
  * Request parameters for getSystemSearchV1SemanticSearchPost operation in SemanticSearchApi.
  * @export
  * @interface SemanticSearchApiGetSystemSearchV1SemanticSearchPostRequest
@@ -32557,6 +32627,15 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     getSemanticSearchCountV1SemanticSearchTotalPost(requestParameters: SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchCount>>;
+    /**
+     * Get semantic search usage.
+     * @summary Get Semantic Search Usage
+     * @param {SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserMetricUsageOut>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Get System Search
