@@ -6192,31 +6192,6 @@ export interface NumericalFeatureStatisticsSimpleBase {
     'percent_missing'?: number;
 }
 /**
- *
- * @export
- * @interface OneDegreeTopics
- */
-export interface OneDegreeTopics {
-    /**
-     *
-     * @type {Topic}
-     * @memberof OneDegreeTopics
-     */
-    'topic': Topic;
-    /**
-     *
-     * @type {Array<TopicRelationshipNode>}
-     * @memberof OneDegreeTopics
-     */
-    'upstream': Array<TopicRelationshipNode>;
-    /**
-     *
-     * @type {Array<TopicRelationshipNode>}
-     * @memberof OneDegreeTopics
-     */
-    'downstream': Array<TopicRelationshipNode>;
-}
-/**
  * Ordering direction enum.
  * @export
  * @enum {string}
@@ -9049,49 +9024,6 @@ export interface TimelinePaginationOut {
     '_sorts'?: Array<string>;
 }
 /**
- *
- * @export
- * @interface Topic
- */
-export interface Topic {
-    /**
-     * The Concept\'s system id.
-     * @type {string}
-     * @memberof Topic
-     */
-    'system_id': string;
-    /**
-     * The Concept\'s corresponding wikidata id.
-     * @type {string}
-     * @memberof Topic
-     */
-    'wikidata_id': string;
-    /**
-     * Preferred name if different from existing.
-     * @type {string}
-     * @memberof Topic
-     */
-    'preferred_name'?: string;
-    /**
-     * The Concept\'s name.
-     * @type {string}
-     * @memberof Topic
-     */
-    'name'?: string;
-    /**
-     * The Concept\'s aliases.
-     * @type {Array<string>}
-     * @memberof Topic
-     */
-    'aliases'?: Array<string>;
-    /**
-     *
-     * @type {string}
-     * @memberof Topic
-     */
-    'description'?: string;
-}
-/**
  * Simplified topic relationships schema.
  * @export
  * @interface TopicRelationship
@@ -9109,37 +9041,6 @@ export interface TopicRelationship {
      * @memberof TopicRelationship
      */
     'directed_at': Array<string>;
-}
-/**
- *
- * @export
- * @interface TopicRelationshipNode
- */
-export interface TopicRelationshipNode {
-    /**
-     *
-     * @type {string}
-     * @memberof TopicRelationshipNode
-     */
-    'system_id': string;
-    /**
-     *
-     * @type {string}
-     * @memberof TopicRelationshipNode
-     */
-    'name': string;
-    /**
-     *
-     * @type {string}
-     * @memberof TopicRelationshipNode
-     */
-    'wikidata_id': string;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof TopicRelationshipNode
-     */
-    'supporting_association_ids': Array<string>;
 }
 /**
  * Return type for topic relationship syntheses.
@@ -36419,7 +36320,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OneDegreeTopics>>;
+    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -36441,7 +36342,7 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: any): AxiosPromise<OneDegreeTopics>;
+    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: any): AxiosPromise<ConceptRelationshipsOut>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -36492,7 +36393,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OneDegreeTopics>>;
+    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptRelationshipsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
