@@ -82,62 +82,6 @@ export interface AlgorithmOut {
     'description': string;
 }
 /**
- * Node at end of concept relationship.
- * @export
- * @interface AppSchemaConceptsConceptRelationshipNode
- */
-export interface AppSchemaConceptsConceptRelationshipNode {
-    /**
-     *
-     * @type {string}
-     * @memberof AppSchemaConceptsConceptRelationshipNode
-     */
-    'system_id': string;
-    /**
-     *
-     * @type {string}
-     * @memberof AppSchemaConceptsConceptRelationshipNode
-     */
-    'name': string;
-    /**
-     *
-     * @type {string}
-     * @memberof AppSchemaConceptsConceptRelationshipNode
-     */
-    'wikidata_id': string;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof AppSchemaConceptsConceptRelationshipNode
-     */
-    'supporting_association_ids': Array<string>;
-}
-/**
- * Concept relationships model.
- * @export
- * @interface AppSchemaConceptsConceptRelationshipsOut
- */
-export interface AppSchemaConceptsConceptRelationshipsOut {
-    /**
-     *
-     * @type {ConceptOut}
-     * @memberof AppSchemaConceptsConceptRelationshipsOut
-     */
-    'concept': ConceptOut;
-    /**
-     *
-     * @type {Array<AppSchemaConceptsConceptRelationshipNode>}
-     * @memberof AppSchemaConceptsConceptRelationshipsOut
-     */
-    'upstream': Array<AppSchemaConceptsConceptRelationshipNode>;
-    /**
-     *
-     * @type {Array<AppSchemaConceptsConceptRelationshipNode>}
-     * @memberof AppSchemaConceptsConceptRelationshipsOut
-     */
-    'downstream': Array<AppSchemaConceptsConceptRelationshipNode>;
-}
-/**
  * Object tag model.
  * @export
  * @interface AppSchemaDatasetsObjectTags
@@ -1575,49 +1519,6 @@ export declare enum ClusteringMethods {
     Paraphrase = "paraphrase"
 }
 /**
- *
- * @export
- * @interface Concept
- */
-export interface Concept {
-    /**
-     * The Concept\'s system id.
-     * @type {string}
-     * @memberof Concept
-     */
-    'system_id': string;
-    /**
-     * The Concept\'s corresponding wikidata id.
-     * @type {string}
-     * @memberof Concept
-     */
-    'wikidata_id': string;
-    /**
-     * Preferred name if different from existing.
-     * @type {string}
-     * @memberof Concept
-     */
-    'preferred_name'?: string;
-    /**
-     * The Concept\'s name.
-     * @type {string}
-     * @memberof Concept
-     */
-    'name'?: string;
-    /**
-     * The Concept\'s aliases.
-     * @type {Array<string>}
-     * @memberof Concept
-     */
-    'aliases'?: Array<string>;
-    /**
-     *
-     * @type {string}
-     * @memberof Concept
-     */
-    'description'?: string;
-}
-/**
  * Concept input resource model.
  * @export
  * @interface ConceptIn
@@ -1832,6 +1733,62 @@ export interface ConceptPaginationOut {
      * @memberof ConceptPaginationOut
      */
     '_sorts'?: Array<string>;
+}
+/**
+ * Node at end of concept relationship.
+ * @export
+ * @interface ConceptRelationshipNode
+ */
+export interface ConceptRelationshipNode {
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptRelationshipNode
+     */
+    'system_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptRelationshipNode
+     */
+    'name': string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConceptRelationshipNode
+     */
+    'wikidata_id': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ConceptRelationshipNode
+     */
+    'supporting_association_ids': Array<string>;
+}
+/**
+ * Concept relationships model.
+ * @export
+ * @interface ConceptRelationshipsOut
+ */
+export interface ConceptRelationshipsOut {
+    /**
+     *
+     * @type {ConceptOut}
+     * @memberof ConceptRelationshipsOut
+     */
+    'concept': ConceptOut;
+    /**
+     *
+     * @type {Array<ConceptRelationshipNode>}
+     * @memberof ConceptRelationshipsOut
+     */
+    'upstream': Array<ConceptRelationshipNode>;
+    /**
+     *
+     * @type {Array<ConceptRelationshipNode>}
+     * @memberof ConceptRelationshipsOut
+     */
+    'downstream': Array<ConceptRelationshipNode>;
 }
 /**
  * An enumeration.
@@ -6235,6 +6192,31 @@ export interface NumericalFeatureStatisticsSimpleBase {
     'percent_missing'?: number;
 }
 /**
+ *
+ * @export
+ * @interface OneDegreeTopics
+ */
+export interface OneDegreeTopics {
+    /**
+     *
+     * @type {Topic}
+     * @memberof OneDegreeTopics
+     */
+    'topic': Topic;
+    /**
+     *
+     * @type {Array<TopicRelationshipNode>}
+     * @memberof OneDegreeTopics
+     */
+    'upstream': Array<TopicRelationshipNode>;
+    /**
+     *
+     * @type {Array<TopicRelationshipNode>}
+     * @memberof OneDegreeTopics
+     */
+    'downstream': Array<TopicRelationshipNode>;
+}
+/**
  * Ordering direction enum.
  * @export
  * @enum {string}
@@ -8449,62 +8431,6 @@ export interface SynthesisFeedbackIn {
     'cache_key'?: string;
 }
 /**
- *
- * @export
- * @interface SystemGraphApiClientModelsPydanticConceptRelationshipNode
- */
-export interface SystemGraphApiClientModelsPydanticConceptRelationshipNode {
-    /**
-     *
-     * @type {string}
-     * @memberof SystemGraphApiClientModelsPydanticConceptRelationshipNode
-     */
-    'system_id': string;
-    /**
-     *
-     * @type {string}
-     * @memberof SystemGraphApiClientModelsPydanticConceptRelationshipNode
-     */
-    'name': string;
-    /**
-     *
-     * @type {string}
-     * @memberof SystemGraphApiClientModelsPydanticConceptRelationshipNode
-     */
-    'wikidata_id': string;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof SystemGraphApiClientModelsPydanticConceptRelationshipNode
-     */
-    'supporting_association_ids': Array<string>;
-}
-/**
- *
- * @export
- * @interface SystemGraphApiClientModelsPydanticConceptRelationshipsOut
- */
-export interface SystemGraphApiClientModelsPydanticConceptRelationshipsOut {
-    /**
-     *
-     * @type {Concept}
-     * @memberof SystemGraphApiClientModelsPydanticConceptRelationshipsOut
-     */
-    'concept': Concept;
-    /**
-     *
-     * @type {Array<SystemGraphApiClientModelsPydanticConceptRelationshipNode>}
-     * @memberof SystemGraphApiClientModelsPydanticConceptRelationshipsOut
-     */
-    'upstream': Array<SystemGraphApiClientModelsPydanticConceptRelationshipNode>;
-    /**
-     *
-     * @type {Array<SystemGraphApiClientModelsPydanticConceptRelationshipNode>}
-     * @memberof SystemGraphApiClientModelsPydanticConceptRelationshipsOut
-     */
-    'downstream': Array<SystemGraphApiClientModelsPydanticConceptRelationshipNode>;
-}
-/**
  * Enum System object resource names.
  * @export
  * @enum {string}
@@ -9123,6 +9049,49 @@ export interface TimelinePaginationOut {
     '_sorts'?: Array<string>;
 }
 /**
+ *
+ * @export
+ * @interface Topic
+ */
+export interface Topic {
+    /**
+     * The Concept\'s system id.
+     * @type {string}
+     * @memberof Topic
+     */
+    'system_id': string;
+    /**
+     * The Concept\'s corresponding wikidata id.
+     * @type {string}
+     * @memberof Topic
+     */
+    'wikidata_id': string;
+    /**
+     * Preferred name if different from existing.
+     * @type {string}
+     * @memberof Topic
+     */
+    'preferred_name'?: string;
+    /**
+     * The Concept\'s name.
+     * @type {string}
+     * @memberof Topic
+     */
+    'name'?: string;
+    /**
+     * The Concept\'s aliases.
+     * @type {Array<string>}
+     * @memberof Topic
+     */
+    'aliases'?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof Topic
+     */
+    'description'?: string;
+}
+/**
  * Simplified topic relationships schema.
  * @export
  * @interface TopicRelationship
@@ -9140,6 +9109,37 @@ export interface TopicRelationship {
      * @memberof TopicRelationship
      */
     'directed_at': Array<string>;
+}
+/**
+ *
+ * @export
+ * @interface TopicRelationshipNode
+ */
+export interface TopicRelationshipNode {
+    /**
+     *
+     * @type {string}
+     * @memberof TopicRelationshipNode
+     */
+    'system_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof TopicRelationshipNode
+     */
+    'name': string;
+    /**
+     *
+     * @type {string}
+     * @memberof TopicRelationshipNode
+     */
+    'wikidata_id': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof TopicRelationshipNode
+     */
+    'supporting_association_ids': Array<string>;
 }
 /**
  * Return type for topic relationship syntheses.
@@ -15167,7 +15167,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId: string, topPercentileLimit?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppSchemaConceptsConceptRelationshipsOut>>;
+    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId: string, topPercentileLimit?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>>;
     /**
      * Fetch concept relationships.
      * @summary Get Concept Relationships
@@ -15177,7 +15177,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId: string, teamId: string, topPercentileLimit?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppSchemaConceptsConceptRelationshipsOut>>;
+    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId: string, teamId: string, topPercentileLimit?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -15382,7 +15382,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId: string, topPercentileLimit?: boolean, options?: any): AxiosPromise<AppSchemaConceptsConceptRelationshipsOut>;
+    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId: string, topPercentileLimit?: boolean, options?: any): AxiosPromise<ConceptRelationshipsOut>;
     /**
      * Fetch concept relationships.
      * @summary Get Concept Relationships
@@ -15392,7 +15392,7 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId: string, teamId: string, topPercentileLimit?: boolean, options?: any): AxiosPromise<AppSchemaConceptsConceptRelationshipsOut>;
+    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId: string, teamId: string, topPercentileLimit?: boolean, options?: any): AxiosPromise<ConceptRelationshipsOut>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -16293,7 +16293,7 @@ export declare class ConceptsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConceptsApi
      */
-    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters: ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppSchemaConceptsConceptRelationshipsOut>>;
+    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters: ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptRelationshipsOut>>;
     /**
      * Fetch concept relationships.
      * @summary Get Concept Relationships
@@ -16302,7 +16302,7 @@ export declare class ConceptsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConceptsApi
      */
-    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(requestParameters: ConceptsApiGetConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppSchemaConceptsConceptRelationshipsOut>>;
+    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(requestParameters: ConceptsApiGetConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptRelationshipsOut>>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -36419,7 +36419,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsPydanticConceptRelationshipsOut>>;
+    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OneDegreeTopics>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -36441,7 +36441,7 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: any): AxiosPromise<SystemGraphApiClientModelsPydanticConceptRelationshipsOut>;
+    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: any): AxiosPromise<OneDegreeTopics>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -36492,7 +36492,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemGraphApiClientModelsPydanticConceptRelationshipsOut>>;
+    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<OneDegreeTopics>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -38634,7 +38634,7 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId: string, teamId: string, topPercentileLimit?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AppSchemaConceptsConceptRelationshipsOut>>;
+    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId: string, teamId: string, topPercentileLimit?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -40332,7 +40332,7 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId: string, teamId: string, topPercentileLimit?: boolean, options?: any): AxiosPromise<AppSchemaConceptsConceptRelationshipsOut>;
+    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(conceptId: string, teamId: string, topPercentileLimit?: boolean, options?: any): AxiosPromise<ConceptRelationshipsOut>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -47295,7 +47295,7 @@ export declare class TeamsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(requestParameters: TeamsApiGetConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AppSchemaConceptsConceptRelationshipsOut>>;
+    getConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGet(requestParameters: TeamsApiGetConceptRelationshipsV1TeamsTeamIdConceptsConceptIdRelationshipsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptRelationshipsOut>>;
     /**
      * Get Concept.
      * @summary Get Concept
