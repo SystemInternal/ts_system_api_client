@@ -10514,6 +10514,23 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      */
     listAssociationsV1VariablesVariableIdAssociationsGet: (variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1AssociationsFreeMetadataGet: (ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {string} teamId
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet: (teamId: string, ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Bulk association patching.
      * @summary Patch Associations
      * @param {string} modelId
@@ -11034,6 +11051,23 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      */
     listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationPaginationOut>>;
     /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {string} teamId
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId: string, ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
+    /**
      * Bulk association patching.
      * @summary Patch Associations
      * @param {string} modelId
@@ -11553,6 +11587,23 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     listAssociationsV1VariablesVariableIdAssociationsGet(variableId: string, teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AssociationSortEnum, ordering?: Ordering, sortBy?: string, isInteraction?: boolean, isVariableAssociation?: boolean, options?: any): AxiosPromise<AssociationPaginationOut>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: any): AxiosPromise<Array<any>>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {string} teamId
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId: string, ids?: Array<string>, options?: any): AxiosPromise<Array<any>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -13239,6 +13290,38 @@ export interface AssociationsApiListAssociationsV1VariablesVariableIdAssociation
     readonly isVariableAssociation?: boolean;
 }
 /**
+ * Request parameters for listFreeMetadataV1AssociationsFreeMetadataGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest
+ */
+export interface AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest {
+    /**
+     * List of association IDs to fetch free metadata for.
+     * @type {Array<string>}
+     * @memberof AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGet
+     */
+    readonly ids?: Array<string>;
+}
+/**
+ * Request parameters for listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGetRequest
+ */
+export interface AssociationsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet
+     */
+    readonly teamId: string;
+    /**
+     * List of association IDs to fetch free metadata for.
+     * @type {Array<string>}
+     * @memberof AssociationsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet
+     */
+    readonly ids?: Array<string>;
+}
+/**
  * Request parameters for patchAssociationsV1ModelsModelIdAssociationsPatch operation in AssociationsApi.
  * @export
  * @interface AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest
@@ -13663,6 +13746,24 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters: AssociationsApiListAssociationsV1VariablesVariableIdAssociationsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationPaginationOut>>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters?: AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any[]>>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {AssociationsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(requestParameters: AssociationsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any[]>>;
     /**
      * Bulk association patching.
      * @summary Patch Associations
@@ -37546,6 +37647,15 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      */
     listFeaturesV1TeamsTeamIdFeaturesGet: (teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {string} teamId
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet: (teamId: string, ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get features in model.
      * @summary List Model Features
      * @param {string} teamId
@@ -39244,6 +39354,15 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
     /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {string} teamId
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId: string, ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
+    /**
      * Get features in model.
      * @summary List Model Features
      * @param {string} teamId
@@ -40941,6 +41060,15 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @throws {RequiredError}
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(teamId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, options?: any): AxiosPromise<FeaturePaginationOut>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {string} teamId
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId: string, ids?: Array<string>, options?: any): AxiosPromise<Array<any>>;
     /**
      * Get features in model.
      * @summary List Model Features
@@ -44955,6 +45083,25 @@ export interface TeamsApiListFeaturesV1TeamsTeamIdFeaturesGetRequest {
     readonly inFeatureGraph?: boolean;
 }
 /**
+ * Request parameters for listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet operation in TeamsApi.
+ * @export
+ * @interface TeamsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGetRequest
+ */
+export interface TeamsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof TeamsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet
+     */
+    readonly teamId: string;
+    /**
+     * List of association IDs to fetch free metadata for.
+     * @type {Array<string>}
+     * @memberof TeamsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet
+     */
+    readonly ids?: Array<string>;
+}
+/**
  * Request parameters for listModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGet operation in TeamsApi.
  * @export
  * @interface TeamsApiListModelFeaturesV1TeamsTeamIdModelsModelIdFeaturesGetRequest
@@ -47656,6 +47803,15 @@ export declare class TeamsApi extends BaseAPI {
      * @memberof TeamsApi
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(requestParameters: TeamsApiListFeaturesV1TeamsTeamIdFeaturesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {TeamsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(requestParameters: TeamsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any[]>>;
     /**
      * Get features in model.
      * @summary List Model Features

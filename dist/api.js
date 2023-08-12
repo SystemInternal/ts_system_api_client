@@ -2929,6 +2929,78 @@ exports.AssociationsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1AssociationsFreeMetadataGet: (ids, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/associations/free_metadata`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (ids) {
+                localVarQueryParameter['ids'] = ids;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {string} teamId
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet: (teamId, ids, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/associations/free_metadata`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (ids) {
+                localVarQueryParameter['ids'] = ids;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Bulk association patching.
          * @summary Patch Associations
          * @param {string} modelId
@@ -3760,6 +3832,33 @@ exports.AssociationsApiFp = function (configuration) {
             });
         },
         /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1AssociationsFreeMetadataGet(ids, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listFreeMetadataV1AssociationsFreeMetadataGet(ids, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {string} teamId
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId, ids, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId, ids, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Bulk association patching.
          * @summary Patch Associations
          * @param {string} modelId
@@ -4371,6 +4470,27 @@ exports.AssociationsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.listAssociationsV1VariablesVariableIdAssociationsGet(variableId, teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, isInteraction, isVariableAssociation, options).then((request) => request(axios, basePath));
         },
         /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1AssociationsFreeMetadataGet(ids, options) {
+            return localVarFp.listFreeMetadataV1AssociationsFreeMetadataGet(ids, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {string} teamId
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId, ids, options) {
+            return localVarFp.listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId, ids, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Bulk association patching.
          * @summary Patch Associations
          * @param {string} modelId
@@ -4802,6 +4922,28 @@ class AssociationsApi extends base_1.BaseAPI {
      */
     listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters, options) {
         return exports.AssociationsApiFp(this.configuration).listAssociationsV1VariablesVariableIdAssociationsGet(requestParameters.variableId, requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.isInteraction, requestParameters.isVariableAssociation, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters = {}, options) {
+        return exports.AssociationsApiFp(this.configuration).listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {AssociationsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(requestParameters, options) {
+        return exports.AssociationsApiFp(this.configuration).listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(requestParameters.teamId, requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Bulk association patching.
@@ -35225,6 +35367,44 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {string} teamId
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet: (teamId, ids, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'teamId' is not null or undefined
+            common_1.assertParamExists('listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet', 'teamId', teamId);
+            const localVarPath = `/v1/teams/{team_id}/associations/free_metadata`
+                .replace(`{${"team_id"}}`, encodeURIComponent(String(teamId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (ids) {
+                localVarQueryParameter['ids'] = ids;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get features in model.
          * @summary List Model Features
          * @param {string} teamId
@@ -39178,6 +39358,20 @@ exports.TeamsApiFp = function (configuration) {
             });
         },
         /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {string} teamId
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId, ids, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId, ids, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get features in model.
          * @summary List Model Features
          * @param {string} teamId
@@ -41286,6 +41480,17 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.listFeaturesV1TeamsTeamIdFeaturesGet(teamId, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inFeatureGraph, options).then((request) => request(axios, basePath));
         },
         /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {string} teamId
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId, ids, options) {
+            return localVarFp.listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(teamId, ids, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get features in model.
          * @summary List Model Features
          * @param {string} teamId
@@ -42991,6 +43196,17 @@ class TeamsApi extends base_1.BaseAPI {
      */
     listFeaturesV1TeamsTeamIdFeaturesGet(requestParameters, options) {
         return exports.TeamsApiFp(this.configuration).listFeaturesV1TeamsTeamIdFeaturesGet(requestParameters.teamId, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inFeatureGraph, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {TeamsApiListFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TeamsApi
+     */
+    listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(requestParameters, options) {
+        return exports.TeamsApiFp(this.configuration).listFreeMetadataV1TeamsTeamIdAssociationsFreeMetadataGet(requestParameters.teamId, requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get features in model.
