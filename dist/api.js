@@ -30468,6 +30468,90 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph Endpoint
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet: (topic1, topic2, ids1, ids2, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/system_graph/semantic_graph`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topic1 !== undefined) {
+                localVarQueryParameter['topic_1'] = topic1;
+            }
+            if (topic2 !== undefined) {
+                localVarQueryParameter['topic_2'] = topic2;
+            }
+            if (ids1) {
+                localVarQueryParameter['ids_1'] = ids1;
+            }
+            if (ids2) {
+                localVarQueryParameter['ids_2'] = ids2;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph Endpoint
+         * @param {string} [topicName] Topic name
+         * @param {Array<string>} [topicIds] Topic ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost: (topicName, topicIds, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/system_graph/semantic_topic_graph`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topicName !== undefined) {
+                localVarQueryParameter['topic_name'] = topicName;
+            }
+            if (topicIds) {
+                localVarQueryParameter['topic_ids'] = topicIds;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get system graph from the database.
          * @summary Get System Graph Endpoint
          * @param {number} [numRelationships] Number of relationships to return.
@@ -30524,6 +30608,36 @@ exports.SystemGraphApiFp = function (configuration) {
             });
         },
         /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph Endpoint
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph Endpoint
+         * @param {string} [topicName] Topic name
+         * @param {Array<string>} [topicIds] Topic ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost(topicName, topicIds, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost(topicName, topicIds, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get system graph from the database.
          * @summary Get System Graph Endpoint
          * @param {number} [numRelationships] Number of relationships to return.
@@ -30556,6 +30670,30 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Fetch semantic graph.
+         * @summary Get Semantic Graph Endpoint
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options) {
+            return localVarFp.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch single topic semantic graph.
+         * @summary Get Semantic Topic Graph Endpoint
+         * @param {string} [topicName] Topic name
+         * @param {Array<string>} [topicIds] Topic ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost(topicName, topicIds, options) {
+            return localVarFp.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost(topicName, topicIds, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get system graph from the database.
          * @summary Get System Graph Endpoint
          * @param {number} [numRelationships] Number of relationships to return.
@@ -30584,6 +30722,28 @@ class SystemGraphApi extends base_1.BaseAPI {
      */
     getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters, options) {
         return exports.SystemGraphApiFp(this.configuration).getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters.topicId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch semantic graph.
+     * @summary Get Semantic Graph Endpoint
+     * @param {SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters = {}, options) {
+        return exports.SystemGraphApiFp(this.configuration).getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch single topic semantic graph.
+     * @summary Get Semantic Topic Graph Endpoint
+     * @param {SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost(requestParameters = {}, options) {
+        return exports.SystemGraphApiFp(this.configuration).getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost(requestParameters.topicName, requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system graph from the database.
