@@ -36419,7 +36419,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost: (topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet: (topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -36461,7 +36461,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost(topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -36503,7 +36503,7 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost(topicName?: string, topicIds?: Array<string>, options?: any): AxiosPromise<GraphData>;
+    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: any): AxiosPromise<GraphData>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -36558,21 +36558,21 @@ export interface SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGrap
     readonly ids2?: Array<string>;
 }
 /**
- * Request parameters for getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost operation in SystemGraphApi.
+ * Request parameters for getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet operation in SystemGraphApi.
  * @export
- * @interface SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPostRequest
+ * @interface SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest
  */
-export interface SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPostRequest {
+export interface SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest {
     /**
      * Topic name
      * @type {string}
-     * @memberof SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost
+     * @memberof SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet
      */
     readonly topicName?: string;
     /**
      * Topic ids
      * @type {Array<string>}
-     * @memberof SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost
+     * @memberof SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet
      */
     readonly topicIds?: Array<string>;
 }
@@ -36617,12 +36617,12 @@ export declare class SystemGraphApi extends BaseAPI {
     /**
      * Fetch single topic semantic graph.
      * @summary Get Semantic Topic Graph Endpoint
-     * @param {SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPostRequest} requestParameters Request parameters.
+     * @param {SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPost(requestParameters?: SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
+    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters?: SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
