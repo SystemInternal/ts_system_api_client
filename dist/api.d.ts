@@ -6326,7 +6326,8 @@ export declare enum PollingStatus {
     NotExists = "not_exists",
     Running = "running",
     Success = "success",
-    Failed = "failed"
+    Failed = "failed",
+    FailedNoCitations = "failed_no_citations"
 }
 /**
  * A real-world population attribute.

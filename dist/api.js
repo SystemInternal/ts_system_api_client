@@ -516,6 +516,7 @@ var PollingStatus;
     PollingStatus["Running"] = "running";
     PollingStatus["Success"] = "success";
     PollingStatus["Failed"] = "failed";
+    PollingStatus["FailedNoCitations"] = "failed_no_citations";
 })(PollingStatus = exports.PollingStatus || (exports.PollingStatus = {}));
 /**
  * An enumeration.
