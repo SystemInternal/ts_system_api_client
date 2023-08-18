@@ -1398,55 +1398,6 @@ export interface CategoryOut {
     'category_name': string;
 }
 /**
- * Schema for cluster response.
- * @export
- * @interface Cluster
- */
-export interface Cluster {
-    /**
-     *
-     * @type {number}
-     * @memberof Cluster
-     */
-    'sort_id': number;
-    /**
-     *
-     * @type {string}
-     * @memberof Cluster
-     */
-    'id': string;
-    /**
-     *
-     * @type {string}
-     * @memberof Cluster
-     */
-    'display_summary': string;
-    /**
-     *
-     * @type {string}
-     * @memberof Cluster
-     */
-    'prompt_summary': string;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof Cluster
-     */
-    'cluster_labels': Array<string>;
-    /**
-     *
-     * @type {Array<Array<AppSchemaGroundingsGrounding>>}
-     * @memberof Cluster
-     */
-    'label_groundings'?: Array<Array<AppSchemaGroundingsGrounding>>;
-    /**
-     *
-     * @type {string}
-     * @memberof Cluster
-     */
-    'stat_descriptor'?: string;
-}
-/**
  * Cluster out model.
  * @export
  * @interface ClusterOut
@@ -3811,25 +3762,6 @@ export declare enum FeatureTypeEnum {
     TimeSeries = "time_series",
     Dynamic = "dynamic",
     String = "string"
-}
-/**
- * Synthesis fetching output schema.
- * @export
- * @interface FetchSynthesisOut
- */
-export interface FetchSynthesisOut {
-    /**
-     *
-     * @type {PollingStatus}
-     * @memberof FetchSynthesisOut
-     */
-    'status': PollingStatus;
-    /**
-     *
-     * @type {Synthesis}
-     * @memberof FetchSynthesisOut
-     */
-    'synthesis'?: Synthesis;
 }
 /**
  * A Filter value object model.
@@ -6386,13 +6318,15 @@ export interface PatchVariableOp {
     'op': PatchOp;
 }
 /**
- * Polling status enum.
+ * An enumeration.
  * @export
  * @enum {string}
  */
 export declare enum PollingStatus {
+    NotExists = "not_exists",
     Running = "running",
-    Success = "success"
+    Success = "success",
+    Failed = "failed"
 }
 /**
  * A real-world population attribute.
@@ -8331,7 +8265,7 @@ export interface SubscriptionSeats {
     'total_seats': number;
 }
 /**
- * Synthesis output schema.
+ *
  * @export
  * @interface Synthesis
  */
@@ -8404,6 +8338,25 @@ export interface SynthesisFeedbackIn {
      * @memberof SynthesisFeedbackIn
      */
     'cache_key'?: string;
+}
+/**
+ *
+ * @export
+ * @interface SynthesisOut
+ */
+export interface SynthesisOut {
+    /**
+     *
+     * @type {PollingStatus}
+     * @memberof SynthesisOut
+     */
+    'status': PollingStatus;
+    /**
+     *
+     * @type {Synthesis}
+     * @memberof SynthesisOut
+     */
+    'synthesis'?: Synthesis;
 }
 /**
  * Enum System object resource names.
@@ -8588,31 +8541,6 @@ export interface SystemSearchIn {
      * @memberof SystemSearchIn
      */
     'graph'?: boolean;
-}
-/**
- * Semantic search out model.
- * @export
- * @interface SystemSearchOut
- */
-export interface SystemSearchOut {
-    /**
-     *
-     * @type {Array<Cluster>}
-     * @memberof SystemSearchOut
-     */
-    'clusters': Array<Cluster>;
-    /**
-     *
-     * @type {Array<ClusteredRelationship>}
-     * @memberof SystemSearchOut
-     */
-    'relationships': Array<ClusteredRelationship>;
-    /**
-     *
-     * @type {Synthesis}
-     * @memberof SystemSearchOut
-     */
-    'synthesis'?: Synthesis;
 }
 /**
  * A table object.
@@ -32528,14 +32456,6 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @throws {RequiredError}
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Get semantic search.  Values from semantic search.
-     * @summary Get System Search
-     * @param {SystemSearchIn} systemSearchIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getSystemSearchV1SemanticSearchPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SemanticSearchApi - functional programming interface
@@ -32557,7 +32477,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FetchSynthesisOut>>;
+    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
@@ -32574,14 +32494,6 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>>;
-    /**
-     * Get semantic search.  Values from semantic search.
-     * @summary Get System Search
-     * @param {SystemSearchIn} systemSearchIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getSystemSearchV1SemanticSearchPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchOut>>;
 };
 /**
  * SemanticSearchApi - factory interface
@@ -32603,7 +32515,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<FetchSynthesisOut>;
+    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<SynthesisOut>;
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
@@ -32620,14 +32532,6 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @throws {RequiredError}
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: any): AxiosPromise<UserMetricUsageOut>;
-    /**
-     * Get semantic search.  Values from semantic search.
-     * @summary Get System Search
-     * @param {SystemSearchIn} systemSearchIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getSystemSearchV1SemanticSearchPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchOut>;
 };
 /**
  * Request parameters for asyncSemanticSearchV1SemanticSearchClusterPost operation in SemanticSearchApi.
@@ -32682,19 +32586,6 @@ export interface SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
     readonly dateFrom: string;
 }
 /**
- * Request parameters for getSystemSearchV1SemanticSearchPost operation in SemanticSearchApi.
- * @export
- * @interface SemanticSearchApiGetSystemSearchV1SemanticSearchPostRequest
- */
-export interface SemanticSearchApiGetSystemSearchV1SemanticSearchPostRequest {
-    /**
-     *
-     * @type {SystemSearchIn}
-     * @memberof SemanticSearchApiGetSystemSearchV1SemanticSearchPost
-     */
-    readonly systemSearchIn: SystemSearchIn;
-}
-/**
  * SemanticSearchApi - object-oriented interface
  * @export
  * @class SemanticSearchApi
@@ -32718,7 +32609,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FetchSynthesisOut>>;
+    fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SynthesisOut>>;
     /**
      * Get semantic search count.
      * @summary Get Semantic Search Count
@@ -32737,15 +32628,6 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserMetricUsageOut>>;
-    /**
-     * Get semantic search.  Values from semantic search.
-     * @summary Get System Search
-     * @param {SemanticSearchApiGetSystemSearchV1SemanticSearchPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SemanticSearchApi
-     */
-    getSystemSearchV1SemanticSearchPost(requestParameters: SemanticSearchApiGetSystemSearchV1SemanticSearchPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchOut>>;
 }
 /**
  * StripeApi - axios parameter creator

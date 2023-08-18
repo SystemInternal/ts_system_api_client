@@ -506,14 +506,16 @@ var PatchOp;
     PatchOp["Delete"] = "delete";
 })(PatchOp = exports.PatchOp || (exports.PatchOp = {}));
 /**
- * Polling status enum.
+ * An enumeration.
  * @export
  * @enum {string}
  */
 var PollingStatus;
 (function (PollingStatus) {
+    PollingStatus["NotExists"] = "not_exists";
     PollingStatus["Running"] = "running";
     PollingStatus["Success"] = "success";
+    PollingStatus["Failed"] = "failed";
 })(PollingStatus = exports.PollingStatus || (exports.PollingStatus = {}));
 /**
  * An enumeration.
@@ -26164,41 +26166,6 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
-        /**
-         * Get semantic search.  Values from semantic search.
-         * @summary Get System Search
-         * @param {SystemSearchIn} systemSearchIn
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSystemSearchV1SemanticSearchPost: (systemSearchIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'systemSearchIn' is not null or undefined
-            common_1.assertParamExists('getSystemSearchV1SemanticSearchPost', 'systemSearchIn', systemSearchIn);
-            const localVarPath = `/v1/semantic-search`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(systemSearchIn, localVarRequestOptions, configuration);
-            return {
-                url: common_1.toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
     };
 };
 /**
@@ -26260,19 +26227,6 @@ exports.SemanticSearchApiFp = function (configuration) {
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
-        /**
-         * Get semantic search.  Values from semantic search.
-         * @summary Get System Search
-         * @param {SystemSearchIn} systemSearchIn
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSystemSearchV1SemanticSearchPost(systemSearchIn, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemSearchV1SemanticSearchPost(systemSearchIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
-            });
-        },
     };
 };
 /**
@@ -26321,16 +26275,6 @@ exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
          */
         getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options) {
             return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get semantic search.  Values from semantic search.
-         * @summary Get System Search
-         * @param {SystemSearchIn} systemSearchIn
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSystemSearchV1SemanticSearchPost(systemSearchIn, options) {
-            return localVarFp.getSystemSearchV1SemanticSearchPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -26384,17 +26328,6 @@ class SemanticSearchApi extends base_1.BaseAPI {
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters, options) {
         return exports.SemanticSearchApiFp(this.configuration).getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     * Get semantic search.  Values from semantic search.
-     * @summary Get System Search
-     * @param {SemanticSearchApiGetSystemSearchV1SemanticSearchPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SemanticSearchApi
-     */
-    getSystemSearchV1SemanticSearchPost(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).getSystemSearchV1SemanticSearchPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SemanticSearchApi = SemanticSearchApi;
