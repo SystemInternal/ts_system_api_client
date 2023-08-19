@@ -9136,7 +9136,7 @@ export interface UserPrivateProfileOut {
      * @type {string}
      * @memberof UserPrivateProfileOut
      */
-    'author_id': string;
+    'author_id'?: string;
     /**
      * User name that is visible to others on System.
      * @type {string}
@@ -9282,7 +9282,7 @@ export interface UserPublicProfileOut {
      * @type {string}
      * @memberof UserPublicProfileOut
      */
-    'author_id': string;
+    'author_id'?: string;
     /**
      * User name that is visible to others on System.
      * @type {string}
