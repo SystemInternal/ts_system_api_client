@@ -36916,11 +36916,10 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId: string, includeAvatar?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get Author.
      * @summary Get Author
@@ -38623,11 +38622,10 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Get Author.
      * @summary Get Author
@@ -40330,11 +40328,10 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Get Author.
      * @summary Get Author
@@ -42560,12 +42557,6 @@ export interface TeamsApiGetAuthenticatedUserV1TeamsTeamIdUserGetRequest {
      * @memberof TeamsApiGetAuthenticatedUserV1TeamsTeamIdUserGet
      */
     readonly includeAvatar?: boolean;
-    /**
-     * Date the trial expires
-     * @type {string}
-     * @memberof TeamsApiGetAuthenticatedUserV1TeamsTeamIdUserGet
-     */
-    readonly trialExpireDate?: string;
 }
 /**
  * Request parameters for getAuthorV1TeamsTeamIdAuthorsAuthorIdGet operation in TeamsApi.
@@ -48362,20 +48353,18 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId: string, includeAvatar?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet: (includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getAuthenticatedUserV1UserGet: (includeAvatar?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -49035,20 +49024,18 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, trialExpireDate?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -49708,20 +49695,18 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
      * @summary Get Authenticated User
      * @param {string} teamId
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, trialExpireDate?: string, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    getAuthenticatedUserV1TeamsTeamIdUserGet(teamId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
      * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-     * @param {string} [trialExpireDate] Date the trial expires
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, trialExpireDate?: string, options?: any): AxiosPromise<UserPrivateProfileOut>;
+    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -50427,12 +50412,6 @@ export interface UsersApiGetAuthenticatedUserV1TeamsTeamIdUserGetRequest {
      * @memberof UsersApiGetAuthenticatedUserV1TeamsTeamIdUserGet
      */
     readonly includeAvatar?: boolean;
-    /**
-     * Date the trial expires
-     * @type {string}
-     * @memberof UsersApiGetAuthenticatedUserV1TeamsTeamIdUserGet
-     */
-    readonly trialExpireDate?: string;
 }
 /**
  * Request parameters for getAuthenticatedUserV1UserGet operation in UsersApi.
@@ -50446,12 +50425,6 @@ export interface UsersApiGetAuthenticatedUserV1UserGetRequest {
      * @memberof UsersApiGetAuthenticatedUserV1UserGet
      */
     readonly includeAvatar?: boolean;
-    /**
-     * Date the trial expires
-     * @type {string}
-     * @memberof UsersApiGetAuthenticatedUserV1UserGet
-     */
-    readonly trialExpireDate?: string;
 }
 /**
  * Request parameters for getUserV1TeamsTeamIdUsersUserIdGet operation in UsersApi.

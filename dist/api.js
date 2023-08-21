@@ -32369,11 +32369,10 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId, includeAvatar, trialExpireDate, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId, includeAvatar, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('getAuthenticatedUserV1TeamsTeamIdUserGet', 'teamId', teamId);
             const localVarPath = `/v1/teams/{team_id}/user`
@@ -32394,9 +32393,6 @@ exports.TeamsApiAxiosParamCreator = function (configuration) {
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
-            }
-            if (trialExpireDate !== undefined) {
-                localVarQueryParameter['trial_expire_date'] = trialExpireDate;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -38435,13 +38431,12 @@ exports.TeamsApiFp = function (configuration) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options) {
+        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -40722,12 +40717,11 @@ exports.TeamsApiFactory = function (configuration, basePath, axios) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options) {
-            return localVarFp.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options).then((request) => request(axios, basePath));
+        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options) {
+            return localVarFp.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Author.
@@ -42695,7 +42689,7 @@ class TeamsApi extends base_1.BaseAPI {
      * @memberof TeamsApi
      */
     getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters, options) {
-        return exports.TeamsApiFp(this.configuration).getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters.teamId, requestParameters.includeAvatar, requestParameters.trialExpireDate, options).then((request) => request(this.axios, this.basePath));
+        return exports.TeamsApiFp(this.configuration).getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters.teamId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get Author.
@@ -44127,11 +44121,10 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId, includeAvatar, trialExpireDate, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAuthenticatedUserV1TeamsTeamIdUserGet: (teamId, includeAvatar, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'teamId' is not null or undefined
             common_1.assertParamExists('getAuthenticatedUserV1TeamsTeamIdUserGet', 'teamId', teamId);
             const localVarPath = `/v1/teams/{team_id}/user`
@@ -44153,9 +44146,6 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
-            if (trialExpireDate !== undefined) {
-                localVarQueryParameter['trial_expire_date'] = trialExpireDate;
-            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -44168,11 +44158,10 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet: (includeAvatar, trialExpireDate, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAuthenticatedUserV1UserGet: (includeAvatar, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/user`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -44190,9 +44179,6 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
-            }
-            if (trialExpireDate !== undefined) {
-                localVarQueryParameter['trial_expire_date'] = trialExpireDate;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -46757,13 +46743,12 @@ exports.UsersApiFp = function (configuration) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options) {
+        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -46771,13 +46756,12 @@ exports.UsersApiFp = function (configuration) {
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet(includeAvatar, trialExpireDate, options) {
+        getAuthenticatedUserV1UserGet(includeAvatar, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1UserGet(includeAvatar, trialExpireDate, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1UserGet(includeAvatar, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -47625,23 +47609,21 @@ exports.UsersApiFactory = function (configuration, basePath, axios) {
          * @summary Get Authenticated User
          * @param {string} teamId
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options) {
-            return localVarFp.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, trialExpireDate, options).then((request) => request(axios, basePath));
+        getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options) {
+            return localVarFp.getAuthenticatedUserV1TeamsTeamIdUserGet(teamId, includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
          * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
-         * @param {string} [trialExpireDate] Date the trial expires
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet(includeAvatar, trialExpireDate, options) {
-            return localVarFp.getAuthenticatedUserV1UserGet(includeAvatar, trialExpireDate, options).then((request) => request(axios, basePath));
+        getAuthenticatedUserV1UserGet(includeAvatar, options) {
+            return localVarFp.getAuthenticatedUserV1UserGet(includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch a single user\'s public profile.
@@ -48391,7 +48373,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters.teamId, requestParameters.includeAvatar, requestParameters.trialExpireDate, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1TeamsTeamIdUserGet(requestParameters.teamId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch the authenticated user\'s profile.
@@ -48402,7 +48384,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     getAuthenticatedUserV1UserGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, requestParameters.trialExpireDate, options).then((request) => request(this.axios, this.basePath));
+        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch a single user\'s public profile.
