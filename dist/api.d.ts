@@ -10077,41 +10077,39 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @summary Flag Association
      * @param {string} associationId
      * @param {ResourceFlagIn} resourceFlagIn
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost: (associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost: (associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get strength of this association.
      * @summary Flag Association
      * @param {string} associationId
      * @param {ResourceFlagIn} resourceFlagIn
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost_1: (associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1: (associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get strength of this association.
      * @summary Flag Association
+     * @param {string} associationId
      * @param {string} teamId
-     * @param {string} associationId
      * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost: (teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost: (associationId: string, teamId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get strength of this association.
      * @summary Flag Association
-     * @param {string} teamId
      * @param {string} associationId
+     * @param {string} teamId
      * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2: (teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2: (associationId: string, teamId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -10614,41 +10612,39 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @summary Flag Association
      * @param {string} associationId
      * @param {ResourceFlagIn} resourceFlagIn
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get strength of this association.
      * @summary Flag Association
      * @param {string} associationId
      * @param {ResourceFlagIn} resourceFlagIn
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get strength of this association.
      * @summary Flag Association
+     * @param {string} associationId
      * @param {string} teamId
-     * @param {string} associationId
      * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(associationId: string, teamId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get strength of this association.
      * @summary Flag Association
-     * @param {string} teamId
      * @param {string} associationId
+     * @param {string} teamId
      * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(associationId: string, teamId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -11151,41 +11147,39 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @summary Flag Association
      * @param {string} associationId
      * @param {ResourceFlagIn} resourceFlagIn
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: any): AxiosPromise<AssociationOut>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any>;
     /**
      * Get strength of this association.
      * @summary Flag Association
      * @param {string} associationId
      * @param {ResourceFlagIn} resourceFlagIn
-     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, teamId?: string, options?: any): AxiosPromise<AssociationOut>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any>;
     /**
      * Get strength of this association.
      * @summary Flag Association
+     * @param {string} associationId
      * @param {string} teamId
-     * @param {string} associationId
      * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<AssociationOut>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(associationId: string, teamId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any>;
     /**
      * Get strength of this association.
      * @summary Flag Association
-     * @param {string} teamId
      * @param {string} associationId
+     * @param {string} teamId
      * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<AssociationOut>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(associationId: string, teamId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -11856,12 +11850,6 @@ export interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsP
      * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
      */
     readonly resourceFlagIn: ResourceFlagIn;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost_1 operation in AssociationsApi.
@@ -11881,12 +11869,6 @@ export interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsP
      * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
      */
     readonly resourceFlagIn: ResourceFlagIn;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
-     */
-    readonly teamId?: string;
 }
 /**
  * Request parameters for flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost operation in AssociationsApi.
@@ -11899,13 +11881,13 @@ export interface AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociat
      * @type {string}
      * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
      */
-    readonly teamId: string;
+    readonly associationId: string;
     /**
      *
      * @type {string}
      * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
      */
-    readonly associationId: string;
+    readonly teamId: string;
     /**
      *
      * @type {ResourceFlagIn}
@@ -11924,13 +11906,13 @@ export interface AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociat
      * @type {string}
      * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0
      */
-    readonly teamId: string;
+    readonly associationId: string;
     /**
      *
      * @type {string}
      * @memberof AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0
      */
-    readonly associationId: string;
+    readonly teamId: string;
     /**
      *
      * @type {ResourceFlagIn}
@@ -13467,7 +13449,7 @@ export declare class AssociationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get strength of this association.
      * @summary Flag Association
@@ -13476,7 +13458,7 @@ export declare class AssociationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get strength of this association.
      * @summary Flag Association
@@ -13485,7 +13467,7 @@ export declare class AssociationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get strength of this association.
      * @summary Flag Association
@@ -13494,7 +13476,7 @@ export declare class AssociationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(requestParameters: AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost_2(requestParameters: AssociationsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -36886,13 +36868,13 @@ export declare const TeamsApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * Get strength of this association.
      * @summary Flag Association
-     * @param {string} teamId
      * @param {string} associationId
+     * @param {string} teamId
      * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost: (teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost: (associationId: string, teamId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -38592,13 +38574,13 @@ export declare const TeamsApiFp: (configuration?: Configuration) => {
     /**
      * Get strength of this association.
      * @summary Flag Association
-     * @param {string} teamId
      * @param {string} associationId
+     * @param {string} teamId
      * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(associationId: string, teamId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -40298,13 +40280,13 @@ export declare const TeamsApiFactory: (configuration?: Configuration, basePath?:
     /**
      * Get strength of this association.
      * @summary Flag Association
-     * @param {string} teamId
      * @param {string} associationId
+     * @param {string} teamId
      * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(teamId: string, associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<AssociationOut>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(associationId: string, teamId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -42487,13 +42469,13 @@ export interface TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFl
      * @type {string}
      * @memberof TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
      */
-    readonly teamId: string;
+    readonly associationId: string;
     /**
      *
      * @type {string}
      * @memberof TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost
      */
-    readonly associationId: string;
+    readonly teamId: string;
     /**
      *
      * @type {ResourceFlagIn}
@@ -47291,7 +47273,7 @@ export declare class TeamsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(requestParameters: TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
+    flagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPost(requestParameters: TeamsApiFlagAssociationV1TeamsTeamIdAssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get an Association.
      * @summary Get Association
