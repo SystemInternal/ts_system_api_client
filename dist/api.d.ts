@@ -1420,13 +1420,7 @@ export interface ClusterOut {
      * @type {string}
      * @memberof ClusterOut
      */
-    'cache_key': string;
-    /**
-     *
-     * @type {boolean}
-     * @memberof ClusterOut
-     */
-    'keyword_search'?: boolean;
+    'cache_key'?: string;
 }
 /**
  * Schema for clustered relationship response.
