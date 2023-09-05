@@ -5248,6 +5248,7 @@ export interface PatchVariableOp {
 
 export enum PollingStatus {
     NotExists = 'not_exists',
+    Submitted = 'submitted',
     Running = 'running',
     Success = 'success',
     Failed = 'failed',
@@ -27758,6 +27759,55 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Regenerate Synthesis
+         * @param {string} cacheKey 
+         * @param {boolean} [forceRerun] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        regenerateSynthesisV1SemanticSearchRegeneratePost: async (cacheKey: string, forceRerun?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'cacheKey' is not null or undefined
+            assertParamExists('regenerateSynthesisV1SemanticSearchRegeneratePost', 'cacheKey', cacheKey)
+            const localVarPath = `/v1/semantic-search/regenerate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (cacheKey !== undefined) {
+                localVarQueryParameter['cache_key'] = cacheKey;
+            }
+
+            if (forceRerun !== undefined) {
+                localVarQueryParameter['force_rerun'] = forceRerun;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -27812,6 +27862,18 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Regenerate Synthesis
+         * @param {string} cacheKey 
+         * @param {boolean} [forceRerun] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -27861,6 +27923,17 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          */
         getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: any): AxiosPromise<UserMetricUsageOut> {
             return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Regenerate Synthesis
+         * @param {string} cacheKey 
+         * @param {boolean} [forceRerun] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: any): AxiosPromise<any> {
+            return localVarFp.regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -27922,6 +27995,27 @@ export interface SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
 }
 
 /**
+ * Request parameters for regenerateSynthesisV1SemanticSearchRegeneratePost operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest
+ */
+export interface SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePost
+     */
+    readonly cacheKey: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePost
+     */
+    readonly forceRerun?: boolean
+}
+
+/**
  * SemanticSearchApi - object-oriented interface
  * @export
  * @class SemanticSearchApi
@@ -27974,6 +28068,18 @@ export class SemanticSearchApi extends BaseAPI {
      */
     public getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Regenerate Synthesis
+     * @param {SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    public regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: AxiosRequestConfig) {
+        return SemanticSearchApiFp(this.configuration).regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters.cacheKey, requestParameters.forceRerun, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
