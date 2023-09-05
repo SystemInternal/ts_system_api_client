@@ -499,6 +499,7 @@ var PatchOp;
 var PollingStatus;
 (function (PollingStatus) {
     PollingStatus["NotExists"] = "not_exists";
+    PollingStatus["Submitted"] = "submitted";
     PollingStatus["Running"] = "running";
     PollingStatus["Success"] = "success";
     PollingStatus["Failed"] = "failed";
@@ -13440,6 +13441,46 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Regenerate Synthesis
+         * @param {string} cacheKey
+         * @param {boolean} [forceRerun]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        regenerateSynthesisV1SemanticSearchRegeneratePost: (cacheKey, forceRerun, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'cacheKey' is not null or undefined
+            common_1.assertParamExists('regenerateSynthesisV1SemanticSearchRegeneratePost', 'cacheKey', cacheKey);
+            const localVarPath = `/v1/semantic-search/regenerate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (cacheKey !== undefined) {
+                localVarQueryParameter['cache_key'] = cacheKey;
+            }
+            if (forceRerun !== undefined) {
+                localVarQueryParameter['force_rerun'] = forceRerun;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -13501,6 +13542,20 @@ exports.SemanticSearchApiFp = function (configuration) {
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Regenerate Synthesis
+         * @param {string} cacheKey
+         * @param {boolean} [forceRerun]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
     };
 };
 /**
@@ -13549,6 +13604,17 @@ exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
          */
         getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options) {
             return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get semantic search.  Values from semantic search.
+         * @summary Regenerate Synthesis
+         * @param {string} cacheKey
+         * @param {boolean} [forceRerun]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options) {
+            return localVarFp.regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -13602,6 +13668,17 @@ class SemanticSearchApi extends base_1.BaseAPI {
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters, options) {
         return exports.SemanticSearchApiFp(this.configuration).getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Regenerate Synthesis
+     * @param {SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters, options) {
+        return exports.SemanticSearchApiFp(this.configuration).regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters.cacheKey, requestParameters.forceRerun, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SemanticSearchApi = SemanticSearchApi;

@@ -5204,6 +5204,7 @@ export interface PatchVariableOp {
  */
 export declare enum PollingStatus {
     NotExists = "not_exists",
+    Submitted = "submitted",
     Running = "running",
     Success = "success",
     Failed = "failed",
@@ -19311,6 +19312,15 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @throws {RequiredError}
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Regenerate Synthesis
+     * @param {string} cacheKey
+     * @param {boolean} [forceRerun]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    regenerateSynthesisV1SemanticSearchRegeneratePost: (cacheKey: string, forceRerun?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SemanticSearchApi - functional programming interface
@@ -19349,6 +19359,15 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>>;
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Regenerate Synthesis
+     * @param {string} cacheKey
+     * @param {boolean} [forceRerun]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
 };
 /**
  * SemanticSearchApi - factory interface
@@ -19387,6 +19406,15 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @throws {RequiredError}
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: any): AxiosPromise<UserMetricUsageOut>;
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Regenerate Synthesis
+     * @param {string} cacheKey
+     * @param {boolean} [forceRerun]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: any): AxiosPromise<any>;
 };
 /**
  * Request parameters for asyncSemanticSearchV1SemanticSearchClusterPost operation in SemanticSearchApi.
@@ -19441,6 +19469,25 @@ export interface SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
     readonly dateFrom: string;
 }
 /**
+ * Request parameters for regenerateSynthesisV1SemanticSearchRegeneratePost operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest
+ */
+export interface SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePost
+     */
+    readonly cacheKey: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePost
+     */
+    readonly forceRerun?: boolean;
+}
+/**
  * SemanticSearchApi - object-oriented interface
  * @export
  * @class SemanticSearchApi
@@ -19483,6 +19530,15 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserMetricUsageOut>>;
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Regenerate Synthesis
+     * @param {SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * StripeApi - axios parameter creator
