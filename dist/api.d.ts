@@ -19546,14 +19546,14 @@ export declare class SemanticSearchApi extends BaseAPI {
  */
 export declare const StripeApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Add subscription seat.
-     * @summary Add Subscription Seat
+     * Add subscription seats.
+     * @summary Add Subscription Seats
      * @param {string} subscriptionId
      * @param {AddSubscriptionSeatIn} addSubscriptionSeatIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost: (subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost: (subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Start stripe checkout session.
      * @summary Apply Edu Discount
@@ -19600,14 +19600,14 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
  */
 export declare const StripeApiFp: (configuration?: Configuration) => {
     /**
-     * Add subscription seat.
-     * @summary Add Subscription Seat
+     * Add subscription seats.
+     * @summary Add Subscription Seats
      * @param {string} subscriptionId
      * @param {AddSubscriptionSeatIn} addSubscriptionSeatIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
+    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      * Start stripe checkout session.
      * @summary Apply Edu Discount
@@ -19654,14 +19654,14 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
  */
 export declare const StripeApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Add subscription seat.
-     * @summary Add Subscription Seat
+     * Add subscription seats.
+     * @summary Add Subscription Seats
      * @param {string} subscriptionId
      * @param {AddSubscriptionSeatIn} addSubscriptionSeatIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: any): AxiosPromise<boolean>;
+    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: any): AxiosPromise<boolean>;
     /**
      * Start stripe checkout session.
      * @summary Apply Edu Discount
@@ -19703,21 +19703,21 @@ export declare const StripeApiFactory: (configuration?: Configuration, basePath?
     removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email: string, subscriptionId: string, options?: any): AxiosPromise<boolean>;
 };
 /**
- * Request parameters for addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost operation in StripeApi.
+ * Request parameters for addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost operation in StripeApi.
  * @export
- * @interface StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPostRequest
+ * @interface StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest
  */
-export interface StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPostRequest {
+export interface StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest {
     /**
      *
      * @type {string}
-     * @memberof StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost
+     * @memberof StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost
      */
     readonly subscriptionId: string;
     /**
      *
      * @type {AddSubscriptionSeatIn}
-     * @memberof StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost
+     * @memberof StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost
      */
     readonly addSubscriptionSeatIn: AddSubscriptionSeatIn;
 }
@@ -19774,14 +19774,14 @@ export interface StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptio
  */
 export declare class StripeApi extends BaseAPI {
     /**
-     * Add subscription seat.
-     * @summary Add Subscription Seat
-     * @param {StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPostRequest} requestParameters Request parameters.
+     * Add subscription seats.
+     * @summary Add Subscription Seats
+     * @param {StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    addSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters: StripeApiAddSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean>>;
+    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters: StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean>>;
     /**
      * Start stripe checkout session.
      * @summary Apply Edu Discount
