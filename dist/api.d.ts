@@ -1200,6 +1200,25 @@ export interface ClusterOut {
     'cache_key'?: string;
 }
 /**
+ * Cluster out status model.
+ * @export
+ * @interface ClusterOutStatus
+ */
+export interface ClusterOutStatus {
+    /**
+     *
+     * @type {FunctionStatus}
+     * @memberof ClusterOutStatus
+     */
+    'status': FunctionStatus;
+    /**
+     *
+     * @type {ClusterOut}
+     * @memberof ClusterOutStatus
+     */
+    'cluster_out'?: ClusterOut;
+}
+/**
  * Schema for clustered relationship response.
  * @export
  * @interface ClusteredRelationship
@@ -3514,6 +3533,17 @@ export interface Frequency {
      * @memberof Frequency
      */
     'index'?: Array<string>;
+}
+/**
+ * Status for polling functions.
+ * @export
+ * @enum {string}
+ */
+export declare enum FunctionStatus {
+    Pending = "pending",
+    Running = "running",
+    Finished = "finished",
+    Error = "error"
 }
 /**
  * Graph Data model.
@@ -19282,12 +19312,28 @@ export declare class RelationshipsApi extends BaseAPI {
 export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Get semantic search.  Values from semantic search.
+     * @summary Async Cluster Relationships
+     * @param {SystemSearchIn} systemSearchIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
      * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     asyncSemanticSearchV1SemanticSearchClusterPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Fetch Cluster Response
+     * @param {string} runId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet: (runId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
@@ -19329,12 +19375,28 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
 export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
     /**
      * Get semantic search.  Values from semantic search.
+     * @summary Async Cluster Relationships
+     * @param {SystemSearchIn} systemSearchIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
      * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOut>>;
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Fetch Cluster Response
+     * @param {string} runId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOutStatus>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
@@ -19376,12 +19438,28 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
 export declare const SemanticSearchApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
      * Get semantic search.  Values from semantic search.
+     * @summary Async Cluster Relationships
+     * @param {SystemSearchIn} systemSearchIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<any>;
+    /**
+     * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
      * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<ClusterOut>;
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Fetch Cluster Response
+     * @param {string} runId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId: string, options?: any): AxiosPromise<ClusterOutStatus>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
@@ -19417,6 +19495,19 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
     regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: any): AxiosPromise<any>;
 };
 /**
+ * Request parameters for asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest
+ */
+export interface SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest {
+    /**
+     *
+     * @type {SystemSearchIn}
+     * @memberof SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPost
+     */
+    readonly systemSearchIn: SystemSearchIn;
+}
+/**
  * Request parameters for asyncSemanticSearchV1SemanticSearchClusterPost operation in SemanticSearchApi.
  * @export
  * @interface SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest
@@ -19428,6 +19519,19 @@ export interface SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPost
      * @memberof SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPost
      */
     readonly systemSearchIn: SystemSearchIn;
+}
+/**
+ * Request parameters for fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest
+ */
+export interface SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet
+     */
+    readonly runId: string;
 }
 /**
  * Request parameters for fetchSynthesisV1SemanticSearchFetchGet operation in SemanticSearchApi.
@@ -19496,6 +19600,15 @@ export interface SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegenerateP
 export declare class SemanticSearchApi extends BaseAPI {
     /**
      * Get semantic search.  Values from semantic search.
+     * @summary Async Cluster Relationships
+     * @param {SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters: SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
      * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -19503,6 +19616,15 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterOut>>;
+    /**
+     * Get semantic search.  Values from semantic search.
+     * @summary Fetch Cluster Response
+     * @param {SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters: SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterOutStatus>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Synthesis
