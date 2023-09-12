@@ -13877,66 +13877,6 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Start stripe checkout session.
-         * @summary Apply Edu Discount
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        applyEduDiscountV1StripeApplyEduDiscountPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/stripe/apply-edu-discount`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            return {
-                url: common_1.toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
-         * Start stripe checkout session.
-         * @summary Enroll Trial
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        enrollTrialV1StripeEnrollTrialPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/stripe/enroll-trial`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            return {
-                url: common_1.toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
          * Get subscription seats.
          * @summary Get Subscription Seats
          * @param {string} subscriptionId
@@ -14066,30 +14006,6 @@ exports.StripeApiFp = function (configuration) {
             });
         },
         /**
-         * Start stripe checkout session.
-         * @summary Apply Edu Discount
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        applyEduDiscountV1StripeApplyEduDiscountPost(options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.applyEduDiscountV1StripeApplyEduDiscountPost(options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
-            });
-        },
-        /**
-         * Start stripe checkout session.
-         * @summary Enroll Trial
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        enrollTrialV1StripeEnrollTrialPost(options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.enrollTrialV1StripeEnrollTrialPost(options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
-            });
-        },
-        /**
          * Get subscription seats.
          * @summary Get Subscription Seats
          * @param {string} subscriptionId
@@ -14150,24 +14066,6 @@ exports.StripeApiFactory = function (configuration, basePath, axios) {
             return localVarFp.addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, addSubscriptionSeatIn, options).then((request) => request(axios, basePath));
         },
         /**
-         * Start stripe checkout session.
-         * @summary Apply Edu Discount
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        applyEduDiscountV1StripeApplyEduDiscountPost(options) {
-            return localVarFp.applyEduDiscountV1StripeApplyEduDiscountPost(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Start stripe checkout session.
-         * @summary Enroll Trial
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        enrollTrialV1StripeEnrollTrialPost(options) {
-            return localVarFp.enrollTrialV1StripeEnrollTrialPost(options).then((request) => request(axios, basePath));
-        },
-        /**
          * Get subscription seats.
          * @summary Get Subscription Seats
          * @param {string} subscriptionId
@@ -14217,26 +14115,6 @@ class StripeApi extends base_1.BaseAPI {
      */
     addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters, options) {
         return exports.StripeApiFp(this.configuration).addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters.subscriptionId, requestParameters.addSubscriptionSeatIn, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     * Start stripe checkout session.
-     * @summary Apply Edu Discount
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StripeApi
-     */
-    applyEduDiscountV1StripeApplyEduDiscountPost(options) {
-        return exports.StripeApiFp(this.configuration).applyEduDiscountV1StripeApplyEduDiscountPost(options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     * Start stripe checkout session.
-     * @summary Enroll Trial
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StripeApi
-     */
-    enrollTrialV1StripeEnrollTrialPost(options) {
-        return exports.StripeApiFp(this.configuration).enrollTrialV1StripeEnrollTrialPost(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get subscription seats.
