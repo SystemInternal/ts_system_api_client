@@ -28348,80 +28348,6 @@ export const StripeApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Start stripe checkout session.
-         * @summary Apply Edu Discount
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        applyEduDiscountV1StripeApplyEduDiscountPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/stripe/apply-edu-discount`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication APIKeyHeader required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Start stripe checkout session.
-         * @summary Enroll Trial
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        enrollTrialV1StripeEnrollTrialPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/stripe/enroll-trial`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication APIKeyHeader required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Get subscription seats.
          * @summary Get Subscription Seats
          * @param {string} subscriptionId 
@@ -28572,26 +28498,6 @@ export const StripeApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Start stripe checkout session.
-         * @summary Apply Edu Discount
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async applyEduDiscountV1StripeApplyEduDiscountPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.applyEduDiscountV1StripeApplyEduDiscountPost(options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Start stripe checkout session.
-         * @summary Enroll Trial
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async enrollTrialV1StripeEnrollTrialPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enrollTrialV1StripeEnrollTrialPost(options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Get subscription seats.
          * @summary Get Subscription Seats
          * @param {string} subscriptionId 
@@ -28645,24 +28551,6 @@ export const StripeApiFactory = function (configuration?: Configuration, basePat
          */
         addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: any): AxiosPromise<boolean> {
             return localVarFp.addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, addSubscriptionSeatIn, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Start stripe checkout session.
-         * @summary Apply Edu Discount
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        applyEduDiscountV1StripeApplyEduDiscountPost(options?: any): AxiosPromise<StripeSessionOut> {
-            return localVarFp.applyEduDiscountV1StripeApplyEduDiscountPost(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Start stripe checkout session.
-         * @summary Enroll Trial
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        enrollTrialV1StripeEnrollTrialPost(options?: any): AxiosPromise<StripeSessionOut> {
-            return localVarFp.enrollTrialV1StripeEnrollTrialPost(options).then((request) => request(axios, basePath));
         },
         /**
          * Get subscription seats.
@@ -28785,28 +28673,6 @@ export class StripeApi extends BaseAPI {
      */
     public addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters: StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest, options?: AxiosRequestConfig) {
         return StripeApiFp(this.configuration).addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters.subscriptionId, requestParameters.addSubscriptionSeatIn, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Start stripe checkout session.
-     * @summary Apply Edu Discount
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StripeApi
-     */
-    public applyEduDiscountV1StripeApplyEduDiscountPost(options?: AxiosRequestConfig) {
-        return StripeApiFp(this.configuration).applyEduDiscountV1StripeApplyEduDiscountPost(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Start stripe checkout session.
-     * @summary Enroll Trial
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StripeApi
-     */
-    public enrollTrialV1StripeEnrollTrialPost(options?: AxiosRequestConfig) {
-        return StripeApiFp(this.configuration).enrollTrialV1StripeEnrollTrialPost(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
