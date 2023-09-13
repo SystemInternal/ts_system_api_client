@@ -19335,7 +19335,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      */
     fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet: (runId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Get semantic search.  Values from semantic search.
+     * Get semantic search.  Values from semantic search. Logs freemium usage on success
      * @summary Fetch Synthesis
      * @param {string} cacheKey
      * @param {*} [options] Override http request option.
@@ -19398,7 +19398,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      */
     fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOutStatus>>;
     /**
-     * Get semantic search.  Values from semantic search.
+     * Get semantic search.  Values from semantic search. Logs freemium usage on success
      * @summary Fetch Synthesis
      * @param {string} cacheKey
      * @param {*} [options] Override http request option.
@@ -19461,7 +19461,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      */
     fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId: string, options?: any): AxiosPromise<ClusterOutStatus>;
     /**
-     * Get semantic search.  Values from semantic search.
+     * Get semantic search.  Values from semantic search. Logs freemium usage on success
      * @summary Fetch Synthesis
      * @param {string} cacheKey
      * @param {*} [options] Override http request option.
@@ -19626,7 +19626,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      */
     fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters: SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterOutStatus>>;
     /**
-     * Get semantic search.  Values from semantic search.
+     * Get semantic search.  Values from semantic search. Logs freemium usage on success
      * @summary Fetch Synthesis
      * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

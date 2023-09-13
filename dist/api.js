@@ -13414,7 +13414,7 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Get semantic search.  Values from semantic search.
+         * Get semantic search.  Values from semantic search. Logs freemium usage on success
          * @summary Fetch Synthesis
          * @param {string} cacheKey
          * @param {*} [options] Override http request option.
@@ -13611,7 +13611,7 @@ exports.SemanticSearchApiFp = function (configuration) {
             });
         },
         /**
-         * Get semantic search.  Values from semantic search.
+         * Get semantic search.  Values from semantic search. Logs freemium usage on success
          * @summary Fetch Synthesis
          * @param {string} cacheKey
          * @param {*} [options] Override http request option.
@@ -13703,7 +13703,7 @@ exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
             return localVarFp.fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get semantic search.  Values from semantic search.
+         * Get semantic search.  Values from semantic search. Logs freemium usage on success
          * @summary Fetch Synthesis
          * @param {string} cacheKey
          * @param {*} [options] Override http request option.
@@ -13786,7 +13786,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
         return exports.SemanticSearchApiFp(this.configuration).fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters.runId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Get semantic search.  Values from semantic search.
+     * Get semantic search.  Values from semantic search. Logs freemium usage on success
      * @summary Fetch Synthesis
      * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
