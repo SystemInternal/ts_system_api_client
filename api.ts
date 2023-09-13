@@ -27743,7 +27743,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Get semantic search.  Values from semantic search.
+         * Get semantic search.  Values from semantic search. Logs freemium usage on success
          * @summary Fetch Synthesis
          * @param {string} cacheKey 
          * @param {*} [options] Override http request option.
@@ -27968,7 +27968,7 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get semantic search.  Values from semantic search.
+         * Get semantic search.  Values from semantic search. Logs freemium usage on success
          * @summary Fetch Synthesis
          * @param {string} cacheKey 
          * @param {*} [options] Override http request option.
@@ -28053,7 +28053,7 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
             return localVarFp.fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get semantic search.  Values from semantic search.
+         * Get semantic search.  Values from semantic search. Logs freemium usage on success
          * @summary Fetch Synthesis
          * @param {string} cacheKey 
          * @param {*} [options] Override http request option.
@@ -28245,7 +28245,7 @@ export class SemanticSearchApi extends BaseAPI {
     }
 
     /**
-     * Get semantic search.  Values from semantic search.
+     * Get semantic search.  Values from semantic search. Logs freemium usage on success
      * @summary Fetch Synthesis
      * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
