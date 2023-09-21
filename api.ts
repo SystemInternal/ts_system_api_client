@@ -3418,6 +3418,18 @@ export interface Finding {
      * @memberof Finding
      */
     'labels'?: Array<string>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Finding
+     */
+    'mechanistic': boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof Finding
+     */
+    'mechanism_type'?: string;
 }
 /**
  * Schema for identifying finding.
