@@ -6570,6 +6570,12 @@ export interface StudyMetadata {
      * @memberof StudyMetadata
      */
     'summary'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof StudyMetadata
+     */
+    'retracted'?: boolean;
 }
 /**
  * Interface for input to /study-metadata.
