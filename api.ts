@@ -13229,6 +13229,55 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * List Concepts.
+         * @summary Semantic Search Concepts
+         * @param {string} query Query for the search.
+         * @param {number} [distance] Distance for the search.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        semanticSearchConceptsV1ConceptsSemanticGet: async (query: string, distance?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'query' is not null or undefined
+            assertParamExists('semanticSearchConceptsV1ConceptsSemanticGet', 'query', query)
+            const localVarPath = `/v1/concepts/semantic`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+            if (distance !== undefined) {
+                localVarQueryParameter['distance'] = distance;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -13365,6 +13414,18 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchConceptV1ConceptsConceptIdPatch(conceptId, patchConceptOpArrayPatchConceptOp, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * List Concepts.
+         * @summary Semantic Search Concepts
+         * @param {string} query Query for the search.
+         * @param {number} [distance] Distance for the search.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async semanticSearchConceptsV1ConceptsSemanticGet(query: string, distance?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConceptOut>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -13492,6 +13553,17 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          */
         patchConceptV1ConceptsConceptIdPatch(conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: any): AxiosPromise<void> {
             return localVarFp.patchConceptV1ConceptsConceptIdPatch(conceptId, patchConceptOpArrayPatchConceptOp, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Concepts.
+         * @summary Semantic Search Concepts
+         * @param {string} query Query for the search.
+         * @param {number} [distance] Distance for the search.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        semanticSearchConceptsV1ConceptsSemanticGet(query: string, distance?: number, options?: any): AxiosPromise<Array<ConceptOut>> {
+            return localVarFp.semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -13875,6 +13947,27 @@ export interface ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest {
 }
 
 /**
+ * Request parameters for semanticSearchConceptsV1ConceptsSemanticGet operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest
+ */
+export interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest {
+    /**
+     * Query for the search.
+     * @type {string}
+     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
+     */
+    readonly query: string
+
+    /**
+     * Distance for the search.
+     * @type {number}
+     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
+     */
+    readonly distance?: number
+}
+
+/**
  * ConceptsApi - object-oriented interface
  * @export
  * @class ConceptsApi
@@ -13975,6 +14068,18 @@ export class ConceptsApi extends BaseAPI {
      */
     public patchConceptV1ConceptsConceptIdPatch(requestParameters: ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest, options?: AxiosRequestConfig) {
         return ConceptsApiFp(this.configuration).patchConceptV1ConceptsConceptIdPatch(requestParameters.conceptId, requestParameters.patchConceptOpArrayPatchConceptOp, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List Concepts.
+     * @summary Semantic Search Concepts
+     * @param {ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    public semanticSearchConceptsV1ConceptsSemanticGet(requestParameters: ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest, options?: AxiosRequestConfig) {
+        return ConceptsApiFp(this.configuration).semanticSearchConceptsV1ConceptsSemanticGet(requestParameters.query, requestParameters.distance, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
