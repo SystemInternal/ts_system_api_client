@@ -4046,6 +4046,46 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * List Concepts.
+         * @summary Semantic Search Concepts
+         * @param {string} query Query for the search.
+         * @param {number} [distance] Distance for the search.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        semanticSearchConceptsV1ConceptsSemanticGet: (query, distance, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            common_1.assertParamExists('semanticSearchConceptsV1ConceptsSemanticGet', 'query', query);
+            const localVarPath = `/v1/concepts/semantic`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            if (distance !== undefined) {
+                localVarQueryParameter['distance'] = distance;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -4197,6 +4237,20 @@ exports.ConceptsApiFp = function (configuration) {
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
+        /**
+         * List Concepts.
+         * @summary Semantic Search Concepts
+         * @param {string} query Query for the search.
+         * @param {number} [distance] Distance for the search.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
     };
 };
 /**
@@ -4324,6 +4378,17 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
         patchConceptV1ConceptsConceptIdPatch(conceptId, patchConceptOpArrayPatchConceptOp, options) {
             return localVarFp.patchConceptV1ConceptsConceptIdPatch(conceptId, patchConceptOpArrayPatchConceptOp, options).then((request) => request(axios, basePath));
         },
+        /**
+         * List Concepts.
+         * @summary Semantic Search Concepts
+         * @param {string} query Query for the search.
+         * @param {number} [distance] Distance for the search.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options) {
+            return localVarFp.semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -4420,6 +4485,17 @@ class ConceptsApi extends base_1.BaseAPI {
      */
     patchConceptV1ConceptsConceptIdPatch(requestParameters, options) {
         return exports.ConceptsApiFp(this.configuration).patchConceptV1ConceptsConceptIdPatch(requestParameters.conceptId, requestParameters.patchConceptOpArrayPatchConceptOp, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Concepts.
+     * @summary Semantic Search Concepts
+     * @param {ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    semanticSearchConceptsV1ConceptsSemanticGet(requestParameters, options) {
+        return exports.ConceptsApiFp(this.configuration).semanticSearchConceptsV1ConceptsSemanticGet(requestParameters.query, requestParameters.distance, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ConceptsApi = ConceptsApi;

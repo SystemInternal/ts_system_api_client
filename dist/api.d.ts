@@ -10911,6 +10911,15 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     patchConceptV1ConceptsConceptIdPatch: (conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * List Concepts.
+     * @summary Semantic Search Concepts
+     * @param {string} query Query for the search.
+     * @param {number} [distance] Distance for the search.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    semanticSearchConceptsV1ConceptsSemanticGet: (query: string, distance?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ConceptsApi - functional programming interface
@@ -11019,6 +11028,15 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     patchConceptV1ConceptsConceptIdPatch(conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    /**
+     * List Concepts.
+     * @summary Semantic Search Concepts
+     * @param {string} query Query for the search.
+     * @param {number} [distance] Distance for the search.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    semanticSearchConceptsV1ConceptsSemanticGet(query: string, distance?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConceptOut>>>;
 };
 /**
  * ConceptsApi - factory interface
@@ -11127,6 +11145,15 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     patchConceptV1ConceptsConceptIdPatch(conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: any): AxiosPromise<void>;
+    /**
+     * List Concepts.
+     * @summary Semantic Search Concepts
+     * @param {string} query Query for the search.
+     * @param {number} [distance] Distance for the search.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    semanticSearchConceptsV1ConceptsSemanticGet(query: string, distance?: number, options?: any): AxiosPromise<Array<ConceptOut>>;
 };
 /**
  * Request parameters for createConceptV1ConceptsPost operation in ConceptsApi.
@@ -11461,6 +11488,25 @@ export interface ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest {
     readonly patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>;
 }
 /**
+ * Request parameters for semanticSearchConceptsV1ConceptsSemanticGet operation in ConceptsApi.
+ * @export
+ * @interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest
+ */
+export interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest {
+    /**
+     * Query for the search.
+     * @type {string}
+     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
+     */
+    readonly query: string;
+    /**
+     * Distance for the search.
+     * @type {number}
+     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
+     */
+    readonly distance?: number;
+}
+/**
  * ConceptsApi - object-oriented interface
  * @export
  * @class ConceptsApi
@@ -11539,6 +11585,15 @@ export declare class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     patchConceptV1ConceptsConceptIdPatch(requestParameters: ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
+    /**
+     * List Concepts.
+     * @summary Semantic Search Concepts
+     * @param {ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConceptsApi
+     */
+    semanticSearchConceptsV1ConceptsSemanticGet(requestParameters: ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptOut[]>>;
 }
 /**
  * DashboardsApi - axios parameter creator
