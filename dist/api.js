@@ -292,7 +292,7 @@ var FunctionStatus;
     FunctionStatus["Error"] = "error";
 })(FunctionStatus = exports.FunctionStatus || (exports.FunctionStatus = {}));
 /**
- * Graph Link Type enum.
+ * An enumeration.
  * @export
  * @enum {string}
  */
@@ -306,7 +306,7 @@ var GraphLinkType;
     GraphLinkType["Measures"] = "measures";
 })(GraphLinkType = exports.GraphLinkType || (exports.GraphLinkType = {}));
 /**
- * Graph Node Type enum.
+ * An enumeration.
  * @export
  * @enum {string}
  */

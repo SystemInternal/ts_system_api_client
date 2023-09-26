@@ -2803,7 +2803,7 @@ export interface EnterpriseIn {
     'idp_metadata'?: string;
 }
 /**
- * Edge Typed Link model.
+ *
  * @export
  * @interface ExtendedLinkObject
  */
@@ -2828,25 +2828,13 @@ export interface ExtendedLinkObject {
     'edgeType'?: GraphLinkType;
     /**
      *
-     * @type {boolean}
-     * @memberof ExtendedLinkObject
-     */
-    'isSubstantiated'?: boolean;
-    /**
-     *
      * @type {Array<string>}
      * @memberof ExtendedLinkObject
      */
-    'directedAt'?: Array<string>;
-    /**
-     * Query Count of a dataset relationship.
-     * @type {number}
-     * @memberof ExtendedLinkObject
-     */
-    'numQueries'?: number;
+    'associationIds'?: Array<string>;
 }
 /**
- * Object Typed Node model.
+ *
  * @export
  * @interface ExtendedNodeObject
  */
@@ -3558,7 +3546,7 @@ export declare enum FunctionStatus {
     Error = "error"
 }
 /**
- * Graph Data model.
+ *
  * @export
  * @interface GraphData
  */
@@ -3577,7 +3565,7 @@ export interface GraphData {
     'links': Array<ExtendedLinkObject>;
 }
 /**
- * Graph Link Type enum.
+ * An enumeration.
  * @export
  * @enum {string}
  */
@@ -3621,7 +3609,7 @@ export interface GraphMetrics {
     'last_updated': string;
 }
 /**
- * Graph Node Type enum.
+ * An enumeration.
  * @export
  * @enum {string}
  */
