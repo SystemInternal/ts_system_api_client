@@ -4127,7 +4127,8 @@ export interface MetricMonitoring {
  */
 
 export enum Metrics {
-    SemanticSearchCreate = 'semantic_search.create'
+    SearchCreate = 'semantic_search.create',
+    SearchClusterRead = 'semantic_search_cluster.read'
 }
 
 /**
@@ -27941,15 +27942,14 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Get semantic search usage.
+         * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
-         * @param {string} dateFrom 
+         * @param {string} [dateFrom] 
+         * @param {Metrics} [metric] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchUsageV1SemanticSearchUsageGet: async (dateFrom: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'dateFrom' is not null or undefined
-            assertParamExists('getSemanticSearchUsageV1SemanticSearchUsageGet', 'dateFrom', dateFrom)
+        getSemanticSearchUsageV1SemanticSearchUsageGet: async (dateFrom?: string, metric?: Metrics, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/semantic-search/usage`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -27973,6 +27973,10 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
                 localVarQueryParameter['date_from'] = (dateFrom as any instanceof Date) ?
                     (dateFrom as any).toISOString().substr(0,10) :
                     dateFrom;
+            }
+
+            if (metric !== undefined) {
+                localVarQueryParameter['metric'] = metric;
             }
 
 
@@ -28101,14 +28105,15 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get semantic search usage.
+         * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
-         * @param {string} dateFrom 
+         * @param {string} [dateFrom] 
+         * @param {Metrics} [metric] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options);
+        async getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -28184,14 +28189,15 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
             return localVarFp.getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get semantic search usage.
+         * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
-         * @param {string} dateFrom 
+         * @param {string} [dateFrom] 
+         * @param {Metrics} [metric] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: any): AxiosPromise<UserMetricUsageOut> {
-            return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options).then((request) => request(axios, basePath));
+        getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: any): AxiosPromise<UserMetricUsageOut> {
+            return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
@@ -28288,7 +28294,14 @@ export interface SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
      * @type {string}
      * @memberof SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
      */
-    readonly dateFrom: string
+    readonly dateFrom?: string
+
+    /**
+     * 
+     * @type {Metrics}
+     * @memberof SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
+     */
+    readonly metric?: Metrics
 }
 
 /**
@@ -28380,15 +28393,15 @@ export class SemanticSearchApi extends BaseAPI {
     }
 
     /**
-     * Get semantic search usage.
+     * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
      * @param {SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: AxiosRequestConfig) {
-        return SemanticSearchApiFp(this.configuration).getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, options).then((request) => request(this.axios, this.basePath));
+    public getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest = {}, options?: AxiosRequestConfig) {
+        return SemanticSearchApiFp(this.configuration).getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, requestParameters.metric, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
