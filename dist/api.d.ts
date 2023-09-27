@@ -4085,7 +4085,8 @@ export interface MetricMonitoring {
  * @enum {string}
  */
 export declare enum Metrics {
-    SemanticSearchCreate = "semantic_search.create"
+    SearchCreate = "semantic_search.create",
+    SearchClusterRead = "semantic_search_cluster.read"
 }
 /**
  * Credentials for a Mode integration without the token and secret.
@@ -19412,13 +19413,14 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      */
     getSemanticSearchCountV1SemanticSearchTotalPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Get semantic search usage.
+     * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
-     * @param {string} dateFrom
+     * @param {string} [dateFrom]
+     * @param {Metrics} [metric]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom?: string, metric?: Metrics, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
@@ -19475,13 +19477,14 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      */
     getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchCount>>;
     /**
-     * Get semantic search usage.
+     * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
-     * @param {string} dateFrom
+     * @param {string} [dateFrom]
+     * @param {Metrics} [metric]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>>;
+    getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
@@ -19538,13 +19541,14 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      */
     getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchCount>;
     /**
-     * Get semantic search usage.
+     * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
-     * @param {string} dateFrom
+     * @param {string} [dateFrom]
+     * @param {Metrics} [metric]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom: string, options?: any): AxiosPromise<UserMetricUsageOut>;
+    getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: any): AxiosPromise<UserMetricUsageOut>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
@@ -19631,7 +19635,13 @@ export interface SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
      * @type {string}
      * @memberof SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
      */
-    readonly dateFrom: string;
+    readonly dateFrom?: string;
+    /**
+     *
+     * @type {Metrics}
+     * @memberof SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
+     */
+    readonly metric?: Metrics;
 }
 /**
  * Request parameters for regenerateSynthesisV1SemanticSearchRegeneratePost operation in SemanticSearchApi.
@@ -19705,14 +19715,14 @@ export declare class SemanticSearchApi extends BaseAPI {
      */
     getSemanticSearchCountV1SemanticSearchTotalPost(requestParameters: SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchCount>>;
     /**
-     * Get semantic search usage.
+     * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
      * @param {SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserMetricUsageOut>>;
+    getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters?: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserMetricUsageOut>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis

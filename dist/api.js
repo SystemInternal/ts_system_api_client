@@ -368,7 +368,8 @@ var MessageType;
  */
 var Metrics;
 (function (Metrics) {
-    Metrics["SemanticSearchCreate"] = "semantic_search.create";
+    Metrics["SearchCreate"] = "semantic_search.create";
+    Metrics["SearchClusterRead"] = "semantic_search_cluster.read";
 })(Metrics = exports.Metrics || (exports.Metrics = {}));
 /**
  * An enumeration.
@@ -13561,15 +13562,14 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
-         * Get semantic search usage.
+         * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
-         * @param {string} dateFrom
+         * @param {string} [dateFrom]
+         * @param {Metrics} [metric]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'dateFrom' is not null or undefined
-            common_1.assertParamExists('getSemanticSearchUsageV1SemanticSearchUsageGet', 'dateFrom', dateFrom);
+        getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom, metric, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/semantic-search/usage`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -13589,6 +13589,9 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
                 localVarQueryParameter['date_from'] = (dateFrom instanceof Date) ?
                     dateFrom.toISOString().substr(0, 10) :
                     dateFrom;
+            }
+            if (metric !== undefined) {
+                localVarQueryParameter['metric'] = metric;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -13713,15 +13716,16 @@ exports.SemanticSearchApiFp = function (configuration) {
             });
         },
         /**
-         * Get semantic search usage.
+         * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
-         * @param {string} dateFrom
+         * @param {string} [dateFrom]
+         * @param {Metrics} [metric]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options) {
+        getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -13799,14 +13803,15 @@ exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get semantic search usage.
+         * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
-         * @param {string} dateFrom
+         * @param {string} [dateFrom]
+         * @param {Metrics} [metric]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options) {
-            return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, options).then((request) => request(axios, basePath));
+        getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options) {
+            return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
@@ -13884,15 +13889,15 @@ class SemanticSearchApi extends base_1.BaseAPI {
         return exports.SemanticSearchApiFp(this.configuration).getSemanticSearchCountV1SemanticSearchTotalPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Get semantic search usage.
+     * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
      * @param {SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, options).then((request) => request(this.axios, this.basePath));
+    getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters = {}, options) {
+        return exports.SemanticSearchApiFp(this.configuration).getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, requestParameters.metric, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search.  Values from semantic search.
