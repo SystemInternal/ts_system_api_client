@@ -6945,25 +6945,6 @@ export interface SynthesisOut {
     'synthesis'?: Synthesis;
 }
 /**
- * Semantic search count.
- * @export
- * @interface SystemSearchCount
- */
-export interface SystemSearchCount {
-    /**
-     * 
-     * @type {number}
-     * @memberof SystemSearchCount
-     */
-    'total_relationships': number;
-    /**
-     * 
-     * @type {number}
-     * @memberof SystemSearchCount
-     */
-    'total_studies': number;
-}
-/**
  * System Search Fields.
  * @export
  * @interface SystemSearchIn
@@ -27899,49 +27880,6 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Get semantic search count.
-         * @summary Get Semantic Search Count
-         * @param {SystemSearchIn} systemSearchIn 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSemanticSearchCountV1SemanticSearchTotalPost: async (systemSearchIn: SystemSearchIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'systemSearchIn' is not null or undefined
-            assertParamExists('getSemanticSearchCountV1SemanticSearchTotalPost', 'systemSearchIn', systemSearchIn)
-            const localVarPath = `/v1/semantic-search/total`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication APIKeyHeader required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(systemSearchIn, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
          * @param {string} [dateFrom] 
@@ -28094,17 +28032,6 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get semantic search count.
-         * @summary Get Semantic Search Count
-         * @param {SystemSearchIn} systemSearchIn 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchCount>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
          * @param {string} [dateFrom] 
@@ -28177,16 +28104,6 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          */
         fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<SynthesisOut> {
             return localVarFp.fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get semantic search count.
-         * @summary Get Semantic Search Count
-         * @param {SystemSearchIn} systemSearchIn 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchCount> {
-            return localVarFp.getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
@@ -28267,20 +28184,6 @@ export interface SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest 
      * @memberof SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGet
      */
     readonly cacheKey: string
-}
-
-/**
- * Request parameters for getSemanticSearchCountV1SemanticSearchTotalPost operation in SemanticSearchApi.
- * @export
- * @interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest
- */
-export interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest {
-    /**
-     * 
-     * @type {SystemSearchIn}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPost
-     */
-    readonly systemSearchIn: SystemSearchIn
 }
 
 /**
@@ -28378,18 +28281,6 @@ export class SemanticSearchApi extends BaseAPI {
      */
     public fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).fetchSynthesisV1SemanticSearchFetchGet(requestParameters.cacheKey, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get semantic search count.
-     * @summary Get Semantic Search Count
-     * @param {SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SemanticSearchApi
-     */
-    public getSemanticSearchCountV1SemanticSearchTotalPost(requestParameters: SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest, options?: AxiosRequestConfig) {
-        return SemanticSearchApiFp(this.configuration).getSemanticSearchCountV1SemanticSearchTotalPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
