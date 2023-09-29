@@ -6888,25 +6888,6 @@ export interface SynthesisOut {
     'synthesis'?: Synthesis;
 }
 /**
- * Semantic search count.
- * @export
- * @interface SystemSearchCount
- */
-export interface SystemSearchCount {
-    /**
-     *
-     * @type {number}
-     * @memberof SystemSearchCount
-     */
-    'total_relationships': number;
-    /**
-     *
-     * @type {number}
-     * @memberof SystemSearchCount
-     */
-    'total_studies': number;
-}
-/**
  * System Search Fields.
  * @export
  * @interface SystemSearchIn
@@ -19405,14 +19386,6 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      */
     fetchSynthesisV1SemanticSearchFetchGet: (cacheKey: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Get semantic search count.
-     * @summary Get Semantic Search Count
-     * @param {SystemSearchIn} systemSearchIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getSemanticSearchCountV1SemanticSearchTotalPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
      * @param {string} [dateFrom]
@@ -19469,14 +19442,6 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      */
     fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
     /**
-     * Get semantic search count.
-     * @summary Get Semantic Search Count
-     * @param {SystemSearchIn} systemSearchIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchCount>>;
-    /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
      * @param {string} [dateFrom]
@@ -19532,14 +19497,6 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @throws {RequiredError}
      */
     fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<SynthesisOut>;
-    /**
-     * Get semantic search count.
-     * @summary Get Semantic Search Count
-     * @param {SystemSearchIn} systemSearchIn
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getSemanticSearchCountV1SemanticSearchTotalPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchCount>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
@@ -19610,19 +19567,6 @@ export interface SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest 
      * @memberof SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGet
      */
     readonly cacheKey: string;
-}
-/**
- * Request parameters for getSemanticSearchCountV1SemanticSearchTotalPost operation in SemanticSearchApi.
- * @export
- * @interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest
- */
-export interface SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest {
-    /**
-     *
-     * @type {SystemSearchIn}
-     * @memberof SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPost
-     */
-    readonly systemSearchIn: SystemSearchIn;
 }
 /**
  * Request parameters for getSemanticSearchUsageV1SemanticSearchUsageGet operation in SemanticSearchApi.
@@ -19705,15 +19649,6 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SynthesisOut>>;
-    /**
-     * Get semantic search count.
-     * @summary Get Semantic Search Count
-     * @param {SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SemanticSearchApi
-     */
-    getSemanticSearchCountV1SemanticSearchTotalPost(requestParameters: SemanticSearchApiGetSemanticSearchCountV1SemanticSearchTotalPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchCount>>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
