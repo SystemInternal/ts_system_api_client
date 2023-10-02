@@ -2862,6 +2862,12 @@ export interface ExtendedNodeObject {
      * @type {Array<string>}
      * @memberof ExtendedNodeObject
      */
+    'systemIds'?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ExtendedNodeObject
+     */
     'tags'?: Array<string>;
 }
 /**
