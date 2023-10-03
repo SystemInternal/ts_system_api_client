@@ -3711,6 +3711,28 @@ export interface Histogram {
     'bin_edges'?: Array<number>;
 }
 /**
+ * SSO Identity Providers preconfigured in AWS Cognito user pool.
+ * @export
+ * @enum {string}
+ */
+export declare enum IdentityProvider {
+    Google = "Google",
+    KeycloakGoogleDev = "keycloak-google-dev"
+}
+/**
+ * Get Identity Provider Name.
+ * @export
+ * @interface IdentityProviderNameOut
+ */
+export interface IdentityProviderNameOut {
+    /**
+     * Name of the identity provider for given email as configured in System
+     * @type {IdentityProvider}
+     * @memberof IdentityProviderNameOut
+     */
+    'idp'?: IdentityProvider;
+}
+/**
  * An Integration Resource.
  * @export
  * @interface Integration
@@ -19673,6 +19695,78 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+}
+/**
+ * SsoApi - axios parameter creator
+ * @export
+ */
+export declare const SsoApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get Identity Provider name for given email domain.
+     * @summary Get Identity Provider Name
+     * @param {string} email
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIdentityProviderNameV1IdpNameEmailGet: (email: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * SsoApi - functional programming interface
+ * @export
+ */
+export declare const SsoApiFp: (configuration?: Configuration) => {
+    /**
+     * Get Identity Provider name for given email domain.
+     * @summary Get Identity Provider Name
+     * @param {string} email
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProviderNameOut>>;
+};
+/**
+ * SsoApi - factory interface
+ * @export
+ */
+export declare const SsoApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get Identity Provider name for given email domain.
+     * @summary Get Identity Provider Name
+     * @param {string} email
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: any): AxiosPromise<IdentityProviderNameOut>;
+};
+/**
+ * Request parameters for getIdentityProviderNameV1IdpNameEmailGet operation in SsoApi.
+ * @export
+ * @interface SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest
+ */
+export interface SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof SsoApiGetIdentityProviderNameV1IdpNameEmailGet
+     */
+    readonly email: string;
+}
+/**
+ * SsoApi - object-oriented interface
+ * @export
+ * @class SsoApi
+ * @extends {BaseAPI}
+ */
+export declare class SsoApi extends BaseAPI {
+    /**
+     * Get Identity Provider name for given email domain.
+     * @summary Get Identity Provider Name
+     * @param {SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SsoApi
+     */
+    getIdentityProviderNameV1IdpNameEmailGet(requestParameters: SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<IdentityProviderNameOut>>;
 }
 /**
  * StripeApi - axios parameter creator
