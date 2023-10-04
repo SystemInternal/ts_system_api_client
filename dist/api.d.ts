@@ -2852,11 +2852,11 @@ export interface ExtendedNodeObject {
      */
     'name': string;
     /**
-     *
+     * Type of node.
      * @type {GraphNodeType}
      * @memberof ExtendedNodeObject
      */
-    'objectType': GraphNodeType;
+    'objectType'?: GraphNodeType;
     /**
      *
      * @type {Array<string>}
@@ -4835,6 +4835,44 @@ export interface MonitoringRuleSet {
      * @memberof MonitoringRuleSet
      */
     'value': number;
+}
+/**
+ *
+ * @export
+ * @interface NodeGroup
+ */
+export interface NodeGroup {
+    /**
+     *
+     * @type {Array<NodeGroupItem>}
+     * @memberof NodeGroup
+     */
+    'items': Array<NodeGroupItem>;
+    /**
+     *
+     * @type {number}
+     * @memberof NodeGroup
+     */
+    'total': number;
+}
+/**
+ *
+ * @export
+ * @interface NodeGroupItem
+ */
+export interface NodeGroupItem {
+    /**
+     *
+     * @type {Array<ExtendedLinkObject>}
+     * @memberof NodeGroupItem
+     */
+    'links': Array<ExtendedLinkObject>;
+    /**
+     *
+     * @type {ExtendedNodeObject}
+     * @memberof NodeGroupItem
+     */
+    'node': ExtendedNodeObject;
 }
 /**
  * Null hypothesis input model.
@@ -7397,6 +7435,49 @@ export interface TimeSeriesFeatureStatisticsSimpleBase {
      * @memberof TimeSeriesFeatureStatisticsSimpleBase
      */
     'time_end'?: string;
+}
+/**
+ *
+ * @export
+ * @interface TopicCategories
+ */
+export interface TopicCategories {
+    /**
+     *
+     * @type {ExtendedNodeObject}
+     * @memberof TopicCategories
+     */
+    'topic': ExtendedNodeObject;
+    /**
+     *
+     * @type {NodeGroupItem}
+     * @memberof TopicCategories
+     */
+    'relationship'?: NodeGroupItem;
+    /**
+     *
+     * @type {NodeGroup}
+     * @memberof TopicCategories
+     */
+    'upstream'?: NodeGroup;
+    /**
+     *
+     * @type {NodeGroup}
+     * @memberof TopicCategories
+     */
+    'downstream'?: NodeGroup;
+    /**
+     *
+     * @type {NodeGroup}
+     * @memberof TopicCategories
+     */
+    'confounders'?: NodeGroup;
+    /**
+     *
+     * @type {NodeGroup}
+     * @memberof TopicCategories
+     */
+    'mediators'?: NodeGroup;
 }
 /**
  * Return type for topic relationship syntheses.
@@ -21763,6 +21844,19 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @throws {RequiredError}
      */
     getSystemGraphEndpointV1SystemGraphSystemGraphGet: (numRelationships?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Topological Categories Endpoint
+     * @param {string} topic1 Topic 1
+     * @param {Array<string>} ids1 Topic 1 ids
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [pageSize] Page size
+     * @param {number} [offset] Offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet: (topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SystemGraphApi - functional programming interface
@@ -21805,6 +21899,19 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Topological Categories Endpoint
+     * @param {string} topic1 Topic 1
+     * @param {Array<string>} ids1 Topic 1 ids
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [pageSize] Page size
+     * @param {number} [offset] Offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicCategories>>;
 };
 /**
  * SystemGraphApi - factory interface
@@ -21847,6 +21954,19 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @throws {RequiredError}
      */
     getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: any): AxiosPromise<any>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Topological Categories Endpoint
+     * @param {string} topic1 Topic 1
+     * @param {Array<string>} ids1 Topic 1 ids
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [pageSize] Page size
+     * @param {number} [offset] Offset
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: any): AxiosPromise<TopicCategories>;
 };
 /**
  * Request parameters for getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet operation in SystemGraphApi.
@@ -21925,6 +22045,49 @@ export interface SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGet
     readonly numRelationships?: number;
 }
 /**
+ * Request parameters for getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest
+ */
+export interface SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest {
+    /**
+     * Topic 1
+     * @type {string}
+     * @memberof SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet
+     */
+    readonly topic1: string;
+    /**
+     * Topic 1 ids
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet
+     */
+    readonly ids1: Array<string>;
+    /**
+     * Topic 2
+     * @type {string}
+     * @memberof SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet
+     */
+    readonly topic2?: string;
+    /**
+     * Topic 2 ids
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet
+     */
+    readonly ids2?: Array<string>;
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Offset
+     * @type {number}
+     * @memberof SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet
+     */
+    readonly offset?: number;
+}
+/**
  * SystemGraphApi - object-oriented interface
  * @export
  * @class SystemGraphApi
@@ -21967,6 +22130,15 @@ export declare class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters?: SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Fetch semantic graph.
+     * @summary Get Topological Categories Endpoint
+     * @param {SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters: SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicCategories>>;
 }
 /**
  * UsersApi - axios parameter creator

@@ -16297,6 +16297,64 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Fetch semantic graph.
+         * @summary Get Topological Categories Endpoint
+         * @param {string} topic1 Topic 1
+         * @param {Array<string>} ids1 Topic 1 ids
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [pageSize] Page size
+         * @param {number} [offset] Offset
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet: (topic1, ids1, topic2, ids2, pageSize, offset, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'topic1' is not null or undefined
+            common_1.assertParamExists('getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet', 'topic1', topic1);
+            // verify required parameter 'ids1' is not null or undefined
+            common_1.assertParamExists('getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet', 'ids1', ids1);
+            const localVarPath = `/v1/system_graph/topological_categories`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topic1 !== undefined) {
+                localVarQueryParameter['topic_1'] = topic1;
+            }
+            if (topic2 !== undefined) {
+                localVarQueryParameter['topic_2'] = topic2;
+            }
+            if (ids1) {
+                localVarQueryParameter['ids_1'] = ids1;
+            }
+            if (ids2) {
+                localVarQueryParameter['ids_2'] = ids2;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -16362,6 +16420,24 @@ exports.SystemGraphApiFp = function (configuration) {
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
+        /**
+         * Fetch semantic graph.
+         * @summary Get Topological Categories Endpoint
+         * @param {string} topic1 Topic 1
+         * @param {Array<string>} ids1 Topic 1 ids
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [pageSize] Page size
+         * @param {number} [offset] Offset
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
     };
 };
 /**
@@ -16415,6 +16491,21 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
         getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options) {
             return localVarFp.getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Fetch semantic graph.
+         * @summary Get Topological Categories Endpoint
+         * @param {string} topic1 Topic 1
+         * @param {Array<string>} ids1 Topic 1 ids
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [pageSize] Page size
+         * @param {number} [offset] Offset
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options) {
+            return localVarFp.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -16467,6 +16558,17 @@ class SystemGraphApi extends base_1.BaseAPI {
      */
     getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters = {}, options) {
         return exports.SystemGraphApiFp(this.configuration).getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters.numRelationships, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch semantic graph.
+     * @summary Get Topological Categories Endpoint
+     * @param {SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters, options) {
+        return exports.SystemGraphApiFp(this.configuration).getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters.topic1, requestParameters.ids1, requestParameters.topic2, requestParameters.ids2, requestParameters.pageSize, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SystemGraphApi = SystemGraphApi;
